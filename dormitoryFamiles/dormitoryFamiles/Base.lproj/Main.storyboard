@@ -90,7 +90,7 @@
             </objects>
             <point key="canvasLocation" x="2036" y="-1526"/>
         </scene>
-        <!--Bulletin Board Main View Controller-->
+        <!--게시판-->
         <scene sceneID="T4u-Z0-FUX">
             <objects>
                 <viewController id="r5Q-f3-hGS" customClass="BulletinBoardMainViewController" customModule="dormitoryFamiles" customModuleProvider="target" sceneMemberID="viewController">
@@ -109,6 +109,9 @@
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="130"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="G9p-LC-cGo" kind="show" id="Zb4-sf-dVt"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -126,7 +129,7 @@
                             <constraint firstItem="jWk-Dp-Muw" firstAttribute="bottom" secondItem="TaQ-oo-U7X" secondAttribute="bottom" id="kJO-kR-Uy4"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="mHD-A0-F1x"/>
+                    <navigationItem key="navigationItem" title="게시판" id="mHD-A0-F1x"/>
                     <connections>
                         <outlet property="tableView" destination="TaQ-oo-U7X" id="aEI-uP-aaF"/>
                     </connections>
@@ -134,6 +137,22 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Zc-Hg-a56" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2779" y="-809"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="jCn-fN-lzk">
+            <objects>
+                <viewController id="G9p-LC-cGo" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="AV3-0L-2g6">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="EUz-YP-UL7"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="UXf-IY-XEe"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="O8o-jd-dTD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3602" y="-817"/>
         </scene>
         <!--게시판-->
         <scene sceneID="Vhd-ge-UYO">

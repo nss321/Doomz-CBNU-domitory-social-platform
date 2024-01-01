@@ -13,7 +13,8 @@ class BulletinBoardMainViewController: UIViewController {
     
     override func viewDidLoad() {
         setTableViewCell()
-           }
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
+    }
     
     private func setTableViewCell() {
         tableView.dataSource = self
