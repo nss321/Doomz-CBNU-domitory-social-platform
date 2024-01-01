@@ -7,14 +7,30 @@
 
 import UIKit
 
-class bulletinBoardMainViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class BulletinBoardMainViewController: UIViewController {
+    let cellIdentifier = "BulletinBoardMainTableViewCell"
+    @IBOutlet weak var tableView: UITableView!
+    
+    override func viewDidLoad() {
+        setTableViewCell()
+           }
+    
+    private func setTableViewCell() {
+        tableView.dataSource = self
+               let nib = UINib(nibName: cellIdentifier, bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: cellIdentifier)
+    }
+    
+}
 
+extension BulletinBoardMainViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 100
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
-    }
+            let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
+            return cell
+        }
 }
 
