@@ -10,6 +10,7 @@
 		0C03D7843BE1BA839B23F614 /* Pods_dormitoryFamiles.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43ACFB5BF55DE00DF2B4C0CA /* Pods_dormitoryFamiles.framework */; };
 		DB5ACD602AA70D190054CA15 /* ExtenstionColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5ACD5F2AA70D190054CA15 /* ExtenstionColor.swift */; };
 		DB5ACD622AA714260054CA15 /* SchoolWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5ACD612AA714260054CA15 /* SchoolWebViewController.swift */; };
+		DBB345F22B42BFD100E70380 /* bulletinBoardMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB345F12B42BFD100E70380 /* bulletinBoardMainViewController.swift */; };
 		DBF466FB2AA5F4E4009FF3EB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF466FA2AA5F4E4009FF3EB /* AppDelegate.swift */; };
 		DBF466FD2AA5F4E4009FF3EB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF466FC2AA5F4E4009FF3EB /* SceneDelegate.swift */; };
 		DBF466FF2AA5F4E4009FF3EB /* MealMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF466FE2AA5F4E4009FF3EB /* MealMenuViewController.swift */; };
@@ -24,6 +25,7 @@
 		C5E033F1B4291ED8F85F0DAE /* Pods-dormitoryFamiles.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dormitoryFamiles.debug.xcconfig"; path = "Target Support Files/Pods-dormitoryFamiles/Pods-dormitoryFamiles.debug.xcconfig"; sourceTree = "<group>"; };
 		DB5ACD5F2AA70D190054CA15 /* ExtenstionColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtenstionColor.swift; sourceTree = "<group>"; };
 		DB5ACD612AA714260054CA15 /* SchoolWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolWebViewController.swift; sourceTree = "<group>"; };
+		DBB345F12B42BFD100E70380 /* bulletinBoardMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bulletinBoardMainViewController.swift; sourceTree = "<group>"; };
 		DBF466F72AA5F4E4009FF3EB /* dormitoryFamiles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dormitoryFamiles.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBF466FA2AA5F4E4009FF3EB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DBF466FC2AA5F4E4009FF3EB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 				DBF466FC2AA5F4E4009FF3EB /* SceneDelegate.swift */,
 				DBF466FE2AA5F4E4009FF3EB /* MealMenuViewController.swift */,
 				DB5ACD612AA714260054CA15 /* SchoolWebViewController.swift */,
+				DBB345F12B42BFD100E70380 /* bulletinBoardMainViewController.swift */,
 				DBF467002AA5F4E4009FF3EB /* Main.storyboard */,
 				DBF467032AA5F4E5009FF3EB /* Assets.xcassets */,
 				DBF467052AA5F4E5009FF3EB /* LaunchScreen.storyboard */,
@@ -199,6 +202,7 @@
 				DBF466FF2AA5F4E4009FF3EB /* MealMenuViewController.swift in Sources */,
 				DBF466FB2AA5F4E4009FF3EB /* AppDelegate.swift in Sources */,
 				DBF466FD2AA5F4E4009FF3EB /* SceneDelegate.swift in Sources */,
+				DBB345F22B42BFD100E70380 /* bulletinBoardMainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
