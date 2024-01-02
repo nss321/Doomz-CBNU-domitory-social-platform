@@ -25,8 +25,15 @@ class searchViewController: UITableViewController {
         setSearchBar()
         searchController.delegate = self
         searchController.searchResultsUpdater = self
+        searchController.searchBar.delegate = self
+        
+      
+        allData = []
+        tableView.tableHeaderView?.frame.size = CGSize(width: tableView.tableHeaderView?.frame.width ?? 0, height: 0)
+        
+        setHeaderView()
+        tableView.tableHeaderView?.setNeedsLayout()
     }
-    
     
     private func setSearchBar() {
         
@@ -35,6 +42,23 @@ class searchViewController: UITableViewController {
             navigationItem.searchController = searchController
             navigationItem.hidesSearchBarWhenScrolling = false
             definesPresentationContext = true
+    }
+    
+    private func setHeaderView() {
+        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height))
+        headerView.backgroundColor = .lightGray // 원하는 배경색 설정
+        tableView.tableHeaderView = headerView
+        tableView.tableHeaderView?.isHidden = false
+    }
+    
+    private func headerViewHidden() {
+        // 헤더 뷰를 한 번만 설정하기 위해 헤더 뷰가 이미 설정되었는지 확인
+        if tableView.tableHeaderView!.isHidden {
+            let headerView = UIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height))
+            headerView.backgroundColor = .lightGray // 원하는 배경색 설정
+            tableView.tableHeaderView = headerView
+            tableView.tableHeaderView?.isHidden = false
+        }
     }
     
     
@@ -53,6 +77,8 @@ class searchViewController: UITableViewController {
            }
        }
 
+   
+
         
     
     private func toggleHiddenView() {
@@ -66,13 +92,13 @@ class searchViewController: UITableViewController {
         //        }
         //
     }
+    
 }
 extension searchViewController: UISearchResultsUpdating, UISearchControllerDelegate, UISearchBarDelegate {
     func willPresentSearchController(_ searchController: UISearchController) {
-        toggleHiddenView()
-    }
-    
-    func willDismissSearchController(_ searchController: UISearchController) {
+        allData = ["Sample 1", "Sample 2", "Test Data", "Example"]
+        tableView.tableHeaderView?.isHidden = true
+        tableView.tableHeaderView?.frame.size = CGSize(width: tableView.tableHeaderView?.frame.width ?? 0, height: 0)
         toggleHiddenView()
     }
     
@@ -82,6 +108,13 @@ extension searchViewController: UISearchResultsUpdating, UISearchControllerDeleg
             cell.textLabel?.text = data
             return cell
         }
+    
+   
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        setHeaderView()
+        allData = []
+        tableView.tableHeaderView?.setNeedsLayout()
+    }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
             return isFiltering ? filteredData.count : allData.count
