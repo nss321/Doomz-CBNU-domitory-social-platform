@@ -105,6 +105,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="dsA-7V-SiU"/>
+                    <connections>
+                        <outlet property="descriptionLabel" destination="ftg-Zj-PDS" id="CJy-yq-HRd"/>
+                        <outlet property="magnifierImageView" destination="3ng-BG-1UY" id="xmE-fi-TYW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pNY-8S-pKW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

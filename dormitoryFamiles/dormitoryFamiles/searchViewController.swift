@@ -7,14 +7,18 @@
 
 import UIKit
 
-class searchViewController: UIViewController, UISearchResultsUpdating {
+class searchViewController: UIViewController {
     let searchController = UISearchController(searchResultsController: nil)
+    
+    @IBOutlet weak var magnifierImageView: UIImageView!
+    @IBOutlet weak var descriptionLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.navigationController?.setNavigationBarHidden(false, animated: true)
         setSearchBar()
+        searchController.delegate = self
     }
     
 
@@ -31,5 +35,23 @@ class searchViewController: UIViewController, UISearchResultsUpdating {
 //            searchController.filterContentForSearchText(searchText)
            }
     }
+    
+    private func toggleHiddenView() {
+        if magnifierImageView.isHidden == false {
+            self.magnifierImageView.isHidden = true
+            self.descriptionLabel.isHidden = true
+        }else {
+            self.magnifierImageView.isHidden = false
+            self.descriptionLabel.isHidden = false
 
+        }
+        
+    }
+
+}
+
+extension searchViewController: UISearchResultsUpdating, UISearchControllerDelegate {
+    func willPresentSearchController(_ searchController: UISearchController) {
+        toggleHiddenView()
+    }
 }
