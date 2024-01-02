@@ -54,4 +54,8 @@ extension searchViewController: UISearchResultsUpdating, UISearchControllerDeleg
     func willPresentSearchController(_ searchController: UISearchController) {
         toggleHiddenView()
     }
+    
+    func willDismissSearchController(_ searchController: UISearchController) {
+        toggleHiddenView()
+    }
 }
