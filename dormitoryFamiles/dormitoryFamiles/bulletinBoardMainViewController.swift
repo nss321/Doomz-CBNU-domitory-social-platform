@@ -13,6 +13,10 @@ class BulletinBoardMainViewController: UIViewController {
     
     override func viewDidLoad() {
         setTableViewCell()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
         self.navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
