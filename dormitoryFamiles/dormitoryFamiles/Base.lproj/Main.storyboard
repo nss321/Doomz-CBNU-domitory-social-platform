@@ -196,6 +196,14 @@
                                     <constraint firstAttribute="trailing" secondItem="hBh-lI-t3L" secondAttribute="trailing" constant="15" id="unF-aS-eBH"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Sy-FD-QMo">
+                                <rect key="frame" x="143" y="766" width="75" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Button">
+                                    <color key="baseBackgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="jWk-Dp-Muw"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -213,16 +221,17 @@
                     <connections>
                         <outlet property="naviCustomView" destination="NkX-t3-Dqc" id="h1Y-ct-RU6"/>
                         <outlet property="tableView" destination="TaQ-oo-U7X" id="aEI-uP-aaF"/>
+                        <outlet property="writingButton" destination="1Sy-FD-QMo" id="YB4-XD-toK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Zc-Hg-a56" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2777.8625954198474" y="-809.15492957746483"/>
         </scene>
-        <!--View Controller-->
+        <!--Bulletin Board Detail View Contorller View Controller-->
         <scene sceneID="jCn-fN-lzk">
             <objects>
-                <viewController id="G9p-LC-cGo" sceneMemberID="viewController">
+                <viewController id="G9p-LC-cGo" customClass="BulletinBoardDetailViewContorllerViewController" customModule="dormitoryFamiles" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="AV3-0L-2g6">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

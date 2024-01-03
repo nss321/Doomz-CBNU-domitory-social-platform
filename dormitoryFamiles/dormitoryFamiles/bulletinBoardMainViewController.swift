@@ -12,12 +12,15 @@ class BulletinBoardMainViewController: UIViewController {
     let tagScrollView = TagScrollView()
     var tags = ["도와주세요","함께해요","나눔해요","궁금해요","분실신고"]
     @IBOutlet weak var naviCustomView: UIView!
+    @IBOutlet weak var writingButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
+    
     
     override func viewDidLoad() {
         setTableViewCell()
         setTag()
         getTagMakeButton()
+        setWritingButton()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -104,6 +107,17 @@ class BulletinBoardMainViewController: UIViewController {
         tags.forEach { tag in
             self.makeButton(tag: tag)
         }
+    }
+    
+    private func setWritingButton() {
+        let button = writingButton.makeSquare(width: 146, height: 46, radius: 23)
+        self.view.addSubview(button)
+        button.setTitle("글쓰기", for: .normal)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            button.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
+            button.centerXAnchor.constraint(equalTo: self.view.centerXAnchor)
+        ])
     }
 }
 
