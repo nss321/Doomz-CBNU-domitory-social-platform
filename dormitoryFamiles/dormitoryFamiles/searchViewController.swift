@@ -20,7 +20,6 @@ class searchViewController: UITableViewController {
         super.viewDidLoad()
         
         setNibFile()
-        setNavigation()
         setSearchBar()
         setDelegate()
         setHeaderView()
@@ -33,9 +32,7 @@ class searchViewController: UITableViewController {
         tableView.register(nib, forCellReuseIdentifier: cellIdentifier)
     }
     
-    private func setNavigation() {
-        self.navigationController?.setNavigationBarHidden(false, animated: true)
-    }
+    
     
     private func setDelegate() {
         searchController.delegate = self

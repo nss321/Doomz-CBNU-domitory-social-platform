@@ -138,9 +138,6 @@
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="130"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="G9p-LC-cGo" kind="show" id="Zb4-sf-dVt"/>
-                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -222,27 +219,81 @@
                         <outlet property="naviCustomView" destination="NkX-t3-Dqc" id="h1Y-ct-RU6"/>
                         <outlet property="tableView" destination="TaQ-oo-U7X" id="aEI-uP-aaF"/>
                         <outlet property="writingButton" destination="1Sy-FD-QMo" id="YB4-XD-toK"/>
+                        <segue destination="lMs-QX-VaL" kind="show" identifier="toDetailViewControllerSegue" id="CLT-pA-e37"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Zc-Hg-a56" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2777.8625954198474" y="-809.15492957746483"/>
+            <point key="canvasLocation" x="2807" y="-806"/>
         </scene>
-        <!--Bulletin Board Detail View Contorller View Controller-->
-        <scene sceneID="jCn-fN-lzk">
+        <!--게시판 상세보기-->
+        <scene sceneID="8ZH-Ad-cTO">
             <objects>
-                <viewController id="G9p-LC-cGo" customClass="BulletinBoardDetailViewContorllerViewController" customModule="dormitoryFamiles" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="AV3-0L-2g6">
+                <viewController id="lMs-QX-VaL" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="D7j-mP-nNw">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="EUz-YP-UL7"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aGH-OE-xyh">
+                                <rect key="frame" x="30" y="133" width="55" height="55"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="55" id="lV7-td-2fm"/>
+                                    <constraint firstAttribute="height" constant="55" id="tNy-tn-sfM"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="닉네임" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7a8-gL-iuS">
+                                <rect key="frame" x="90" y="184" width="45" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="|" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="REz-kr-HLB">
+                                <rect key="frame" x="140" y="184" width="4" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="날짜" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IrP-pa-lfq">
+                                <rect key="frame" x="157" y="184" width="30" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="개척관" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iek-PO-jSO">
+                                <rect key="frame" x="90" y="213" width="45" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qnr-t6-gBA">
+                                <rect key="frame" x="16" y="169" width="119" height="81"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WwK-yf-3Kf">
+                                <rect key="frame" x="285" y="184" width="75" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Abi-u9-OoF"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="aGH-OE-xyh" firstAttribute="leading" secondItem="Abi-u9-OoF" secondAttribute="leading" constant="30" id="jyH-9t-Tth"/>
+                            <constraint firstItem="aGH-OE-xyh" firstAttribute="top" secondItem="Abi-u9-OoF" secondAttribute="top" constant="30" id="mFZ-MN-QVy"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="UXf-IY-XEe"/>
+                    <navigationItem key="navigationItem" title="게시판 상세보기" leftItemsSupplementBackButton="YES" id="bW3-lU-hPt"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="O8o-jd-dTD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4So-L7-xdM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4248" y="-662"/>
+            <point key="canvasLocation" x="3987" y="-634"/>
         </scene>
         <!--게시판-->
         <scene sceneID="Vhd-ge-UYO">

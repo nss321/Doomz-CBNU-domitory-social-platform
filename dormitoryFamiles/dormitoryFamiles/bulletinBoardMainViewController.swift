@@ -28,6 +28,11 @@ class BulletinBoardMainViewController: UIViewController {
         self.navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
+    }
+    
     private func setTableViewCell() {
         tableView.dataSource = self
         let nib = UINib(nibName: cellIdentifier, bundle: nil)
@@ -36,7 +41,6 @@ class BulletinBoardMainViewController: UIViewController {
     
     private func setTag() {
         //네비게이션
-        self.navigationItem.title = "관심 목록"
         let allTagButton = TagButton(title: "전체")
         tagScrollView.tagStackView.addArrangedSubview(allTagButton)
         allTagButton.backgroundColor = UIColor.black
@@ -129,6 +133,11 @@ extension BulletinBoardMainViewController: UITableViewDelegate, UITableViewDataS
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+            performSegue(withIdentifier: "toDetailViewControllerSegue", sender: self)
     }
 }
 
