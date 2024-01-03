@@ -10,6 +10,7 @@
 		0C03D7843BE1BA839B23F614 /* Pods_dormitoryFamiles.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43ACFB5BF55DE00DF2B4C0CA /* Pods_dormitoryFamiles.framework */; };
 		DB1A3C302B43A7FD009DC005 /* searchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1A3C2F2B43A7FD009DC005 /* searchViewController.swift */; };
 		DB1A3C342B4418E1009DC005 /* SearchTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1A3C332B4418E1009DC005 /* SearchTableViewHeader.swift */; };
+		DB2B7BC92B456F4700C1847D /* TagScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2B7BC82B456F4700C1847D /* TagScrollView.swift */; };
 		DB5ACD602AA70D190054CA15 /* ExtenstionColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5ACD5F2AA70D190054CA15 /* ExtenstionColor.swift */; };
 		DB5ACD622AA714260054CA15 /* SchoolWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5ACD612AA714260054CA15 /* SchoolWebViewController.swift */; };
 		DBB345F22B42BFD100E70380 /* bulletinBoardMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB345F12B42BFD100E70380 /* bulletinBoardMainViewController.swift */; };
@@ -30,6 +31,7 @@
 		C5E033F1B4291ED8F85F0DAE /* Pods-dormitoryFamiles.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dormitoryFamiles.debug.xcconfig"; path = "Target Support Files/Pods-dormitoryFamiles/Pods-dormitoryFamiles.debug.xcconfig"; sourceTree = "<group>"; };
 		DB1A3C2F2B43A7FD009DC005 /* searchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = searchViewController.swift; sourceTree = "<group>"; };
 		DB1A3C332B4418E1009DC005 /* SearchTableViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewHeader.swift; sourceTree = "<group>"; };
+		DB2B7BC82B456F4700C1847D /* TagScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagScrollView.swift; sourceTree = "<group>"; };
 		DB5ACD5F2AA70D190054CA15 /* ExtenstionColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtenstionColor.swift; sourceTree = "<group>"; };
 		DB5ACD612AA714260054CA15 /* SchoolWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolWebViewController.swift; sourceTree = "<group>"; };
 		DBB345F12B42BFD100E70380 /* bulletinBoardMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bulletinBoardMainViewController.swift; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 		DBF466EE2AA5F4E4009FF3EB = {
 			isa = PBXGroup;
 			children = (
+				DB2B7BC82B456F4700C1847D /* TagScrollView.swift */,
 				DBF466F92AA5F4E4009FF3EB /* dormitoryFamiles */,
 				DBF466F82AA5F4E4009FF3EB /* Products */,
 				8C013C2D7D769ADC50898197 /* Pods */,
@@ -213,6 +216,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB2B7BC92B456F4700C1847D /* TagScrollView.swift in Sources */,
 				DB1A3C342B4418E1009DC005 /* SearchTableViewHeader.swift in Sources */,
 				DBB345FE2B42D95600E70380 /* bulletinBoardMainNavigation.swift in Sources */,
 				DB5ACD622AA714260054CA15 /* SchoolWebViewController.swift in Sources */,
