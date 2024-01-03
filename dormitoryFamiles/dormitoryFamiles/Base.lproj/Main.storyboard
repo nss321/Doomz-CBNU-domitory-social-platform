@@ -128,7 +128,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="130" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="TaQ-oo-U7X">
-                                <rect key="frame" x="0.0" y="233" width="393" height="536"/>
+                                <rect key="frame" x="0.0" y="203" width="393" height="566"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="130" id="Yih-JH-LU2" customClass="bullentinBoardMainTableViewCellTableViewCell">
@@ -149,7 +149,7 @@
                                 </connections>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NkX-t3-Dqc">
-                                <rect key="frame" x="0.0" y="103" width="393" height="130"/>
+                                <rect key="frame" x="0.0" y="103" width="393" height="100"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hBh-lI-t3L">
                                         <rect key="frame" x="334" y="10" width="44" height="29"/>
@@ -165,22 +165,22 @@
                                         </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yjz-7t-GiR">
-                                        <rect key="frame" x="0.0" y="129" width="393" height="1"/>
+                                        <rect key="frame" x="0.0" y="99" width="393" height="1"/>
                                         <color key="backgroundColor" systemColor="systemGray6Color"/>
                                         <color key="tintColor" systemColor="tintColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="q5L-wN-X1A"/>
                                         </constraints>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N2I-zD-azI">
-                                        <rect key="frame" x="18" y="8" width="42" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="개척관" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N2I-zD-azI">
+                                        <rect key="frame" x="18" y="8" width="86" height="40"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="33"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ebR-51-zKR" customClass="TagScrollView" customModule="dormitoryFamiles" customModuleProvider="target">
-                                        <rect key="frame" x="68" y="10" width="240" height="128"/>
+                                        <rect key="frame" x="16" y="52" width="360" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <viewLayoutGuide key="contentLayoutGuide" id="vWO-oK-e0p"/>
                                         <viewLayoutGuide key="frameLayoutGuide" id="uTd-0X-yM8"/>
@@ -188,7 +188,7 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="130" id="BLk-UK-klB"/>
+                                    <constraint firstAttribute="height" constant="100" id="BLk-UK-klB"/>
                                     <constraint firstAttribute="trailing" secondItem="yjz-7t-GiR" secondAttribute="trailing" id="IrV-mA-Zvb"/>
                                     <constraint firstItem="hBh-lI-t3L" firstAttribute="top" secondItem="NkX-t3-Dqc" secondAttribute="top" constant="10" id="Zt4-MA-HSC"/>
                                     <constraint firstItem="yjz-7t-GiR" firstAttribute="leading" secondItem="NkX-t3-Dqc" secondAttribute="leading" id="e4c-Cb-GZD"/>
@@ -211,12 +211,13 @@
                     </view>
                     <navigationItem key="navigationItem" title="게시판" id="mHD-A0-F1x"/>
                     <connections>
+                        <outlet property="naviCustomView" destination="NkX-t3-Dqc" id="h1Y-ct-RU6"/>
                         <outlet property="tableView" destination="TaQ-oo-U7X" id="aEI-uP-aaF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Zc-Hg-a56" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2779" y="-809"/>
+            <point key="canvasLocation" x="2777.8625954198474" y="-809.15492957746483"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="jCn-fN-lzk">
