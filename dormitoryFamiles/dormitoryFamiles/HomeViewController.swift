@@ -9,11 +9,12 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
-
+    @IBOutlet weak var menuLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        self.menuLabel.sizeToFit()
     }
     
 
