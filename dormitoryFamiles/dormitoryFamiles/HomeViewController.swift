@@ -11,10 +11,17 @@ class HomeViewController: UIViewController {
     
     @IBOutlet weak var menuLabel: UILabel!
     
+    @IBOutlet weak var lineView: UIView!
+    
+    @IBOutlet weak var timeLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.menuLabel.sizeToFit()
+//        let stackViewBottomConstraint = timeLabel.bottomAnchor.constraint(equalTo: lineView.bottomAnchor, constant: 16)
+//        stackViewBottomConstraint.isActive = true
+        
     }
     
 
