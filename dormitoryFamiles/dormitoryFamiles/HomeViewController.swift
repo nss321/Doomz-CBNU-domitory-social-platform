@@ -19,8 +19,8 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
 
         self.menuLabel.sizeToFit()
-//        let stackViewBottomConstraint = timeLabel.bottomAnchor.constraint(equalTo: lineView.bottomAnchor, constant: 16)
-//        stackViewBottomConstraint.isActive = true
+        let stackViewBottomConstraint = timeLabel.bottomAnchor.constraint(equalTo: lineView.bottomAnchor, constant: -16)
+        stackViewBottomConstraint.isActive = true
         
     }
     
