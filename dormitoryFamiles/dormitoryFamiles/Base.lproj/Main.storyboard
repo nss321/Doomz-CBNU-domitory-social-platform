@@ -34,6 +34,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
                         <segue destination="71Z-RS-glV" kind="relationship" relationship="viewControllers" id="CgD-h9-LxE"/>
@@ -80,7 +81,9 @@
         <scene sceneID="GNe-Wb-0cf">
             <objects>
                 <navigationController modalPresentationStyle="fullScreen" id="71Z-RS-glV" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="홈" id="rAX-Bm-BZD"/>
+                    <tabBarItem key="tabBarItem" title="홈" image="tabbarImageHome" landscapeImage="tabbarImageHome" selectedImage="tabbarImageHome" id="rAX-Bm-BZD">
+                        <color key="badgeColor" red="0.78431367870000002" green="0.82352948189999997" blue="0.74509805439999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="fP2-Gd-DFU">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -333,7 +336,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </button>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="룸메매칭 아이콘" translatesAutoresizingMaskIntoConstraints="NO" id="K0y-F1-5l3">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="homeImageMateMatching" translatesAutoresizingMaskIntoConstraints="NO" id="K0y-F1-5l3">
                                         <rect key="frame" x="237" y="16" width="100" height="78"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="100" id="MLv-s1-3Zh"/>
@@ -804,7 +807,7 @@
         <scene sceneID="Vhd-ge-UYO">
             <objects>
                 <navigationController id="MbN-AQ-guw" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="게시판" id="C6f-tH-vUp"/>
+                    <tabBarItem key="tabBarItem" title="게시판" image="tabbarItemBulletinBoard" selectedImage="tabbarItemBulletinBoard" id="C6f-tH-vUp"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="klB-TH-4nf">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -850,7 +853,7 @@
         <scene sceneID="AiI-zb-eSZ">
             <objects>
                 <navigationController id="k6X-MR-bmh" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="채팅" id="qBF-BW-FBI"/>
+                    <tabBarItem key="tabBarItem" title="채팅" image="tabbarItemChatting" selectedImage="tabbarItemChatting" id="qBF-BW-FBI"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Bdo-GT-gc8">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -896,7 +899,7 @@
         <scene sceneID="r41-W2-SEI">
             <objects>
                 <navigationController id="EQY-LB-4eN" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="룸메 매칭" id="ahK-I5-dSL"/>
+                    <tabBarItem key="tabBarItem" title="룸메 매칭" image="tabbarItemMateMatching" selectedImage="tabbarItemMateMatching" id="ahK-I5-dSL"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ADX-Th-sGA">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -942,7 +945,7 @@
         <scene sceneID="kqT-3d-e9c">
             <objects>
                 <navigationController id="9ap-eQ-OsB" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="마이페이지" id="8cn-fn-nXd"/>
+                    <tabBarItem key="tabBarItem" title="마이페이지" image="tabbarItemMyPage" selectedImage="tabbarItemMyPage" id="8cn-fn-nXd"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="6GE-HW-bJs">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -959,8 +962,13 @@
     <resources>
         <image name="arrow.right" catalog="system" width="128" height="95"/>
         <image name="arrowtriangle.down.fill" catalog="system" width="128" height="120"/>
+        <image name="homeImageMateMatching" width="682.66668701171875" height="682.66668701171875"/>
         <image name="magnifyingglass" catalog="system" width="128" height="117"/>
-        <image name="룸메매칭 아이콘" width="682.66668701171875" height="682.66668701171875"/>
+        <image name="tabbarImageHome" width="24" height="23.790000915527344"/>
+        <image name="tabbarItemBulletinBoard" width="24" height="24"/>
+        <image name="tabbarItemChatting" width="24" height="20.579999923706055"/>
+        <image name="tabbarItemMateMatching" width="22.319999694824219" height="19.819999694824219"/>
+        <image name="tabbarItemMyPage" width="24" height="24"/>
         <image name="알림" width="22" height="26"/>
         <image name="홈로고" width="43" height="32"/>
         <namedColor name="background">
