@@ -22,6 +22,8 @@ class HomeViewController: UIViewController {
         let stackViewBottomConstraint = timeLabel.bottomAnchor.constraint(equalTo: lineView.bottomAnchor, constant: -16)
         stackViewBottomConstraint.isActive = true
         
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+        
     }
     
 
