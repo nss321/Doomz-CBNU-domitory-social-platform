@@ -603,7 +603,7 @@
                                                         <color key="textColor" name="gray3"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pxF-j1-LeE">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pxF-j1-LeE">
                                                         <rect key="frame" x="100" y="16" width="160" height="24"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="160" id="WNP-2s-VHw"/>
@@ -611,11 +611,11 @@
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                        <state key="normal" title="바퀴벌레 잡아주실분 ㅠㅠ">
+                                                        <state key="normal" title="바퀴벌레 잡아주실분 ㅠㅜ">
                                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NXV-en-7ys">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NXV-en-7ys">
                                                         <rect key="frame" x="100" y="49" width="160" height="24"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="160" id="BxS-qC-hPY"/>
@@ -623,11 +623,11 @@
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                        <state key="normal" title="바퀴벌레 잡아주실분 ㅠㅠ">
+                                                        <state key="normal" title="양성재 운동 같이 할 사람~!">
                                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g17-pN-0tz">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g17-pN-0tz">
                                                         <rect key="frame" x="100" y="82" width="160" height="24"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="24" id="G6m-t7-wps"/>
