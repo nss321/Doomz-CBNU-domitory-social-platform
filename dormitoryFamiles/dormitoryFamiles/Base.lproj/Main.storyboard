@@ -104,439 +104,472 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="48" translatesAutoresizingMaskIntoConstraints="NO" id="GcU-dT-A4V">
-                                <rect key="frame" x="20" y="103" width="353" height="52"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fVh-wg-vXo">
+                                <rect key="frame" x="0.0" y="103" width="393" height="666"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="homeImageLogo" translatesAutoresizingMaskIntoConstraints="NO" id="7bk-jq-sXj">
-                                        <rect key="frame" x="0.0" y="10" width="42" height="32"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="32" id="n28-NY-y9k"/>
-                                            <constraint firstAttribute="width" constant="42" id="tVH-hu-SD7"/>
-                                        </constraints>
-                                    </imageView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="uAU-nz-Aw8">
-                                        <rect key="frame" x="90" y="11" width="195" height="30"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ccg-wu-mHC">
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="758.33333333333337"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UMG-c4-L00">
-                                                <rect key="frame" x="0.0" y="0.0" width="195" height="30"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="30" id="Z42-w4-OhY"/>
-                                                </constraints>
-                                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                <state key="normal" title="양진재" image="arrowtriangle.down.fill" catalog="system">
-                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="10"/>
-                                                </state>
-                                            </button>
-                                        </subviews>
-                                    </stackView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5gA-fK-VfQ">
-                                        <rect key="frame" x="333" y="14" width="20" height="24"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="20" id="3bH-Ez-Pbh"/>
-                                            <constraint firstAttribute="height" constant="24" id="RTE-bd-jxv"/>
-                                        </constraints>
-                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" title="Button" image="homeImageAlarm"/>
-                                    </button>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="52" id="NQd-bg-88U"/>
-                                </constraints>
-                            </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="오늘의 메뉴" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" showsExpansionTextWhenTruncated="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FpB-bN-XDq">
-                                <rect key="frame" x="20" y="189" width="78" height="27"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="27" id="W4U-xk-YSI"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pf8-z7-rET" customClass="roundButton" customModule="dormitoryFamiles" customModuleProvider="target">
-                                <rect key="frame" x="297.66666666666669" y="188" width="75.333333333333314" height="28"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="28" id="hza-8j-0gq"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="tintColor" name="primaryMid"/>
-                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="  전체보기" image="arrow.right" catalog="system">
-                                    <color key="titleColor" name="primaryMid"/>
-                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="13"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="10"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                        <color key="value" name="primaryMid"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                        <real key="value" value="1"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9v2-Ay-204">
-                                <rect key="frame" x="20" y="229" width="353" height="300"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6cz-aZ-WRa">
-                                        <rect key="frame" x="16" y="12" width="321" height="40"/>
-                                        <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="4IS-bj-hRG">
-                                                <rect key="frame" x="4" y="4" width="313" height="32"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="48" translatesAutoresizingMaskIntoConstraints="NO" id="GcU-dT-A4V">
+                                                <rect key="frame" x="20" y="0.0" width="353" height="52"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JfS-Y1-OHE" customClass="roundButton" customModule="dormitoryFamiles" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="91" height="32"/>
-                                                        <color key="backgroundColor" name="primaryLight"/>
-                                                        <color key="tintColor" name="primary"/>
-                                                        <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" title="아침"/>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                <real key="value" value="10"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0c7-Sa-8eC" customClass="roundButton" customModule="dormitoryFamiles" customModuleProvider="target">
-                                                        <rect key="frame" x="111" y="0.0" width="91" height="32"/>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="homeImageLogo" translatesAutoresizingMaskIntoConstraints="NO" id="7bk-jq-sXj">
+                                                        <rect key="frame" x="0.0" y="10" width="42" height="32"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="32" id="n28-NY-y9k"/>
+                                                            <constraint firstAttribute="width" constant="42" id="tVH-hu-SD7"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="uAU-nz-Aw8">
+                                                        <rect key="frame" x="90" y="11" width="195" height="30"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UMG-c4-L00">
+                                                                <rect key="frame" x="0.0" y="0.0" width="195" height="30"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="30" id="Z42-w4-OhY"/>
+                                                                </constraints>
+                                                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                                <state key="normal" title="양진재" image="arrowtriangle.down.fill" catalog="system">
+                                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="10"/>
+                                                                </state>
+                                                            </button>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5gA-fK-VfQ">
+                                                        <rect key="frame" x="333" y="14" width="20" height="24"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="20" id="3bH-Ez-Pbh"/>
+                                                            <constraint firstAttribute="height" constant="24" id="RTE-bd-jxv"/>
+                                                        </constraints>
                                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" title="점심"/>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                <real key="value" value="10"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tfo-Ee-43X" customClass="roundButton" customModule="dormitoryFamiles" customModuleProvider="target">
-                                                        <rect key="frame" x="222" y="0.0" width="91" height="32"/>
-                                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" title="저녁"/>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                <real key="value" value="100"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" title="Button" image="homeImageAlarm"/>
                                                     </button>
                                                 </subviews>
                                                 <constraints>
-                                                    <constraint firstItem="JfS-Y1-OHE" firstAttribute="leading" secondItem="4IS-bj-hRG" secondAttribute="leading" id="CKS-vo-nRh"/>
-                                                    <constraint firstAttribute="bottom" secondItem="JfS-Y1-OHE" secondAttribute="bottom" id="Sp2-MK-j4h"/>
-                                                    <constraint firstItem="JfS-Y1-OHE" firstAttribute="top" secondItem="4IS-bj-hRG" secondAttribute="top" id="kdY-sJ-ydN"/>
+                                                    <constraint firstAttribute="height" constant="52" id="NQd-bg-88U"/>
                                                 </constraints>
                                             </stackView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="오늘의 메뉴" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" showsExpansionTextWhenTruncated="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FpB-bN-XDq">
+                                                <rect key="frame" x="20" y="86" width="78" height="27"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="27" id="W4U-xk-YSI"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pf8-z7-rET" customClass="roundButton" customModule="dormitoryFamiles" customModuleProvider="target">
+                                                <rect key="frame" x="297.66666666666669" y="86" width="75.333333333333314" height="28"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="28" id="hza-8j-0gq"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <color key="tintColor" name="primaryMid"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" title="  전체보기" image="arrow.right" catalog="system">
+                                                    <color key="titleColor" name="primaryMid"/>
+                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="13"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="10"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                        <color key="value" name="primaryMid"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </button>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9v2-Ay-204">
+                                                <rect key="frame" x="20" y="126" width="353" height="300"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6cz-aZ-WRa">
+                                                        <rect key="frame" x="16" y="12" width="321" height="40"/>
+                                                        <subviews>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="4IS-bj-hRG">
+                                                                <rect key="frame" x="4" y="4" width="313" height="32"/>
+                                                                <subviews>
+                                                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JfS-Y1-OHE" customClass="roundButton" customModule="dormitoryFamiles" customModuleProvider="target">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="91" height="32"/>
+                                                                        <color key="backgroundColor" name="primaryLight"/>
+                                                                        <color key="tintColor" name="primary"/>
+                                                                        <state key="normal" title="Button"/>
+                                                                        <buttonConfiguration key="configuration" style="plain" title="아침"/>
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                                <real key="value" value="10"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                        </userDefinedRuntimeAttributes>
+                                                                    </button>
+                                                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0c7-Sa-8eC" customClass="roundButton" customModule="dormitoryFamiles" customModuleProvider="target">
+                                                                        <rect key="frame" x="111" y="0.0" width="91" height="32"/>
+                                                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <state key="normal" title="Button"/>
+                                                                        <buttonConfiguration key="configuration" style="plain" title="점심"/>
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                                <real key="value" value="10"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                        </userDefinedRuntimeAttributes>
+                                                                    </button>
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tfo-Ee-43X" customClass="roundButton" customModule="dormitoryFamiles" customModuleProvider="target">
+                                                                        <rect key="frame" x="222" y="0.0" width="91" height="32"/>
+                                                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <state key="normal" title="Button"/>
+                                                                        <buttonConfiguration key="configuration" style="plain" title="저녁"/>
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                                <real key="value" value="100"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                        </userDefinedRuntimeAttributes>
+                                                                    </button>
+                                                                </subviews>
+                                                                <constraints>
+                                                                    <constraint firstItem="JfS-Y1-OHE" firstAttribute="leading" secondItem="4IS-bj-hRG" secondAttribute="leading" id="CKS-vo-nRh"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="JfS-Y1-OHE" secondAttribute="bottom" id="Sp2-MK-j4h"/>
+                                                                    <constraint firstItem="JfS-Y1-OHE" firstAttribute="top" secondItem="4IS-bj-hRG" secondAttribute="top" id="kdY-sJ-ydN"/>
+                                                                </constraints>
+                                                            </stackView>
+                                                        </subviews>
+                                                        <color key="backgroundColor" name="secondary"/>
+                                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="bottom" secondItem="4IS-bj-hRG" secondAttribute="bottom" constant="4" id="0tI-vm-Ad4"/>
+                                                            <constraint firstItem="4IS-bj-hRG" firstAttribute="leading" secondItem="6cz-aZ-WRa" secondAttribute="leading" constant="4" id="FUy-7Q-qob"/>
+                                                            <constraint firstItem="4IS-bj-hRG" firstAttribute="top" secondItem="6cz-aZ-WRa" secondAttribute="top" constant="4" id="SoX-08-Z77"/>
+                                                            <constraint firstAttribute="height" constant="40" id="qUC-ID-hHa"/>
+                                                            <constraint firstAttribute="trailing" secondItem="4IS-bj-hRG" secondAttribute="trailing" constant="4" id="sS8-Jh-B5O"/>
+                                                        </constraints>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <real key="value" value="10"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </view>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" showsExpansionTextWhenTruncated="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="srn-UG-enS">
+                                                        <rect key="frame" x="114.66666666666666" y="63.999999999999986" width="126.66666666666666" height="181.66666666666663"/>
+                                                        <attributedString key="attributedText">
+                                                            <fragment content="잡곡밥">
+                                                                <attributes>
+                                                                    <font key="NSFont" metaFont="system" size="17"/>
+                                                                    <font key="NSOriginalFont" metaFont="system" size="17"/>
+                                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="20" tighteningFactorForTruncation="0.0"/>
+                                                                </attributes>
+                                                            </fragment>
+                                                            <fragment content=" ">
+                                                                <attributes>
+                                                                    <font key="NSFont" metaFont="system" size="17"/>
+                                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="20" tighteningFactorForTruncation="0.0"/>
+                                                                </attributes>
+                                                            </fragment>
+                                                            <fragment content="근대">
+                                                                <attributes>
+                                                                    <font key="NSFont" metaFont="system" size="17"/>
+                                                                    <font key="NSOriginalFont" metaFont="system" size="17"/>
+                                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="20" tighteningFactorForTruncation="0.0"/>
+                                                                </attributes>
+                                                            </fragment>
+                                                            <fragment content=" ">
+                                                                <attributes>
+                                                                    <font key="NSFont" metaFont="system" size="17"/>
+                                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="20" tighteningFactorForTruncation="0.0"/>
+                                                                </attributes>
+                                                            </fragment>
+                                                            <fragment content="된장국">
+                                                                <attributes>
+                                                                    <font key="NSFont" metaFont="system" size="17"/>
+                                                                    <font key="NSOriginalFont" metaFont="system" size="17"/>
+                                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="20" tighteningFactorForTruncation="0.0"/>
+                                                                </attributes>
+                                                            </fragment>
+                                                            <fragment content=" ">
+                                                                <attributes>
+                                                                    <font key="NSFont" metaFont="system" size="17"/>
+                                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="20" tighteningFactorForTruncation="0.0"/>
+                                                                </attributes>
+                                                            </fragment>
+                                                            <fragment content="돈육">
+                                                                <attributes>
+                                                                    <font key="NSFont" metaFont="system" size="17"/>
+                                                                    <font key="NSOriginalFont" metaFont="system" size="17"/>
+                                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="20" tighteningFactorForTruncation="0.0"/>
+                                                                </attributes>
+                                                            </fragment>
+                                                            <fragment content=" ">
+                                                                <attributes>
+                                                                    <font key="NSFont" metaFont="system" size="17"/>
+                                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="20" tighteningFactorForTruncation="0.0"/>
+                                                                </attributes>
+                                                            </fragment>
+                                                            <fragment content="두부">
+                                                                <attributes>
+                                                                    <font key="NSFont" metaFont="system" size="17"/>
+                                                                    <font key="NSOriginalFont" metaFont="system" size="17"/>
+                                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="20" tighteningFactorForTruncation="0.0"/>
+                                                                </attributes>
+                                                            </fragment>
+                                                            <fragment content=" ">
+                                                                <attributes>
+                                                                    <font key="NSFont" metaFont="system" size="17"/>
+                                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="20" tighteningFactorForTruncation="0.0"/>
+                                                                </attributes>
+                                                            </fragment>
+                                                            <fragment content="두루치기">
+                                                                <attributes>
+                                                                    <font key="NSFont" metaFont="system" size="17"/>
+                                                                    <font key="NSOriginalFont" metaFont="system" size="17"/>
+                                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="20" tighteningFactorForTruncation="0.0"/>
+                                                                </attributes>
+                                                            </fragment>
+                                                            <fragment content=" ">
+                                                                <attributes>
+                                                                    <font key="NSFont" metaFont="system" size="17"/>
+                                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="20" tighteningFactorForTruncation="0.0"/>
+                                                                </attributes>
+                                                            </fragment>
+                                                            <fragment content="김자채">
+                                                                <attributes>
+                                                                    <font key="NSFont" metaFont="system" size="17"/>
+                                                                    <font key="NSOriginalFont" metaFont="system" size="17"/>
+                                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="20" tighteningFactorForTruncation="0.0"/>
+                                                                </attributes>
+                                                            </fragment>
+                                                            <fragment content=" ">
+                                                                <attributes>
+                                                                    <font key="NSFont" metaFont="system" size="17"/>
+                                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="20" tighteningFactorForTruncation="0.0"/>
+                                                                </attributes>
+                                                            </fragment>
+                                                            <fragment content="피망볶음">
+                                                                <attributes>
+                                                                    <font key="NSFont" metaFont="system" size="17"/>
+                                                                    <font key="NSOriginalFont" metaFont="system" size="17"/>
+                                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="20" tighteningFactorForTruncation="0.0"/>
+                                                                </attributes>
+                                                            </fragment>
+                                                            <fragment content=" ">
+                                                                <attributes>
+                                                                    <font key="NSFont" metaFont="system" size="17"/>
+                                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="20" tighteningFactorForTruncation="0.0"/>
+                                                                </attributes>
+                                                            </fragment>
+                                                            <fragment content="김치">
+                                                                <attributes>
+                                                                    <font key="NSFont" metaFont="system" size="17"/>
+                                                                    <font key="NSOriginalFont" metaFont="system" size="17"/>
+                                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="20" tighteningFactorForTruncation="0.0"/>
+                                                                </attributes>
+                                                            </fragment>
+                                                        </attributedString>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="운영시간 11:00 ~ 14:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Pi-hH-6dg">
+                                                        <rect key="frame" x="40" y="260.66666666666669" width="139.33333333333334" height="15"/>
+                                                        <color key="tintColor" name="gray4"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <color key="textColor" name="gray4"/>
+                                                        <color key="highlightedColor" name="gray4"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="총 칼로리 890kcal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Mr-bc-H7S">
+                                                        <rect key="frame" x="220" y="260.66666666666669" width="108" height="15"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <color key="textColor" name="gray4"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="D38-pG-9M4">
+                                                        <rect key="frame" x="25" y="260.66666666666669" width="15" height="15"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="15" id="TIh-qn-Uhl"/>
+                                                            <constraint firstAttribute="width" constant="15" id="bPW-Tm-OMb"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="tintColor" name="secondary"/>
+                                                <constraints>
+                                                    <constraint firstItem="6cz-aZ-WRa" firstAttribute="top" secondItem="9v2-Ay-204" secondAttribute="top" constant="12" id="0iZ-bS-re6"/>
+                                                    <constraint firstItem="D38-pG-9M4" firstAttribute="bottom" secondItem="2Mr-bc-H7S" secondAttribute="bottom" id="8aR-Mw-jyu"/>
+                                                    <constraint firstItem="srn-UG-enS" firstAttribute="top" secondItem="6cz-aZ-WRa" secondAttribute="bottom" constant="12" id="AQm-wQ-Joy"/>
+                                                    <constraint firstItem="srn-UG-enS" firstAttribute="centerX" secondItem="9v2-Ay-204" secondAttribute="centerX" constant="1.5" id="C40-ZZ-SoU"/>
+                                                    <constraint firstItem="1Pi-hH-6dg" firstAttribute="top" secondItem="D38-pG-9M4" secondAttribute="top" id="Ih4-hE-fBs"/>
+                                                    <constraint firstAttribute="trailing" secondItem="6cz-aZ-WRa" secondAttribute="trailing" constant="16" id="LB1-7L-lEk"/>
+                                                    <constraint firstItem="1Pi-hH-6dg" firstAttribute="leading" secondItem="D38-pG-9M4" secondAttribute="trailing" id="Ldt-ti-m4q"/>
+                                                    <constraint firstAttribute="height" constant="300" id="NGk-YV-3MW"/>
+                                                    <constraint firstAttribute="trailing" secondItem="2Mr-bc-H7S" secondAttribute="trailing" constant="25" id="USc-EF-GpM"/>
+                                                    <constraint firstItem="D38-pG-9M4" firstAttribute="leading" secondItem="9v2-Ay-204" secondAttribute="leading" constant="25" id="aoQ-8r-P71"/>
+                                                    <constraint firstItem="D38-pG-9M4" firstAttribute="top" secondItem="srn-UG-enS" secondAttribute="bottom" constant="15" id="eMU-8b-0Aa"/>
+                                                    <constraint firstItem="D38-pG-9M4" firstAttribute="bottom" secondItem="1Pi-hH-6dg" secondAttribute="bottom" id="lj7-vA-a0R"/>
+                                                    <constraint firstItem="6cz-aZ-WRa" firstAttribute="leading" secondItem="9v2-Ay-204" secondAttribute="leading" constant="16" id="pBm-sy-SBG"/>
+                                                    <constraint firstItem="2Mr-bc-H7S" firstAttribute="top" secondItem="D38-pG-9M4" secondAttribute="top" id="tUb-kt-fw4"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                        <real key="value" value="2"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                        <color key="value" name="secondary"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="30"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hn6-pI-50c">
+                                                <rect key="frame" x="20" y="458" width="353" height="110"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="룸메 매칭을 통해 원하는 룸메를 구해보세요!" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" showsExpansionTextWhenTruncated="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WyF-JV-MjP">
+                                                        <rect key="frame" x="16" y="15.999999999999996" width="175.33333333333334" height="40.666666666666657"/>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nzJ-Yb-Hjd" customClass="roundButton" customModule="dormitoryFamiles" customModuleProvider="target">
+                                                        <rect key="frame" x="16" y="66" width="75.333333333333329" height="28"/>
+                                                        <color key="backgroundColor" name="primaryMid"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="28" id="iWk-PQ-m4c"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" title="  룸메찾기" image="arrow.right" catalog="system">
+                                                            <color key="titleColor" name="primaryLight"/>
+                                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="13"/>
+                                                        </state>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <real key="value" value="10"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                <color key="value" name="primaryMid"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                <real key="value" value="1"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </button>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="homeImageMateMatching" translatesAutoresizingMaskIntoConstraints="NO" id="K0y-F1-5l3">
+                                                        <rect key="frame" x="237" y="16" width="100" height="78"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="100" id="MLv-s1-3Zh"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                </subviews>
+                                                <color key="backgroundColor" name="secondary"/>
+                                                <constraints>
+                                                    <constraint firstItem="nzJ-Yb-Hjd" firstAttribute="leading" secondItem="hn6-pI-50c" secondAttribute="leading" constant="16" id="48j-Bb-KAd"/>
+                                                    <constraint firstAttribute="trailing" secondItem="K0y-F1-5l3" secondAttribute="trailing" constant="16" id="EID-Yz-SBR"/>
+                                                    <constraint firstItem="WyF-JV-MjP" firstAttribute="leading" secondItem="hn6-pI-50c" secondAttribute="leading" constant="16" id="FqB-h6-4i2"/>
+                                                    <constraint firstItem="WyF-JV-MjP" firstAttribute="top" secondItem="hn6-pI-50c" secondAttribute="top" constant="16" id="WiU-AS-LsZ"/>
+                                                    <constraint firstAttribute="bottom" secondItem="K0y-F1-5l3" secondAttribute="bottom" constant="16" id="ZpP-Hn-hre"/>
+                                                    <constraint firstAttribute="height" constant="110" id="eFd-2c-wnh"/>
+                                                    <constraint firstAttribute="bottom" secondItem="nzJ-Yb-Hjd" secondAttribute="bottom" constant="16" id="teP-mz-fEO"/>
+                                                    <constraint firstItem="K0y-F1-5l3" firstAttribute="top" secondItem="hn6-pI-50c" secondAttribute="top" constant="16" id="wX9-eO-ezo"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="20"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                        <color key="value" name="secondary"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="인기게시글" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" showsExpansionTextWhenTruncated="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pyd-XD-7Gc">
+                                                <rect key="frame" x="20" y="601" width="73.666666666666671" height="27"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="27" id="Pz2-wL-pFW"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n8m-KR-uQf" customClass="roundButton" customModule="dormitoryFamiles" customModuleProvider="target">
+                                                <rect key="frame" x="297.66666666666669" y="601" width="75.333333333333314" height="28"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="28" id="HfZ-UR-Fp4"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <color key="tintColor" name="primaryMid"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" title="  전체보기" image="arrow.right" catalog="system">
+                                                    <color key="titleColor" name="primaryMid"/>
+                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="13"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="10"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                        <color key="value" name="primaryMid"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </button>
                                         </subviews>
-                                        <color key="backgroundColor" name="secondary"/>
-                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstAttribute="bottom" secondItem="4IS-bj-hRG" secondAttribute="bottom" constant="4" id="0tI-vm-Ad4"/>
-                                            <constraint firstItem="4IS-bj-hRG" firstAttribute="leading" secondItem="6cz-aZ-WRa" secondAttribute="leading" constant="4" id="FUy-7Q-qob"/>
-                                            <constraint firstItem="4IS-bj-hRG" firstAttribute="top" secondItem="6cz-aZ-WRa" secondAttribute="top" constant="4" id="SoX-08-Z77"/>
-                                            <constraint firstAttribute="height" constant="40" id="qUC-ID-hHa"/>
-                                            <constraint firstAttribute="trailing" secondItem="4IS-bj-hRG" secondAttribute="trailing" constant="4" id="sS8-Jh-B5O"/>
+                                            <constraint firstItem="pf8-z7-rET" firstAttribute="trailing" secondItem="hn6-pI-50c" secondAttribute="trailing" id="44O-so-60x"/>
+                                            <constraint firstItem="pf8-z7-rET" firstAttribute="trailing" secondItem="9v2-Ay-204" secondAttribute="trailing" id="AVS-UQ-7uF"/>
+                                            <constraint firstItem="GcU-dT-A4V" firstAttribute="leading" secondItem="Ccg-wu-mHC" secondAttribute="leading" constant="20" id="BEu-DM-c4t"/>
+                                            <constraint firstAttribute="trailing" secondItem="pf8-z7-rET" secondAttribute="trailing" constant="20" id="HpO-K3-3la"/>
+                                            <constraint firstItem="hn6-pI-50c" firstAttribute="leading" secondItem="FpB-bN-XDq" secondAttribute="leading" id="K3s-RA-4MU"/>
+                                            <constraint firstItem="pyd-XD-7Gc" firstAttribute="top" secondItem="hn6-pI-50c" secondAttribute="bottom" constant="33" id="Mtd-YJ-OD1"/>
+                                            <constraint firstItem="9v2-Ay-204" firstAttribute="leading" secondItem="FpB-bN-XDq" secondAttribute="leading" id="NS8-Pp-qbR"/>
+                                            <constraint firstAttribute="trailing" secondItem="GcU-dT-A4V" secondAttribute="trailing" constant="20" id="Njz-zQ-Yu5"/>
+                                            <constraint firstItem="pf8-z7-rET" firstAttribute="top" secondItem="GcU-dT-A4V" secondAttribute="bottom" constant="34" id="PGu-lY-qvZ"/>
+                                            <constraint firstItem="FpB-bN-XDq" firstAttribute="top" secondItem="GcU-dT-A4V" secondAttribute="bottom" constant="34" id="PYy-rM-iZJ"/>
+                                            <constraint firstItem="pf8-z7-rET" firstAttribute="trailing" secondItem="n8m-KR-uQf" secondAttribute="trailing" id="PoA-0y-T3X"/>
+                                            <constraint firstItem="hn6-pI-50c" firstAttribute="top" secondItem="9v2-Ay-204" secondAttribute="bottom" constant="32" id="Rpf-FI-loP"/>
+                                            <constraint firstItem="FpB-bN-XDq" firstAttribute="leading" secondItem="Ccg-wu-mHC" secondAttribute="leading" constant="20" id="UdX-xr-ttb"/>
+                                            <constraint firstItem="n8m-KR-uQf" firstAttribute="top" secondItem="pyd-XD-7Gc" secondAttribute="top" id="VBG-Re-3eT"/>
+                                            <constraint firstItem="pyd-XD-7Gc" firstAttribute="leading" secondItem="FpB-bN-XDq" secondAttribute="leading" id="ach-RW-78H"/>
+                                            <constraint firstAttribute="height" priority="250" constant="747" id="ewA-cH-1rZ"/>
+                                            <constraint firstItem="GcU-dT-A4V" firstAttribute="top" secondItem="Ccg-wu-mHC" secondAttribute="top" id="mgf-he-6Ci"/>
+                                            <constraint firstItem="9v2-Ay-204" firstAttribute="top" secondItem="pf8-z7-rET" secondAttribute="bottom" constant="12" id="n1c-VC-cf3"/>
                                         </constraints>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="10"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" showsExpansionTextWhenTruncated="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="srn-UG-enS">
-                                        <rect key="frame" x="114.66666666666666" y="63.999999999999986" width="126.66666666666666" height="178.66666666666663"/>
-                                        <attributedString key="attributedText">
-                                            <fragment content="잡곡밥">
-                                                <attributes>
-                                                    <font key="NSFont" size="17" name=".AppleSDGothicNeoI-Regular"/>
-                                                    <font key="NSOriginalFont" metaFont="system" size="17"/>
-                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="20" tighteningFactorForTruncation="0.0"/>
-                                                </attributes>
-                                            </fragment>
-                                            <fragment content=" ">
-                                                <attributes>
-                                                    <font key="NSFont" metaFont="system" size="17"/>
-                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="20" tighteningFactorForTruncation="0.0"/>
-                                                </attributes>
-                                            </fragment>
-                                            <fragment content="근대">
-                                                <attributes>
-                                                    <font key="NSFont" size="17" name=".AppleSDGothicNeoI-Regular"/>
-                                                    <font key="NSOriginalFont" metaFont="system" size="17"/>
-                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="20" tighteningFactorForTruncation="0.0"/>
-                                                </attributes>
-                                            </fragment>
-                                            <fragment content=" ">
-                                                <attributes>
-                                                    <font key="NSFont" metaFont="system" size="17"/>
-                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="20" tighteningFactorForTruncation="0.0"/>
-                                                </attributes>
-                                            </fragment>
-                                            <fragment content="된장국">
-                                                <attributes>
-                                                    <font key="NSFont" size="17" name=".AppleSDGothicNeoI-Regular"/>
-                                                    <font key="NSOriginalFont" metaFont="system" size="17"/>
-                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="20" tighteningFactorForTruncation="0.0"/>
-                                                </attributes>
-                                            </fragment>
-                                            <fragment content=" ">
-                                                <attributes>
-                                                    <font key="NSFont" metaFont="system" size="17"/>
-                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="20" tighteningFactorForTruncation="0.0"/>
-                                                </attributes>
-                                            </fragment>
-                                            <fragment content="돈육">
-                                                <attributes>
-                                                    <font key="NSFont" size="17" name=".AppleSDGothicNeoI-Regular"/>
-                                                    <font key="NSOriginalFont" metaFont="system" size="17"/>
-                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="20" tighteningFactorForTruncation="0.0"/>
-                                                </attributes>
-                                            </fragment>
-                                            <fragment content=" ">
-                                                <attributes>
-                                                    <font key="NSFont" metaFont="system" size="17"/>
-                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="20" tighteningFactorForTruncation="0.0"/>
-                                                </attributes>
-                                            </fragment>
-                                            <fragment content="두부">
-                                                <attributes>
-                                                    <font key="NSFont" size="17" name=".AppleSDGothicNeoI-Regular"/>
-                                                    <font key="NSOriginalFont" metaFont="system" size="17"/>
-                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="20" tighteningFactorForTruncation="0.0"/>
-                                                </attributes>
-                                            </fragment>
-                                            <fragment content=" ">
-                                                <attributes>
-                                                    <font key="NSFont" metaFont="system" size="17"/>
-                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="20" tighteningFactorForTruncation="0.0"/>
-                                                </attributes>
-                                            </fragment>
-                                            <fragment content="두루치기">
-                                                <attributes>
-                                                    <font key="NSFont" size="17" name=".AppleSDGothicNeoI-Regular"/>
-                                                    <font key="NSOriginalFont" metaFont="system" size="17"/>
-                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="20" tighteningFactorForTruncation="0.0"/>
-                                                </attributes>
-                                            </fragment>
-                                            <fragment content=" ">
-                                                <attributes>
-                                                    <font key="NSFont" metaFont="system" size="17"/>
-                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="20" tighteningFactorForTruncation="0.0"/>
-                                                </attributes>
-                                            </fragment>
-                                            <fragment content="김자채">
-                                                <attributes>
-                                                    <font key="NSFont" size="17" name=".AppleSDGothicNeoI-Regular"/>
-                                                    <font key="NSOriginalFont" metaFont="system" size="17"/>
-                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="20" tighteningFactorForTruncation="0.0"/>
-                                                </attributes>
-                                            </fragment>
-                                            <fragment content=" ">
-                                                <attributes>
-                                                    <font key="NSFont" metaFont="system" size="17"/>
-                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="20" tighteningFactorForTruncation="0.0"/>
-                                                </attributes>
-                                            </fragment>
-                                            <fragment content="피망볶음">
-                                                <attributes>
-                                                    <font key="NSFont" size="17" name=".AppleSDGothicNeoI-Regular"/>
-                                                    <font key="NSOriginalFont" metaFont="system" size="17"/>
-                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="20" tighteningFactorForTruncation="0.0"/>
-                                                </attributes>
-                                            </fragment>
-                                            <fragment content=" ">
-                                                <attributes>
-                                                    <font key="NSFont" metaFont="system" size="17"/>
-                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="20" tighteningFactorForTruncation="0.0"/>
-                                                </attributes>
-                                            </fragment>
-                                            <fragment content="김치">
-                                                <attributes>
-                                                    <font key="NSFont" size="17" name=".AppleSDGothicNeoI-Regular"/>
-                                                    <font key="NSOriginalFont" metaFont="system" size="17"/>
-                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="20" tighteningFactorForTruncation="0.0"/>
-                                                </attributes>
-                                            </fragment>
-                                        </attributedString>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="운영시간 11:00 ~ 14:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Pi-hH-6dg">
-                                        <rect key="frame" x="40" y="257.66666666666669" width="139.33333333333334" height="15"/>
-                                        <color key="tintColor" name="gray4"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <color key="textColor" name="gray4"/>
-                                        <color key="highlightedColor" name="gray4"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="총 칼로리 890kcal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Mr-bc-H7S">
-                                        <rect key="frame" x="220" y="257.66666666666669" width="108" height="15"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <color key="textColor" name="gray4"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="D38-pG-9M4">
-                                        <rect key="frame" x="25" y="257.66666666666669" width="15" height="15"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="15" id="TIh-qn-Uhl"/>
-                                            <constraint firstAttribute="width" constant="15" id="bPW-Tm-OMb"/>
-                                        </constraints>
-                                    </imageView>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="tintColor" name="secondary"/>
-                                <constraints>
-                                    <constraint firstItem="6cz-aZ-WRa" firstAttribute="top" secondItem="9v2-Ay-204" secondAttribute="top" constant="12" id="0iZ-bS-re6"/>
-                                    <constraint firstItem="D38-pG-9M4" firstAttribute="bottom" secondItem="2Mr-bc-H7S" secondAttribute="bottom" id="8aR-Mw-jyu"/>
-                                    <constraint firstItem="srn-UG-enS" firstAttribute="top" secondItem="6cz-aZ-WRa" secondAttribute="bottom" constant="12" id="AQm-wQ-Joy"/>
-                                    <constraint firstItem="srn-UG-enS" firstAttribute="centerX" secondItem="9v2-Ay-204" secondAttribute="centerX" constant="1.5" id="C40-ZZ-SoU"/>
-                                    <constraint firstItem="1Pi-hH-6dg" firstAttribute="top" secondItem="D38-pG-9M4" secondAttribute="top" id="Ih4-hE-fBs"/>
-                                    <constraint firstAttribute="trailing" secondItem="6cz-aZ-WRa" secondAttribute="trailing" constant="16" id="LB1-7L-lEk"/>
-                                    <constraint firstItem="1Pi-hH-6dg" firstAttribute="leading" secondItem="D38-pG-9M4" secondAttribute="trailing" id="Ldt-ti-m4q"/>
-                                    <constraint firstAttribute="height" constant="300" id="NGk-YV-3MW"/>
-                                    <constraint firstAttribute="trailing" secondItem="2Mr-bc-H7S" secondAttribute="trailing" constant="25" id="USc-EF-GpM"/>
-                                    <constraint firstItem="D38-pG-9M4" firstAttribute="leading" secondItem="9v2-Ay-204" secondAttribute="leading" constant="25" id="aoQ-8r-P71"/>
-                                    <constraint firstItem="D38-pG-9M4" firstAttribute="top" secondItem="srn-UG-enS" secondAttribute="bottom" constant="15" id="eMU-8b-0Aa"/>
-                                    <constraint firstItem="D38-pG-9M4" firstAttribute="bottom" secondItem="1Pi-hH-6dg" secondAttribute="bottom" id="lj7-vA-a0R"/>
-                                    <constraint firstItem="6cz-aZ-WRa" firstAttribute="leading" secondItem="9v2-Ay-204" secondAttribute="leading" constant="16" id="pBm-sy-SBG"/>
-                                    <constraint firstItem="2Mr-bc-H7S" firstAttribute="top" secondItem="D38-pG-9M4" secondAttribute="top" id="tUb-kt-fw4"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                        <real key="value" value="2"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                        <color key="value" name="secondary"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="30"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hn6-pI-50c">
-                                <rect key="frame" x="20" y="561" width="353" height="110"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="룸메 매칭을 통해 원하는 룸메를 구해보세요!" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" showsExpansionTextWhenTruncated="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WyF-JV-MjP">
-                                        <rect key="frame" x="16" y="15.999999999999996" width="175.33333333333334" height="40.666666666666657"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pch-Ui-YvU">
+                                        <rect key="frame" x="176" y="1121" width="41.333333333333343" height="20.333333333333258"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nzJ-Yb-Hjd" customClass="roundButton" customModule="dormitoryFamiles" customModuleProvider="target">
-                                        <rect key="frame" x="16" y="66" width="75.333333333333329" height="28"/>
-                                        <color key="backgroundColor" name="primaryMid"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="28" id="iWk-PQ-m4c"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" title="  룸메찾기" image="arrow.right" catalog="system">
-                                            <color key="titleColor" name="primaryLight"/>
-                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="13"/>
-                                        </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="10"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                <color key="value" name="primaryMid"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                <real key="value" value="1"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </button>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="homeImageMateMatching" translatesAutoresizingMaskIntoConstraints="NO" id="K0y-F1-5l3">
-                                        <rect key="frame" x="237" y="16" width="100" height="78"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="100" id="MLv-s1-3Zh"/>
-                                        </constraints>
-                                    </imageView>
                                 </subviews>
-                                <color key="backgroundColor" name="secondary"/>
                                 <constraints>
-                                    <constraint firstItem="nzJ-Yb-Hjd" firstAttribute="leading" secondItem="hn6-pI-50c" secondAttribute="leading" constant="16" id="48j-Bb-KAd"/>
-                                    <constraint firstAttribute="trailing" secondItem="K0y-F1-5l3" secondAttribute="trailing" constant="16" id="EID-Yz-SBR"/>
-                                    <constraint firstItem="WyF-JV-MjP" firstAttribute="leading" secondItem="hn6-pI-50c" secondAttribute="leading" constant="16" id="FqB-h6-4i2"/>
-                                    <constraint firstItem="WyF-JV-MjP" firstAttribute="top" secondItem="hn6-pI-50c" secondAttribute="top" constant="16" id="WiU-AS-LsZ"/>
-                                    <constraint firstAttribute="bottom" secondItem="K0y-F1-5l3" secondAttribute="bottom" constant="16" id="ZpP-Hn-hre"/>
-                                    <constraint firstAttribute="height" constant="110" id="eFd-2c-wnh"/>
-                                    <constraint firstAttribute="bottom" secondItem="nzJ-Yb-Hjd" secondAttribute="bottom" constant="16" id="teP-mz-fEO"/>
-                                    <constraint firstItem="K0y-F1-5l3" firstAttribute="top" secondItem="hn6-pI-50c" secondAttribute="top" constant="16" id="wX9-eO-ezo"/>
+                                    <constraint firstItem="Ccg-wu-mHC" firstAttribute="leading" secondItem="8oY-hj-hzU" secondAttribute="leading" id="6JB-Qh-7AK"/>
+                                    <constraint firstItem="Pch-Ui-YvU" firstAttribute="centerX" secondItem="Ccg-wu-mHC" secondAttribute="centerX" id="D6m-ef-gOw"/>
+                                    <constraint firstItem="Ccg-wu-mHC" firstAttribute="width" secondItem="lsa-UH-N1C" secondAttribute="width" id="ORz-uH-SS0"/>
+                                    <constraint firstItem="Ccg-wu-mHC" firstAttribute="top" secondItem="8oY-hj-hzU" secondAttribute="top" id="Phw-Ob-x2z"/>
+                                    <constraint firstItem="Ccg-wu-mHC" firstAttribute="bottom" secondItem="8oY-hj-hzU" secondAttribute="bottom" id="fkl-Uw-X1C"/>
+                                    <constraint firstItem="Ccg-wu-mHC" firstAttribute="trailing" secondItem="8oY-hj-hzU" secondAttribute="trailing" id="gtv-gt-kXe"/>
+                                    <constraint firstItem="Pch-Ui-YvU" firstAttribute="top" secondItem="fVh-wg-vXo" secondAttribute="top" constant="1121" id="jo9-w4-IK9"/>
+                                    <constraint firstAttribute="bottom" secondItem="Pch-Ui-YvU" secondAttribute="bottom" constant="-383" id="xvQ-0I-fs7"/>
                                 </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="20"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                        <color key="value" name="secondary"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                        <real key="value" value="1"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="인기게시글" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" showsExpansionTextWhenTruncated="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pyd-XD-7Gc">
-                                <rect key="frame" x="20" y="704" width="73.666666666666671" height="27"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="27" id="Pz2-wL-pFW"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n8m-KR-uQf" customClass="roundButton" customModule="dormitoryFamiles" customModuleProvider="target">
-                                <rect key="frame" x="297.66666666666669" y="704" width="75.333333333333314" height="28"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="28" id="HfZ-UR-Fp4"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="tintColor" name="primaryMid"/>
-                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="  전체보기" image="arrow.right" catalog="system">
-                                    <color key="titleColor" name="primaryMid"/>
-                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="13"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="10"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                        <color key="value" name="primaryMid"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                        <real key="value" value="1"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </button>
+                                <viewLayoutGuide key="contentLayoutGuide" id="8oY-hj-hzU"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="lsa-UH-N1C"/>
+                            </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Gw7-2g-H9Q"/>
                         <color key="backgroundColor" name="background"/>
                         <constraints>
-                            <constraint firstItem="pf8-z7-rET" firstAttribute="top" secondItem="GcU-dT-A4V" secondAttribute="bottom" constant="33" id="1DL-9g-ewj"/>
-                            <constraint firstItem="Gw7-2g-H9Q" firstAttribute="trailing" secondItem="pf8-z7-rET" secondAttribute="trailing" constant="20" id="3QW-Px-u0v"/>
-                            <constraint firstItem="9v2-Ay-204" firstAttribute="top" secondItem="FpB-bN-XDq" secondAttribute="bottom" constant="13" id="6nz-Ao-EjD"/>
-                            <constraint firstItem="FpB-bN-XDq" firstAttribute="leading" secondItem="Gw7-2g-H9Q" secondAttribute="leading" constant="20" id="DT7-h9-eUk"/>
-                            <constraint firstItem="Gw7-2g-H9Q" firstAttribute="trailing" secondItem="n8m-KR-uQf" secondAttribute="trailing" constant="20" id="Eie-2c-bSg"/>
-                            <constraint firstItem="n8m-KR-uQf" firstAttribute="top" secondItem="hn6-pI-50c" secondAttribute="bottom" constant="33" id="ErR-hc-4Wg"/>
-                            <constraint firstItem="Gw7-2g-H9Q" firstAttribute="trailing" secondItem="GcU-dT-A4V" secondAttribute="trailing" constant="20" id="FwH-P5-IbL"/>
-                            <constraint firstItem="GcU-dT-A4V" firstAttribute="trailing" secondItem="9v2-Ay-204" secondAttribute="trailing" id="G1l-ud-Pzg"/>
-                            <constraint firstItem="GcU-dT-A4V" firstAttribute="top" secondItem="Gw7-2g-H9Q" secondAttribute="top" id="ISe-vd-UXZ"/>
-                            <constraint firstItem="9v2-Ay-204" firstAttribute="trailing" secondItem="hn6-pI-50c" secondAttribute="trailing" id="UVo-wX-Trn"/>
-                            <constraint firstItem="n8m-KR-uQf" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="pyd-XD-7Gc" secondAttribute="trailing" constant="8" symbolic="YES" id="a9E-6W-3ck"/>
-                            <constraint firstItem="hn6-pI-50c" firstAttribute="leading" secondItem="9v2-Ay-204" secondAttribute="leading" id="b5a-PH-cFz"/>
-                            <constraint firstItem="hn6-pI-50c" firstAttribute="top" secondItem="9v2-Ay-204" secondAttribute="bottom" constant="32" id="cCX-vE-98N"/>
-                            <constraint firstItem="pyd-XD-7Gc" firstAttribute="top" secondItem="hn6-pI-50c" secondAttribute="bottom" constant="33" id="foe-sP-u2X"/>
-                            <constraint firstItem="pf8-z7-rET" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="FpB-bN-XDq" secondAttribute="trailing" constant="8" symbolic="YES" id="jiU-rr-GkG"/>
-                            <constraint firstItem="FpB-bN-XDq" firstAttribute="top" secondItem="GcU-dT-A4V" secondAttribute="bottom" constant="34" id="jwM-xX-6nN"/>
-                            <constraint firstItem="pyd-XD-7Gc" firstAttribute="leading" secondItem="Gw7-2g-H9Q" secondAttribute="leading" constant="20" id="m6o-k0-pak"/>
-                            <constraint firstItem="GcU-dT-A4V" firstAttribute="leading" secondItem="kmb-82-EBg" secondAttribute="leading" constant="20" id="p7y-EQ-jIK"/>
-                            <constraint firstItem="9v2-Ay-204" firstAttribute="leading" secondItem="GcU-dT-A4V" secondAttribute="leading" id="zdY-nP-ZVY"/>
+                            <constraint firstItem="Gw7-2g-H9Q" firstAttribute="trailing" secondItem="fVh-wg-vXo" secondAttribute="trailing" id="1Xx-yD-OHa"/>
+                            <constraint firstItem="fVh-wg-vXo" firstAttribute="top" secondItem="Gw7-2g-H9Q" secondAttribute="top" id="5Tw-T7-eSd"/>
+                            <constraint firstItem="fVh-wg-vXo" firstAttribute="leading" secondItem="Gw7-2g-H9Q" secondAttribute="leading" id="Ncy-Z8-nkz"/>
+                            <constraint firstItem="Gw7-2g-H9Q" firstAttribute="bottom" secondItem="fVh-wg-vXo" secondAttribute="bottom" id="Vtb-Kb-DQ3"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="83C-ae-Dq7"/>
-                    <size key="freeformSize" width="393" height="852"/>
+                    <navigationItem key="navigationItem" id="htC-St-4Ca"/>
                     <connections>
                         <outlet property="lineView" destination="9v2-Ay-204" id="acQ-Nm-ENV"/>
                         <outlet property="menuLabel" destination="srn-UG-enS" id="ike-PO-hcB"/>
@@ -546,6 +579,59 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eAO-v6-dmc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2890.8396946564885" y="-2099.2957746478874"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="EHq-MC-oY7">
+            <objects>
+                <viewController id="HG0-E4-zV8" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="0EA-oS-zcc">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YGI-sQ-84x">
+                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vny-NI-nlZ">
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="747"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" priority="250" constant="747" id="hfe-J6-AFA"/>
+                                        </constraints>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1xQ-y9-v7e">
+                                        <rect key="frame" x="175" y="1121" width="42" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="1xQ-y9-v7e" firstAttribute="top" secondItem="YGI-sQ-84x" secondAttribute="top" constant="1121" id="3h9-qw-RD0"/>
+                                    <constraint firstItem="vny-NI-nlZ" firstAttribute="trailing" secondItem="F3x-bZ-G6B" secondAttribute="trailing" id="5tV-Rg-tJk"/>
+                                    <constraint firstItem="vny-NI-nlZ" firstAttribute="width" secondItem="hmT-rg-KAs" secondAttribute="width" id="Km1-iW-CXo"/>
+                                    <constraint firstItem="vny-NI-nlZ" firstAttribute="leading" secondItem="F3x-bZ-G6B" secondAttribute="leading" id="RVy-7A-vbF"/>
+                                    <constraint firstItem="vny-NI-nlZ" firstAttribute="top" secondItem="F3x-bZ-G6B" secondAttribute="top" id="Zv6-HT-fX3"/>
+                                    <constraint firstItem="1xQ-y9-v7e" firstAttribute="centerX" secondItem="vny-NI-nlZ" secondAttribute="centerX" id="gmz-dK-5sX"/>
+                                    <constraint firstItem="vny-NI-nlZ" firstAttribute="bottom" secondItem="F3x-bZ-G6B" secondAttribute="bottom" id="m6d-zj-eQv"/>
+                                    <constraint firstAttribute="bottom" secondItem="1xQ-y9-v7e" secondAttribute="bottom" constant="-383" id="rBB-2q-rby"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="F3x-bZ-G6B"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="hmT-rg-KAs"/>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="rAr-uM-AAh"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="YGI-sQ-84x" firstAttribute="top" secondItem="rAr-uM-AAh" secondAttribute="top" id="Ibf-rZ-1Jd"/>
+                            <constraint firstItem="YGI-sQ-84x" firstAttribute="trailing" secondItem="rAr-uM-AAh" secondAttribute="trailing" id="S7N-yW-b4A"/>
+                            <constraint firstItem="rAr-uM-AAh" firstAttribute="bottom" secondItem="YGI-sQ-84x" secondAttribute="bottom" id="zV6-6T-Aq5"/>
+                            <constraint firstItem="YGI-sQ-84x" firstAttribute="leading" secondItem="rAr-uM-AAh" secondAttribute="leading" id="zZi-lf-ER7"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zMo-vl-ymd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3653" y="-2278"/>
         </scene>
         <!--게시판-->
         <scene sceneID="T4u-Z0-FUX">
