@@ -535,16 +535,6 @@
                                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
                                                     </button>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="바퀴벌레 잡아주실분 ㅠㅠ!!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8I4-iW-TBW">
-                                                        <rect key="frame" x="100" y="16" width="160" height="24"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" constant="160" id="mYX-Yf-nvP"/>
-                                                            <constraint firstAttribute="height" constant="24" id="wXi-Kj-QAK"/>
-                                                        </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="23.12.16" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hik-Ze-08B">
                                                         <rect key="frame" x="274.33333333333331" y="16" width="62.666666666666686" height="24"/>
                                                         <constraints>
@@ -574,16 +564,6 @@
                                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
                                                     </button>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="양성재 운동 같이 할 사람~!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oqa-7W-Wd6">
-                                                        <rect key="frame" x="100" y="49" width="160" height="24"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="24" id="48G-W5-gxC"/>
-                                                            <constraint firstAttribute="width" constant="160" id="nvq-Wo-l2I"/>
-                                                        </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="24.01.01" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hPN-J8-jYa">
                                                         <rect key="frame" x="274.33333333333331" y="49" width="62.666666666666686" height="24"/>
                                                         <constraints>
@@ -613,16 +593,6 @@
                                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
                                                     </button>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이거 누구껀가요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g46-pu-eLt">
-                                                        <rect key="frame" x="100" y="82" width="160" height="24"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" constant="160" id="Gsy-Z2-cMT"/>
-                                                            <constraint firstAttribute="height" constant="24" id="wRa-Ot-4qH"/>
-                                                        </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="24.01.01" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H0x-mf-pEg">
                                                         <rect key="frame" x="274.33333333333331" y="82" width="62.666666666666686" height="24"/>
                                                         <constraints>
@@ -632,6 +602,42 @@
                                                         <color key="textColor" name="gray3"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pxF-j1-LeE">
+                                                        <rect key="frame" x="100" y="16" width="160" height="24"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="160" id="WNP-2s-VHw"/>
+                                                            <constraint firstAttribute="height" constant="24" id="zMZ-vT-KDH"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" title="바퀴벌레 잡아주실분 ㅠㅠ">
+                                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NXV-en-7ys">
+                                                        <rect key="frame" x="100" y="49" width="160" height="24"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="160" id="BxS-qC-hPY"/>
+                                                            <constraint firstAttribute="height" constant="24" id="wFB-No-uSf"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" title="바퀴벌레 잡아주실분 ㅠㅠ">
+                                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g17-pN-0tz">
+                                                        <rect key="frame" x="100" y="82" width="160" height="24"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="24" id="G6m-t7-wps"/>
+                                                            <constraint firstAttribute="width" constant="160" id="yvc-kE-76X"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" title="바퀴벌레 잡아주실분 ㅠㅠ">
+                                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                    </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="tintColor" name="secondary"/>
@@ -640,31 +646,29 @@
                                                     <constraint firstItem="nwU-ay-fud" firstAttribute="leading" secondItem="5JZ-3p-UmG" secondAttribute="leading" id="5mM-H9-gvG"/>
                                                     <constraint firstItem="bPC-1x-PCY" firstAttribute="leading" secondItem="lHw-6m-68D" secondAttribute="leading" constant="16" id="6pG-pt-hF8"/>
                                                     <constraint firstItem="bPC-1x-PCY" firstAttribute="top" secondItem="KfC-Dv-46u" secondAttribute="bottom" constant="4" id="8uW-hC-mOk"/>
-                                                    <constraint firstItem="g46-pu-eLt" firstAttribute="top" secondItem="PCT-uB-HO6" secondAttribute="top" id="AcV-q0-YEx"/>
                                                     <constraint firstItem="5JZ-3p-UmG" firstAttribute="top" secondItem="lHw-6m-68D" secondAttribute="top" constant="16" id="BXX-zc-OkX"/>
                                                     <constraint firstItem="H0x-mf-pEg" firstAttribute="top" secondItem="PCT-uB-HO6" secondAttribute="top" id="Bj4-6c-EMW"/>
                                                     <constraint firstAttribute="bottom" secondItem="PCT-uB-HO6" secondAttribute="bottom" constant="16" id="C1v-0w-3GA"/>
                                                     <constraint firstItem="KfC-Dv-46u" firstAttribute="leading" secondItem="5JZ-3p-UmG" secondAttribute="leading" id="ExM-Z4-fSQ"/>
-                                                    <constraint firstItem="Oqa-7W-Wd6" firstAttribute="top" secondItem="KfC-Dv-46u" secondAttribute="bottom" constant="4" id="Gio-ay-uAg"/>
-                                                    <constraint firstItem="8I4-iW-TBW" firstAttribute="top" secondItem="5JZ-3p-UmG" secondAttribute="top" id="KYO-fQ-Mvz"/>
+                                                    <constraint firstItem="NXV-en-7ys" firstAttribute="leading" secondItem="bPC-1x-PCY" secondAttribute="trailing" constant="8" id="GWM-IS-V1J"/>
+                                                    <constraint firstItem="g17-pN-0tz" firstAttribute="top" secondItem="PCT-uB-HO6" secondAttribute="top" id="Jwv-rM-X9g"/>
                                                     <constraint firstItem="hPN-J8-jYa" firstAttribute="top" secondItem="bPC-1x-PCY" secondAttribute="top" id="Otr-aH-fEz"/>
-                                                    <constraint firstItem="8I4-iW-TBW" firstAttribute="leading" secondItem="5JZ-3p-UmG" secondAttribute="trailing" constant="8" id="P0t-rd-9nc"/>
+                                                    <constraint firstItem="g17-pN-0tz" firstAttribute="leading" secondItem="PCT-uB-HO6" secondAttribute="trailing" constant="8" id="Q22-Sd-PPS"/>
+                                                    <constraint firstItem="pxF-j1-LeE" firstAttribute="leading" secondItem="5JZ-3p-UmG" secondAttribute="trailing" constant="8" id="QfD-xB-4JQ"/>
                                                     <constraint firstItem="Hik-Ze-08B" firstAttribute="trailing" secondItem="nwU-ay-fud" secondAttribute="trailing" id="QkA-Pt-dHa"/>
+                                                    <constraint firstItem="pxF-j1-LeE" firstAttribute="top" secondItem="5JZ-3p-UmG" secondAttribute="top" id="QrB-Yh-RJA"/>
+                                                    <constraint firstItem="NXV-en-7ys" firstAttribute="top" secondItem="bPC-1x-PCY" secondAttribute="top" id="RBH-IL-1zt"/>
                                                     <constraint firstAttribute="height" priority="250" constant="122" id="VUx-Ab-0Tz"/>
                                                     <constraint firstAttribute="trailing" secondItem="H0x-mf-pEg" secondAttribute="trailing" constant="16" id="Vy6-ai-yrR"/>
-                                                    <constraint firstItem="Oqa-7W-Wd6" firstAttribute="top" secondItem="bPC-1x-PCY" secondAttribute="top" id="Xd8-en-DlD"/>
                                                     <constraint firstAttribute="trailing" secondItem="hPN-J8-jYa" secondAttribute="trailing" constant="16" id="d8g-v8-jfC"/>
-                                                    <constraint firstAttribute="bottom" secondItem="g46-pu-eLt" secondAttribute="bottom" constant="16" id="dgl-NH-hlP"/>
                                                     <constraint firstItem="KfC-Dv-46u" firstAttribute="top" secondItem="5JZ-3p-UmG" secondAttribute="bottom" constant="4" id="iOB-rM-KVS"/>
                                                     <constraint firstItem="hPN-J8-jYa" firstAttribute="top" secondItem="KfC-Dv-46u" secondAttribute="bottom" constant="4" id="jMP-sr-jQ5"/>
                                                     <constraint firstItem="H0x-mf-pEg" firstAttribute="top" secondItem="nwU-ay-fud" secondAttribute="bottom" constant="4" id="lk0-vD-h05"/>
-                                                    <constraint firstItem="Oqa-7W-Wd6" firstAttribute="leading" secondItem="bPC-1x-PCY" secondAttribute="trailing" constant="8" id="m21-zw-IpV"/>
                                                     <constraint firstItem="nwU-ay-fud" firstAttribute="top" secondItem="bPC-1x-PCY" secondAttribute="bottom" constant="4" id="nWd-rm-tFE"/>
                                                     <constraint firstItem="Hik-Ze-08B" firstAttribute="top" secondItem="5JZ-3p-UmG" secondAttribute="top" id="oHk-9v-Rf9"/>
                                                     <constraint firstItem="PCT-uB-HO6" firstAttribute="leading" secondItem="lHw-6m-68D" secondAttribute="leading" constant="16" id="sc1-Sj-pJF"/>
                                                     <constraint firstAttribute="trailing" secondItem="Hik-Ze-08B" secondAttribute="trailing" constant="16" id="uih-7h-frU"/>
                                                     <constraint firstItem="5JZ-3p-UmG" firstAttribute="leading" secondItem="lHw-6m-68D" secondAttribute="leading" constant="16" id="w91-AV-rEc"/>
-                                                    <constraint firstItem="g46-pu-eLt" firstAttribute="leading" secondItem="PCT-uB-HO6" secondAttribute="trailing" constant="8" id="xtU-Zv-Zt6"/>
                                                     <constraint firstItem="Hik-Ze-08B" firstAttribute="trailing" secondItem="KfC-Dv-46u" secondAttribute="trailing" id="zhO-fG-6AG"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
