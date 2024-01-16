@@ -281,7 +281,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="운영시간 11:00 ~ 14:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Pi-hH-6dg">
-                                                        <rect key="frame" x="40" y="173.33333333333331" width="139.33333333333334" height="15"/>
+                                                        <rect key="frame" x="44" y="173.33333333333331" width="139.33333333333334" height="15"/>
                                                         <color key="tintColor" name="gray4"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <color key="textColor" name="gray4"/>
@@ -299,7 +299,7 @@
                                                             <userDefinedRuntimeAttribute type="string" keyPath="body2" value="총 칼로리 890kcal"/>
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="D38-pG-9M4">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="homeImageClock" translatesAutoresizingMaskIntoConstraints="NO" id="D38-pG-9M4">
                                                         <rect key="frame" x="25" y="173.33333333333331" width="15" height="15"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="15" id="TIh-qn-Uhl"/>
@@ -317,7 +317,7 @@
                                                     <constraint firstItem="2Mr-bc-H7S" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="1Pi-hH-6dg" secondAttribute="trailing" constant="8" symbolic="YES" id="EyK-SX-2KI"/>
                                                     <constraint firstItem="1Pi-hH-6dg" firstAttribute="top" secondItem="D38-pG-9M4" secondAttribute="top" id="Ih4-hE-fBs"/>
                                                     <constraint firstAttribute="trailing" secondItem="6cz-aZ-WRa" secondAttribute="trailing" constant="16" id="LB1-7L-lEk"/>
-                                                    <constraint firstItem="1Pi-hH-6dg" firstAttribute="leading" secondItem="D38-pG-9M4" secondAttribute="trailing" id="Ldt-ti-m4q"/>
+                                                    <constraint firstItem="1Pi-hH-6dg" firstAttribute="leading" secondItem="D38-pG-9M4" secondAttribute="trailing" constant="4" id="Ldt-ti-m4q"/>
                                                     <constraint firstAttribute="height" priority="250" constant="300" id="NGk-YV-3MW"/>
                                                     <constraint firstAttribute="trailing" secondItem="2Mr-bc-H7S" secondAttribute="trailing" constant="25" id="USc-EF-GpM"/>
                                                     <constraint firstItem="D38-pG-9M4" firstAttribute="leading" secondItem="9v2-Ay-204" secondAttribute="leading" constant="25" id="aoQ-8r-P71"/>
@@ -1292,6 +1292,7 @@
         <image name="arrow.right" catalog="system" width="128" height="95"/>
         <image name="arrowtriangle.down.fill" catalog="system" width="128" height="120"/>
         <image name="homeImageAlarm" width="22" height="26"/>
+        <image name="homeImageClock" width="16" height="15"/>
         <image name="homeImageLogo" width="43" height="32"/>
         <image name="homeImageMateMatching" width="682.66668701171875" height="682.66668701171875"/>
         <image name="magnifyingglass" catalog="system" width="128" height="117"/>
