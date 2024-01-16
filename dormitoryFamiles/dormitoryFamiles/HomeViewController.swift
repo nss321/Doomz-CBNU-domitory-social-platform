@@ -19,6 +19,11 @@ class HomeViewController: UIViewController {
     
     @IBOutlet weak var dormitoryButton: UIButton!
     
+    @IBOutlet weak var morningButton: RoundButton!
+    
+    @IBOutlet weak var lunchButton: RoundButton!
+    
+    @IBOutlet weak var dinnerButton: RoundButton!
     
     
     override func viewDidLoad() {
@@ -52,6 +57,20 @@ class HomeViewController: UIViewController {
     }
     
     @IBAction func setDormitoryButtonTapped(_ sender: UIButton) {
+    }
+    
+    @IBAction func menuButtonTapped(_ sender: RoundButton) {
+//        [morningButton, lunchButton, dinnerButton].forEach{
+//            $0?.setTitleColor(, for: <#T##UIControl.State#>)
+//        }
+//        switch sender.title {
+//        case "아침" :
+//            
+//        case "점심" :
+//            
+//        default:
+//            
+//        }
     }
     
     

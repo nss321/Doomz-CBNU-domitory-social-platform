@@ -223,6 +223,9 @@
                                                                                 <color key="value" name="secondary"/>
                                                                             </userDefinedRuntimeAttribute>
                                                                         </userDefinedRuntimeAttributes>
+                                                                        <connections>
+                                                                            <action selector="menuButtonTapped:" destination="pDX-kV-96B" eventType="touchUpInside" id="RIP-9w-MGg"/>
+                                                                        </connections>
                                                                     </button>
                                                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0c7-Sa-8eC" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
                                                                         <rect key="frame" x="111" y="0.0" width="91" height="32"/>
@@ -238,6 +241,9 @@
                                                                                 <color key="value" name="secondary"/>
                                                                             </userDefinedRuntimeAttribute>
                                                                         </userDefinedRuntimeAttributes>
+                                                                        <connections>
+                                                                            <action selector="menuButtonTapped:" destination="pDX-kV-96B" eventType="touchUpInside" id="iqH-fx-5aM"/>
+                                                                        </connections>
                                                                     </button>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tfo-Ee-43X" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
                                                                         <rect key="frame" x="222" y="0.0" width="91" height="32"/>
@@ -253,6 +259,9 @@
                                                                                 <color key="value" name="secondary"/>
                                                                             </userDefinedRuntimeAttribute>
                                                                         </userDefinedRuntimeAttributes>
+                                                                        <connections>
+                                                                            <action selector="menuButtonTapped:" destination="pDX-kV-96B" eventType="touchUpInside" id="2L5-GL-rY0"/>
+                                                                        </connections>
                                                                     </button>
                                                                 </subviews>
                                                                 <constraints>
@@ -732,9 +741,12 @@
                     </view>
                     <navigationItem key="navigationItem" id="htC-St-4Ca"/>
                     <connections>
+                        <outlet property="dinnerButton" destination="Tfo-Ee-43X" id="X1H-h5-gzz"/>
                         <outlet property="dormitoryButton" destination="UMG-c4-L00" id="ZQJ-us-Weh"/>
                         <outlet property="lineView" destination="9v2-Ay-204" id="acQ-Nm-ENV"/>
+                        <outlet property="lunchButton" destination="0c7-Sa-8eC" id="zEH-6R-dC0"/>
                         <outlet property="menuLabel" destination="srn-UG-enS" id="ike-PO-hcB"/>
+                        <outlet property="morningButton" destination="JfS-Y1-OHE" id="K4o-XE-Y7x"/>
                         <outlet property="timeLabel" destination="1Pi-hH-6dg" id="v9f-68-daM"/>
                         <outlet property="todayMenuLabel" destination="FpB-bN-XDq" id="YGc-WI-Euh"/>
                     </connections>

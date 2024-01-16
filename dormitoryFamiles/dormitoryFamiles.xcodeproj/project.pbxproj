@@ -19,6 +19,7 @@
 		DB5ACD602AA70D190054CA15 /* ExtenstionColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5ACD5F2AA70D190054CA15 /* ExtenstionColor.swift */; };
 		DB5ACD622AA714260054CA15 /* SchoolWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5ACD612AA714260054CA15 /* SchoolWebViewController.swift */; };
 		DB61AA342B4C1EA70040418B /* registerPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB61AA332B4C1EA70040418B /* registerPostViewController.swift */; };
+		DB81D0002B56E723005EF497 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB81CFFF2B56E723005EF497 /* UIColorExtension.swift */; };
 		DBB345F22B42BFD100E70380 /* bulletinBoardMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB345F12B42BFD100E70380 /* bulletinBoardMainViewController.swift */; };
 		DBB345FB2B42C28B00E70380 /* BulletinBoardMainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB345F92B42C28B00E70380 /* BulletinBoardMainTableViewCell.swift */; };
 		DBB345FC2B42C28B00E70380 /* BulletinBoardMainTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DBB345FA2B42C28B00E70380 /* BulletinBoardMainTableViewCell.xib */; };
@@ -53,6 +54,7 @@
 		DB5ACD5F2AA70D190054CA15 /* ExtenstionColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtenstionColor.swift; sourceTree = "<group>"; };
 		DB5ACD612AA714260054CA15 /* SchoolWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolWebViewController.swift; sourceTree = "<group>"; };
 		DB61AA332B4C1EA70040418B /* registerPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = registerPostViewController.swift; sourceTree = "<group>"; };
+		DB81CFFF2B56E723005EF497 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		DBB345F12B42BFD100E70380 /* bulletinBoardMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bulletinBoardMainViewController.swift; sourceTree = "<group>"; };
 		DBB345F92B42C28B00E70380 /* BulletinBoardMainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulletinBoardMainTableViewCell.swift; sourceTree = "<group>"; };
 		DBB345FA2B42C28B00E70380 /* BulletinBoardMainTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BulletinBoardMainTableViewCell.xib; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 				DB61AA332B4C1EA70040418B /* registerPostViewController.swift */,
 				DB20E38B2B53C2BD000D12A7 /* HomeViewController.swift */,
 				DB20E38D2B53D75F000D12A7 /* extensionStroyboard.swift */,
+				DB81CFFF2B56E723005EF497 /* UIColorExtension.swift */,
 			);
 			path = dormitoryFamiles;
 			sourceTree = "<group>";
@@ -291,6 +294,7 @@
 				DB1A3C342B4418E1009DC005 /* SearchTableViewHeader.swift in Sources */,
 				DBB345FE2B42D95600E70380 /* bulletinBoardMainNavigation.swift in Sources */,
 				DB5ACD622AA714260054CA15 /* SchoolWebViewController.swift in Sources */,
+				DB81D0002B56E723005EF497 /* UIColorExtension.swift in Sources */,
 				DBB345FB2B42C28B00E70380 /* BulletinBoardMainTableViewCell.swift in Sources */,
 				DB5ACD602AA70D190054CA15 /* ExtenstionColor.swift in Sources */,
 				DB61AA342B4C1EA70040418B /* registerPostViewController.swift in Sources */,
