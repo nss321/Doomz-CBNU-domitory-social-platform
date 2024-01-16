@@ -23,6 +23,7 @@
 		DBB345FB2B42C28B00E70380 /* BulletinBoardMainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB345F92B42C28B00E70380 /* BulletinBoardMainTableViewCell.swift */; };
 		DBB345FC2B42C28B00E70380 /* BulletinBoardMainTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DBB345FA2B42C28B00E70380 /* BulletinBoardMainTableViewCell.xib */; };
 		DBB345FE2B42D95600E70380 /* bulletinBoardMainNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB345FD2B42D95600E70380 /* bulletinBoardMainNavigation.swift */; };
+		DBC54C412B568AB00071164C /* PretendardGOVVariable.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DBC54C402B568AB00071164C /* PretendardGOVVariable.ttf */; };
 		DBF466FB2AA5F4E4009FF3EB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF466FA2AA5F4E4009FF3EB /* AppDelegate.swift */; };
 		DBF466FD2AA5F4E4009FF3EB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF466FC2AA5F4E4009FF3EB /* SceneDelegate.swift */; };
 		DBF466FF2AA5F4E4009FF3EB /* MealMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF466FE2AA5F4E4009FF3EB /* MealMenuViewController.swift */; };
@@ -50,6 +51,7 @@
 		DBB345F92B42C28B00E70380 /* BulletinBoardMainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulletinBoardMainTableViewCell.swift; sourceTree = "<group>"; };
 		DBB345FA2B42C28B00E70380 /* BulletinBoardMainTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BulletinBoardMainTableViewCell.xib; sourceTree = "<group>"; };
 		DBB345FD2B42D95600E70380 /* bulletinBoardMainNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bulletinBoardMainNavigation.swift; sourceTree = "<group>"; };
+		DBC54C402B568AB00071164C /* PretendardGOVVariable.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = PretendardGOVVariable.ttf; sourceTree = "<group>"; };
 		DBF466F72AA5F4E4009FF3EB /* dormitoryFamiles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dormitoryFamiles.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBF466FA2AA5F4E4009FF3EB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DBF466FC2AA5F4E4009FF3EB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -89,6 +91,14 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		DBC54C3F2B568A6A0071164C /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				DBC54C402B568AB00071164C /* PretendardGOVVariable.ttf */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
 		DBF466EE2AA5F4E4009FF3EB = {
 			isa = PBXGroup;
 			children = (
@@ -110,6 +120,7 @@
 		DBF466F92AA5F4E4009FF3EB /* dormitoryFamiles */ = {
 			isa = PBXGroup;
 			children = (
+				DBC54C3F2B568A6A0071164C /* Font */,
 				DB2B7BCC2B457D2500C1847D /* BulletinBoardDetailViewContorllerViewController.swift */,
 				DB2B7BC82B456F4700C1847D /* TagScrollView.swift */,
 				DB5ACD5F2AA70D190054CA15 /* ExtenstionColor.swift */,
@@ -196,6 +207,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DBC54C412B568AB00071164C /* PretendardGOVVariable.ttf in Resources */,
 				DBF467072AA5F4E5009FF3EB /* LaunchScreen.storyboard in Resources */,
 				DBF467042AA5F4E5009FF3EB /* Assets.xcassets in Resources */,
 				DBB345FC2B42C28B00E70380 /* BulletinBoardMainTableViewCell.xib in Resources */,
