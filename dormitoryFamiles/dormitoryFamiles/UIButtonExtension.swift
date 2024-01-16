@@ -32,3 +32,15 @@ extension UIButton {
     }
 }
 
+extension UILabel {
+    func lineSpacing(_ spacing: CGFloat) {
+            guard let text = text, let font = font else { return }
+            let paragraphStyle = NSMutableParagraphStyle()
+            paragraphStyle.lineSpacing = spacing
+            let attributedString = NSAttributedString(string: text, attributes: [
+                .font: font,
+                .paragraphStyle: paragraphStyle
+            ])
+            self.attributedText = attributedString
+    }
+}
