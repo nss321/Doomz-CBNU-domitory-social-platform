@@ -14,7 +14,7 @@ extension UILabel {
             return self.font.fontName
         }
         set {
-            setAttributedFont(name: FontPretendardGOVVariable.bold.rawValue, size: 20, text: newValue)
+            setAttributedFont(name: CustomFonts.bold.rawValue, size: 20, text: newValue)
         }
     }
     
@@ -23,7 +23,7 @@ extension UILabel {
             return self.font.fontName
         }
         set {
-            setAttributedFont(name: FontPretendardGOVVariable.bold.rawValue, size: 18, text: newValue)
+            setAttributedFont(name: CustomFonts.bold.rawValue, size: 18, text: newValue)
         }
     }
     
@@ -32,7 +32,7 @@ extension UILabel {
             return self.font.fontName
         }
         set {
-            setAttributedFont(name: FontPretendardGOVVariable.semiBold.rawValue, size: 18, text: newValue)
+            setAttributedFont(name: CustomFonts.semiBold.rawValue, size: 18, text: newValue)
         }
     }
     
@@ -41,7 +41,7 @@ extension UILabel {
             return self.font.fontName
         }
         set {
-            setAttributedFont(name: FontPretendardGOVVariable.bold.rawValue, size: 16, text: newValue)
+            setAttributedFont(name: CustomFonts.bold.rawValue, size: 16, text: newValue)
         }
     }
     
@@ -50,7 +50,7 @@ extension UILabel {
             return self.font.fontName
         }
         set {
-            setAttributedFont(name: FontPretendardGOVVariable.semiBold.rawValue, size: 16, text: newValue)
+            setAttributedFont(name: CustomFonts.semiBold.rawValue, size: 16, text: newValue)
         }
     }
     
@@ -59,7 +59,7 @@ extension UILabel {
             return self.font.fontName
         }
         set {
-            setAttributedFont(name: FontPretendardGOVVariable.medium.rawValue, size: 16, text: newValue)
+            setAttributedFont(name: CustomFonts.medium.rawValue, size: 16, text: newValue)
         }
     }
     
@@ -68,7 +68,7 @@ extension UILabel {
             return self.font.fontName
         }
         set {
-            setAttributedFont(name: FontPretendardGOVVariable.medium.rawValue, size: 14, text: newValue)
+            setAttributedFont(name: CustomFonts.medium.rawValue, size: 14, text: newValue)
         }
     }
     
@@ -77,7 +77,7 @@ extension UILabel {
             return self.font.fontName
         }
         set {
-            setAttributedFont(name: FontPretendardGOVVariable.regular.rawValue, size: 16, text: newValue)
+            setAttributedFont(name: CustomFonts.regular.rawValue, size: 16, text: newValue)
         }
     }
     
@@ -86,7 +86,7 @@ extension UILabel {
             return self.font.fontName
         }
         set {
-            setAttributedFont(name: FontPretendardGOVVariable.regular.rawValue, size: 14, text: newValue)
+            setAttributedFont(name: CustomFonts.regular.rawValue, size: 14, text: newValue)
         }
     }
     
@@ -95,9 +95,46 @@ extension UILabel {
             return self.font.fontName
         }
         set {
-            setAttributedFont(name: FontPretendardGOVVariable.medium.rawValue, size: 14, text: newValue)
+            setAttributedFont(name: CustomFonts.medium.rawValue, size: 14, text: newValue)
         }
     }
+    
+    @IBInspectable var pretendardVariable: String {
+        get {
+            return self.font.fontName
+        }
+        set {
+            setAttributedFont(name: CustomFonts.defult.rawValue, size: 12, text: newValue)
+        }
+    }
+    
+    @IBInspectable var pretendard14Variable: String {
+        get {
+            return self.font.fontName
+        }
+        set {
+            setAttributedFont(name: CustomFonts.defult.rawValue, size: 14, text: newValue)
+        }
+    }
+    
+    @IBInspectable var head1: String {
+        get {
+            return self.font.fontName
+        }
+        set {
+            setAttributedFont(name: CustomFonts.nps.rawValue, size: 24, text: newValue)
+        }
+    }
+    
+    @IBInspectable var head2: String {
+        get {
+            return self.font.fontName
+        }
+        set {
+            setAttributedFont(name: CustomFonts.nps.rawValue, size: 20, text: newValue)
+        }
+    }
+    
     
     private func setAttributedFont(name: String, size: CGFloat, text: String) {
         if let newFont = UIFont(name: name, size: size) {
@@ -123,7 +160,7 @@ extension UIButton {
             return self.titleLabel?.font.fontName ?? ""
         }
         set {
-            setAttributedFont(name: FontPretendardGOVVariable.bold.rawValue, size: 20, text: newValue)
+            setAttributedFont(name: CustomFonts.bold.rawValue, size: 20, text: newValue)
         }
     }
     
@@ -132,7 +169,7 @@ extension UIButton {
             return self.titleLabel?.font.fontName ?? ""
         }
         set {
-            setAttributedFont(name: FontPretendardGOVVariable.bold.rawValue, size: 18, text: newValue)
+            setAttributedFont(name: CustomFonts.bold.rawValue, size: 18, text: newValue)
         }
     }
     
@@ -141,7 +178,7 @@ extension UIButton {
             return self.titleLabel?.font.fontName ?? ""
         }
         set {
-            setAttributedFont(name: FontPretendardGOVVariable.semiBold.rawValue, size: 18, text: newValue)
+            setAttributedFont(name: CustomFonts.semiBold.rawValue, size: 18, text: newValue)
         }
     }
     
@@ -150,7 +187,7 @@ extension UIButton {
             return self.titleLabel?.font.fontName ?? ""
         }
         set {
-            setAttributedFont(name: FontPretendardGOVVariable.bold.rawValue, size: 16, text: newValue)
+            setAttributedFont(name: CustomFonts.bold.rawValue, size: 16, text: newValue)
         }
     }
     
@@ -159,7 +196,7 @@ extension UIButton {
             return self.titleLabel?.font.fontName ?? ""
         }
         set {
-            setAttributedFont(name: FontPretendardGOVVariable.semiBold.rawValue, size: 16, text: newValue)
+            setAttributedFont(name: CustomFonts.semiBold.rawValue, size: 16, text: newValue)
         }
     }
     
@@ -168,7 +205,7 @@ extension UIButton {
             return self.titleLabel?.font.fontName ?? ""
         }
         set {
-            setAttributedFont(name: FontPretendardGOVVariable.medium.rawValue, size: 16, text: newValue)
+            setAttributedFont(name: CustomFonts.medium.rawValue, size: 16, text: newValue)
         }
     }
     
@@ -177,7 +214,7 @@ extension UIButton {
             return self.titleLabel?.font.fontName ?? ""
         }
         set {
-            setAttributedFont(name: FontPretendardGOVVariable.medium.rawValue, size: 14, text: newValue)
+            setAttributedFont(name: CustomFonts.medium.rawValue, size: 14, text: newValue)
         }
     }
     
@@ -186,7 +223,7 @@ extension UIButton {
             return self.titleLabel?.font.fontName ?? ""
         }
         set {
-            setAttributedFont(name: FontPretendardGOVVariable.regular.rawValue, size: 16, text: newValue)
+            setAttributedFont(name: CustomFonts.regular.rawValue, size: 16, text: newValue)
         }
     }
     
@@ -195,7 +232,7 @@ extension UIButton {
             return self.titleLabel?.font.fontName ?? ""
         }
         set {
-            setAttributedFont(name: FontPretendardGOVVariable.regular.rawValue, size: 14, text: newValue)
+            setAttributedFont(name: CustomFonts.regular.rawValue, size: 14, text: newValue)
         }
     }
     
@@ -204,7 +241,43 @@ extension UIButton {
             return self.titleLabel?.font.fontName ?? ""
         }
         set {
-            setAttributedFont(name: FontPretendardGOVVariable.medium.rawValue, size: 14, text: newValue)
+            setAttributedFont(name: CustomFonts.medium.rawValue, size: 14, text: newValue)
+        }
+    }
+    
+    @IBInspectable var pretendardVariable: String {
+        get {
+            return self.titleLabel?.font.fontName ?? ""
+        }
+        set {
+            setAttributedFont(name: CustomFonts.defult.rawValue, size: 12, text: newValue)
+        }
+    }
+    
+    @IBInspectable var pretendard14Variable: String {
+        get {
+            return self.titleLabel?.font.fontName ?? ""
+        }
+        set {
+            setAttributedFont(name: CustomFonts.defult.rawValue, size: 14, text: newValue)
+        }
+    }
+    
+    @IBInspectable var head1: String {
+        get {
+            return self.titleLabel?.font.fontName ?? ""
+        }
+        set {
+            setAttributedFont(name: CustomFonts.nps.rawValue, size: 24, text: newValue)
+        }
+    }
+    
+    @IBInspectable var head2: String {
+        get {
+            return self.titleLabel?.font.fontName ?? ""
+        }
+        set {
+            setAttributedFont(name: CustomFonts.nps.rawValue, size: 20, text: newValue)
         }
     }
     
@@ -223,9 +296,11 @@ extension UIButton {
     }
 }
 
-enum FontPretendardGOVVariable: String {
-    case regular = "PretendardGOVVariable-Regular"
-    case medium = "PretendardGOVVariable-Medium"
-    case semiBold = "PretendardGOVVariable-SemiBold"
-    case bold = "PretendardGOVVariable-Bold"
+enum CustomFonts: String {
+    case defult = "Pretendard Variable"
+    case regular = "PretendardVariable-Regular"
+    case medium = "PretendardVariable-Medium"
+    case semiBold = "PretendardVariable-SemiBold"
+    case bold = "PretendardVariable-Bold"
+    case nps = "NPS-font-Bold"
 }

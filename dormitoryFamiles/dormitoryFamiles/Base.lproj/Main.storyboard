@@ -141,6 +141,9 @@
                                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="10"/>
                                                                 </state>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="head2" value="양진재"/>
+                                                                </userDefinedRuntimeAttributes>
                                                             </button>
                                                         </subviews>
                                                     </stackView>
@@ -265,13 +268,16 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="잡곡밥 근대 된장국 돈육 두부 두루치기 김자채 피망볶음 김치" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" showsExpansionTextWhenTruncated="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="srn-UG-enS">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="잡곡밥 근대 된장국 돈육 두부 두루치기 감자채 피망볶음 김치" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" showsExpansionTextWhenTruncated="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="srn-UG-enS">
                                                         <rect key="frame" x="115" y="63.999999999999993" width="126.33333333333331" height="94.333333333333286"/>
                                                         <fontDescription key="fontDescription" name=".AppleSDGothicNeoI-Regular" family=".Apple SD Gothic NeoI" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                         <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="string" keyPath="body1" value="잡곡밥 근대 된장국 돈육 두부 두루치기 감자채 피망볶음 김치"/>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="body1">
+                                                                <string key="value">잡곡밥
+근대 된장국 돈육 두부 두루치기 감자채 피망볶음 김치</string>
+                                                            </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="운영시간 11:00 ~ 14:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Pi-hH-6dg">
@@ -312,7 +318,7 @@
                                                     <constraint firstItem="1Pi-hH-6dg" firstAttribute="top" secondItem="D38-pG-9M4" secondAttribute="top" id="Ih4-hE-fBs"/>
                                                     <constraint firstAttribute="trailing" secondItem="6cz-aZ-WRa" secondAttribute="trailing" constant="16" id="LB1-7L-lEk"/>
                                                     <constraint firstItem="1Pi-hH-6dg" firstAttribute="leading" secondItem="D38-pG-9M4" secondAttribute="trailing" id="Ldt-ti-m4q"/>
-                                                    <constraint firstAttribute="height" constant="300" id="NGk-YV-3MW"/>
+                                                    <constraint firstAttribute="height" priority="250" constant="300" id="NGk-YV-3MW"/>
                                                     <constraint firstAttribute="trailing" secondItem="2Mr-bc-H7S" secondAttribute="trailing" constant="25" id="USc-EF-GpM"/>
                                                     <constraint firstItem="D38-pG-9M4" firstAttribute="leading" secondItem="9v2-Ay-204" secondAttribute="leading" constant="25" id="aoQ-8r-P71"/>
                                                     <constraint firstItem="D38-pG-9M4" firstAttribute="top" secondItem="srn-UG-enS" secondAttribute="bottom" constant="15" id="eMU-8b-0Aa"/>
@@ -340,6 +346,9 @@
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="title3" value="룸메 매칭을 통해 원하는 룸메를 구해보세요!"/>
+                                                        </userDefinedRuntimeAttributes>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nzJ-Yb-Hjd" customClass="roundButton" customModule="dormitoryFamiles" customModuleProvider="target">
                                                         <rect key="frame" x="16" y="66" width="75.333333333333329" height="28"/>
@@ -364,6 +373,7 @@
                                                             <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                                                                 <real key="value" value="1"/>
                                                             </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="pretendard14Variable" value="룸메찾기"/>
                                                         </userDefinedRuntimeAttributes>
                                                     </button>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="homeImageMateMatching" translatesAutoresizingMaskIntoConstraints="NO" id="K0y-F1-5l3">
@@ -455,13 +465,16 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="23.12.16" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hik-Ze-08B">
-                                                        <rect key="frame" x="288.33333333333331" y="16" width="48.666666666666686" height="24"/>
+                                                        <rect key="frame" x="290" y="16" width="47" height="24"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="24" id="tg6-P8-H80"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" name="PretendardGOVVariable-Bold" family="Pretendard GOV Variable" pointSize="12"/>
                                                         <color key="textColor" name="gray3"/>
                                                         <nil key="highlightedColor"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="regular12" value="23.12.16"/>
+                                                        </userDefinedRuntimeAttributes>
                                                     </label>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KfC-Dv-46u">
                                                         <rect key="frame" x="16" y="44" width="321" height="1"/>
@@ -494,6 +507,9 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" name="gray3"/>
                                                         <nil key="highlightedColor"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="regular12" value="24.01.01"/>
+                                                        </userDefinedRuntimeAttributes>
                                                     </label>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nwU-ay-fud">
                                                         <rect key="frame" x="16" y="77" width="321" height="1"/>
@@ -526,6 +542,9 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" name="gray3"/>
                                                         <nil key="highlightedColor"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="regular12" value="24.01.01"/>
+                                                        </userDefinedRuntimeAttributes>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pxF-j1-LeE">
                                                         <rect key="frame" x="100" y="16" width="160" height="24"/>

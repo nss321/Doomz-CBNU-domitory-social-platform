@@ -21,6 +21,7 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.menuLabel.sizeToFit()
+        self.menuLabel.textAlignment = .center
         let stackViewBottomConstraint = timeLabel.bottomAnchor.constraint(equalTo: lineView.bottomAnchor, constant: -16)
         stackViewBottomConstraint.isActive = true
         

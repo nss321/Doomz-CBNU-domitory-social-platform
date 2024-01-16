@@ -23,12 +23,13 @@
 		DBB345FB2B42C28B00E70380 /* BulletinBoardMainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB345F92B42C28B00E70380 /* BulletinBoardMainTableViewCell.swift */; };
 		DBB345FC2B42C28B00E70380 /* BulletinBoardMainTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DBB345FA2B42C28B00E70380 /* BulletinBoardMainTableViewCell.xib */; };
 		DBB345FE2B42D95600E70380 /* bulletinBoardMainNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB345FD2B42D95600E70380 /* bulletinBoardMainNavigation.swift */; };
-		DBC54C412B568AB00071164C /* PretendardGOVVariable.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DBC54C402B568AB00071164C /* PretendardGOVVariable.ttf */; };
 		DBC54C432B568B350071164C /* UIFontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC54C422B568B350071164C /* UIFontExtension.swift */; };
-		DBC54C452B5691970071164C /* PretendardGOV-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DBC54C442B5691970071164C /* PretendardGOV-Bold.ttf */; };
-		DBC54C472B5691A50071164C /* PretendardGOV-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DBC54C462B5691A50071164C /* PretendardGOV-SemiBold.ttf */; };
-		DBC54C492B5691B70071164C /* PretendardGOV-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DBC54C482B5691B70071164C /* PretendardGOV-Medium.ttf */; };
-		DBC54C4B2B5691C70071164C /* PretendardGOV-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DBC54C4A2B5691C70071164C /* PretendardGOV-Regular.ttf */; };
+		DBC54C552B56A46B0071164C /* PretendardVariable.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DBC54C542B56A46B0071164C /* PretendardVariable.ttf */; };
+		DBC54C572B56A4820071164C /* Pretendard-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DBC54C562B56A4820071164C /* Pretendard-Bold.ttf */; };
+		DBC54C5B2B56A4960071164C /* Pretendard-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DBC54C5A2B56A4960071164C /* Pretendard-Medium.ttf */; };
+		DBC54C5D2B56A4A00071164C /* Pretendard-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DBC54C5C2B56A4A00071164C /* Pretendard-Regular.ttf */; };
+		DBC54C5F2B56A4A80071164C /* Pretendard-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DBC54C5E2B56A4A80071164C /* Pretendard-SemiBold.ttf */; };
+		DBC54C632B56A86D0071164C /* NPSfont_bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DBC54C622B56A86D0071164C /* NPSfont_bold.ttf */; };
 		DBF466FB2AA5F4E4009FF3EB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF466FA2AA5F4E4009FF3EB /* AppDelegate.swift */; };
 		DBF466FD2AA5F4E4009FF3EB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF466FC2AA5F4E4009FF3EB /* SceneDelegate.swift */; };
 		DBF466FF2AA5F4E4009FF3EB /* MealMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF466FE2AA5F4E4009FF3EB /* MealMenuViewController.swift */; };
@@ -56,12 +57,13 @@
 		DBB345F92B42C28B00E70380 /* BulletinBoardMainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulletinBoardMainTableViewCell.swift; sourceTree = "<group>"; };
 		DBB345FA2B42C28B00E70380 /* BulletinBoardMainTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BulletinBoardMainTableViewCell.xib; sourceTree = "<group>"; };
 		DBB345FD2B42D95600E70380 /* bulletinBoardMainNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bulletinBoardMainNavigation.swift; sourceTree = "<group>"; };
-		DBC54C402B568AB00071164C /* PretendardGOVVariable.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = PretendardGOVVariable.ttf; sourceTree = "<group>"; };
 		DBC54C422B568B350071164C /* UIFontExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFontExtension.swift; sourceTree = "<group>"; };
-		DBC54C442B5691970071164C /* PretendardGOV-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PretendardGOV-Bold.ttf"; sourceTree = "<group>"; };
-		DBC54C462B5691A50071164C /* PretendardGOV-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PretendardGOV-SemiBold.ttf"; sourceTree = "<group>"; };
-		DBC54C482B5691B70071164C /* PretendardGOV-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PretendardGOV-Medium.ttf"; sourceTree = "<group>"; };
-		DBC54C4A2B5691C70071164C /* PretendardGOV-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PretendardGOV-Regular.ttf"; sourceTree = "<group>"; };
+		DBC54C542B56A46B0071164C /* PretendardVariable.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = PretendardVariable.ttf; sourceTree = "<group>"; };
+		DBC54C562B56A4820071164C /* Pretendard-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Bold.ttf"; sourceTree = "<group>"; };
+		DBC54C5A2B56A4960071164C /* Pretendard-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.ttf"; sourceTree = "<group>"; };
+		DBC54C5C2B56A4A00071164C /* Pretendard-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.ttf"; sourceTree = "<group>"; };
+		DBC54C5E2B56A4A80071164C /* Pretendard-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.ttf"; sourceTree = "<group>"; };
+		DBC54C622B56A86D0071164C /* NPSfont_bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NPSfont_bold.ttf; sourceTree = "<group>"; };
 		DBF466F72AA5F4E4009FF3EB /* dormitoryFamiles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dormitoryFamiles.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBF466FA2AA5F4E4009FF3EB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DBF466FC2AA5F4E4009FF3EB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -104,11 +106,12 @@
 		DBC54C3F2B568A6A0071164C /* Font */ = {
 			isa = PBXGroup;
 			children = (
-				DBC54C402B568AB00071164C /* PretendardGOVVariable.ttf */,
-				DBC54C442B5691970071164C /* PretendardGOV-Bold.ttf */,
-				DBC54C462B5691A50071164C /* PretendardGOV-SemiBold.ttf */,
-				DBC54C482B5691B70071164C /* PretendardGOV-Medium.ttf */,
-				DBC54C4A2B5691C70071164C /* PretendardGOV-Regular.ttf */,
+				DBC54C542B56A46B0071164C /* PretendardVariable.ttf */,
+				DBC54C562B56A4820071164C /* Pretendard-Bold.ttf */,
+				DBC54C5A2B56A4960071164C /* Pretendard-Medium.ttf */,
+				DBC54C5C2B56A4A00071164C /* Pretendard-Regular.ttf */,
+				DBC54C5E2B56A4A80071164C /* Pretendard-SemiBold.ttf */,
+				DBC54C622B56A86D0071164C /* NPSfont_bold.ttf */,
 				DBC54C422B568B350071164C /* UIFontExtension.swift */,
 			);
 			path = Font;
@@ -222,15 +225,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DBC54C4B2B5691C70071164C /* PretendardGOV-Regular.ttf in Resources */,
-				DBC54C412B568AB00071164C /* PretendardGOVVariable.ttf in Resources */,
+				DBC54C632B56A86D0071164C /* NPSfont_bold.ttf in Resources */,
+				DBC54C5B2B56A4960071164C /* Pretendard-Medium.ttf in Resources */,
 				DBF467072AA5F4E5009FF3EB /* LaunchScreen.storyboard in Resources */,
-				DBC54C472B5691A50071164C /* PretendardGOV-SemiBold.ttf in Resources */,
+				DBC54C5F2B56A4A80071164C /* Pretendard-SemiBold.ttf in Resources */,
 				DBF467042AA5F4E5009FF3EB /* Assets.xcassets in Resources */,
 				DBB345FC2B42C28B00E70380 /* BulletinBoardMainTableViewCell.xib in Resources */,
 				DBF467022AA5F4E4009FF3EB /* Main.storyboard in Resources */,
-				DBC54C452B5691970071164C /* PretendardGOV-Bold.ttf in Resources */,
-				DBC54C492B5691B70071164C /* PretendardGOV-Medium.ttf in Resources */,
+				DBC54C5D2B56A4A00071164C /* Pretendard-Regular.ttf in Resources */,
+				DBC54C572B56A4820071164C /* Pretendard-Bold.ttf in Resources */,
+				DBC54C552B56A46B0071164C /* PretendardVariable.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

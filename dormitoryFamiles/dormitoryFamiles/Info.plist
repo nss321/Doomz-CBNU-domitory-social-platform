@@ -4,11 +4,12 @@
 <dict>
 	<key>UIAppFonts</key>
 	<array>
-		<string>PretendardGOVVariable.ttf</string>
-		<string>PretendardGOV-Bold.ttf</string>
-		<string>PretendardGOV-Regular.ttf</string>
-		<string>PretendardGOV-Medium.ttf</string>
-		<string>PretendardGOV-SemiBold.ttf</string>
+		<string>NPSfont_bold.ttf</string>
+		<string>Pretendard-Bold.ttf</string>
+		<string>Pretendard-Medium.ttf</string>
+		<string>Pretendard-Regular.ttf</string>
+		<string>Pretendard-SemiBold.ttf</string>
+		<string>PretendardVariable.ttf</string>
 	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
