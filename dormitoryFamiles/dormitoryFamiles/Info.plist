@@ -5,6 +5,10 @@
 	<key>UIAppFonts</key>
 	<array>
 		<string>PretendardGOVVariable.ttf</string>
+		<string>PretendardGOV-Bold.ttf</string>
+		<string>PretendardGOV-Regular.ttf</string>
+		<string>PretendardGOV-Medium.ttf</string>
+		<string>PretendardGOV-SemiBold.ttf</string>
 	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>

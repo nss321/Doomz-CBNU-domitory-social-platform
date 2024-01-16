@@ -10,6 +10,11 @@
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="PretendardGOVVariable.ttf">
+            <string>PretendardGOVVariable-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Meal Menu View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -154,13 +159,17 @@
                                                 </constraints>
                                             </stackView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="오늘의 메뉴" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" showsExpansionTextWhenTruncated="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FpB-bN-XDq">
-                                                <rect key="frame" x="20" y="86" width="77.666666666666671" height="27"/>
+                                                <rect key="frame" x="20" y="86" width="60" height="27"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="27" id="W4U-xk-YSI"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                <fontDescription key="fontDescription" name="PretendardGOVVariable-Regular" family="Pretendard GOV Variable" pointSize="13"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="dddd" value="마ㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏ"/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="title1" value="1"/>
+                                                </userDefinedRuntimeAttributes>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pf8-z7-rET" customClass="roundButton" customModule="dormitoryFamiles" customModuleProvider="target">
                                                 <rect key="frame" x="297.66666666666669" y="86" width="75.333333333333314" height="28"/>
@@ -747,6 +756,7 @@
                         <outlet property="lineView" destination="9v2-Ay-204" id="acQ-Nm-ENV"/>
                         <outlet property="menuLabel" destination="srn-UG-enS" id="ike-PO-hcB"/>
                         <outlet property="timeLabel" destination="1Pi-hH-6dg" id="v9f-68-daM"/>
+                        <outlet property="todayMenuLabel" destination="FpB-bN-XDq" id="YGc-WI-Euh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eAO-v6-dmc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1358,7 +1368,7 @@
             <color red="1" green="0.97647058823529409" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="primaryMid">
-            <color red="1" green="0.49411764705882355" blue="0.55294117647058827" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.49399998784065247" blue="0.55299997329711914" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="secondary">
             <color red="1" green="0.90980392156862744" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
