@@ -17,6 +17,9 @@ class HomeViewController: UIViewController {
     
     @IBOutlet weak var todayMenuLabel: UILabel!
     
+    @IBOutlet weak var dormitoryButton: UIButton!
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +27,9 @@ class HomeViewController: UIViewController {
         self.menuLabel.sizeToFit()
         self.menuLabel.lineSpacing(12)
         self.menuLabel.textAlignment = .center
+        
+        setDormitoryButton()
+       
         
         let stackViewBottomConstraint = timeLabel.bottomAnchor.constraint(equalTo: lineView.bottomAnchor, constant: -16)
         stackViewBottomConstraint.isActive = true
@@ -38,6 +44,16 @@ class HomeViewController: UIViewController {
         }
         
     }
+    
+    func setDormitoryButton() {
+        var configuration = UIButton.Configuration.plain()
+        configuration.imagePadding = .init(4)
+        dormitoryButton.configuration = configuration
+    }
+    
+    @IBAction func setDormitoryButtonTapped(_ sender: UIButton) {
+    }
+    
     
 
     /*
