@@ -40,13 +40,14 @@ class HomeViewController: UIViewController {
         stackViewBottomConstraint.isActive = true
         
         self.navigationController?.setNavigationBarHidden(true, animated: true)
-        
-        for family in UIFont.familyNames {
-            print(family)
-            for name in UIFont.fontNames(forFamilyName: family) {
-                print(name)
-            }
-        }
+        morningButton.setTitleColor(.black, for: .normal)
+        print(morningButton.currentTitleColor)
+//        for family in UIFont.familyNames {
+//            print(family)
+//            for name in UIFont.fontNames(forFamilyName: family) {
+//                print(name)
+//            }
+//        }
         
     }
     
@@ -60,17 +61,19 @@ class HomeViewController: UIViewController {
     }
     
     @IBAction func menuButtonTapped(_ sender: RoundButton) {
-//        [morningButton, lunchButton, dinnerButton].forEach{
-//            $0?.setTitleColor(, for: <#T##UIControl.State#>)
-//        }
-//        switch sender.title {
-//        case "아침" :
-//            
-//        case "점심" :
-//            
-//        default:
-//            
-//        }
+        
+        [morningButton, lunchButton, dinnerButton].forEach{
+            $0?.setTitleColor(UIColor.secondary, for: .normal)
+            print($0?.currentTitleColor)
+        }
+        switch sender {
+        case morningButton :
+            morningButton.setTitleColor(.primary, for: .normal)
+        case lunchButton :
+            lunchButton.setTitleColor(.primary, for: .normal)
+        default:
+            dinnerButton.setTitleColor(.primary, for: .normal)
+        }
     }
     
     
