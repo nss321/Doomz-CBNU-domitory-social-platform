@@ -145,6 +145,7 @@
                                                                     <userDefinedRuntimeAttribute type="string" keyPath="head2" value="양진재"/>
                                                                 </userDefinedRuntimeAttributes>
                                                                 <connections>
+                                                                    <action selector="dormitoryButtonTapped:" destination="pDX-kV-96B" eventType="touchUpInside" id="JJd-Yy-wRL"/>
                                                                     <action selector="setDormitoryButtonTapped:" destination="pDX-kV-96B" eventType="touchUpInside" id="buY-Hj-yq5"/>
                                                                 </connections>
                                                             </button>
