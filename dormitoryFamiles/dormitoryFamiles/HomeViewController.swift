@@ -40,8 +40,6 @@ class HomeViewController: UIViewController {
         stackViewBottomConstraint.isActive = true
         
         self.navigationController?.setNavigationBarHidden(true, animated: true)
-        morningButton.setTitleColor(.black, for: .normal)
-        print(morningButton.currentTitleColor)
 //        for family in UIFont.familyNames {
 //            print(family)
 //            for name in UIFont.fontNames(forFamilyName: family) {
@@ -63,17 +61,12 @@ class HomeViewController: UIViewController {
     @IBAction func menuButtonTapped(_ sender: RoundButton) {
         
         [morningButton, lunchButton, dinnerButton].forEach{
-            $0?.setTitleColor(UIColor.secondary, for: .normal)
-            print($0?.currentTitleColor)
+            $0?.backgroundColor = .secondary
+            $0?.tintColor = .black
         }
-        switch sender {
-        case morningButton :
-            morningButton.setTitleColor(.primary, for: .normal)
-        case lunchButton :
-            lunchButton.setTitleColor(.primary, for: .normal)
-        default:
-            dinnerButton.setTitleColor(.primary, for: .normal)
-        }
+        
+        sender.backgroundColor = .white
+        sender.tintColor = .primary
     }
     
     
