@@ -146,7 +146,6 @@
                                                                 </userDefinedRuntimeAttributes>
                                                                 <connections>
                                                                     <action selector="dormitoryButtonTapped:" destination="pDX-kV-96B" eventType="touchUpInside" id="JJd-Yy-wRL"/>
-                                                                    <action selector="setDormitoryButtonTapped:" destination="pDX-kV-96B" eventType="touchUpInside" id="buY-Hj-yq5"/>
                                                                 </connections>
                                                             </button>
                                                         </subviews>
@@ -179,7 +178,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pf8-z7-rET" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
-                                                <rect key="frame" x="285.66666666666669" y="86" width="87.333333333333314" height="28"/>
+                                                <rect key="frame" x="270" y="86" width="103" height="28"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="28" id="hza-8j-0gq"/>
                                                 </constraints>
@@ -200,7 +199,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </button>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9v2-Ay-204">
-                                                <rect key="frame" x="20" y="126" width="353" height="300"/>
+                                                <rect key="frame" x="20" y="126.00000000000003" width="353" height="276.66666666666674"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6cz-aZ-WRa" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
                                                         <rect key="frame" x="16" y="12" width="321" height="40"/>
@@ -298,10 +297,7 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                         <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="string" keyPath="body1">
-                                                                <string key="value">잡곡밥
-근대 된장국 돈육 두부 두루치기 감자채 피망볶음 김치</string>
-                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="body1" value=" aa a a a a  a a  a a a a aa"/>
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="운영시간 11:00 ~ 14:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Pi-hH-6dg">
@@ -363,7 +359,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hn6-pI-50c">
-                                                <rect key="frame" x="20" y="458.00000000000006" width="353" height="112.66666666666669"/>
+                                                <rect key="frame" x="20" y="434.66666666666663" width="353" height="112.66666666666663"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="룸메 매칭을 통해 원하는 룸메를 구해보세요!" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" showsExpansionTextWhenTruncated="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WyF-JV-MjP">
                                                         <rect key="frame" x="16" y="15.999999999999996" width="175.33333333333334" height="40.666666666666657"/>
@@ -375,7 +371,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nzJ-Yb-Hjd" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
-                                                        <rect key="frame" x="16" y="68.666666666666629" width="75.333333333333329" height="28"/>
+                                                        <rect key="frame" x="16" y="68.666666666666742" width="103" height="28"/>
                                                         <color key="backgroundColor" name="primaryMid"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="28" id="iWk-PQ-m4c"/>
@@ -432,7 +428,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="인기게시글" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" showsExpansionTextWhenTruncated="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pyd-XD-7Gc">
-                                                <rect key="frame" x="20" y="603.66666666666663" width="73.666666666666671" height="27"/>
+                                                <rect key="frame" x="20" y="580.33333333333337" width="73.666666666666671" height="27"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="27" id="Pz2-wL-pFW"/>
                                                 </constraints>
@@ -444,7 +440,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lHw-6m-68D">
-                                                <rect key="frame" x="20" y="643.66666666666663" width="353" height="122"/>
+                                                <rect key="frame" x="20" y="620.33333333333337" width="353" height="122"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5JZ-3p-UmG" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
                                                         <rect key="frame" x="16" y="16" width="76" height="24"/>
@@ -659,7 +655,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Cx-cb-x6K" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
-                                                <rect key="frame" x="285.66666666666669" y="603.66666666666663" width="87.333333333333314" height="28"/>
+                                                <rect key="frame" x="270" y="580.33333333333337" width="103" height="28"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="28" id="DZE-Ex-hkf"/>
                                                 </constraints>
@@ -697,6 +693,7 @@
                                             <constraint firstItem="hn6-pI-50c" firstAttribute="top" secondItem="9v2-Ay-204" secondAttribute="bottom" constant="32" id="Rpf-FI-loP"/>
                                             <constraint firstItem="FpB-bN-XDq" firstAttribute="leading" secondItem="Ccg-wu-mHC" secondAttribute="leading" constant="20" id="UdX-xr-ttb"/>
                                             <constraint firstItem="pyd-XD-7Gc" firstAttribute="leading" secondItem="FpB-bN-XDq" secondAttribute="leading" id="ach-RW-78H"/>
+                                            <constraint firstAttribute="bottom" secondItem="lHw-6m-68D" secondAttribute="bottom" constant="16" id="dET-ZS-Mg8"/>
                                             <constraint firstAttribute="height" priority="250" constant="747" id="ewA-cH-1rZ"/>
                                             <constraint firstItem="pf8-z7-rET" firstAttribute="trailing" secondItem="9Cx-cb-x6K" secondAttribute="trailing" id="iSj-1i-tx0"/>
                                             <constraint firstItem="GcU-dT-A4V" firstAttribute="top" secondItem="Ccg-wu-mHC" secondAttribute="top" id="mgf-he-6Ci"/>
@@ -1334,28 +1331,31 @@
             <size key="intrinsicContentSize" width="53.666666666666664" height="34.333333333333336"/>
         </designable>
         <designable name="5JZ-3p-UmG">
-            <size key="intrinsicContentSize" width="70" height="32"/>
+            <size key="intrinsicContentSize" width="89.666666666666671" height="50.333333333333336"/>
+        </designable>
+        <designable name="6cz-aZ-WRa">
+            <size key="intrinsicContentSize" width="16" height="30"/>
         </designable>
         <designable name="9Cx-cb-x6K">
-            <size key="intrinsicContentSize" width="87.333333333333329" height="22"/>
+            <size key="intrinsicContentSize" width="103" height="50.333333333333336"/>
         </designable>
         <designable name="JfS-Y1-OHE">
             <size key="intrinsicContentSize" width="53.666666666666664" height="34.333333333333336"/>
         </designable>
         <designable name="PCT-uB-HO6">
-            <size key="intrinsicContentSize" width="56" height="32"/>
+            <size key="intrinsicContentSize" width="75" height="50.333333333333336"/>
         </designable>
         <designable name="Tfo-Ee-43X">
             <size key="intrinsicContentSize" width="53.666666666666664" height="34.333333333333336"/>
         </designable>
         <designable name="bPC-1x-PCY">
-            <size key="intrinsicContentSize" width="56" height="32"/>
+            <size key="intrinsicContentSize" width="75" height="50.333333333333336"/>
         </designable>
         <designable name="nzJ-Yb-Hjd">
-            <size key="intrinsicContentSize" width="75.333333333333329" height="18"/>
+            <size key="intrinsicContentSize" width="103" height="50.333333333333336"/>
         </designable>
         <designable name="pf8-z7-rET">
-            <size key="intrinsicContentSize" width="87.333333333333329" height="22"/>
+            <size key="intrinsicContentSize" width="103" height="50.333333333333336"/>
         </designable>
     </designables>
     <resources>

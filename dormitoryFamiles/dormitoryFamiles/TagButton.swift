@@ -25,6 +25,7 @@ class RoundButton: UIButton {
     private func setupButton() {
         self.layer.cornerRadius = self.bounds.height / 2
         self.layer.masksToBounds = true
+        self.setTitleColor(.red, for: .reserved)
     }
     
     private func setupConfiguration() {

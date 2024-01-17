@@ -40,6 +40,8 @@ class HomeViewController: UIViewController {
         stackViewBottomConstraint.isActive = true
         
         self.navigationController?.setNavigationBarHidden(true, animated: true)
+        
+        setTintAdjustmentModeForButtons(in: self.view)
         //        for family in UIFont.familyNames {
         //            print(family)
         //            for name in UIFont.fontNames(forFamilyName: family) {
@@ -49,14 +51,30 @@ class HomeViewController: UIViewController {
         
     }
     
+    
+    
+    //액션시트를 동작하였을때 버튼의 컬러가 변하지 않게 하는 함수
+    func setTintAdjustmentModeForButtons(in view: UIView) {
+        //받아온 뷰를 돌며 타입이 버튼이거나 버튼을 상속받은 엘리먼트들만
+        for subview in view.subviews {
+            if let button = subview as? UIButton {
+                button.tintAdjustmentMode = .normal
+            }
+            //버튼이 아니라면 그 내부를 또 탐색
+            setTintAdjustmentModeForButtons(in: subview)
+        }
+    }
+    
+    
+    
     func setDormitoryButton() {
         var configuration = UIButton.Configuration.plain()
         configuration.imagePadding = .init(4)
         dormitoryButton.configuration = configuration
+        dormitoryButton?.tintAdjustmentMode = .normal
     }
     
-    @IBAction func setDormitoryButtonTapped(_ sender: UIButton) {
-    }
+    
     
     @IBAction func menuButtonTapped(_ sender: RoundButton) {
         
@@ -64,34 +82,26 @@ class HomeViewController: UIViewController {
             $0?.backgroundColor = .secondary
             $0?.tintColor = .black
         }
-        
         sender.backgroundColor = .white
         sender.tintColor = .primary
     }
     
+    
+    
     @IBAction func dormitoryButtonTapped(_ sender: UIButton) {
-        
         let alert = UIAlertController(title: "", message: "기숙사 선택", preferredStyle: .actionSheet)
+        let dormitories = ["개성재", "양성재", "양진재"]
         
-        let gaesungjae = UIAlertAction(title: "개성재", style: .default, handler: {_ in
-            self.dormitoryButton.head2 = "개성재"
-        })
-        let yangsungjae = UIAlertAction(title: "양성재", style: .default, handler: {_ in
-            self.dormitoryButton.head2 = "양성재"
-        })
-        let yangjinjae = UIAlertAction(title: "양진재", style: .default, handler: {_ in
-            self.dormitoryButton.head2 = "양진재"
-        })
-        
-        
-        alert.addAction(gaesungjae)
-        alert.addAction(yangsungjae)
-        alert.addAction(yangjinjae)
-        
-        
+        for dormitory in dormitories {
+            let action = UIAlertAction(title: dormitory, style: .default) { _ in
+                self.dormitoryButton.head2 = dormitory
+            }
+            alert.addAction(action)
+        }
         present(alert, animated: true, completion: nil)
-        
     }
+
+    
     
     
     
