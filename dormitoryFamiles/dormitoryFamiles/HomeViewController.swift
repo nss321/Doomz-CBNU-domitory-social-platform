@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftSoup
 
 class HomeViewController: UIViewController {
     
@@ -23,7 +24,7 @@ class HomeViewController: UIViewController {
     
     @IBOutlet weak var lunchButton: RoundButton!
     
-    @IBOutlet weak var dinnerButton: RoundButton!
+    @IBOutlet weak var eveningButton: RoundButton!
     
     
     override func viewDidLoad() {
@@ -32,6 +33,7 @@ class HomeViewController: UIViewController {
         self.menuLabel.sizeToFit()
         self.menuLabel.lineSpacing(12)
         self.menuLabel.textAlignment = .center
+        setMealButton()
         
         setDormitoryButton()
         
@@ -48,7 +50,7 @@ class HomeViewController: UIViewController {
         //                print(name)
         //            }
         //        }
-        
+        fetchWebsite(for: "2024-01-08", time: .morning)
     }
     
     
@@ -67,6 +69,13 @@ class HomeViewController: UIViewController {
     
     
     
+    func setMealButton() {
+        morningButton.setTitle("아침", for: .normal)
+        lunchButton.setTitle("점심", for: .normal)
+        eveningButton.setTitle("저녁", for: .normal)
+    }
+    
+    
     func setDormitoryButton() {
         var configuration = UIButton.Configuration.plain()
         configuration.imagePadding = .init(4)
@@ -78,29 +87,35 @@ class HomeViewController: UIViewController {
     
     @IBAction func menuButtonTapped(_ sender: RoundButton) {
         
-        [morningButton, lunchButton, dinnerButton].forEach{
+        [morningButton, lunchButton, eveningButton].forEach{
             $0?.backgroundColor = .secondary
             $0?.tintColor = .black
         }
         sender.backgroundColor = .white
         sender.tintColor = .primary
+        
+        let mealTimeMapping = ["아침": "morning", "점심": "lunch", "저녁": "evening"]
+        if let title = sender.currentTitle, let mappedTitle = mealTimeMapping[title], let time = MealTime(rawValue: mappedTitle) {
+            print(time)
+            self.fetchWebsite(for: "2024-01-08", time: time)
+        }
     }
     
     
     
     @IBAction func dormitoryButtonTapped(_ sender: UIButton) {
         let alert = UIAlertController(title: "", message: "기숙사 선택", preferredStyle: .actionSheet)
-        let dormitories = ["개성재", "양성재", "양진재"]
+        let dormitories = MealTime.allCases
         
         for dormitory in dormitories {
-            let action = UIAlertAction(title: dormitory, style: .default) { _ in
-                self.dormitoryButton.head2 = dormitory
+            let action = UIAlertAction(title: dormitory.rawValue, style: .default) { _ in
+                self.dormitoryButton.head2 = dormitory.rawValue
             }
             alert.addAction(action)
         }
         present(alert, animated: true, completion: nil)
     }
-
+    
     
     
     
@@ -115,4 +130,42 @@ class HomeViewController: UIViewController {
      }
      */
     
+    
+    func fetchWebsite(for date: String, time: MealTime) {
+        let url = URL(string: "https://dorm.chungbuk.ac.kr/home/sub.php?menukey=20041&cur_day=\(date)&type=1")!
+        let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
+            if let error = error {
+                print("Error: \(error)")
+            } else if let data = data {
+                let html = String(data: data, encoding: .utf8)!
+                self.parseHTML(html: html, for: date, time: time)
+            }
+        }
+        task.resume()
+    }
+    
+    func parseHTML(html: String, for date: String, time: MealTime) {
+        let mealTimeString = time.rawValue
+        do {
+            let document = try SwiftSoup.parse(html)
+            if let element = try document.select("tr#\(date)").first() {
+                let menu = try element.select("td.\(mealTimeString)").first()?.html().replacingOccurrences(of: "<br>", with: "\n")
+                
+                DispatchQueue.main.async {
+                    self.menuLabel.text = menu
+                }
+            }
+        } catch Exception.Error(_, let message) {
+            print(message)
+        } catch {
+            print("error")
+        }
+    }
+
+}
+
+enum MealTime:String, CaseIterable {
+    case morning = "morning"
+    case lunch = "lunch"
+    case evening = "evening"
 }

@@ -178,7 +178,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pf8-z7-rET" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
-                                                <rect key="frame" x="270" y="86" width="103" height="28"/>
+                                                <rect key="frame" x="285.66666666666669" y="86" width="87.333333333333314" height="28"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="28" id="hza-8j-0gq"/>
                                                 </constraints>
@@ -371,7 +371,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nzJ-Yb-Hjd" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
-                                                        <rect key="frame" x="16" y="68.666666666666742" width="103" height="28"/>
+                                                        <rect key="frame" x="16" y="68.666666666666742" width="75.333333333333329" height="28"/>
                                                         <color key="backgroundColor" name="primaryMid"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="28" id="iWk-PQ-m4c"/>
@@ -655,7 +655,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Cx-cb-x6K" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
-                                                <rect key="frame" x="270" y="580.33333333333337" width="103" height="28"/>
+                                                <rect key="frame" x="285.66666666666669" y="580.33333333333337" width="87.333333333333314" height="28"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="28" id="DZE-Ex-hkf"/>
                                                 </constraints>
@@ -735,8 +735,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="htC-St-4Ca"/>
                     <connections>
-                        <outlet property="dinnerButton" destination="Tfo-Ee-43X" id="X1H-h5-gzz"/>
                         <outlet property="dormitoryButton" destination="UMG-c4-L00" id="ZQJ-us-Weh"/>
+                        <outlet property="eveningButton" destination="Tfo-Ee-43X" id="X1H-h5-gzz"/>
                         <outlet property="lineView" destination="9v2-Ay-204" id="acQ-Nm-ENV"/>
                         <outlet property="lunchButton" destination="0c7-Sa-8eC" id="zEH-6R-dC0"/>
                         <outlet property="menuLabel" destination="srn-UG-enS" id="ike-PO-hcB"/>
@@ -1331,31 +1331,28 @@
             <size key="intrinsicContentSize" width="53.666666666666664" height="34.333333333333336"/>
         </designable>
         <designable name="5JZ-3p-UmG">
-            <size key="intrinsicContentSize" width="89.666666666666671" height="50.333333333333336"/>
-        </designable>
-        <designable name="6cz-aZ-WRa">
-            <size key="intrinsicContentSize" width="16" height="30"/>
+            <size key="intrinsicContentSize" width="70" height="32"/>
         </designable>
         <designable name="9Cx-cb-x6K">
-            <size key="intrinsicContentSize" width="103" height="50.333333333333336"/>
+            <size key="intrinsicContentSize" width="87.333333333333329" height="22"/>
         </designable>
         <designable name="JfS-Y1-OHE">
             <size key="intrinsicContentSize" width="53.666666666666664" height="34.333333333333336"/>
         </designable>
         <designable name="PCT-uB-HO6">
-            <size key="intrinsicContentSize" width="75" height="50.333333333333336"/>
+            <size key="intrinsicContentSize" width="56" height="32"/>
         </designable>
         <designable name="Tfo-Ee-43X">
             <size key="intrinsicContentSize" width="53.666666666666664" height="34.333333333333336"/>
         </designable>
         <designable name="bPC-1x-PCY">
-            <size key="intrinsicContentSize" width="75" height="50.333333333333336"/>
+            <size key="intrinsicContentSize" width="56" height="32"/>
         </designable>
         <designable name="nzJ-Yb-Hjd">
-            <size key="intrinsicContentSize" width="103" height="50.333333333333336"/>
+            <size key="intrinsicContentSize" width="75.333333333333329" height="18"/>
         </designable>
         <designable name="pf8-z7-rET">
-            <size key="intrinsicContentSize" width="103" height="50.333333333333336"/>
+            <size key="intrinsicContentSize" width="87.333333333333329" height="22"/>
         </designable>
     </designables>
     <resources>
