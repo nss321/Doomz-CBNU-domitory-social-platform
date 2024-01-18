@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="peN-Im-ACT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2Vj-5o-nfA">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
@@ -14,6 +14,9 @@
         <array key="PretendardGOVVariable.ttf">
             <string>PretendardGOVVariable-Bold</string>
             <string>PretendardGOVVariable-Regular</string>
+        </array>
+        <array key="PretendardVariable.ttf">
+            <string>PretendardVariable-Black</string>
         </array>
     </customFonts>
     <scenes>
@@ -102,6 +105,113 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jEU-pt-9Cz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2036" y="-1526"/>
+        </scene>
+        <!--Login View Controller-->
+        <scene sceneID="ogG-vW-ybz">
+            <objects>
+                <viewController id="2Vj-5o-nfA" customClass="loginViewController" customModule="dormitoryFamiles" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Zbw-2F-FWx">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uxh-5r-qUa">
+                                <rect key="frame" x="0.0" y="59" width="393" height="699"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="i2k-J9-0u1">
+                                <rect key="frame" x="41.333333333333343" y="335.66666666666669" width="310.66666666666663" height="180.66666666666669"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="2Mq-xg-zeA">
+                                        <rect key="frame" x="32.999999999999986" y="0.0" width="244.66666666666663" height="136"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launchScreenLogo" translatesAutoresizingMaskIntoConstraints="NO" id="cQd-3T-lEe">
+                                                <rect key="frame" x="16.333333333333343" y="0.0" width="212" height="80"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="212" id="fa2-sj-W4t"/>
+                                                    <constraint firstAttribute="height" constant="80" id="gx4-X2-toX"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="기숙사에 대한 정보를 담았어요!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ftZ-KC-7jq">
+                                                <rect key="frame" x="0.0" y="112" width="244.66666666666666" height="24"/>
+                                                <fontDescription key="fontDescription" name="PretendardVariable-Black" family="Pretendard Variable" pointSize="20"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="룸메 매칭을 통해 룸메를 만나고 기숙사의 관한 모든 정보를 담고 함께 공유해요!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6ZG-gn-GXP">
+                                        <rect key="frame" x="0.0" y="140" width="310.66666666666669" height="40.666666666666657"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" name="gray4"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f7A-Tr-9xV" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
+                                <rect key="frame" x="20" y="758" width="353" height="52"/>
+                                <color key="backgroundColor" name="kakaoYellow"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="52" id="5J2-GV-xBC"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" name="kakaoYellow"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="kakaoLoginbuttonTapped:" destination="2Vj-5o-nfA" eventType="touchUpInside" id="iLR-Fw-lFe"/>
+                                </connections>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="bsW-0M-aib">
+                                <rect key="frame" x="119" y="772" width="155" height="24"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="kakao" translatesAutoresizingMaskIntoConstraints="NO" id="GQ6-0A-iRO">
+                                        <rect key="frame" x="0.0" y="0.0" width="25" height="24"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="카카오로 시작하기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6g3-Ie-JaU">
+                                        <rect key="frame" x="33" y="2" width="122" height="20.333333333333332"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="title5" value="카카오로 시작하기"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="24" id="ghb-Y0-Nmk"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="bYT-gq-kS8"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="bYT-gq-kS8" firstAttribute="trailing" secondItem="f7A-Tr-9xV" secondAttribute="trailing" constant="20" id="Qwx-qs-LCm"/>
+                            <constraint firstItem="bYT-gq-kS8" firstAttribute="bottom" secondItem="f7A-Tr-9xV" secondAttribute="bottom" constant="8" id="RJC-FV-lKZ"/>
+                            <constraint firstItem="f7A-Tr-9xV" firstAttribute="top" secondItem="Uxh-5r-qUa" secondAttribute="bottom" id="SlV-Sz-NOk"/>
+                            <constraint firstItem="Uxh-5r-qUa" firstAttribute="top" secondItem="bYT-gq-kS8" secondAttribute="top" id="WWx-cL-Jrb"/>
+                            <constraint firstItem="f7A-Tr-9xV" firstAttribute="leading" secondItem="bYT-gq-kS8" secondAttribute="leading" constant="20" id="WjU-Al-Hux"/>
+                            <constraint firstItem="i2k-J9-0u1" firstAttribute="centerX" secondItem="Uxh-5r-qUa" secondAttribute="centerX" id="auE-hA-8Ah"/>
+                            <constraint firstItem="bYT-gq-kS8" firstAttribute="trailing" secondItem="Uxh-5r-qUa" secondAttribute="trailing" id="cY9-RE-50E"/>
+                            <constraint firstItem="Uxh-5r-qUa" firstAttribute="leading" secondItem="bYT-gq-kS8" secondAttribute="leading" id="ezc-Yu-oJe"/>
+                            <constraint firstItem="bsW-0M-aib" firstAttribute="centerY" secondItem="f7A-Tr-9xV" secondAttribute="centerY" id="otN-Vu-ubI"/>
+                            <constraint firstItem="bsW-0M-aib" firstAttribute="centerX" secondItem="f7A-Tr-9xV" secondAttribute="centerX" id="sub-dQ-4hz"/>
+                            <constraint firstItem="i2k-J9-0u1" firstAttribute="centerY" secondItem="Zbw-2F-FWx" secondAttribute="centerY" id="vB0-lj-DqT"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="descriptionLabel" destination="6ZG-gn-GXP" id="ltD-ds-bNk"/>
+                        <outlet property="titleLabel" destination="ftZ-KC-7jq" id="bHd-Y1-LZ9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="U5y-OR-lJd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1710.6870229007634" y="-2398.5915492957747"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="i4n-6S-RAS">
@@ -301,7 +411,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="운영시간 11:00 ~ 14:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Pi-hH-6dg">
-                                                        <rect key="frame" x="44" y="173.33333333333331" width="139.33333333333334" height="15"/>
+                                                        <rect key="frame" x="44" y="170.33333333333331" width="139.33333333333334" height="15"/>
                                                         <color key="tintColor" name="gray4"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <color key="textColor" name="gray4"/>
@@ -311,7 +421,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="총 칼로리 890kcal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Mr-bc-H7S">
-                                                        <rect key="frame" x="220" y="173.33333333333331" width="108" height="15"/>
+                                                        <rect key="frame" x="220" y="170.33333333333331" width="108" height="15"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <color key="textColor" name="gray4"/>
                                                         <nil key="highlightedColor"/>
@@ -320,7 +430,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="homeImageClock" translatesAutoresizingMaskIntoConstraints="NO" id="D38-pG-9M4">
-                                                        <rect key="frame" x="25" y="173.33333333333331" width="15" height="15"/>
+                                                        <rect key="frame" x="25" y="170.33333333333331" width="15" height="15"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="15" id="TIh-qn-Uhl"/>
                                                             <constraint firstAttribute="width" constant="15" id="bPW-Tm-OMb"/>
@@ -341,7 +451,7 @@
                                                     <constraint firstAttribute="height" priority="250" constant="300" id="NGk-YV-3MW"/>
                                                     <constraint firstAttribute="trailing" secondItem="2Mr-bc-H7S" secondAttribute="trailing" constant="25" id="USc-EF-GpM"/>
                                                     <constraint firstItem="D38-pG-9M4" firstAttribute="leading" secondItem="9v2-Ay-204" secondAttribute="leading" constant="25" id="aoQ-8r-P71"/>
-                                                    <constraint firstItem="D38-pG-9M4" firstAttribute="top" secondItem="srn-UG-enS" secondAttribute="bottom" constant="15" id="eMU-8b-0Aa"/>
+                                                    <constraint firstItem="D38-pG-9M4" firstAttribute="top" secondItem="srn-UG-enS" secondAttribute="bottom" constant="12" id="eMU-8b-0Aa"/>
                                                     <constraint firstItem="D38-pG-9M4" firstAttribute="bottom" secondItem="1Pi-hH-6dg" secondAttribute="bottom" id="lj7-vA-a0R"/>
                                                     <constraint firstItem="6cz-aZ-WRa" firstAttribute="leading" secondItem="9v2-Ay-204" secondAttribute="leading" constant="16" id="pBm-sy-SBG"/>
                                                     <constraint firstItem="2Mr-bc-H7S" firstAttribute="top" secondItem="D38-pG-9M4" secondAttribute="top" id="tUb-kt-fw4"/>
@@ -1351,6 +1461,9 @@
         <designable name="bPC-1x-PCY">
             <size key="intrinsicContentSize" width="63.333333333333336" height="47"/>
         </designable>
+        <designable name="f7A-Tr-9xV">
+            <size key="intrinsicContentSize" width="24" height="14"/>
+        </designable>
         <designable name="nzJ-Yb-Hjd">
             <size key="intrinsicContentSize" width="82.666666666666671" height="47"/>
         </designable>
@@ -1365,6 +1478,8 @@
         <image name="homeImageClock" width="16" height="15"/>
         <image name="homeImageLogo" width="43" height="32"/>
         <image name="homeImageMateMatching" width="682.66668701171875" height="682.66668701171875"/>
+        <image name="kakao" width="25" height="26"/>
+        <image name="launchScreenLogo" width="213" height="58"/>
         <image name="magnifyingglass" catalog="system" width="128" height="117"/>
         <image name="tabbarImageHome" width="24" height="23.790000915527344"/>
         <image name="tabbarItemBulletinBoard" width="24" height="24"/>
@@ -1379,6 +1494,9 @@
         </namedColor>
         <namedColor name="gray4">
             <color red="0.61960784313725492" green="0.62352941176470589" blue="0.63137254901960782" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="kakaoYellow">
+            <color red="0.97647058823529409" green="0.8784313725490196" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="primary">
             <color red="0.90588235294117647" green="0.0" blue="0.31372549019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
