@@ -26,6 +26,38 @@ class HomeViewController: UIViewController {
     
     @IBOutlet weak var eveningButton: RoundButton!
     
+    var todayString: String {
+        get {
+            let dateFormmatter = DateFormatter()
+            dateFormmatter.dateFormat = "yyyy-MM-dd"
+            return dateFormmatter.string(from: Date())
+        }
+    }
+    
+    lazy var actionSheet: UIAlertController = {
+            let alert = UIAlertController(title: "", message: "기숙사 선택", preferredStyle: .actionSheet)
+            let dormitories = ["개성재", "양성재", "양진재"]
+            for dormitory in dormitories {
+                let action = UIAlertAction(title: dormitory, style: .default) { [self] _ in
+                    //액션시트의 버튼이 눌렸을때
+                    self.dormitoryButton.head2 = dormitory
+                    self.dormitoryButton.setTitle(dormitory, for: .normal)
+                    print(dormitoryButton.currentTitle)
+                    fetchWebsite(time: .morning)
+                    [morningButton, lunchButton, eveningButton].forEach{
+                        $0?.backgroundColor = .secondary
+                        $0?.tintColor = .black
+                    }
+                    morningButton.backgroundColor = .white
+                    morningButton.tintColor = .primary
+                }
+                alert.addAction(action)
+            }
+            return alert
+        }()
+    
+    let site = ["개성재": "https://dorm.chungbuk.ac.kr/home/sub.php?menukey=20041&type=1", "양성재":"https://dorm.chungbuk.ac.kr/home/sub.php?menukey=20041&type=2", "양진재":"https://dorm.chungbuk.ac.kr/home/sub.php?menukey=20041&type=3"]
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,10 +65,9 @@ class HomeViewController: UIViewController {
         self.menuLabel.sizeToFit()
         self.menuLabel.lineSpacing(12)
         self.menuLabel.textAlignment = .center
-        setMealButton()
+        setLabelAndButton()
         
         setDormitoryButton()
-        
         
         let stackViewBottomConstraint = timeLabel.bottomAnchor.constraint(equalTo: lineView.bottomAnchor, constant: -16)
         stackViewBottomConstraint.isActive = true
@@ -50,7 +81,8 @@ class HomeViewController: UIViewController {
         //                print(name)
         //            }
         //        }
-        fetchWebsite(for: "2024-01-08", time: .morning)
+        fetchWebsite(time: .morning)
+        
     }
     
     
@@ -69,10 +101,11 @@ class HomeViewController: UIViewController {
     
     
     
-    func setMealButton() {
+    func setLabelAndButton() {
         morningButton.setTitle("아침", for: .normal)
         lunchButton.setTitle("점심", for: .normal)
         eveningButton.setTitle("저녁", for: .normal)
+        dormitoryButton.setTitle("양진재", for: .normal)
     }
     
     
@@ -96,26 +129,15 @@ class HomeViewController: UIViewController {
         
         let mealTimeMapping = ["아침": "morning", "점심": "lunch", "저녁": "evening"]
         if let title = sender.currentTitle, let mappedTitle = mealTimeMapping[title], let time = MealTime(rawValue: mappedTitle) {
-            print(time)
-            self.fetchWebsite(for: "2024-01-08", time: time)
+            self.fetchWebsite(time: time)
         }
     }
     
     
     
     @IBAction func dormitoryButtonTapped(_ sender: UIButton) {
-        let alert = UIAlertController(title: "", message: "기숙사 선택", preferredStyle: .actionSheet)
-        let dormitories = MealTime.allCases
-        
-        for dormitory in dormitories {
-            let action = UIAlertAction(title: dormitory.rawValue, style: .default) { _ in
-                self.dormitoryButton.head2 = dormitory.rawValue
-            }
-            alert.addAction(action)
-        }
-        present(alert, animated: true, completion: nil)
+        present(actionSheet, animated: true, completion: nil)
     }
-    
     
     
     
@@ -131,14 +153,14 @@ class HomeViewController: UIViewController {
      */
     
     
-    func fetchWebsite(for date: String, time: MealTime) {
-        let url = URL(string: "https://dorm.chungbuk.ac.kr/home/sub.php?menukey=20041&cur_day=\(date)&type=1")!
+    func fetchWebsite(time: MealTime) {
+        guard let url = URL(string: site[dormitoryButton.currentTitle!]!) else {return}
         let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
             if let error = error {
                 print("Error: \(error)")
             } else if let data = data {
                 let html = String(data: data, encoding: .utf8)!
-                self.parseHTML(html: html, for: date, time: time)
+                self.parseHTML(html: html, for: self.todayString, time: time)
             }
         }
         task.resume()
