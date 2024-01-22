@@ -27,7 +27,7 @@ class loginViewController: UIViewController {
         descriptionLabel.font = UIFont.body2
     }
     
-    @IBAction func kakaoLoginbuttonTapped(_ sender: UIButton) {
+    @IBAction func kakaoLoginbuttonTapped(_ sender: RoundButton) {
         print("로그인 버튼이 눌렸다")
     }
     

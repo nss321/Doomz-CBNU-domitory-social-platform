@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2Vj-5o-nfA">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
@@ -20,20 +20,176 @@
         </array>
     </customFonts>
     <scenes>
-        <!--Meal Menu View Controller-->
+        <!--Service Permisson View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="MealMenuViewController" customModule="dormitoryFamiles" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ServicePermissonViewController" customModule="dormitoryFamiles" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="서비스 권한 접근 안내" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d5x-Eq-VIO">
+                                <rect key="frame" x="30" y="99" width="145.66666666666666" height="20.333333333333329"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="head2" value="서비스 권한 접근 안내"/>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="원활한 서비스 사용을 위해 다음 권한이 필요합니다." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c5b-Jz-eXz">
+                                <rect key="frame" x="30" y="124.33333333333333" width="339.66666666666669" height="20.333333333333329"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="body2" value="원활한 서비스 사용을 위해 다음 권한이 필요합니다."/>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="26" translatesAutoresizingMaskIntoConstraints="NO" id="9pw-co-JkY">
+                                <rect key="frame" x="40" y="194.66666666666666" width="260.66666666666669" height="69.999999999999972"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8YI-Dj-a5U" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="70" id="31P-3M-0SB"/>
+                                            <constraint firstAttribute="height" constant="70" id="aU8-Rl-Abz"/>
+                                        </constraints>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" image="serviceCamera"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" name="gray1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="1.5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="Y20-QV-LXK">
+                                        <rect key="frame" x="95.999999999999986" y="11" width="164.66666666666663" height="48"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="사진/카메라" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Eh-3F-Gvx">
+                                                <rect key="frame" x="0.0" y="0.0" width="78.333333333333329" height="24"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="title2" value="사진/카메라"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="사진 업로드 및 저장 기능" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fc3-Fc-QP4">
+                                                <rect key="frame" x="0.0" y="24" width="164.66666666666666" height="24"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="body2" value="사진 업로드 및 저장 기능"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="48" id="LbX-UP-rBV"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="26" translatesAutoresizingMaskIntoConstraints="NO" id="h8W-ex-rvu">
+                                <rect key="frame" x="40" y="284.66666666666669" width="294.33333333333331" height="70"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TvH-Er-0RP" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="70" id="ev7-hP-XcR"/>
+                                            <constraint firstAttribute="height" constant="70" id="n6e-iX-c9K"/>
+                                        </constraints>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="" image="serviceAlrm"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="1.5"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" name="gray1"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="CTX-Kc-xJI">
+                                        <rect key="frame" x="96.000000000000014" y="11" width="198.33333333333337" height="48"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="알림" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yzf-W3-SCe">
+                                                <rect key="frame" x="0.0" y="0.0" width="29.666666666666668" height="24"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="title2" value="알림"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="푸시 알림 및 메세지 수신 안내" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lmt-mF-eZy">
+                                                <rect key="frame" x="0.0" y="24" width="198.33333333333334" height="24"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="body2" value="푸시 알림 및 메세지 수신 안내"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="48" id="h4i-gf-cKQ"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i0r-bW-D14" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
+                                <rect key="frame" x="20" y="758" width="353" height="52"/>
+                                <color key="backgroundColor" name="primaryMid"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="52" id="vQy-Z1-08x"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" name="primaryMid"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="title5" value="동의하고 시작하기"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="kakaoLoginbuttonTapped:" destination="2Vj-5o-nfA" eventType="touchUpInside" id="mb4-WV-xs3"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="c5b-Jz-eXz" firstAttribute="top" secondItem="d5x-Eq-VIO" secondAttribute="bottom" constant="5" id="Ap5-wg-Jz7"/>
+                            <constraint firstItem="9pw-co-JkY" firstAttribute="leading" secondItem="d5x-Eq-VIO" secondAttribute="leading" constant="10" id="BXC-86-zji"/>
+                            <constraint firstItem="9pw-co-JkY" firstAttribute="top" secondItem="c5b-Jz-eXz" secondAttribute="bottom" constant="49.999999999999943" id="DQV-l6-iz5"/>
+                            <constraint firstItem="c5b-Jz-eXz" firstAttribute="leading" secondItem="d5x-Eq-VIO" secondAttribute="leading" id="EaZ-K4-ufj"/>
+                            <constraint firstItem="d5x-Eq-VIO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="OXd-dI-efq"/>
+                            <constraint firstItem="h8W-ex-rvu" firstAttribute="leading" secondItem="d5x-Eq-VIO" secondAttribute="leading" constant="10" id="U0z-Cb-MKd"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="i0r-bW-D14" secondAttribute="trailing" constant="20" id="Uiy-kd-4gJ"/>
+                            <constraint firstItem="i0r-bW-D14" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="XY9-6i-pE8"/>
+                            <constraint firstItem="d5x-Eq-VIO" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="40" id="lzS-Ff-dVT"/>
+                            <constraint firstItem="h8W-ex-rvu" firstAttribute="top" secondItem="9pw-co-JkY" secondAttribute="bottom" constant="20" id="xHH-dS-J1j"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="i0r-bW-D14" secondAttribute="bottom" constant="8" id="zvi-9u-7r0"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="alrmDescriptionLabel" destination="lmt-mF-eZy" id="eHh-9n-JfE"/>
+                        <outlet property="cameraDescriptionLabel" destination="Fc3-Fc-QP4" id="pb3-h0-BzK"/>
+                        <outlet property="descriptionLabel" destination="c5b-Jz-eXz" id="VmC-bS-5bC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="102" y="4"/>
+            <point key="canvasLocation" x="179" y="-87"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="kBO-GE-U1n">
@@ -211,7 +367,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U5y-OR-lJd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1710.6870229007634" y="-2398.5915492957747"/>
+            <point key="canvasLocation" x="-769" y="-87"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="i4n-6S-RAS">
@@ -269,6 +425,9 @@
                                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                         <state key="normal" title="Button" image="homeImageAlarm"/>
+                                                        <connections>
+                                                            <segue destination="Yhr-Mm-t9M" kind="show" id="fXI-Cm-U6u"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <constraints>
@@ -857,60 +1016,23 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eAO-v6-dmc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2890.8396946564885" y="-2099.2957746478874"/>
+            <point key="canvasLocation" x="2792" y="-2320"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="EHq-MC-oY7">
+        <!--알림-->
+        <scene sceneID="P01-2V-MbX">
             <objects>
-                <viewController id="HG0-E4-zV8" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="0EA-oS-zcc">
+                <viewController modalPresentationStyle="fullScreen" id="Yhr-Mm-t9M" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="p9t-2u-D7K">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YGI-sQ-84x">
-                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vny-NI-nlZ">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="759"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" priority="250" constant="747" id="hfe-J6-AFA"/>
-                                        </constraints>
-                                    </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1xQ-y9-v7e">
-                                        <rect key="frame" x="175.66666666666666" y="1121" width="42" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="1xQ-y9-v7e" firstAttribute="top" secondItem="YGI-sQ-84x" secondAttribute="top" constant="1121" id="3h9-qw-RD0"/>
-                                    <constraint firstItem="vny-NI-nlZ" firstAttribute="trailing" secondItem="F3x-bZ-G6B" secondAttribute="trailing" id="5tV-Rg-tJk"/>
-                                    <constraint firstItem="vny-NI-nlZ" firstAttribute="width" secondItem="hmT-rg-KAs" secondAttribute="width" id="Km1-iW-CXo"/>
-                                    <constraint firstItem="vny-NI-nlZ" firstAttribute="leading" secondItem="F3x-bZ-G6B" secondAttribute="leading" id="RVy-7A-vbF"/>
-                                    <constraint firstItem="vny-NI-nlZ" firstAttribute="top" secondItem="F3x-bZ-G6B" secondAttribute="top" id="Zv6-HT-fX3"/>
-                                    <constraint firstItem="1xQ-y9-v7e" firstAttribute="centerX" secondItem="vny-NI-nlZ" secondAttribute="centerX" id="gmz-dK-5sX"/>
-                                    <constraint firstItem="vny-NI-nlZ" firstAttribute="bottom" secondItem="F3x-bZ-G6B" secondAttribute="bottom" id="m6d-zj-eQv"/>
-                                    <constraint firstAttribute="bottom" secondItem="1xQ-y9-v7e" secondAttribute="bottom" constant="-383" id="rBB-2q-rby"/>
-                                </constraints>
-                                <viewLayoutGuide key="contentLayoutGuide" id="F3x-bZ-G6B"/>
-                                <viewLayoutGuide key="frameLayoutGuide" id="hmT-rg-KAs"/>
-                            </scrollView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="rAr-uM-AAh"/>
+                        <viewLayoutGuide key="safeArea" id="ito-m7-Is1"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="YGI-sQ-84x" firstAttribute="top" secondItem="rAr-uM-AAh" secondAttribute="top" id="Ibf-rZ-1Jd"/>
-                            <constraint firstItem="YGI-sQ-84x" firstAttribute="trailing" secondItem="rAr-uM-AAh" secondAttribute="trailing" id="S7N-yW-b4A"/>
-                            <constraint firstItem="rAr-uM-AAh" firstAttribute="bottom" secondItem="YGI-sQ-84x" secondAttribute="bottom" id="zV6-6T-Aq5"/>
-                            <constraint firstItem="YGI-sQ-84x" firstAttribute="leading" secondItem="rAr-uM-AAh" secondAttribute="leading" id="zZi-lf-ER7"/>
-                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="알림" id="Jsn-fL-PWf"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="zMo-vl-ymd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="saL-ef-jpE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3653" y="-2278"/>
+            <point key="canvasLocation" x="3649" y="-2320"/>
         </scene>
         <!--게시판-->
         <scene sceneID="T4u-Z0-FUX">
@@ -1446,6 +1568,9 @@
         <designable name="6cz-aZ-WRa">
             <size key="intrinsicContentSize" width="16" height="30"/>
         </designable>
+        <designable name="8YI-Dj-a5U">
+            <size key="intrinsicContentSize" width="44" height="54"/>
+        </designable>
         <designable name="9Cx-cb-x6K">
             <size key="intrinsicContentSize" width="82.666666666666671" height="47"/>
         </designable>
@@ -1458,11 +1583,17 @@
         <designable name="Tfo-Ee-43X">
             <size key="intrinsicContentSize" width="51.333333333333336" height="33.333333333333336"/>
         </designable>
+        <designable name="TvH-Er-0RP">
+            <size key="intrinsicContentSize" width="37" height="55"/>
+        </designable>
         <designable name="bPC-1x-PCY">
             <size key="intrinsicContentSize" width="63.333333333333336" height="47"/>
         </designable>
         <designable name="f7A-Tr-9xV">
             <size key="intrinsicContentSize" width="24" height="14"/>
+        </designable>
+        <designable name="i0r-bW-D14">
+            <size key="intrinsicContentSize" width="135.66666666666666" height="33.333333333333336"/>
         </designable>
         <designable name="nzJ-Yb-Hjd">
             <size key="intrinsicContentSize" width="82.666666666666671" height="47"/>
@@ -1481,6 +1612,8 @@
         <image name="kakao" width="25" height="26"/>
         <image name="launchScreenLogo" width="213" height="58"/>
         <image name="magnifyingglass" catalog="system" width="128" height="117"/>
+        <image name="serviceAlrm" width="21" height="25"/>
+        <image name="serviceCamera" width="28" height="24"/>
         <image name="tabbarImageHome" width="24" height="23.790000915527344"/>
         <image name="tabbarItemBulletinBoard" width="24" height="24"/>
         <image name="tabbarItemChatting" width="24" height="20.579999923706055"/>
@@ -1489,6 +1622,9 @@
         <namedColor name="background">
             <color red="1" green="0.99215686274509807" blue="0.99215686274509807" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <namedColor name="gray1">
+            <color red="0.89411764705882357" green="0.89803921568627454" blue="0.90588235294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="gray3">
             <color red="0.74509803921568629" green="0.74509803921568629" blue="0.74509803921568629" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
@@ -1496,7 +1632,7 @@
             <color red="0.61960784313725492" green="0.62352941176470589" blue="0.63137254901960782" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="kakaoYellow">
-            <color red="0.97647058823529409" green="0.8784313725490196" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.97600001096725464" green="0.87800002098083496" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="primary">
             <color red="0.90588235294117647" green="0.0" blue="0.31372549019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

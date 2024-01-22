@@ -33,7 +33,16 @@ class RoundButton: UIButton {
         configuration.contentInsets = .init(top: 15, leading: 8, bottom: 15, trailing: 8)
         self.configuration = configuration
     }
-   
+    
+    override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
+        let hitView = super.hitTest(point, with: event)
+        
+        if hitView == self.titleLabel {
+            return self
+        }
+        
+        return hitView
+    }
 }
 
 
@@ -66,5 +75,4 @@ class TagButton: RoundButton {
     func changeOrangeColor() {
         self.backgroundColor = .black
     }
-
 }
