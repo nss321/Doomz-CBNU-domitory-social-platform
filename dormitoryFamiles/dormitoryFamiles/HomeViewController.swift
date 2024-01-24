@@ -18,7 +18,7 @@ class HomeViewController: UIViewController {
     
     @IBOutlet weak var todayMenuLabel: UILabel!
     
-    @IBOutlet weak var dormitoryButton: UIButton!
+    @IBOutlet weak var dormitoryButton: DormitoryButton!
     
     @IBOutlet weak var morningButton: RoundButton!
     
@@ -83,6 +83,8 @@ class HomeViewController: UIViewController {
         //        }
         fetchWebsite(time: .morning)
         
+        dormitoryButton.setupActionSheet(dormitories: ["개성재", "양성재", "양진재"], site: site)
+        
     }
     
     
@@ -135,8 +137,10 @@ class HomeViewController: UIViewController {
     
     
     
-    @IBAction func dormitoryButtonTapped(_ sender: UIButton) {
-        present(actionSheet, animated: true, completion: nil)
+    @IBAction func dormitoryButtonTapped(_ sender: DormitoryButton) {
+        if let actionSheet = sender.actionSheet {
+                    present(actionSheet, animated: true, completion: nil)
+                }
     }
     
     

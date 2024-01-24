@@ -20,6 +20,9 @@
 		DB5ACD622AA714260054CA15 /* SchoolWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5ACD612AA714260054CA15 /* SchoolWebViewController.swift */; };
 		DB61AA342B4C1EA70040418B /* registerPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB61AA332B4C1EA70040418B /* registerPostViewController.swift */; };
 		DB7EF2772B5E9CB20062FAB5 /* ServicePermissonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7EF2762B5E9CB20062FAB5 /* ServicePermissonViewController.swift */; };
+		DB7EF2792B5EA4B00062FAB5 /* AlrmElementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7EF2782B5EA4B00062FAB5 /* AlrmElementView.swift */; };
+		DB7EF27B2B5EA6C60062FAB5 /* AlramViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7EF27A2B5EA6C60062FAB5 /* AlramViewController.swift */; };
+		DB7EF27D2B5EAC790062FAB5 /* ChoiceDormitoryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7EF27C2B5EAC790062FAB5 /* ChoiceDormitoryButton.swift */; };
 		DB81D0002B56E723005EF497 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB81CFFF2B56E723005EF497 /* UIColorExtension.swift */; };
 		DBB345F22B42BFD100E70380 /* bulletinBoardMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB345F12B42BFD100E70380 /* bulletinBoardMainViewController.swift */; };
 		DBB345FB2B42C28B00E70380 /* BulletinBoardMainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB345F92B42C28B00E70380 /* BulletinBoardMainTableViewCell.swift */; };
@@ -58,6 +61,9 @@
 		DB5ACD612AA714260054CA15 /* SchoolWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolWebViewController.swift; sourceTree = "<group>"; };
 		DB61AA332B4C1EA70040418B /* registerPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = registerPostViewController.swift; sourceTree = "<group>"; };
 		DB7EF2762B5E9CB20062FAB5 /* ServicePermissonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicePermissonViewController.swift; sourceTree = "<group>"; };
+		DB7EF2782B5EA4B00062FAB5 /* AlrmElementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlrmElementView.swift; sourceTree = "<group>"; };
+		DB7EF27A2B5EA6C60062FAB5 /* AlramViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlramViewController.swift; sourceTree = "<group>"; };
+		DB7EF27C2B5EAC790062FAB5 /* ChoiceDormitoryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceDormitoryButton.swift; sourceTree = "<group>"; };
 		DB81CFFF2B56E723005EF497 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		DBB345F12B42BFD100E70380 /* bulletinBoardMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bulletinBoardMainViewController.swift; sourceTree = "<group>"; };
 		DBB345F92B42C28B00E70380 /* BulletinBoardMainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulletinBoardMainTableViewCell.swift; sourceTree = "<group>"; };
@@ -173,6 +179,9 @@
 				DB81CFFF2B56E723005EF497 /* UIColorExtension.swift */,
 				DBCE10E02B595506008C3367 /* loginViewController.swift */,
 				DB7EF2762B5E9CB20062FAB5 /* ServicePermissonViewController.swift */,
+				DB7EF2782B5EA4B00062FAB5 /* AlrmElementView.swift */,
+				DB7EF27A2B5EA6C60062FAB5 /* AlramViewController.swift */,
+				DB7EF27C2B5EAC790062FAB5 /* ChoiceDormitoryButton.swift */,
 			);
 			path = dormitoryFamiles;
 			sourceTree = "<group>";
@@ -307,12 +316,15 @@
 				DBCE10E12B595506008C3367 /* loginViewController.swift in Sources */,
 				DB81D0002B56E723005EF497 /* UIColorExtension.swift in Sources */,
 				DBB345FB2B42C28B00E70380 /* BulletinBoardMainTableViewCell.swift in Sources */,
+				DB7EF27B2B5EA6C60062FAB5 /* AlramViewController.swift in Sources */,
 				DB5ACD602AA70D190054CA15 /* ExtenstionColor.swift in Sources */,
+				DB7EF2792B5EA4B00062FAB5 /* AlrmElementView.swift in Sources */,
 				DB61AA342B4C1EA70040418B /* registerPostViewController.swift in Sources */,
 				DB20E38E2B53D75F000D12A7 /* extensionStroyboard.swift in Sources */,
 				DB2B7BCD2B457D2500C1847D /* BulletinBoardDetailViewContorllerViewController.swift in Sources */,
 				DB2B7BCB2B45727B00C1847D /* TagButton.swift in Sources */,
 				DBC54C432B568B350071164C /* UIFontExtension.swift in Sources */,
+				DB7EF27D2B5EAC790062FAB5 /* ChoiceDormitoryButton.swift in Sources */,
 				DBF466FF2AA5F4E4009FF3EB /* MealMenuViewController.swift in Sources */,
 				DB1A3C302B43A7FD009DC005 /* searchViewController.swift in Sources */,
 				DB20E38C2B53C2BD000D12A7 /* HomeViewController.swift in Sources */,
