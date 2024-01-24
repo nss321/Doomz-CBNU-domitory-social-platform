@@ -16,6 +16,7 @@
 		DB2B7BCB2B45727B00C1847D /* TagButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2B7BCA2B45727B00C1847D /* TagButton.swift */; };
 		DB2B7BCD2B457D2500C1847D /* BulletinBoardDetailViewContorllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2B7BCC2B457D2500C1847D /* BulletinBoardDetailViewContorllerViewController.swift */; };
 		DB2B7BCF2B457F7200C1847D /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2B7BCE2B457F7200C1847D /* UIButtonExtension.swift */; };
+		DB3F18092B6162AB002F1738 /* ProfileSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3F18082B6162AB002F1738 /* ProfileSettingViewController.swift */; };
 		DB5ACD602AA70D190054CA15 /* ExtenstionColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5ACD5F2AA70D190054CA15 /* ExtenstionColor.swift */; };
 		DB5ACD622AA714260054CA15 /* SchoolWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5ACD612AA714260054CA15 /* SchoolWebViewController.swift */; };
 		DB61AA342B4C1EA70040418B /* registerPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB61AA332B4C1EA70040418B /* registerPostViewController.swift */; };
@@ -57,6 +58,7 @@
 		DB2B7BCA2B45727B00C1847D /* TagButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagButton.swift; sourceTree = "<group>"; };
 		DB2B7BCC2B457D2500C1847D /* BulletinBoardDetailViewContorllerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulletinBoardDetailViewContorllerViewController.swift; sourceTree = "<group>"; };
 		DB2B7BCE2B457F7200C1847D /* UIButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
+		DB3F18082B6162AB002F1738 /* ProfileSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingViewController.swift; sourceTree = "<group>"; };
 		DB5ACD5F2AA70D190054CA15 /* ExtenstionColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtenstionColor.swift; sourceTree = "<group>"; };
 		DB5ACD612AA714260054CA15 /* SchoolWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolWebViewController.swift; sourceTree = "<group>"; };
 		DB61AA332B4C1EA70040418B /* registerPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = registerPostViewController.swift; sourceTree = "<group>"; };
@@ -182,6 +184,7 @@
 				DB7EF2782B5EA4B00062FAB5 /* AlrmElementView.swift */,
 				DB7EF27A2B5EA6C60062FAB5 /* AlramViewController.swift */,
 				DB7EF27C2B5EAC790062FAB5 /* ChoiceDormitoryButton.swift */,
+				DB3F18082B6162AB002F1738 /* ProfileSettingViewController.swift */,
 			);
 			path = dormitoryFamiles;
 			sourceTree = "<group>";
@@ -313,6 +316,7 @@
 				DB1A3C342B4418E1009DC005 /* SearchTableViewHeader.swift in Sources */,
 				DBB345FE2B42D95600E70380 /* bulletinBoardMainNavigation.swift in Sources */,
 				DB5ACD622AA714260054CA15 /* SchoolWebViewController.swift in Sources */,
+				DB3F18092B6162AB002F1738 /* ProfileSettingViewController.swift in Sources */,
 				DBCE10E12B595506008C3367 /* loginViewController.swift in Sources */,
 				DB81D0002B56E723005EF497 /* UIColorExtension.swift in Sources */,
 				DBB345FB2B42C28B00E70380 /* BulletinBoardMainTableViewCell.swift in Sources */,

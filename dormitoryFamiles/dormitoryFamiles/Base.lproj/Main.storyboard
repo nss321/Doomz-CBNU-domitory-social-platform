@@ -213,7 +213,7 @@
         <!--프로필 설정-->
         <scene sceneID="5cJ-TO-oxH">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="b8L-fr-kJh" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="b8L-fr-kJh" customClass="ProfileSettingViewController" customModule="dormitoryFamiles" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="AA5-jf-jHc">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -283,7 +283,7 @@
                                                 <color key="textColor" name="gray5"/>
                                                 <nil key="highlightedColor"/>
                                                 <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="string" keyPath="subTitle1" value="단과대학교 *"/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="subTitle1" value="학과 *"/>
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Fg-lk-hcD">
@@ -324,7 +324,7 @@
                                                 <color key="textColor" name="gray5"/>
                                                 <nil key="highlightedColor"/>
                                                 <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="string" keyPath="subTitle1" value="단과대학교 *"/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="subTitle1" value="복수전공/다전공"/>
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6pb-kq-219">
@@ -365,7 +365,7 @@
                                                 <color key="textColor" name="gray5"/>
                                                 <nil key="highlightedColor"/>
                                                 <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="string" keyPath="subTitle1" value="단과대학교 *"/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="subTitle1" value="학번 *"/>
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="기숙사 *" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dPq-Cc-i8A">
@@ -377,7 +377,7 @@
                                                 <color key="textColor" name="gray5"/>
                                                 <nil key="highlightedColor"/>
                                                 <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="string" keyPath="subTitle1" value="단과대학교 *"/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="subTitle1" value="기숙사 *"/>
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Vh-0B-AMs">
@@ -431,7 +431,7 @@
                                                     <action selector="kakaoLoginbuttonTapped:" destination="2Vj-5o-nfA" eventType="touchUpInside" id="xkc-7Y-brR"/>
                                                 </connections>
                                             </button>
-                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="E4s-aH-Eyh">
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="학번을 입력해주세요." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="E4s-aH-Eyh">
                                                 <rect key="frame" x="20" y="405" width="353" height="52"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="52" id="IZq-3g-uM6"/>
@@ -513,6 +513,12 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="프로필 설정" style="editor" id="bfG-kX-6mj"/>
+                    <connections>
+                        <outlet property="departmentLabel" destination="Gbo-Hx-khx" id="ZRO-gN-CjW"/>
+                        <outlet property="dormitoryLabel" destination="dPq-Cc-i8A" id="I46-Qi-lwd"/>
+                        <outlet property="identifierNumberLabel" destination="xv8-lB-uHt" id="QPL-J7-CIw"/>
+                        <outlet property="universityLabel" destination="Epx-IA-gan" id="qJY-lt-kFp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r1H-pp-VUD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
