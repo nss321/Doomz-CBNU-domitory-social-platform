@@ -1,16 +1,20 @@
 PODS:
+  - DropDown (2.3.13)
   - SwiftSoup (2.6.1)
 
 DEPENDENCIES:
+  - DropDown
   - SwiftSoup
 
 SPEC REPOS:
   trunk:
+    - DropDown
     - SwiftSoup
 
 SPEC CHECKSUMS:
+  DropDown: 8a2116376c1981888557f72ec2ffc9a5e0e456ec
   SwiftSoup: 5dd2c1b06afc964f30d99894af6ede22ede627aa
 
-PODFILE CHECKSUM: eb19f3cfffe704c73db76dbd1f436140dba651b1
+PODFILE CHECKSUM: f1057ec8a4067b7a088fb93df74b7e9a5db3a8d4
 
 COCOAPODS: 1.12.1

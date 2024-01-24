@@ -6,6 +6,7 @@ target 'dormitoryFamiles' do
   use_frameworks!
 
   pod 'SwiftSoup'
+  pod 'DropDown'
   # Pods for dormitoryFamiles
 
 end

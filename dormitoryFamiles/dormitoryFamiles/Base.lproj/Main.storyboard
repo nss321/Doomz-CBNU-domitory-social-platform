@@ -210,6 +210,22 @@
             <point key="canvasLocation" x="-726" y="-319"/>
         </scene>
         <!--프로필 설정-->
+        <scene sceneID="5cJ-TO-oxH">
+            <objects>
+                <viewController modalPresentationStyle="fullScreen" id="b8L-fr-kJh" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="AA5-jf-jHc">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="Hcw-XW-OAe"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="프로필 설정" style="editor" id="bfG-kX-6mj"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="r1H-pp-VUD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="830" y="-855"/>
+        </scene>
+        <!--프로필 설정-->
         <scene sceneID="XJh-b2-AJT">
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="5kH-DG-buH" sceneMemberID="viewController">
@@ -275,6 +291,7 @@
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="kakaoLoginbuttonTapped:" destination="2Vj-5o-nfA" eventType="touchUpInside" id="zc7-Tn-3pn"/>
+                                    <segue destination="b8L-fr-kJh" kind="show" id="Bb4-hQ-bLZ"/>
                                 </connections>
                             </button>
                         </subviews>
