@@ -17,6 +17,7 @@
         </array>
         <array key="PretendardVariable.ttf">
             <string>PretendardVariable-Black</string>
+            <string>PretendardVariable-Regular</string>
         </array>
     </customFonts>
     <scenes>
@@ -216,14 +217,306 @@
                     <view key="view" contentMode="scaleToFill" id="AA5-jf-jHc">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rS0-uo-lCJ">
+                                <rect key="frame" x="0.0" y="56" width="393" height="727"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R3T-Jv-qIJ">
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="685"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="학교 정보를 입력해 주세요." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rPo-WS-1vB">
+                                                <rect key="frame" x="20" y="32" width="180" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="title1" value="학교 정보를 입력해 주세요."/>
+                                                </userDefinedRuntimeAttributes>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="단과대학교 *" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Epx-IA-gan">
+                                                <rect key="frame" x="20" y="73" width="85.666666666666671" height="24"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="24" id="4cS-jU-uje"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" name="gray5"/>
+                                                <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="subTitle1" value="단과대학교 *"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wtu-Nt-cgs">
+                                                <rect key="frame" x="20" y="105" width="353" height="52"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="52" id="wZ5-Pd-70T"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="PretendardVariable-Regular" family="Pretendard Variable" pointSize="16"/>
+                                                <inset key="contentEdgeInsets" minX="16" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                <state key="normal" title="단과대학교">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="16"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                        <color key="value" name="gray1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </button>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="serviceDropDown" translatesAutoresizingMaskIntoConstraints="NO" id="8C7-JO-WD4">
+                                                <rect key="frame" x="339" y="128.66666666666666" width="10" height="5"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="10" id="Atm-1R-d8U"/>
+                                                    <constraint firstAttribute="height" constant="5" id="W9S-hY-sII"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="학과 *" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gbo-Hx-khx">
+                                                <rect key="frame" x="19.999999999999996" y="173" width="41.666666666666657" height="24"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="24" id="ECc-TU-NqO"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" name="gray5"/>
+                                                <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="subTitle1" value="단과대학교 *"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Fg-lk-hcD">
+                                                <rect key="frame" x="20" y="205" width="353" height="52"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="52" id="VV8-5x-WQJ"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="PretendardVariable-Regular" family="Pretendard Variable" pointSize="16"/>
+                                                <inset key="contentEdgeInsets" minX="16" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                <state key="normal" title="학과선택">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="16"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                        <color key="value" name="gray1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </button>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="serviceDropDown" translatesAutoresizingMaskIntoConstraints="NO" id="YAS-X9-S5j">
+                                                <rect key="frame" x="339" y="228.66666666666669" width="10" height="5"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="10" id="YP8-dK-mXG"/>
+                                                    <constraint firstAttribute="height" constant="5" id="wrj-uC-nBq"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="복수전공/다전공" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j5s-af-kaM">
+                                                <rect key="frame" x="20" y="273" width="108" height="24"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="24" id="HAr-DO-0rr"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" name="gray5"/>
+                                                <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="subTitle1" value="단과대학교 *"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6pb-kq-219">
+                                                <rect key="frame" x="20" y="305" width="353" height="52"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="52" id="TqH-0f-et3"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="PretendardVariable-Regular" family="Pretendard Variable" pointSize="16"/>
+                                                <inset key="contentEdgeInsets" minX="16" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                <state key="normal" title="전공">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="16"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                        <color key="value" name="gray1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </button>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="serviceDropDown" translatesAutoresizingMaskIntoConstraints="NO" id="5ng-ZE-eQl">
+                                                <rect key="frame" x="339" y="328.66666666666669" width="10" height="5"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="5" id="AxS-Zt-pZx"/>
+                                                    <constraint firstAttribute="width" constant="10" id="xVe-eN-bcU"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="학번 *" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xv8-lB-uHt">
+                                                <rect key="frame" x="19.999999999999996" y="373" width="41.666666666666657" height="24"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="24" id="SBz-de-jQD"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" name="gray5"/>
+                                                <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="subTitle1" value="단과대학교 *"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="기숙사 *" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dPq-Cc-i8A">
+                                                <rect key="frame" x="20.000000000000004" y="473" width="56.333333333333343" height="24"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="24" id="lpc-7i-hfk"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" name="gray5"/>
+                                                <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="subTitle1" value="단과대학교 *"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Vh-0B-AMs">
+                                                <rect key="frame" x="20" y="505" width="353" height="52"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="52" id="uUI-MO-Xw5"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="PretendardVariable-Regular" family="Pretendard Variable" pointSize="16"/>
+                                                <inset key="contentEdgeInsets" minX="16" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                <state key="normal" title="양진재">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="16"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                        <color key="value" name="gray1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </button>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="serviceDropDown" translatesAutoresizingMaskIntoConstraints="NO" id="Dyx-qJ-0am">
+                                                <rect key="frame" x="339" y="528.66666666666663" width="10" height="5"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="5" id="Hx6-LF-Yil"/>
+                                                    <constraint firstAttribute="width" constant="10" id="pWE-Vm-sOE"/>
+                                                </constraints>
+                                            </imageView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6sd-MD-ybY" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
+                                                <rect key="frame" x="21.666666666666657" y="625" width="350" height="52"/>
+                                                <color key="backgroundColor" name="primary"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="52" id="iKN-Ot-rIr"/>
+                                                </constraints>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="다음"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                        <color key="value" name="gray3"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="title5" value="다음"/>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="kakaoLoginbuttonTapped:" destination="2Vj-5o-nfA" eventType="touchUpInside" id="xkc-7Y-brR"/>
+                                                </connections>
+                                            </button>
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="E4s-aH-Eyh">
+                                                <rect key="frame" x="20" y="405" width="353" height="52"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="52" id="IZq-3g-uM6"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="16"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                        <color key="value" name="gray1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </textField>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="E4s-aH-Eyh" firstAttribute="leading" secondItem="R3T-Jv-qIJ" secondAttribute="leading" constant="20" id="0Tp-5M-6Vk"/>
+                                            <constraint firstAttribute="trailing" secondItem="8Fg-lk-hcD" secondAttribute="trailing" constant="20" id="0bE-Xp-AoQ"/>
+                                            <constraint firstItem="wtu-Nt-cgs" firstAttribute="trailing" secondItem="8C7-JO-WD4" secondAttribute="trailing" constant="24" id="1o7-OG-s8p"/>
+                                            <constraint firstItem="6pb-kq-219" firstAttribute="trailing" secondItem="5ng-ZE-eQl" secondAttribute="trailing" constant="24" id="2bt-F0-DFk"/>
+                                            <constraint firstItem="Epx-IA-gan" firstAttribute="leading" secondItem="R3T-Jv-qIJ" secondAttribute="leading" constant="20" id="2fp-Nd-h83"/>
+                                            <constraint firstItem="6sd-MD-ybY" firstAttribute="leading" secondItem="R3T-Jv-qIJ" secondAttribute="leading" constant="21.5" id="2lQ-Uy-OEF"/>
+                                            <constraint firstItem="xv8-lB-uHt" firstAttribute="top" secondItem="6pb-kq-219" secondAttribute="bottom" constant="16" id="3Up-eA-Z9t"/>
+                                            <constraint firstAttribute="trailing" secondItem="6pb-kq-219" secondAttribute="trailing" constant="20" id="4Ig-7C-oxX"/>
+                                            <constraint firstAttribute="height" priority="250" constant="685" id="5rr-Y1-FWd"/>
+                                            <constraint firstItem="Gbo-Hx-khx" firstAttribute="leading" secondItem="R3T-Jv-qIJ" secondAttribute="leading" constant="20" id="8sR-J6-qDA"/>
+                                            <constraint firstItem="Gbo-Hx-khx" firstAttribute="top" secondItem="wtu-Nt-cgs" secondAttribute="bottom" constant="16" id="9ag-Lm-XLF"/>
+                                            <constraint firstItem="j5s-af-kaM" firstAttribute="leading" secondItem="R3T-Jv-qIJ" secondAttribute="leading" constant="20" id="Ap2-cM-KG4"/>
+                                            <constraint firstItem="6pb-kq-219" firstAttribute="top" secondItem="j5s-af-kaM" secondAttribute="bottom" constant="8" id="CJP-ZL-Y5B"/>
+                                            <constraint firstItem="xv8-lB-uHt" firstAttribute="leading" secondItem="R3T-Jv-qIJ" secondAttribute="leading" constant="20" id="D8G-fr-EEr"/>
+                                            <constraint firstItem="Dyx-qJ-0am" firstAttribute="centerY" secondItem="9Vh-0B-AMs" secondAttribute="centerY" id="DGv-VI-JwP"/>
+                                            <constraint firstItem="rPo-WS-1vB" firstAttribute="leading" secondItem="R3T-Jv-qIJ" secondAttribute="leading" constant="20" id="DTk-m7-hRv"/>
+                                            <constraint firstItem="6pb-kq-219" firstAttribute="leading" secondItem="R3T-Jv-qIJ" secondAttribute="leading" constant="20" id="FKR-vH-3ze"/>
+                                            <constraint firstItem="rPo-WS-1vB" firstAttribute="top" secondItem="R3T-Jv-qIJ" secondAttribute="top" constant="32" id="Ffc-Nh-MP2"/>
+                                            <constraint firstItem="8Fg-lk-hcD" firstAttribute="top" secondItem="Gbo-Hx-khx" secondAttribute="bottom" constant="8" id="Fky-EO-boV"/>
+                                            <constraint firstItem="YAS-X9-S5j" firstAttribute="centerY" secondItem="8Fg-lk-hcD" secondAttribute="centerY" id="IEI-Jj-bVb"/>
+                                            <constraint firstItem="dPq-Cc-i8A" firstAttribute="leading" secondItem="R3T-Jv-qIJ" secondAttribute="leading" constant="20" id="LgY-yb-x8R"/>
+                                            <constraint firstAttribute="trailing" secondItem="wtu-Nt-cgs" secondAttribute="trailing" constant="20" id="Quc-aq-xSV"/>
+                                            <constraint firstItem="8C7-JO-WD4" firstAttribute="centerY" secondItem="wtu-Nt-cgs" secondAttribute="centerY" id="UBN-mU-b60"/>
+                                            <constraint firstAttribute="bottom" secondItem="6sd-MD-ybY" secondAttribute="bottom" constant="8" id="YVl-gk-1NR"/>
+                                            <constraint firstAttribute="trailing" secondItem="6sd-MD-ybY" secondAttribute="trailing" constant="21.5" id="Zx7-vx-Pvg"/>
+                                            <constraint firstItem="8Fg-lk-hcD" firstAttribute="leading" secondItem="R3T-Jv-qIJ" secondAttribute="leading" constant="20" id="bRm-9f-Fri"/>
+                                            <constraint firstItem="Epx-IA-gan" firstAttribute="top" secondItem="rPo-WS-1vB" secondAttribute="bottom" constant="20" id="dAP-rB-N2t"/>
+                                            <constraint firstItem="9Vh-0B-AMs" firstAttribute="leading" secondItem="R3T-Jv-qIJ" secondAttribute="leading" constant="20" id="djK-VE-8N1"/>
+                                            <constraint firstItem="9Vh-0B-AMs" firstAttribute="top" secondItem="dPq-Cc-i8A" secondAttribute="bottom" constant="8" id="eeG-LR-LRv"/>
+                                            <constraint firstItem="wtu-Nt-cgs" firstAttribute="leading" secondItem="R3T-Jv-qIJ" secondAttribute="leading" constant="20" id="ilj-lG-khE"/>
+                                            <constraint firstAttribute="trailing" secondItem="E4s-aH-Eyh" secondAttribute="trailing" constant="20" id="jt5-W3-j1e"/>
+                                            <constraint firstItem="E4s-aH-Eyh" firstAttribute="top" secondItem="xv8-lB-uHt" secondAttribute="bottom" constant="8" id="lNr-Fk-glC"/>
+                                            <constraint firstItem="dPq-Cc-i8A" firstAttribute="top" secondItem="E4s-aH-Eyh" secondAttribute="bottom" constant="16" id="lwa-ng-GeK"/>
+                                            <constraint firstItem="5ng-ZE-eQl" firstAttribute="centerY" secondItem="6pb-kq-219" secondAttribute="centerY" id="mOR-zR-B1N"/>
+                                            <constraint firstItem="wtu-Nt-cgs" firstAttribute="top" secondItem="Epx-IA-gan" secondAttribute="bottom" constant="8" id="oyt-gO-fH5"/>
+                                            <constraint firstItem="j5s-af-kaM" firstAttribute="top" secondItem="8Fg-lk-hcD" secondAttribute="bottom" constant="16" id="pc1-X4-CqD"/>
+                                            <constraint firstItem="8Fg-lk-hcD" firstAttribute="trailing" secondItem="YAS-X9-S5j" secondAttribute="trailing" constant="24" id="wkc-2K-Ahz"/>
+                                            <constraint firstItem="9Vh-0B-AMs" firstAttribute="trailing" secondItem="Dyx-qJ-0am" secondAttribute="trailing" constant="24" id="yKB-uz-i9q"/>
+                                            <constraint firstAttribute="trailing" secondItem="9Vh-0B-AMs" secondAttribute="trailing" constant="20" id="zF7-Db-7oq"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="R3T-Jv-qIJ" firstAttribute="top" secondItem="AOY-xK-7Ke" secondAttribute="top" id="OMh-CQ-3UZ"/>
+                                    <constraint firstItem="R3T-Jv-qIJ" firstAttribute="centerX" secondItem="rS0-uo-lCJ" secondAttribute="centerX" id="QiH-Ze-AKe"/>
+                                    <constraint firstItem="R3T-Jv-qIJ" firstAttribute="leading" secondItem="AOY-xK-7Ke" secondAttribute="leading" id="bfz-sE-TLJ"/>
+                                    <constraint firstItem="R3T-Jv-qIJ" firstAttribute="bottom" secondItem="AOY-xK-7Ke" secondAttribute="bottom" id="ceC-gG-MZn"/>
+                                    <constraint firstItem="R3T-Jv-qIJ" firstAttribute="trailing" secondItem="AOY-xK-7Ke" secondAttribute="trailing" id="muv-OF-szH"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="AOY-xK-7Ke"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="X6I-TA-6fN"/>
+                            </scrollView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="Hcw-XW-OAe"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="rS0-uo-lCJ" firstAttribute="top" secondItem="Hcw-XW-OAe" secondAttribute="top" id="BB6-kJ-Jju"/>
+                            <constraint firstItem="Hcw-XW-OAe" firstAttribute="bottom" secondItem="rS0-uo-lCJ" secondAttribute="bottom" id="Nf5-eS-jMn"/>
+                            <constraint firstItem="rS0-uo-lCJ" firstAttribute="leading" secondItem="Hcw-XW-OAe" secondAttribute="leading" id="Vut-Yw-ts7"/>
+                            <constraint firstAttribute="trailing" secondItem="rS0-uo-lCJ" secondAttribute="trailing" id="kiu-8A-dlc"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="프로필 설정" style="editor" id="bfG-kX-6mj"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r1H-pp-VUD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="830" y="-855"/>
+            <point key="canvasLocation" x="829.7709923664122" y="-855.63380281690149"/>
         </scene>
         <!--프로필 설정-->
         <scene sceneID="XJh-b2-AJT">
@@ -409,7 +702,7 @@
                                         <rect key="frame" x="32.999999999999986" y="0.0" width="244.66666666666663" height="136"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launchScreenLogo" translatesAutoresizingMaskIntoConstraints="NO" id="cQd-3T-lEe">
-                                                <rect key="frame" x="16.333333333333343" y="0.0" width="212" height="80"/>
+                                                <rect key="frame" x="16.333333333333343" y="0.0" width="212.00000000000003" height="80"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="212" id="fa2-sj-W4t"/>
                                                     <constraint firstAttribute="height" constant="80" id="gx4-X2-toX"/>
@@ -1653,46 +1946,52 @@
     </scenes>
     <designables>
         <designable name="0c7-Sa-8eC">
-            <size key="intrinsicContentSize" width="53.666666666666664" height="34.333333333333336"/>
+            <size key="intrinsicContentSize" width="51.333333333333336" height="33.333333333333336"/>
         </designable>
         <designable name="5JZ-3p-UmG">
-            <size key="intrinsicContentSize" width="70" height="32"/>
+            <size key="intrinsicContentSize" width="75.333333333333329" height="47"/>
+        </designable>
+        <designable name="6cz-aZ-WRa">
+            <size key="intrinsicContentSize" width="16" height="30"/>
+        </designable>
+        <designable name="6sd-MD-ybY">
+            <size key="intrinsicContentSize" width="51.333333333333336" height="33.333333333333336"/>
         </designable>
         <designable name="8YI-Dj-a5U">
-            <size key="intrinsicContentSize" width="28" height="24"/>
+            <size key="intrinsicContentSize" width="44" height="54"/>
         </designable>
         <designable name="9Cx-cb-x6K">
-            <size key="intrinsicContentSize" width="87.333333333333329" height="22"/>
+            <size key="intrinsicContentSize" width="82.666666666666671" height="47"/>
         </designable>
         <designable name="JfS-Y1-OHE">
-            <size key="intrinsicContentSize" width="53.666666666666664" height="34.333333333333336"/>
+            <size key="intrinsicContentSize" width="51.333333333333336" height="33.333333333333336"/>
         </designable>
         <designable name="PCT-uB-HO6">
-            <size key="intrinsicContentSize" width="56" height="32"/>
+            <size key="intrinsicContentSize" width="63.333333333333336" height="47"/>
         </designable>
         <designable name="Tfo-Ee-43X">
-            <size key="intrinsicContentSize" width="53.666666666666664" height="34.333333333333336"/>
+            <size key="intrinsicContentSize" width="51.333333333333336" height="33.333333333333336"/>
         </designable>
         <designable name="TvH-Er-0RP">
-            <size key="intrinsicContentSize" width="21" height="25"/>
+            <size key="intrinsicContentSize" width="37" height="55"/>
         </designable>
         <designable name="bPC-1x-PCY">
-            <size key="intrinsicContentSize" width="56" height="32"/>
+            <size key="intrinsicContentSize" width="63.333333333333336" height="47"/>
         </designable>
         <designable name="f7A-Tr-9xV">
             <size key="intrinsicContentSize" width="24" height="14"/>
         </designable>
         <designable name="i0r-bW-D14">
-            <size key="intrinsicContentSize" width="24" height="14"/>
+            <size key="intrinsicContentSize" width="135.66666666666666" height="33.333333333333336"/>
         </designable>
         <designable name="iMM-KA-ESC">
-            <size key="intrinsicContentSize" width="53.666666666666664" height="34.333333333333336"/>
+            <size key="intrinsicContentSize" width="51.333333333333336" height="33.333333333333336"/>
         </designable>
         <designable name="nzJ-Yb-Hjd">
-            <size key="intrinsicContentSize" width="75.333333333333329" height="18"/>
+            <size key="intrinsicContentSize" width="82.666666666666671" height="47"/>
         </designable>
         <designable name="pf8-z7-rET">
-            <size key="intrinsicContentSize" width="87.333333333333329" height="22"/>
+            <size key="intrinsicContentSize" width="82.666666666666671" height="47"/>
         </designable>
     </designables>
     <resources>
@@ -1707,6 +2006,7 @@
         <image name="serviceAlrm" width="21" height="25"/>
         <image name="serviceCamera" width="28" height="24"/>
         <image name="serviceCheck" width="18" height="13"/>
+        <image name="serviceDropDown" width="9" height="4"/>
         <image name="tabbarImageHome" width="24" height="23.790000915527344"/>
         <image name="tabbarItemBulletinBoard" width="24" height="24"/>
         <image name="tabbarItemChatting" width="24" height="20.579999923706055"/>
@@ -1726,6 +2026,9 @@
         </namedColor>
         <namedColor name="gray4">
             <color red="0.61960784313725492" green="0.62352941176470589" blue="0.63137254901960782" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="gray5">
+            <color red="0.44705882352941179" green="0.45098039215686275" blue="0.45882352941176469" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="kakaoYellow">
             <color red="0.97600001096725464" green="0.87800002098083496" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
