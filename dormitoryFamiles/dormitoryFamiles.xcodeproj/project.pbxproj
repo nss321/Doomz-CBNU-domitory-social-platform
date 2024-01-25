@@ -12,6 +12,7 @@
 		DB1A3C342B4418E1009DC005 /* SearchTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1A3C332B4418E1009DC005 /* SearchTableViewHeader.swift */; };
 		DB1E0E892B629804000A4AA5 /* DormitoryButtonHandlingProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1E0E882B629804000A4AA5 /* DormitoryButtonHandlingProtocol.swift */; };
 		DB1E0E8B2B629865000A4AA5 /* ChoiceDormitoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1E0E8A2B629865000A4AA5 /* ChoiceDormitoryViewController.swift */; };
+		DB1E0E8D2B62A995000A4AA5 /* SelectedDormitory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1E0E8C2B62A995000A4AA5 /* SelectedDormitory.swift */; };
 		DB20E38C2B53C2BD000D12A7 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB20E38B2B53C2BD000D12A7 /* HomeViewController.swift */; };
 		DB20E38E2B53D75F000D12A7 /* extensionStroyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB20E38D2B53D75F000D12A7 /* extensionStroyboard.swift */; };
 		DB2B7BC92B456F4700C1847D /* TagScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2B7BC82B456F4700C1847D /* TagScrollView.swift */; };
@@ -56,6 +57,7 @@
 		DB1A3C332B4418E1009DC005 /* SearchTableViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewHeader.swift; sourceTree = "<group>"; };
 		DB1E0E882B629804000A4AA5 /* DormitoryButtonHandlingProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DormitoryButtonHandlingProtocol.swift; sourceTree = "<group>"; };
 		DB1E0E8A2B629865000A4AA5 /* ChoiceDormitoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceDormitoryViewController.swift; sourceTree = "<group>"; };
+		DB1E0E8C2B62A995000A4AA5 /* SelectedDormitory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedDormitory.swift; sourceTree = "<group>"; };
 		DB20E38B2B53C2BD000D12A7 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		DB20E38D2B53D75F000D12A7 /* extensionStroyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensionStroyboard.swift; sourceTree = "<group>"; };
 		DB2B7BC82B456F4700C1847D /* TagScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagScrollView.swift; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 			children = (
 				DB1E0E882B629804000A4AA5 /* DormitoryButtonHandlingProtocol.swift */,
 				DB1E0E8A2B629865000A4AA5 /* ChoiceDormitoryViewController.swift */,
+				DB1E0E8C2B62A995000A4AA5 /* SelectedDormitory.swift */,
 			);
 			path = dormitoryButton;
 			sourceTree = "<group>";
@@ -350,6 +353,7 @@
 				DB20E38C2B53C2BD000D12A7 /* HomeViewController.swift in Sources */,
 				DBF466FB2AA5F4E4009FF3EB /* AppDelegate.swift in Sources */,
 				DBCE10E32B598308008C3367 /* notificationViewController.swift in Sources */,
+				DB1E0E8D2B62A995000A4AA5 /* SelectedDormitory.swift in Sources */,
 				DB2B7BCF2B457F7200C1847D /* UIButtonExtension.swift in Sources */,
 				DBF466FD2AA5F4E4009FF3EB /* SceneDelegate.swift in Sources */,
 				DBB345F22B42BFD100E70380 /* bulletinBoardMainViewController.swift in Sources */,

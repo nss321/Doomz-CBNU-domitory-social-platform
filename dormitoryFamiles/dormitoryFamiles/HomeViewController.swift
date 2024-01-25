@@ -8,7 +8,7 @@
 import UIKit
 import SwiftSoup
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController, DormitoryButtonHandling {
     
     @IBOutlet weak var menuLabel: UILabel!
     
@@ -34,34 +34,13 @@ class HomeViewController: UIViewController {
         }
     }
     
-    lazy var actionSheet: UIAlertController = {
-            let alert = UIAlertController(title: "", message: "기숙사 선택", preferredStyle: .actionSheet)
-            let dormitories = ["개성재", "양성재", "양진재"]
-            for dormitory in dormitories {
-                let action = UIAlertAction(title: dormitory, style: .default) { [self] _ in
-                    //액션시트의 버튼이 눌렸을때
-                    self.dormitoryButton.head2 = dormitory
-                    self.dormitoryButton.setTitle(dormitory, for: .normal)
-                    print(dormitoryButton.currentTitle)
-                    fetchWebsite(time: .morning)
-                    [morningButton, lunchButton, eveningButton].forEach{
-                        $0?.backgroundColor = .secondary
-                        $0?.tintColor = .black
-                    }
-                    morningButton.backgroundColor = .white
-                    morningButton.tintColor = .primary
-                }
-                alert.addAction(action)
-            }
-            return alert
-        }()
-    
     let site = ["개성재": "https://dorm.chungbuk.ac.kr/home/sub.php?menukey=20041&type=1", "양성재":"https://dorm.chungbuk.ac.kr/home/sub.php?menukey=20041&type=2", "양진재":"https://dorm.chungbuk.ac.kr/home/sub.php?menukey=20041&type=3"]
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        NotificationCenter.default.addObserver(self, selector: #selector(DormitoryChangeNotification(_:)), name: .init("DormitoryChangeNotification"), object: nil)
         self.menuLabel.sizeToFit()
         self.menuLabel.lineSpacing(12)
         self.menuLabel.textAlignment = .center
@@ -85,6 +64,24 @@ class HomeViewController: UIViewController {
     }
     
     
+    //기숙사 시트의 버튼이 눌려지면(기숙사가 선택되면) 그 title을 버튼의 title과 일치시키는 함수
+    @objc func DormitoryChangeNotification(_ notification: Notification) {
+        if notification.object is String {
+            dormitoryButton.head2 = SelectedDormitory.shared.domitory
+            dormitoryButton.setTitle(SelectedDormitory.shared.domitory, for: .normal)
+        }
+        
+        //홈이라 메뉴 세팅도 다시 해줘야 함.
+        //아침메뉴받아오는거
+        fetchWebsite(time: .morning)
+        //UI 아침으로 세팅
+        [lunchButton, eveningButton].forEach{
+            $0?.backgroundColor = .secondary
+            $0?.tintColor = .black
+        }
+        morningButton.backgroundColor = .white
+        morningButton.tintColor = .primary
+    }
     
     //액션시트를 동작하였을때 버튼의 컬러가 변하지 않게 하는 함수
     func setTintAdjustmentModeForButtons(in view: UIView) {
@@ -135,9 +132,7 @@ class HomeViewController: UIViewController {
     
     
     @IBAction func dormitoryButtonTapped(_ sender: DormitoryButton) {
-        if let actionSheet = sender.actionSheet {
-                    present(actionSheet, animated: true, completion: nil)
-                }
+        presentSheet()
     }
     
     
@@ -184,7 +179,7 @@ class HomeViewController: UIViewController {
             print("error")
         }
     }
-
+    
 }
 
 enum MealTime:String, CaseIterable {
