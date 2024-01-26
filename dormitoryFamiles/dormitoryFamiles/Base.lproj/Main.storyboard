@@ -533,10 +533,12 @@
                     </view>
                     <navigationItem key="navigationItem" title="프로필 설정" style="editor" id="bfG-kX-6mj"/>
                     <connections>
+                        <outlet property="collegeOfCollegesButton" destination="wtu-Nt-cgs" id="wYm-8T-LcP"/>
                         <outlet property="departmentLabel" destination="Gbo-Hx-khx" id="ZRO-gN-CjW"/>
+                        <outlet property="departmentSelectionButton" destination="8Fg-lk-hcD" id="r6a-8Y-Hfm"/>
+                        <outlet property="dormitoryButton" destination="9Vh-0B-AMs" id="cAc-ZX-byZ"/>
                         <outlet property="dormitoryLabel" destination="dPq-Cc-i8A" id="I46-Qi-lwd"/>
                         <outlet property="identifierNumberLabel" destination="xv8-lB-uHt" id="QPL-J7-CIw"/>
-                        <outlet property="kindUnicersityButton" destination="wtu-Nt-cgs" id="YJR-uZ-ior"/>
                         <outlet property="universityLabel" destination="Epx-IA-gan" id="qJY-lt-kFp"/>
                     </connections>
                 </viewController>
