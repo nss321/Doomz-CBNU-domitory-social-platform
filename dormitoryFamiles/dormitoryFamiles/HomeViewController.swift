@@ -40,7 +40,7 @@ class HomeViewController: UIViewController, DormitoryButtonHandling {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(DormitoryChangeNotification(_:)), name: .init("DormitoryChangeNotification"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(dormitoryChangeNotification(_:)), name: .init("DormitoryChangeNotification"), object: nil)
         self.menuLabel.sizeToFit()
         self.menuLabel.lineSpacing(12)
         self.menuLabel.textAlignment = .center
@@ -65,7 +65,7 @@ class HomeViewController: UIViewController, DormitoryButtonHandling {
     
     
     //기숙사 시트의 버튼이 눌려지면(기숙사가 선택되면) 그 title을 버튼의 title과 일치시키는 함수
-    @objc func DormitoryChangeNotification(_ notification: Notification) {
+    @objc func dormitoryChangeNotification(_ notification: Notification) {
         if notification.object is String {
             dormitoryButton.head2 = SelectedDormitory.shared.domitory
             dormitoryButton.setTitle(SelectedDormitory.shared.domitory, for: .normal)
