@@ -50,10 +50,14 @@ class ProfileSettingViewController: UIViewController {
         DropDown.appearance().backgroundColor = .white
         DropDown.appearance().cellHeight = 52
         DropDown.appearance().shadowOpacity = 0
-        
+        DropDown.appearance().selectionBackgroundColor = .gray0 ?? .white
+        DropDown.appearance().textFont = UIFont(name: CustomFonts.defult.rawValue, size: 16)!
+
     }
 
     @IBAction func showDropDown(_ sender: UIButton) {
+        
+        //버튼에 따라 데이터 소스 세팅
         switch sender {
         case collegeOfCollegesButton:
             dropDown.dataSource = self.array.map { $0.abstract }
@@ -72,10 +76,11 @@ class ProfileSettingViewController: UIViewController {
         default:
             dropDown.dataSource = []
         }
+        
+        //공통된 작업
         dropDown.anchorView = sender
         dropDown.bottomOffset = CGPoint(x: 0, y:((dropDown.anchorView?.plainView.bounds.height)!-5))
         sender.borderColor = .primaryMid
-        
         dropDown.show()
         dropDown.selectionAction = { [unowned self] (index: Int, item: String) in
             sender.setTitle(item, for: .normal)
