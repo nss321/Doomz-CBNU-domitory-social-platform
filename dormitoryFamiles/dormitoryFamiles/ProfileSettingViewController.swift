@@ -25,32 +25,29 @@ class ProfileSettingViewController: UIViewController {
 
         [universityLabel, departmentLabel, identifierNumberLabel, dormitoryLabel].forEach{$0.asColor(targetString: ["*"], color: .primary!)}
         setDropDown()
-        setDropDown()
     }
     
     private func setDropDown() {
-        dropDown.dataSource = ["아~","뭐~"]
         DropDown.startListeningToKeyboard()
-        dropDown.anchorView = kindUnicersityButton
-        dropDown.bottomOffset = CGPoint(x: 0, y:(dropDown.anchorView?.plainView.bounds.height)!)
         DropDown.appearance().setupCornerRadius(20)
         DropDown.appearance().backgroundColor = .white
         DropDown.appearance().cellHeight = 52
         DropDown.appearance().shadowOpacity = 0
-
-
-         
         
-
     }
 
-    @IBAction func kindUniversityButtonTapped(_ sender: UIButton) {
-        
+    @IBAction func showDropDown(_ sender: UIButton) {
+        dropDown.anchorView = sender
+        dropDown.bottomOffset = CGPoint(x: 0, y:((dropDown.anchorView?.plainView.bounds.height)!-5))
+        sender.borderColor = .primaryMid
+        dropDown.dataSource = ["아~","뭐~"]
         dropDown.show()
         dropDown.selectionAction = { [unowned self] (index: Int, item: String) in
             print("선택한 아이템 : \(item)")
             print("인덱스 : \(index)")
             kindUnicersityButton.setTitle(item, for: .normal)
+            sender.borderColor = .gray1
         }
     }
+    
 }

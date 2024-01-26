@@ -270,7 +270,7 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
-                                                    <action selector="kindUniversityButtonTapped:" destination="b8L-fr-kJh" eventType="touchUpInside" id="sFd-gO-EUS"/>
+                                                    <action selector="showDropDown:" destination="b8L-fr-kJh" eventType="touchUpInside" id="kSd-Bs-Jnq"/>
                                                 </connections>
                                             </button>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="serviceDropDown" translatesAutoresizingMaskIntoConstraints="NO" id="8C7-JO-WD4">
@@ -313,6 +313,9 @@
                                                         <real key="value" value="1"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="showDropDown:" destination="b8L-fr-kJh" eventType="touchUpInside" id="ofR-Up-cxn"/>
+                                                </connections>
                                             </button>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="serviceDropDown" translatesAutoresizingMaskIntoConstraints="NO" id="YAS-X9-S5j">
                                                 <rect key="frame" x="339" y="228.66666666666669" width="10" height="5"/>
@@ -407,6 +410,9 @@
                                                         <real key="value" value="1"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="showDropDown:" destination="b8L-fr-kJh" eventType="touchUpInside" id="G1S-f3-R2O"/>
+                                                </connections>
                                             </button>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="serviceDropDown" translatesAutoresizingMaskIntoConstraints="NO" id="Dyx-qJ-0am">
                                                 <rect key="frame" x="339" y="528.66666666666663" width="10" height="5"/>
