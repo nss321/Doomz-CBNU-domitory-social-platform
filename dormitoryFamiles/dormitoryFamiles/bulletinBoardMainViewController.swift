@@ -12,15 +12,13 @@ class BulletinBoardMainViewController: UIViewController {
     let tagScrollView = TagScrollView()
     var tags = ["도와주세요","함께해요","나눔해요","궁금해요","분실신고"]
     @IBOutlet weak var naviCustomView: UIView!
-    @IBOutlet weak var writingButton: UIButton!
-    @IBOutlet weak var tableView: UITableView!
     
     
     override func viewDidLoad() {
-        setTableViewCell()
+       
         setTag()
         getTagMakeButton()
-        setWritingButton()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -31,12 +29,6 @@ class BulletinBoardMainViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)
         self.navigationController?.setNavigationBarHidden(false, animated: false)
-    }
-    
-    private func setTableViewCell() {
-        tableView.dataSource = self
-        let nib = UINib(nibName: cellIdentifier, bundle: nil)
-        tableView.register(nib, forCellReuseIdentifier: cellIdentifier)
     }
     
     private func setTag() {
@@ -111,33 +103,6 @@ class BulletinBoardMainViewController: UIViewController {
         tags.forEach { tag in
             self.makeButton(tag: tag)
         }
-    }
-    
-    private func setWritingButton() {
-        let button = writingButton.makeSquare(width: 146, height: 46, radius: 23)
-        self.view.addSubview(button)
-        button.setTitle("글쓰기", for: .normal)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            button.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
-            button.centerXAnchor.constraint(equalTo: self.view.centerXAnchor)
-        ])
-    }
-}
-
-extension BulletinBoardMainViewController: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 100
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-            performSegue(withIdentifier: "toDetailViewControllerSegue", sender: self)
     }
 }
 

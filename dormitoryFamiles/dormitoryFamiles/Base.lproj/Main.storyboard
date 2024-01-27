@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="b8L-fr-kJh">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="peN-Im-ACT">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
@@ -903,7 +903,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pf8-z7-rET" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
-                                                <rect key="frame" x="290.33333333333331" y="86" width="82.666666666666686" height="28"/>
+                                                <rect key="frame" x="285.66666666666669" y="86" width="87.333333333333314" height="28"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="28" id="hza-8j-0gq"/>
                                                 </constraints>
@@ -1096,7 +1096,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nzJ-Yb-Hjd" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
-                                                        <rect key="frame" x="16" y="68.666666666666742" width="82.666666666666671" height="28"/>
+                                                        <rect key="frame" x="16" y="68.666666666666742" width="75.333333333333329" height="28"/>
                                                         <color key="backgroundColor" name="primaryMid"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="28" id="iWk-PQ-m4c"/>
@@ -1380,7 +1380,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Cx-cb-x6K" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
-                                                <rect key="frame" x="290.33333333333331" y="580.33333333333337" width="82.666666666666686" height="28"/>
+                                                <rect key="frame" x="285.66666666666669" y="580.33333333333337" width="87.333333333333314" height="28"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="28" id="DZE-Ex-hkf"/>
                                                 </constraints>
@@ -1534,17 +1534,6 @@
                                     <constraint firstAttribute="bottom" secondItem="yjz-7t-GiR" secondAttribute="bottom" id="pWI-9K-vL0"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Sy-FD-QMo">
-                                <rect key="frame" x="265" y="669" width="75" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Button">
-                                    <color key="baseBackgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <segue destination="m4G-hc-GIZ" kind="show" id="sur-DI-FWx"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="jWk-Dp-Muw"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1557,13 +1546,12 @@
                     <navigationItem key="navigationItem" title="게시판" id="mHD-A0-F1x"/>
                     <connections>
                         <outlet property="naviCustomView" destination="NkX-t3-Dqc" id="h1Y-ct-RU6"/>
-                        <outlet property="writingButton" destination="1Sy-FD-QMo" id="YB4-XD-toK"/>
                         <segue destination="lMs-QX-VaL" kind="show" identifier="toDetailViewControllerSegue" id="CLT-pA-e37"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Zc-Hg-a56" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2807" y="-806"/>
+            <point key="canvasLocation" x="2806.8702290076335" y="-806.33802816901414"/>
         </scene>
         <!--글 쓰기-->
         <scene sceneID="bms-dr-f7h">
@@ -2122,56 +2110,6 @@
             <point key="canvasLocation" x="2036" y="1312"/>
         </scene>
     </scenes>
-    <designables>
-        <designable name="0c7-Sa-8eC">
-            <size key="intrinsicContentSize" width="51.333333333333336" height="33.333333333333336"/>
-        </designable>
-        <designable name="5JZ-3p-UmG">
-            <size key="intrinsicContentSize" width="75.333333333333329" height="47"/>
-        </designable>
-        <designable name="6cz-aZ-WRa">
-            <size key="intrinsicContentSize" width="16" height="30"/>
-        </designable>
-        <designable name="6sd-MD-ybY">
-            <size key="intrinsicContentSize" width="51.333333333333336" height="33.333333333333336"/>
-        </designable>
-        <designable name="8YI-Dj-a5U">
-            <size key="intrinsicContentSize" width="44" height="54"/>
-        </designable>
-        <designable name="9Cx-cb-x6K">
-            <size key="intrinsicContentSize" width="82.666666666666671" height="47"/>
-        </designable>
-        <designable name="JfS-Y1-OHE">
-            <size key="intrinsicContentSize" width="51.333333333333336" height="33.333333333333336"/>
-        </designable>
-        <designable name="PCT-uB-HO6">
-            <size key="intrinsicContentSize" width="63.333333333333336" height="47"/>
-        </designable>
-        <designable name="Tfo-Ee-43X">
-            <size key="intrinsicContentSize" width="51.333333333333336" height="33.333333333333336"/>
-        </designable>
-        <designable name="TvH-Er-0RP">
-            <size key="intrinsicContentSize" width="37" height="55"/>
-        </designable>
-        <designable name="bPC-1x-PCY">
-            <size key="intrinsicContentSize" width="63.333333333333336" height="47"/>
-        </designable>
-        <designable name="f7A-Tr-9xV">
-            <size key="intrinsicContentSize" width="24" height="14"/>
-        </designable>
-        <designable name="i0r-bW-D14">
-            <size key="intrinsicContentSize" width="135.66666666666666" height="33.333333333333336"/>
-        </designable>
-        <designable name="iMM-KA-ESC">
-            <size key="intrinsicContentSize" width="51.333333333333336" height="33.333333333333336"/>
-        </designable>
-        <designable name="nzJ-Yb-Hjd">
-            <size key="intrinsicContentSize" width="82.666666666666671" height="47"/>
-        </designable>
-        <designable name="pf8-z7-rET">
-            <size key="intrinsicContentSize" width="82.666666666666671" height="47"/>
-        </designable>
-    </designables>
     <resources>
         <image name="arrow.right" catalog="system" width="128" height="95"/>
         <image name="homeImageAlarm" width="22" height="26"/>
