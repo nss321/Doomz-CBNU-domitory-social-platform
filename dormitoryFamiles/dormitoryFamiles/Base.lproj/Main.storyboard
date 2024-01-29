@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="peN-Im-ACT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
@@ -737,7 +737,7 @@
                                         <rect key="frame" x="32.999999999999986" y="0.0" width="244.66666666666663" height="136"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launchScreenLogo" translatesAutoresizingMaskIntoConstraints="NO" id="cQd-3T-lEe">
-                                                <rect key="frame" x="16.333333333333343" y="0.0" width="212" height="80"/>
+                                                <rect key="frame" x="16.333333333333343" y="0.0" width="212.00000000000003" height="80"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="212" id="fa2-sj-W4t"/>
                                                     <constraint firstAttribute="height" constant="80" id="gx4-X2-toX"/>
@@ -1534,11 +1534,35 @@
                                     <constraint firstAttribute="bottom" secondItem="yjz-7t-GiR" secondAttribute="bottom" id="pWI-9K-vL0"/>
                                 </constraints>
                             </view>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="cK2-SV-xHi">
+                                <rect key="frame" x="0.0" y="203" width="393" height="566"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="lks-GX-fDg">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="58C-NK-XZP">
+                                        <rect key="frame" x="0.0" y="0.0" width="127.99999999999997" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="ZlD-zO-vSn">
+                                            <rect key="frame" x="0.0" y="0.0" width="127.99999999999997" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="jWk-Dp-Muw"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="jWk-Dp-Muw" firstAttribute="trailing" secondItem="cK2-SV-xHi" secondAttribute="trailing" id="63i-Ay-VXo"/>
+                            <constraint firstItem="jWk-Dp-Muw" firstAttribute="bottom" secondItem="cK2-SV-xHi" secondAttribute="bottom" id="KhE-4h-8Xy"/>
+                            <constraint firstItem="cK2-SV-xHi" firstAttribute="top" secondItem="NkX-t3-Dqc" secondAttribute="bottom" id="OjG-oK-60X"/>
                             <constraint firstItem="NkX-t3-Dqc" firstAttribute="leading" secondItem="yFL-zA-bzO" secondAttribute="leading" id="PGk-4y-68H"/>
+                            <constraint firstItem="cK2-SV-xHi" firstAttribute="leading" secondItem="jWk-Dp-Muw" secondAttribute="leading" id="r5u-gQ-eLO"/>
                             <constraint firstAttribute="trailing" secondItem="NkX-t3-Dqc" secondAttribute="trailing" id="uyq-Lx-hZw"/>
                             <constraint firstItem="NkX-t3-Dqc" firstAttribute="top" secondItem="yFL-zA-bzO" secondAttribute="topMargin" id="x67-Vo-qtT"/>
                         </constraints>
@@ -2110,6 +2134,56 @@
             <point key="canvasLocation" x="2036" y="1312"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="0c7-Sa-8eC">
+            <size key="intrinsicContentSize" width="51.333333333333336" height="33.333333333333336"/>
+        </designable>
+        <designable name="5JZ-3p-UmG">
+            <size key="intrinsicContentSize" width="75.333333333333329" height="47"/>
+        </designable>
+        <designable name="6cz-aZ-WRa">
+            <size key="intrinsicContentSize" width="16" height="30"/>
+        </designable>
+        <designable name="6sd-MD-ybY">
+            <size key="intrinsicContentSize" width="51.333333333333336" height="33.333333333333336"/>
+        </designable>
+        <designable name="8YI-Dj-a5U">
+            <size key="intrinsicContentSize" width="44" height="54"/>
+        </designable>
+        <designable name="9Cx-cb-x6K">
+            <size key="intrinsicContentSize" width="82.666666666666671" height="47"/>
+        </designable>
+        <designable name="JfS-Y1-OHE">
+            <size key="intrinsicContentSize" width="51.333333333333336" height="33.333333333333336"/>
+        </designable>
+        <designable name="PCT-uB-HO6">
+            <size key="intrinsicContentSize" width="63.333333333333336" height="47"/>
+        </designable>
+        <designable name="Tfo-Ee-43X">
+            <size key="intrinsicContentSize" width="51.333333333333336" height="33.333333333333336"/>
+        </designable>
+        <designable name="TvH-Er-0RP">
+            <size key="intrinsicContentSize" width="37" height="55"/>
+        </designable>
+        <designable name="bPC-1x-PCY">
+            <size key="intrinsicContentSize" width="63.333333333333336" height="47"/>
+        </designable>
+        <designable name="f7A-Tr-9xV">
+            <size key="intrinsicContentSize" width="24" height="14"/>
+        </designable>
+        <designable name="i0r-bW-D14">
+            <size key="intrinsicContentSize" width="135.66666666666666" height="33.333333333333336"/>
+        </designable>
+        <designable name="iMM-KA-ESC">
+            <size key="intrinsicContentSize" width="51.333333333333336" height="33.333333333333336"/>
+        </designable>
+        <designable name="nzJ-Yb-Hjd">
+            <size key="intrinsicContentSize" width="82.666666666666671" height="47"/>
+        </designable>
+        <designable name="pf8-z7-rET">
+            <size key="intrinsicContentSize" width="82.666666666666671" height="47"/>
+        </designable>
+    </designables>
     <resources>
         <image name="arrow.right" catalog="system" width="128" height="95"/>
         <image name="homeImageAlarm" width="22" height="26"/>
