@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="peN-Im-ACT">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
@@ -864,7 +864,7 @@
                                                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="10"/>
                                                                 </state>
                                                                 <userDefinedRuntimeAttributes>
-                                                                    <userDefinedRuntimeAttribute type="string" keyPath="head2" value="양진재"/>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="head1" value="양진재"/>
                                                                 </userDefinedRuntimeAttributes>
                                                                 <connections>
                                                                     <action selector="dormitoryButtonTapped:" destination="pDX-kV-96B" eventType="touchUpInside" id="JJd-Yy-wRL"/>
@@ -903,7 +903,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pf8-z7-rET" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
-                                                <rect key="frame" x="285.66666666666669" y="86" width="87.333333333333314" height="28"/>
+                                                <rect key="frame" x="290.33333333333331" y="86" width="82.666666666666686" height="28"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="28" id="hza-8j-0gq"/>
                                                 </constraints>
@@ -1096,7 +1096,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nzJ-Yb-Hjd" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
-                                                        <rect key="frame" x="16" y="68.666666666666742" width="75.333333333333329" height="28"/>
+                                                        <rect key="frame" x="16" y="68.666666666666742" width="82.666666666666671" height="28"/>
                                                         <color key="backgroundColor" name="primaryMid"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="28" id="iWk-PQ-m4c"/>
@@ -1380,7 +1380,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Cx-cb-x6K" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
-                                                <rect key="frame" x="285.66666666666669" y="580.33333333333337" width="87.333333333333314" height="28"/>
+                                                <rect key="frame" x="290.33333333333331" y="580.33333333333337" width="82.666666666666686" height="28"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="28" id="DZE-Ex-hkf"/>
                                                 </constraints>
@@ -1515,9 +1515,8 @@
                                         <viewLayoutGuide key="contentLayoutGuide" id="vWO-oK-e0p"/>
                                         <viewLayoutGuide key="frameLayoutGuide" id="uTd-0X-yM8"/>
                                     </scrollView>
-                                    <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jW8-v6-Usi">
-                                        <rect key="frame" x="-2" y="0.0" width="79" height="35"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jW8-v6-Usi">
+                                        <rect key="frame" x="157" y="12.666666666666671" width="79" height="35"/>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="homeImageArrow" title="양진재"/>
@@ -1525,17 +1524,50 @@
                                             <userDefinedRuntimeAttribute type="string" keyPath="head1" value="양진재"/>
                                         </userDefinedRuntimeAttributes>
                                     </button>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bulletinBoardLogo" translatesAutoresizingMaskIntoConstraints="NO" id="pOs-Jt-RXR">
+                                        <rect key="frame" x="20" y="15" width="40" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="FG6-rK-su1"/>
+                                            <constraint firstAttribute="height" constant="30" id="uoA-Z9-HGA"/>
+                                        </constraints>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HzM-Gc-WY1">
+                                        <rect key="frame" x="343" y="15" width="20" height="24"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="20" id="LAe-Co-c2c"/>
+                                            <constraint firstAttribute="height" constant="24" id="hqK-uk-awH"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="bulletinBoardAlram"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BG7-JU-TdT">
+                                        <rect key="frame" x="300.66666666666669" y="15" width="24" height="24"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="24" id="8Bt-AA-QSx"/>
+                                            <constraint firstAttribute="height" constant="24" id="btH-C1-cSR"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="bulletinBoardMagnifier"/>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstItem="jW8-v6-Usi" firstAttribute="centerY" secondItem="pOs-Jt-RXR" secondAttribute="centerY" id="B2U-W7-dbz"/>
                                     <constraint firstAttribute="height" constant="100" id="BLk-UK-klB"/>
+                                    <constraint firstItem="BG7-JU-TdT" firstAttribute="top" secondItem="NkX-t3-Dqc" secondAttribute="top" constant="15" id="GoP-O1-SkO"/>
+                                    <constraint firstItem="HzM-Gc-WY1" firstAttribute="leading" secondItem="BG7-JU-TdT" secondAttribute="trailing" constant="18.5" id="IM5-kn-MKk"/>
+                                    <constraint firstItem="HzM-Gc-WY1" firstAttribute="top" secondItem="NkX-t3-Dqc" secondAttribute="top" constant="15" id="Igo-fG-eKQ"/>
                                     <constraint firstAttribute="trailing" secondItem="yjz-7t-GiR" secondAttribute="trailing" id="IrV-mA-Zvb"/>
+                                    <constraint firstAttribute="trailing" secondItem="HzM-Gc-WY1" secondAttribute="trailing" constant="30" id="d2z-FH-zG0"/>
                                     <constraint firstItem="yjz-7t-GiR" firstAttribute="leading" secondItem="NkX-t3-Dqc" secondAttribute="leading" id="e4c-Cb-GZD"/>
+                                    <constraint firstItem="pOs-Jt-RXR" firstAttribute="top" secondItem="NkX-t3-Dqc" secondAttribute="top" constant="15" id="heY-1r-eev"/>
+                                    <constraint firstItem="pOs-Jt-RXR" firstAttribute="leading" secondItem="NkX-t3-Dqc" secondAttribute="leading" constant="20" id="nJ0-c1-BTd"/>
                                     <constraint firstAttribute="bottom" secondItem="yjz-7t-GiR" secondAttribute="bottom" id="pWI-9K-vL0"/>
+                                    <constraint firstItem="jW8-v6-Usi" firstAttribute="centerX" secondItem="NkX-t3-Dqc" secondAttribute="centerX" id="zOt-hP-4Xq"/>
                                 </constraints>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="cK2-SV-xHi">
-                                <rect key="frame" x="0.0" y="203" width="393" height="566"/>
+                                <rect key="frame" x="0.0" y="203" width="393" height="545"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="lks-GX-fDg">
                                     <size key="itemSize" width="128" height="128"/>
@@ -1559,7 +1591,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="jWk-Dp-Muw" firstAttribute="trailing" secondItem="cK2-SV-xHi" secondAttribute="trailing" id="63i-Ay-VXo"/>
-                            <constraint firstItem="jWk-Dp-Muw" firstAttribute="bottom" secondItem="cK2-SV-xHi" secondAttribute="bottom" id="KhE-4h-8Xy"/>
+                            <constraint firstItem="jWk-Dp-Muw" firstAttribute="bottom" secondItem="cK2-SV-xHi" secondAttribute="bottom" constant="21" id="KhE-4h-8Xy"/>
                             <constraint firstItem="cK2-SV-xHi" firstAttribute="top" secondItem="NkX-t3-Dqc" secondAttribute="bottom" id="OjG-oK-60X"/>
                             <constraint firstItem="NkX-t3-Dqc" firstAttribute="leading" secondItem="yFL-zA-bzO" secondAttribute="leading" id="PGk-4y-68H"/>
                             <constraint firstItem="cK2-SV-xHi" firstAttribute="leading" secondItem="jWk-Dp-Muw" secondAttribute="leading" id="r5u-gQ-eLO"/>
@@ -1569,6 +1601,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="게시판" id="mHD-A0-F1x"/>
                     <connections>
+                        <outlet property="collectionView" destination="cK2-SV-xHi" id="eFZ-gH-EyU"/>
                         <outlet property="naviCustomView" destination="NkX-t3-Dqc" id="h1Y-ct-RU6"/>
                         <segue destination="lMs-QX-VaL" kind="show" identifier="toDetailViewControllerSegue" id="CLT-pA-e37"/>
                     </connections>
@@ -2186,6 +2219,9 @@
     </designables>
     <resources>
         <image name="arrow.right" catalog="system" width="128" height="95"/>
+        <image name="bulletinBoardAlram" width="20" height="24"/>
+        <image name="bulletinBoardLogo" width="40" height="32"/>
+        <image name="bulletinBoardMagnifier" width="24" height="24"/>
         <image name="homeImageAlarm" width="22" height="26"/>
         <image name="homeImageArrow" width="10" height="6"/>
         <image name="homeImageClock" width="16" height="15"/>

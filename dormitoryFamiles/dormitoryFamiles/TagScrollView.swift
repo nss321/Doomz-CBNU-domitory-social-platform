@@ -13,13 +13,13 @@ class TagScrollView: UIScrollView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        tagStackView.spacing = 4
+        tagStackView.spacing = 8
         configure()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        tagStackView.spacing = 4
+        tagStackView.spacing = 8
         configure()
     }
     

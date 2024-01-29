@@ -67,7 +67,7 @@ class HomeViewController: UIViewController, DormitoryButtonHandling {
     //기숙사 시트의 버튼이 눌려지면(기숙사가 선택되면) 그 title을 버튼의 title과 일치시키는 함수
     @objc func dormitoryChangeNotification(_ notification: Notification) {
         if notification.object is String {
-            dormitoryButton.head2 = SelectedDormitory.shared.domitory
+            dormitoryButton.head1 = SelectedDormitory.shared.domitory
             dormitoryButton.setTitle(SelectedDormitory.shared.domitory, for: .normal)
         }
         

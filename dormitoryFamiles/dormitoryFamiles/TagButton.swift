@@ -13,7 +13,7 @@ class RoundButton: UIButton {
         super.init(frame: frame)
         setupButton()
         setupConfiguration()
-        self.backgroundColor = .black
+        self.backgroundColor = .white
     }
     
     required init?(coder: NSCoder) {
@@ -61,18 +61,22 @@ class TagButton: RoundButton {
     
     private func setUI(title: String) {
         self.setTitle(title, for: .normal)
-        self.layer.borderColor = UIColor.lightGray.cgColor
+        self.layer.borderColor = UIColor.gray4?.cgColor
         self.layer.borderWidth = 1
         self.layer.masksToBounds = true
         self.contentEdgeInsets = UIEdgeInsets(top: 8, left: 16, bottom: 8, right: 16)
-        self.setTitleColor(.black, for: .normal)
+        self.setTitleColor(.gray4, for: .normal)
     }
     
+    func changePinkColor() {
+        self.backgroundColor = .primaryMid
+    }
+
     func changeWhiteColor() {
         self.backgroundColor = .white
     }
-
-    func changeOrangeColor() {
-        self.backgroundColor = .black
+    
+    func changeTitleGray() {
+        self.setTitleColor(.gray4, for: .normal)
     }
 }
