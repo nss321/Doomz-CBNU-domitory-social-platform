@@ -22,37 +22,26 @@
                 <rect key="frame" x="0.0" y="0.0" width="337" height="166"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="LhM-br-lCT">
-                        <rect key="frame" x="16" y="15.999999999999998" width="126" height="20.333333333333329"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="도와주세요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uwO-Wt-S4T">
-                                <rect key="frame" x="0.0" y="0.0" width="73.666666666666671" height="20.333333333333332"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="모집중" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jKa-D9-GY7">
-                                <rect key="frame" x="81.666666666666671" y="0.0" width="44.333333333333329" height="20.333333333333332"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                    </stackView>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="EPc-sW-8rF">
-                        <rect key="frame" x="16" y="44.333333333333343" width="231" height="65"/>
+                        <rect key="frame" x="16" y="55" width="231" height="65"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="바퀴벌레 잡아주실분 ㅠㅠ!!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nJr-b4-0XJ">
                                 <rect key="frame" x="0.0" y="0.0" width="180.33333333333334" height="20.333333333333332"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="subTitle1" value="바퀴벌레 잡아주실분 ㅠㅠ!!"/>
+                                </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="양진재 예지관 907호 바퀴벌레 나왔어요.. 제발 잡아주세요 제발 잡아줄사람 사례할게요" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bjf-f6-SsP">
-                                <rect key="frame" x="0.0" y="24.333333333333339" width="227" height="40.666666666666657"/>
+                                <rect key="frame" x="0.0" y="24.333333333333325" width="227" height="40.666666666666657"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" name="gray5"/>
                                 <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="body2" value="양진재 예지관 907호 바퀴벌레 나왔어요.. 제발 잡아주세요 제발 잡아줄사람 사례할게요"/>
+                                </userDefinedRuntimeAttributes>
                             </label>
                         </subviews>
                         <constraints>
@@ -67,121 +56,170 @@
                         </constraints>
                     </imageView>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bulluetinBoardProfileBackground" translatesAutoresizingMaskIntoConstraints="NO" id="1UP-zM-b1w">
-                        <rect key="frame" x="16" y="134" width="16" height="16"/>
+                        <rect key="frame" x="16" y="132.33333333333334" width="16" height="16"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="16" id="MMZ-Vq-5gA"/>
                             <constraint firstAttribute="width" constant="16" id="qYT-ol-tip"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SQE-bh-vgU">
-                        <rect key="frame" x="37" y="129.66666666666666" width="41.333333333333343" height="20.333333333333343"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" name="gray3"/>
-                        <nil key="highlightedColor"/>
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="string" keyPath="body2" value="unnimm"/>
-                        </userDefinedRuntimeAttributes>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="|" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6PH-PA-xCd">
-                        <rect key="frame" x="84.333333333333329" y="135.66666666666666" width="4" height="14.333333333333343"/>
-                        <fontDescription key="fontDescription" name="PretendardVariable-Regular" family="Pretendard Variable" pointSize="12"/>
-                        <color key="textColor" name="gray3"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sj9-bg-ZmC">
-                        <rect key="frame" x="94.333333333333329" y="129.66666666666666" width="41.333333333333329" height="20.333333333333343"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" name="gray3"/>
-                        <nil key="highlightedColor"/>
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="string" keyPath="body2" value="8분전"/>
-                        </userDefinedRuntimeAttributes>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="|" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0bb-2G-QHE">
-                        <rect key="frame" x="141.66666666666666" y="135.66666666666666" width="4" height="14.333333333333343"/>
-                        <fontDescription key="fontDescription" name="PretendardVariable-Regular" family="Pretendard Variable" pointSize="12"/>
-                        <color key="textColor" name="gray3"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YQx-58-eSh">
-                        <rect key="frame" x="151.66666666666666" y="129.66666666666666" width="41.333333333333343" height="20.333333333333343"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" name="gray3"/>
-                        <nil key="highlightedColor"/>
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="string" keyPath="body2" value="조회 7"/>
-                        </userDefinedRuntimeAttributes>
-                    </label>
+                    <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="3L1-Hq-CEM">
+                        <rect key="frame" x="37" y="127.99999999999999" width="152" height="20.333333333333329"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SQE-bh-vgU">
+                                <rect key="frame" x="0.0" y="0.0" width="41.333333333333336" height="20.333333333333332"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" name="gray3"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="body2" value="unnimm"/>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="|" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6PH-PA-xCd">
+                                <rect key="frame" x="46.333333333333329" y="0.0" width="4" height="20.333333333333332"/>
+                                <fontDescription key="fontDescription" name="PretendardVariable-Regular" family="Pretendard Variable" pointSize="12"/>
+                                <color key="textColor" name="gray3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sj9-bg-ZmC">
+                                <rect key="frame" x="55.333333333333329" y="0.0" width="41.333333333333329" height="20.333333333333332"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" name="gray3"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="body2" value="8분전"/>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="|" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0bb-2G-QHE">
+                                <rect key="frame" x="101.66666666666666" y="0.0" width="4" height="20.333333333333332"/>
+                                <fontDescription key="fontDescription" name="PretendardVariable-Regular" family="Pretendard Variable" pointSize="12"/>
+                                <color key="textColor" name="gray3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YQx-58-eSh">
+                                <rect key="frame" x="110.66666666666664" y="0.0" width="41.333333333333329" height="20.333333333333332"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" name="gray3"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="body2" value="조회 7"/>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                        </subviews>
+                    </stackView>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bulluetinBoardProfileIcon" translatesAutoresizingMaskIntoConstraints="NO" id="5c3-St-VWS">
-                        <rect key="frame" x="16.666666666666668" y="134.66666666666666" width="14.666666666666668" height="14.666666666666657"/>
+                        <rect key="frame" x="16.666666666666668" y="133" width="14.666666666666668" height="14.666666666666657"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="14.5" id="TXc-KX-j8d"/>
                             <constraint firstAttribute="height" constant="14.5" id="i2J-Cg-PcC"/>
                         </constraints>
                     </imageView>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bulluetinBoardChat" translatesAutoresizingMaskIntoConstraints="NO" id="PnJ-sO-cHV">
-                        <rect key="frame" x="295.66666666666669" y="134" width="12" height="12"/>
+                        <rect key="frame" x="298.33333333333331" y="137" width="12" height="12"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="12" id="5ej-iN-IxJ"/>
                             <constraint firstAttribute="width" constant="12" id="RL9-mf-CVQ"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4D9-Wa-ky2">
-                        <rect key="frame" x="310.66666666666669" y="129.66666666666666" width="10.333333333333314" height="20.333333333333343"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
+                        <rect key="frame" x="313.33333333333331" y="135.66666666666666" width="7.6666666666666856" height="14.333333333333343"/>
+                        <fontDescription key="fontDescription" name="PretendardVariable-Regular" family="Pretendard Variable" pointSize="12"/>
+                        <color key="textColor" name="gray5"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t2h-SG-48e">
-                        <rect key="frame" x="277.33333333333331" y="129.66666666666666" width="10.333333333333314" height="20.333333333333343"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
+                        <rect key="frame" x="282.66666666666669" y="135.66666666666666" width="7.6666666666666856" height="14.333333333333343"/>
+                        <fontDescription key="fontDescription" name="PretendardVariable-Regular" family="Pretendard Variable" pointSize="12"/>
+                        <color key="textColor" name="gray5"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bulluetinBoardLike" translatesAutoresizingMaskIntoConstraints="NO" id="pff-wj-puL">
-                        <rect key="frame" x="262.33333333333331" y="135" width="12" height="10"/>
+                        <rect key="frame" x="267.66666666666669" y="138" width="12" height="10"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="10" id="fIx-1S-E8u"/>
                             <constraint firstAttribute="width" constant="12" id="kyR-M2-RI3"/>
                         </constraints>
                     </imageView>
+                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="UFo-WA-dgi">
+                        <rect key="frame" x="16" y="16" width="174.66666666666666" height="31"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rfh-xG-L3a" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="83.333333333333329" height="31"/>
+                                <color key="backgroundColor" name="secondary"/>
+                                <color key="tintColor" name="primary"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="도와주세요">
+                                    <color key="baseForegroundColor" name="primary"/>
+                                </buttonConfiguration>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="body2" value="도와주세요"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" name="secondary"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uk3-md-aWm" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
+                                <rect key="frame" x="91.333333333333343" y="0.0" width="83.333333333333343" height="31"/>
+                                <color key="backgroundColor" red="0.84705882352941175" green="0.91764705882352937" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="모집중"/>
+                                    </attributedString>
+                                    <color key="baseForegroundColor" systemColor="labelColor"/>
+                                </buttonConfiguration>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="body2" value="모집중"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="0.84705882352941175" green="0.91764705882352937" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                        </subviews>
+                    </stackView>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
-                <constraint firstItem="YQx-58-eSh" firstAttribute="leading" secondItem="0bb-2G-QHE" secondAttribute="trailing" constant="6" id="Atr-TG-vLb"/>
-                <constraint firstAttribute="bottom" secondItem="SQE-bh-vgU" secondAttribute="bottom" constant="16" id="BL8-X2-lgW"/>
-                <constraint firstAttribute="bottom" secondItem="0bb-2G-QHE" secondAttribute="bottom" constant="16" id="ItI-p4-RJO"/>
+                <constraint firstItem="UFo-WA-dgi" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="16" id="Fwf-Mr-JcZ"/>
                 <constraint firstItem="5c3-St-VWS" firstAttribute="centerY" secondItem="1UP-zM-b1w" secondAttribute="centerY" id="JLq-Jn-OSl"/>
                 <constraint firstItem="1UP-zM-b1w" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="16" id="K3k-eG-Rq6"/>
                 <constraint firstAttribute="trailing" secondItem="4D9-Wa-ky2" secondAttribute="trailing" constant="16" id="Lt5-6g-mjF"/>
                 <constraint firstItem="4D9-Wa-ky2" firstAttribute="leading" secondItem="PnJ-sO-cHV" secondAttribute="trailing" constant="3" id="LwR-Bl-2fg"/>
+                <constraint firstItem="3L1-Hq-CEM" firstAttribute="leading" secondItem="1UP-zM-b1w" secondAttribute="trailing" constant="5" id="MKh-pI-eJN"/>
                 <constraint firstItem="t2h-SG-48e" firstAttribute="leading" secondItem="pff-wj-puL" secondAttribute="trailing" constant="3" id="O5t-Kk-0TX"/>
-                <constraint firstItem="LhM-br-lCT" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="16" id="QAU-OC-L55"/>
                 <constraint firstItem="PnJ-sO-cHV" firstAttribute="leading" secondItem="t2h-SG-48e" secondAttribute="trailing" constant="8" id="R8D-cQ-1Qf"/>
                 <constraint firstItem="EPc-sW-8rF" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="16" id="ScM-f4-NtC"/>
-                <constraint firstItem="6PH-PA-xCd" firstAttribute="leading" secondItem="SQE-bh-vgU" secondAttribute="trailing" constant="6" id="TUi-U9-AP4"/>
                 <constraint firstItem="5c3-St-VWS" firstAttribute="centerX" secondItem="1UP-zM-b1w" secondAttribute="centerX" id="YIp-Sq-vL8"/>
-                <constraint firstItem="Sj9-bg-ZmC" firstAttribute="leading" secondItem="6PH-PA-xCd" secondAttribute="trailing" constant="6" id="YTl-D3-skJ"/>
-                <constraint firstItem="LhM-br-lCT" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="16" id="Ye0-la-Nvw"/>
                 <constraint firstAttribute="bottom" secondItem="t2h-SG-48e" secondAttribute="bottom" constant="16" id="Zad-Yn-9qk"/>
                 <constraint firstItem="PnJ-sO-cHV" firstAttribute="centerY" secondItem="4D9-Wa-ky2" secondAttribute="centerY" id="ZjB-F2-pB1"/>
-                <constraint firstAttribute="bottom" secondItem="YQx-58-eSh" secondAttribute="bottom" constant="16" id="b4C-KK-2d7"/>
-                <constraint firstAttribute="bottom" secondItem="Sj9-bg-ZmC" secondAttribute="bottom" constant="16" id="ckI-dW-XRb"/>
                 <constraint firstItem="bOg-mS-y3r" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="dEp-25-pf1"/>
-                <constraint firstItem="EPc-sW-8rF" firstAttribute="top" secondItem="LhM-br-lCT" secondAttribute="bottom" constant="8" id="fMM-ut-Rlq"/>
-                <constraint firstItem="SQE-bh-vgU" firstAttribute="leading" secondItem="1UP-zM-b1w" secondAttribute="trailing" constant="5" id="heU-wt-mSQ"/>
+                <constraint firstItem="EPc-sW-8rF" firstAttribute="top" secondItem="UFo-WA-dgi" secondAttribute="bottom" constant="8" id="eli-XO-Q5m"/>
+                <constraint firstItem="3L1-Hq-CEM" firstAttribute="bottom" secondItem="1UP-zM-b1w" secondAttribute="bottom" id="hc3-Cg-Sd7"/>
                 <constraint firstAttribute="bottom" secondItem="4D9-Wa-ky2" secondAttribute="bottom" constant="16" id="i9Y-gx-Hyu"/>
-                <constraint firstAttribute="bottom" secondItem="1UP-zM-b1w" secondAttribute="bottom" constant="16" id="lxN-YD-Yq9"/>
+                <constraint firstItem="UFo-WA-dgi" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="16" id="lHT-gG-qpF"/>
                 <constraint firstItem="pff-wj-puL" firstAttribute="centerY" secondItem="t2h-SG-48e" secondAttribute="centerY" id="mGa-xh-Jd4"/>
                 <constraint firstAttribute="trailing" secondItem="bOg-mS-y3r" secondAttribute="trailing" constant="16" id="nQ1-do-4IZ"/>
-                <constraint firstItem="0bb-2G-QHE" firstAttribute="leading" secondItem="Sj9-bg-ZmC" secondAttribute="trailing" constant="6" id="on7-Od-Bbd"/>
-                <constraint firstAttribute="bottom" secondItem="6PH-PA-xCd" secondAttribute="bottom" constant="16" id="x5R-6R-BYC"/>
+                <constraint firstItem="3L1-Hq-CEM" firstAttribute="top" secondItem="EPc-sW-8rF" secondAttribute="bottom" constant="8" id="yNO-WZ-ilX"/>
             </constraints>
             <size key="customSize" width="337" height="166"/>
             <point key="canvasLocation" x="257.25190839694653" y="61.267605633802823"/>
         </collectionViewCell>
     </objects>
+    <designables>
+        <designable name="rfh-xG-L3a">
+            <size key="intrinsicContentSize" width="83.333333333333329" height="31"/>
+        </designable>
+        <designable name="uk3-md-aWm">
+            <size key="intrinsicContentSize" width="59.666666666666664" height="31"/>
+        </designable>
+    </designables>
     <resources>
         <image name="bulluetinBoardChat" width="12" height="12"/>
         <image name="bulluetinBoardLike" width="12" height="12"/>
@@ -190,5 +228,17 @@
         <namedColor name="gray3">
             <color red="0.74509803921568629" green="0.74509803921568629" blue="0.74509803921568629" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <namedColor name="gray5">
+            <color red="0.44705882352941179" green="0.45098039215686275" blue="0.45882352941176469" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="primary">
+            <color red="0.90588235294117647" green="0.0" blue="0.31372549019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="secondary">
+            <color red="1" green="0.90980392156862744" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="labelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
     </resources>
 </document>

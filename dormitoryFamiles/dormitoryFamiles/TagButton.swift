@@ -30,7 +30,7 @@ class RoundButton: UIButton {
     
     private func setupConfiguration() {
         var configuration = UIButton.Configuration.plain()
-        configuration.contentInsets = .init(top: 15, leading: 8, bottom: 15, trailing: 8)
+        configuration.contentInsets = .init(top: 4, leading: 12, bottom: 4, trailing: 12)
         self.configuration = configuration
     }
     

@@ -9,18 +9,19 @@ import UIKit
 
 class BulletinBoardMainViewController: UIViewController {
     let cellIdentifier = "BulletinBoardMainTableViewCell"
-    let tagScrollView = TagScrollView()
     var tags = ["최신순", "모집중"]
     @IBOutlet weak var naviCustomView: UIView!
     
     @IBOutlet weak var collectionView: UICollectionView!
     
     override func viewDidLoad() {
-        
-        setTag()
-        getTagMakeButton()
         setDelegate()
         self.collectionView.register(UINib(nibName: "BulluetinBoardCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "cell")
+        
+        collectionView.register(UINib(nibName: "PopularCollectionViewHeader",
+                                              bundle: nil),
+                                        forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
+                                        withReuseIdentifier: "header")
         
     }
     
@@ -34,81 +35,11 @@ class BulletinBoardMainViewController: UIViewController {
         self.navigationController?.setNavigationBarHidden(false, animated: false)
     }
     
-    private func setTag() {
-        //네비게이션
-        let popularButton = TagButton(title: "인기순")
-        tagScrollView.tagStackView.addArrangedSubview(popularButton)
-        tagLayout()
-        popularButton.addTarget(nil, action: #selector(categoryButtonTapped), for: .touchUpInside)
-        categoryButtonTapped(popularButton)
-    }
-    
     private func setDelegate() {
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
     }
     
-    
-    private func tagLayout() {
-        self.view.addSubview(tagScrollView)
-        tagScrollView.translatesAutoresizingMaskIntoConstraints = false
-        
-        let height: CGFloat = self.view.frame.height
-        let width: CGFloat = self.view.frame.width
-        let figmaHeight: CGFloat = 852
-        let figmaWidth: CGFloat = 391
-        let heightRatio: CGFloat = height/figmaHeight
-        let widthRatio: CGFloat = width/figmaWidth
-        NSLayoutConstraint.activate([
-            tagScrollView.bottomAnchor.constraint(equalTo: self.naviCustomView.bottomAnchor, constant: -10*heightRatio),
-            tagScrollView.leadingAnchor.constraint(equalTo: self.naviCustomView.leadingAnchor, constant: 16*widthRatio),
-            tagScrollView.trailingAnchor.constraint(equalTo: self.naviCustomView.trailingAnchor, constant: -16*widthRatio),
-            tagScrollView.heightAnchor.constraint(equalToConstant: 32*heightRatio)
-        ])
-    }
-    
-    private func makeButton(tag: String)  {
-        let tagButton = TagButton(title: tag)
-        tagScrollView.tagStackView.addArrangedSubview(tagButton)
-        tagButton.addTarget(self, action: #selector(categoryButtonTapped(_:)), for: .touchUpInside)
-        tagButton.tag = 4
-    }
-    
-    @objc private func categoryButtonTapped(_ sender: TagButton) {
-        
-        //(버튼)활성화UI를 비활성화UI로
-        for case let button as TagButton in tagScrollView.tagStackView.arrangedSubviews{
-            button.changeWhiteColor()
-            button.changeTitleGray()
-            button.setTitleColor(.gray4, for: .normal)
-            button.layer.borderWidth = 1
-            
-            //TODO: 여기를 왜 label을 덮은것처럼 색상을 바꿔야하는지 정말 모르겠다. 알아보자 꼭.
-            for view in button.subviews {
-                if let label = view as? UILabel {
-                    label.textColor = .gray4
-                }
-            }
-        }
-        
-        //(버튼)비활성화UI를 활성화UI로
-        sender.changePinkColor()
-        sender.setTitleColor(UIColor.white, for: .normal)
-        //TODO: 여기를 왜 label을 덮은것처럼 색상을 바꿔야하는지 정말 모르겠다. 알아보자 꼭.
-        for view in sender.subviews {
-            if let label = view as? UILabel {
-                label.textColor = .white
-            }
-        }
-        sender.layer.borderWidth = 0
-    }
-    
-    private func getTagMakeButton() {
-        //찜했던 상품들이 해당하는 카테고리를 버튼으로 만듬
-        tags.forEach { tag in
-            self.makeButton(tag: tag)
-        }
-    }
 }
 
 extension BulletinBoardMainViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -132,7 +63,25 @@ extension BulletinBoardMainViewController: UICollectionViewDelegate, UICollectio
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 20
+        return 12
     }
+    
+    // 헤더의 크기를 지정하는 함수
+        func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+            return CGSize(width: 10, height: 56)
+        }
+        
+        // 헤더를 생성하는 함수
+        func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+            switch kind {
+            case UICollectionView.elementKindSectionHeader:
+                let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "header", for: indexPath)
+                // headerView 설정 코드를 여기에 작성하세요
+                
+                return headerView
+            default:
+                assert(false, "Invalid element type")
+            }
+        }
     
 }
