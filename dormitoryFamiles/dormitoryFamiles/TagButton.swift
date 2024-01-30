@@ -1,51 +1,50 @@
-//
-//  TagButton.swift
-//  dormitoryFamiles
-//
-//  Created by leehwajin on 2024/01/03.
-//
-
 import UIKit
 
 class RoundButton: UIButton {
     
+    var spacing: CGFloat = 0 {
+        didSet {
+            updateSpacing()
+        }
+    }
+    
+    override func setNeedsLayout() {
+        super.setNeedsLayout()
+        self.layer.cornerRadius = self.bounds.height / 2
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupButton()
-        setupConfiguration()
         self.backgroundColor = .white
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         setupButton()
-        setupConfiguration()
     }
     
     private func setupButton() {
-        self.layer.cornerRadius = self.bounds.height / 2
         self.layer.masksToBounds = true
-        self.setTitleColor(.red, for: .reserved)
+        self.setTitleColor(.red, for: .normal)
+        updateSpacing()
     }
     
-    private func setupConfiguration() {
-        var configuration = UIButton.Configuration.plain()
-        configuration.contentInsets = .init(top: 4, leading: 12, bottom: 4, trailing: 12)
-        self.configuration = configuration
+    private func updateSpacing() {
+        let insetAmount = spacing / 2
+        self.imageEdgeInsets = UIEdgeInsets(top: 0, left: -insetAmount, bottom: 0, right: insetAmount)
+        self.titleEdgeInsets = UIEdgeInsets(top: 0, left: insetAmount, bottom: 0, right: -insetAmount)
+        self.contentEdgeInsets = UIEdgeInsets(top: 0, left: insetAmount, bottom: 0, right: insetAmount)
     }
     
     override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
         let hitView = super.hitTest(point, with: event)
-        
         if hitView == self.titleLabel {
             return self
         }
-        
         return hitView
     }
 }
-
-
 
 class TagButton: RoundButton {
 

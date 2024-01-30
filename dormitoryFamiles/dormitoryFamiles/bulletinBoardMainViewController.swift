@@ -9,12 +9,14 @@ import UIKit
 
 class BulletinBoardMainViewController: UIViewController {
     let cellIdentifier = "BulletinBoardMainTableViewCell"
-    var tags = ["최신순", "모집중"]
     @IBOutlet weak var naviCustomView: UIView!
     
     @IBOutlet weak var collectionView: UICollectionView!
     
+    @IBOutlet weak var writeButton: TagButton!
+    
     override func viewDidLoad() {
+        setUI()
         setDelegate()
         self.collectionView.register(UINib(nibName: "BulluetinBoardCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "cell")
         
@@ -38,6 +40,11 @@ class BulletinBoardMainViewController: UIViewController {
     private func setDelegate() {
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
+    }
+    
+    private func setUI() {
+        writeButton.configuration?.image = UIImage(named: "bulletinBoardPlus")
+        writeButton.spacing = 10000
     }
     
 }

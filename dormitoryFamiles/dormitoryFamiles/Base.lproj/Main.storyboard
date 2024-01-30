@@ -903,7 +903,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pf8-z7-rET" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
-                                                <rect key="frame" x="285.66666666666669" y="86" width="87.333333333333314" height="28"/>
+                                                <rect key="frame" x="309.66666666666669" y="86" width="63.333333333333314" height="28"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="28" id="hza-8j-0gq"/>
                                                 </constraints>
@@ -1096,7 +1096,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nzJ-Yb-Hjd" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
-                                                        <rect key="frame" x="16" y="68.666666666666742" width="75.333333333333329" height="28"/>
+                                                        <rect key="frame" x="16.000000000000004" y="68.666666666666742" width="63.333333333333343" height="28"/>
                                                         <color key="backgroundColor" name="primaryMid"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="28" id="iWk-PQ-m4c"/>
@@ -1380,7 +1380,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Cx-cb-x6K" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
-                                                <rect key="frame" x="285.66666666666669" y="580.33333333333337" width="87.333333333333314" height="28"/>
+                                                <rect key="frame" x="309.66666666666669" y="580.33333333333337" width="63.333333333333314" height="28"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="28" id="DZE-Ex-hkf"/>
                                                 </constraints>
@@ -1621,6 +1621,21 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="63s-np-sbo" customClass="TagButton" customModule="dormitoryFamiles" customModuleProvider="target">
+                                <rect key="frame" x="276" y="716" width="97" height="44"/>
+                                <color key="backgroundColor" name="primary"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="97" id="13j-O0-R1O"/>
+                                    <constraint firstAttribute="height" constant="44" id="dD5-4E-gfe"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="contentEdgeInsets" minX="8" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="bulletinBoardPlus" title="글쓰기" imagePadding="8"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="subTitle1" value="글쓰기"/>
+                                </userDefinedRuntimeAttributes>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="jWk-Dp-Muw"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1628,8 +1643,10 @@
                             <constraint firstItem="jWk-Dp-Muw" firstAttribute="trailing" secondItem="cK2-SV-xHi" secondAttribute="trailing" id="63i-Ay-VXo"/>
                             <constraint firstItem="jWk-Dp-Muw" firstAttribute="bottom" secondItem="cK2-SV-xHi" secondAttribute="bottom" constant="21" id="KhE-4h-8Xy"/>
                             <constraint firstItem="NkX-t3-Dqc" firstAttribute="leading" secondItem="yFL-zA-bzO" secondAttribute="leading" id="PGk-4y-68H"/>
+                            <constraint firstItem="jWk-Dp-Muw" firstAttribute="bottom" secondItem="63s-np-sbo" secondAttribute="bottom" constant="9" id="fNf-Sf-Wao"/>
                             <constraint firstItem="cK2-SV-xHi" firstAttribute="top" secondItem="NkX-t3-Dqc" secondAttribute="bottom" id="iRK-Z2-EoZ"/>
                             <constraint firstItem="cK2-SV-xHi" firstAttribute="leading" secondItem="jWk-Dp-Muw" secondAttribute="leading" id="r5u-gQ-eLO"/>
+                            <constraint firstItem="jWk-Dp-Muw" firstAttribute="trailing" secondItem="63s-np-sbo" secondAttribute="trailing" constant="20" id="sJV-w9-ZWf"/>
                             <constraint firstAttribute="trailing" secondItem="NkX-t3-Dqc" secondAttribute="trailing" id="uyq-Lx-hZw"/>
                             <constraint firstItem="NkX-t3-Dqc" firstAttribute="top" secondItem="yFL-zA-bzO" secondAttribute="topMargin" id="x67-Vo-qtT"/>
                         </constraints>
@@ -1638,6 +1655,7 @@
                     <connections>
                         <outlet property="collectionView" destination="cK2-SV-xHi" id="eFZ-gH-EyU"/>
                         <outlet property="naviCustomView" destination="NkX-t3-Dqc" id="h1Y-ct-RU6"/>
+                        <outlet property="writeButton" destination="63s-np-sbo" id="Mgc-8W-kJV"/>
                         <segue destination="lMs-QX-VaL" kind="show" identifier="toDetailViewControllerSegue" id="CLT-pA-e37"/>
                     </connections>
                 </viewController>
@@ -2207,34 +2225,37 @@
             <size key="intrinsicContentSize" width="51.333333333333336" height="33.333333333333336"/>
         </designable>
         <designable name="5JZ-3p-UmG">
-            <size key="intrinsicContentSize" width="83.333333333333329" height="25"/>
+            <size key="intrinsicContentSize" width="60" height="28.666666666666668"/>
+        </designable>
+        <designable name="63s-np-sbo">
+            <size key="intrinsicContentSize" width="88.666666666666671" height="33.333333333333336"/>
         </designable>
         <designable name="6cz-aZ-WRa">
-            <size key="intrinsicContentSize" width="24" height="8"/>
+            <size key="intrinsicContentSize" width="30" height="34"/>
         </designable>
         <designable name="6sd-MD-ybY">
             <size key="intrinsicContentSize" width="51.333333333333336" height="33.333333333333336"/>
         </designable>
         <designable name="8YI-Dj-a5U">
-            <size key="intrinsicContentSize" width="52" height="32"/>
+            <size key="intrinsicContentSize" width="28" height="24"/>
         </designable>
         <designable name="9Cx-cb-x6K">
-            <size key="intrinsicContentSize" width="90.666666666666671" height="25"/>
+            <size key="intrinsicContentSize" width="63.333333333333336" height="16.666666666666668"/>
         </designable>
         <designable name="JfS-Y1-OHE">
             <size key="intrinsicContentSize" width="51.333333333333336" height="33.333333333333336"/>
         </designable>
         <designable name="PCT-uB-HO6">
-            <size key="intrinsicContentSize" width="71.333333333333329" height="25"/>
+            <size key="intrinsicContentSize" width="48" height="28.666666666666668"/>
         </designable>
         <designable name="Tfo-Ee-43X">
             <size key="intrinsicContentSize" width="51.333333333333336" height="33.333333333333336"/>
         </designable>
         <designable name="TvH-Er-0RP">
-            <size key="intrinsicContentSize" width="45" height="33"/>
+            <size key="intrinsicContentSize" width="21" height="25"/>
         </designable>
         <designable name="bPC-1x-PCY">
-            <size key="intrinsicContentSize" width="71.333333333333329" height="25"/>
+            <size key="intrinsicContentSize" width="48" height="28.666666666666668"/>
         </designable>
         <designable name="f7A-Tr-9xV">
             <size key="intrinsicContentSize" width="24" height="14"/>
@@ -2246,13 +2267,13 @@
             <size key="intrinsicContentSize" width="51.333333333333336" height="33.333333333333336"/>
         </designable>
         <designable name="nzJ-Yb-Hjd">
-            <size key="intrinsicContentSize" width="90.666666666666671" height="25"/>
+            <size key="intrinsicContentSize" width="63.333333333333336" height="16.666666666666668"/>
         </designable>
         <designable name="oPs-Mx-3k4">
             <size key="intrinsicContentSize" width="59.666666666666664" height="31"/>
         </designable>
         <designable name="pf8-z7-rET">
-            <size key="intrinsicContentSize" width="90.666666666666671" height="25"/>
+            <size key="intrinsicContentSize" width="63.333333333333336" height="16.666666666666668"/>
         </designable>
         <designable name="xSs-DI-vlz">
             <size key="intrinsicContentSize" width="59.666666666666664" height="31"/>
@@ -2266,6 +2287,7 @@
         <image name="bulletinBoardAlram" width="20" height="24"/>
         <image name="bulletinBoardLogo" width="40" height="32"/>
         <image name="bulletinBoardMagnifier" width="24" height="24"/>
+        <image name="bulletinBoardPlus" width="16" height="16"/>
         <image name="homeImageAlarm" width="22" height="26"/>
         <image name="homeImageArrow" width="10" height="6"/>
         <image name="homeImageClock" width="16" height="15"/>
