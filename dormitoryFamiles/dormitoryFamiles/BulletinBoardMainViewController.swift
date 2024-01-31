@@ -9,9 +9,11 @@ import Pageboy
 import UIKit
 
 class BulletinBoardMainViewController: TabmanViewController {
-    
-    private var viewControllers = [UIViewController(), UIViewController(), UIViewController(), UIViewController(), UIViewController()]
-    let cellIdentifier = "BulletinBoardMainTableViewCell"
+    private var viewControllers: [UIViewController] {
+        let brownVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "brownVC") as! BrownVC
+        let yellowVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "yellowVC") as! YellowVC
+        return [brownVC, yellowVC, UIViewController(), UIViewController(), UIViewController()]
+    }
     @IBOutlet weak var naviCustomView: UIView!
     
     @IBOutlet weak var tabmanView: UIView!
@@ -30,6 +32,11 @@ class BulletinBoardMainViewController: TabmanViewController {
                                       bundle: nil),
                                 forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
                                 withReuseIdentifier: "header")
+        
+        
+        
+        
+        
         
     }
     

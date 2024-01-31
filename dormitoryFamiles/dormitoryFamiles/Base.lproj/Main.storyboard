@@ -2241,10 +2241,237 @@
             </objects>
             <point key="canvasLocation" x="2036" y="1312"/>
         </scene>
+        <!--BrownVC-->
+        <scene sceneID="7VW-1j-olj">
+            <objects>
+                <viewController storyboardIdentifier="brownVC" id="XDH-66-Puu" customClass="BrownVC" customModule="dormitoryFamiles" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" restorationIdentifier="brownVC" id="zes-Cp-cCg">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="nKV-6O-lLa"/>
+                        <color key="backgroundColor" systemColor="systemBrownColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7AE-Pc-4dF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4527" y="-420"/>
+        </scene>
+        <!--YellowVC-->
+        <scene sceneID="F0W-5l-WYt">
+            <objects>
+                <viewController storyboardIdentifier="yellowVC" id="SRe-DP-Khi" customClass="YellowVC" customModule="dormitoryFamiles" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="q7V-da-CFB">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="vXK-pq-z0d"/>
+                        <color key="backgroundColor" systemColor="systemYellowColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Vt9-hD-QlK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5326" y="-434"/>
+        </scene>
+        <!--게시판-->
+        <scene sceneID="YiV-HR-MlC">
+            <objects>
+                <viewController id="yXo-ue-NHg" customClass="BulletinBoardMainViewController" customModule="dormitoryFamiles" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="P8F-bF-Upd">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fad-G7-5aP">
+                                <rect key="frame" x="0.0" y="59" width="393" height="171"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ma9-lN-2OE">
+                                        <rect key="frame" x="157.33333333333334" y="13" width="78.333333333333343" height="34.333333333333336"/>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="homeImageArrow" title="양진재"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="head1" value="양진재"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bulletinBoardLogo" translatesAutoresizingMaskIntoConstraints="NO" id="X9e-Qp-kaG">
+                                        <rect key="frame" x="20" y="15" width="40" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="KWu-9Y-VsB"/>
+                                            <constraint firstAttribute="width" constant="40" id="TCa-9f-UgT"/>
+                                        </constraints>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TvR-AB-mFS">
+                                        <rect key="frame" x="343" y="15" width="20" height="24"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="20" id="7rj-Do-7Mg"/>
+                                            <constraint firstAttribute="height" constant="24" id="JMX-Q9-RjL"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="bulletinBoardAlram"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VtT-Rq-CGs">
+                                        <rect key="frame" x="300.66666666666669" y="15" width="24" height="24"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="24" id="5uc-Oq-ezC"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="bulletinBoardMagnifier"/>
+                                    </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="2wU-Fz-MJG">
+                                        <rect key="frame" x="20" y="120" width="195" height="31"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iWG-qz-lub" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="59.666666666666664" height="31"/>
+                                                <color key="tintColor" name="gray4"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                        <color key="value" name="gary2"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="body2" value="인기순"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jb0-KK-Kah" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
+                                                <rect key="frame" x="67.666666666666671" y="0.0" width="59.666666666666671" height="31"/>
+                                                <color key="tintColor" name="gray4"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="최신순"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                        <color key="value" name="gary2"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="body2" value="최신순"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="488-NF-ysg" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
+                                                <rect key="frame" x="135.33333333333334" y="0.0" width="59.666666666666657" height="31"/>
+                                                <color key="tintColor" name="gray4"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="모집중"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                        <color key="value" name="gary2"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="body2" value="모집중"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sYB-KG-qMH">
+                                        <rect key="frame" x="0.0" y="70" width="393" height="38"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="38" id="1aj-dg-Eh7"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WoD-AN-XJ3">
+                                        <rect key="frame" x="0.0" y="108" width="393" height="0.6666666666666714"/>
+                                        <color key="backgroundColor" name="gray1"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="0.80000000000000004" id="w2g-VZ-0Fj"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="WoD-AN-XJ3" secondAttribute="trailing" id="2Mk-Lh-bNc"/>
+                                    <constraint firstItem="X9e-Qp-kaG" firstAttribute="top" secondItem="fad-G7-5aP" secondAttribute="top" constant="15" id="2dY-fP-NJD"/>
+                                    <constraint firstItem="2wU-Fz-MJG" firstAttribute="leading" secondItem="fad-G7-5aP" secondAttribute="leading" constant="20" id="4jL-aI-Zyo"/>
+                                    <constraint firstAttribute="bottom" secondItem="2wU-Fz-MJG" secondAttribute="bottom" constant="20" id="5Lb-eb-exU"/>
+                                    <constraint firstItem="VtT-Rq-CGs" firstAttribute="bottom" secondItem="TvR-AB-mFS" secondAttribute="bottom" id="A0c-bV-EyP"/>
+                                    <constraint firstItem="sYB-KG-qMH" firstAttribute="top" secondItem="X9e-Qp-kaG" secondAttribute="bottom" constant="25" id="AO9-rD-D7P"/>
+                                    <constraint firstItem="2wU-Fz-MJG" firstAttribute="top" secondItem="sYB-KG-qMH" secondAttribute="bottom" constant="12" id="Cg4-lm-FPz"/>
+                                    <constraint firstItem="TvR-AB-mFS" firstAttribute="top" secondItem="fad-G7-5aP" secondAttribute="top" constant="15" id="J3f-Xs-6up"/>
+                                    <constraint firstItem="VtT-Rq-CGs" firstAttribute="top" secondItem="TvR-AB-mFS" secondAttribute="top" id="Kon-AV-KzT"/>
+                                    <constraint firstItem="WoD-AN-XJ3" firstAttribute="top" secondItem="sYB-KG-qMH" secondAttribute="bottom" id="Lb2-QE-tFs"/>
+                                    <constraint firstItem="Ma9-lN-2OE" firstAttribute="centerX" secondItem="fad-G7-5aP" secondAttribute="centerX" id="USh-ng-Rez"/>
+                                    <constraint firstAttribute="trailing" secondItem="TvR-AB-mFS" secondAttribute="trailing" constant="30" id="Vgq-Wu-WXV"/>
+                                    <constraint firstItem="X9e-Qp-kaG" firstAttribute="leading" secondItem="fad-G7-5aP" secondAttribute="leading" constant="20" id="Xdt-ew-Hgr"/>
+                                    <constraint firstItem="WoD-AN-XJ3" firstAttribute="leading" secondItem="fad-G7-5aP" secondAttribute="leading" id="aQX-tC-qGG"/>
+                                    <constraint firstItem="Ma9-lN-2OE" firstAttribute="centerY" secondItem="X9e-Qp-kaG" secondAttribute="centerY" id="dTE-6Z-qNA"/>
+                                    <constraint firstAttribute="trailing" secondItem="sYB-KG-qMH" secondAttribute="trailing" id="hpw-8Y-xbT"/>
+                                    <constraint firstAttribute="height" priority="100" constant="150" id="lFG-42-Bmb"/>
+                                    <constraint firstItem="sYB-KG-qMH" firstAttribute="leading" secondItem="fad-G7-5aP" secondAttribute="leading" id="maJ-6i-dH8"/>
+                                    <constraint firstItem="TvR-AB-mFS" firstAttribute="leading" secondItem="VtT-Rq-CGs" secondAttribute="trailing" constant="18.5" id="mc5-bP-8Zp"/>
+                                </constraints>
+                            </view>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="maU-EL-EsF">
+                                <rect key="frame" x="0.0" y="230" width="393" height="567"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="r6d-vk-Zpr">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Hob-NB-UQh">
+                                        <rect key="frame" x="0.0" y="0.0" width="127.99999999999997" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="dcb-E5-FQm">
+                                            <rect key="frame" x="0.0" y="0.0" width="127.99999999999997" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cEh-7q-gFT" customClass="TagButton" customModule="dormitoryFamiles" customModuleProvider="target">
+                                <rect key="frame" x="276" y="765" width="97" height="44"/>
+                                <color key="backgroundColor" name="primary"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="a2s-h5-QnO"/>
+                                    <constraint firstAttribute="width" constant="97" id="agE-ge-y0F"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="contentEdgeInsets" minX="8" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="bulletinBoardPlus" title="글쓰기" imagePadding="8"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="subTitle1" value="글쓰기"/>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Yxa-b8-yaY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Yxa-b8-yaY" firstAttribute="bottom" secondItem="maU-EL-EsF" secondAttribute="bottom" constant="21" id="KUz-41-XPK"/>
+                            <constraint firstItem="Yxa-b8-yaY" firstAttribute="trailing" secondItem="cEh-7q-gFT" secondAttribute="trailing" constant="20" id="M52-T1-Utc"/>
+                            <constraint firstAttribute="trailing" secondItem="fad-G7-5aP" secondAttribute="trailing" id="T46-hm-UdB"/>
+                            <constraint firstItem="maU-EL-EsF" firstAttribute="top" secondItem="fad-G7-5aP" secondAttribute="bottom" id="WFq-uF-Oh2"/>
+                            <constraint firstItem="Yxa-b8-yaY" firstAttribute="bottom" secondItem="cEh-7q-gFT" secondAttribute="bottom" constant="9" id="YoA-CU-6Vk"/>
+                            <constraint firstItem="fad-G7-5aP" firstAttribute="leading" secondItem="P8F-bF-Upd" secondAttribute="leading" id="biT-kg-l5W"/>
+                            <constraint firstItem="maU-EL-EsF" firstAttribute="leading" secondItem="Yxa-b8-yaY" secondAttribute="leading" id="hnP-Uj-2zX"/>
+                            <constraint firstItem="Yxa-b8-yaY" firstAttribute="trailing" secondItem="maU-EL-EsF" secondAttribute="trailing" id="s99-94-G0K"/>
+                            <constraint firstItem="fad-G7-5aP" firstAttribute="top" secondItem="P8F-bF-Upd" secondAttribute="topMargin" id="zMT-83-tau"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="게시판" id="qbz-U1-i8t"/>
+                    <connections>
+                        <outlet property="collectionView" destination="maU-EL-EsF" id="6bz-yH-NeW"/>
+                        <outlet property="naviCustomView" destination="fad-G7-5aP" id="tdf-UT-Wpl"/>
+                        <outlet property="tabmanView" destination="sYB-KG-qMH" id="ygT-Jy-qEL"/>
+                        <outlet property="writeButton" destination="cEh-7q-gFT" id="oYw-W6-N10"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xyz-0w-fR3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2806.8702290076335" y="-806.33802816901414"/>
+        </scene>
     </scenes>
     <designables>
         <designable name="0c7-Sa-8eC">
             <size key="intrinsicContentSize" width="51.333333333333336" height="33.333333333333336"/>
+        </designable>
+        <designable name="488-NF-ysg">
+            <size key="intrinsicContentSize" width="59.666666666666664" height="31"/>
         </designable>
         <designable name="5JZ-3p-UmG">
             <size key="intrinsicContentSize" width="60" height="28.666666666666668"/>
@@ -2264,6 +2491,9 @@
         <designable name="9Cx-cb-x6K">
             <size key="intrinsicContentSize" width="63.333333333333336" height="16.666666666666668"/>
         </designable>
+        <designable name="Jb0-KK-Kah">
+            <size key="intrinsicContentSize" width="59.666666666666664" height="31"/>
+        </designable>
         <designable name="JfS-Y1-OHE">
             <size key="intrinsicContentSize" width="51.333333333333336" height="33.333333333333336"/>
         </designable>
@@ -2279,6 +2509,9 @@
         <designable name="bPC-1x-PCY">
             <size key="intrinsicContentSize" width="48" height="28.666666666666668"/>
         </designable>
+        <designable name="cEh-7q-gFT">
+            <size key="intrinsicContentSize" width="88.666666666666671" height="33.333333333333336"/>
+        </designable>
         <designable name="f7A-Tr-9xV">
             <size key="intrinsicContentSize" width="24" height="14"/>
         </designable>
@@ -2287,6 +2520,9 @@
         </designable>
         <designable name="iMM-KA-ESC">
             <size key="intrinsicContentSize" width="51.333333333333336" height="33.333333333333336"/>
+        </designable>
+        <designable name="iWG-qz-lub">
+            <size key="intrinsicContentSize" width="59.666666666666664" height="31"/>
         </designable>
         <designable name="nzJ-Yb-Hjd">
             <size key="intrinsicContentSize" width="63.333333333333336" height="16.666666666666668"/>
@@ -2368,6 +2604,12 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBrownColor">
+            <color red="0.63529411764705879" green="0.51764705882352946" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

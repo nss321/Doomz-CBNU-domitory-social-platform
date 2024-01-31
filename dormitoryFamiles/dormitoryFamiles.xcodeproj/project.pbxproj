@@ -20,6 +20,8 @@
 		DB2B7BCD2B457D2500C1847D /* BulletinBoardDetailViewContorllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2B7BCC2B457D2500C1847D /* BulletinBoardDetailViewContorllerViewController.swift */; };
 		DB2B7BCF2B457F7200C1847D /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2B7BCE2B457F7200C1847D /* UIButtonExtension.swift */; };
 		DB3F18092B6162AB002F1738 /* ProfileSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3F18082B6162AB002F1738 /* ProfileSettingViewController.swift */; };
+		DB41008A2B6A664F005C4DD8 /* YellowVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4100892B6A664F005C4DD8 /* YellowVC.swift */; };
+		DB41008C2B6A665D005C4DD8 /* BrownVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB41008B2B6A665D005C4DD8 /* BrownVC.swift */; };
 		DB48CD082B6905C600E8C7AA /* PopularCollectionViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB48CD062B6905C600E8C7AA /* PopularCollectionViewHeader.swift */; };
 		DB48CD092B6905C600E8C7AA /* PopularCollectionViewHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB48CD072B6905C600E8C7AA /* PopularCollectionViewHeader.xib */; };
 		DB5ACD602AA70D190054CA15 /* ExtenstionColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5ACD5F2AA70D190054CA15 /* ExtenstionColor.swift */; };
@@ -32,7 +34,7 @@
 		DB81D0002B56E723005EF497 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB81CFFF2B56E723005EF497 /* UIColorExtension.swift */; };
 		DB932AC12B6511E300B456FB /* BulluetinBoardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB932ABF2B6511E300B456FB /* BulluetinBoardCollectionViewCell.swift */; };
 		DB932AC22B6511E300B456FB /* BulluetinBoardCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB932AC02B6511E300B456FB /* BulluetinBoardCollectionViewCell.xib */; };
-		DBB345F22B42BFD100E70380 /* bulletinBoardMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB345F12B42BFD100E70380 /* bulletinBoardMainViewController.swift */; };
+		DBB345F22B42BFD100E70380 /* BulletinBoardMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB345F12B42BFD100E70380 /* BulletinBoardMainViewController.swift */; };
 		DBB345FB2B42C28B00E70380 /* BulletinBoardMainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB345F92B42C28B00E70380 /* BulletinBoardMainTableViewCell.swift */; };
 		DBB345FC2B42C28B00E70380 /* BulletinBoardMainTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DBB345FA2B42C28B00E70380 /* BulletinBoardMainTableViewCell.xib */; };
 		DBB345FE2B42D95600E70380 /* bulletinBoardMainNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB345FD2B42D95600E70380 /* bulletinBoardMainNavigation.swift */; };
@@ -69,6 +71,8 @@
 		DB2B7BCC2B457D2500C1847D /* BulletinBoardDetailViewContorllerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulletinBoardDetailViewContorllerViewController.swift; sourceTree = "<group>"; };
 		DB2B7BCE2B457F7200C1847D /* UIButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
 		DB3F18082B6162AB002F1738 /* ProfileSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingViewController.swift; sourceTree = "<group>"; };
+		DB4100892B6A664F005C4DD8 /* YellowVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YellowVC.swift; sourceTree = "<group>"; };
+		DB41008B2B6A665D005C4DD8 /* BrownVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrownVC.swift; sourceTree = "<group>"; };
 		DB48CD062B6905C600E8C7AA /* PopularCollectionViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularCollectionViewHeader.swift; sourceTree = "<group>"; };
 		DB48CD072B6905C600E8C7AA /* PopularCollectionViewHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PopularCollectionViewHeader.xib; sourceTree = "<group>"; };
 		DB5ACD5F2AA70D190054CA15 /* ExtenstionColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtenstionColor.swift; sourceTree = "<group>"; };
@@ -81,7 +85,7 @@
 		DB81CFFF2B56E723005EF497 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		DB932ABF2B6511E300B456FB /* BulluetinBoardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulluetinBoardCollectionViewCell.swift; sourceTree = "<group>"; };
 		DB932AC02B6511E300B456FB /* BulluetinBoardCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BulluetinBoardCollectionViewCell.xib; sourceTree = "<group>"; };
-		DBB345F12B42BFD100E70380 /* bulletinBoardMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bulletinBoardMainViewController.swift; sourceTree = "<group>"; };
+		DBB345F12B42BFD100E70380 /* BulletinBoardMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulletinBoardMainViewController.swift; sourceTree = "<group>"; };
 		DBB345F92B42C28B00E70380 /* BulletinBoardMainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulletinBoardMainTableViewCell.swift; sourceTree = "<group>"; };
 		DBB345FA2B42C28B00E70380 /* BulletinBoardMainTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BulletinBoardMainTableViewCell.xib; sourceTree = "<group>"; };
 		DBB345FD2B42D95600E70380 /* bulletinBoardMainNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bulletinBoardMainNavigation.swift; sourceTree = "<group>"; };
@@ -187,7 +191,7 @@
 				DBF466FC2AA5F4E4009FF3EB /* SceneDelegate.swift */,
 				DBF466FE2AA5F4E4009FF3EB /* MealMenuViewController.swift */,
 				DB5ACD612AA714260054CA15 /* SchoolWebViewController.swift */,
-				DBB345F12B42BFD100E70380 /* bulletinBoardMainViewController.swift */,
+				DBB345F12B42BFD100E70380 /* BulletinBoardMainViewController.swift */,
 				DBF467002AA5F4E4009FF3EB /* Main.storyboard */,
 				DBF467032AA5F4E5009FF3EB /* Assets.xcassets */,
 				DBF467052AA5F4E5009FF3EB /* LaunchScreen.storyboard */,
@@ -214,6 +218,8 @@
 				DB932AC02B6511E300B456FB /* BulluetinBoardCollectionViewCell.xib */,
 				DB48CD062B6905C600E8C7AA /* PopularCollectionViewHeader.swift */,
 				DB48CD072B6905C600E8C7AA /* PopularCollectionViewHeader.xib */,
+				DB4100892B6A664F005C4DD8 /* YellowVC.swift */,
+				DB41008B2B6A665D005C4DD8 /* BrownVC.swift */,
 			);
 			path = dormitoryFamiles;
 			sourceTree = "<group>";
@@ -366,13 +372,15 @@
 				DBF466FF2AA5F4E4009FF3EB /* MealMenuViewController.swift in Sources */,
 				DB48CD082B6905C600E8C7AA /* PopularCollectionViewHeader.swift in Sources */,
 				DB1A3C302B43A7FD009DC005 /* searchViewController.swift in Sources */,
+				DB41008C2B6A665D005C4DD8 /* BrownVC.swift in Sources */,
 				DB20E38C2B53C2BD000D12A7 /* HomeViewController.swift in Sources */,
 				DBF466FB2AA5F4E4009FF3EB /* AppDelegate.swift in Sources */,
 				DBCE10E32B598308008C3367 /* notificationViewController.swift in Sources */,
 				DB1E0E8D2B62A995000A4AA5 /* SelectedDormitory.swift in Sources */,
 				DB2B7BCF2B457F7200C1847D /* UIButtonExtension.swift in Sources */,
 				DBF466FD2AA5F4E4009FF3EB /* SceneDelegate.swift in Sources */,
-				DBB345F22B42BFD100E70380 /* bulletinBoardMainViewController.swift in Sources */,
+				DB41008A2B6A664F005C4DD8 /* YellowVC.swift in Sources */,
+				DBB345F22B42BFD100E70380 /* BulletinBoardMainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
