@@ -1591,21 +1591,31 @@
                                             <constraint firstAttribute="height" constant="38" id="luh-rQ-i0Q"/>
                                         </constraints>
                                     </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lam-z3-DOP">
+                                        <rect key="frame" x="0.0" y="108" width="393" height="0.6666666666666714"/>
+                                        <color key="backgroundColor" name="gray1"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="0.80000000000000004" id="JH0-BF-XEu"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstItem="Lam-z3-DOP" firstAttribute="leading" secondItem="NkX-t3-Dqc" secondAttribute="leading" id="34G-hz-i5y"/>
                                     <constraint firstItem="nmc-r2-3Yr" firstAttribute="leading" secondItem="NkX-t3-Dqc" secondAttribute="leading" constant="20" id="8NP-da-Hj2"/>
                                     <constraint firstAttribute="trailing" secondItem="Lsr-5g-ZyA" secondAttribute="trailing" id="9LW-lf-4lk"/>
                                     <constraint firstItem="jW8-v6-Usi" firstAttribute="centerY" secondItem="pOs-Jt-RXR" secondAttribute="centerY" id="B2U-W7-dbz"/>
                                     <constraint firstAttribute="height" priority="100" constant="150" id="BLk-UK-klB"/>
                                     <constraint firstItem="HzM-Gc-WY1" firstAttribute="leading" secondItem="BG7-JU-TdT" secondAttribute="trailing" constant="18.5" id="IM5-kn-MKk"/>
                                     <constraint firstItem="HzM-Gc-WY1" firstAttribute="top" secondItem="NkX-t3-Dqc" secondAttribute="top" constant="15" id="Igo-fG-eKQ"/>
+                                    <constraint firstAttribute="trailing" secondItem="Lam-z3-DOP" secondAttribute="trailing" id="KAF-Cu-zWd"/>
                                     <constraint firstItem="BG7-JU-TdT" firstAttribute="top" secondItem="HzM-Gc-WY1" secondAttribute="top" id="OPu-fa-dKl"/>
                                     <constraint firstItem="Lsr-5g-ZyA" firstAttribute="top" secondItem="pOs-Jt-RXR" secondAttribute="bottom" constant="25" id="SOc-cM-Mjp"/>
                                     <constraint firstAttribute="trailing" secondItem="HzM-Gc-WY1" secondAttribute="trailing" constant="30" id="d2z-FH-zG0"/>
                                     <constraint firstItem="pOs-Jt-RXR" firstAttribute="top" secondItem="NkX-t3-Dqc" secondAttribute="top" constant="15" id="heY-1r-eev"/>
                                     <constraint firstItem="BG7-JU-TdT" firstAttribute="bottom" secondItem="HzM-Gc-WY1" secondAttribute="bottom" id="iWP-R5-GcH"/>
                                     <constraint firstItem="pOs-Jt-RXR" firstAttribute="leading" secondItem="NkX-t3-Dqc" secondAttribute="leading" constant="20" id="nJ0-c1-BTd"/>
+                                    <constraint firstItem="Lam-z3-DOP" firstAttribute="top" secondItem="Lsr-5g-ZyA" secondAttribute="bottom" id="pal-HX-Hbx"/>
                                     <constraint firstItem="nmc-r2-3Yr" firstAttribute="top" secondItem="Lsr-5g-ZyA" secondAttribute="bottom" constant="12" id="qLL-Qb-35p"/>
                                     <constraint firstAttribute="bottom" secondItem="nmc-r2-3Yr" secondAttribute="bottom" constant="20" id="xLq-sK-86w"/>
                                     <constraint firstItem="jW8-v6-Usi" firstAttribute="centerX" secondItem="NkX-t3-Dqc" secondAttribute="centerX" id="zOt-hP-4Xq"/>
@@ -1666,6 +1676,7 @@
                     <connections>
                         <outlet property="collectionView" destination="cK2-SV-xHi" id="eFZ-gH-EyU"/>
                         <outlet property="naviCustomView" destination="NkX-t3-Dqc" id="h1Y-ct-RU6"/>
+                        <outlet property="tabmanView" destination="Lsr-5g-ZyA" id="alG-xy-ZWo"/>
                         <outlet property="writeButton" destination="63s-np-sbo" id="Mgc-8W-kJV"/>
                         <segue destination="lMs-QX-VaL" kind="show" identifier="toDetailViewControllerSegue" id="CLT-pA-e37"/>
                     </connections>

@@ -10,10 +10,11 @@ import UIKit
 
 class BulletinBoardMainViewController: TabmanViewController {
     
-    private var viewControllers = [UIViewController(), UIViewController()]
+    private var viewControllers = [UIViewController(), UIViewController(), UIViewController(), UIViewController(), UIViewController()]
     let cellIdentifier = "BulletinBoardMainTableViewCell"
     @IBOutlet weak var naviCustomView: UIView!
     
+    @IBOutlet weak var tabmanView: UIView!
     @IBOutlet weak var collectionView: UICollectionView!
     
     @IBOutlet weak var writeButton: TagButton!
@@ -26,9 +27,9 @@ class BulletinBoardMainViewController: TabmanViewController {
         self.collectionView.register(UINib(nibName: "BulluetinBoardCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "cell")
         
         collectionView.register(UINib(nibName: "PopularCollectionViewHeader",
-                                              bundle: nil),
-                                        forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
-                                        withReuseIdentifier: "header")
+                                      bundle: nil),
+                                forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
+                                withReuseIdentifier: "header")
         
     }
     
@@ -54,21 +55,29 @@ class BulletinBoardMainViewController: TabmanViewController {
     
     private func setTapman() {
         self.dataSource = self
-                // Create bar
-                let bar = TMBar.LineBar()
-                bar.layout.transitionStyle = .snap // Customize
+        // 바 세팅
+        let bar = TMBar.ButtonBar()
+        bar.backgroundView.style = .blur(style: .regular)
+                bar.layout.contentInset = UIEdgeInsets(top: 0.0, left: 20.0, bottom: 0.0, right: 0.0)
+                bar.buttons.customize { (button) in
+                    button.tintColor = .gray3 // 선택 안되어 있을 때
+                    button.selectedTintColor = .primary // 선택 되어 있을 때
+                    button.font = .body1!
+                    button.selectedFont = .title5!
+                }
+        
+        //인디케이터 세팅
+        bar.indicator.weight = .light
+        bar.indicator.tintColor = .primary
         bar.layout.alignment = .centerDistributed
-        bar.contentMode = .scaleAspectFit
-        
-        
-
-                // Add to view
-                addBar(bar, dataSource: self, at: .top)
+               
+                bar.layout.interButtonSpacing = 24 // 버튼 사이 간격
+        bar.layout.transitionStyle = .progressive// Customize
         
         let item = TMBarItem(title: "dddddddd")
         item.title = "Item 1"
         item.badgeValue = "New"
-            
+        addBar(bar, dataSource: dataSource as! TMBarDataSource, at: .custom(view: tabmanView, layout: nil))
     }
     
 }
@@ -98,44 +107,64 @@ extension BulletinBoardMainViewController: UICollectionViewDelegate, UICollectio
     }
     
     // 헤더의 크기를 지정하는 함수
-        func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-            return CGSize(width: 10, height: 56)
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return CGSize(width: 10, height: 56)
+    }
+    
+    // 헤더를 생성하는 함수
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        switch kind {
+        case UICollectionView.elementKindSectionHeader:
+            let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "header", for: indexPath)
+            // headerView 설정 코드를 여기에 작성하세요
+            
+            return headerView
+        default:
+            assert(false, "Invalid element type")
         }
-        
-        // 헤더를 생성하는 함수
-        func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-            switch kind {
-            case UICollectionView.elementKindSectionHeader:
-                let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "header", for: indexPath)
-                // headerView 설정 코드를 여기에 작성하세요
-                
-                return headerView
-            default:
-                assert(false, "Invalid element type")
-            }
-        }
+    }
     
 }
 
 
 extension BulletinBoardMainViewController: PageboyViewControllerDataSource, TMBarDataSource {
-    
-    func numberOfViewControllers(in pageboyViewController: PageboyViewController) -> Int {
-            return viewControllers.count
-        }
-
-        func viewController(for pageboyViewController: PageboyViewController,
-                            at index: PageboyViewController.PageIndex) -> UIViewController? {
-            return viewControllers[index]
-        }
-
-        func defaultPage(for pageboyViewController: PageboyViewController) -> PageboyViewController.Page? {
-            return nil
-        }
-
-        func barItem(for bar: TMBar, at index: Int) -> TMBarItemable {
+    func barItem(for bar: TMBar, at index: Int) -> TMBarItemable {
+        //        let item = TMBarItem(title: "")
+        //        item.title = "Page \(index)"
+        //        item.image = UIImage(named: "image.png")
+        //
+        //        return item
+        
+        // MARK: - Tab 안 글씨들
+        switch index {
+        case 0:
+            return TMBarItem(title: "전체")
+        case 1:
+            return TMBarItem(title: "도와주세요")
+        case 2:
+            return TMBarItem(title: "함께해요")
+        case 3:
+            return TMBarItem(title: "나눔해요")
+        case 4:
+            return TMBarItem(title: "분실신고")
+        default:
             let title = "Page \(index)"
             return TMBarItem(title: title)
         }
+        
+    }
+    
+    func numberOfViewControllers(in pageboyViewController: PageboyViewController) -> Int {
+        return viewControllers.count
+    }
+    
+    func viewController(for pageboyViewController: PageboyViewController,
+                        at index: PageboyViewController.PageIndex) -> UIViewController? {
+        return viewControllers[index]
+    }
+    
+    func defaultPage(for pageboyViewController: PageboyViewController) -> PageboyViewController.Page? {
+        return nil
+    }
     
 }
