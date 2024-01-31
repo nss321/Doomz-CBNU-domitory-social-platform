@@ -1499,7 +1499,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NkX-t3-Dqc">
-                                <rect key="frame" x="0.0" y="103" width="393" height="150"/>
+                                <rect key="frame" x="0.0" y="103" width="393" height="171"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jW8-v6-Usi">
                                         <rect key="frame" x="157.33333333333334" y="13" width="78.333333333333343" height="34.333333333333336"/>
@@ -1534,8 +1534,8 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="bulletinBoardMagnifier"/>
                                     </button>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="19" translatesAutoresizingMaskIntoConstraints="NO" id="nmc-r2-3Yr">
-                                        <rect key="frame" x="20" y="99" width="217" height="31"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="nmc-r2-3Yr">
+                                        <rect key="frame" x="20" y="120" width="195" height="31"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xSs-DI-vlz" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="59.666666666666664" height="31"/>
@@ -1553,10 +1553,10 @@
                                                 </userDefinedRuntimeAttributes>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zMd-RW-f50" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
-                                                <rect key="frame" x="78.666666666666671" y="0.0" width="59.666666666666671" height="31"/>
+                                                <rect key="frame" x="67.666666666666671" y="0.0" width="59.666666666666671" height="31"/>
                                                 <color key="tintColor" name="gray4"/>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="최신순"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
                                                         <color key="value" name="gary2"/>
@@ -1564,14 +1564,14 @@
                                                     <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                                                         <real key="value" value="1"/>
                                                     </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="string" keyPath="body2" value="인기순"/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="body2" value="최신순"/>
                                                 </userDefinedRuntimeAttributes>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oPs-Mx-3k4" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
-                                                <rect key="frame" x="157.33333333333334" y="0.0" width="59.666666666666657" height="31"/>
+                                                <rect key="frame" x="135.33333333333334" y="0.0" width="59.666666666666657" height="31"/>
                                                 <color key="tintColor" name="gray4"/>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="모집중"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
                                                         <color key="value" name="gary2"/>
@@ -1579,30 +1579,41 @@
                                                     <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                                                         <real key="value" value="1"/>
                                                     </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="string" keyPath="body2" value="인기순"/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="body2" value="모집중"/>
                                                 </userDefinedRuntimeAttributes>
                                             </button>
                                         </subviews>
                                     </stackView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lsr-5g-ZyA">
+                                        <rect key="frame" x="0.0" y="70" width="393" height="38"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="38" id="luh-rQ-i0Q"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="nmc-r2-3Yr" firstAttribute="leading" secondItem="NkX-t3-Dqc" secondAttribute="leading" constant="20" id="8NP-da-Hj2"/>
+                                    <constraint firstAttribute="trailing" secondItem="Lsr-5g-ZyA" secondAttribute="trailing" id="9LW-lf-4lk"/>
                                     <constraint firstItem="jW8-v6-Usi" firstAttribute="centerY" secondItem="pOs-Jt-RXR" secondAttribute="centerY" id="B2U-W7-dbz"/>
                                     <constraint firstAttribute="height" priority="100" constant="150" id="BLk-UK-klB"/>
                                     <constraint firstItem="HzM-Gc-WY1" firstAttribute="leading" secondItem="BG7-JU-TdT" secondAttribute="trailing" constant="18.5" id="IM5-kn-MKk"/>
                                     <constraint firstItem="HzM-Gc-WY1" firstAttribute="top" secondItem="NkX-t3-Dqc" secondAttribute="top" constant="15" id="Igo-fG-eKQ"/>
                                     <constraint firstItem="BG7-JU-TdT" firstAttribute="top" secondItem="HzM-Gc-WY1" secondAttribute="top" id="OPu-fa-dKl"/>
+                                    <constraint firstItem="Lsr-5g-ZyA" firstAttribute="top" secondItem="pOs-Jt-RXR" secondAttribute="bottom" constant="25" id="SOc-cM-Mjp"/>
                                     <constraint firstAttribute="trailing" secondItem="HzM-Gc-WY1" secondAttribute="trailing" constant="30" id="d2z-FH-zG0"/>
                                     <constraint firstItem="pOs-Jt-RXR" firstAttribute="top" secondItem="NkX-t3-Dqc" secondAttribute="top" constant="15" id="heY-1r-eev"/>
                                     <constraint firstItem="BG7-JU-TdT" firstAttribute="bottom" secondItem="HzM-Gc-WY1" secondAttribute="bottom" id="iWP-R5-GcH"/>
                                     <constraint firstItem="pOs-Jt-RXR" firstAttribute="leading" secondItem="NkX-t3-Dqc" secondAttribute="leading" constant="20" id="nJ0-c1-BTd"/>
+                                    <constraint firstItem="nmc-r2-3Yr" firstAttribute="top" secondItem="Lsr-5g-ZyA" secondAttribute="bottom" constant="12" id="qLL-Qb-35p"/>
                                     <constraint firstAttribute="bottom" secondItem="nmc-r2-3Yr" secondAttribute="bottom" constant="20" id="xLq-sK-86w"/>
                                     <constraint firstItem="jW8-v6-Usi" firstAttribute="centerX" secondItem="NkX-t3-Dqc" secondAttribute="centerX" id="zOt-hP-4Xq"/>
+                                    <constraint firstItem="Lsr-5g-ZyA" firstAttribute="leading" secondItem="NkX-t3-Dqc" secondAttribute="leading" id="zhK-7r-YdB"/>
                                 </constraints>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="cK2-SV-xHi">
-                                <rect key="frame" x="0.0" y="253" width="393" height="495"/>
+                                <rect key="frame" x="0.0" y="274" width="393" height="474"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="lks-GX-fDg">
                                     <size key="itemSize" width="128" height="128"/>

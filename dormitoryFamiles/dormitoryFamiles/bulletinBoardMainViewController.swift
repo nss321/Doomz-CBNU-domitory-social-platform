@@ -4,10 +4,13 @@
 //
 //  Created by leehwajin on 2024/01/01.
 //
-
+import Tabman
+import Pageboy
 import UIKit
 
-class BulletinBoardMainViewController: UIViewController {
+class BulletinBoardMainViewController: TabmanViewController {
+    
+    private var viewControllers = [UIViewController(), UIViewController()]
     let cellIdentifier = "BulletinBoardMainTableViewCell"
     @IBOutlet weak var naviCustomView: UIView!
     
@@ -16,8 +19,10 @@ class BulletinBoardMainViewController: UIViewController {
     @IBOutlet weak var writeButton: TagButton!
     
     override func viewDidLoad() {
+        super.viewDidLoad()
         setUI()
         setDelegate()
+        setTapman()
         self.collectionView.register(UINib(nibName: "BulluetinBoardCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "cell")
         
         collectionView.register(UINib(nibName: "PopularCollectionViewHeader",
@@ -45,6 +50,25 @@ class BulletinBoardMainViewController: UIViewController {
     private func setUI() {
         writeButton.configuration?.image = UIImage(named: "bulletinBoardPlus")
         writeButton.spacing = 10000
+    }
+    
+    private func setTapman() {
+        self.dataSource = self
+                // Create bar
+                let bar = TMBar.LineBar()
+                bar.layout.transitionStyle = .snap // Customize
+        bar.layout.alignment = .centerDistributed
+        bar.contentMode = .scaleAspectFit
+        
+        
+
+                // Add to view
+                addBar(bar, dataSource: self, at: .top)
+        
+        let item = TMBarItem(title: "dddddddd")
+        item.title = "Item 1"
+        item.badgeValue = "New"
+            
     }
     
 }
@@ -89,6 +113,29 @@ extension BulletinBoardMainViewController: UICollectionViewDelegate, UICollectio
             default:
                 assert(false, "Invalid element type")
             }
+        }
+    
+}
+
+
+extension BulletinBoardMainViewController: PageboyViewControllerDataSource, TMBarDataSource {
+    
+    func numberOfViewControllers(in pageboyViewController: PageboyViewController) -> Int {
+            return viewControllers.count
+        }
+
+        func viewController(for pageboyViewController: PageboyViewController,
+                            at index: PageboyViewController.PageIndex) -> UIViewController? {
+            return viewControllers[index]
+        }
+
+        func defaultPage(for pageboyViewController: PageboyViewController) -> PageboyViewController.Page? {
+            return nil
+        }
+
+        func barItem(for bar: TMBar, at index: Int) -> TMBarItemable {
+            let title = "Page \(index)"
+            return TMBarItem(title: title)
         }
     
 }

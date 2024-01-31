@@ -1,20 +1,28 @@
 PODS:
   - DropDown (2.3.13)
+  - Pageboy (4.0.2)
   - SwiftSoup (2.6.1)
+  - Tabman (3.0.2):
+    - Pageboy (~> 4.0.2)
 
 DEPENDENCIES:
   - DropDown
   - SwiftSoup
+  - Tabman (~> 3.0)
 
 SPEC REPOS:
   trunk:
     - DropDown
+    - Pageboy
     - SwiftSoup
+    - Tabman
 
 SPEC CHECKSUMS:
   DropDown: 8a2116376c1981888557f72ec2ffc9a5e0e456ec
+  Pageboy: 34ff11e8d1041b81769d5bcde9b19a0cb7218bd9
   SwiftSoup: 5dd2c1b06afc964f30d99894af6ede22ede627aa
+  Tabman: 6326ec3a792da1c2a6e79c7eddb56af7b591c9d6
 
-PODFILE CHECKSUM: f1057ec8a4067b7a088fb93df74b7e9a5db3a8d4
+PODFILE CHECKSUM: 3230baac24e0a14dfba8edbb91ad5488f6c985ae
 
 COCOAPODS: 1.12.1
