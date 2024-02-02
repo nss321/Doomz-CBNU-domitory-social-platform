@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="peN-Im-ACT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="m4G-hc-GIZ">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
-        <capability name="UIMenu" message="Requires Xcode 11 or later." minToolsVersion="11.0" requiredIntegratedClassName="UICommandDiff"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -1636,6 +1635,9 @@
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="subTitle1" value="글쓰기"/>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="m4G-hc-GIZ" kind="show" id="Fbj-02-CBz"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="jWk-Dp-Muw"/>
@@ -1668,101 +1670,180 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="게시판 카테고리" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v96-wR-vqp">
-                                <rect key="frame" x="16" y="103" width="108" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="eES-yu-2SY">
+                                <rect key="frame" x="20" y="111" width="160" height="80.333333333333314"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="기숙사 *" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tHe-iz-GKx">
+                                        <rect key="frame" x="0.0" y="0.0" width="56.333333333333336" height="20.333333333333332"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" name="gray5"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="subTitle1" value="기숙사 *"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="prk-jM-v1A">
+                                        <rect key="frame" x="0.0" y="28.333333333333343" width="160" height="52"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="160" id="gyA-L5-gz4"/>
+                                            <constraint firstAttribute="height" constant="52" id="ifo-Y8-Jwp"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="PretendardVariable-Regular" family="Pretendard Variable" pointSize="16"/>
+                                        <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="16" maxY="0.0"/>
+                                        <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="70" maxY="0.0"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="양진재" image="serviceDropDown">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="12"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" name="gray1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="제목 *" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PVY-L5-ksV">
+                                <rect key="frame" x="19.999999999999996" y="211.33333333333334" width="41.666666666666657" height="20.333333333333343"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" name="gray5"/>
                                 <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="subTitle1" value="제목 *"/>
+                                </userDefinedRuntimeAttributes>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LC4-jI-aoE">
-                                <rect key="frame" x="16" y="132" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <menu key="menu" id="6lE-Dg-cEF">
-                                    <children>
-                                        <command title="Item 1" id="WYY-U6-fWb"/>
-                                        <command title="Item 2" id="K73-h3-L2B"/>
-                                    </children>
-                                </menu>
-                                <state key="normal" title="Button"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vrw-p7-6Zl">
-                                <rect key="frame" x="70" y="132" width="73" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <menu key="menu" id="k8W-48-8TU">
-                                    <children>
-                                        <command title="Item 1" id="1Rb-IF-ydZ"/>
-                                        <command title="Item 2" id="oWd-u9-Pz5"/>
-                                    </children>
-                                </menu>
-                                <state key="normal" title="Button"/>
-                            </button>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="roundedRect" placeholder="제목" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZgL-Da-gCE">
-                                <rect key="frame" x="16" y="196" width="97" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <attributedString key="attributedText"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aQb-W6-Hj4">
-                                <rect key="frame" x="16" y="251" width="361" height="200"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <attributedString key="attributedText">
-                                    <fragment content="내용을">
-                                        <attributes>
-                                            <color key="NSColor" systemColor="labelColor"/>
-                                            <font key="NSFont" metaFont="system" size="14"/>
-                                            <font key="NSOriginalFont" metaFont="system" size="14"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment content=" ">
-                                        <attributes>
-                                            <color key="NSColor" systemColor="labelColor"/>
-                                            <font key="NSFont" metaFont="system" size="14"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment content="입력하세요">
-                                        <attributes>
-                                            <color key="NSColor" systemColor="labelColor"/>
-                                            <font key="NSFont" metaFont="system" size="14"/>
-                                            <font key="NSOriginalFont" metaFont="system" size="14"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment content=".">
-                                        <attributes>
-                                            <color key="NSColor" systemColor="labelColor"/>
-                                            <font key="NSFont" metaFont="system" size="14"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="태그" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GAl-oF-YGW">
-                                <rect key="frame" x="16" y="467" width="30" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NJX-Kw-qB6">
-                                <rect key="frame" x="16" y="496" width="97" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="OpK-NX-2FY">
+                                <rect key="frame" x="213" y="111" width="160" height="80.333333333333314"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="게시판 *" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h1o-EC-5oT">
+                                        <rect key="frame" x="0.0" y="0.0" width="56.333333333333336" height="20.333333333333332"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" name="gray5"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="subTitle1" value="게시판 *"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2k0-J2-Afe">
+                                        <rect key="frame" x="0.0" y="28.333333333333343" width="160" height="52"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="52" id="Fmo-BJ-rt7"/>
+                                            <constraint firstAttribute="width" constant="160" id="Htj-R9-mKj"/>
+                                        </constraints>
+                                        <inset key="contentEdgeInsets" minX="16" minY="0.0" maxX="16" maxY="0.0"/>
+                                        <inset key="imageEdgeInsets" minX="60" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <state key="normal" image="serviceDropDown">
+                                            <attributedString key="attributedTitle">
+                                                <fragment content="함께해요">
+                                                    <attributes>
+                                                        <color key="NSColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <font key="NSFont" size="16" name="PretendardVariable-Regular"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="12"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" name="gray1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Urb-I5-qHv">
+                                <rect key="frame" x="20" y="239.66666666666663" width="353" height="52"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="52" id="G1D-Qx-DNU"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="7/20" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tuZ-lg-993">
+                                <rect key="frame" x="327.33333333333331" y="255.66666666666666" width="33.666666666666686" height="20.333333333333343"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" name="gray3"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="body2" value="7/20"/>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="텍스트뷰~" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Kbm-Cx-SUs">
+                                <rect key="frame" x="20" y="340" width="353" height="200"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="0M8-wf-tFs"/>
+                                </constraints>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="12"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" name="gray1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="7/20" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WVR-IT-xUm">
+                                <rect key="frame" x="327.33333333333331" y="507.66666666666669" width="33.666666666666686" height="20.333333333333314"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" name="gray3"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="body2" value="7/20"/>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="내용 *" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lmo-OG-Y9M">
+                                <rect key="frame" x="19.999999999999996" y="311.66666666666669" width="41.666666666666657" height="20.333333333333314"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" name="gray5"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="subTitle1" value="내용 *"/>
+                                </userDefinedRuntimeAttributes>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="mex-Qm-LiA"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="eES-yu-2SY" firstAttribute="leading" secondItem="Ny6-yX-Q9Z" secondAttribute="leading" constant="20" id="0es-Nt-QYP"/>
+                            <constraint firstItem="Kbm-Cx-SUs" firstAttribute="trailing" secondItem="WVR-IT-xUm" secondAttribute="trailing" constant="12" id="1Ip-7l-bqZ"/>
+                            <constraint firstItem="Kbm-Cx-SUs" firstAttribute="leading" secondItem="mex-Qm-LiA" secondAttribute="leading" constant="20" id="2V6-YK-agq"/>
+                            <constraint firstItem="mex-Qm-LiA" firstAttribute="trailing" secondItem="Kbm-Cx-SUs" secondAttribute="trailing" constant="20" id="7K5-le-054"/>
+                            <constraint firstItem="Urb-I5-qHv" firstAttribute="top" secondItem="PVY-L5-ksV" secondAttribute="bottom" constant="8" id="7QB-GG-iYj"/>
+                            <constraint firstItem="eES-yu-2SY" firstAttribute="top" secondItem="mex-Qm-LiA" secondAttribute="top" constant="8" id="AKS-oi-tpS"/>
+                            <constraint firstItem="Kbm-Cx-SUs" firstAttribute="bottom" secondItem="WVR-IT-xUm" secondAttribute="bottom" constant="12" id="AvD-Jn-XYF"/>
+                            <constraint firstItem="OpK-NX-2FY" firstAttribute="top" secondItem="mex-Qm-LiA" secondAttribute="top" constant="8" id="HSo-YK-7Gd"/>
+                            <constraint firstItem="mex-Qm-LiA" firstAttribute="trailing" secondItem="Urb-I5-qHv" secondAttribute="trailing" constant="20" id="Mwd-LJ-xau"/>
+                            <constraint firstItem="tuZ-lg-993" firstAttribute="centerY" secondItem="Urb-I5-qHv" secondAttribute="centerY" id="Xih-gM-db4"/>
+                            <constraint firstItem="mex-Qm-LiA" firstAttribute="trailing" secondItem="OpK-NX-2FY" secondAttribute="trailing" constant="20" id="aTM-C4-v9P"/>
+                            <constraint firstItem="Urb-I5-qHv" firstAttribute="leading" secondItem="mex-Qm-LiA" secondAttribute="leading" constant="20" id="n5d-IS-j58"/>
+                            <constraint firstItem="Lmo-OG-Y9M" firstAttribute="top" secondItem="Urb-I5-qHv" secondAttribute="bottom" constant="20" id="nc9-sX-VvI"/>
+                            <constraint firstItem="Urb-I5-qHv" firstAttribute="trailing" secondItem="tuZ-lg-993" secondAttribute="trailing" constant="12" id="pcw-c5-QBn"/>
+                            <constraint firstItem="PVY-L5-ksV" firstAttribute="top" secondItem="eES-yu-2SY" secondAttribute="bottom" constant="20" id="sbL-Ie-FPn"/>
+                            <constraint firstItem="Kbm-Cx-SUs" firstAttribute="top" secondItem="Lmo-OG-Y9M" secondAttribute="bottom" constant="8" id="uOX-fY-pgl"/>
+                            <constraint firstItem="PVY-L5-ksV" firstAttribute="leading" secondItem="mex-Qm-LiA" secondAttribute="leading" constant="20" id="zY0-84-alL"/>
+                            <constraint firstItem="Lmo-OG-Y9M" firstAttribute="leading" secondItem="mex-Qm-LiA" secondAttribute="leading" constant="20" id="zlw-tH-o9c"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="글 쓰기" id="Lon-Ww-bOV"/>
-                    <connections>
-                        <outlet property="categoryButton" destination="vrw-p7-6Zl" id="pyc-rE-b9q"/>
-                        <outlet property="dormitoryButton" destination="LC4-jI-aoE" id="0R6-Pr-ydA"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Le-TK-zVR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -2425,7 +2506,7 @@
                                 </userDefinedRuntimeAttributes>
                             </button>
                             <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jDC-d9-VtU">
-                                <rect key="frame" x="41" y="237" width="240" height="129"/>
+                                <rect key="frame" x="40" y="237" width="240" height="129"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                             </containerView>
                         </subviews>
@@ -2463,7 +2544,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ejm-kE-bXo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2722" y="-1228"/>
+            <point key="canvasLocation" x="2807" y="-1508"/>
         </scene>
     </scenes>
     <designables>
@@ -2541,7 +2622,7 @@
         </designable>
     </designables>
     <resources>
-        <image name="arrow.right" catalog="system" width="32" height="32"/>
+        <image name="arrow.right" catalog="system" width="128" height="95"/>
         <image name="bulletinBoardAlram" width="20" height="24"/>
         <image name="bulletinBoardLogo" width="40" height="32"/>
         <image name="bulletinBoardMagnifier" width="24" height="24"/>
