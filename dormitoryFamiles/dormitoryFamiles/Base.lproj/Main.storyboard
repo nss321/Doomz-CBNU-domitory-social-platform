@@ -1808,6 +1808,7 @@
                     <navigationItem key="navigationItem" title="글 쓰기" id="Lon-Ww-bOV"/>
                     <connections>
                         <outlet property="categoryButton" destination="2k0-J2-Afe" id="yA0-ml-swg"/>
+                        <outlet property="countTextFieldTextLabel" destination="tuZ-lg-993" id="XAY-Aa-V7O"/>
                         <outlet property="dormitoryButton" destination="prk-jM-v1A" id="ddR-PX-uio"/>
                         <outlet property="textField" destination="Urb-I5-qHv" id="hKr-ex-9Ee"/>
                     </connections>
