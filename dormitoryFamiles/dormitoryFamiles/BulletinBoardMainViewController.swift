@@ -10,11 +10,9 @@ import UIKit
 
 class BulletinBoardMainViewController: TabmanViewController, DormitoryButtonHandling {
     private var viewControllers: [UIViewController] {
+        //TODO: 레이아웃은 똑같고, API만 다르기 떄문에 하나의 viewController로 세팅. 어떤 태그냐에 따라서 다른 API를 받아오게끔 해야한다.
         let brownVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "brownVC") as! BrownVC
-        let yellowVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "yellowVC") as! YellowVC
-//        let aaa = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "aaa")
-//        //let aaa = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "aaa")
-        return [brownVC, yellowVC, UIViewController(), UIViewController(), UIViewController()]
+        return [brownVC, brownVC, brownVC, brownVC, brownVC]
     }
     @IBOutlet weak var naviCustomView: UIView!
     

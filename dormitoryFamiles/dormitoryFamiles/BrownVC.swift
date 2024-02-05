@@ -9,6 +9,7 @@ import UIKit
 
 class BrownVC: UIViewController {
     
+
     @IBOutlet weak var collectionView: UICollectionView!
     
     override func viewDidLoad() {
@@ -21,7 +22,7 @@ class BrownVC: UIViewController {
                                       bundle: nil),
                                 forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
                                 withReuseIdentifier: "header")
-
+        
     }
     
         private func setDelegate() {

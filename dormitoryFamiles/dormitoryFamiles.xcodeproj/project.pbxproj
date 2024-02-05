@@ -20,7 +20,6 @@
 		DB2B7BCD2B457D2500C1847D /* BulletinBoardDetailViewContorllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2B7BCC2B457D2500C1847D /* BulletinBoardDetailViewContorllerViewController.swift */; };
 		DB2B7BCF2B457F7200C1847D /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2B7BCE2B457F7200C1847D /* UIButtonExtension.swift */; };
 		DB3F18092B6162AB002F1738 /* ProfileSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3F18082B6162AB002F1738 /* ProfileSettingViewController.swift */; };
-		DB41008A2B6A664F005C4DD8 /* YellowVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4100892B6A664F005C4DD8 /* YellowVC.swift */; };
 		DB41008C2B6A665D005C4DD8 /* BrownVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB41008B2B6A665D005C4DD8 /* BrownVC.swift */; };
 		DB48CD082B6905C600E8C7AA /* PopularCollectionViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB48CD062B6905C600E8C7AA /* PopularCollectionViewHeader.swift */; };
 		DB48CD092B6905C600E8C7AA /* PopularCollectionViewHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB48CD072B6905C600E8C7AA /* PopularCollectionViewHeader.xib */; };
@@ -72,7 +71,6 @@
 		DB2B7BCC2B457D2500C1847D /* BulletinBoardDetailViewContorllerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulletinBoardDetailViewContorllerViewController.swift; sourceTree = "<group>"; };
 		DB2B7BCE2B457F7200C1847D /* UIButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
 		DB3F18082B6162AB002F1738 /* ProfileSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingViewController.swift; sourceTree = "<group>"; };
-		DB4100892B6A664F005C4DD8 /* YellowVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YellowVC.swift; sourceTree = "<group>"; };
 		DB41008B2B6A665D005C4DD8 /* BrownVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrownVC.swift; sourceTree = "<group>"; };
 		DB48CD062B6905C600E8C7AA /* PopularCollectionViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularCollectionViewHeader.swift; sourceTree = "<group>"; };
 		DB48CD072B6905C600E8C7AA /* PopularCollectionViewHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PopularCollectionViewHeader.xib; sourceTree = "<group>"; };
@@ -221,7 +219,6 @@
 				DB932AC02B6511E300B456FB /* BulluetinBoardCollectionViewCell.xib */,
 				DB48CD062B6905C600E8C7AA /* PopularCollectionViewHeader.swift */,
 				DB48CD072B6905C600E8C7AA /* PopularCollectionViewHeader.xib */,
-				DB4100892B6A664F005C4DD8 /* YellowVC.swift */,
 				DB41008B2B6A665D005C4DD8 /* BrownVC.swift */,
 			);
 			path = dormitoryFamiles;
@@ -383,7 +380,6 @@
 				DB1E0E8D2B62A995000A4AA5 /* SelectedDormitory.swift in Sources */,
 				DB2B7BCF2B457F7200C1847D /* UIButtonExtension.swift in Sources */,
 				DBF466FD2AA5F4E4009FF3EB /* SceneDelegate.swift in Sources */,
-				DB41008A2B6A664F005C4DD8 /* YellowVC.swift in Sources */,
 				DBB345F22B42BFD100E70380 /* BulletinBoardMainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
