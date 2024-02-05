@@ -1053,7 +1053,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nzJ-Yb-Hjd" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
-                                                        <rect key="frame" x="16" y="68.666666666666742" width="94.666666666666671" height="28"/>
+                                                        <rect key="frame" x="16" y="68.666666666666742" width="94.666666666666686" height="28"/>
                                                         <color key="backgroundColor" name="primaryMid"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="28" id="iWk-PQ-m4c"/>
@@ -1467,13 +1467,16 @@
                                 <rect key="frame" x="0.0" y="103" width="393" height="171"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jW8-v6-Usi">
-                                        <rect key="frame" x="157.33333333333334" y="13" width="78.333333333333343" height="34.333333333333336"/>
+                                        <rect key="frame" x="153.33333333333334" y="13" width="86.333333333333343" height="34.333333333333336"/>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" image="homeImageArrow" title="양진재"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="homeImageArrow" title="양진재" imagePadding="8"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="string" keyPath="head1" value="양진재"/>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="dormitoryButtonTapped:" destination="r5Q-f3-hGS" eventType="touchUpInside" id="ZCo-Av-XKd"/>
+                                        </connections>
                                     </button>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bulletinBoardLogo" translatesAutoresizingMaskIntoConstraints="NO" id="pOs-Jt-RXR">
                                         <rect key="frame" x="20" y="15" width="40" height="30"/>
@@ -1618,6 +1621,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="게시판" id="mHD-A0-F1x"/>
                     <connections>
+                        <outlet property="dormitoryButton" destination="jW8-v6-Usi" id="sny-Pg-woG"/>
                         <outlet property="naviCustomView" destination="NkX-t3-Dqc" id="h1Y-ct-RU6"/>
                         <outlet property="tabmanView" destination="Lsr-5g-ZyA" id="alG-xy-ZWo"/>
                         <outlet property="writeButton" destination="63s-np-sbo" id="Mgc-8W-kJV"/>
@@ -2351,15 +2355,6 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fad-G7-5aP">
                                 <rect key="frame" x="0.0" y="59" width="393" height="171"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ma9-lN-2OE">
-                                        <rect key="frame" x="157.33333333333334" y="13" width="78.333333333333343" height="34.333333333333336"/>
-                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" image="homeImageArrow" title="양진재"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="head1" value="양진재"/>
-                                        </userDefinedRuntimeAttributes>
-                                    </button>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bulletinBoardLogo" translatesAutoresizingMaskIntoConstraints="NO" id="X9e-Qp-kaG">
                                         <rect key="frame" x="20" y="15" width="40" height="30"/>
                                         <constraints>
@@ -2448,6 +2443,15 @@
                                             <constraint firstAttribute="height" constant="0.80000000000000004" id="w2g-VZ-0Fj"/>
                                         </constraints>
                                     </view>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UTU-ZK-vbF">
+                                        <rect key="frame" x="135" y="10" width="75" height="35"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                        <connections>
+                                            <action selector="dormitoryButtonTapped:" destination="yXo-ue-NHg" eventType="touchUpInside" id="wJJ-th-gXP"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -2461,11 +2465,9 @@
                                     <constraint firstItem="TvR-AB-mFS" firstAttribute="top" secondItem="fad-G7-5aP" secondAttribute="top" constant="15" id="J3f-Xs-6up"/>
                                     <constraint firstItem="VtT-Rq-CGs" firstAttribute="top" secondItem="TvR-AB-mFS" secondAttribute="top" id="Kon-AV-KzT"/>
                                     <constraint firstItem="WoD-AN-XJ3" firstAttribute="top" secondItem="sYB-KG-qMH" secondAttribute="bottom" id="Lb2-QE-tFs"/>
-                                    <constraint firstItem="Ma9-lN-2OE" firstAttribute="centerX" secondItem="fad-G7-5aP" secondAttribute="centerX" id="USh-ng-Rez"/>
                                     <constraint firstAttribute="trailing" secondItem="TvR-AB-mFS" secondAttribute="trailing" constant="30" id="Vgq-Wu-WXV"/>
                                     <constraint firstItem="X9e-Qp-kaG" firstAttribute="leading" secondItem="fad-G7-5aP" secondAttribute="leading" constant="20" id="Xdt-ew-Hgr"/>
                                     <constraint firstItem="WoD-AN-XJ3" firstAttribute="leading" secondItem="fad-G7-5aP" secondAttribute="leading" id="aQX-tC-qGG"/>
-                                    <constraint firstItem="Ma9-lN-2OE" firstAttribute="centerY" secondItem="X9e-Qp-kaG" secondAttribute="centerY" id="dTE-6Z-qNA"/>
                                     <constraint firstAttribute="trailing" secondItem="sYB-KG-qMH" secondAttribute="trailing" id="hpw-8Y-xbT"/>
                                     <constraint firstAttribute="height" priority="100" constant="150" id="lFG-42-Bmb"/>
                                     <constraint firstItem="sYB-KG-qMH" firstAttribute="leading" secondItem="fad-G7-5aP" secondAttribute="leading" id="maJ-6i-dH8"/>
@@ -2500,6 +2502,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="게시판" id="qbz-U1-i8t"/>
                     <connections>
+                        <outlet property="dormitoryButton" destination="UTU-ZK-vbF" id="Xy2-Oo-8fi"/>
                         <outlet property="naviCustomView" destination="fad-G7-5aP" id="tdf-UT-Wpl"/>
                         <outlet property="tabmanView" destination="sYB-KG-qMH" id="ygT-Jy-qEL"/>
                         <outlet property="writeButton" destination="cEh-7q-gFT" id="oYw-W6-N10"/>
@@ -2524,7 +2527,7 @@
             <size key="intrinsicContentSize" width="88.666666666666671" height="33.333333333333336"/>
         </designable>
         <designable name="6cz-aZ-WRa">
-            <size key="intrinsicContentSize" width="30" height="34"/>
+            <size key="intrinsicContentSize" width="4" height="22"/>
         </designable>
         <designable name="6sd-MD-ybY">
             <size key="intrinsicContentSize" width="51.333333333333336" height="33.333333333333336"/>

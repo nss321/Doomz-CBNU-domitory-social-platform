@@ -40,7 +40,7 @@ class HomeViewController: UIViewController, DormitoryButtonHandling {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(dormitoryChangeNotification(_:)), name: .init("DormitoryChangeNotification"), object: nil)
+        setObserver()
         self.menuLabel.sizeToFit()
         self.menuLabel.lineSpacing(12)
         self.menuLabel.textAlignment = .center
@@ -52,15 +52,8 @@ class HomeViewController: UIViewController, DormitoryButtonHandling {
         stackViewBottomConstraint.isActive = true
         
         self.navigationController?.setNavigationBarHidden(true, animated: true)
-        
-        setTintAdjustmentModeForButtons(in: self.view)
-        //        for family in UIFont.familyNames {
-        //            print(family)
-        //            for name in UIFont.fontNames(forFamilyName: family) {
-        //                print(name)
-        //            }
-        //        }
         fetchWebsite(time: .morning)
+        setTintAdjustmentModeForButtons(in: self.view)
     }
     
     
@@ -83,7 +76,7 @@ class HomeViewController: UIViewController, DormitoryButtonHandling {
         morningButton.tintColor = .primary
     }
     
-    //액션시트를 동작하였을때 버튼의 컬러가 변하지 않게 하는 함수
+    //시트를 동작하였을때 버튼의 컬러가 변하지 않게 하는 함수
     func setTintAdjustmentModeForButtons(in view: UIView) {
         //받아온 뷰를 돌며 타입이 버튼이거나 버튼을 상속받은 엘리먼트들만
         for subview in view.subviews {
@@ -95,6 +88,10 @@ class HomeViewController: UIViewController, DormitoryButtonHandling {
         }
     }
     
+    
+    private func setObserver() {
+        NotificationCenter.default.addObserver(self, selector: #selector(dormitoryChangeNotification(_:)), name: .init("DormitoryChangeNotification"), object: nil)
+    }
     
     
     func setLabelAndButton() {

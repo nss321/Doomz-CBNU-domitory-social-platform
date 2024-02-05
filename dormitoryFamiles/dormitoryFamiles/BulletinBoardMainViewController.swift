@@ -8,7 +8,7 @@ import Tabman
 import Pageboy
 import UIKit
 
-class BulletinBoardMainViewController: TabmanViewController {
+class BulletinBoardMainViewController: TabmanViewController, DormitoryButtonHandling {
     private var viewControllers: [UIViewController] {
         let brownVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "brownVC") as! BrownVC
         let yellowVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "yellowVC") as! YellowVC
@@ -19,26 +19,15 @@ class BulletinBoardMainViewController: TabmanViewController {
     @IBOutlet weak var naviCustomView: UIView!
     
     @IBOutlet weak var tabmanView: UIView!
-    @IBOutlet weak var collectionView: UICollectionView!
-    
     @IBOutlet weak var writeButton: TagButton!
     
+    @IBOutlet weak var dormitoryButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         setUI()
-        //setDelegate()
         setTapman()
-        //self.collectionView.register(UINib(nibName: "BulluetinBoardCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "cell")
-//
-//        collectionView.register(UINib(nibName: "PopularCollectionViewHeader",
-//                                      bundle: nil),
-//                                forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
-//                                withReuseIdentifier: "header")
-//
-        
-        
-        
-        
+        setTintAdjustmentModeForButtons(in: self.view)
+        setObserver()
         
     }
     
@@ -52,14 +41,34 @@ class BulletinBoardMainViewController: TabmanViewController {
         self.navigationController?.setNavigationBarHidden(false, animated: false)
     }
     
-//    private func setDelegate() {
-//        self.collectionView.delegate = self
-//        self.collectionView.dataSource = self
-//    }
     
     private func setUI() {
         writeButton.configuration?.image = UIImage(named: "bulletinBoardPlus")
     }
+    
+    @objc func dormitoryChangeNotification(_ notification: Notification) {
+        if notification.object is String {
+            dormitoryButton.head1 = SelectedDormitory.shared.domitory
+            dormitoryButton.setTitle(SelectedDormitory.shared.domitory, for: .normal)
+            dormitoryButton.isUserInteractionEnabled = true
+        }
+    }
+    
+    private func setObserver() {
+        NotificationCenter.default.addObserver(self, selector: #selector(dormitoryChangeNotification(_:)), name: .init("DormitoryChangeNotification"), object: nil)
+    }
+    
+    func setTintAdjustmentModeForButtons(in view: UIView) {
+        //받아온 뷰를 돌며 타입이 버튼이거나 버튼을 상속받은 엘리먼트들만
+        for subview in view.subviews {
+            if let button = subview as? UIButton {
+                button.tintAdjustmentMode = .normal
+            }
+            //버튼이 아니라면 그 내부를 또 탐색
+            setTintAdjustmentModeForButtons(in: subview)
+        }
+    }
+    
     
     private func setTapman() {
         self.dataSource = self
@@ -79,7 +88,7 @@ class BulletinBoardMainViewController: TabmanViewController {
         bar.indicator.tintColor = .primary
         bar.layout.alignment = .centerDistributed
                
-                bar.layout.interButtonSpacing = 24 // 버튼 사이 간격
+        bar.layout.interButtonSpacing = 24 // 버튼 사이 간격
         bar.layout.transitionStyle = .progressive// Customize
         
         let item = TMBarItem(title: "dddddddd")
@@ -88,51 +97,15 @@ class BulletinBoardMainViewController: TabmanViewController {
         addBar(bar, dataSource: dataSource as! TMBarDataSource, at: .custom(view: tabmanView, layout: nil))
     }
     
+
+    
+    @IBAction func dormitoryButtonTapped(_ sender: UIButton) {
+        presentSheet()
+    }
+    
+    
 }
 
-//extension BulletinBoardMainViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-//
-//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        return 99
-//    }
-//
-//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as UICollectionViewCell
-//        cell.layer.borderWidth = 1
-//        cell.layer.borderColor = UIColor(red: 0.894, green: 0.898, blue: 0.906, alpha: 1).cgColor
-//
-//        cell.layer.cornerRadius = 20
-//
-//        return cell
-//    }
-//
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        return CGSize(width: 335, height: 167)
-//    }
-//
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-//        return 12
-//    }
-//
-//    // 헤더의 크기를 지정하는 함수
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-//        return CGSize(width: 10, height: 56)
-//    }
-//
-//    // 헤더를 생성하는 함수
-//    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-//        switch kind {
-//        case UICollectionView.elementKindSectionHeader:
-//            let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "header", for: indexPath)
-//            // headerView 설정 코드를 여기에 작성하세요
-//
-//            return headerView
-//        default:
-//            assert(false, "Invalid element type")
-//        }
-//    }
-//
-//}
 
 
 extension BulletinBoardMainViewController: PageboyViewControllerDataSource, TMBarDataSource {
