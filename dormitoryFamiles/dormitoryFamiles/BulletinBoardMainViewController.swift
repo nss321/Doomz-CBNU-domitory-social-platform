@@ -59,7 +59,6 @@ class BulletinBoardMainViewController: TabmanViewController {
     
     private func setUI() {
         writeButton.configuration?.image = UIImage(named: "bulletinBoardPlus")
-        writeButton.spacing = 10000
     }
     
     private func setTapman() {

@@ -2,7 +2,7 @@ import UIKit
 
 class RoundButton: UIButton {
     
-    var spacing: CGFloat = 0 {
+    var spacing: CGFloat = 4 {
         didSet {
             updateSpacing()
         }
