@@ -598,10 +598,10 @@
             </objects>
             <point key="canvasLocation" x="72" y="-313"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Tabbar View Controller-->
         <scene sceneID="kBO-GE-U1n">
             <objects>
-                <tabBarController id="peN-Im-ACT" sceneMemberID="viewController">
+                <tabBarController id="peN-Im-ACT" customClass="TabbarViewController" customModule="dormitoryFamiles" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="9ZE-lM-Jv1">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -654,7 +654,7 @@
         <scene sceneID="GNe-Wb-0cf">
             <objects>
                 <navigationController modalPresentationStyle="fullScreen" id="71Z-RS-glV" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="홈" image="tabbarImageHome" landscapeImage="tabbarImageHome" selectedImage="tabbarImageHome" id="rAX-Bm-BZD">
+                    <tabBarItem key="tabBarItem" title="홈" image="tabbarItemHomeGray" selectedImage="tabbarItemHome" id="rAX-Bm-BZD">
                         <color key="badgeColor" red="0.78431367870000002" green="0.82352948189999997" blue="0.74509805439999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="fP2-Gd-DFU">
@@ -1450,7 +1450,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NkX-t3-Dqc">
-                                <rect key="frame" x="0.0" y="103.00000000000001" width="393" height="174.33333333333337"/>
+                                <rect key="frame" x="0.0" y="103" width="393" height="171"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jW8-v6-Usi">
                                         <rect key="frame" x="157.33333333333334" y="13" width="78.333333333333343" height="34.333333333333336"/>
@@ -1486,10 +1486,10 @@
                                         <buttonConfiguration key="configuration" style="plain" image="bulletinBoardMagnifier"/>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="nmc-r2-3Yr">
-                                        <rect key="frame" x="20" y="119.99999999999999" width="241" height="34.333333333333329"/>
+                                        <rect key="frame" x="20" y="120" width="195" height="31"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xSs-DI-vlz" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="75" height="34.333333333333336"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="59.666666666666664" height="31"/>
                                                 <color key="tintColor" name="gray4"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Button"/>
@@ -1504,7 +1504,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zMd-RW-f50" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
-                                                <rect key="frame" x="83" y="0.0" width="75" height="34.333333333333336"/>
+                                                <rect key="frame" x="67.666666666666671" y="0.0" width="59.666666666666671" height="31"/>
                                                 <color key="tintColor" name="gray4"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="최신순"/>
@@ -1519,7 +1519,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oPs-Mx-3k4" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
-                                                <rect key="frame" x="166" y="0.0" width="75" height="34.333333333333336"/>
+                                                <rect key="frame" x="135.33333333333334" y="0.0" width="59.666666666666657" height="31"/>
                                                 <color key="tintColor" name="gray4"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="모집중"/>
@@ -2114,7 +2114,7 @@
         <scene sceneID="Vhd-ge-UYO">
             <objects>
                 <navigationController id="MbN-AQ-guw" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="게시판" image="tabbarItemBulletinBoard" selectedImage="tabbarItemBulletinBoard" id="C6f-tH-vUp"/>
+                    <tabBarItem key="tabBarItem" title="게시판" image="tabbarItemBulletinBoardGray" selectedImage="tabbarItemBulletinBoard" id="C6f-tH-vUp"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="klB-TH-4nf">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -2160,7 +2160,7 @@
         <scene sceneID="AiI-zb-eSZ">
             <objects>
                 <navigationController id="k6X-MR-bmh" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="채팅" image="tabbarItemChatting" selectedImage="tabbarItemChatting" id="qBF-BW-FBI"/>
+                    <tabBarItem key="tabBarItem" title="채팅" image="tabbarItemChattingGray" selectedImage="tabbarItemChatting" id="qBF-BW-FBI"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Bdo-GT-gc8">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -2206,7 +2206,7 @@
         <scene sceneID="r41-W2-SEI">
             <objects>
                 <navigationController id="EQY-LB-4eN" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="룸메 매칭" image="tabbarItemMateMatching" selectedImage="tabbarItemMateMatching" id="ahK-I5-dSL"/>
+                    <tabBarItem key="tabBarItem" title="룸메 매칭" image="tabbarItemMateMatchingGray" selectedImage="tabbarItemMateMatching" id="ahK-I5-dSL"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ADX-Th-sGA">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -2252,7 +2252,7 @@
         <scene sceneID="kqT-3d-e9c">
             <objects>
                 <navigationController id="9ap-eQ-OsB" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="마이페이지" image="tabbarItemMyPage" selectedImage="tabbarItemMyPage" id="8cn-fn-nXd"/>
+                    <tabBarItem key="tabBarItem" title="마이페이지" image="tabbarItemMyPageGray" selectedImage="tabbarItemMyPage" id="8cn-fn-nXd"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="6GE-HW-bJs">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -2507,13 +2507,13 @@
             <size key="intrinsicContentSize" width="60" height="28.666666666666668"/>
         </designable>
         <designable name="63s-np-sbo">
-            <size key="intrinsicContentSize" width="92.333333333333329" height="34.333333333333336"/>
+            <size key="intrinsicContentSize" width="88.666666666666671" height="33.333333333333336"/>
         </designable>
         <designable name="6cz-aZ-WRa">
             <size key="intrinsicContentSize" width="30" height="34"/>
         </designable>
         <designable name="6sd-MD-ybY">
-            <size key="intrinsicContentSize" width="53.666666666666664" height="34.333333333333336"/>
+            <size key="intrinsicContentSize" width="51.333333333333336" height="33.333333333333336"/>
         </designable>
         <designable name="8YI-Dj-a5U">
             <size key="intrinsicContentSize" width="28" height="24"/>
@@ -2549,7 +2549,7 @@
             <size key="intrinsicContentSize" width="135.66666666666666" height="33.333333333333336"/>
         </designable>
         <designable name="iMM-KA-ESC">
-            <size key="intrinsicContentSize" width="53.666666666666664" height="34.333333333333336"/>
+            <size key="intrinsicContentSize" width="51.333333333333336" height="33.333333333333336"/>
         </designable>
         <designable name="iWG-qz-lub">
             <size key="intrinsicContentSize" width="59.666666666666664" height="31"/>
@@ -2558,16 +2558,16 @@
             <size key="intrinsicContentSize" width="63.333333333333336" height="16.666666666666668"/>
         </designable>
         <designable name="oPs-Mx-3k4">
-            <size key="intrinsicContentSize" width="68.333333333333329" height="34.333333333333336"/>
+            <size key="intrinsicContentSize" width="59.666666666666664" height="31"/>
         </designable>
         <designable name="pf8-z7-rET">
             <size key="intrinsicContentSize" width="63.333333333333336" height="16.666666666666668"/>
         </designable>
         <designable name="xSs-DI-vlz">
-            <size key="intrinsicContentSize" width="75" height="34.333333333333336"/>
+            <size key="intrinsicContentSize" width="59.666666666666664" height="31"/>
         </designable>
         <designable name="zMd-RW-f50">
-            <size key="intrinsicContentSize" width="68.333333333333329" height="34.333333333333336"/>
+            <size key="intrinsicContentSize" width="59.666666666666664" height="31"/>
         </designable>
     </designables>
     <resources>
@@ -2587,11 +2587,16 @@
         <image name="serviceCamera" width="28" height="24"/>
         <image name="serviceCheck" width="18" height="13"/>
         <image name="serviceDropDown" width="9" height="4"/>
-        <image name="tabbarImageHome" width="24" height="23.790000915527344"/>
         <image name="tabbarItemBulletinBoard" width="24" height="24"/>
+        <image name="tabbarItemBulletinBoardGray" width="21" height="24"/>
         <image name="tabbarItemChatting" width="24" height="20.579999923706055"/>
+        <image name="tabbarItemChattingGray" width="25" height="24"/>
+        <image name="tabbarItemHome" width="24" height="23.790000915527344"/>
+        <image name="tabbarItemHomeGray" width="25" height="24"/>
         <image name="tabbarItemMateMatching" width="22.319999694824219" height="19.819999694824219"/>
+        <image name="tabbarItemMateMatchingGray" width="27" height="26"/>
         <image name="tabbarItemMyPage" width="24" height="24"/>
+        <image name="tabbarItemMyPageGray" width="21" height="24"/>
         <namedColor name="background">
             <color red="1" green="0.99215686274509807" blue="0.99215686274509807" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

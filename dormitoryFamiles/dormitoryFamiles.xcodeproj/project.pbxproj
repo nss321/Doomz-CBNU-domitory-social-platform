@@ -24,6 +24,7 @@
 		DB41008C2B6A665D005C4DD8 /* BrownVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB41008B2B6A665D005C4DD8 /* BrownVC.swift */; };
 		DB48CD082B6905C600E8C7AA /* PopularCollectionViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB48CD062B6905C600E8C7AA /* PopularCollectionViewHeader.swift */; };
 		DB48CD092B6905C600E8C7AA /* PopularCollectionViewHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB48CD072B6905C600E8C7AA /* PopularCollectionViewHeader.xib */; };
+		DB496DEB2B70EAFB00F97324 /* TabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB496DEA2B70EAFB00F97324 /* TabbarViewController.swift */; };
 		DB5ACD602AA70D190054CA15 /* ExtenstionColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5ACD5F2AA70D190054CA15 /* ExtenstionColor.swift */; };
 		DB5ACD622AA714260054CA15 /* SchoolWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5ACD612AA714260054CA15 /* SchoolWebViewController.swift */; };
 		DB61AA342B4C1EA70040418B /* registerPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB61AA332B4C1EA70040418B /* registerPostViewController.swift */; };
@@ -75,6 +76,7 @@
 		DB41008B2B6A665D005C4DD8 /* BrownVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrownVC.swift; sourceTree = "<group>"; };
 		DB48CD062B6905C600E8C7AA /* PopularCollectionViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularCollectionViewHeader.swift; sourceTree = "<group>"; };
 		DB48CD072B6905C600E8C7AA /* PopularCollectionViewHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PopularCollectionViewHeader.xib; sourceTree = "<group>"; };
+		DB496DEA2B70EAFB00F97324 /* TabbarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarViewController.swift; sourceTree = "<group>"; };
 		DB5ACD5F2AA70D190054CA15 /* ExtenstionColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtenstionColor.swift; sourceTree = "<group>"; };
 		DB5ACD612AA714260054CA15 /* SchoolWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolWebViewController.swift; sourceTree = "<group>"; };
 		DB61AA332B4C1EA70040418B /* registerPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = registerPostViewController.swift; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 				DB2B7BC82B456F4700C1847D /* TagScrollView.swift */,
 				DB5ACD5F2AA70D190054CA15 /* ExtenstionColor.swift */,
 				DBF466FA2AA5F4E4009FF3EB /* AppDelegate.swift */,
+				DB496DEA2B70EAFB00F97324 /* TabbarViewController.swift */,
 				DBF466FC2AA5F4E4009FF3EB /* SceneDelegate.swift */,
 				DBF466FE2AA5F4E4009FF3EB /* MealMenuViewController.swift */,
 				DB5ACD612AA714260054CA15 /* SchoolWebViewController.swift */,
@@ -372,6 +375,7 @@
 				DBF466FF2AA5F4E4009FF3EB /* MealMenuViewController.swift in Sources */,
 				DB48CD082B6905C600E8C7AA /* PopularCollectionViewHeader.swift in Sources */,
 				DB1A3C302B43A7FD009DC005 /* searchViewController.swift in Sources */,
+				DB496DEB2B70EAFB00F97324 /* TabbarViewController.swift in Sources */,
 				DB41008C2B6A665D005C4DD8 /* BrownVC.swift in Sources */,
 				DB20E38C2B53C2BD000D12A7 /* HomeViewController.swift in Sources */,
 				DBF466FB2AA5F4E4009FF3EB /* AppDelegate.swift in Sources */,
