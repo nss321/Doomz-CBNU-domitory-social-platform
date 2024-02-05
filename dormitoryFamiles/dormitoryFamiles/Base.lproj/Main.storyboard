@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="m4G-hc-GIZ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="peN-Im-ACT">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
@@ -793,7 +793,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="48" translatesAutoresizingMaskIntoConstraints="NO" id="GcU-dT-A4V">
                                                 <rect key="frame" x="20" y="0.0" width="353" height="52"/>
                                                 <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="homeImageLogo" translatesAutoresizingMaskIntoConstraints="NO" id="7bk-jq-sXj">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bulletinBoardLogo" translatesAutoresizingMaskIntoConstraints="NO" id="7bk-jq-sXj">
                                                         <rect key="frame" x="0.0" y="10" width="42" height="32"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="32" id="n28-NY-y9k"/>
@@ -854,7 +854,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pf8-z7-rET" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
-                                                <rect key="frame" x="285.66666666666669" y="86" width="87.333333333333314" height="28"/>
+                                                <rect key="frame" x="309.66666666666669" y="86" width="63.333333333333314" height="28"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="28" id="hza-8j-0gq"/>
                                                 </constraints>
@@ -1047,7 +1047,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nzJ-Yb-Hjd" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
-                                                        <rect key="frame" x="16" y="68.666666666666742" width="75.333333333333329" height="28"/>
+                                                        <rect key="frame" x="16.000000000000004" y="68.666666666666742" width="63.333333333333343" height="28"/>
                                                         <color key="backgroundColor" name="primaryMid"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="28" id="iWk-PQ-m4c"/>
@@ -1331,7 +1331,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Cx-cb-x6K" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
-                                                <rect key="frame" x="285.66666666666669" y="580.33333333333337" width="87.333333333333314" height="28"/>
+                                                <rect key="frame" x="309.66666666666669" y="580.33333333333337" width="63.333333333333314" height="28"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="28" id="DZE-Ex-hkf"/>
                                                 </constraints>
@@ -2507,13 +2507,13 @@
             <size key="intrinsicContentSize" width="60" height="28.666666666666668"/>
         </designable>
         <designable name="63s-np-sbo">
-            <size key="intrinsicContentSize" width="88.666666666666671" height="33.333333333333336"/>
+            <size key="intrinsicContentSize" width="92.333333333333329" height="34.333333333333336"/>
         </designable>
         <designable name="6cz-aZ-WRa">
             <size key="intrinsicContentSize" width="30" height="34"/>
         </designable>
         <designable name="6sd-MD-ybY">
-            <size key="intrinsicContentSize" width="51.333333333333336" height="33.333333333333336"/>
+            <size key="intrinsicContentSize" width="53.666666666666664" height="34.333333333333336"/>
         </designable>
         <designable name="8YI-Dj-a5U">
             <size key="intrinsicContentSize" width="28" height="24"/>
@@ -2549,7 +2549,7 @@
             <size key="intrinsicContentSize" width="135.66666666666666" height="33.333333333333336"/>
         </designable>
         <designable name="iMM-KA-ESC">
-            <size key="intrinsicContentSize" width="51.333333333333336" height="33.333333333333336"/>
+            <size key="intrinsicContentSize" width="53.666666666666664" height="34.333333333333336"/>
         </designable>
         <designable name="iWG-qz-lub">
             <size key="intrinsicContentSize" width="59.666666666666664" height="31"/>
@@ -2558,16 +2558,16 @@
             <size key="intrinsicContentSize" width="63.333333333333336" height="16.666666666666668"/>
         </designable>
         <designable name="oPs-Mx-3k4">
-            <size key="intrinsicContentSize" width="59.666666666666664" height="31"/>
+            <size key="intrinsicContentSize" width="68.333333333333329" height="34.333333333333336"/>
         </designable>
         <designable name="pf8-z7-rET">
             <size key="intrinsicContentSize" width="63.333333333333336" height="16.666666666666668"/>
         </designable>
         <designable name="xSs-DI-vlz">
-            <size key="intrinsicContentSize" width="59.666666666666664" height="31"/>
+            <size key="intrinsicContentSize" width="75" height="34.333333333333336"/>
         </designable>
         <designable name="zMd-RW-f50">
-            <size key="intrinsicContentSize" width="59.666666666666664" height="31"/>
+            <size key="intrinsicContentSize" width="68.333333333333329" height="34.333333333333336"/>
         </designable>
     </designables>
     <resources>
@@ -2579,7 +2579,6 @@
         <image name="homeImageAlarm" width="22" height="26"/>
         <image name="homeImageArrow" width="10" height="6"/>
         <image name="homeImageClock" width="16" height="15"/>
-        <image name="homeImageLogo" width="43" height="32"/>
         <image name="homeImageMateMatching" width="682.66668701171875" height="682.66668701171875"/>
         <image name="kakao" width="25" height="26"/>
         <image name="launchScreenLogo" width="213" height="58"/>

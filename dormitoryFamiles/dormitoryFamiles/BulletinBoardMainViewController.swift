@@ -12,9 +12,9 @@ class BulletinBoardMainViewController: TabmanViewController {
     private var viewControllers: [UIViewController] {
         let brownVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "brownVC") as! BrownVC
         let yellowVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "yellowVC") as! YellowVC
-        let aaa = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "aaa")
-        //let aaa = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "aaa")
-        return [brownVC, yellowVC, aaa, UIViewController(), UIViewController()]
+//        let aaa = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "aaa")
+//        //let aaa = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "aaa")
+        return [brownVC, yellowVC, UIViewController(), UIViewController(), UIViewController()]
     }
     @IBOutlet weak var naviCustomView: UIView!
     
