@@ -26,7 +26,7 @@
 		DB496DEB2B70EAFB00F97324 /* TabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB496DEA2B70EAFB00F97324 /* TabbarViewController.swift */; };
 		DB5ACD602AA70D190054CA15 /* ExtenstionColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5ACD5F2AA70D190054CA15 /* ExtenstionColor.swift */; };
 		DB5ACD622AA714260054CA15 /* SchoolWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5ACD612AA714260054CA15 /* SchoolWebViewController.swift */; };
-		DB61AA342B4C1EA70040418B /* registerPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB61AA332B4C1EA70040418B /* registerPostViewController.swift */; };
+		DB61AA342B4C1EA70040418B /* RegisterPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB61AA332B4C1EA70040418B /* RegisterPostViewController.swift */; };
 		DB7EF2772B5E9CB20062FAB5 /* ServicePermissonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7EF2762B5E9CB20062FAB5 /* ServicePermissonViewController.swift */; };
 		DB7EF2792B5EA4B00062FAB5 /* AlrmElementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7EF2782B5EA4B00062FAB5 /* AlrmElementView.swift */; };
 		DB7EF27B2B5EA6C60062FAB5 /* AlramViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7EF27A2B5EA6C60062FAB5 /* AlramViewController.swift */; };
@@ -77,7 +77,7 @@
 		DB496DEA2B70EAFB00F97324 /* TabbarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarViewController.swift; sourceTree = "<group>"; };
 		DB5ACD5F2AA70D190054CA15 /* ExtenstionColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtenstionColor.swift; sourceTree = "<group>"; };
 		DB5ACD612AA714260054CA15 /* SchoolWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolWebViewController.swift; sourceTree = "<group>"; };
-		DB61AA332B4C1EA70040418B /* registerPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = registerPostViewController.swift; sourceTree = "<group>"; };
+		DB61AA332B4C1EA70040418B /* RegisterPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPostViewController.swift; sourceTree = "<group>"; };
 		DB7EF2762B5E9CB20062FAB5 /* ServicePermissonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicePermissonViewController.swift; sourceTree = "<group>"; };
 		DB7EF2782B5EA4B00062FAB5 /* AlrmElementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlrmElementView.swift; sourceTree = "<group>"; };
 		DB7EF27A2B5EA6C60062FAB5 /* AlramViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlramViewController.swift; sourceTree = "<group>"; };
@@ -205,7 +205,7 @@
 				DB2B7BCA2B45727B00C1847D /* TagButton.swift */,
 				DBCE10E22B598308008C3367 /* notificationViewController.swift */,
 				DB2B7BCE2B457F7200C1847D /* UIButtonExtension.swift */,
-				DB61AA332B4C1EA70040418B /* registerPostViewController.swift */,
+				DB61AA332B4C1EA70040418B /* RegisterPostViewController.swift */,
 				DB20E38B2B53C2BD000D12A7 /* HomeViewController.swift */,
 				DB20E38D2B53D75F000D12A7 /* extensionStroyboard.swift */,
 				DB81CFFF2B56E723005EF497 /* UIColorExtension.swift */,
@@ -361,7 +361,7 @@
 				DB7EF27B2B5EA6C60062FAB5 /* AlramViewController.swift in Sources */,
 				DB5ACD602AA70D190054CA15 /* ExtenstionColor.swift in Sources */,
 				DB7EF2792B5EA4B00062FAB5 /* AlrmElementView.swift in Sources */,
-				DB61AA342B4C1EA70040418B /* registerPostViewController.swift in Sources */,
+				DB61AA342B4C1EA70040418B /* RegisterPostViewController.swift in Sources */,
 				DB20E38E2B53D75F000D12A7 /* extensionStroyboard.swift in Sources */,
 				DB2B7BCD2B457D2500C1847D /* BulletinBoardDetailViewContorllerViewController.swift in Sources */,
 				DB2B7BCB2B45727B00C1847D /* TagButton.swift in Sources */,

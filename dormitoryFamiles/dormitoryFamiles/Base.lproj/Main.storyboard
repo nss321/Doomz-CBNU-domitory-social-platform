@@ -1053,7 +1053,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nzJ-Yb-Hjd" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
-                                                        <rect key="frame" x="16" y="68.666666666666742" width="94.666666666666686" height="28"/>
+                                                        <rect key="frame" x="16" y="68.666666666666742" width="94.666666666666671" height="28"/>
                                                         <color key="backgroundColor" name="primaryMid"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="28" id="iWk-PQ-m4c"/>
@@ -1635,7 +1635,7 @@
         <!--글 쓰기-->
         <scene sceneID="bms-dr-f7h">
             <objects>
-                <viewController id="m4G-hc-GIZ" customClass="registerPostViewController" customModule="dormitoryFamiles" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="m4G-hc-GIZ" customClass="RegisterPostViewController" customModule="dormitoryFamiles" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ny6-yX-Q9Z">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2573,7 +2573,7 @@
         </designable>
     </designables>
     <resources>
-        <image name="arrow.right" catalog="system" width="128" height="95"/>
+        <image name="arrow.right" catalog="system" width="32" height="32"/>
         <image name="bulletinBoardAlram" width="20" height="24"/>
         <image name="bulletinBoardLogo" width="40" height="32"/>
         <image name="bulletinBoardMagnifier" width="24" height="24"/>

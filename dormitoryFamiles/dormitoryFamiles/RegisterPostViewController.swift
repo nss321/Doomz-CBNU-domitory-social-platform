@@ -8,7 +8,7 @@
 import UIKit
 import DropDown
 
-class registerPostViewController: UIViewController {
+class RegisterPostViewController: UIViewController {
     
     @IBOutlet weak var textField: UITextField!
     
@@ -20,6 +20,7 @@ class registerPostViewController: UIViewController {
     @IBOutlet weak var countTextFieldTextLabel: UILabel!
     
     let dropDown = DropDown()
+    let textFieldMaxLength = 20
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -79,35 +80,56 @@ class registerPostViewController: UIViewController {
     }
 }
 
-extension registerPostViewController: UITextFieldDelegate {
-//    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
-//        if textField.text.count == 20 {
-//            return false
-//        }
-//    }
-    
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        
-    }
-    
-    
-    
+extension RegisterPostViewController: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        //백스페이스는 언제나 true
-        if string.isEmpty {
-            countTextFieldTextLabel.text = String(textField.text!.count) + "/20"
+        let oldText = textField.text ?? ""
+        let addedText = string
+        let newText = oldText + addedText
+        let newTextLength = newText.count
+
+        if newTextLength <= textFieldMaxLength {
             return true
         }
-        
-        //20글자가 넘어가면 false
-        if textField.text!.count == 20 {
+
+        let lastWordOfOldText = String(oldText[oldText.index(before: oldText.endIndex)])
+        let separatedCharacters = lastWordOfOldText.decomposedStringWithCanonicalMapping.unicodeScalars.map{ String($0) }
+        let separatedCharactersCount = separatedCharacters.count
+
+        if separatedCharactersCount == 1 && !addedText.isConsonant {
+            return true
+        }
+
+        if separatedCharactersCount == 2 && addedText.isConsonant {
+            return true
+        }
+
+        if separatedCharactersCount == 3 && addedText.isConsonant {
+            return true
+        }
+
+        return false
+    }
+
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        countTextFieldTextLabel.text = String(textField.text!.count) + "/" + String(textFieldMaxLength)
+        var text = textField.text ?? ""
+        if text.count > textFieldMaxLength {
+            let startIndex = text.startIndex
+            let endIndex = text.index(startIndex, offsetBy: textFieldMaxLength - 1)
+            let fixedText = String(text[startIndex...endIndex])
+            textField.text = fixedText
+        }
+    }
+}
+
+extension String {
+    var isConsonant: Bool {
+        guard let scalar = UnicodeScalar(self)?.value else {
             return false
         }
         
+        let consonantScalarRange: ClosedRange<UInt32> = 12593...12622
         
-        countTextFieldTextLabel.text = String(textField.text!.count + string.count) + "/20"
-        return true
+        return consonantScalarRange ~= scalar
     }
-    
-    
 }
