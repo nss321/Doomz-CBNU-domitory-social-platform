@@ -27,6 +27,7 @@ class BulletinBoardMainViewController: TabmanViewController, DormitoryButtonHand
         setTintAdjustmentModeForButtons(in: self.view)
         setObserver()
         
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -66,6 +67,7 @@ class BulletinBoardMainViewController: TabmanViewController, DormitoryButtonHand
             setTintAdjustmentModeForButtons(in: subview)
         }
     }
+    
     
     
     private func setTapman() {

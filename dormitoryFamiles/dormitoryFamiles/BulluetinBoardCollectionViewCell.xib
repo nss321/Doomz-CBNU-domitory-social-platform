@@ -213,6 +213,14 @@
                 <constraint firstItem="3L1-Hq-CEM" firstAttribute="top" secondItem="EPc-sW-8rF" secondAttribute="bottom" constant="8" id="yNO-WZ-ilX"/>
             </constraints>
             <size key="customSize" width="337" height="166"/>
+            <connections>
+                <outlet property="commentCount" destination="4D9-Wa-ky2" id="dkO-6i-aAq"/>
+                <outlet property="content" destination="Bjf-f6-SsP" id="jMd-0p-Hfm"/>
+                <outlet property="nickName" destination="SQE-bh-vgU" id="T0K-st-VAm"/>
+                <outlet property="title" destination="nJr-b4-0XJ" id="ow7-TC-4dr"/>
+                <outlet property="viewCount" destination="YQx-58-eSh" id="aP3-Nl-OCl"/>
+                <outlet property="wishCount" destination="t2h-SG-48e" id="UKD-NC-Y0t"/>
+            </connections>
             <point key="canvasLocation" x="257.25190839694653" y="61.267605633802823"/>
         </collectionViewCell>
     </objects>

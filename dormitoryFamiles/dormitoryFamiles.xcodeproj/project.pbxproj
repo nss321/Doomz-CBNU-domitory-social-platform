@@ -27,6 +27,7 @@
 		DB5ACD602AA70D190054CA15 /* ExtenstionColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5ACD5F2AA70D190054CA15 /* ExtenstionColor.swift */; };
 		DB5ACD622AA714260054CA15 /* SchoolWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5ACD612AA714260054CA15 /* SchoolWebViewController.swift */; };
 		DB61AA342B4C1EA70040418B /* RegisterPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB61AA332B4C1EA70040418B /* RegisterPostViewController.swift */; };
+		DB74D0C62B73EEBF00A90D68 /* Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB74D0C52B73EEBF00A90D68 /* Codable.swift */; };
 		DB7EF2772B5E9CB20062FAB5 /* ServicePermissonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7EF2762B5E9CB20062FAB5 /* ServicePermissonViewController.swift */; };
 		DB7EF2792B5EA4B00062FAB5 /* AlrmElementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7EF2782B5EA4B00062FAB5 /* AlrmElementView.swift */; };
 		DB7EF27B2B5EA6C60062FAB5 /* AlramViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7EF27A2B5EA6C60062FAB5 /* AlramViewController.swift */; };
@@ -35,8 +36,6 @@
 		DB932AC12B6511E300B456FB /* BulluetinBoardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB932ABF2B6511E300B456FB /* BulluetinBoardCollectionViewCell.swift */; };
 		DB932AC22B6511E300B456FB /* BulluetinBoardCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB932AC02B6511E300B456FB /* BulluetinBoardCollectionViewCell.xib */; };
 		DBB345F22B42BFD100E70380 /* BulletinBoardMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB345F12B42BFD100E70380 /* BulletinBoardMainViewController.swift */; };
-		DBB345FB2B42C28B00E70380 /* BulletinBoardMainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB345F92B42C28B00E70380 /* BulletinBoardMainTableViewCell.swift */; };
-		DBB345FC2B42C28B00E70380 /* BulletinBoardMainTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DBB345FA2B42C28B00E70380 /* BulletinBoardMainTableViewCell.xib */; };
 		DBB345FE2B42D95600E70380 /* bulletinBoardMainNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB345FD2B42D95600E70380 /* bulletinBoardMainNavigation.swift */; };
 		DBC54C432B568B350071164C /* UIFontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC54C422B568B350071164C /* UIFontExtension.swift */; };
 		DBC54C552B56A46B0071164C /* PretendardVariable.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DBC54C542B56A46B0071164C /* PretendardVariable.ttf */; };
@@ -78,6 +77,7 @@
 		DB5ACD5F2AA70D190054CA15 /* ExtenstionColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtenstionColor.swift; sourceTree = "<group>"; };
 		DB5ACD612AA714260054CA15 /* SchoolWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolWebViewController.swift; sourceTree = "<group>"; };
 		DB61AA332B4C1EA70040418B /* RegisterPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPostViewController.swift; sourceTree = "<group>"; };
+		DB74D0C52B73EEBF00A90D68 /* Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Codable.swift; sourceTree = "<group>"; };
 		DB7EF2762B5E9CB20062FAB5 /* ServicePermissonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicePermissonViewController.swift; sourceTree = "<group>"; };
 		DB7EF2782B5EA4B00062FAB5 /* AlrmElementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlrmElementView.swift; sourceTree = "<group>"; };
 		DB7EF27A2B5EA6C60062FAB5 /* AlramViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlramViewController.swift; sourceTree = "<group>"; };
@@ -86,8 +86,6 @@
 		DB932ABF2B6511E300B456FB /* BulluetinBoardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulluetinBoardCollectionViewCell.swift; sourceTree = "<group>"; };
 		DB932AC02B6511E300B456FB /* BulluetinBoardCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BulluetinBoardCollectionViewCell.xib; sourceTree = "<group>"; };
 		DBB345F12B42BFD100E70380 /* BulletinBoardMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulletinBoardMainViewController.swift; sourceTree = "<group>"; };
-		DBB345F92B42C28B00E70380 /* BulletinBoardMainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulletinBoardMainTableViewCell.swift; sourceTree = "<group>"; };
-		DBB345FA2B42C28B00E70380 /* BulletinBoardMainTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BulletinBoardMainTableViewCell.xib; sourceTree = "<group>"; };
 		DBB345FD2B42D95600E70380 /* bulletinBoardMainNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bulletinBoardMainNavigation.swift; sourceTree = "<group>"; };
 		DBC54C422B568B350071164C /* UIFontExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFontExtension.swift; sourceTree = "<group>"; };
 		DBC54C542B56A46B0071164C /* PretendardVariable.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = PretendardVariable.ttf; sourceTree = "<group>"; };
@@ -197,8 +195,6 @@
 				DBF467032AA5F4E5009FF3EB /* Assets.xcassets */,
 				DBF467052AA5F4E5009FF3EB /* LaunchScreen.storyboard */,
 				DBF467082AA5F4E5009FF3EB /* Info.plist */,
-				DBB345F92B42C28B00E70380 /* BulletinBoardMainTableViewCell.swift */,
-				DBB345FA2B42C28B00E70380 /* BulletinBoardMainTableViewCell.xib */,
 				DBB345FD2B42D95600E70380 /* bulletinBoardMainNavigation.swift */,
 				DB1A3C2F2B43A7FD009DC005 /* searchViewController.swift */,
 				DB1A3C332B4418E1009DC005 /* SearchTableViewHeader.swift */,
@@ -220,6 +216,7 @@
 				DB48CD062B6905C600E8C7AA /* PopularCollectionViewHeader.swift */,
 				DB48CD072B6905C600E8C7AA /* PopularCollectionViewHeader.xib */,
 				DB41008B2B6A665D005C4DD8 /* BrownVC.swift */,
+				DB74D0C52B73EEBF00A90D68 /* Codable.swift */,
 			);
 			path = dormitoryFamiles;
 			sourceTree = "<group>";
@@ -290,7 +287,6 @@
 				DBF467072AA5F4E5009FF3EB /* LaunchScreen.storyboard in Resources */,
 				DBC54C5F2B56A4A80071164C /* Pretendard-SemiBold.ttf in Resources */,
 				DBF467042AA5F4E5009FF3EB /* Assets.xcassets in Resources */,
-				DBB345FC2B42C28B00E70380 /* BulletinBoardMainTableViewCell.xib in Resources */,
 				DB48CD092B6905C600E8C7AA /* PopularCollectionViewHeader.xib in Resources */,
 				DBF467022AA5F4E4009FF3EB /* Main.storyboard in Resources */,
 				DBC54C5D2B56A4A00071164C /* Pretendard-Regular.ttf in Resources */,
@@ -357,7 +353,6 @@
 				DB3F18092B6162AB002F1738 /* ProfileSettingViewController.swift in Sources */,
 				DBCE10E12B595506008C3367 /* loginViewController.swift in Sources */,
 				DB81D0002B56E723005EF497 /* UIColorExtension.swift in Sources */,
-				DBB345FB2B42C28B00E70380 /* BulletinBoardMainTableViewCell.swift in Sources */,
 				DB7EF27B2B5EA6C60062FAB5 /* AlramViewController.swift in Sources */,
 				DB5ACD602AA70D190054CA15 /* ExtenstionColor.swift in Sources */,
 				DB7EF2792B5EA4B00062FAB5 /* AlrmElementView.swift in Sources */,
@@ -366,6 +361,7 @@
 				DB2B7BCD2B457D2500C1847D /* BulletinBoardDetailViewContorllerViewController.swift in Sources */,
 				DB2B7BCB2B45727B00C1847D /* TagButton.swift in Sources */,
 				DB1E0E8B2B629865000A4AA5 /* ChoiceDormitoryViewController.swift in Sources */,
+				DB74D0C62B73EEBF00A90D68 /* Codable.swift in Sources */,
 				DBC54C432B568B350071164C /* UIFontExtension.swift in Sources */,
 				DB7EF27D2B5EAC790062FAB5 /* ChoiceDormitoryButton.swift in Sources */,
 				DB932AC12B6511E300B456FB /* BulluetinBoardCollectionViewCell.swift in Sources */,

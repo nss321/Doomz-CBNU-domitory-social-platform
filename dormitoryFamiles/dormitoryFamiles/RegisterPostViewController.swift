@@ -23,12 +23,16 @@ class RegisterPostViewController: UIViewController {
     
     @IBOutlet weak var countTextFieldTextLabel: UILabel!
     
+    @IBOutlet weak var countTextViewTextLabel: UILabel!
+    
+    
     @IBOutlet weak var titleLabel: UILabel!
     
     @IBOutlet weak var descriptionLabel: UILabel!
     
     let dropDown = DropDown()
     let textFieldMaxLength = 20
+    let textViewMaxLength = 300
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -120,7 +124,7 @@ extension RegisterPostViewController: UITextFieldDelegate {
 
     func textFieldDidChangeSelection(_ textField: UITextField) {
         countTextFieldTextLabel.text = String(textField.text!.count) + "/" + String(textFieldMaxLength)
-        var text = textField.text ?? ""
+        let text = textField.text ?? ""
         if text.count > textFieldMaxLength {
             let startIndex = text.startIndex
             let endIndex = text.index(startIndex, offsetBy: textFieldMaxLength - 1)
@@ -129,6 +133,49 @@ extension RegisterPostViewController: UITextFieldDelegate {
         }
     }
 }
+
+extension RegisterPostViewController: UITextViewDelegate {
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        let oldText = textView.text ?? ""
+        let addedText = text
+        let newText = oldText + addedText
+        let newTextLength = newText.count
+
+        if newTextLength <= textViewMaxLength {
+            return true
+        }
+
+        let lastWordOfOldText = String(oldText[oldText.index(before: oldText.endIndex)])
+        let separatedCharacters = lastWordOfOldText.decomposedStringWithCanonicalMapping.unicodeScalars.map{ String($0) }
+        let separatedCharactersCount = separatedCharacters.count
+
+        if separatedCharactersCount == 1 && !addedText.isConsonant {
+            return true
+        }
+
+        if separatedCharactersCount == 2 && addedText.isConsonant {
+            return true
+        }
+
+        if separatedCharactersCount == 3 && addedText.isConsonant {
+            return true
+        }
+
+        return false
+    }
+
+    func textViewDidChange(_ textView: UITextView) { // <-- 이 부분을 수정하였습니다.
+        countTextViewTextLabel.text = String(textView.text!.count) + "/" + String(textViewMaxLength)
+        let text = textView.text ?? ""
+        if text.count > textViewMaxLength {
+            let startIndex = text.startIndex
+            let endIndex = text.index(startIndex, offsetBy: textViewMaxLength - 1)
+            let fixedText = String(text[startIndex...endIndex])
+            textView.text = fixedText
+        }
+    }
+}
+
 
 extension String {
     var isConsonant: Bool {

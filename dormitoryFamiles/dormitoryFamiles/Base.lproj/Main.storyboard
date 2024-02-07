@@ -1053,7 +1053,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nzJ-Yb-Hjd" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
-                                                        <rect key="frame" x="16" y="68.666666666666742" width="94.666666666666671" height="28"/>
+                                                        <rect key="frame" x="16" y="68.666666666666742" width="94.666666666666686" height="28"/>
                                                         <color key="backgroundColor" name="primaryMid"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="28" id="iWk-PQ-m4c"/>
@@ -1751,13 +1751,13 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="7/20" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tuZ-lg-993">
-                                <rect key="frame" x="327.33333333333331" y="255.66666666666666" width="33.666666666666686" height="20.333333333333343"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0/20" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tuZ-lg-993">
+                                <rect key="frame" x="325.66666666666669" y="255.66666666666666" width="35.333333333333314" height="20.333333333333343"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" name="gray3"/>
                                 <nil key="highlightedColor"/>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="body2" value="7/20"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="body2" value="0/20"/>
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="텍스트뷰~" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Kbm-Cx-SUs">
@@ -1828,6 +1828,7 @@
                         <outlet property="bulletinBoardLabel" destination="h1o-EC-5oT" id="hVd-bM-oFs"/>
                         <outlet property="categoryButton" destination="2k0-J2-Afe" id="yA0-ml-swg"/>
                         <outlet property="countTextFieldTextLabel" destination="tuZ-lg-993" id="XAY-Aa-V7O"/>
+                        <outlet property="countTextViewTextLabel" destination="WVR-IT-xUm" id="KK7-LG-AAC"/>
                         <outlet property="descriptionLabel" destination="Lmo-OG-Y9M" id="zdY-du-kU5"/>
                         <outlet property="dormitoryButton" destination="prk-jM-v1A" id="ddR-PX-uio"/>
                         <outlet property="dormitoryLabel" destination="tHe-iz-GKx" id="RKI-0i-6kL"/>
@@ -1837,7 +1838,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Le-TK-zVR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3833" y="-580"/>
+            <point key="canvasLocation" x="3832.8244274809158" y="-580.28169014084506"/>
         </scene>
         <!--게시판 상세보기-->
         <scene sceneID="8ZH-Ad-cTO">
