@@ -17,7 +17,15 @@ class RegisterPostViewController: UIViewController {
     @IBOutlet weak var dormitoryButton: UIButton!
     
     
+    @IBOutlet weak var dormitoryLabel: UILabel!
+    
+    @IBOutlet weak var bulletinBoardLabel: UILabel!
+    
     @IBOutlet weak var countTextFieldTextLabel: UILabel!
+    
+    @IBOutlet weak var titleLabel: UILabel!
+    
+    @IBOutlet weak var descriptionLabel: UILabel!
     
     let dropDown = DropDown()
     let textFieldMaxLength = 20
@@ -31,7 +39,7 @@ class RegisterPostViewController: UIViewController {
         super.viewDidLoad()
         setDropDown()
         setDelegate()
-        setTextField()
+        [dormitoryLabel, bulletinBoardLabel, countTextFieldTextLabel, titleLabel, descriptionLabel].forEach{$0.asColor(targetString: ["*"], color: .primary!)}
     }
     
     private func setNavigationBar() {
