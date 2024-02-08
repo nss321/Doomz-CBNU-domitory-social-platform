@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="peN-Im-ACT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="uo4-JF-1aB">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
@@ -1840,6 +1840,22 @@
             </objects>
             <point key="canvasLocation" x="3832.8244274809158" y="-580.28169014084506"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="ccz-xK-sD6">
+            <objects>
+                <navigationController id="G3O-mb-fvB" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="4tI-F5-eay">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="XDH-66-Puu" kind="relationship" relationship="rootViewController" id="f6g-yC-AaD"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ami-Ba-H8Z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4048" y="113"/>
+        </scene>
         <!--게시판 상세보기-->
         <scene sceneID="8ZH-Ad-cTO">
             <objects>
@@ -2297,7 +2313,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="0SO-HH-doS">
-                                <rect key="frame" x="0.0" y="230" width="393" height="567"/>
+                                <rect key="frame" x="0.0" y="274" width="393" height="523"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="GyZ-1P-4a4">
                                     <size key="itemSize" width="128" height="128"/>
@@ -2313,6 +2329,9 @@
                                             <rect key="frame" x="0.0" y="0.0" width="127.99999999999997" height="128"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </collectionViewCellContentView>
+                                        <connections>
+                                            <segue destination="uo4-JF-1aB" kind="show" id="KiA-25-9Tw"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -2326,13 +2345,65 @@
                             <constraint firstItem="0SO-HH-doS" firstAttribute="leading" secondItem="nKV-6O-lLa" secondAttribute="leading" id="zsj-OS-eMD"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="yk8-pG-ThS"/>
                     <connections>
                         <outlet property="collectionView" destination="0SO-HH-doS" id="d72-LO-EaH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7AE-Pc-4dF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4527" y="-420"/>
+            <point key="canvasLocation" x="5066" y="-430"/>
+        </scene>
+        <!--긱사생활-->
+        <scene sceneID="pMS-W1-DRP">
+            <objects>
+                <viewController modalPresentationStyle="fullScreen" id="uo4-JF-1aB" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7ai-qW-FQE">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="g8I-rb-EBj">
+                                <rect key="frame" x="20" y="125" width="182" height="28"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n0i-BB-GvX" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="81" height="28"/>
+                                        <color key="backgroundColor" name="secondary"/>
+                                        <color key="tintColor" name="primary"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="태그1"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="bulletinBoardNotice" title="태그1" imagePadding="4"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="subTitle2" value="태그1"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WpS-3I-E5y" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
+                                        <rect key="frame" x="89" y="0.0" width="93" height="28"/>
+                                        <color key="backgroundColor" systemColor="linkColor"/>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="태그2222"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="subTitle2" value="태그222"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="28" id="ur4-M3-oen"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="tNm-A1-2a1"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="g8I-rb-EBj" firstAttribute="top" secondItem="tNm-A1-2a1" secondAttribute="top" constant="22" id="MvY-jK-2DI"/>
+                            <constraint firstItem="g8I-rb-EBj" firstAttribute="leading" secondItem="tNm-A1-2a1" secondAttribute="leading" constant="20" id="blP-eg-Ydm"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="긱사생활" id="bf0-4O-hGE"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="G3D-pn-A70" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5982" y="-448"/>
         </scene>
         <!--게시판-->
         <scene sceneID="YiV-HR-MlC">
@@ -2582,6 +2653,7 @@
         <image name="bulletinBoardAlram" width="20" height="24"/>
         <image name="bulletinBoardLogo" width="40" height="32"/>
         <image name="bulletinBoardMagnifier" width="24" height="24"/>
+        <image name="bulletinBoardNotice" width="16" height="16"/>
         <image name="bulletinBoardPlus" width="16" height="16"/>
         <image name="homeImageAlarm" width="22" height="26"/>
         <image name="homeImageArrow" width="10" height="6"/>
@@ -2642,6 +2714,9 @@
         </namedColor>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="linkColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
