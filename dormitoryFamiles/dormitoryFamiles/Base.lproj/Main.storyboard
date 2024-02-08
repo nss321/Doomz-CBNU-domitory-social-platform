@@ -2362,48 +2362,165 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="g8I-rb-EBj">
-                                <rect key="frame" x="20" y="125" width="182" height="28"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LBb-Kh-04d">
+                                <rect key="frame" x="0.0" y="103" width="393" height="749"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n0i-BB-GvX" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="81" height="28"/>
-                                        <color key="backgroundColor" name="secondary"/>
-                                        <color key="tintColor" name="primary"/>
-                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" title="태그1"/>
-                                        <buttonConfiguration key="configuration" style="plain" image="bulletinBoardNotice" title="태그1" imagePadding="4"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="subTitle2" value="태그1"/>
-                                        </userDefinedRuntimeAttributes>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WpS-3I-E5y" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
-                                        <rect key="frame" x="89" y="0.0" width="93" height="28"/>
-                                        <color key="backgroundColor" systemColor="linkColor"/>
-                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="태그2222"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="subTitle2" value="태그222"/>
-                                        </userDefinedRuntimeAttributes>
-                                    </button>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pJ9-Zw-OY6">
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="749"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="|" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PGl-25-Agc">
+                                                <rect key="frame" x="144" y="66" width="4" height="20.333333333333329"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="title5" value="|"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="양진재" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ihM-NF-joD">
+                                                <rect key="frame" x="154" y="66" width="44.333333333333343" height="20.333333333333329"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="title5" value="양진재"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="아침 7시 헬스 같이 가실 분 구합니다." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gcn-uh-z8K">
+                                                <rect key="frame" x="20" y="130.66666666666666" width="246" height="20.333333333333343"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="title2" value="아침 7시 헬스 같이 가실 분 구합니다."/>
+                                                </userDefinedRuntimeAttributes>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="unnimm" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T8N-SY-msx">
+                                                <rect key="frame" x="77" y="66" width="61" height="20.333333333333329"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="title5" value="unnimm"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="|" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XXG-oc-o5X">
+                                                <rect key="frame" x="123.33333333333334" y="90.333333333333343" width="4" height="20.333333333333329"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" name="gray4"/>
+                                                <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="body2" value="|"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10/31" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LFM-0h-h1Z">
+                                                <rect key="frame" x="77" y="90.333333333333343" width="40.333333333333343" height="20.333333333333329"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" name="gray4"/>
+                                                <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="body2" value="10/31"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </label>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tulletinBoardProfile" translatesAutoresizingMaskIntoConstraints="NO" id="LzO-7n-Hi4">
+                                                <rect key="frame" x="20" y="66" width="45" height="45"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="45" id="fkx-Ok-bZk"/>
+                                                    <constraint firstAttribute="width" constant="45" id="gBM-Ch-Mtz"/>
+                                                </constraints>
+                                            </imageView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="g8I-rb-EBj">
+                                                <rect key="frame" x="20" y="22" width="153.66666666666666" height="28"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n0i-BB-GvX" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="73.666666666666671" height="28"/>
+                                                        <color key="backgroundColor" name="secondary"/>
+                                                        <color key="tintColor" name="primary"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" title="태그1"/>
+                                                        <buttonConfiguration key="configuration" style="plain" image="bulletinBoardNotice" title="태그1" imagePadding="4"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="subTitle2" value="태그1"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WpS-3I-E5y" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
+                                                        <rect key="frame" x="81.666666666666657" y="0.0" width="72" height="28"/>
+                                                        <color key="backgroundColor" systemColor="linkColor"/>
+                                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain" title="태그2222"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="subTitle2" value="태그222"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </button>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="28" id="ur4-M3-oen"/>
+                                                </constraints>
+                                            </stackView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="18:10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3XP-3L-Mrw">
+                                                <rect key="frame" x="133.33333333333334" y="90.333333333333343" width="40.333333333333343" height="20.333333333333329"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" name="gray4"/>
+                                                <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="body2" value="18:10"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="g8I-rb-EBj" firstAttribute="leading" secondItem="pJ9-Zw-OY6" secondAttribute="leading" constant="20" id="3ED-8q-qIC"/>
+                                            <constraint firstItem="PGl-25-Agc" firstAttribute="leading" secondItem="T8N-SY-msx" secondAttribute="trailing" constant="6" id="70f-C4-xuS"/>
+                                            <constraint firstItem="g8I-rb-EBj" firstAttribute="top" secondItem="pJ9-Zw-OY6" secondAttribute="top" constant="22" id="866-0T-m05"/>
+                                            <constraint firstItem="LzO-7n-Hi4" firstAttribute="top" secondItem="g8I-rb-EBj" secondAttribute="bottom" constant="16" id="Cts-vr-Z6P"/>
+                                            <constraint firstItem="gcn-uh-z8K" firstAttribute="top" secondItem="XXG-oc-o5X" secondAttribute="bottom" constant="20" id="IME-Vz-IKl"/>
+                                            <constraint firstItem="XXG-oc-o5X" firstAttribute="leading" secondItem="LFM-0h-h1Z" secondAttribute="trailing" constant="6" id="J4m-iz-aOc"/>
+                                            <constraint firstItem="3XP-3L-Mrw" firstAttribute="top" secondItem="ihM-NF-joD" secondAttribute="bottom" constant="4" id="KgO-tx-vzX"/>
+                                            <constraint firstItem="LFM-0h-h1Z" firstAttribute="leading" secondItem="LzO-7n-Hi4" secondAttribute="trailing" constant="12" id="MJj-eD-Ka0"/>
+                                            <constraint firstItem="3XP-3L-Mrw" firstAttribute="leading" secondItem="XXG-oc-o5X" secondAttribute="trailing" constant="6" id="RxB-Bf-fkc"/>
+                                            <constraint firstAttribute="height" priority="250" constant="749" id="WmV-7n-oRH"/>
+                                            <constraint firstItem="ihM-NF-joD" firstAttribute="leading" secondItem="PGl-25-Agc" secondAttribute="trailing" constant="6" id="aq7-ge-rYW"/>
+                                            <constraint firstAttribute="width" constant="393" id="c0n-ev-cM4"/>
+                                            <constraint firstItem="ihM-NF-joD" firstAttribute="top" secondItem="LzO-7n-Hi4" secondAttribute="top" id="eds-1Z-ccx"/>
+                                            <constraint firstItem="gcn-uh-z8K" firstAttribute="leading" secondItem="pJ9-Zw-OY6" secondAttribute="leading" constant="20" id="fOc-Dg-7Yl"/>
+                                            <constraint firstItem="PGl-25-Agc" firstAttribute="top" secondItem="LzO-7n-Hi4" secondAttribute="top" id="mre-Po-1YO"/>
+                                            <constraint firstItem="XXG-oc-o5X" firstAttribute="top" secondItem="ihM-NF-joD" secondAttribute="bottom" constant="4" id="o7g-tA-5nC"/>
+                                            <constraint firstItem="LFM-0h-h1Z" firstAttribute="top" secondItem="ihM-NF-joD" secondAttribute="bottom" constant="4" id="qyI-re-Rcz"/>
+                                            <constraint firstItem="T8N-SY-msx" firstAttribute="top" secondItem="LzO-7n-Hi4" secondAttribute="top" id="t2G-Rz-wVq"/>
+                                            <constraint firstItem="LzO-7n-Hi4" firstAttribute="leading" secondItem="pJ9-Zw-OY6" secondAttribute="leading" constant="20" id="ttO-p7-CZr"/>
+                                            <constraint firstItem="T8N-SY-msx" firstAttribute="leading" secondItem="LzO-7n-Hi4" secondAttribute="trailing" constant="12" id="wqF-rR-NWq"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="28" id="ur4-M3-oen"/>
+                                    <constraint firstItem="pJ9-Zw-OY6" firstAttribute="trailing" secondItem="rcf-cD-rPJ" secondAttribute="trailing" constant="393" id="48G-1E-aGj"/>
+                                    <constraint firstItem="pJ9-Zw-OY6" firstAttribute="leading" secondItem="2wb-qa-H2I" secondAttribute="leading" id="6YO-Gw-6Zy"/>
+                                    <constraint firstItem="2wb-qa-H2I" firstAttribute="trailing" secondItem="pJ9-Zw-OY6" secondAttribute="trailing" id="FQD-Qg-V0W"/>
+                                    <constraint firstItem="pJ9-Zw-OY6" firstAttribute="leading" secondItem="rcf-cD-rPJ" secondAttribute="leading" constant="36" id="HHd-Dt-BOR"/>
+                                    <constraint firstItem="2wb-qa-H2I" firstAttribute="bottom" secondItem="pJ9-Zw-OY6" secondAttribute="bottom" id="Zon-0v-ZNT"/>
+                                    <constraint firstItem="pJ9-Zw-OY6" firstAttribute="bottom" secondItem="rcf-cD-rPJ" secondAttribute="bottom" constant="749" id="aq8-uu-95d"/>
+                                    <constraint firstItem="pJ9-Zw-OY6" firstAttribute="top" secondItem="rcf-cD-rPJ" secondAttribute="top" id="bO5-Nw-4b2"/>
+                                    <constraint firstItem="pJ9-Zw-OY6" firstAttribute="top" secondItem="2wb-qa-H2I" secondAttribute="top" id="kRU-5P-GKN"/>
                                 </constraints>
-                            </stackView>
+                                <viewLayoutGuide key="contentLayoutGuide" id="rcf-cD-rPJ"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="2wb-qa-H2I"/>
+                            </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="tNm-A1-2a1"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="g8I-rb-EBj" firstAttribute="top" secondItem="tNm-A1-2a1" secondAttribute="top" constant="22" id="MvY-jK-2DI"/>
-                            <constraint firstItem="g8I-rb-EBj" firstAttribute="leading" secondItem="tNm-A1-2a1" secondAttribute="leading" constant="20" id="blP-eg-Ydm"/>
+                            <constraint firstAttribute="bottom" secondItem="LBb-Kh-04d" secondAttribute="bottom" id="3Q5-Hh-3Oh"/>
+                            <constraint firstItem="LBb-Kh-04d" firstAttribute="trailing" secondItem="tNm-A1-2a1" secondAttribute="trailing" id="jNI-Sq-dpv"/>
+                            <constraint firstItem="LBb-Kh-04d" firstAttribute="top" secondItem="tNm-A1-2a1" secondAttribute="top" id="mIr-c8-AYu"/>
+                            <constraint firstItem="LBb-Kh-04d" firstAttribute="leading" secondItem="tNm-A1-2a1" secondAttribute="leading" id="pbn-tm-fQo"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="긱사생활" id="bf0-4O-hGE"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G3D-pn-A70" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5982" y="-448"/>
+            <point key="canvasLocation" x="5980.9160305343512" y="-448.59154929577466"/>
         </scene>
         <!--게시판-->
         <scene sceneID="YiV-HR-MlC">
@@ -2614,6 +2731,9 @@
         <designable name="TvH-Er-0RP">
             <size key="intrinsicContentSize" width="21" height="25"/>
         </designable>
+        <designable name="WpS-3I-E5y">
+            <size key="intrinsicContentSize" width="72" height="31"/>
+        </designable>
         <designable name="bPC-1x-PCY">
             <size key="intrinsicContentSize" width="48" height="28.666666666666668"/>
         </designable>
@@ -2631,6 +2751,9 @@
         </designable>
         <designable name="iWG-qz-lub">
             <size key="intrinsicContentSize" width="59.666666666666664" height="31"/>
+        </designable>
+        <designable name="n0i-BB-GvX">
+            <size key="intrinsicContentSize" width="73.666666666666671" height="31"/>
         </designable>
         <designable name="nzJ-Yb-Hjd">
             <size key="intrinsicContentSize" width="94.666666666666671" height="31"/>
@@ -2676,6 +2799,7 @@
         <image name="tabbarItemMateMatchingGray" width="27" height="26"/>
         <image name="tabbarItemMyPage" width="24" height="24"/>
         <image name="tabbarItemMyPageGray" width="21" height="24"/>
+        <image name="tulletinBoardProfile" width="45" height="45"/>
         <namedColor name="background">
             <color red="1" green="0.99215686274509807" blue="0.99215686274509807" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
