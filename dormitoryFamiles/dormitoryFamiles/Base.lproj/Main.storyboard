@@ -688,7 +688,7 @@
                                         <rect key="frame" x="32.999999999999986" y="0.0" width="244.66666666666663" height="136"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launchScreenLogo" translatesAutoresizingMaskIntoConstraints="NO" id="cQd-3T-lEe">
-                                                <rect key="frame" x="16.333333333333343" y="0.0" width="212.00000000000003" height="80"/>
+                                                <rect key="frame" x="16.333333333333343" y="0.0" width="212" height="80"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="212" id="fa2-sj-W4t"/>
                                                     <constraint firstAttribute="height" constant="80" id="gx4-X2-toX"/>
@@ -1832,6 +1832,7 @@
                         <outlet property="dormitoryButton" destination="prk-jM-v1A" id="ddR-PX-uio"/>
                         <outlet property="dormitoryLabel" destination="tHe-iz-GKx" id="RKI-0i-6kL"/>
                         <outlet property="textField" destination="Urb-I5-qHv" id="hKr-ex-9Ee"/>
+                        <outlet property="textView" destination="Kbm-Cx-SUs" id="BzF-Bp-j8L"/>
                         <outlet property="titleLabel" destination="PVY-L5-ksV" id="pJd-mO-1fA"/>
                     </connections>
                 </viewController>

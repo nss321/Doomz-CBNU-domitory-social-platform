@@ -12,6 +12,8 @@ class RegisterPostViewController: UIViewController {
     
     @IBOutlet weak var textField: UITextField!
     
+    @IBOutlet weak var textView: UITextView!
+    
     @IBOutlet weak var categoryButton: UIButton!
     
     @IBOutlet weak var dormitoryButton: UIButton!
@@ -52,6 +54,7 @@ class RegisterPostViewController: UIViewController {
     
     private func setDelegate() {
         textField.delegate = self
+        textView.delegate = self
     }
     
     private func setDropDown() {
