@@ -62,6 +62,7 @@ class RegisterPostViewController: UIViewController {
         countTextViewTextLabel.textAlignment = .right
         countTextViewTextLabel.numberOfLines = 0 // 라인 수 제한을 해제
         countTextViewTextLabel.sizeToFit()
+
         
         //textViewPlaceHolder느낌
         textView.delegate = self
