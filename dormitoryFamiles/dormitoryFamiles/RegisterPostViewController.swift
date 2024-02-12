@@ -116,6 +116,15 @@ class RegisterPostViewController: UIViewController {
             sender.borderColor = .gray1
         }
     }
+    
+    private func changeFinishButtonBackgroundColor() {
+        if countTextViewTextLabel.text?.first == "0" || countTextFieldTextLabel.text?.first == "0" {
+            finishButton.backgroundColor = .gray3
+        }else{
+            finishButton.backgroundColor = .primary
+        }
+
+    }
 }
 
 extension RegisterPostViewController: UITextFieldDelegate {
@@ -124,7 +133,8 @@ extension RegisterPostViewController: UITextFieldDelegate {
         let addedText = string
         let newText = oldText + addedText
         let newTextLength = newText.count
-
+        
+        
         if newTextLength <= textFieldMaxLength {
             return true
         }
@@ -157,7 +167,9 @@ extension RegisterPostViewController: UITextFieldDelegate {
             let fixedText = String(text[startIndex...endIndex])
             textField.text = fixedText
         }
+        changeFinishButtonBackgroundColor()
     }
+    
 }
 
 extension RegisterPostViewController: UITextViewDelegate {
@@ -166,6 +178,7 @@ extension RegisterPostViewController: UITextViewDelegate {
         let addedText = text
         let newText = oldText + addedText
         let newTextLength = newText.count
+        
 
         if newTextLength <= textViewMaxLength {
             return true
@@ -199,6 +212,7 @@ extension RegisterPostViewController: UITextViewDelegate {
             let fixedText = String(text[startIndex...endIndex])
             textView.text = fixedText
         }
+        changeFinishButtonBackgroundColor()
     }
     
     func textViewDidBeginEditing(_ textView: UITextView) {
