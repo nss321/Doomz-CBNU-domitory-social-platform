@@ -43,6 +43,7 @@ class RegisterPostViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setUI()
         setDropDown()
         setDelegate()
         [dormitoryLabel, bulletinBoardLabel, countTextFieldTextLabel, titleLabel, descriptionLabel].forEach{$0.asColor(targetString: ["*"], color: .primary!)}
@@ -55,6 +56,21 @@ class RegisterPostViewController: UIViewController {
     private func setDelegate() {
         textField.delegate = self
         textView.delegate = self
+    }
+    
+    private func setUI() {
+        countTextViewTextLabel.textAlignment = .right
+        countTextViewTextLabel.numberOfLines = 0 // 라인 수 제한을 해제
+        countTextViewTextLabel.sizeToFit()
+        
+        //textViewPlaceHolder느낌
+        textView.delegate = self
+        if textView.text == "" {
+            textView.textColor = .gray4
+            textView.text = "내용을 입력해 주세요."
+        }else {
+            textView.textColor = .black
+        }
     }
     
     private func setDropDown() {
@@ -170,7 +186,7 @@ extension RegisterPostViewController: UITextViewDelegate {
         return false
     }
 
-    func textViewDidChange(_ textView: UITextView) { // <-- 이 부분을 수정하였습니다.
+    func textViewDidChange(_ textView: UITextView) {
         countTextViewTextLabel.text = String(textView.text!.count) + "/" + String(textViewMaxLength)
         let text = textView.text ?? ""
         if text.count > textViewMaxLength {
@@ -178,6 +194,20 @@ extension RegisterPostViewController: UITextViewDelegate {
             let endIndex = text.index(startIndex, offsetBy: textViewMaxLength - 1)
             let fixedText = String(text[startIndex...endIndex])
             textView.text = fixedText
+        }
+    }
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.textColor == .gray4 {
+            textView.text = nil
+            textView.textColor = UIColor.black
+        }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text == "" {
+            textView.textColor = .gray4
+            textView.text = "내용을 입력해 주세요."
         }
     }
 }
