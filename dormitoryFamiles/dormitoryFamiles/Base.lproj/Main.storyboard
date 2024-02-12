@@ -1831,11 +1831,27 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="subTitle1" value="내용 *"/>
                                 </userDefinedRuntimeAttributes>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h0R-IE-oKn" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
+                                <rect key="frame" x="20" y="717" width="353" height="52"/>
+                                <color key="backgroundColor" name="gray3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="52" id="8TX-2h-a40"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="작성완료">
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="button" value="작성완료"/>
+                                </userDefinedRuntimeAttributes>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="mex-Qm-LiA"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="eES-yu-2SY" firstAttribute="leading" secondItem="Ny6-yX-Q9Z" secondAttribute="leading" constant="20" id="0es-Nt-QYP"/>
+                            <constraint firstItem="mex-Qm-LiA" firstAttribute="bottom" secondItem="h0R-IE-oKn" secondAttribute="bottom" id="4PV-yr-zYP"/>
+                            <constraint firstItem="mex-Qm-LiA" firstAttribute="trailing" secondItem="h0R-IE-oKn" secondAttribute="trailing" constant="20" id="5zR-QF-44g"/>
                             <constraint firstItem="Urb-I5-qHv" firstAttribute="top" secondItem="PVY-L5-ksV" secondAttribute="bottom" constant="8" id="7QB-GG-iYj"/>
                             <constraint firstItem="eES-yu-2SY" firstAttribute="top" secondItem="mex-Qm-LiA" secondAttribute="top" constant="8" id="AKS-oi-tpS"/>
                             <constraint firstItem="DeQ-LQ-jMY" firstAttribute="leading" secondItem="mex-Qm-LiA" secondAttribute="leading" constant="20" id="DVb-iQ-lqx"/>
@@ -1849,6 +1865,7 @@
                             <constraint firstItem="Lmo-OG-Y9M" firstAttribute="top" secondItem="Urb-I5-qHv" secondAttribute="bottom" constant="20" id="nc9-sX-VvI"/>
                             <constraint firstItem="Urb-I5-qHv" firstAttribute="trailing" secondItem="tuZ-lg-993" secondAttribute="trailing" constant="12" id="pcw-c5-QBn"/>
                             <constraint firstItem="PVY-L5-ksV" firstAttribute="top" secondItem="eES-yu-2SY" secondAttribute="bottom" constant="20" id="sbL-Ie-FPn"/>
+                            <constraint firstItem="h0R-IE-oKn" firstAttribute="leading" secondItem="mex-Qm-LiA" secondAttribute="leading" constant="20" id="um2-Rj-uQE"/>
                             <constraint firstItem="PVY-L5-ksV" firstAttribute="leading" secondItem="mex-Qm-LiA" secondAttribute="leading" constant="20" id="zY0-84-alL"/>
                             <constraint firstItem="Lmo-OG-Y9M" firstAttribute="leading" secondItem="mex-Qm-LiA" secondAttribute="leading" constant="20" id="zlw-tH-o9c"/>
                         </constraints>
@@ -1862,6 +1879,7 @@
                         <outlet property="descriptionLabel" destination="Lmo-OG-Y9M" id="zdY-du-kU5"/>
                         <outlet property="dormitoryButton" destination="prk-jM-v1A" id="ddR-PX-uio"/>
                         <outlet property="dormitoryLabel" destination="tHe-iz-GKx" id="RKI-0i-6kL"/>
+                        <outlet property="finishButton" destination="h0R-IE-oKn" id="FbM-N1-lP4"/>
                         <outlet property="textField" destination="Urb-I5-qHv" id="hKr-ex-9Ee"/>
                         <outlet property="textView" destination="Kbm-Cx-SUs" id="BzF-Bp-j8L"/>
                         <outlet property="titleLabel" destination="PVY-L5-ksV" id="pJd-mO-1fA"/>

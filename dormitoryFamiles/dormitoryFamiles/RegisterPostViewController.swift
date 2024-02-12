@@ -32,6 +32,9 @@ class RegisterPostViewController: UIViewController {
     
     @IBOutlet weak var descriptionLabel: UILabel!
     
+    @IBOutlet weak var finishButton: UIButton!
+    
+    
     let dropDown = DropDown()
     let textFieldMaxLength = 20
     let textViewMaxLength = 300
