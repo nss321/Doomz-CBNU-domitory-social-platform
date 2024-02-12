@@ -62,6 +62,9 @@ class RegisterPostViewController: UIViewController {
         DropDown.appearance().shadowOpacity = 0
         DropDown.appearance().selectionBackgroundColor = .gray0 ?? .white
         DropDown.appearance().textFont = UIFont(name: CustomFonts.defult.rawValue, size: 16)!
+        dropDown.cancelAction = { [self] in
+            [dormitoryButton, categoryButton].forEach{$0?.borderColor = .gray1}
+        }
         
     }
     
