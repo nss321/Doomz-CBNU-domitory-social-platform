@@ -2257,11 +2257,11 @@
         <scene sceneID="pMS-W1-DRP">
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="uo4-JF-1aB" customClass="BulletinBoardDetailViewViewController" customModule="dormitoryFamiles" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="7ai-qW-FQE">
+                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="7ai-qW-FQE">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LBb-Kh-04d">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LBb-Kh-04d">
                                 <rect key="frame" x="0.0" y="103" width="393" height="715"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pJ9-Zw-OY6">
@@ -2656,8 +2656,8 @@
                                 <viewLayoutGuide key="contentLayoutGuide" id="rcf-cD-rPJ"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="2wb-qa-H2I"/>
                             </scrollView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ADz-W5-7tf">
-                                <rect key="frame" x="0.0" y="688.33333333333337" width="393" height="129.66666666666663"/>
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ADz-W5-7tf">
+                                <rect key="frame" x="0.0" y="688.33333333333348" width="393" height="129.66666666666663"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" priority="250" constant="129.66999999999999" id="Q00-B3-hDD"/>
@@ -2674,16 +2674,30 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oZ0-t3-IMB">
-                                <rect key="frame" x="0.0" y="708.33333333333337" width="393" height="109.66666666666663"/>
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oZ0-t3-IMB">
+                                <rect key="frame" x="0.0" y="708.33333333333348" width="393" height="109.66666666666663"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hQh-uO-d5P">
-                                        <rect key="frame" x="20" y="0.0" width="75" height="22.666666666666668"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hQh-uO-d5P" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
+                                        <rect key="frame" x="20.000000000000004" y="0.0" width="53.333333333333343" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="1X9-OA-YY9"/>
+                                        </constraints>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="bulletinBaordDetailLike" title="0" imagePadding="4">
+                                            <color key="baseForegroundColor" name="gray5"/>
+                                        </buttonConfiguration>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="body2" value="0"/>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" name="gray1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wxR-xj-rw3">
-                                        <rect key="frame" x="20" y="34.666666666666629" width="353" height="56"/>
+                                        <rect key="frame" x="20" y="42" width="353" height="56"/>
                                         <subviews>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="댓글을 남겨주세요" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="fnL-Fu-qit">
                                                 <rect key="frame" x="16" y="15.666666666666629" width="257" height="25"/>
@@ -2715,10 +2729,25 @@
                                             <constraint firstAttribute="bottom" secondItem="fnL-Fu-qit" secondAttribute="bottom" constant="15.5" id="kil-XQ-qfh"/>
                                         </constraints>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zs1-QO-A3O">
-                                        <rect key="frame" x="298" y="0.0" width="75" height="22.666666666666668"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zs1-QO-A3O" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
+                                        <rect key="frame" x="255.33333333333334" y="0.0" width="117.66666666666666" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="IEy-tu-t4D"/>
+                                        </constraints>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="bulletinBoardDetailChat" title="채팅보내기" imagePadding="4">
+                                            <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage"/>
+                                            <color key="baseForegroundColor" name="gray5"/>
+                                        </buttonConfiguration>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="button" value="채팅보내기"/>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" name="gray1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -3024,8 +3053,10 @@
     </designables>
     <resources>
         <image name="arrow.right" catalog="system" width="32" height="32"/>
+        <image name="bulletinBaordDetailLike" width="15" height="14"/>
         <image name="bulletinBoardAlram" width="20" height="24"/>
         <image name="bulletinBoardChat" width="15" height="15"/>
+        <image name="bulletinBoardDetailChat" width="16" height="16"/>
         <image name="bulletinBoardEllipse" width="2" height="2"/>
         <image name="bulletinBoardLogo" width="40" height="32"/>
         <image name="bulletinBoardMagnifier" width="24" height="24"/>
