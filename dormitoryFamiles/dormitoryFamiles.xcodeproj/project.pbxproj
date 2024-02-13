@@ -52,6 +52,7 @@
 		DBF467022AA5F4E4009FF3EB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBF467002AA5F4E4009FF3EB /* Main.storyboard */; };
 		DBF467042AA5F4E5009FF3EB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DBF467032AA5F4E5009FF3EB /* Assets.xcassets */; };
 		DBF467072AA5F4E5009FF3EB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBF467052AA5F4E5009FF3EB /* LaunchScreen.storyboard */; };
+		DBFF14932B7BA7EC002DA3AA /* BulletinBoardDetailViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFF14922B7BA7EC002DA3AA /* BulletinBoardDetailViewViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -104,6 +105,7 @@
 		DBF467032AA5F4E5009FF3EB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DBF467062AA5F4E5009FF3EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DBF467082AA5F4E5009FF3EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DBFF14922B7BA7EC002DA3AA /* BulletinBoardDetailViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulletinBoardDetailViewViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -217,6 +219,7 @@
 				DB48CD072B6905C600E8C7AA /* PopularCollectionViewHeader.xib */,
 				DB41008B2B6A665D005C4DD8 /* BrownVC.swift */,
 				DB74D0C52B73EEBF00A90D68 /* Codable.swift */,
+				DBFF14922B7BA7EC002DA3AA /* BulletinBoardDetailViewViewController.swift */,
 			);
 			path = dormitoryFamiles;
 			sourceTree = "<group>";
@@ -364,6 +367,7 @@
 				DB74D0C62B73EEBF00A90D68 /* Codable.swift in Sources */,
 				DBC54C432B568B350071164C /* UIFontExtension.swift in Sources */,
 				DB7EF27D2B5EAC790062FAB5 /* ChoiceDormitoryButton.swift in Sources */,
+				DBFF14932B7BA7EC002DA3AA /* BulletinBoardDetailViewViewController.swift in Sources */,
 				DB932AC12B6511E300B456FB /* BulluetinBoardCollectionViewCell.swift in Sources */,
 				DBF466FF2AA5F4E4009FF3EB /* MealMenuViewController.swift in Sources */,
 				DB48CD082B6905C600E8C7AA /* PopularCollectionViewHeader.swift in Sources */,
