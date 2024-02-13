@@ -2257,11 +2257,11 @@
         <scene sceneID="pMS-W1-DRP">
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="uo4-JF-1aB" customClass="BulletinBoardDetailViewViewController" customModule="dormitoryFamiles" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="7ai-qW-FQE">
+                    <view key="view" contentMode="scaleToFill" id="7ai-qW-FQE">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LBb-Kh-04d">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LBb-Kh-04d">
                                 <rect key="frame" x="0.0" y="103" width="393" height="715"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pJ9-Zw-OY6">
@@ -2656,8 +2656,8 @@
                                 <viewLayoutGuide key="contentLayoutGuide" id="rcf-cD-rPJ"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="2wb-qa-H2I"/>
                             </scrollView>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ADz-W5-7tf">
-                                <rect key="frame" x="0.0" y="688.33333333333348" width="393" height="129.66666666666663"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ADz-W5-7tf">
+                                <rect key="frame" x="0.0" y="683" width="393" height="135"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" priority="250" constant="129.66999999999999" id="Q00-B3-hDD"/>
@@ -2674,11 +2674,11 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oZ0-t3-IMB">
-                                <rect key="frame" x="0.0" y="708.33333333333348" width="393" height="109.66666666666663"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oZ0-t3-IMB">
+                                <rect key="frame" x="0.0" y="703" width="393" height="115"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hQh-uO-d5P" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
-                                        <rect key="frame" x="20.000000000000004" y="0.0" width="53.333333333333343" height="30"/>
+                                        <rect key="frame" x="20.000000000000004" y="0.0" width="51.333333333333343" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="1X9-OA-YY9"/>
                                         </constraints>
@@ -2696,41 +2696,44 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </button>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wxR-xj-rw3">
-                                        <rect key="frame" x="20" y="42" width="353" height="56"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wxR-xj-rw3" customClass="TagButton" customModule="dormitoryFamiles" customModuleProvider="target">
+                                        <rect key="frame" x="20" y="42" width="353" height="54"/>
                                         <subviews>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="댓글을 남겨주세요" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="fnL-Fu-qit">
-                                                <rect key="frame" x="16" y="15.666666666666629" width="257" height="25"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <rect key="frame" x="16" y="12" width="255" height="30"/>
+                                                <color key="backgroundColor" name="gray0"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="25" id="z4Q-PV-lNN"/>
+                                                    <constraint firstAttribute="height" constant="30" id="z4Q-PV-lNN"/>
                                                 </constraints>
-                                                <color key="textColor" systemColor="labelColor"/>
+                                                <color key="textColor" name="gray4"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mkz-v3-one">
-                                                <rect key="frame" x="289" y="11.666666666666629" width="56" height="37"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mkz-v3-one" customClass="TagButton" customModule="dormitoryFamiles" customModuleProvider="target">
+                                                <rect key="frame" x="287" y="10" width="56" height="34.333333333333336"/>
+                                                <color key="backgroundColor" name="primary"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="37" id="jyc-fC-RG7"/>
                                                     <constraint firstAttribute="width" constant="56" id="okP-dq-W2M"/>
                                                 </constraints>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" title="등록"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="등록">
+                                                    <color key="baseForegroundColor" name="background"/>
+                                                </buttonConfiguration>
                                             </button>
                                         </subviews>
-                                        <color key="backgroundColor" name="gray4"/>
+                                        <color key="backgroundColor" name="gray0"/>
                                         <constraints>
-                                            <constraint firstAttribute="bottom" secondItem="mkz-v3-one" secondAttribute="bottom" constant="7.5" id="4dm-Hp-XcI"/>
-                                            <constraint firstItem="fnL-Fu-qit" firstAttribute="top" secondItem="wxR-xj-rw3" secondAttribute="top" constant="15.5" id="8ka-Ob-eTf"/>
-                                            <constraint firstAttribute="trailing" secondItem="mkz-v3-one" secondAttribute="trailing" constant="8" id="OdJ-JX-vnt"/>
+                                            <constraint firstItem="fnL-Fu-qit" firstAttribute="top" secondItem="wxR-xj-rw3" secondAttribute="top" constant="12" id="8ka-Ob-eTf"/>
+                                            <constraint firstAttribute="bottom" secondItem="mkz-v3-one" secondAttribute="bottom" constant="9.6699999999999999" id="KRc-VT-eTL"/>
+                                            <constraint firstAttribute="trailing" secondItem="mkz-v3-one" secondAttribute="trailing" constant="10" id="OdJ-JX-vnt"/>
                                             <constraint firstItem="fnL-Fu-qit" firstAttribute="leading" secondItem="wxR-xj-rw3" secondAttribute="leading" constant="16" id="S9U-iz-aM5"/>
                                             <constraint firstItem="mkz-v3-one" firstAttribute="leading" secondItem="fnL-Fu-qit" secondAttribute="trailing" constant="16" id="ffZ-tH-Gwb"/>
-                                            <constraint firstAttribute="bottom" secondItem="fnL-Fu-qit" secondAttribute="bottom" constant="15.5" id="kil-XQ-qfh"/>
+                                            <constraint firstAttribute="bottom" secondItem="fnL-Fu-qit" secondAttribute="bottom" constant="12" id="kil-XQ-qfh"/>
+                                            <constraint firstAttribute="height" priority="250" constant="61" id="xMc-Ut-F6j"/>
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zs1-QO-A3O" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
-                                        <rect key="frame" x="255.33333333333334" y="0.0" width="117.66666666666666" height="30"/>
+                                        <rect key="frame" x="269.66666666666669" y="0.0" width="103.33333333333331" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="IEy-tu-t4D"/>
                                         </constraints>
@@ -2755,9 +2758,9 @@
                                     <constraint firstItem="zs1-QO-A3O" firstAttribute="top" secondItem="oZ0-t3-IMB" secondAttribute="top" id="2NH-ni-w1H"/>
                                     <constraint firstItem="wxR-xj-rw3" firstAttribute="leading" secondItem="oZ0-t3-IMB" secondAttribute="leading" constant="20" id="CkT-bg-10D"/>
                                     <constraint firstAttribute="trailing" secondItem="zs1-QO-A3O" secondAttribute="trailing" constant="20" id="L1e-yX-XfI"/>
+                                    <constraint firstAttribute="height" priority="250" constant="109.67" id="LZ0-a2-oJq"/>
                                     <constraint firstAttribute="trailing" secondItem="wxR-xj-rw3" secondAttribute="trailing" constant="20" id="P5D-pH-aHJ"/>
                                     <constraint firstItem="hQh-uO-d5P" firstAttribute="leading" secondItem="oZ0-t3-IMB" secondAttribute="leading" constant="20" id="Q64-E2-9bl"/>
-                                    <constraint firstItem="wxR-xj-rw3" firstAttribute="top" secondItem="hQh-uO-d5P" secondAttribute="bottom" constant="12" id="WmX-GQ-NpB"/>
                                     <constraint firstAttribute="bottom" secondItem="wxR-xj-rw3" secondAttribute="bottom" constant="19" id="b8T-yh-Xoo"/>
                                     <constraint firstItem="hQh-uO-d5P" firstAttribute="top" secondItem="oZ0-t3-IMB" secondAttribute="top" id="iaM-mJ-Pkg"/>
                                     <constraint firstItem="wxR-xj-rw3" firstAttribute="top" secondItem="zs1-QO-A3O" secondAttribute="bottom" constant="12" id="mx5-8O-V93"/>
@@ -2767,14 +2770,19 @@
                         <viewLayoutGuide key="safeArea" id="tNm-A1-2a1"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="ADz-W5-7tf" firstAttribute="leading" secondItem="tNm-A1-2a1" secondAttribute="leading" id="0Jg-UW-Wou"/>
                             <constraint firstItem="tNm-A1-2a1" firstAttribute="bottom" secondItem="LBb-Kh-04d" secondAttribute="bottom" id="3Q5-Hh-3Oh"/>
                             <constraint firstItem="oZ0-t3-IMB" firstAttribute="top" secondItem="ADz-W5-7tf" secondAttribute="top" constant="20" id="4oS-FJ-34c"/>
                             <constraint firstItem="tNm-A1-2a1" firstAttribute="bottom" secondItem="oZ0-t3-IMB" secondAttribute="bottom" id="6wN-iO-ZPf"/>
                             <constraint firstItem="ADz-W5-7tf" firstAttribute="leading" secondItem="LBb-Kh-04d" secondAttribute="leading" id="AU1-bb-5av"/>
-                            <constraint firstItem="ADz-W5-7tf" firstAttribute="top" secondItem="7ai-qW-FQE" secondAttribute="top" constant="688.33333333333348" id="JSs-z4-03L"/>
+                            <constraint firstAttribute="trailing" secondItem="oZ0-t3-IMB" secondAttribute="trailing" id="FVm-h0-De4"/>
+                            <constraint firstItem="oZ0-t3-IMB" firstAttribute="leading" secondItem="7ai-qW-FQE" secondAttribute="leading" id="UEY-AT-5GF"/>
                             <constraint firstItem="oZ0-t3-IMB" firstAttribute="trailing" secondItem="tNm-A1-2a1" secondAttribute="trailing" id="bxg-NY-zZk"/>
                             <constraint firstItem="tNm-A1-2a1" firstAttribute="bottom" secondItem="ADz-W5-7tf" secondAttribute="bottom" id="f8V-tX-ixt"/>
+                            <constraint firstItem="ADz-W5-7tf" firstAttribute="trailing" secondItem="tNm-A1-2a1" secondAttribute="trailing" id="fXN-hp-SGz"/>
+                            <constraint firstAttribute="trailing" secondItem="LBb-Kh-04d" secondAttribute="trailing" id="gme-YL-6JW"/>
                             <constraint firstItem="LBb-Kh-04d" firstAttribute="trailing" secondItem="tNm-A1-2a1" secondAttribute="trailing" id="jNI-Sq-dpv"/>
+                            <constraint firstItem="LBb-Kh-04d" firstAttribute="leading" secondItem="7ai-qW-FQE" secondAttribute="leading" id="k1R-H8-PGA"/>
                             <constraint firstItem="LBb-Kh-04d" firstAttribute="top" secondItem="tNm-A1-2a1" secondAttribute="top" id="mIr-c8-AYu"/>
                             <constraint firstItem="LBb-Kh-04d" firstAttribute="leading" secondItem="tNm-A1-2a1" secondAttribute="leading" id="pbn-tm-fQo"/>
                             <constraint firstItem="ADz-W5-7tf" firstAttribute="trailing" secondItem="LBb-Kh-04d" secondAttribute="trailing" id="roc-dt-ucJ"/>
@@ -2783,6 +2791,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="긱사생활" id="bf0-4O-hGE"/>
                     <connections>
+                        <outlet property="commentTextView" destination="fnL-Fu-qit" id="k8q-JX-pPD"/>
                         <outlet property="roundLine" destination="ADz-W5-7tf" id="t1V-Gh-dzW"/>
                     </connections>
                 </viewController>
@@ -3020,6 +3029,9 @@
         <designable name="h0R-IE-oKn">
             <size key="intrinsicContentSize" width="71.333333333333329" height="31"/>
         </designable>
+        <designable name="hQh-uO-d5P">
+            <size key="intrinsicContentSize" width="51.333333333333336" height="31"/>
+        </designable>
         <designable name="i0r-bW-D14">
             <size key="intrinsicContentSize" width="135.66666666666666" height="33.333333333333336"/>
         </designable>
@@ -3031,6 +3043,9 @@
         </designable>
         <designable name="lg7-V9-yuC">
             <size key="intrinsicContentSize" width="56" height="31"/>
+        </designable>
+        <designable name="mkz-v3-one">
+            <size key="intrinsicContentSize" width="53.666666666666664" height="34.333333333333336"/>
         </designable>
         <designable name="n0i-BB-GvX">
             <size key="intrinsicContentSize" width="73.666666666666671" height="31"/>
@@ -3044,11 +3059,17 @@
         <designable name="pf8-z7-rET">
             <size key="intrinsicContentSize" width="94.666666666666671" height="31"/>
         </designable>
+        <designable name="wxR-xj-rw3">
+            <size key="intrinsicContentSize" width="4" height="22"/>
+        </designable>
         <designable name="xSs-DI-vlz">
             <size key="intrinsicContentSize" width="59.666666666666664" height="31"/>
         </designable>
         <designable name="zMd-RW-f50">
             <size key="intrinsicContentSize" width="59.666666666666664" height="31"/>
+        </designable>
+        <designable name="zs1-QO-A3O">
+            <size key="intrinsicContentSize" width="103.33333333333333" height="31"/>
         </designable>
     </designables>
     <resources>

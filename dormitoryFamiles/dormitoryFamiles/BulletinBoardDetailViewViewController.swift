@@ -10,10 +10,11 @@ import UIKit
 class BulletinBoardDetailViewViewController: UIViewController {
     @IBOutlet weak var roundLine: UIView!
     
+    @IBOutlet weak var commentTextView: UITextView!
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        commentTextView.font = .body2
     }
     
 
