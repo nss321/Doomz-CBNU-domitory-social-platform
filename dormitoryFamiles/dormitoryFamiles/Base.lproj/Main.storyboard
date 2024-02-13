@@ -688,7 +688,7 @@
                                         <rect key="frame" x="32.999999999999986" y="0.0" width="244.66666666666663" height="136"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launchScreenLogo" translatesAutoresizingMaskIntoConstraints="NO" id="cQd-3T-lEe">
-                                                <rect key="frame" x="16.333333333333343" y="0.0" width="212" height="80"/>
+                                                <rect key="frame" x="16.333333333333343" y="0.0" width="212.00000000000003" height="80"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="212" id="fa2-sj-W4t"/>
                                                     <constraint firstAttribute="height" constant="80" id="gx4-X2-toX"/>
@@ -2660,7 +2660,7 @@
                                 <rect key="frame" x="0.0" y="683" width="393" height="135"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" priority="250" constant="129.66999999999999" id="Q00-B3-hDD"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" priority="250" constant="129.66999999999999" id="Q00-B3-hDD"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -2703,7 +2703,7 @@
                                                 <rect key="frame" x="16" y="12" width="255" height="30"/>
                                                 <color key="backgroundColor" name="gray0"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="30" id="z4Q-PV-lNN"/>
+                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="z4Q-PV-lNN"/>
                                                 </constraints>
                                                 <color key="textColor" name="gray4"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -2729,7 +2729,7 @@
                                             <constraint firstItem="fnL-Fu-qit" firstAttribute="leading" secondItem="wxR-xj-rw3" secondAttribute="leading" constant="16" id="S9U-iz-aM5"/>
                                             <constraint firstItem="mkz-v3-one" firstAttribute="leading" secondItem="fnL-Fu-qit" secondAttribute="trailing" constant="16" id="ffZ-tH-Gwb"/>
                                             <constraint firstAttribute="bottom" secondItem="fnL-Fu-qit" secondAttribute="bottom" constant="12" id="kil-XQ-qfh"/>
-                                            <constraint firstAttribute="height" priority="250" constant="61" id="xMc-Ut-F6j"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" priority="250" constant="61" id="xMc-Ut-F6j"/>
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zs1-QO-A3O" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
@@ -2761,7 +2761,7 @@
                                     <constraint firstAttribute="height" priority="250" constant="109.67" id="LZ0-a2-oJq"/>
                                     <constraint firstAttribute="trailing" secondItem="wxR-xj-rw3" secondAttribute="trailing" constant="20" id="P5D-pH-aHJ"/>
                                     <constraint firstItem="hQh-uO-d5P" firstAttribute="leading" secondItem="oZ0-t3-IMB" secondAttribute="leading" constant="20" id="Q64-E2-9bl"/>
-                                    <constraint firstAttribute="bottom" secondItem="wxR-xj-rw3" secondAttribute="bottom" constant="19" id="b8T-yh-Xoo"/>
+                                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="wxR-xj-rw3" secondAttribute="bottom" constant="19" id="b8T-yh-Xoo"/>
                                     <constraint firstItem="hQh-uO-d5P" firstAttribute="top" secondItem="oZ0-t3-IMB" secondAttribute="top" id="iaM-mJ-Pkg"/>
                                     <constraint firstItem="wxR-xj-rw3" firstAttribute="top" secondItem="zs1-QO-A3O" secondAttribute="bottom" constant="12" id="mx5-8O-V93"/>
                                 </constraints>
@@ -2793,6 +2793,7 @@
                     <connections>
                         <outlet property="commentTextView" destination="fnL-Fu-qit" id="k8q-JX-pPD"/>
                         <outlet property="roundLine" destination="ADz-W5-7tf" id="t1V-Gh-dzW"/>
+                        <outlet property="textViewSuperView" destination="wxR-xj-rw3" id="lmO-KF-1wL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G3D-pn-A70" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -3073,7 +3074,7 @@
         </designable>
     </designables>
     <resources>
-        <image name="arrow.right" catalog="system" width="32" height="32"/>
+        <image name="arrow.right" catalog="system" width="128" height="95"/>
         <image name="bulletinBaordDetailLike" width="15" height="14"/>
         <image name="bulletinBoardAlram" width="20" height="24"/>
         <image name="bulletinBoardChat" width="15" height="15"/>

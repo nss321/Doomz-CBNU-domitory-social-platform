@@ -50,7 +50,7 @@ class TagButton: RoundButton {
 
     override func setNeedsLayout() {
         super.setNeedsLayout()
-        self.layer.cornerRadius = self.bounds.height / 2
+        self.layer.cornerRadius = min(self.bounds.height, 48) / 2
     }
     
     convenience init(title: String) {
