@@ -14,23 +14,47 @@ class BulletinBoardDetailViewViewController: UIViewController {
     @IBOutlet weak var commentTextView: UITextView!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        setDelegate()
+        setTextView()
+        setCommentTextView()
+    }
+    
+    private func setDelegate() {
+        commentTextView.delegate = self
+    }
+    
+    private func setTextView() {
+        if commentTextView.text == "" {
+            commentTextView.textColor = .gray4
+            commentTextView.text = "댓글을 남겨주세요."
+                }else {
+                    commentTextView.textColor = .black
+                }
+    }
+    
+    private func setCommentTextView() {
         commentTextView.font = .body2
         
         //텍스트뷰 사이즈에 맞게 늘리기
         commentTextView.isScrollEnabled = false
         commentTextView.sizeToFit()
     }
-    
+}
 
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+extension BulletinBoardDetailViewViewController: UITextViewDelegate {
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.textColor == .gray4 {
+            textView.text = nil
+            textView.textColor = UIColor.black
+        }
     }
-    */
-
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text == "" {
+            textView.textColor = .gray4
+            textView.text = "내용을 입력해 주세요."
+        }
+    }
 }

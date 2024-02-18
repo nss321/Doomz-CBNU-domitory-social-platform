@@ -1053,7 +1053,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nzJ-Yb-Hjd" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
-                                                        <rect key="frame" x="16" y="68.666666666666742" width="94.666666666666671" height="28"/>
+                                                        <rect key="frame" x="16" y="68.666666666666742" width="94.666666666666686" height="28"/>
                                                         <color key="backgroundColor" name="primaryMid"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="28" id="iWk-PQ-m4c"/>
@@ -1464,7 +1464,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NkX-t3-Dqc">
-                                <rect key="frame" x="0.0" y="103" width="393" height="171"/>
+                                <rect key="frame" x="0.0" y="103.00000000000001" width="393" height="174.33333333333337"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jW8-v6-Usi">
                                         <rect key="frame" x="153.33333333333334" y="13" width="86.333333333333343" height="34.333333333333336"/>
@@ -1503,10 +1503,10 @@
                                         <buttonConfiguration key="configuration" style="plain" image="bulletinBoardMagnifier"/>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="nmc-r2-3Yr">
-                                        <rect key="frame" x="20" y="120" width="195" height="31"/>
+                                        <rect key="frame" x="20" y="119.99999999999999" width="241" height="34.333333333333329"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xSs-DI-vlz" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="59.666666666666664" height="31"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="75" height="34.333333333333336"/>
                                                 <color key="tintColor" name="gray4"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Button"/>
@@ -1521,7 +1521,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zMd-RW-f50" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
-                                                <rect key="frame" x="67.666666666666671" y="0.0" width="59.666666666666671" height="31"/>
+                                                <rect key="frame" x="83" y="0.0" width="75" height="34.333333333333336"/>
                                                 <color key="tintColor" name="gray4"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="최신순"/>
@@ -1536,7 +1536,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oPs-Mx-3k4" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
-                                                <rect key="frame" x="135.33333333333334" y="0.0" width="59.666666666666657" height="31"/>
+                                                <rect key="frame" x="166" y="0.0" width="75" height="34.333333333333336"/>
                                                 <color key="tintColor" name="gray4"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="모집중"/>
@@ -2699,7 +2699,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wxR-xj-rw3" customClass="TagButton" customModule="dormitoryFamiles" customModuleProvider="target">
                                         <rect key="frame" x="20" y="42" width="353" height="54"/>
                                         <subviews>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="댓글을 남겨주세요" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="fnL-Fu-qit">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="fnL-Fu-qit">
                                                 <rect key="frame" x="16" y="12" width="255" height="30"/>
                                                 <color key="backgroundColor" name="gray0"/>
                                                 <constraints>
@@ -2809,7 +2809,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fad-G7-5aP">
-                                <rect key="frame" x="0.0" y="59" width="393" height="171"/>
+                                <rect key="frame" x="0.0" y="59.000000000000014" width="393" height="174.33333333333337"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bulletinBoardLogo" translatesAutoresizingMaskIntoConstraints="NO" id="X9e-Qp-kaG">
                                         <rect key="frame" x="20" y="15" width="40" height="30"/>
@@ -2836,10 +2836,10 @@
                                         <buttonConfiguration key="configuration" style="plain" image="bulletinBoardMagnifier"/>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="2wU-Fz-MJG">
-                                        <rect key="frame" x="20" y="120" width="195" height="31"/>
+                                        <rect key="frame" x="20" y="119.99999999999999" width="241" height="34.333333333333329"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iWG-qz-lub" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="59.666666666666664" height="31"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="75" height="34.333333333333336"/>
                                                 <color key="tintColor" name="gray4"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Button"/>
@@ -2854,7 +2854,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jb0-KK-Kah" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
-                                                <rect key="frame" x="67.666666666666671" y="0.0" width="59.666666666666671" height="31"/>
+                                                <rect key="frame" x="83" y="0.0" width="75" height="34.333333333333336"/>
                                                 <color key="tintColor" name="gray4"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="최신순"/>
@@ -2869,7 +2869,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="488-NF-ysg" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
-                                                <rect key="frame" x="135.33333333333334" y="0.0" width="59.666666666666657" height="31"/>
+                                                <rect key="frame" x="166" y="0.0" width="75" height="34.333333333333336"/>
                                                 <color key="tintColor" name="gray4"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="모집중"/>
