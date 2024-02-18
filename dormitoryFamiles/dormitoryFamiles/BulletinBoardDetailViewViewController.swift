@@ -10,6 +10,7 @@ import UIKit
 class BulletinBoardDetailViewViewController: UIViewController {
     @IBOutlet weak var roundLine: UIView!
     
+    @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var textViewSuperView: TagButton!
     @IBOutlet weak var commentTextView: UITextView!
     override func viewDidLoad() {
@@ -18,6 +19,7 @@ class BulletinBoardDetailViewViewController: UIViewController {
         setDelegate()
         setTextView()
         setCommentTextView()
+//        setCollectionView()
     }
     
     private func setDelegate() {
@@ -40,6 +42,14 @@ class BulletinBoardDetailViewViewController: UIViewController {
         commentTextView.isScrollEnabled = false
         commentTextView.sizeToFit()
     }
+    
+//    private func setCollectionView() {
+//        collectionView.translatesAutoresizingMaskIntoConstraints = false
+//
+//        NSLayoutConstraint.activate([
+//            collectionView.bottomAnchor.constraint(equalTo: roundLine.topAnchor, constant: -3)
+//        ])
+//    }
 }
 
 

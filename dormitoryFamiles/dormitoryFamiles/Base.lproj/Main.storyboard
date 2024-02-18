@@ -2262,7 +2262,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LBb-Kh-04d">
-                                <rect key="frame" x="0.0" y="103" width="393" height="715"/>
+                                <rect key="frame" x="0.0" y="103" width="393" height="577"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pJ9-Zw-OY6">
                                         <rect key="frame" x="0.0" y="0.0" width="393" height="1208"/>
@@ -2584,9 +2584,9 @@
                                                     </label>
                                                 </subviews>
                                             </stackView>
-                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ks2-cG-ESp">
-                                                <rect key="frame" x="20" y="741" width="353" height="128"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ks2-cG-ESp">
+                                                <rect key="frame" x="20" y="688.66666666666652" width="353" height="516.33333333333348"/>
+                                                <color key="backgroundColor" red="0.96078431369999995" green="0.1764705882" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
                                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="gaU-51-ZTR">
                                                     <size key="itemSize" width="128" height="128"/>
                                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -2619,7 +2619,7 @@
                                             <constraint firstItem="zCM-Pt-zrq" firstAttribute="top" secondItem="gcn-uh-z8K" secondAttribute="bottom" constant="8" id="KaP-ID-NSb"/>
                                             <constraint firstItem="3XP-3L-Mrw" firstAttribute="top" secondItem="ihM-NF-joD" secondAttribute="bottom" constant="4" id="KgO-tx-vzX"/>
                                             <constraint firstItem="LFM-0h-h1Z" firstAttribute="leading" secondItem="LzO-7n-Hi4" secondAttribute="trailing" constant="12" id="MJj-eD-Ka0"/>
-                                            <constraint firstItem="ks2-cG-ESp" firstAttribute="top" secondItem="R7s-og-h6I" secondAttribute="bottom" constant="24" id="O4u-Wx-0R6"/>
+                                            <constraint firstItem="ks2-cG-ESp" firstAttribute="top" secondItem="R7s-og-h6I" secondAttribute="bottom" constant="4" id="O4u-Wx-0R6"/>
                                             <constraint firstItem="R7s-og-h6I" firstAttribute="leading" secondItem="pJ9-Zw-OY6" secondAttribute="leading" constant="20" id="Plu-Ij-aDR"/>
                                             <constraint firstItem="3XP-3L-Mrw" firstAttribute="leading" secondItem="XXG-oc-o5X" secondAttribute="trailing" constant="6" id="RxB-Bf-fkc"/>
                                             <constraint firstItem="zCM-Pt-zrq" firstAttribute="leading" secondItem="pJ9-Zw-OY6" secondAttribute="leading" constant="20" id="Szq-oe-Iec"/>
@@ -2632,6 +2632,7 @@
                                             <constraint firstItem="ihM-NF-joD" firstAttribute="top" secondItem="LzO-7n-Hi4" secondAttribute="top" id="eds-1Z-ccx"/>
                                             <constraint firstItem="gcn-uh-z8K" firstAttribute="leading" secondItem="pJ9-Zw-OY6" secondAttribute="leading" constant="20" id="fOc-Dg-7Yl"/>
                                             <constraint firstItem="ULa-b8-nsE" firstAttribute="top" secondItem="5A3-Fj-D1b" secondAttribute="bottom" constant="20" id="hn4-cf-uup"/>
+                                            <constraint firstAttribute="bottom" secondItem="ks2-cG-ESp" secondAttribute="bottom" constant="3" id="l1T-ka-ZMf"/>
                                             <constraint firstItem="PGl-25-Agc" firstAttribute="top" secondItem="LzO-7n-Hi4" secondAttribute="top" id="mre-Po-1YO"/>
                                             <constraint firstItem="XXG-oc-o5X" firstAttribute="top" secondItem="ihM-NF-joD" secondAttribute="bottom" constant="4" id="o7g-tA-5nC"/>
                                             <constraint firstItem="ks2-cG-ESp" firstAttribute="leading" secondItem="pJ9-Zw-OY6" secondAttribute="leading" constant="20" id="ocE-Aq-Qap"/>
@@ -2771,7 +2772,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="ADz-W5-7tf" firstAttribute="leading" secondItem="tNm-A1-2a1" secondAttribute="leading" id="0Jg-UW-Wou"/>
-                            <constraint firstItem="tNm-A1-2a1" firstAttribute="bottom" secondItem="LBb-Kh-04d" secondAttribute="bottom" id="3Q5-Hh-3Oh"/>
+                            <constraint firstItem="ADz-W5-7tf" firstAttribute="top" secondItem="LBb-Kh-04d" secondAttribute="bottom" constant="3" id="3Q5-Hh-3Oh"/>
                             <constraint firstItem="oZ0-t3-IMB" firstAttribute="top" secondItem="ADz-W5-7tf" secondAttribute="top" constant="20" id="4oS-FJ-34c"/>
                             <constraint firstItem="tNm-A1-2a1" firstAttribute="bottom" secondItem="oZ0-t3-IMB" secondAttribute="bottom" id="6wN-iO-ZPf"/>
                             <constraint firstItem="ADz-W5-7tf" firstAttribute="leading" secondItem="LBb-Kh-04d" secondAttribute="leading" id="AU1-bb-5av"/>
@@ -2791,6 +2792,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="긱사생활" id="bf0-4O-hGE"/>
                     <connections>
+                        <outlet property="collectionView" destination="ks2-cG-ESp" id="7fb-Fz-TOm"/>
                         <outlet property="commentTextView" destination="fnL-Fu-qit" id="k8q-JX-pPD"/>
                         <outlet property="roundLine" destination="ADz-W5-7tf" id="t1V-Gh-dzW"/>
                         <outlet property="textViewSuperView" destination="wxR-xj-rw3" id="lmO-KF-1wL"/>
