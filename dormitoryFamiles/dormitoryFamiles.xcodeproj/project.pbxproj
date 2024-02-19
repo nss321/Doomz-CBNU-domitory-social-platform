@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0C03D7843BE1BA839B23F614 /* Pods_dormitoryFamiles.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43ACFB5BF55DE00DF2B4C0CA /* Pods_dormitoryFamiles.framework */; };
+		DB00F5B42B81D17C00DDA1E6 /* CommentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB00F5B22B81D17C00DDA1E6 /* CommentCollectionViewCell.swift */; };
+		DB00F5B52B81D17C00DDA1E6 /* CommentCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB00F5B32B81D17C00DDA1E6 /* CommentCollectionViewCell.xib */; };
 		DB1A3C302B43A7FD009DC005 /* searchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1A3C2F2B43A7FD009DC005 /* searchViewController.swift */; };
 		DB1A3C342B4418E1009DC005 /* SearchTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1A3C332B4418E1009DC005 /* SearchTableViewHeader.swift */; };
 		DB1E0E892B629804000A4AA5 /* DormitoryButtonHandlingProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1E0E882B629804000A4AA5 /* DormitoryButtonHandlingProtocol.swift */; };
@@ -59,6 +61,8 @@
 		43ACFB5BF55DE00DF2B4C0CA /* Pods_dormitoryFamiles.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_dormitoryFamiles.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDEE29642D63D4042822783C /* Pods-dormitoryFamiles.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dormitoryFamiles.release.xcconfig"; path = "Target Support Files/Pods-dormitoryFamiles/Pods-dormitoryFamiles.release.xcconfig"; sourceTree = "<group>"; };
 		C5E033F1B4291ED8F85F0DAE /* Pods-dormitoryFamiles.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dormitoryFamiles.debug.xcconfig"; path = "Target Support Files/Pods-dormitoryFamiles/Pods-dormitoryFamiles.debug.xcconfig"; sourceTree = "<group>"; };
+		DB00F5B22B81D17C00DDA1E6 /* CommentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCollectionViewCell.swift; sourceTree = "<group>"; };
+		DB00F5B32B81D17C00DDA1E6 /* CommentCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentCollectionViewCell.xib; sourceTree = "<group>"; };
 		DB1A3C2F2B43A7FD009DC005 /* searchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = searchViewController.swift; sourceTree = "<group>"; };
 		DB1A3C332B4418E1009DC005 /* SearchTableViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewHeader.swift; sourceTree = "<group>"; };
 		DB1E0E882B629804000A4AA5 /* DormitoryButtonHandlingProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DormitoryButtonHandlingProtocol.swift; sourceTree = "<group>"; };
@@ -220,6 +224,8 @@
 				DB41008B2B6A665D005C4DD8 /* BrownVC.swift */,
 				DB74D0C52B73EEBF00A90D68 /* Codable.swift */,
 				DBFF14922B7BA7EC002DA3AA /* BulletinBoardDetailViewViewController.swift */,
+				DB00F5B22B81D17C00DDA1E6 /* CommentCollectionViewCell.swift */,
+				DB00F5B32B81D17C00DDA1E6 /* CommentCollectionViewCell.xib */,
 			);
 			path = dormitoryFamiles;
 			sourceTree = "<group>";
@@ -284,6 +290,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB00F5B52B81D17C00DDA1E6 /* CommentCollectionViewCell.xib in Resources */,
 				DBC54C632B56A86D0071164C /* NPSfont_bold.ttf in Resources */,
 				DBC54C5B2B56A4960071164C /* Pretendard-Medium.ttf in Resources */,
 				DB932AC22B6511E300B456FB /* BulluetinBoardCollectionViewCell.xib in Resources */,
@@ -374,6 +381,7 @@
 				DB1A3C302B43A7FD009DC005 /* searchViewController.swift in Sources */,
 				DB496DEB2B70EAFB00F97324 /* TabbarViewController.swift in Sources */,
 				DB41008C2B6A665D005C4DD8 /* BrownVC.swift in Sources */,
+				DB00F5B42B81D17C00DDA1E6 /* CommentCollectionViewCell.swift in Sources */,
 				DB20E38C2B53C2BD000D12A7 /* HomeViewController.swift in Sources */,
 				DBF466FB2AA5F4E4009FF3EB /* AppDelegate.swift in Sources */,
 				DBCE10E32B598308008C3367 /* notificationViewController.swift in Sources */,
