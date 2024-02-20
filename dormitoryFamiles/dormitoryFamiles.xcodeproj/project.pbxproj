@@ -49,6 +49,7 @@
 		DBCE10E12B595506008C3367 /* loginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCE10E02B595506008C3367 /* loginViewController.swift */; };
 		DBCE10E32B598308008C3367 /* notificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCE10E22B598308008C3367 /* notificationViewController.swift */; };
 		DBD1E7FC2B84A9D500FD71C6 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD1E7FB2B84A9D500FD71C6 /* Network.swift */; };
+		DBDF96EF2B84BFB2000E74AE /* ProfileFinishedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDF96EE2B84BFB2000E74AE /* ProfileFinishedViewController.swift */; };
 		DBF466FB2AA5F4E4009FF3EB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF466FA2AA5F4E4009FF3EB /* AppDelegate.swift */; };
 		DBF466FD2AA5F4E4009FF3EB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF466FC2AA5F4E4009FF3EB /* SceneDelegate.swift */; };
 		DBF466FF2AA5F4E4009FF3EB /* MealMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF466FE2AA5F4E4009FF3EB /* MealMenuViewController.swift */; };
@@ -103,6 +104,7 @@
 		DBCE10E02B595506008C3367 /* loginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginViewController.swift; sourceTree = "<group>"; };
 		DBCE10E22B598308008C3367 /* notificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = notificationViewController.swift; sourceTree = "<group>"; };
 		DBD1E7FB2B84A9D500FD71C6 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		DBDF96EE2B84BFB2000E74AE /* ProfileFinishedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFinishedViewController.swift; sourceTree = "<group>"; };
 		DBF466F72AA5F4E4009FF3EB /* dormitoryFamiles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dormitoryFamiles.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBF466FA2AA5F4E4009FF3EB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DBF466FC2AA5F4E4009FF3EB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -229,6 +231,7 @@
 				DB00F5B22B81D17C00DDA1E6 /* CommentCollectionViewCell.swift */,
 				DB00F5B32B81D17C00DDA1E6 /* CommentCollectionViewCell.xib */,
 				DBD1E7FB2B84A9D500FD71C6 /* Network.swift */,
+				DBDF96EE2B84BFB2000E74AE /* ProfileFinishedViewController.swift */,
 			);
 			path = dormitoryFamiles;
 			sourceTree = "<group>";
@@ -390,6 +393,7 @@
 				DBF466FB2AA5F4E4009FF3EB /* AppDelegate.swift in Sources */,
 				DBCE10E32B598308008C3367 /* notificationViewController.swift in Sources */,
 				DB1E0E8D2B62A995000A4AA5 /* SelectedDormitory.swift in Sources */,
+				DBDF96EF2B84BFB2000E74AE /* ProfileFinishedViewController.swift in Sources */,
 				DB2B7BCF2B457F7200C1847D /* UIButtonExtension.swift in Sources */,
 				DBF466FD2AA5F4E4009FF3EB /* SceneDelegate.swift in Sources */,
 				DBB345F22B42BFD100E70380 /* BulletinBoardMainViewController.swift in Sources */,

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="peN-Im-ACT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Bxa-fI-Tgd">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
@@ -37,7 +37,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oMp-3F-F7b" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1509" y="-300"/>
+            <point key="canvasLocation" x="-4466" y="-580"/>
         </scene>
         <!--Service Permisson View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -210,7 +210,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-744" y="-313"/>
+            <point key="canvasLocation" x="-3702" y="-594"/>
         </scene>
         <!--프로필 설정-->
         <scene sceneID="5cJ-TO-oxH">
@@ -224,7 +224,7 @@
                                 <rect key="frame" x="0.0" y="103" width="393" height="715"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R3T-Jv-qIJ">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="685"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="715"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="학교 정보를 입력해 주세요." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rPo-WS-1vB">
                                                 <rect key="frame" x="20" y="32" width="180" height="21"/>
@@ -380,7 +380,7 @@
                                                 </constraints>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6sd-MD-ybY" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
-                                                <rect key="frame" x="21.666666666666657" y="625" width="350" height="52"/>
+                                                <rect key="frame" x="21.666666666666657" y="655" width="350" height="52"/>
                                                 <color key="backgroundColor" name="primary"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="52" id="iKN-Ot-rIr"/>
@@ -399,6 +399,7 @@
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="kakaoLoginbuttonTapped:" destination="2Vj-5o-nfA" eventType="touchUpInside" id="xkc-7Y-brR"/>
+                                                    <segue destination="0ct-et-Bep" kind="show" id="1Dj-Lx-gc7"/>
                                                 </connections>
                                             </button>
                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="학번을 입력해주세요." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="E4s-aH-Eyh">
@@ -417,7 +418,7 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
-                                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.59999999999999998" translatesAutoresizingMaskIntoConstraints="NO" id="wez-D9-bCW">
+                                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.29999999999999999" translatesAutoresizingMaskIntoConstraints="NO" id="wez-D9-bCW">
                                                 <rect key="frame" x="20" y="8" width="353" height="4"/>
                                                 <color key="progressTintColor" name="primaryMid"/>
                                             </progressView>
@@ -430,7 +431,6 @@
                                             <constraint firstItem="Epx-IA-gan" firstAttribute="leading" secondItem="R3T-Jv-qIJ" secondAttribute="leading" constant="20" id="2fp-Nd-h83"/>
                                             <constraint firstItem="6sd-MD-ybY" firstAttribute="leading" secondItem="R3T-Jv-qIJ" secondAttribute="leading" constant="21.5" id="2lQ-Uy-OEF"/>
                                             <constraint firstItem="xv8-lB-uHt" firstAttribute="top" secondItem="8Fg-lk-hcD" secondAttribute="bottom" constant="16" id="4Iq-xR-hbd"/>
-                                            <constraint firstAttribute="height" priority="250" constant="685" id="5rr-Y1-FWd"/>
                                             <constraint firstItem="Gbo-Hx-khx" firstAttribute="leading" secondItem="R3T-Jv-qIJ" secondAttribute="leading" constant="20" id="8sR-J6-qDA"/>
                                             <constraint firstItem="Gbo-Hx-khx" firstAttribute="top" secondItem="wtu-Nt-cgs" secondAttribute="bottom" constant="16" id="9ag-Lm-XLF"/>
                                             <constraint firstItem="xv8-lB-uHt" firstAttribute="leading" secondItem="R3T-Jv-qIJ" secondAttribute="leading" constant="20" id="D8G-fr-EEr"/>
@@ -468,6 +468,7 @@
                                     <constraint firstItem="R3T-Jv-qIJ" firstAttribute="leading" secondItem="AOY-xK-7Ke" secondAttribute="leading" id="bfz-sE-TLJ"/>
                                     <constraint firstItem="R3T-Jv-qIJ" firstAttribute="bottom" secondItem="AOY-xK-7Ke" secondAttribute="bottom" id="ceC-gG-MZn"/>
                                     <constraint firstItem="R3T-Jv-qIJ" firstAttribute="trailing" secondItem="AOY-xK-7Ke" secondAttribute="trailing" id="muv-OF-szH"/>
+                                    <constraint firstItem="X6I-TA-6fN" firstAttribute="bottom" secondItem="R3T-Jv-qIJ" secondAttribute="bottom" id="pPs-qL-0dO"/>
                                 </constraints>
                                 <viewLayoutGuide key="contentLayoutGuide" id="AOY-xK-7Ke"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="X6I-TA-6fN"/>
@@ -495,7 +496,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r1H-pp-VUD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="829.7709923664122" y="-855.63380281690149"/>
+            <point key="canvasLocation" x="-2082" y="-594"/>
         </scene>
         <!--프로필 설정-->
         <scene sceneID="XJh-b2-AJT">
@@ -566,7 +567,7 @@
                                     <segue destination="b8L-fr-kJh" kind="show" id="Bb4-hQ-bLZ"/>
                                 </connections>
                             </button>
-                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.30000001192092896" translatesAutoresizingMaskIntoConstraints="NO" id="Ihw-Rh-7b7">
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Ihw-Rh-7b7">
                                 <rect key="frame" x="20" y="111" width="353" height="4"/>
                                 <color key="progressTintColor" name="primaryMid"/>
                             </progressView>
@@ -596,7 +597,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gx5-aw-6TG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="72" y="-313"/>
+            <point key="canvasLocation" x="-2886" y="-594"/>
         </scene>
         <!--Tabbar View Controller-->
         <scene sceneID="kBO-GE-U1n">
@@ -688,7 +689,7 @@
                                         <rect key="frame" x="32.999999999999986" y="0.0" width="244.66666666666663" height="136"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launchScreenLogo" translatesAutoresizingMaskIntoConstraints="NO" id="cQd-3T-lEe">
-                                                <rect key="frame" x="16.333333333333343" y="0.0" width="212" height="80"/>
+                                                <rect key="frame" x="16.333333333333343" y="0.0" width="212.00000000000003" height="80"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="212" id="fa2-sj-W4t"/>
                                                     <constraint firstAttribute="height" constant="80" id="gx4-X2-toX"/>
@@ -774,7 +775,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U5y-OR-lJd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2282" y="-300"/>
+            <point key="canvasLocation" x="-5497" y="-580"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="i4n-6S-RAS">
@@ -1053,7 +1054,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nzJ-Yb-Hjd" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
-                                                        <rect key="frame" x="16" y="68.666666666666742" width="94.666666666666671" height="28"/>
+                                                        <rect key="frame" x="16" y="68.666666666666742" width="94.666666666666686" height="28"/>
                                                         <color key="backgroundColor" name="primaryMid"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="28" id="iWk-PQ-m4c"/>
@@ -1464,7 +1465,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NkX-t3-Dqc">
-                                <rect key="frame" x="0.0" y="103" width="393" height="171"/>
+                                <rect key="frame" x="0.0" y="103.00000000000001" width="393" height="174.33333333333337"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jW8-v6-Usi">
                                         <rect key="frame" x="153.33333333333334" y="13" width="86.333333333333343" height="34.333333333333336"/>
@@ -1506,10 +1507,10 @@
                                         </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="nmc-r2-3Yr">
-                                        <rect key="frame" x="20" y="120" width="195" height="31"/>
+                                        <rect key="frame" x="20" y="119.99999999999999" width="241" height="34.333333333333329"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xSs-DI-vlz" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="59.666666666666664" height="31"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="75" height="34.333333333333336"/>
                                                 <color key="tintColor" name="gray4"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Button"/>
@@ -1524,7 +1525,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zMd-RW-f50" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
-                                                <rect key="frame" x="67.666666666666671" y="0.0" width="59.666666666666671" height="31"/>
+                                                <rect key="frame" x="83" y="0.0" width="75" height="34.333333333333336"/>
                                                 <color key="tintColor" name="gray4"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="최신순"/>
@@ -1539,7 +1540,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oPs-Mx-3k4" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
-                                                <rect key="frame" x="135.33333333333334" y="0.0" width="59.666666666666657" height="31"/>
+                                                <rect key="frame" x="166" y="0.0" width="75" height="34.333333333333336"/>
                                                 <color key="tintColor" name="gray4"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="모집중"/>
@@ -2341,10 +2342,10 @@
                                                 </constraints>
                                             </imageView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="g8I-rb-EBj">
-                                                <rect key="frame" x="20" y="22" width="153.66666666666666" height="28"/>
+                                                <rect key="frame" x="20" y="22" width="182" height="28"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n0i-BB-GvX" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="73.666666666666671" height="28"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="81" height="28"/>
                                                         <color key="backgroundColor" name="secondary"/>
                                                         <color key="tintColor" name="primary"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
@@ -2355,7 +2356,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WpS-3I-E5y" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
-                                                        <rect key="frame" x="81.666666666666671" y="0.0" width="72.000000000000014" height="28"/>
+                                                        <rect key="frame" x="89" y="0.0" width="93" height="28"/>
                                                         <color key="backgroundColor" systemColor="linkColor"/>
                                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <state key="normal" title="Button"/>
@@ -2450,10 +2451,10 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Y1o-fA-GbL">
-                                                <rect key="frame" x="20.000000000000014" y="392" width="246.33333333333337" height="29"/>
+                                                <rect key="frame" x="20" y="392" width="292" height="29"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hpp-GL-I8u" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="85.333333333333329" height="29"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="102.66666666666667" height="29"/>
                                                         <color key="backgroundColor" name="gray0"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                         <state key="normal" title="#아침_헬스">
@@ -2467,7 +2468,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lg7-V9-yuC" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
-                                                        <rect key="frame" x="89.333333333333329" y="0.0" width="55.999999999999986" height="29"/>
+                                                        <rect key="frame" x="106.66666666666669" y="0.0" width="64" height="29"/>
                                                         <color key="backgroundColor" name="gray0"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                         <state key="normal" title="#갓생">
@@ -2481,7 +2482,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IDC-Ym-YKC" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
-                                                        <rect key="frame" x="149.33333333333334" y="0.0" width="97" height="29"/>
+                                                        <rect key="frame" x="174.66666666666666" y="0.0" width="117.33333333333334" height="29"/>
                                                         <color key="backgroundColor" name="gray0"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                         <state key="normal" title="#미라클_모닝">
@@ -2704,7 +2705,7 @@
                                 <rect key="frame" x="0.0" y="703" width="393" height="115"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hQh-uO-d5P" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
-                                        <rect key="frame" x="20.000000000000004" y="0.0" width="51.333333333333343" height="30"/>
+                                        <rect key="frame" x="20.000000000000004" y="0.0" width="53.333333333333343" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="1X9-OA-YY9"/>
                                         </constraints>
@@ -2759,7 +2760,7 @@
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zs1-QO-A3O" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
-                                        <rect key="frame" x="269.66666666666669" y="0.0" width="103.33333333333331" height="30"/>
+                                        <rect key="frame" x="255.33333333333334" y="0.0" width="117.66666666666666" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="IEy-tu-t4D"/>
                                         </constraints>
@@ -2836,7 +2837,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fad-G7-5aP">
-                                <rect key="frame" x="0.0" y="59" width="393" height="171"/>
+                                <rect key="frame" x="0.0" y="59.000000000000014" width="393" height="174.33333333333337"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bulletinBoardLogo" translatesAutoresizingMaskIntoConstraints="NO" id="X9e-Qp-kaG">
                                         <rect key="frame" x="20" y="15" width="40" height="30"/>
@@ -2863,10 +2864,10 @@
                                         <buttonConfiguration key="configuration" style="plain" image="bulletinBoardMagnifier"/>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="2wU-Fz-MJG">
-                                        <rect key="frame" x="20" y="120" width="195" height="31"/>
+                                        <rect key="frame" x="20" y="119.99999999999999" width="241" height="34.333333333333329"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iWG-qz-lub" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="59.666666666666664" height="31"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="75" height="34.333333333333336"/>
                                                 <color key="tintColor" name="gray4"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Button"/>
@@ -2881,7 +2882,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jb0-KK-Kah" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
-                                                <rect key="frame" x="67.666666666666671" y="0.0" width="59.666666666666671" height="31"/>
+                                                <rect key="frame" x="83" y="0.0" width="75" height="34.333333333333336"/>
                                                 <color key="tintColor" name="gray4"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="최신순"/>
@@ -2896,7 +2897,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="488-NF-ysg" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
-                                                <rect key="frame" x="135.33333333333334" y="0.0" width="59.666666666666657" height="31"/>
+                                                <rect key="frame" x="166" y="0.0" width="75" height="34.333333333333336"/>
                                                 <color key="tintColor" name="gray4"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="모집중"/>
@@ -2995,6 +2996,279 @@
             </objects>
             <point key="canvasLocation" x="2806.8702290076335" y="-806.33802816901414"/>
         </scene>
+        <!--프로필 설정-->
+        <scene sceneID="WZA-HU-tHC">
+            <objects>
+                <viewController modalPresentationStyle="fullScreen" id="0ct-et-Bep" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="aii-zH-Gk6">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Cp-F8-OgJ">
+                                <rect key="frame" x="0.0" y="103" width="393" height="715"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l0m-hn-rrr">
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="715"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="학생증 인증을 해주세요." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cvZ-bq-tUL">
+                                                <rect key="frame" x="20" y="32" width="161" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="title1" value="학생증 인증을 해주세요."/>
+                                                </userDefinedRuntimeAttributes>
+                                            </label>
+                                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.69999999999999996" translatesAutoresizingMaskIntoConstraints="NO" id="ZVB-64-UcZ">
+                                                <rect key="frame" x="20" y="8" width="353" height="4"/>
+                                                <color key="progressTintColor" name="primaryMid"/>
+                                            </progressView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="충북대 학생을 인증하면" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c7t-Ku-SQ5">
+                                                <rect key="frame" x="20" y="77" width="156" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="body1" value="충북대 학생을 인증하면"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </label>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Myg-8V-Xg2">
+                                                <rect key="frame" x="20" y="110" width="353" height="124"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0AW-3P-54T">
+                                                        <rect key="frame" x="20" y="12" width="100" height="100"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="100" id="mBY-o9-kIH"/>
+                                                            <constraint firstAttribute="width" constant="100" id="v4l-zc-iVX"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="기숙사에 대한 다양한 정보와 소식을 빠르게 전해요!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oAr-ZZ-Twp">
+                                                        <rect key="frame" x="132" y="12" width="201" height="100"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="title5" value="기숙사에 대한 다양한 정보와 소식을 빠르게 전해요!"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" name="gray0"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="124" id="A8e-iV-8O1"/>
+                                                    <constraint firstItem="oAr-ZZ-Twp" firstAttribute="leading" secondItem="0AW-3P-54T" secondAttribute="trailing" constant="12" id="NqF-IX-jvp"/>
+                                                    <constraint firstItem="0AW-3P-54T" firstAttribute="centerY" secondItem="Myg-8V-Xg2" secondAttribute="centerY" id="YJh-kx-rjl"/>
+                                                    <constraint firstAttribute="trailing" secondItem="oAr-ZZ-Twp" secondAttribute="trailing" constant="20" id="aBt-b4-02J"/>
+                                                    <constraint firstItem="0AW-3P-54T" firstAttribute="leading" secondItem="Myg-8V-Xg2" secondAttribute="leading" constant="20" id="cJ4-q4-AjQ"/>
+                                                    <constraint firstAttribute="bottom" secondItem="oAr-ZZ-Twp" secondAttribute="bottom" constant="12" id="lZ7-Ts-x53"/>
+                                                    <constraint firstItem="oAr-ZZ-Twp" firstAttribute="top" secondItem="Myg-8V-Xg2" secondAttribute="top" constant="12" id="vDa-um-2oY"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="20"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QeN-Kr-diU">
+                                                <rect key="frame" x="20" y="246" width="353" height="124"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ftr-hN-bwy">
+                                                        <rect key="frame" x="20" y="12" width="100" height="100"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="100" id="6ub-L1-4j6"/>
+                                                            <constraint firstAttribute="height" constant="100" id="B4P-X1-vjL"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="룸메 매칭으로 원하는 룸메를 추천해요!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ThE-5H-3sj">
+                                                        <rect key="frame" x="132" y="12" width="201" height="100"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="title5" value="룸메 매칭으로 원하는 룸메를 추천해요!"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" name="gray0"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="ThE-5H-3sj" secondAttribute="trailing" constant="20" id="C8A-pf-lEf"/>
+                                                    <constraint firstItem="ThE-5H-3sj" firstAttribute="top" secondItem="QeN-Kr-diU" secondAttribute="top" constant="12" id="J0r-rg-RvT"/>
+                                                    <constraint firstItem="ThE-5H-3sj" firstAttribute="leading" secondItem="ftr-hN-bwy" secondAttribute="trailing" constant="12" id="YCJ-pV-rNY"/>
+                                                    <constraint firstAttribute="height" constant="124" id="hyV-uV-dZ7"/>
+                                                    <constraint firstItem="ftr-hN-bwy" firstAttribute="centerY" secondItem="QeN-Kr-diU" secondAttribute="centerY" id="i65-Za-0B4"/>
+                                                    <constraint firstItem="ftr-hN-bwy" firstAttribute="leading" secondItem="QeN-Kr-diU" secondAttribute="leading" constant="20" id="qL2-Ji-4Gd"/>
+                                                    <constraint firstAttribute="bottom" secondItem="ThE-5H-3sj" secondAttribute="bottom" constant="12" id="vdk-Ys-vFG"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="20"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X9n-VV-0my" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
+                                                <rect key="frame" x="20" y="647" width="353" height="52"/>
+                                                <color key="backgroundColor" name="primary"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="52" id="CAw-rM-sbt"/>
+                                                </constraints>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="학생증 촬영하기"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                        <color key="value" name="gray3"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="title5" value="학생증 촬영하기"/>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="kakaoLoginbuttonTapped:" destination="2Vj-5o-nfA" eventType="touchUpInside" id="RcB-lm-QqE"/>
+                                                    <segue destination="9iI-gU-4R6" kind="show" id="pCl-ga-l2e"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="c7t-Ku-SQ5" firstAttribute="leading" secondItem="l0m-hn-rrr" secondAttribute="leading" constant="20" id="2d9-eq-pTB"/>
+                                            <constraint firstItem="cvZ-bq-tUL" firstAttribute="leading" secondItem="l0m-hn-rrr" secondAttribute="leading" constant="20" id="2rp-SI-qGm"/>
+                                            <constraint firstItem="c7t-Ku-SQ5" firstAttribute="top" secondItem="cvZ-bq-tUL" secondAttribute="bottom" constant="24" id="9C7-a5-lAv"/>
+                                            <constraint firstAttribute="width" constant="393" id="Cab-BF-lEL"/>
+                                            <constraint firstAttribute="trailing" secondItem="QeN-Kr-diU" secondAttribute="trailing" constant="20" id="Hmj-kg-NWy"/>
+                                            <constraint firstItem="X9n-VV-0my" firstAttribute="leading" secondItem="l0m-hn-rrr" secondAttribute="leading" constant="20" id="MDM-ka-J9t"/>
+                                            <constraint firstItem="ZVB-64-UcZ" firstAttribute="top" secondItem="l0m-hn-rrr" secondAttribute="top" constant="8" id="MYm-gu-5y5"/>
+                                            <constraint firstItem="Myg-8V-Xg2" firstAttribute="top" secondItem="c7t-Ku-SQ5" secondAttribute="bottom" constant="12" id="MxO-bk-ZM9"/>
+                                            <constraint firstItem="cvZ-bq-tUL" firstAttribute="top" secondItem="l0m-hn-rrr" secondAttribute="top" constant="32" id="SiK-ox-xVf"/>
+                                            <constraint firstItem="QeN-Kr-diU" firstAttribute="leading" secondItem="l0m-hn-rrr" secondAttribute="leading" constant="20" id="WZM-9K-0iR"/>
+                                            <constraint firstItem="ZVB-64-UcZ" firstAttribute="leading" secondItem="l0m-hn-rrr" secondAttribute="leading" constant="20" id="X2B-Sl-J2i"/>
+                                            <constraint firstAttribute="trailing" secondItem="Myg-8V-Xg2" secondAttribute="trailing" constant="20" id="bZb-az-xN2"/>
+                                            <constraint firstItem="Myg-8V-Xg2" firstAttribute="leading" secondItem="l0m-hn-rrr" secondAttribute="leading" constant="20" id="cjz-aj-j4y"/>
+                                            <constraint firstAttribute="trailing" secondItem="ZVB-64-UcZ" secondAttribute="trailing" constant="20" id="fFB-bg-w5X"/>
+                                            <constraint firstAttribute="bottom" secondItem="X9n-VV-0my" secondAttribute="bottom" constant="16" id="mZC-0E-DPC"/>
+                                            <constraint firstAttribute="trailing" secondItem="X9n-VV-0my" secondAttribute="trailing" constant="20" id="p4r-Xc-aQS"/>
+                                            <constraint firstItem="QeN-Kr-diU" firstAttribute="top" secondItem="Myg-8V-Xg2" secondAttribute="bottom" constant="12" id="vaR-CX-zFd"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="l0m-hn-rrr" firstAttribute="top" secondItem="VMR-42-anp" secondAttribute="top" id="Iay-Yi-jm5"/>
+                                    <constraint firstItem="l0m-hn-rrr" firstAttribute="bottom" secondItem="VMR-42-anp" secondAttribute="bottom" id="LqJ-Pl-LFg"/>
+                                    <constraint firstItem="sxZ-zV-eHK" firstAttribute="bottom" secondItem="l0m-hn-rrr" secondAttribute="bottom" id="PrI-Hv-GiY"/>
+                                    <constraint firstItem="VMR-42-anp" firstAttribute="trailing" secondItem="l0m-hn-rrr" secondAttribute="trailing" id="Ydp-OJ-7Nk"/>
+                                    <constraint firstItem="l0m-hn-rrr" firstAttribute="leading" secondItem="VMR-42-anp" secondAttribute="leading" id="nxR-4H-BjV"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="VMR-42-anp"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="sxZ-zV-eHK"/>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="sCV-OK-NLj"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6Cp-F8-OgJ" firstAttribute="top" secondItem="sCV-OK-NLj" secondAttribute="top" id="6JG-GI-s4h"/>
+                            <constraint firstItem="sCV-OK-NLj" firstAttribute="bottom" secondItem="6Cp-F8-OgJ" secondAttribute="bottom" id="BKu-8k-elE"/>
+                            <constraint firstItem="6Cp-F8-OgJ" firstAttribute="leading" secondItem="sCV-OK-NLj" secondAttribute="leading" id="saI-SJ-Yow"/>
+                            <constraint firstItem="sCV-OK-NLj" firstAttribute="trailing" secondItem="6Cp-F8-OgJ" secondAttribute="trailing" id="yjA-9y-6Vr"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="프로필 설정" style="editor" id="cFJ-gE-yWL"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4bS-xh-idL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1218" y="-594"/>
+        </scene>
+        <!--프로필 설정-->
+        <scene sceneID="n8a-o5-1Pd">
+            <objects>
+                <viewController modalPresentationStyle="fullScreen" id="9iI-gU-4R6" customClass="ProfileFinishedViewController" customModule="dormitoryFamiles" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="PeJ-Tf-NJh">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WHz-qd-QoM">
+                                <rect key="frame" x="0.0" y="103" width="393" height="715"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x4y-8V-8i9">
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="715"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="학생증 등록이 완료되었습니다." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="54P-Wb-4wy">
+                                                <rect key="frame" x="20" y="32" width="205" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="title1" value="학생증 등록이 완료되었습니다."/>
+                                                </userDefinedRuntimeAttributes>
+                                            </label>
+                                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.90000000000000002" translatesAutoresizingMaskIntoConstraints="NO" id="YbN-XL-24p">
+                                                <rect key="frame" x="20" y="8" width="353" height="4"/>
+                                                <color key="progressTintColor" name="primaryMid"/>
+                                            </progressView>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="인증까지 최대 2일 정도 소요됩니다. 조금만 기다려 주세요!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d7K-fM-9De">
+                                                <rect key="frame" x="58.666666666666657" y="313.66666666666669" width="276" height="88"/>
+                                                <color key="backgroundColor" name="gray0"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="88" id="4pd-c0-DSG"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name=".AppleSDGothicNeoI-Regular" family=".Apple SD Gothic NeoI" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="20"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                        <color key="value" name="background"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                        <real key="value" value="0.0"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="d7K-fM-9De" firstAttribute="centerY" secondItem="x4y-8V-8i9" secondAttribute="centerY" id="43S-Yi-6vZ"/>
+                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="54P-Wb-4wy" secondAttribute="trailing" constant="20" symbolic="YES" id="6rs-oP-EBD"/>
+                                            <constraint firstAttribute="width" constant="393" id="7a1-kM-AgY"/>
+                                            <constraint firstItem="d7K-fM-9De" firstAttribute="leading" secondItem="x4y-8V-8i9" secondAttribute="leading" constant="58.5" id="S52-01-akU"/>
+                                            <constraint firstItem="54P-Wb-4wy" firstAttribute="leading" secondItem="x4y-8V-8i9" secondAttribute="leading" constant="20" id="cFN-5d-C3B"/>
+                                            <constraint firstAttribute="trailing" secondItem="d7K-fM-9De" secondAttribute="trailing" constant="58.5" id="ckZ-K7-aWu"/>
+                                            <constraint firstItem="YbN-XL-24p" firstAttribute="top" secondItem="x4y-8V-8i9" secondAttribute="top" constant="8" id="nao-G0-4PB"/>
+                                            <constraint firstItem="YbN-XL-24p" firstAttribute="leading" secondItem="x4y-8V-8i9" secondAttribute="leading" constant="20" id="oHW-MD-CWb"/>
+                                            <constraint firstItem="54P-Wb-4wy" firstAttribute="top" secondItem="x4y-8V-8i9" secondAttribute="top" constant="32" id="ss9-UI-kj5"/>
+                                            <constraint firstAttribute="trailing" secondItem="YbN-XL-24p" secondAttribute="trailing" constant="20" id="ztX-gY-B8e"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="x4y-8V-8i9" firstAttribute="top" secondItem="s44-kH-BH1" secondAttribute="top" id="0dh-LC-aJS"/>
+                                    <constraint firstItem="hgL-mW-5k1" firstAttribute="bottom" secondItem="x4y-8V-8i9" secondAttribute="bottom" id="5Sl-US-qcL"/>
+                                    <constraint firstItem="x4y-8V-8i9" firstAttribute="leading" secondItem="s44-kH-BH1" secondAttribute="leading" id="5fs-2H-jD2"/>
+                                    <constraint firstItem="s44-kH-BH1" firstAttribute="trailing" secondItem="x4y-8V-8i9" secondAttribute="trailing" id="K64-Br-2g6"/>
+                                    <constraint firstItem="x4y-8V-8i9" firstAttribute="bottom" secondItem="s44-kH-BH1" secondAttribute="bottom" id="l8L-XD-RGB"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="s44-kH-BH1"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="hgL-mW-5k1"/>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="IKb-MG-I0X"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="WHz-qd-QoM" firstAttribute="top" secondItem="IKb-MG-I0X" secondAttribute="top" id="QC0-e1-pnQ"/>
+                            <constraint firstItem="WHz-qd-QoM" firstAttribute="leading" secondItem="IKb-MG-I0X" secondAttribute="leading" id="XJA-ch-g6q"/>
+                            <constraint firstItem="IKb-MG-I0X" firstAttribute="trailing" secondItem="WHz-qd-QoM" secondAttribute="trailing" id="gUs-zq-Lp9"/>
+                            <constraint firstItem="IKb-MG-I0X" firstAttribute="bottom" secondItem="WHz-qd-QoM" secondAttribute="bottom" id="yq0-Aq-kKN"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="프로필 설정" style="editor" id="vHH-YL-NC8"/>
+                    <connections>
+                        <outlet property="descriptionLabel" destination="d7K-fM-9De" id="RIX-aK-r0d"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="d4m-lE-0DU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-553" y="-601"/>
+        </scene>
     </scenes>
     <designables>
         <designable name="0c7-Sa-8eC">
@@ -3044,6 +3318,9 @@
         </designable>
         <designable name="WpS-3I-E5y">
             <size key="intrinsicContentSize" width="72" height="31"/>
+        </designable>
+        <designable name="X9n-VV-0my">
+            <size key="intrinsicContentSize" width="122.33333333333333" height="33.333333333333336"/>
         </designable>
         <designable name="bPC-1x-PCY">
             <size key="intrinsicContentSize" width="48" height="28.666666666666668"/>
