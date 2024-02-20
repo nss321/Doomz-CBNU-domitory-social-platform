@@ -53,7 +53,7 @@
                                         <color key="textColor" name="gray4"/>
                                         <nil key="highlightedColor"/>
                                         <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="body2" value="roundLine"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="body2" value="23.12.10"/>
                                         </userDefinedRuntimeAttributes>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="|" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cPM-fO-jfh">
@@ -109,24 +109,31 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="rCr-kw-kIQ">
-                                <rect key="frame" x="88" y="140.33333333333337" width="660" height="115.66666666666663"/>
-                            </stackView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="g6h-ih-IR8">
+                                <rect key="frame" x="88" y="140.33333333333337" width="660" height="222.66666666666663"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="RIy-4U-m8c">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="rCr-kw-kIQ" firstAttribute="leading" secondItem="cw3-a5-1Q5" secondAttribute="leading" constant="88" id="2FC-3E-uyO"/>
-                            <constraint firstItem="rCr-kw-kIQ" firstAttribute="top" secondItem="1aW-Ic-qhQ" secondAttribute="bottom" constant="24" placeholder="YES" id="314-WL-5qE"/>
                             <constraint firstAttribute="trailing" secondItem="Poh-Eh-Utr" secondAttribute="trailing" constant="20" id="59A-Us-fg6"/>
                             <constraint firstItem="1aW-Ic-qhQ" firstAttribute="leading" secondItem="62C-ME-Re3" secondAttribute="leading" id="6NP-rc-B0f"/>
                             <constraint firstItem="Poh-Eh-Utr" firstAttribute="top" secondItem="G1T-lt-LQF" secondAttribute="bottom" constant="5" id="ERp-31-ysg"/>
                             <constraint firstItem="62C-ME-Re3" firstAttribute="leading" secondItem="o1u-K5-iQe" secondAttribute="trailing" constant="8" id="H8Q-0a-YVt"/>
                             <constraint firstItem="G1T-lt-LQF" firstAttribute="top" secondItem="62C-ME-Re3" secondAttribute="bottom" id="ITO-oq-DpQ"/>
-                            <constraint firstAttribute="trailing" secondItem="rCr-kw-kIQ" secondAttribute="trailing" constant="20" id="PK0-wf-dIO"/>
+                            <constraint firstItem="g6h-ih-IR8" firstAttribute="leading" secondItem="cw3-a5-1Q5" secondAttribute="leading" constant="88" id="NJU-dn-mLh"/>
+                            <constraint firstAttribute="trailing" secondItem="g6h-ih-IR8" secondAttribute="trailing" constant="20" id="O6K-Qy-JVR"/>
                             <constraint firstItem="1aW-Ic-qhQ" firstAttribute="top" secondItem="Poh-Eh-Utr" secondAttribute="bottom" constant="5" id="Pny-WU-VpA"/>
                             <constraint firstItem="Poh-Eh-Utr" firstAttribute="leading" secondItem="G1T-lt-LQF" secondAttribute="leading" id="WIp-E6-OPQ"/>
                             <constraint firstItem="62C-ME-Re3" firstAttribute="top" secondItem="o1u-K5-iQe" secondAttribute="top" id="avO-pT-vIY"/>
                             <constraint firstItem="o1u-K5-iQe" firstAttribute="top" secondItem="cw3-a5-1Q5" secondAttribute="top" constant="4" id="eNR-bP-epj"/>
+                            <constraint firstAttribute="bottom" secondItem="g6h-ih-IR8" secondAttribute="bottom" constant="24" id="m9n-Gz-Ebu"/>
+                            <constraint firstItem="g6h-ih-IR8" firstAttribute="top" secondItem="1aW-Ic-qhQ" secondAttribute="bottom" constant="24" id="p5M-5o-nTi"/>
                             <constraint firstItem="o1u-K5-iQe" firstAttribute="leading" secondItem="cw3-a5-1Q5" secondAttribute="leading" constant="20" id="qMU-yA-Vf2"/>
                             <constraint firstItem="G1T-lt-LQF" firstAttribute="leading" secondItem="62C-ME-Re3" secondAttribute="leading" id="vGm-hj-bQW"/>
                         </constraints>
@@ -141,6 +148,9 @@
                 <constraint firstItem="cw3-a5-1Q5" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="fhN-qd-VGK"/>
             </constraints>
             <size key="customSize" width="768" height="387"/>
+            <connections>
+                <outlet property="collectionView" destination="g6h-ih-IR8" id="8Fe-q3-Tjg"/>
+            </connections>
             <point key="canvasLocation" x="146.56488549618319" y="-17.95774647887324"/>
         </collectionViewCell>
     </objects>

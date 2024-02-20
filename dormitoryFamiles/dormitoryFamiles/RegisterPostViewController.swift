@@ -59,6 +59,7 @@ class RegisterPostViewController: UIViewController {
     private func setDelegate() {
         textField.delegate = self
         textView.delegate = self
+        self.navigationController?.navigationBar.delegate = self
     }
     
     private func setUI() {
@@ -228,6 +229,19 @@ extension RegisterPostViewController: UITextViewDelegate {
             textView.text = "내용을 입력해 주세요."
         }
     }
+}
+
+extension RegisterPostViewController: UINavigationBarDelegate {
+    func navigationBar(_ navigationBar: UINavigationBar, shouldPop item: UINavigationItem) -> Bool {
+            let alert = UIAlertController(title: "확인", message: "진짜 뒤로 가시겠습니까?", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "아니오", style: .cancel, handler: { _ in
+            }))
+            alert.addAction(UIAlertAction(title: "예", style: .default, handler: { _ in
+                self.navigationController?.popViewController(animated: true)
+            }))
+            present(alert, animated: true, completion: nil)
+            return false
+        }
 }
 
 

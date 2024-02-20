@@ -13,6 +13,7 @@ class BulletinBoardDetailViewViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var textViewSuperView: TagButton!
     @IBOutlet weak var commentTextView: UITextView!
+    
     var collectionViewHeightConstraint = NSLayoutConstraint()
     override func viewDidLoad() {
         super.viewDidLoad()
