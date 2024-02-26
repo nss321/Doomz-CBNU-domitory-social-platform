@@ -9,6 +9,7 @@ import UIKit
 
 class BrownVC: UIViewController {
     var articles: [Article] = []
+    var path = ""
     
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -22,7 +23,8 @@ class BrownVC: UIViewController {
                                       bundle: nil),
                                 forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
                                 withReuseIdentifier: "header")
-        getAllPost()
+        
+        network(url: Network.url + path)
         
         
     }
@@ -30,12 +32,6 @@ class BrownVC: UIViewController {
     private func setDelegate() {
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
-    }
-    
-    private func getAllPost() {
-        if let path = Network.pathAllPost {
-                    network(url: Network.url + path)
-                }
     }
     
     private func network(url: String) {

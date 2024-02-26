@@ -10,9 +10,22 @@ import UIKit
 
 class BulletinBoardMainViewController: TabmanViewController, DormitoryButtonHandling {
     private var viewControllers: [UIViewController] {
-        //TODO: 레이아웃은 똑같고, API만 다르기 떄문에 하나의 viewController로 세팅. 어떤 태그냐에 따라서 다른 API를 받아오게끔 해야한다.
-        let brownVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "brownVC") as! BrownVC
-        return [brownVC, brownVC, brownVC, brownVC, brownVC]
+        let allVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "brownVC") as! BrownVC
+        allVC.path = Network.pathAllPostUrl ?? ""
+        
+        let helpVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "brownVC") as! BrownVC
+        helpVC.path = Network.helpPostUrl ?? ""
+        
+        let togetherVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "brownVC") as! BrownVC
+        togetherVC.path = Network.togetherUrl ?? ""
+        
+        let shareVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "brownVC") as! BrownVC
+        shareVC.path = Network.shareUrl ?? ""
+        
+        let lostVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "brownVC") as! BrownVC
+        lostVC.path = Network.lostUrl ?? ""
+        
+        return [allVC, helpVC, togetherVC, shareVC, lostVC]
     }
     @IBOutlet weak var naviCustomView: UIView!
     
