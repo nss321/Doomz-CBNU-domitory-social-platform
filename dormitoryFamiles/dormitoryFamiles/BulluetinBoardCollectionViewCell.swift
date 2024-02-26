@@ -14,6 +14,9 @@ class BulluetinBoardCollectionViewCell: UICollectionViewCell {
     var status: String?
     var createdDate: String?
     var thumbnailUrl: String?
+    
+    @IBOutlet weak var categoryTag: RoundButton!
+    @IBOutlet weak var statusTag: RoundButton!
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var nickName: UILabel!
     

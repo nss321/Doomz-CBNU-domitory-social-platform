@@ -7,19 +7,28 @@
 
 import Foundation
 
-struct ArticleResponse: Codable {
-    let code: Int
-    let data: ArticleData
+struct Article: Codable {
+    let articleId: Int
+    let nickName: String
+    let profileUrl: String
+    let boardType: String
+    let title: String
+    let content: String
+    let CommentCount: Int
+    let wishCount: Int
+    let isWished: Bool
+    let status: String
+    let createdAt: String
+    let thumbnailUrl: String
+    let viewCount: Int
 }
+
 
 struct ArticleData: Codable {
     let articles: [Article]
 }
 
-struct Article: Codable {
-    let articleId: Int
-    let nickName, profileUrl, boardType, title: String
-    let content: String
-    let wishCount, amIWish, commentCount, viewCount: Int
-    let status, createdDate, thumbnailUrl: String
+struct ArticleResponse: Codable {
+    let code: Int
+    let data: ArticleData
 }

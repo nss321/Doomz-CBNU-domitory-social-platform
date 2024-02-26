@@ -22,8 +22,8 @@ class BrownVC: UIViewController {
                                       bundle: nil),
                                 forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
                                 withReuseIdentifier: "header")
+        getAllPost()
         
-        network(url: "")
         
     }
     
@@ -32,84 +32,26 @@ class BrownVC: UIViewController {
         self.collectionView.dataSource = self
     }
     
+    private func getAllPost() {
+        if let path = Network.pathAllPost {
+                    network(url: Network.url + path)
+                }
+    }
     
     private func network(url: String) {
-        //        let url = URL(string: url)!
-        //        let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
-        //            if let error = error {
-        //                print("Error: \(error)")
-        //            } else if let data = data {
-        //                let decoder = JSONDecoder()
-        //                do {
-        //                    let response = try decoder.decode(ArticleResponse.self, from: data)
-        //
-        
-        //                } catch {
-        //                    print("Error: \(error)")
-        //                }
-        //            }
-        //        }
-        //        task.resume()
-        
-        let jsonString = """
-        {
-            "code": 200,
-            "data": {
-                "articles": [
-                    {
-                        "articleId": 1,
-                        "nickName": "sominZzang",
-                        "profileUrl": "aefeafjl.caefa.faef",
-                        "boardType": "도와주세요",
-                        "title": "바퀴벌레 잡아주실 분",
-                        "content": "ㅠㅠㅠ 무서워용",
-                        "wishCount": 4,
-                        "amIWish": 0,
-                        "commentCount": 2,
-                        "viewCount": 12,
-                        "status": "progress",
-                        "createdDate": "2023-12-22T15:30:00",
-                        "thumbnailUrl": "faefeafjl.caefa.faef"
-                    },
-                    {
-                        "articleId": 2,
-                        "nickName": "simgleCore",
-                        "profileUrl": "aefeafjl.caefa.faef",
-                        "boardType": "도와주세요",
-                        "title": "배고프다",
-                        "content": "혼밥 싫어요!",
-                        "wishCount": 122,
-                        "amIWish": 1,
-                        "commentCount": 44,
-                        "viewCount": 12,
-                        "status": "done",
-                        "createdDate": "2023-12-22T15:30:00",
-                        "thumbnailUrl": "faefeafjl.caefa.faef"
-                    }
-                ]
-            }
-        }
-        """
-        
-        if let jsonData = jsonString.data(using: .utf8) {
-            let decoder = JSONDecoder()
-            do {
-                let response = try decoder.decode(ArticleResponse.self, from: jsonData)
-                //데이터 받아오는것에 성공시 작업할내용들
-                articles = response.data.articles
+        Network.getMethod(url: url) { (result: Result<ArticleResponse, Error>) in
+            switch result {
+            case .success(let response):
+                self.articles = response.data.articles
                 DispatchQueue.main.async {
                     self.collectionView.reloadData()
                 }
-                
-                
-            } catch {
+            case .failure(let error):
                 print("Error: \(error)")
             }
         }
-        
     }
-    
-    
+
     
 }
 
@@ -131,9 +73,11 @@ extension BrownVC: UICollectionViewDelegate, UICollectionViewDataSource, UIColle
         cell.title.text = article.title
         cell.nickName.text = article.nickName
         cell.viewCount.text = "조회" + String(article.viewCount)
-        cell.commentCount.text = String(article.commentCount)
+        cell.commentCount.text = String(article.CommentCount)
         cell.wishCount.text = String(article.wishCount)
         cell.content.text = article.content
+        cell.categoryTag.body2 = article.boardType
+        cell.statusTag.body2 = article.status
         return cell
     }
     
