@@ -12,6 +12,7 @@ class BrownVC: UIViewController {
     var path = ""
     
     @IBOutlet weak var collectionView: UICollectionView!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +27,7 @@ class BrownVC: UIViewController {
         
         network(url: Network.url + path)
         
-        
+        NotificationCenter.default.addObserver(self, selector: #selector(changeDormiotry), name: .changeDormiotry, object: nil)
     }
     
     private func setDelegate() {
@@ -47,6 +48,11 @@ class BrownVC: UIViewController {
             }
         }
     }
+    
+    @objc private func changeDormiotry() {
+            network(url: Network.url + path)
+        self.collectionView.reloadData()
+        }
     
 }
 

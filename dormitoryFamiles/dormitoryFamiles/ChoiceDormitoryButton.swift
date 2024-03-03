@@ -25,4 +25,6 @@ class DormitoryButton: UIButton {
         }
         self.actionSheet = alert
     }
+    
+    
 }

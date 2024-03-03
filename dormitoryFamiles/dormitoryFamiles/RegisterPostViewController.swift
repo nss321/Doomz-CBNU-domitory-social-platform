@@ -125,6 +125,34 @@ class RegisterPostViewController: UIViewController {
         }
 
     }
+    
+    @IBAction func finishButtonTapped(_ sender: UIButton) {
+        //이미지 없다고 가정함 일단은.
+        let post = Post(dormitoryType: dormitoryButton.title(for: .normal) ?? "", boardType: categoryButton.title(for: .normal) ?? "", title: textField.text ?? "" , content: textView.text ?? "", tags: "태그는 추후 구현!", imagesUrls: [])
+        let encoder = JSONEncoder()
+        if let jsonData = try? encoder.encode(post) {
+            let url = URL(string: "http://43.202.254.127:8080/api/articles")!
+            var request = URLRequest(url: url)
+            request.httpMethod = "POST"
+            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+            request.httpBody = jsonData
+            
+            let task = URLSession.shared.dataTask(with: request) { data, response, error in
+                if let error = error {
+                    print("Error: \(error)")
+                } else if let data = data {
+                    print("Response: \(response)")
+                    let decoder = JSONDecoder()
+                           if let response = try? decoder.decode(PostResponse.self, from: data) {
+                               print("Article ID: \(response.data.articleId)")
+                           }
+                }
+            }
+            
+            task.resume()
+        }
+    }
+    
 }
 
 extension RegisterPostViewController: UITextFieldDelegate {

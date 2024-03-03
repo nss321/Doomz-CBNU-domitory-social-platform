@@ -18,7 +18,7 @@ class ChoiceDormitoryViewController: UIViewController {
     
     @IBAction func buttonTapped(_ sender: UIButton) {
         guard let title = sender.currentTitle else {return}
-        SelectedDormitory.shared.domitory = title
+        SelectedDormitory.shared.changeKind(title)
         NotificationCenter.default.post(name: .init("DormitoryChangeNotification"), object: title)
         dismiss(animated: true)
         
