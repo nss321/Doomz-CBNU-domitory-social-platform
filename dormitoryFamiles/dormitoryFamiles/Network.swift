@@ -8,11 +8,21 @@
 import Foundation
 struct Network {
     static let url = "http://43.202.254.127:8080"
-    static let pathAllPostUrl = "/api/dormitories/본관/articles?page=0&size=10&sort=s&status=모집중".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
-    static let helpPostUrl = "/api/dormitories/본관/board-type/도와주세요/articles?page=0&size=10&sort=createdAt&status=모집중".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
-    static let togetherUrl = "/api/dormitories/본관/board-type/함께해요/articles?page=0&size=10&sort=createdAt&status=모집중".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
-    static let shareUrl = "/api/dormitories/본관/board-type/나눔해요/articles?page=0&size=10&sort=createdAt&status=모집중".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
-    static let lostUrl = "/api/dormitories/본관/board-type/분실신고/articles?page=0&size=10&sort=createdAt&status=모집중".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+    static var pathAllPostUrl: String {
+        "/api/dormitories/\(SelectedDormitory.shared.domitory)/articles?page=0&size=10&sort=s&status=모집중".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+       }
+       static var helpPostUrl: String {
+           "/api/dormitories/\(SelectedDormitory.shared.domitory)/board-type/도와주세요/articles?page=0&size=10&sort=createdAt&status=모집중".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+       }
+       static var togetherUrl: String {
+           "/api/dormitories/\(SelectedDormitory.shared.domitory)/board-type/함께해요/articles?page=0&size=10&sort=createdAt&status=모집중".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+       }
+       static var shareUrl: String {
+           "/api/dormitories/\(SelectedDormitory.shared.domitory)/board-type/나눔해요/articles?page=0&size=10&sort=createdAt&status=모집중".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+       }
+       static var lostUrl: String {
+           "/api/dormitories/\(SelectedDormitory.shared.domitory)/board-type/분실신고/articles?page=0&size=10&sort=createdAt&status=모집중".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+       }
 
     static func getMethod<T: Codable>(url: String, completion: @escaping (Result<T, Error>) -> Void) {
         let url = URL(string: url)!

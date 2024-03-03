@@ -71,8 +71,7 @@ class ProfileSettingViewController: UIViewController {
                     }
                 }
         case dormitoryButton:
-        //TODO: 기숙사 종류들 넣어야함
-            dropDown.dataSource = ["개성재", "양성재","양진재"]
+            dropDown.dataSource = ["본관", "양성재","양진재", "양현재"]
         default:
             dropDown.dataSource = []
         }

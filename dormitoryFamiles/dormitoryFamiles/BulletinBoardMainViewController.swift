@@ -11,19 +11,19 @@ import UIKit
 class BulletinBoardMainViewController: TabmanViewController, DormitoryButtonHandling {
     private var viewControllers: [UIViewController] {
         let allVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "brownVC") as! BrownVC
-        allVC.path = Network.pathAllPostUrl ?? ""
+        allVC.path = Network.pathAllPostUrl
         
         let helpVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "brownVC") as! BrownVC
-        helpVC.path = Network.helpPostUrl ?? ""
+        helpVC.path = Network.helpPostUrl
         
         let togetherVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "brownVC") as! BrownVC
-        togetherVC.path = Network.togetherUrl ?? ""
+        togetherVC.path = Network.togetherUrl
         
         let shareVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "brownVC") as! BrownVC
-        shareVC.path = Network.shareUrl ?? ""
+        shareVC.path = Network.shareUrl
         
         let lostVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "brownVC") as! BrownVC
-        lostVC.path = Network.lostUrl ?? ""
+        lostVC.path = Network.lostUrl
         
         return [allVC, helpVC, togetherVC, shareVC, lostVC]
     }

@@ -34,7 +34,7 @@ class HomeViewController: UIViewController, DormitoryButtonHandling {
         }
     }
     
-    let site = ["개성재": "https://dorm.chungbuk.ac.kr/home/sub.php?menukey=20041&type=1", "양성재":"https://dorm.chungbuk.ac.kr/home/sub.php?menukey=20041&type=2", "양진재":"https://dorm.chungbuk.ac.kr/home/sub.php?menukey=20041&type=3"]
+    let site = ["본관": "https://dorm.chungbuk.ac.kr/home/sub.php?menukey=20041&type=1", "양성재":"https://dorm.chungbuk.ac.kr/home/sub.php?menukey=20041&type=2", "양진재":"https://dorm.chungbuk.ac.kr/home/sub.php?menukey=20041&type=3"]
     
     
     override func viewDidLoad() {
@@ -147,6 +147,9 @@ class HomeViewController: UIViewController, DormitoryButtonHandling {
     
     
     func fetchWebsite(time: MealTime) {
+        guard dormitoryButton.currentTitle! != "양현재" else {
+            return
+        }
         guard let url = URL(string: site[dormitoryButton.currentTitle!]!) else {return}
         let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
             if let error = error {
