@@ -2224,9 +2224,6 @@
                                             <rect key="frame" x="0.0" y="0.0" width="127.99999999999997" height="128"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </collectionViewCellContentView>
-                                        <connections>
-                                            <segue destination="uo4-JF-1aB" kind="show" id="KiA-25-9Tw"/>
-                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -2252,7 +2249,7 @@
         <!--긱사생활-->
         <scene sceneID="pMS-W1-DRP">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="uo4-JF-1aB" customClass="BulletinBoardDetailViewViewController" customModule="dormitoryFamiles" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="detail" modalPresentationStyle="fullScreen" id="uo4-JF-1aB" customClass="BulletinBoardDetailViewViewController" customModule="dormitoryFamiles" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7ai-qW-FQE">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2273,10 +2270,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="254" text="양진재" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ihM-NF-joD">
-                                                <rect key="frame" x="154" y="66" width="44.333333333333343" height="24"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="24" id="ofS-a2-rzA"/>
-                                                </constraints>
+                                                <rect key="frame" x="154" y="66" width="44.333333333333343" height="20.333333333333329"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -2285,7 +2279,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="253" text="아침 7시 헬스 같이 가실 분 구합니다." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gcn-uh-z8K">
-                                                <rect key="frame" x="20" y="132" width="353" height="20"/>
+                                                <rect key="frame" x="20" y="128.33333333333334" width="353" height="20"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="20" id="AbO-KX-glf"/>
                                                 </constraints>
@@ -2306,7 +2300,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="|" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XXG-oc-o5X">
-                                                <rect key="frame" x="123.33333333333333" y="94" width="4" height="18"/>
+                                                <rect key="frame" x="123.33333333333333" y="90.333333333333343" width="4" height="18"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="18" id="peJ-Cl-Gsl"/>
                                                 </constraints>
@@ -2318,7 +2312,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10/31" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LFM-0h-h1Z">
-                                                <rect key="frame" x="77" y="94" width="40.333333333333343" height="20.333333333333329"/>
+                                                <rect key="frame" x="77" y="90.333333333333343" width="40.333333333333343" height="20.333333333333329"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" name="gray4"/>
                                                 <nil key="highlightedColor"/>
@@ -2349,7 +2343,7 @@
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WpS-3I-E5y" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
                                                         <rect key="frame" x="89" y="0.0" width="93" height="28"/>
-                                                        <color key="backgroundColor" systemColor="linkColor"/>
+                                                        <color key="backgroundColor" red="0.84705882352941175" green="0.91764705882352937" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" title="태그2222"/>
@@ -2363,7 +2357,7 @@
                                                 </constraints>
                                             </stackView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="18:10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3XP-3L-Mrw">
-                                                <rect key="frame" x="133.33333333333334" y="94" width="40.333333333333343" height="20.333333333333329"/>
+                                                <rect key="frame" x="133.33333333333334" y="90.333333333333343" width="40.333333333333343" height="20.333333333333329"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" name="gray4"/>
                                                 <nil key="highlightedColor"/>
@@ -2372,10 +2366,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zCM-Pt-zrq">
-                                                <rect key="frame" x="20" y="160" width="353" height="100"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="100" id="7uz-D1-GSv"/>
-                                                </constraints>
+                                                <rect key="frame" x="20" y="156.33333333333337" width="353" height="264"/>
                                                 <string key="text">아침 7시에 스포츠센터에서 헬스 같이하실 여성분 구합니다! 
 나이는 상관 없고, 저와 같이 열심히 할 사람 모집합니다! 
 
@@ -2391,7 +2382,6 @@
                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                                 <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="string" keyPath="title2" value="아침 7시 헬스 같이 가실 분 구합니다."/>
                                                     <userDefinedRuntimeAttribute type="string" keyPath="body1">
                                                         <string key="value">아침 7시에 스포츠센터에서 헬스 같이하실 여성분 구합니다! 
 나이는 상관 없고, 저와 같이 열심히 할 사람 모집합니다! 
@@ -2408,7 +2398,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="bHT-nc-4kp">
-                                                <rect key="frame" x="20" y="276" width="218" height="100"/>
+                                                <rect key="frame" x="20" y="436.33333333333331" width="218" height="99.999999999999943"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="chu-dA-cTO">
                                                         <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
@@ -2443,7 +2433,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Y1o-fA-GbL">
-                                                <rect key="frame" x="20" y="392" width="292" height="29"/>
+                                                <rect key="frame" x="20" y="552.33333333333337" width="292" height="29"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hpp-GL-I8u" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="102.66666666666667" height="29"/>
@@ -2493,7 +2483,7 @@
                                                 </constraints>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="5A3-Fj-D1b">
-                                                <rect key="frame" x="20" y="441" width="115" height="18"/>
+                                                <rect key="frame" x="20" y="601.33333333333337" width="115" height="18"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="au5-rF-LBa">
                                                         <rect key="frame" x="0.0" y="2.0000000000000009" width="31.666666666666668" height="14.333333333333336"/>
@@ -2566,14 +2556,14 @@
                                                 </constraints>
                                             </stackView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ULa-b8-nsE">
-                                                <rect key="frame" x="0.0" y="479" width="393" height="4"/>
+                                                <rect key="frame" x="0.0" y="639.33333333333337" width="393" height="4"/>
                                                 <color key="backgroundColor" name="gray1"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="4" id="Pbf-QL-Ufq"/>
                                                 </constraints>
                                             </view>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="R7s-og-h6I">
-                                                <rect key="frame" x="20" y="503" width="63" height="21"/>
+                                                <rect key="frame" x="20" y="663.33333333333337" width="63" height="21"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bulletinBoardChat" translatesAutoresizingMaskIntoConstraints="NO" id="8XW-eE-wYd">
                                                         <rect key="frame" x="0.0" y="0.0" width="15" height="21"/>
@@ -2602,7 +2592,7 @@
                                                 </constraints>
                                             </stackView>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ks2-cG-ESp">
-                                                <rect key="frame" x="20" y="548" width="353" height="449"/>
+                                                <rect key="frame" x="20" y="708.33333333333337" width="353" height="288.66666666666663"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="gaU-51-ZTR">
                                                     <size key="itemSize" width="128" height="128"/>
@@ -3562,9 +3552,6 @@
         </namedColor>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="linkColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

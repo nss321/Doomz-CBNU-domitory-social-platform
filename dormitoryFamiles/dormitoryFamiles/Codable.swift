@@ -50,3 +50,26 @@ struct PostResponse: Decodable {
         let articleId: Int
     }
 }
+
+struct DetailResponse: Codable {
+    let code: Int
+    let data: ArticleDetail
+}
+
+struct ArticleDetail: Codable {
+    let articleId: Int
+    let memberId: Int
+    let nickName: String
+    let profileUrl: String
+    let memberDormitory: String
+    let articleDormitory: String
+    let boardType: String
+    let tags: String
+    let title: String
+    let content: String
+    let wishCount: Int
+    let isWished: Bool
+    let status: String
+    let createdAt: String
+    let imagesUrls: [String]
+}

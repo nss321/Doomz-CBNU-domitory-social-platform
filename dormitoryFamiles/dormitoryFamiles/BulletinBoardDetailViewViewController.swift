@@ -8,6 +8,7 @@
 import UIKit
 
 class BulletinBoardDetailViewViewController: UIViewController {
+
     @IBOutlet weak var roundLine: UIView!
     
     @IBOutlet weak var collectionView: UICollectionView!
@@ -37,6 +38,7 @@ class BulletinBoardDetailViewViewController: UIViewController {
     @IBOutlet weak var chatCountLabel: UILabel!
     
     var collectionViewHeightConstraint = NSLayoutConstraint()
+    var url = ""
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -44,11 +46,40 @@ class BulletinBoardDetailViewViewController: UIViewController {
         setCollectionViewAutoSizing()
         setTextView()
         collectionView.isScrollEnabled = false
+        network(url: url)
 
     }
     
-   
+    func setUrl(url: String) {
+        self.url = url
+    }
 
+    private func network(url: String) {
+        Network.getMethod(url: url) { (result: Result<DetailResponse, Error>) in
+            switch result {
+            case .success(let response):
+                let response = response.data
+                DispatchQueue.main.async {
+                    self.titleLabel.title2 = response.title
+                    self.nickname.title5 = response.nickName
+                    self.profileImage.image = UIImage(named: response.profileUrl)
+                    self.dormitory.title5 = response.memberDormitory
+                    self.categoryTag.subTitle2 = response.boardType
+                    //TODO: 태그 세팅도 해야함.
+                    self.contentLabel.body1 = response.content
+                    self.likeCountLabel.text = String(response.wishCount)
+                    //TODO: isWIshed구현해야함
+                    self.statusTag.subTitle2 = response.status
+                    self.timeLabel.body2 = response.createdAt
+                    //TODO: 이미지url구현해야함
+                    
+                    self.collectionView.reloadData()
+                }
+            case .failure(let error):
+                print("Error: \(error)")
+            }
+        }
+    }
     
     private func setDelegate() {
         commentTextView?.delegate = self
