@@ -11,11 +11,13 @@ class SearchViewController: UIViewController {
     var articles: [Article] = []
     var path = ""
     
+    @IBOutlet weak var noPostImageSettingView: UIView!
     @IBOutlet weak var collectionView: UICollectionView!
     
     override func viewWillAppear(_ animated: Bool) {
         //검색 화면에 들어올때 컬렉션뷰는 아예 안보여야함.
         collectionView.isHidden = true
+        noPostImageSettingView.isHidden = true
     }
     
     override func viewDidLoad() {
