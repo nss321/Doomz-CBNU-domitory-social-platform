@@ -100,15 +100,16 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
         let articleElement = articles[indexPath.row]
         
         let id = articleElement.articleId
         
-        let url = "http://43.202.254.127:8080/api/articles/{articleId}"
-        let articleDetailViewController = BulletinBoardDetailViewViewController()
-        
-        self.navigationController?.pushViewController(articleDetailViewController, animated: true)
+        let url = "http://43.202.254.127:8080/api/articles/\(id)"
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            if let articleDetailViewController = storyboard.instantiateViewController(withIdentifier: "detail") as? BulletinBoardDetailViewViewController {
+                articleDetailViewController.setUrl(url: url)
+                self.navigationController?.pushViewController(articleDetailViewController, animated: true)
+            }
     }
     
     
