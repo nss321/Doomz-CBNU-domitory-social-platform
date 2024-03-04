@@ -59,7 +59,7 @@ class BulletinBoardDetailViewViewController: UIViewController {
             switch result {
             case .success(let response):
                 let response = response.data
-                DispatchQueue.main.async {
+                DispatchQueue.main.async { [self] in
                     self.titleLabel.title2 = response.title
                     self.nickname.title5 = response.nickName
                     self.profileImage.image = UIImage(named: response.profileUrl)
@@ -70,7 +70,11 @@ class BulletinBoardDetailViewViewController: UIViewController {
                     self.likeCountLabel.text = String(response.wishCount)
                     //TODO: isWIshed구현해야함
                     self.statusTag.subTitle2 = response.status
-                    self.timeLabel.body2 = response.createdAt
+                    
+                    let datetime = response.createdAt
+                    self.timeLabel.body2 = changeToTime(createdAt: datetime)
+                    self.dateLabel.body2 = changeToDate(createdAt: datetime)
+                    
                     //TODO: 이미지url구현해야함
                     
                     self.collectionView.reloadData()
@@ -79,6 +83,22 @@ class BulletinBoardDetailViewViewController: UIViewController {
                 print("Error: \(error)")
             }
         }
+    }
+    
+    private func changeToTime(createdAt datetime: String) -> String {
+        let timeStartIndex = datetime.index(datetime.startIndex, offsetBy: 11)
+        let timeEndIndex = datetime.index(datetime.startIndex, offsetBy: 16)
+        let timeRange = timeStartIndex..<timeEndIndex
+        let time = String(datetime[timeRange]).replacingOccurrences(of: "-", with: ":")
+        return time
+    }
+    
+    private func changeToDate(createdAt datetime: String) -> String {
+        let dateStartIndex = datetime.index(datetime.startIndex, offsetBy: 5)
+        let dateEndIndex = datetime.index(datetime.startIndex, offsetBy: 10)
+        let dateRange = dateStartIndex..<dateEndIndex
+        let date = String(datetime[dateRange]).replacingOccurrences(of: "-", with: "/")
+        return date
     }
     
     private func setDelegate() {
