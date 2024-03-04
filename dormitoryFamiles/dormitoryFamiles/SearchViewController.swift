@@ -13,16 +13,16 @@ class SearchViewController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
     
+    override func viewWillAppear(_ animated: Bool) {
+        //검색 화면에 들어올때 컬렉션뷰는 아예 안보여야함.
+        collectionView.isHidden = true
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setDelegate()
         self.collectionView.register(UINib(nibName: "BulluetinBoardCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "cell")
-        
-        collectionView.register(UINib(nibName: "PopularCollectionViewHeader",
-                                      bundle: nil),
-                                forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
-                                withReuseIdentifier: "header")
         
         network(url: Network.url + path)
         

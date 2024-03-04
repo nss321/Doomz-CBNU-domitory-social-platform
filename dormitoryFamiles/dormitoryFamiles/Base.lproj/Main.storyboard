@@ -3290,6 +3290,11 @@
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
+                                <view key="backgroundView" contentMode="scaleToFill" id="f6v-sN-W4f">
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="633"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                </view>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="C4v-k9-1da">
                                         <rect key="frame" x="0.0" y="0.0" width="127.99999999999997" height="128"/>

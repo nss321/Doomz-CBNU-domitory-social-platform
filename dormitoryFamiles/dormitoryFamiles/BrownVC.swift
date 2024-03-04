@@ -19,11 +19,6 @@ class BrownVC: UIViewController {
         setDelegate()
         self.collectionView.register(UINib(nibName: "BulluetinBoardCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "cell")
         
-        collectionView.register(UINib(nibName: "PopularCollectionViewHeader",
-                                      bundle: nil),
-                                forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
-                                withReuseIdentifier: "header")
-        
         network(url: Network.url + path)
         
         NotificationCenter.default.addObserver(self, selector: #selector(changeDormiotry), name: .changeDormiotry, object: nil)
