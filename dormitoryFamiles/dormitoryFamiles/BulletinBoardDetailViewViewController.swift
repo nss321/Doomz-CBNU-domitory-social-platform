@@ -8,7 +8,7 @@
 import UIKit
 
 class BulletinBoardDetailViewViewController: UIViewController {
-
+    
     @IBOutlet weak var roundLine: UIView!
     
     @IBOutlet weak var collectionView: UICollectionView!
@@ -39,21 +39,30 @@ class BulletinBoardDetailViewViewController: UIViewController {
     
     var collectionViewHeightConstraint = NSLayoutConstraint()
     var url = ""
+    var activityIndicator = UIActivityIndicatorView(style: .large)
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setIndicator()
         setDelegate()
         setCollectionViewAutoSizing()
         setTextView()
         collectionView.isScrollEnabled = false
         network(url: url)
-
+        
+    }
+    
+    private func setIndicator() {
+        view.addSubview(activityIndicator)
+        activityIndicator.center = view.center
+        activityIndicator.startAnimating()
     }
     
     func setUrl(url: String) {
         self.url = url
     }
-
+    
     private func network(url: String) {
         Network.getMethod(url: url) { (result: Result<DetailResponse, Error>) in
             switch result {
@@ -78,6 +87,9 @@ class BulletinBoardDetailViewViewController: UIViewController {
                     //TODO: 이미지url구현해야함
                     
                     self.collectionView.reloadData()
+                    
+                    self.activityIndicator.stopAnimating()
+                    self.activityIndicator.isHidden = true
                 }
             case .failure(let error):
                 print("Error: \(error)")
@@ -118,21 +130,21 @@ class BulletinBoardDetailViewViewController: UIViewController {
     deinit {
         collectionView.removeObserver(self, forKeyPath: "contentSize")
     }
-
+    
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if keyPath == "contentSize" {
             collectionViewHeightConstraint.constant = collectionView.contentSize.height
         }
     }
-
+    
     
     private func setTextView() {
         if commentTextView.text == "" {
             commentTextView.textColor = .gray4
             commentTextView.text = "댓글을 남겨주세요."
-                }else {
-                    commentTextView.textColor = .black
-                }
+        }else {
+            commentTextView.textColor = .black
+        }
     }
     
     private func setCommentTextView() {
@@ -164,14 +176,14 @@ extension BulletinBoardDetailViewViewController: UITextViewDelegate {
 
 extension BulletinBoardDetailViewViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-            return 100
-        }
-
+        return 100
+    }
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-           let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "relpyCell", for: indexPath) as UICollectionViewCell
-           return cell
-       }
-
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "relpyCell", for: indexPath) as UICollectionViewCell
+        return cell
+    }
+    
 }
 
 extension BulletinBoardDetailViewViewController: UICollectionViewDelegateFlowLayout {
