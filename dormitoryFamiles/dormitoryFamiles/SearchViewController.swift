@@ -10,13 +10,11 @@ import UIKit
 class SearchViewController: UIViewController {
     var articles: [Article] = []
     var path = ""
-    
     @IBOutlet weak var noPostImageSettingView: UIView!
     @IBOutlet weak var collectionView: UICollectionView!
     
     override func viewWillAppear(_ animated: Bool) {
-        //검색 화면에 들어올때 컬렉션뷰는 아예 안보여야함.
-        collectionView.isHidden = true
+        //검색 화면에 들어올때 검색 결과가 없다는 창은 아예 안보여야함.
         noPostImageSettingView.isHidden = true
     }
     
@@ -27,9 +25,6 @@ class SearchViewController: UIViewController {
         self.collectionView.register(UINib(nibName: "BulluetinBoardCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "cell")
         
         network(url: Network.url + path)
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(changeDormiotry), name: .changeDormiotry, object: nil)
-        
         setSearchBar()
         
     }
@@ -39,7 +34,6 @@ class SearchViewController: UIViewController {
         let width = bounds.size.width
         let searchBar = UISearchBar(frame: CGRect(x: 0, y: 0, width: width - 28, height: 40))
         searchBar.placeholder = "검색어를 입력해 주세요."
-
         if let textFieldInsideSearchBar = searchBar.value(forKey: "searchField") as? UITextField {
             textFieldInsideSearchBar.leftView = nil
             textFieldInsideSearchBar.attributedPlaceholder = NSAttributedString(string: searchBar.placeholder ?? "", attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray3 as Any])
@@ -48,16 +42,14 @@ class SearchViewController: UIViewController {
         searchBar.searchTextField.backgroundColor = .gray0
         searchBar.searchTextField.layer.cornerRadius = searchBar.bounds.height / 2
         searchBar.searchTextField.clipsToBounds = true
-
+        
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: searchBar)
         if let navigationController = self.navigationController {
             navigationController.navigationBar.backIndicatorImage = UIImage(named: "navigationBack")
             navigationController.navigationBar.backIndicatorTransitionMaskImage = UIImage(named: "navigationBack")
             navigationController.navigationBar.tintColor = .black
         }
-
-
-
+        searchBar.delegate = self
     }
     
     private func setDelegate() {
@@ -77,11 +69,6 @@ class SearchViewController: UIViewController {
                 print("Error: \(error)")
             }
         }
-    }
-    
-    @objc private func changeDormiotry() {
-        network(url: Network.url + path)
-        self.collectionView.reloadData()
     }
     
 }
@@ -133,4 +120,14 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
         return 12
     }
     
+}
+
+extension SearchViewController: UISearchBarDelegate {
+    //검색이 완료되면 실행되는 메서드
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        if let searchText = searchBar.text {
+            print("검색어: \(searchText)")
+            network(url: Network.url+Network.searchUrl(searchText: searchText))
+        }
+    }
 }

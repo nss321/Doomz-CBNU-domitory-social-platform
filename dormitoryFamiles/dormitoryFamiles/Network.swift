@@ -23,6 +23,13 @@ struct Network {
        static var lostUrl: String {
            "/api/dormitories/\(SelectedDormitory.shared.domitory)/board-type/분실신고/articles?page=0&size=10&sort=createdAt&status=모집중".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
        }
+    
+    static func searchUrl(searchText: String) -> String {
+        var url: String {
+            "/api/dormitories/\(SelectedDormitory.shared.domitory)/articles/search?&page=0&size=10&q=\(searchText)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+        }
+        return url
+    }
 
     static func getMethod<T: Codable>(url: String, completion: @escaping (Result<T, Error>) -> Void) {
         let url = URL(string: url)!
