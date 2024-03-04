@@ -128,6 +128,7 @@ class RegisterPostViewController: UIViewController {
     
     @IBAction func finishButtonTapped(_ sender: UIButton) {
         //이미지 없다고 가정함 일단은.
+        //TODO: 이미지와 태그는 UI세팅 후에 다시 처리해야함
         let post = Post(dormitoryType: dormitoryButton.title(for: .normal) ?? "", boardType: categoryButton.title(for: .normal) ?? "", title: textField.text ?? "" , content: textView.text ?? "", tags: "태그는 추후 구현!", imagesUrls: [])
         let encoder = JSONEncoder()
         if let jsonData = try? encoder.encode(post) {

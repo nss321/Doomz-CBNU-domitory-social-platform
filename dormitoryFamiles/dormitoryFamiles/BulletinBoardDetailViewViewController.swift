@@ -14,6 +14,28 @@ class BulletinBoardDetailViewViewController: UIViewController {
     @IBOutlet weak var textViewSuperView: TagButton!
     @IBOutlet weak var commentTextView: UITextView!
     
+    @IBOutlet weak var statusTag: RoundButton!
+    @IBOutlet weak var categoryTag: RoundButton!
+    
+    @IBOutlet weak var profileImage: UIImageView!
+    
+    @IBOutlet weak var nickname: UILabel!
+    
+    @IBOutlet weak var dormitory: UILabel!
+    
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var timeLabel: UILabel!
+    
+    @IBOutlet weak var titleLabel: UILabel!
+    
+    @IBOutlet weak var contentLabel: UILabel!
+    
+    @IBOutlet weak var likeCountLabel: UILabel!
+    
+    @IBOutlet weak var replyCountLabel: UILabel!
+    
+    @IBOutlet weak var chatCountLabel: UILabel!
+    
     var collectionViewHeightConstraint = NSLayoutConstraint()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +51,7 @@ class BulletinBoardDetailViewViewController: UIViewController {
 
     
     private func setDelegate() {
-        commentTextView.delegate = self
+        commentTextView?.delegate = self
         collectionView.delegate = self
         collectionView.dataSource = self
         

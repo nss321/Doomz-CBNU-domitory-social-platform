@@ -7,11 +7,11 @@
 
 import UIKit
 
-class BrownVC: UIViewController {
+class SearchViewController: UIViewController {
     var articles: [Article] = []
     var path = ""
-    @IBOutlet weak var collectionView: UICollectionView!
 
+    @IBOutlet weak var collectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,7 +55,7 @@ class BrownVC: UIViewController {
     
 }
 
-extension BrownVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return articles.count
@@ -101,4 +101,5 @@ extension BrownVC: UICollectionViewDelegate, UICollectionViewDataSource, UIColle
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 12
     }
+   
 }
