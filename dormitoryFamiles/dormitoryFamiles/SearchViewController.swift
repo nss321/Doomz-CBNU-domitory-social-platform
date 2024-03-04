@@ -10,6 +10,7 @@ import UIKit
 class SearchViewController: UIViewController {
     var articles: [Article] = []
     var path = ""
+    
     @IBOutlet weak var noPostImageSettingView: UIView!
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -64,6 +65,10 @@ class SearchViewController: UIViewController {
                 self.articles = response.data.articles
                 DispatchQueue.main.async {
                     self.collectionView.reloadData()
+                    if self.articles.isEmpty {
+                        print("검색 결과 없음")
+                        self.noPostImageSettingView.isHidden = false
+                    }
                 }
             case .failure(let error):
                 print("Error: \(error)")
@@ -125,6 +130,7 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
 extension SearchViewController: UISearchBarDelegate {
     //검색이 완료되면 실행되는 메서드
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        noPostImageSettingView.isHidden = true
         if let searchText = searchBar.text {
             print("검색어: \(searchText)")
             network(url: Network.url+Network.searchUrl(searchText: searchText))
