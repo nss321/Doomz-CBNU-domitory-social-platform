@@ -34,10 +34,28 @@ class SearchViewController: UIViewController {
     
     private func setSearchBar() {
         let bounds = UIScreen.main.bounds
-        let width = bounds.size.width //화면 너비
-        let searchBar = UISearchBar(frame: CGRect(x: 0, y: 0, width: width - 28, height: 0))
+        let width = bounds.size.width
+        let searchBar = UISearchBar(frame: CGRect(x: 0, y: 0, width: width - 28, height: 40))
         searchBar.placeholder = "검색어를 입력해 주세요."
+
+        if let textFieldInsideSearchBar = searchBar.value(forKey: "searchField") as? UITextField {
+            textFieldInsideSearchBar.leftView = nil
+            textFieldInsideSearchBar.attributedPlaceholder = NSAttributedString(string: searchBar.placeholder ?? "", attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray3 as Any])
+            textFieldInsideSearchBar.font = UIFont(name: "Pretendard Variable", size: 16)
+        }
+        searchBar.searchTextField.backgroundColor = .gray0
+        searchBar.searchTextField.layer.cornerRadius = searchBar.bounds.height / 2
+        searchBar.searchTextField.clipsToBounds = true
+
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: searchBar)
+        if let navigationController = self.navigationController {
+            navigationController.navigationBar.backIndicatorImage = UIImage(named: "navigationBack")
+            navigationController.navigationBar.backIndicatorTransitionMaskImage = UIImage(named: "navigationBack")
+            navigationController.navigationBar.tintColor = .black
+        }
+
+
+
     }
     
     private func setDelegate() {
