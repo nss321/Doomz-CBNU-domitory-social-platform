@@ -10,7 +10,7 @@ import UIKit
 class SearchViewController: UIViewController {
     var articles: [Article] = []
     var path = ""
-
+    
     @IBOutlet weak var collectionView: UICollectionView!
     
     override func viewWillAppear(_ animated: Bool) {
@@ -27,6 +27,17 @@ class SearchViewController: UIViewController {
         network(url: Network.url + path)
         
         NotificationCenter.default.addObserver(self, selector: #selector(changeDormiotry), name: .changeDormiotry, object: nil)
+        
+        setSearchBar()
+        
+    }
+    
+    private func setSearchBar() {
+        let bounds = UIScreen.main.bounds
+        let width = bounds.size.width //화면 너비
+        let searchBar = UISearchBar(frame: CGRect(x: 0, y: 0, width: width - 28, height: 0))
+        searchBar.placeholder = "검색어를 입력해 주세요."
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: searchBar)
     }
     
     private func setDelegate() {
@@ -49,9 +60,9 @@ class SearchViewController: UIViewController {
     }
     
     @objc private func changeDormiotry() {
-            network(url: Network.url + path)
+        network(url: Network.url + path)
         self.collectionView.reloadData()
-        }
+    }
     
 }
 
@@ -89,7 +100,7 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
         
         let url = "http://43.202.254.127:8080/api/articles/{articleId}"
         let articleDetailViewController = BulletinBoardDetailViewViewController()
-
+        
         self.navigationController?.pushViewController(articleDetailViewController, animated: true)
     }
     
@@ -101,5 +112,5 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 12
     }
-   
+    
 }
