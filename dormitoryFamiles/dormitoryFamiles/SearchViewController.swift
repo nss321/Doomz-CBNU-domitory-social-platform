@@ -45,11 +45,6 @@ class SearchViewController: UIViewController {
         searchBar.searchTextField.clipsToBounds = true
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: searchBar)
-        if let navigationController = self.navigationController {
-            navigationController.navigationBar.backIndicatorImage = UIImage(named: "navigationBack")
-            navigationController.navigationBar.backIndicatorTransitionMaskImage = UIImage(named: "navigationBack")
-            navigationController.navigationBar.tintColor = .black
-        }
         searchBar.delegate = self
     }
     
