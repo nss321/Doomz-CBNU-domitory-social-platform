@@ -10,6 +10,8 @@
 		0C03D7843BE1BA839B23F614 /* Pods_dormitoryFamiles.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43ACFB5BF55DE00DF2B4C0CA /* Pods_dormitoryFamiles.framework */; };
 		DB00F5B42B81D17C00DDA1E6 /* CommentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB00F5B22B81D17C00DDA1E6 /* CommentCollectionViewCell.swift */; };
 		DB00F5B52B81D17C00DDA1E6 /* CommentCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB00F5B32B81D17C00DDA1E6 /* CommentCollectionViewCell.xib */; };
+		DB02B5292B98C92200C45F56 /* ReplyHeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB02B5272B98C92200C45F56 /* ReplyHeaderCollectionReusableView.swift */; };
+		DB02B52A2B98C92200C45F56 /* ReplyHeaderCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB02B5282B98C92200C45F56 /* ReplyHeaderCollectionReusableView.xib */; };
 		DB1E0E892B629804000A4AA5 /* DormitoryButtonHandlingProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1E0E882B629804000A4AA5 /* DormitoryButtonHandlingProtocol.swift */; };
 		DB1E0E8B2B629865000A4AA5 /* ChoiceDormitoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1E0E8A2B629865000A4AA5 /* ChoiceDormitoryViewController.swift */; };
 		DB1E0E8D2B62A995000A4AA5 /* SelectedDormitory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1E0E8C2B62A995000A4AA5 /* SelectedDormitory.swift */; };
@@ -63,6 +65,8 @@
 		C5E033F1B4291ED8F85F0DAE /* Pods-dormitoryFamiles.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dormitoryFamiles.debug.xcconfig"; path = "Target Support Files/Pods-dormitoryFamiles/Pods-dormitoryFamiles.debug.xcconfig"; sourceTree = "<group>"; };
 		DB00F5B22B81D17C00DDA1E6 /* CommentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCollectionViewCell.swift; sourceTree = "<group>"; };
 		DB00F5B32B81D17C00DDA1E6 /* CommentCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentCollectionViewCell.xib; sourceTree = "<group>"; };
+		DB02B5272B98C92200C45F56 /* ReplyHeaderCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReplyHeaderCollectionReusableView.swift; sourceTree = "<group>"; };
+		DB02B5282B98C92200C45F56 /* ReplyHeaderCollectionReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReplyHeaderCollectionReusableView.xib; sourceTree = "<group>"; };
 		DB1E0E882B629804000A4AA5 /* DormitoryButtonHandlingProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DormitoryButtonHandlingProtocol.swift; sourceTree = "<group>"; };
 		DB1E0E8A2B629865000A4AA5 /* ChoiceDormitoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceDormitoryViewController.swift; sourceTree = "<group>"; };
 		DB1E0E8C2B62A995000A4AA5 /* SelectedDormitory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedDormitory.swift; sourceTree = "<group>"; };
@@ -226,6 +230,8 @@
 				DBD1E7FB2B84A9D500FD71C6 /* Network.swift */,
 				DBDF96EE2B84BFB2000E74AE /* ProfileFinishedViewController.swift */,
 				DB20F2932B95CBE00052CF5C /* SearchViewController.swift */,
+				DB02B5272B98C92200C45F56 /* ReplyHeaderCollectionReusableView.swift */,
+				DB02B5282B98C92200C45F56 /* ReplyHeaderCollectionReusableView.xib */,
 			);
 			path = dormitoryFamiles;
 			sourceTree = "<group>";
@@ -299,6 +305,7 @@
 				DBF467042AA5F4E5009FF3EB /* Assets.xcassets in Resources */,
 				DBF467022AA5F4E4009FF3EB /* Main.storyboard in Resources */,
 				DBC54C5D2B56A4A00071164C /* Pretendard-Regular.ttf in Resources */,
+				DB02B52A2B98C92200C45F56 /* ReplyHeaderCollectionReusableView.xib in Resources */,
 				DBC54C572B56A4820071164C /* Pretendard-Bold.ttf in Resources */,
 				DBC54C552B56A46B0071164C /* PretendardVariable.ttf in Resources */,
 			);
@@ -387,6 +394,7 @@
 				DB1E0E8D2B62A995000A4AA5 /* SelectedDormitory.swift in Sources */,
 				DBDF96EF2B84BFB2000E74AE /* ProfileFinishedViewController.swift in Sources */,
 				DB2B7BCF2B457F7200C1847D /* UIButtonExtension.swift in Sources */,
+				DB02B5292B98C92200C45F56 /* ReplyHeaderCollectionReusableView.swift in Sources */,
 				DBF466FD2AA5F4E4009FF3EB /* SceneDelegate.swift in Sources */,
 				DBB345F22B42BFD100E70380 /* BulletinBoardMainViewController.swift in Sources */,
 			);
