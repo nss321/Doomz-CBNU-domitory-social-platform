@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CommentCollectionViewCell: UICollectionViewCell {
+class ReplyCollectionViewCell: UICollectionViewCell {
    
     override func awakeFromNib() {
         super.awakeFromNib()
