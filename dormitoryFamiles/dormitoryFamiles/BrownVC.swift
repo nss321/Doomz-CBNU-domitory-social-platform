@@ -86,6 +86,7 @@ extension BrownVC: UICollectionViewDelegate, UICollectionViewDataSource, UIColle
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
             if let articleDetailViewController = storyboard.instantiateViewController(withIdentifier: "detail") as? BulletinBoardDetailViewViewController { 
                 articleDetailViewController.setUrl(url: url)
+                articleDetailViewController.id = id
                 self.navigationController?.pushViewController(articleDetailViewController, animated: true)
             }
     }

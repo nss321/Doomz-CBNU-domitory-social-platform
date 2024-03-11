@@ -37,6 +37,8 @@ class BulletinBoardDetailViewViewController: UIViewController {
     
     @IBOutlet weak var chatCountLabel: UILabel!
     
+    var dataClass : DataClass?
+    var id: Int = 0
     var collectionViewHeightConstraint = NSLayoutConstraint()
     var url = ""
     var activityIndicator = UIActivityIndicatorView(style: .large)
@@ -50,7 +52,7 @@ class BulletinBoardDetailViewViewController: UIViewController {
         setTextView()
         collectionView.isScrollEnabled = false
         network(url: url)
-        
+        replyNetwork(id: id)
     }
     
     private func setIndicator() {
@@ -97,6 +99,22 @@ class BulletinBoardDetailViewViewController: UIViewController {
         }
     }
     
+    private func replyNetwork(id: Int) {
+        let commentUrl = Network.replyUrl(id: id)
+        Network.getMethod(url: commentUrl) { [self] (result: Result<ReplyResponse, Error>) in
+            switch result {
+            case .success(let response):
+                self.dataClass = response.data
+                print(dataClass as Any)
+                
+            case .failure(let error):
+                
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+    
     private func changeToTime(createdAt datetime: String) -> String {
         let timeStartIndex = datetime.index(datetime.startIndex, offsetBy: 11)
         let timeEndIndex = datetime.index(datetime.startIndex, offsetBy: 16)
@@ -119,6 +137,7 @@ class BulletinBoardDetailViewViewController: UIViewController {
         collectionView.dataSource = self
         
         collectionView.register(UINib(nibName: "ReplyCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "rereplyCell")
+        collectionView.register(UINib(nibName: "ReplyHeaderCollectionReusableView", bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "replyCell")
     }
     
     private func setCollectionViewAutoSizing() {
@@ -176,12 +195,45 @@ extension BulletinBoardDetailViewViewController: UITextViewDelegate {
 
 extension BulletinBoardDetailViewViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 100
+        return dataClass?.comments[section].replyComments?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "rereplyCell", for: indexPath) as! ReplyCollectionViewCell
+        print(indexPath.section)
+        let replyComment = dataClass?.comments[indexPath.section].replyComments?[indexPath.row]
+        cell.nickname.text = replyComment?.nickname ?? ""
+        cell.content.text = replyComment?.content ?? ""
+        cell.replyCommentId = replyComment?.replyCommentId ?? 0
+        cell.memberId = replyComment?.memberId ?? 0
+        cell.profileUrl = replyComment?.profileUrl ?? ""
+        cell.createdAt = replyComment?.createdAt ?? ""
+        cell.isWriter = ((replyComment?.isWriter) != nil)
         return cell
+    }
+    
+    //헤더뷰관련
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        switch kind {
+        case UICollectionView.elementKindSectionHeader:
+            let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "replyCell", for: indexPath) as! ReplyHeaderCollectionReusableView
+            
+            let replyComment = dataClass?.comments[indexPath.section]
+            
+            headerView.commentId = replyComment?.commentId ?? 0
+            headerView.memberId = replyComment?.memberId ?? 0
+            headerView.profileUrl = replyComment?.profileUrl ?? ""
+            headerView.nickname.text = replyComment?.nickname ?? ""
+            headerView.createdAt = replyComment?.createdAt ?? ""
+            headerView.content.text = replyComment?.content ?? ""
+            headerView.isWriter = ((replyComment?.isWriter) != nil)
+            headerView.isDeleted = ((replyComment?.isDeleted) != nil)
+    
+            
+            return headerView
+        default:
+            assert(false, "Invalid element type")
+        }
     }
     
 }
@@ -194,8 +246,14 @@ extension BulletinBoardDetailViewViewController: UICollectionViewDelegateFlowLay
         return CGSize(width: width, height: height)
     }
     
-    //셀과 셀 사이의 간격.
+    //셀과 셀 사이의 간격
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 24
     }
+    
+    //헤더 크기
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return CGSize(width: collectionView.bounds.width, height: 148)
+    }
+    
 }

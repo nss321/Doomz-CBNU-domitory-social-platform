@@ -8,6 +8,7 @@
 import Foundation
 struct Network {
     static let url = "http://43.202.254.127:8080"
+
     static var pathAllPostUrl: String {
         "/api/dormitories/\(SelectedDormitory.shared.domitory)/articles?page=0&size=10&sort=s&status=모집중".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
        }
@@ -31,6 +32,10 @@ struct Network {
         return url
     }
 
+    static func replyUrl(id: Int) -> String {
+        return "http://43.202.254.127:8080/api/articles/\(id)/comments"
+    }
+    
     static func getMethod<T: Codable>(url: String, completion: @escaping (Result<T, Error>) -> Void) {
         let url = URL(string: url)!
         let task = URLSession.shared.dataTask(with: url) { (data, response, error) in

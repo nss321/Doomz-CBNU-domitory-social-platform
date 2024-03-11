@@ -96,6 +96,9 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
         cell.content.text = article.content
         cell.categoryTag.body2 = article.boardType
         cell.statusTag.body2 = article.status
+        if article.isWished {
+        //TODO: 0311 예림씨 답장 오면 색이 있는 하트로 이미지 교체하기
+        }
         return cell
     }
     

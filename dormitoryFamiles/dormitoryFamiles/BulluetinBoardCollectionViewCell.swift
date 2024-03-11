@@ -10,7 +10,6 @@ import UIKit
 class BulluetinBoardCollectionViewCell: UICollectionViewCell {
     var articleId: Int?
     var profileUrl: String?
-    var amIWish: Int?
     var status: String?
     var createdDate: String?
     var thumbnailUrl: String?

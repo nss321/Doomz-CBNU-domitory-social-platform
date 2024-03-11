@@ -16,7 +16,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionReusableView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="replyCell" id="U6b-Vx-4bR">
+        <collectionReusableView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="replyCell" id="U6b-Vx-4bR" customClass="ReplyHeaderCollectionReusableView" customModule="dormitoryFamiles" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="656" height="149"/>
             <autoresizingMask key="autoresizingMask"/>
             <subviews>
@@ -84,11 +84,11 @@
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="plain" image="bulletinBoardMore"/>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TA2-OC-YSl">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TA2-OC-YSl">
                             <rect key="frame" x="60" y="95.333333333333329" width="102" height="34.333333333333329"/>
                             <color key="tintColor" name="primaryMid"/>
                             <state key="normal" title="Button"/>
-                            <buttonConfiguration key="configuration" style="plain" image="bulletinBoardChat" title="답글달기" imagePadding="4"/>
+                            <buttonConfiguration key="configuration" style="plain" image="bulletinBoardDetailReply" title="답글달기" imagePadding="4"/>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="string" keyPath="body2" value="답글달기"/>
                             </userDefinedRuntimeAttributes>
@@ -119,11 +119,16 @@
                 <constraint firstAttribute="trailing" secondItem="b7c-WG-46a" secondAttribute="trailing" id="P6K-mH-oP4"/>
                 <constraint firstItem="b7c-WG-46a" firstAttribute="top" secondItem="U6b-Vx-4bR" secondAttribute="top" id="Tbq-tV-5wX"/>
             </constraints>
+            <connections>
+                <outlet property="content" destination="UnG-1R-eWJ" id="zSb-6D-tri"/>
+                <outlet property="nickname" destination="WZy-il-bJw" id="MW6-cs-pWw"/>
+                <outlet property="rereplyButton" destination="TA2-OC-YSl" id="r7m-Jr-TeV"/>
+            </connections>
             <point key="canvasLocation" x="61.068702290076331" y="-3.1690140845070425"/>
         </collectionReusableView>
     </objects>
     <resources>
-        <image name="bulletinBoardChat" width="15" height="15"/>
+        <image name="bulletinBoardDetailReply" width="15" height="15"/>
         <image name="bulletinBoardMore" width="24" height="24"/>
         <image name="bulletinBoardProfile" width="24" height="24"/>
         <namedColor name="gray3">

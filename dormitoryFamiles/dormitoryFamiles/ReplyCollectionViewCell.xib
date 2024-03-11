@@ -36,7 +36,7 @@
                                 <buttonConfiguration key="configuration" style="plain" image="bulletinBoardProfile"/>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="G1T-lt-LQF">
-                                <rect key="frame" x="128" y="24.333333333333336" width="117.66666666666669" height="20.333333333333336"/>
+                                <rect key="frame" x="128" y="24.333333333333336" width="119" height="20.333333333333336"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="23.12.10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OUZ-xg-btT">
                                         <rect key="frame" x="0.0" y="0.0" width="62.666666666666664" height="20.333333333333332"/>
@@ -48,13 +48,13 @@
                                         </userDefinedRuntimeAttributes>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="|" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cPM-fO-jfh">
-                                        <rect key="frame" x="68.666666666666657" y="0.0" width="2.6666666666666714" height="20.333333333333332"/>
+                                        <rect key="frame" x="68.666666666666657" y="0.0" width="4" height="20.333333333333332"/>
                                         <fontDescription key="fontDescription" name="PretendardVariable-Regular" family="Pretendard Variable" pointSize="12"/>
                                         <color key="textColor" name="gray3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="18:10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bfi-n2-CAK">
-                                        <rect key="frame" x="77.333333333333343" y="0.0" width="40.333333333333343" height="20.333333333333332"/>
+                                        <rect key="frame" x="78.666666666666657" y="0.0" width="40.333333333333343" height="20.333333333333332"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" name="gray4"/>
                                         <nil key="highlightedColor"/>
@@ -113,6 +113,10 @@
                 <constraint firstItem="cw3-a5-1Q5" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="fhN-qd-VGK"/>
             </constraints>
             <size key="customSize" width="647" height="96"/>
+            <connections>
+                <outlet property="content" destination="Poh-Eh-Utr" id="Tu7-8X-rJw"/>
+                <outlet property="nickname" destination="62C-ME-Re3" id="gKG-El-obe"/>
+            </connections>
             <point key="canvasLocation" x="248.09160305343511" y="-97.887323943661983"/>
         </collectionViewCell>
     </objects>

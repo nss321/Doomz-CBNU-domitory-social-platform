@@ -73,3 +73,36 @@ struct ArticleDetail: Codable {
     let createdAt: String
     let imagesUrls: [String]
 }
+
+
+struct ReplyResponse: Codable {
+    let code: Int
+    let data: DataClass
+}
+
+struct DataClass: Codable {
+    let totalCount: Int
+    let comments: [Comment]
+}
+
+struct Comment: Codable {
+    let commentId: Int
+    let memberId: Int
+    let profileUrl: String
+    let nickname: String
+    let createdAt: String
+    let content: String
+    let isWriter: Bool
+    let isDeleted: Bool
+    let replyComments: [ReplyComment]?
+}
+
+struct ReplyComment: Codable {
+    let replyCommentId: Int
+    let memberId: Int
+    let profileUrl: String
+    let nickname: String
+    let createdAt: String
+    let content: String
+    let isWriter: Bool
+}

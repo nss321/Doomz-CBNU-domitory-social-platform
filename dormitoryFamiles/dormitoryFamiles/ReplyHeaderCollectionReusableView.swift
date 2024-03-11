@@ -8,10 +8,22 @@
 import UIKit
 
 class ReplyHeaderCollectionReusableView: UICollectionReusableView {
-
+    
+    var commentId: Int?
+    var memberId: Int?
+    var profileUrl: String?
+    var createdAt: String?
+    var isWriter: Bool?
+    var isDeleted: Bool?
+    
+    
+    @IBOutlet weak var rereplyButton: UIButton!
+    @IBOutlet weak var nickname: UILabel!
+    @IBOutlet weak var content: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        rereplyButton.contentHorizontalAlignment = .leading
+        rereplyButton.contentVerticalAlignment = .top
     }
     
 }
