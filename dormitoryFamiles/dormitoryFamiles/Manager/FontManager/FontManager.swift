@@ -9,23 +9,25 @@ import UIKit
 
 enum FontSize: CGFloat {
     case fourTeen = 14
-    case sixTeen = 14
-    case eightTeen = 14
-    case twenty = 14
-    case twentyFour = 14
+    case sixTeen = 16
+    case eightTeen = 18
+    case twenty = 20
+    case twentyFour = 24
 }
 
 enum PretendardType: String {
     case variable = "PretendardVariable"
-    case bold = "Pretendard-Bold"
-    case semiBold = "Pretendard-SemiBold"
-    case medium = "Pretendard-Medium"
-    case regular = "Pretendard-Regular"
+    case bold = "PretendardVariable-Bold"
+    case semiBold = "PretendardVariable-SemiBold"
+    case medium = "PretendardVariable-Medium"
+    case regular = "PretendardVariable-Regular"
 }
 
 enum NPSType: String {
-    case bold = "NPSfont_bold"
+    case bold = "NPS-font-Bold"
 }
+
+
 
 struct FontManager {
     static let shared = FontManager()
