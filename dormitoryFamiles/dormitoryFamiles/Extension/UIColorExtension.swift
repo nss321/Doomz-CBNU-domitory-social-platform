@@ -34,7 +34,7 @@ extension UIColor {
     class var secondary: UIColor? { return UIColor(named: "secondary") }
     
     /// #191919
-    static let blackYak = UIColor.init(hex: "#191919")
+    static let doomzBlack = UIColor.init(hex: "#191919")
     
     // MARK: UIColor를 HEX 값으로 지정할 수 있게 해줌
     convenience init(hex: String) {
