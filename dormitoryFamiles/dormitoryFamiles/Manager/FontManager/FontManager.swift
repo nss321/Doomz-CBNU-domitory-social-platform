@@ -9,10 +9,10 @@ import UIKit
 
 enum FontSize: CGFloat {
     case fourTeen = 14
-    case sixTeen = 14
-    case eightTeen = 14
-    case twenty = 14
-    case twentyFour = 14
+    case sixTeen = 16
+    case eightTeen = 18
+    case twenty = 20
+    case twentyFour = 24
 }
 
 enum PretendardType: String {
