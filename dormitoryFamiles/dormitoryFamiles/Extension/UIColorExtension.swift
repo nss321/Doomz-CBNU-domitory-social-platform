@@ -33,4 +33,21 @@ extension UIColor {
     
     class var secondary: UIColor? { return UIColor(named: "secondary") }
     
+    /// #191919
+    static let blackYak = UIColor.init(hex: "#191919")
+    
+    // MARK: UIColor를 HEX 값으로 지정할 수 있게 해줌
+    convenience init(hex: String) {
+        let scanner = Scanner(string: hex) // 문자 파서역할을 하는 클래스
+        _ = scanner.scanString("#")  // scanString은 iOS13 부터 지원
+        
+        var rgb: UInt64 = 0
+        scanner.scanHexInt64(&rgb)
+        
+        let r = Double((rgb >> 16) & 0xFF) / 255.0
+        let g = Double((rgb >> 8) & 0xFF) / 255.0
+        let b = Double((rgb >> 0) & 0xFF) / 255.0
+        self.init(red: CGFloat(r), green: CGFloat(g), blue: CGFloat(b), alpha: 1)
+    }
 }
+
