@@ -14,6 +14,7 @@
 		11707A2C2BA4CA780027802D /* FontManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11707A2B2BA4CA780027802D /* FontManager.swift */; };
 		11707A2E2BA4D3AC0027802D /* UILabel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11707A2D2BA4D3AC0027802D /* UILabel+.swift */; };
 		11707A322BA617EE0027802D /* ConfigUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11707A312BA617EE0027802D /* ConfigUI.swift */; };
+		11707A342BA83EED0027802D /* SleepPatternCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11707A332BA83EED0027802D /* SleepPatternCollectionViewCell.swift */; };
 		DB02B5292B98C92200C45F56 /* ReplyHeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB02B5272B98C92200C45F56 /* ReplyHeaderCollectionReusableView.swift */; };
 		DB02B52A2B98C92200C45F56 /* ReplyHeaderCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB02B5282B98C92200C45F56 /* ReplyHeaderCollectionReusableView.xib */; };
 		DB1E0E892B629804000A4AA5 /* DormitoryButtonHandlingProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1E0E882B629804000A4AA5 /* DormitoryButtonHandlingProtocol.swift */; };
@@ -64,6 +65,7 @@
 		11707A2B2BA4CA780027802D /* FontManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontManager.swift; sourceTree = "<group>"; };
 		11707A2D2BA4D3AC0027802D /* UILabel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+.swift"; sourceTree = "<group>"; };
 		11707A312BA617EE0027802D /* ConfigUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigUI.swift; sourceTree = "<group>"; };
+		11707A332BA83EED0027802D /* SleepPatternCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepPatternCollectionViewCell.swift; sourceTree = "<group>"; };
 		43ACFB5BF55DE00DF2B4C0CA /* Pods_dormitoryFamiles.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_dormitoryFamiles.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDEE29642D63D4042822783C /* Pods-dormitoryFamiles.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dormitoryFamiles.release.xcconfig"; path = "Target Support Files/Pods-dormitoryFamiles/Pods-dormitoryFamiles.release.xcconfig"; sourceTree = "<group>"; };
 		C5E033F1B4291ED8F85F0DAE /* Pods-dormitoryFamiles.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dormitoryFamiles.debug.xcconfig"; path = "Target Support Files/Pods-dormitoryFamiles/Pods-dormitoryFamiles.debug.xcconfig"; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 		11707A202BA4C8870027802D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				11707A332BA83EED0027802D /* SleepPatternCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -498,6 +501,7 @@
 				DBF466FB2AA5F4E4009FF3EB /* AppDelegate.swift in Sources */,
 				DB20F2942B95CBE00052CF5C /* SearchViewController.swift in Sources */,
 				DB1E0E8D2B62A995000A4AA5 /* SelectedDormitory.swift in Sources */,
+				11707A342BA83EED0027802D /* SleepPatternCollectionViewCell.swift in Sources */,
 				DBDF96EF2B84BFB2000E74AE /* ProfileFinishedViewController.swift in Sources */,
 				11707A2C2BA4CA780027802D /* FontManager.swift in Sources */,
 				DB2B7BCF2B457F7200C1847D /* UIButtonExtension.swift in Sources */,
