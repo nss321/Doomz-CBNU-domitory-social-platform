@@ -2328,10 +2328,10 @@
                                                 </constraints>
                                             </imageView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="g8I-rb-EBj">
-                                                <rect key="frame" x="20" y="22" width="182" height="28"/>
+                                                <rect key="frame" x="20" y="22" width="153.66666666666666" height="28"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n0i-BB-GvX" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="81" height="28"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="73.666666666666671" height="28"/>
                                                         <color key="backgroundColor" name="secondary"/>
                                                         <color key="tintColor" name="primary"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
@@ -2342,7 +2342,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WpS-3I-E5y" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
-                                                        <rect key="frame" x="89" y="0.0" width="93" height="28"/>
+                                                        <rect key="frame" x="81.666666666666671" y="0.0" width="72.000000000000014" height="28"/>
                                                         <color key="backgroundColor" red="0.84705882352941175" green="0.91764705882352937" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <state key="normal" title="Button"/>
@@ -2402,7 +2402,7 @@
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="chu-dA-cTO">
                                                         <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
-                                                        <color key="backgroundColor" red="0.96078431369999995" green="0.1764705882" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="100" id="CTJ-AT-yei"/>
                                                             <constraint firstAttribute="width" constant="100" id="fl6-NJ-Mij"/>
@@ -2417,7 +2417,7 @@
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I2H-IV-ci1">
                                                         <rect key="frame" x="118" y="0.0" width="100" height="100"/>
-                                                        <color key="backgroundColor" name="primaryMid"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="100" id="COU-Pq-67G"/>
                                                             <constraint firstAttribute="height" constant="100" id="vCE-u0-3HE"/>
@@ -2433,10 +2433,10 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Y1o-fA-GbL">
-                                                <rect key="frame" x="20" y="552.33333333333337" width="292" height="29"/>
+                                                <rect key="frame" x="20.000000000000014" y="552.33333333333337" width="246.33333333333337" height="29"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hpp-GL-I8u" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="102.66666666666667" height="29"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="85.333333333333329" height="29"/>
                                                         <color key="backgroundColor" name="gray0"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                         <state key="normal" title="#아침_헬스">
@@ -2450,7 +2450,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lg7-V9-yuC" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
-                                                        <rect key="frame" x="106.66666666666669" y="0.0" width="64" height="29"/>
+                                                        <rect key="frame" x="89.333333333333329" y="0.0" width="55.999999999999986" height="29"/>
                                                         <color key="backgroundColor" name="gray0"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                         <state key="normal" title="#갓생">
@@ -2464,7 +2464,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IDC-Ym-YKC" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
-                                                        <rect key="frame" x="174.66666666666666" y="0.0" width="117.33333333333334" height="29"/>
+                                                        <rect key="frame" x="149.33333333333334" y="0.0" width="97" height="29"/>
                                                         <color key="backgroundColor" name="gray0"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                         <state key="normal" title="#미라클_모닝">
@@ -2656,7 +2656,7 @@
                                 <rect key="frame" x="0.0" y="703" width="393" height="115"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hQh-uO-d5P" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
-                                        <rect key="frame" x="20.000000000000004" y="0.0" width="53.333333333333343" height="30"/>
+                                        <rect key="frame" x="20.000000000000004" y="0.0" width="51.333333333333343" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="1X9-OA-YY9"/>
                                         </constraints>
@@ -2714,7 +2714,7 @@
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zs1-QO-A3O" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
-                                        <rect key="frame" x="255.33333333333334" y="0.0" width="117.66666666666666" height="30"/>
+                                        <rect key="frame" x="269.66666666666669" y="0.0" width="103.33333333333331" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="IEy-tu-t4D"/>
                                         </constraints>
@@ -2785,6 +2785,7 @@
                         <outlet property="replyCountLabel" destination="2cL-XS-mzW" id="9tG-dV-0S8"/>
                         <outlet property="roundLine" destination="ADz-W5-7tf" id="t1V-Gh-dzW"/>
                         <outlet property="statusTag" destination="WpS-3I-E5y" id="1k1-U9-KOa"/>
+                        <outlet property="tagStackView" destination="Y1o-fA-GbL" id="6kK-Zv-jsc"/>
                         <outlet property="textViewSuperView" destination="wxR-xj-rw3" id="lmO-KF-1wL"/>
                         <outlet property="timeLabel" destination="3XP-3L-Mrw" id="HRf-Qb-UjP"/>
                         <outlet property="titleLabel" destination="gcn-uh-z8K" id="Sk0-rd-u7f"/>
@@ -3377,10 +3378,10 @@
             <size key="intrinsicContentSize" width="94.666666666666671" height="31"/>
         </designable>
         <designable name="Hpp-GL-I8u">
-            <size key="intrinsicContentSize" width="102.66666666666667" height="34.333333333333336"/>
+            <size key="intrinsicContentSize" width="85.333333333333329" height="31"/>
         </designable>
         <designable name="IDC-Ym-YKC">
-            <size key="intrinsicContentSize" width="117.33333333333333" height="34.333333333333336"/>
+            <size key="intrinsicContentSize" width="97" height="31"/>
         </designable>
         <designable name="Jb0-KK-Kah">
             <size key="intrinsicContentSize" width="59.666666666666664" height="31"/>
@@ -3398,7 +3399,7 @@
             <size key="intrinsicContentSize" width="21" height="25"/>
         </designable>
         <designable name="WpS-3I-E5y">
-            <size key="intrinsicContentSize" width="93" height="34.333333333333336"/>
+            <size key="intrinsicContentSize" width="72" height="31"/>
         </designable>
         <designable name="X9n-VV-0my">
             <size key="intrinsicContentSize" width="122.33333333333333" height="33.333333333333336"/>
@@ -3416,7 +3417,7 @@
             <size key="intrinsicContentSize" width="71.333333333333329" height="31"/>
         </designable>
         <designable name="hQh-uO-d5P">
-            <size key="intrinsicContentSize" width="53.333333333333336" height="34.333333333333336"/>
+            <size key="intrinsicContentSize" width="51.333333333333336" height="31"/>
         </designable>
         <designable name="i0r-bW-D14">
             <size key="intrinsicContentSize" width="135.66666666666666" height="33.333333333333336"/>
@@ -3428,13 +3429,13 @@
             <size key="intrinsicContentSize" width="59.666666666666664" height="31"/>
         </designable>
         <designable name="lg7-V9-yuC">
-            <size key="intrinsicContentSize" width="64" height="34.333333333333336"/>
+            <size key="intrinsicContentSize" width="56" height="31"/>
         </designable>
         <designable name="mkz-v3-one">
             <size key="intrinsicContentSize" width="53.666666666666664" height="34.333333333333336"/>
         </designable>
         <designable name="n0i-BB-GvX">
-            <size key="intrinsicContentSize" width="81" height="34.333333333333336"/>
+            <size key="intrinsicContentSize" width="73.666666666666671" height="31"/>
         </designable>
         <designable name="nzJ-Yb-Hjd">
             <size key="intrinsicContentSize" width="94.666666666666671" height="31"/>
@@ -3455,7 +3456,7 @@
             <size key="intrinsicContentSize" width="59.666666666666664" height="31"/>
         </designable>
         <designable name="zs1-QO-A3O">
-            <size key="intrinsicContentSize" width="117.66666666666667" height="34.333333333333336"/>
+            <size key="intrinsicContentSize" width="103.33333333333333" height="31"/>
         </designable>
     </designables>
     <resources>
