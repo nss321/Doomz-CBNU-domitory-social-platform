@@ -37,7 +37,12 @@ class PhotoScrollView: UIScrollView {
     
     func addImage(image: UIImage) {
         let newImageView = AddPhotoImageView(image: image)
+        photoStackView.addArrangedSubview(newImageView)
         
+        NSLayoutConstraint.activate([
+            newImageView.heightAnchor.constraint(equalToConstant: 80),
+            newImageView.widthAnchor.constraint(equalToConstant: 80)
+        ])
         
     }
     
