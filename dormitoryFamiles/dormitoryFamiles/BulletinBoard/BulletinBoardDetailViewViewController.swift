@@ -165,7 +165,20 @@ class BulletinBoardDetailViewViewController: UIViewController {
                 self.profileImage.image = UIImage(named: data.profileUrl)
                 self.dormitory.title5 = data.memberDormitory
                 self.categoryTag.subTitle2 = data.boardType
-                // 태그 세팅 로직 추가 필요
+                
+                //TODO: 태그를 스택뷰로 구현하였는데, 스택뷰는 한줄처리만 된다는 특성이 있기 때문에 컬렉션뷰로 대체해야함.
+                let tagArr = data.tags.split(separator: "#")
+                let trimmedString = String(data.tags.dropFirst())
+                let tagsArray = trimmedString.components(separatedBy: "#").map { "#\($0)" }
+                for tag in tagsArray {
+                    let tagButton = RoundButton()
+                    tagButton.backgroundColor = .gray0
+                    tagButton.setTitleColor(.gray5, for: .normal)
+                    tagButton.body2 = tag
+                    self.tagStackView.addArrangedSubview(tagButton)
+                }
+                
+                
                 self.contentLabel.body1 = data.content
                 self.likeCountLabel.text = String(data.wishCount)
                 // isWished 구현 필요
