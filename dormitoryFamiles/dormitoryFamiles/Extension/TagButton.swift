@@ -1,7 +1,6 @@
 import UIKit
 
 class RoundButton: UIButton {
-    
     var spacing: CGFloat = 4 {
         didSet {
             updateSpacing()
@@ -23,6 +22,7 @@ class RoundButton: UIButton {
         super.init(coder: coder)
         setupButton()
     }
+    
     
     private func setupButton() {
         self.layer.masksToBounds = true
