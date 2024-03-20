@@ -12,11 +12,13 @@ class PhotoScrollView: UIScrollView {
     var photoStackView = UIStackView()
     override init(frame: CGRect) {
         super.init(frame: frame)
+        layout()
         
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+        layout()
     }
     
 
