@@ -42,8 +42,8 @@ class PhotoScrollView: UIScrollView {
         photoStackView.addArrangedSubview(newImageView)
         
         NSLayoutConstraint.activate([
-            newImageView.heightAnchor.constraint(equalToConstant: 80),
-            newImageView.widthAnchor.constraint(equalToConstant: 80)
+            newImageView.heightAnchor.constraint(equalToConstant: 100),
+            newImageView.widthAnchor.constraint(equalToConstant: 100)
         ])
         
     }
