@@ -35,6 +35,8 @@ class BulletinBoardDetailViewViewController: UIViewController {
     @IBOutlet weak var replyCountLabel: UILabel!
     
     @IBOutlet weak var chatCountLabel: UILabel!
+    
+
     let headerCell = ReplyHeaderCollectionReusableView()
     var dataClass : DataClass?
     var id: Int = 0
@@ -112,9 +114,7 @@ class BulletinBoardDetailViewViewController: UIViewController {
                     let datetime = response.createdAt
                     self.timeLabel.body2 = changeToTime(createdAt: datetime)
                     self.dateLabel.body2 = changeToDate(createdAt: datetime)
-                    
-                    //TODO: 이미지url구현해야함
-                    
+                    //////////////////self.image
                     self.collectionView.reloadData()
                     
                     self.activityIndicator.stopAnimating()
@@ -201,7 +201,6 @@ class BulletinBoardDetailViewViewController: UIViewController {
         commentTextView.isScrollEnabled = false
         commentTextView.sizeToFit()
     }
-    
 }
 
 

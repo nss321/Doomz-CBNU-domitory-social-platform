@@ -154,6 +154,18 @@ class RegisterPostViewController: UIViewController {
         }
     }
     
+    private func layout() {
+        photoScrollView.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview(photoScrollView)
+        NSLayoutConstraint.activate([
+            photoScrollView.topAnchor.constraint(equalTo: , constant: <#T##CGFloat#>)
+            photoScrollView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            photoScrollView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            photoScrollView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
+        ])
+        
+    }
+    
 }
 
 extension RegisterPostViewController: UITextFieldDelegate {
