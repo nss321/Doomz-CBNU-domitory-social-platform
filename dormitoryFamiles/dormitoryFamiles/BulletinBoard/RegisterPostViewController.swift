@@ -166,7 +166,7 @@ class RegisterPostViewController: UIViewController {
             addPhotoScrollView.topAnchor.constraint(equalTo: self.descriptionStack.bottomAnchor, constant: 24),
             addPhotoScrollView.leadingAnchor.constraint(equalTo: self.descriptionStack.leadingAnchor),
             addPhotoScrollView.trailingAnchor.constraint(equalTo: self.descriptionStack.trailingAnchor),
-            addPhotoScrollView.heightAnchor.constraint(equalToConstant: 84)
+            addPhotoScrollView.heightAnchor.constraint(equalToConstant: 88)
         ])
     }
     
