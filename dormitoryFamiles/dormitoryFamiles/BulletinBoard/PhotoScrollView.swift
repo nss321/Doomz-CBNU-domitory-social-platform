@@ -107,18 +107,21 @@ class AddPhotoScrollView: PhotoScrollView {
         addPhotoButtonView.translatesAutoresizingMaskIntoConstraints = false
         buttonComponentStackView.translatesAutoresizingMaskIntoConstraints = false
         addPhotoButton.translatesAutoresizingMaskIntoConstraints = false
+
         addPhotoButtonView.addSubview(addPhotoButton)
         addPhotoButton.addSubview(buttonComponentStackView)
         photoStackView.addArrangedSubview(addPhotoButtonView)
-        
+
         NSLayoutConstraint.activate([
             buttonComponentStackView.centerXAnchor.constraint(equalTo: addPhotoButton.centerXAnchor),
             buttonComponentStackView.centerYAnchor.constraint(equalTo: addPhotoButton.centerYAnchor),
+            addPhotoButton.bottomAnchor.constraint(equalTo: addPhotoButtonView.bottomAnchor),
             addPhotoButton.widthAnchor.constraint(equalToConstant: 80),
             addPhotoButton.heightAnchor.constraint(equalToConstant: 80),
             addPhotoButtonView.widthAnchor.constraint(equalToConstant: 80),
-            addPhotoButtonView.heightAnchor.constraint(equalToConstant: 84)
+            addPhotoButtonView.heightAnchor.constraint(equalToConstant: 88)
         ])
+
     }
     
     func setLayout() {
@@ -132,11 +135,14 @@ class AddPhotoScrollView: PhotoScrollView {
     }
 
     
-    override func addImage(image: UIImage) {
-        let newImageView = AddPhotoImageView(image: image)
-        let baseView = UIView()
-        baseView.addSubview(newImageView)
-        photoStackView.addArrangedSubview(baseView)
-    }
+//    override func addImage(image: UIImage) {
+//        let newImageView = AddPhotoImageView(image: image)
+//        let baseView = UIView()
+//        let cancelButton = UIButton()
+//
+//        cancelButton.setImage(UIImage(named: <#T##String#>), for: <#T##UIControl.State#>)
+//
+//        baseView.addSubview(newImageView)
+//        photoStackView.addArrangedSubview(baseView)
+//    }
 }
-
