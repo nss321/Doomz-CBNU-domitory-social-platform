@@ -68,21 +68,21 @@ class AddPhotoScrollView: PhotoScrollView {
     private func setUI() {
         setCameraView()
         setCountPictureLabel()
-        setAddPhotoButton()
         setButtonComponentStackView()
-        photoStackView.addArrangedSubview(addPhotoButton)
+        setAddPhotoButton()
+        setLayout()
+        addImage(image: UIImage(named: "registerCamera")!)
     }
     
     private func setCameraView() {
-        cameraView.image = UIImage(systemName: "camera")
+        cameraView.image = UIImage(named: "registerCamera")
         cameraView.tintColor = .black
         cameraView.isUserInteractionEnabled = true
         
         cameraView.translatesAutoresizingMaskIntoConstraints = false
-        addSubview(cameraView)
         NSLayoutConstraint.activate([
-            cameraView.heightAnchor.constraint(equalToConstant: 29),
-            cameraView.widthAnchor.constraint(equalToConstant: 35)
+            cameraView.heightAnchor.constraint(equalToConstant: 24),
+            cameraView.widthAnchor.constraint(equalToConstant: 28)
         ])
     }
     
@@ -95,20 +95,42 @@ class AddPhotoScrollView: PhotoScrollView {
     }
     
     private func setButtonComponentStackView() {
-        photoStackView.addArrangedSubview(cameraView)
-        photoStackView.addArrangedSubview(countPictureLabel)
-        photoStackView.spacing = 5
-        photoStackView.axis = .vertical
+        buttonComponentStackView.addArrangedSubview(cameraView)
+        buttonComponentStackView.addArrangedSubview(countPictureLabel)
+        buttonComponentStackView.axis = .vertical
+        photoStackView.spacing = 12
+        photoStackView.axis = .horizontal
     }
     
     private func setAddPhotoButton() {
         buttonComponentStackView.translatesAutoresizingMaskIntoConstraints = false
+        addPhotoButton.translatesAutoresizingMaskIntoConstraints = false
         addPhotoButton.addSubview(buttonComponentStackView)
+        photoStackView.addArrangedSubview(addPhotoButton)
         
         NSLayoutConstraint.activate([
             buttonComponentStackView.centerXAnchor.constraint(equalTo: addPhotoButton.centerXAnchor),
-            buttonComponentStackView.centerYAnchor.constraint(equalTo: addPhotoButton.centerYAnchor)
+            buttonComponentStackView.centerYAnchor.constraint(equalTo: addPhotoButton.centerYAnchor),
+            addPhotoButton.widthAnchor.constraint(equalToConstant: 80)
         ])
+    }
+    
+    func setLayout() {
+        NSLayoutConstraint.activate([
+            photoStackView.topAnchor.constraint(equalTo: self.topAnchor),
+            photoStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            photoStackView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            photoStackView.heightAnchor.constraint(equalTo: self.heightAnchor),
+            photoStackView.widthAnchor.constraint(equalTo: self.widthAnchor) // 추가
+        ])
+    }
+
+    
+    override func addImage(image: UIImage) {
+        let newImageView = AddPhotoImageView(image: image)
+        let baseView = UIView()
+        baseView.addSubview(newImageView)
+        photoStackView.addArrangedSubview(baseView)
     }
 }
 

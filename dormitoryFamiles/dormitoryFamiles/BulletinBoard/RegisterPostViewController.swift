@@ -34,10 +34,12 @@ class RegisterPostViewController: UIViewController {
     
     @IBOutlet weak var finishButton: UIButton!
     
+    @IBOutlet weak var descriptionStack: UIStackView!
     
     let dropDown = DropDown()
     let textFieldMaxLength = 20
     let textViewMaxLength = 300
+    let addPhotoScrollView = AddPhotoScrollView()
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -63,6 +65,7 @@ class RegisterPostViewController: UIViewController {
     }
     
     private func setUI() {
+        layoutPhotoScrollView()
         countTextViewTextLabel.textAlignment = .right
         countTextViewTextLabel.numberOfLines = 0 // 라인 수 제한을 해제
         countTextViewTextLabel.sizeToFit()
@@ -154,6 +157,17 @@ class RegisterPostViewController: UIViewController {
             
             task.resume()
         }
+    }
+    
+    private func layoutPhotoScrollView() {
+        addPhotoScrollView.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview(addPhotoScrollView)
+        NSLayoutConstraint.activate([
+            addPhotoScrollView.topAnchor.constraint(equalTo: self.descriptionStack.bottomAnchor, constant: 24),
+            addPhotoScrollView.leadingAnchor.constraint(equalTo: self.descriptionStack.leadingAnchor),
+            addPhotoScrollView.trailingAnchor.constraint(equalTo: self.descriptionStack.trailingAnchor),
+            addPhotoScrollView.heightAnchor.constraint(equalToConstant: 84)
+        ])
     }
     
 }
