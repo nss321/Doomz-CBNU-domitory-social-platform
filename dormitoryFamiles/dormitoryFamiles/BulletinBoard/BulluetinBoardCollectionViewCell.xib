@@ -24,7 +24,7 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="EPc-sW-8rF">
-                        <rect key="frame" x="16" y="78.333333333333329" width="231" height="64.999999999999986"/>
+                        <rect key="frame" x="16" y="55" width="231" height="65"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="바퀴벌레 잡아주실분 ㅠㅠ!!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nJr-b4-0XJ">
                                 <rect key="frame" x="0.0" y="0.0" width="180.33333333333334" height="20.333333333333332"/>
@@ -36,7 +36,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="양진재 예지관 907호 바퀴벌레 나왔어요.. 제발 잡아주세요 제발 잡아줄사람 사례할게요" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bjf-f6-SsP">
-                                <rect key="frame" x="0.0" y="24.333333333333339" width="227" height="40.666666666666657"/>
+                                <rect key="frame" x="0.0" y="24.333333333333325" width="227" height="40.666666666666657"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" name="gray5"/>
                                 <nil key="highlightedColor"/>
@@ -70,7 +70,7 @@
                         </constraints>
                     </imageView>
                     <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="3L1-Hq-CEM">
-                        <rect key="frame" x="37" y="129.66666666666666" width="149.33333333333334" height="20.333333333333343"/>
+                        <rect key="frame" x="37" y="129.66666666666666" width="152" height="20.333333333333343"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SQE-bh-vgU">
                                 <rect key="frame" x="0.0" y="0.0" width="41.333333333333336" height="20.333333333333332"/>
@@ -82,13 +82,13 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="|" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6PH-PA-xCd">
-                                <rect key="frame" x="46.333333333333329" y="0.0" width="2.6666666666666643" height="20.333333333333332"/>
+                                <rect key="frame" x="46.333333333333329" y="0.0" width="4" height="20.333333333333332"/>
                                 <fontDescription key="fontDescription" name="PretendardVariable-Regular" family="Pretendard Variable" pointSize="12"/>
                                 <color key="textColor" name="gray3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sj9-bg-ZmC">
-                                <rect key="frame" x="54" y="0.0" width="41.333333333333343" height="20.333333333333332"/>
+                                <rect key="frame" x="55.333333333333329" y="0.0" width="41.333333333333329" height="20.333333333333332"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" name="gray3"/>
                                 <nil key="highlightedColor"/>
@@ -97,13 +97,13 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="|" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0bb-2G-QHE">
-                                <rect key="frame" x="100.33333333333334" y="0.0" width="2.6666666666666714" height="20.333333333333332"/>
+                                <rect key="frame" x="101.66666666666666" y="0.0" width="4" height="20.333333333333332"/>
                                 <fontDescription key="fontDescription" name="PretendardVariable-Regular" family="Pretendard Variable" pointSize="12"/>
                                 <color key="textColor" name="gray3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YQx-58-eSh">
-                                <rect key="frame" x="107.99999999999999" y="0.0" width="41.333333333333329" height="20.333333333333332"/>
+                                <rect key="frame" x="110.66666666666664" y="0.0" width="41.333333333333329" height="20.333333333333332"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" name="gray3"/>
                                 <nil key="highlightedColor"/>
@@ -121,36 +121,36 @@
                         </constraints>
                     </imageView>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bulluetinBoardChat" translatesAutoresizingMaskIntoConstraints="NO" id="PnJ-sO-cHV">
-                        <rect key="frame" x="299" y="137" width="12" height="12"/>
+                        <rect key="frame" x="298.33333333333331" y="137" width="12" height="12"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="12" id="5ej-iN-IxJ"/>
                             <constraint firstAttribute="width" constant="12" id="RL9-mf-CVQ"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4D9-Wa-ky2">
-                        <rect key="frame" x="314" y="136" width="7" height="14"/>
+                        <rect key="frame" x="313.33333333333331" y="135.66666666666666" width="7.6666666666666856" height="14.333333333333343"/>
                         <fontDescription key="fontDescription" name="PretendardVariable-Regular" family="Pretendard Variable" pointSize="12"/>
                         <color key="textColor" name="gray5"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t2h-SG-48e">
-                        <rect key="frame" x="284" y="136" width="7" height="14"/>
+                        <rect key="frame" x="282.66666666666669" y="135.66666666666666" width="7.6666666666666856" height="14.333333333333343"/>
                         <fontDescription key="fontDescription" name="PretendardVariable-Regular" family="Pretendard Variable" pointSize="12"/>
                         <color key="textColor" name="gray5"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bulluetinBoardLike" translatesAutoresizingMaskIntoConstraints="NO" id="pff-wj-puL">
-                        <rect key="frame" x="269" y="138" width="12" height="10"/>
+                        <rect key="frame" x="267.66666666666669" y="138" width="12" height="10"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="10" id="fIx-1S-E8u"/>
                             <constraint firstAttribute="width" constant="12" id="kyR-M2-RI3"/>
                         </constraints>
                     </imageView>
                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="UFo-WA-dgi">
-                        <rect key="frame" x="16" y="16.000000000000004" width="155" height="54.333333333333343"/>
+                        <rect key="frame" x="16" y="16" width="151.66666666666666" height="31"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rfh-xG-L3a" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="87" height="54.333333333333336"/>
+                                <rect key="frame" x="0.0" y="0.0" width="83.666666666666671" height="31"/>
                                 <color key="backgroundColor" name="secondary"/>
                                 <color key="tintColor" name="primary"/>
                                 <state key="normal" title="Button"/>
@@ -168,7 +168,7 @@
                                 </userDefinedRuntimeAttributes>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uk3-md-aWm" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
-                                <rect key="frame" x="95" y="0.0" width="60" height="54.333333333333336"/>
+                                <rect key="frame" x="91.666666666666671" y="0.0" width="60.000000000000014" height="31"/>
                                 <color key="backgroundColor" red="0.84705882352941175" green="0.91764705882352937" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="MLh-ok-EBS"/>
@@ -234,10 +234,10 @@
     </objects>
     <designables>
         <designable name="rfh-xG-L3a">
-            <size key="intrinsicContentSize" width="97.666666666666671" height="34.333333333333336"/>
+            <size key="intrinsicContentSize" width="83.333333333333329" height="31"/>
         </designable>
         <designable name="uk3-md-aWm">
-            <size key="intrinsicContentSize" width="68.333333333333329" height="34.333333333333336"/>
+            <size key="intrinsicContentSize" width="59.666666666666664" height="31"/>
         </designable>
     </designables>
     <resources>
