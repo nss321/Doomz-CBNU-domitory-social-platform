@@ -135,6 +135,8 @@ class RegisterPostViewController: UIViewController {
             let url = URL(string: "http://43.202.254.127:8080/api/articles")!
             var request = URLRequest(url: url)
             request.httpMethod = "POST"
+            let token = Token.shared.number
+            request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
             request.addValue("application/json", forHTTPHeaderField: "Content-Type")
             request.httpBody = jsonData
             
