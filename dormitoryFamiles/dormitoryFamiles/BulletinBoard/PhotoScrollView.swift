@@ -52,6 +52,7 @@ class PhotoScrollView: UIScrollView {
 
 class AddPhotoScrollView: PhotoScrollView {
     let addPhotoButton = UIButton()
+    let addPhotoButtonView = UIView()
     private let cameraView = UIImageView()
     let countPictureLabel = UILabel()
     private let buttonComponentStackView = UIStackView()
@@ -103,25 +104,30 @@ class AddPhotoScrollView: PhotoScrollView {
     }
     
     private func setAddPhotoButton() {
+        addPhotoButtonView.translatesAutoresizingMaskIntoConstraints = false
         buttonComponentStackView.translatesAutoresizingMaskIntoConstraints = false
         addPhotoButton.translatesAutoresizingMaskIntoConstraints = false
+        addPhotoButtonView.addSubview(addPhotoButton)
         addPhotoButton.addSubview(buttonComponentStackView)
-        photoStackView.addArrangedSubview(addPhotoButton)
+        photoStackView.addArrangedSubview(addPhotoButtonView)
         
         NSLayoutConstraint.activate([
             buttonComponentStackView.centerXAnchor.constraint(equalTo: addPhotoButton.centerXAnchor),
             buttonComponentStackView.centerYAnchor.constraint(equalTo: addPhotoButton.centerYAnchor),
-            addPhotoButton.widthAnchor.constraint(equalToConstant: 80)
+            addPhotoButton.widthAnchor.constraint(equalToConstant: 80),
+            addPhotoButton.heightAnchor.constraint(equalToConstant: 80),
+            addPhotoButtonView.widthAnchor.constraint(equalToConstant: 80),
+            addPhotoButtonView.heightAnchor.constraint(equalToConstant: 84)
         ])
     }
     
     func setLayout() {
         NSLayoutConstraint.activate([
-            photoStackView.topAnchor.constraint(equalTo: self.topAnchor),
+            photoStackView.heightAnchor.constraint(equalTo: self.heightAnchor),
             photoStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             photoStackView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            photoStackView.heightAnchor.constraint(equalTo: self.heightAnchor),
-            photoStackView.widthAnchor.constraint(equalTo: self.widthAnchor) // 추가
+            photoStackView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            photoStackView.widthAnchor.constraint(equalTo: self.widthAnchor)
         ])
     }
 
