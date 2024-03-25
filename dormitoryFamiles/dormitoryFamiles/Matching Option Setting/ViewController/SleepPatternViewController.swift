@@ -22,9 +22,18 @@ final class SleepPatternViewController: UIViewController, ConfigUI {
         "오전 9시", "오전 10시", "오전 10시 이후"
     ]
     
+    let habits: [String] = [
+        "이갈이", "코골이", "잠꼬대", "없음"
+    ]
+    
+    let sensitivity: [String] = [
+        "어두움", "밝음", "없음"
+    ]
+    
     private let scrollView: UIScrollView = {
         let view = UIScrollView()
         view.backgroundColor = .gray2
+        view.showsVerticalScrollIndicator = false
         return view
     }()
     
@@ -94,7 +103,7 @@ final class SleepPatternViewController: UIViewController, ConfigUI {
         return view
     }()
     
-    private lazy var testCollectionView: UICollectionView = {
+    private lazy var bedTiemCollectionView: UICollectionView = {
         let view = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
         view.register(SleepPatternCollectionViewCell.self, forCellWithReuseIdentifier: SleepPatternCollectionViewCell.identifier)
         view.backgroundColor = .clear
@@ -103,7 +112,26 @@ final class SleepPatternViewController: UIViewController, ConfigUI {
         return view
     }()
     
-    private lazy var test2CollectionView: UICollectionView = {
+    private lazy var wakeupTimeCollcetionView: UICollectionView = {
+        let view = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+        view.register(SleepPatternCollectionViewCell.self, forCellWithReuseIdentifier: SleepPatternCollectionViewCell.identifier)
+        view.backgroundColor = .clear
+        view.dataSource = self
+        view.delegate = self
+        return view
+        
+    }()
+    
+    private lazy var sleepingHabitsCollectionView: UICollectionView = {
+        let view = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+        view.register(SleepPatternCircleCollectionViewCell.self, forCellWithReuseIdentifier: SleepPatternCircleCollectionViewCell.identifier)
+        view.backgroundColor = .clear
+        view.dataSource = self
+        view.delegate = self
+        return view
+    }()
+    
+    private lazy var sleepSensitivityCollectionView: UICollectionView = {
         let view = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
         view.register(SleepPatternCollectionViewCell.self, forCellWithReuseIdentifier: SleepPatternCollectionViewCell.identifier)
         view.backgroundColor = .clear
@@ -121,13 +149,15 @@ final class SleepPatternViewController: UIViewController, ConfigUI {
     }
     
     func addComponents() {
-        let test =  createStackViewWithLabelAndSubview(string: "취침시간", subview: testCollectionView)
-        let test2 =  createStackViewWithLabelAndSubview(string: "기상시간", subview: test2CollectionView)
+        let bedTimeSection =  createStackViewWithLabelAndSubview(string: "취침시간", subview: bedTiemCollectionView)
+        let wakeupTimeSection =  createStackViewWithLabelAndSubview(string: "기상시간", subview: wakeupTimeCollcetionView)
+        let habitsSection = createStackViewWithLabelAndSubview(string: "잠버릇", subview: sleepingHabitsCollectionView)
+        let sensitivitySection = createStackViewWithLabelAndSubview(string: "잠귀", subview: sleepSensitivityCollectionView)
         view.addSubview(scrollView)
         scrollView.addSubview(stackView)
         [logoStackView, sleepPatternStackView].forEach{ stackView.addArrangedSubview($0) }
         [currentStep, progressBar, sleepPatternLogo, contentLabel].forEach { logoStackView.addArrangedSubview($0) }
-        [test, test2].forEach { sleepPatternStackView.addArrangedSubview($0) }
+        [bedTimeSection, wakeupTimeSection, habitsSection, sensitivitySection].forEach { sleepPatternStackView.addArrangedSubview($0) }
     }
     
     func setConstraints() {
@@ -137,16 +167,28 @@ final class SleepPatternViewController: UIViewController, ConfigUI {
             $0.bottom.equalToSuperview()
         }
         
-        testCollectionView.snp.makeConstraints {
+        bedTiemCollectionView.snp.makeConstraints {
             $0.left.right.equalToSuperview()
             $0.width.equalTo(view.snp.width).inset(20)
             $0.height.equalTo(160)
         }
         
-        test2CollectionView.snp.makeConstraints {
+        wakeupTimeCollcetionView.snp.makeConstraints {
             $0.left.right.equalToSuperview()
             $0.width.equalTo(view.snp.width).inset(20)
             $0.height.equalTo(160)
+        }
+        
+        sleepingHabitsCollectionView.snp.makeConstraints {
+            $0.left.right.equalToSuperview()
+            $0.width.equalTo(view.snp.width).inset(26)
+            $0.height.equalTo(72)
+        }
+        
+        sleepSensitivityCollectionView.snp.makeConstraints {
+            $0.left.right.equalToSuperview()
+            $0.width.equalTo(view.snp.width).inset(20)
+            $0.height.equalTo(106)
         }
         
         stackView.snp.makeConstraints {
@@ -160,41 +202,96 @@ final class SleepPatternViewController: UIViewController, ConfigUI {
 extension SleepPatternViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SleepPatternCollectionViewCell.identifier, for: indexPath) as? SleepPatternCollectionViewCell else { fatalError() }
-        
         switch collectionView {
-        case testCollectionView:
+        case bedTiemCollectionView:
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SleepPatternCollectionViewCell.identifier, for: indexPath) as? SleepPatternCollectionViewCell else { fatalError() }
             cell.configure(with: goToSleepTimes[indexPath.row])
-        case test2CollectionView:
+            return cell
+        case wakeupTimeCollcetionView:
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SleepPatternCollectionViewCell.identifier, for: indexPath) as? SleepPatternCollectionViewCell else { fatalError() }
             cell.configure(with: wakeupTimes[indexPath.row])
+            return cell
+        case sleepingHabitsCollectionView:
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SleepPatternCircleCollectionViewCell.identifier, for: indexPath) as? SleepPatternCircleCollectionViewCell else { fatalError() }
+            cell.configure(with: habits[indexPath.row])
+            return cell
+        case sleepSensitivityCollectionView:
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SleepPatternCollectionViewCell.identifier, for: indexPath) as? SleepPatternCollectionViewCell else { fatalError() }
+            cell.configure(with: sensitivity[indexPath.row])
+            return cell
+        
         default:
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SleepPatternCollectionViewCell.identifier, for: indexPath) as? SleepPatternCollectionViewCell else { fatalError() }
             cell.configure(with: goToSleepTimes[indexPath.row])
+            return cell
         }
-        //        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SleepPatternCollectionViewCell.identifier, for: indexPath) as? SleepPatternCollectionViewCell else { fatalError() }
-        //
-        //        if collectionView == testCollectionView {
-        //            cell.configure(with: goToSleepTimes[indexPath.row])
-        //        } else {
-        //            cell.configure(with: wakeupTimes[indexPath.row])
-        //        }
-        //        return cell
-        return cell
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return goToSleepTimes.count
+        let numberOfItem: Int
+        
+        switch collectionView {
+        case sleepingHabitsCollectionView:
+            numberOfItem = habits.count
+        case sleepSensitivityCollectionView:
+            numberOfItem = sensitivity.count
+        default:
+            numberOfItem = goToSleepTimes.count
+        }
+        return numberOfItem
     }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 8
+        let lineSpacing: CGFloat
+        
+        switch collectionView {
+        case sleepingHabitsCollectionView, sleepSensitivityCollectionView:
+            lineSpacing = 0
+        default:
+            lineSpacing = 8
+        }
+        return lineSpacing
     }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 8
+        let interSpacing: CGFloat
+        
+        switch collectionView {
+        case sleepingHabitsCollectionView:
+            interSpacing = 8
+        default:
+            interSpacing = 8
+        }
+        return interSpacing
     }
 }
     
 extension SleepPatternViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 106, height: 48)
+        let cellSize: CGSize
+        
+        switch collectionView {
+        case sleepingHabitsCollectionView:
+            cellSize = CGSize(width: 72, height: 72)
+        default:
+            cellSize = CGSize(width: 106, height: 48)
+        }
+        return cellSize
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        switch collectionView {
+        case bedTiemCollectionView:
+            print("\(collectionView)의 \(indexPath.row) 선택")
+        case wakeupTimeCollcetionView:
+            print("\(collectionView)의 \(indexPath.row) 선택")
+        case  sleepingHabitsCollectionView:
+            print("\(collectionView)의 \(indexPath.row) 선택")
+        default:
+            print("\(indexPath.row) 선택")
+        }
+        
     }
 }
     
