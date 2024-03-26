@@ -10,7 +10,7 @@ import SnapKit
 //import DropDown
 
 final class SleepPatternViewController: UIViewController, ConfigUI {
-    
+    //슬랙연동되었나?
     let goToSleepTimes: [String] = [
         "오후 9시 이전", "오후 9시", "오후 10시",
         "오후 11시", "오후 12시", "오전 1시",
