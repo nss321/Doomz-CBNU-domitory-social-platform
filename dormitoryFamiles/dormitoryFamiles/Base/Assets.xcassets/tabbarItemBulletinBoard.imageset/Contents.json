@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "게시판 아이콘 18.svg",
+      "filename" : "tabbarItemBulletinBoard 1.svg",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "게시판 아이콘 19.svg",
+      "filename" : "tabbarItemBulletinBoard 2.svg",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "게시판 아이콘 20.svg",
+      "filename" : "tabbarItemBulletinBoard 3.svg",
       "idiom" : "universal",
       "scale" : "3x"
     }
