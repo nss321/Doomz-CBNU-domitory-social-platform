@@ -27,8 +27,6 @@ enum NPSType: String {
     case bold = "NPS-font-Bold"
 }
 
-
-
 struct FontManager {
     static let shared = FontManager()
      
