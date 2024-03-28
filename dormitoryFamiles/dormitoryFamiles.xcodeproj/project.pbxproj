@@ -17,6 +17,7 @@
 		11707A342BA83EED0027802D /* SleepPatternCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11707A332BA83EED0027802D /* SleepPatternCollectionViewCell.swift */; };
 		117250E52BB19FE20083F181 /* SleepPatternCircleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117250E42BB19FE20083F181 /* SleepPatternCircleCollectionViewCell.swift */; };
 		117250E72BB31AF60083F181 /* CommomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117250E62BB31AF60083F181 /* CommomButton.swift */; };
+		117250E92BB5927E0083F181 /* SmokeAndAlcoholPatternViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117250E82BB5927E0083F181 /* SmokeAndAlcoholPatternViewController.swift */; };
 		DB02B5292B98C92200C45F56 /* ReplyHeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB02B5272B98C92200C45F56 /* ReplyHeaderCollectionReusableView.swift */; };
 		DB02B52A2B98C92200C45F56 /* ReplyHeaderCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB02B5282B98C92200C45F56 /* ReplyHeaderCollectionReusableView.xib */; };
 		DB1E0E892B629804000A4AA5 /* DormitoryButtonHandlingProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1E0E882B629804000A4AA5 /* DormitoryButtonHandlingProtocol.swift */; };
@@ -70,6 +71,7 @@
 		11707A332BA83EED0027802D /* SleepPatternCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepPatternCollectionViewCell.swift; sourceTree = "<group>"; };
 		117250E42BB19FE20083F181 /* SleepPatternCircleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepPatternCircleCollectionViewCell.swift; sourceTree = "<group>"; };
 		117250E62BB31AF60083F181 /* CommomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommomButton.swift; sourceTree = "<group>"; };
+		117250E82BB5927E0083F181 /* SmokeAndAlcoholPatternViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmokeAndAlcoholPatternViewController.swift; sourceTree = "<group>"; };
 		43ACFB5BF55DE00DF2B4C0CA /* Pods_dormitoryFamiles.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_dormitoryFamiles.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDEE29642D63D4042822783C /* Pods-dormitoryFamiles.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dormitoryFamiles.release.xcconfig"; path = "Target Support Files/Pods-dormitoryFamiles/Pods-dormitoryFamiles.release.xcconfig"; sourceTree = "<group>"; };
 		C5E033F1B4291ED8F85F0DAE /* Pods-dormitoryFamiles.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dormitoryFamiles.debug.xcconfig"; path = "Target Support Files/Pods-dormitoryFamiles/Pods-dormitoryFamiles.debug.xcconfig"; sourceTree = "<group>"; };
@@ -156,6 +158,7 @@
 			isa = PBXGroup;
 			children = (
 				11707A222BA4C8CC0027802D /* SleepPatternViewController.swift */,
+				117250E82BB5927E0083F181 /* SmokeAndAlcoholPatternViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -493,6 +496,7 @@
 				DB7BE9E72BA47A5E00BC25E3 /* ReplyCollectionViewCell.swift in Sources */,
 				DB61AA342B4C1EA70040418B /* RegisterPostViewController.swift in Sources */,
 				DB20E38E2B53D75F000D12A7 /* extensionStroyboard.swift in Sources */,
+				117250E92BB5927E0083F181 /* SmokeAndAlcoholPatternViewController.swift in Sources */,
 				DBD1E7FC2B84A9D500FD71C6 /* Network.swift in Sources */,
 				DB2B7BCB2B45727B00C1847D /* TagButton.swift in Sources */,
 				11707A322BA617EE0027802D /* ConfigUI.swift in Sources */,

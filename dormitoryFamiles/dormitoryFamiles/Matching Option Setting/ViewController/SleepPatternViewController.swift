@@ -7,10 +7,9 @@
 
 import UIKit
 import SnapKit
-//import DropDown
 
 final class SleepPatternViewController: UIViewController, ConfigUI {
-    //슬랙연동되었나?
+    
     let goToSleepTimes: [String] = [
         "오후 9시 이전", "오후 9시", "오후 10시",
         "오후 11시", "오후 12시", "오전 1시",
@@ -30,10 +29,6 @@ final class SleepPatternViewController: UIViewController, ConfigUI {
     let sensitivity: [String] = [
         "어두움", "밝음", "없음"
     ]
-    
-//    let alarmRepetitions: [String] = [
-//        "1회", "2회", "3회", "4회", "5회"
-//    ]
     
     private let scrollView: UIScrollView = {
         let view = UIScrollView()
@@ -137,29 +132,6 @@ final class SleepPatternViewController: UIViewController, ConfigUI {
         return view
     }()
     
-//    private let dropDownButton: UIView = {
-//        let view = UIView()
-//        view.backgroundColor = .clear
-//        view.layer.borderColor = UIColor.gray5?.cgColor
-//        view.layer.borderWidth = 1
-//        view.layer.cornerRadius = 12
-//        
-//        let label = UILabel()
-//        label.text = "횟수선택"
-//        label.font = FontManager.body1()
-//        label.textColor = .gray4
-//        label.addCharacterSpacing()
-//        
-//        view.addSubview(label)
-//        
-//        label.snp.makeConstraints {
-//            $0.left.equalToSuperview().inset(16)
-//            $0.centerY.equalToSuperview()
-//        }
-//        
-//        return view
-//    }()
-    
     private let nextButton = CommonButton()
     
     private lazy var nextButtonModel = CommonbuttonModel(title: "다음", titleColor: .white ,backgroundColor: .gray3!, height: 52) {
@@ -172,7 +144,6 @@ final class SleepPatternViewController: UIViewController, ConfigUI {
         addComponents()
         setConstraints()
         setupNavigationBar("긱사생활 설정")
-//        setDropDown()
         nextButton.setup(model: nextButtonModel)
     }
     
@@ -181,7 +152,7 @@ final class SleepPatternViewController: UIViewController, ConfigUI {
         let wakeupTimeSection =  createStackViewWithLabelAndSubview(string: "기상시간", subview: wakeupTimeCollcetionView)
         let habitsSection = createStackViewWithLabelAndSubview(string: "잠버릇", subview: sleepingHabitsCollectionView)
         let sensitivitySection = createStackViewWithLabelAndSubview(string: "잠귀", subview: sleepSensitivityCollectionView)
-//        let alarmSection = createStackViewWithLabelAndSubview(string: "알람 횟수", subview: dropDownButton)
+
         view.addSubview(scrollView)
         scrollView.addSubview(stackView)
         [logoStackView, sleepPatternStackView].forEach{ stackView.addArrangedSubview($0) }
@@ -226,21 +197,10 @@ final class SleepPatternViewController: UIViewController, ConfigUI {
             $0.width.equalToSuperview()
         }
         
-//        dropDownButton.snp.makeConstraints {
-//            $0.left.right.equalToSuperview()
-//            $0.width.equalTo(view.snp.width).inset(20)
-//            $0.height.equalTo(52)
-//        }
-        
         nextButton.snp.makeConstraints {
             $0.left.right.equalToSuperview()
         }
     }
-    
-//    func setDropDown() {
-//        let dropDown = DropDown()
-//        dropDown.dataSource = alarmRepetitions
-//    }
 }
 
 extension SleepPatternViewController: UICollectionViewDataSource {
