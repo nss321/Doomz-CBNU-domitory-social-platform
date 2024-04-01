@@ -72,7 +72,6 @@ class AddPhotoScrollView: PhotoScrollView {
         setButtonComponentStackView()
         setAddPhotoButton()
         setLayout()
-        addImage(image: UIImage(named: "registerCamera")!)
     }
     
     private func setCameraView() {
@@ -112,7 +111,7 @@ class AddPhotoScrollView: PhotoScrollView {
         addPhotoButtonView.addSubview(addPhotoButton)
         addPhotoButton.addSubview(buttonComponentStackView)
         addPhotoStackView.addArrangedSubview(addPhotoButtonView)
-        addPhotoButton.backgroundColor = .brown
+
         NSLayoutConstraint.activate([
             buttonComponentStackView.centerXAnchor.constraint(equalTo: addPhotoButton.centerXAnchor),
             buttonComponentStackView.centerYAnchor.constraint(equalTo: addPhotoButton.centerYAnchor),
@@ -134,14 +133,35 @@ class AddPhotoScrollView: PhotoScrollView {
     }
 
     
-//    override func addImage(image: UIImage) {
-//        let newImageView = AddPhotoImageView(image: image)
-//        let baseView = UIView()
-//        let cancelButton = UIButton()
-//
-//        cancelButton.setImage(UIImage(named: <#T##String#>), for: <#T##UIControl.State#>)
-//
-//        baseView.addSubview(newImageView)
-//        photoStackView.addArrangedSubview(baseView)
-//    }
+    override func addImage(image: UIImage) {
+        let newImageView = AddPhotoImageView(image: image)
+        let baseView = UIView()
+        let cancelButton = UIButton()
+        cancelButton.setImage(UIImage(named: "cancelButton"), for: .normal)
+        baseView.addSubview(newImageView)
+        baseView.addSubview(cancelButton)
+        addPhotoStackView.addArrangedSubview(baseView)
+        
+        baseView.translatesAutoresizingMaskIntoConstraints = false
+        newImageView.translatesAutoresizingMaskIntoConstraints = false
+        cancelButton.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+
+            baseView.widthAnchor.constraint(equalToConstant: 90),
+            baseView.heightAnchor.constraint(equalToConstant: 90),
+
+            newImageView.topAnchor.constraint(equalTo: baseView.topAnchor, constant: 10),
+            newImageView.leadingAnchor.constraint(equalTo: baseView.leadingAnchor),
+            newImageView.heightAnchor.constraint(equalToConstant: 80),
+            newImageView.widthAnchor.constraint(equalToConstant: 80),
+
+            cancelButton.topAnchor.constraint(equalTo: baseView.topAnchor),
+            cancelButton.trailingAnchor.constraint(equalTo: baseView.trailingAnchor),
+            cancelButton.heightAnchor.constraint(equalToConstant: 20),
+            cancelButton.widthAnchor.constraint(equalToConstant: 20)
+        ])
+    
+    }
 }
+

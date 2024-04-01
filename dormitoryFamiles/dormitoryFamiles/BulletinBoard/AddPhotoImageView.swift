@@ -27,4 +27,6 @@ class AddPhotoImageView: UIImageView {
         self.layer.masksToBounds = true;
         self.cornerRadius = 8
     }
+    
+    
 }
