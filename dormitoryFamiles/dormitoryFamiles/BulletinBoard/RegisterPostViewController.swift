@@ -9,7 +9,8 @@ import UIKit
 import DropDown
 import PhotosUI
 
-class RegisterPostViewController: UIViewController {
+class RegisterPostViewController: UIViewController, CancelButtonTappedDelegate {
+ 
     
     @IBOutlet weak var textField: UITextField!
     
@@ -46,6 +47,7 @@ class RegisterPostViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setNavigationBar()
+        AddImageBaseView.cancelButtonTappedDelegate = self
     }
     
     override func viewDidLoad() {
@@ -172,6 +174,12 @@ class RegisterPostViewController: UIViewController {
             photoScrollView.heightAnchor.constraint(equalToConstant: 88)
         ])
     }
+    
+    func cancelButtonTapped() {
+       //TODO: post시 url관리 해야하는곳
+        
+    }
+    
     
 }
 
