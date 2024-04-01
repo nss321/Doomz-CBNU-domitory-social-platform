@@ -9,7 +9,7 @@ import UIKit
 
 class PhotoScrollView: UIScrollView {
     
-    var photoStackView = UIStackView()
+    var addPhotoStackView = UIStackView()
     override init(frame: CGRect) {
         super.init(frame: frame)
         layout()
@@ -22,23 +22,23 @@ class PhotoScrollView: UIScrollView {
     
 
     private func layout() {
-        photoStackView.translatesAutoresizingMaskIntoConstraints = false
-        addSubview(photoStackView)
+        addPhotoStackView.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(addPhotoStackView)
         NSLayoutConstraint.activate([
-            photoStackView.topAnchor.constraint(equalTo: self.topAnchor),
-            photoStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            photoStackView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            photoStackView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
+            addPhotoStackView.topAnchor.constraint(equalTo: self.topAnchor),
+            addPhotoStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            addPhotoStackView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            addPhotoStackView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
         ])
         
         //스크롤바 가리기
         self.showsHorizontalScrollIndicator = false
-        photoStackView.spacing = 12
+        addPhotoStackView.spacing = 12
     }
     
     func addImage(image: UIImage) {
         let newImageView = AddPhotoImageView(image: image)
-        photoStackView.addArrangedSubview(newImageView)
+        addPhotoStackView.addArrangedSubview(newImageView)
         
         NSLayoutConstraint.activate([
             newImageView.heightAnchor.constraint(equalToConstant: 100),
@@ -88,7 +88,7 @@ class AddPhotoScrollView: PhotoScrollView {
     }
     
     private func setCountPictureLabel() {
-        countPictureLabel.text = "\(self.photoStackView.arrangedSubviews.count)/10"
+        countPictureLabel.text = "\(self.addPhotoStackView.arrangedSubviews.count)/5"
         countPictureLabel.font = .pretendardVariable
         countPictureLabel.textColor = .gray4
         countPictureLabel.textAlignment = .center
@@ -99,8 +99,8 @@ class AddPhotoScrollView: PhotoScrollView {
         buttonComponentStackView.addArrangedSubview(cameraView)
         buttonComponentStackView.addArrangedSubview(countPictureLabel)
         buttonComponentStackView.axis = .vertical
-        photoStackView.spacing = 12
-        photoStackView.axis = .horizontal
+        addPhotoStackView.spacing = 2
+        addPhotoStackView.axis = .horizontal
     }
     
     private func setAddPhotoButton() {
@@ -108,10 +108,11 @@ class AddPhotoScrollView: PhotoScrollView {
         buttonComponentStackView.translatesAutoresizingMaskIntoConstraints = false
         addPhotoButton.translatesAutoresizingMaskIntoConstraints = false
 
+        addPhotoButton.isUserInteractionEnabled = true 
         addPhotoButtonView.addSubview(addPhotoButton)
         addPhotoButton.addSubview(buttonComponentStackView)
-        photoStackView.addArrangedSubview(addPhotoButtonView)
-
+        addPhotoStackView.addArrangedSubview(addPhotoButtonView)
+        addPhotoButton.backgroundColor = .brown
         NSLayoutConstraint.activate([
             buttonComponentStackView.centerXAnchor.constraint(equalTo: addPhotoButton.centerXAnchor),
             buttonComponentStackView.centerYAnchor.constraint(equalTo: addPhotoButton.centerYAnchor),
@@ -119,18 +120,16 @@ class AddPhotoScrollView: PhotoScrollView {
             addPhotoButton.widthAnchor.constraint(equalToConstant: 80),
             addPhotoButton.heightAnchor.constraint(equalToConstant: 80),
             addPhotoButtonView.widthAnchor.constraint(equalToConstant: 80),
-            addPhotoButtonView.heightAnchor.constraint(equalToConstant: 88)
+            addPhotoButtonView.heightAnchor.constraint(equalToConstant: 90)
         ])
 
     }
     
     func setLayout() {
         NSLayoutConstraint.activate([
-            photoStackView.heightAnchor.constraint(equalTo: self.heightAnchor),
-            photoStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            photoStackView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            photoStackView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-            photoStackView.widthAnchor.constraint(equalTo: self.widthAnchor)
+            addPhotoStackView.heightAnchor.constraint(equalTo: self.heightAnchor),
+            addPhotoStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            addPhotoStackView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
         ])
     }
 
