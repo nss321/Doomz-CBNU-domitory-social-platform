@@ -36,6 +36,7 @@
 		DB932AC12B6511E300B456FB /* BulluetinBoardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB932ABF2B6511E300B456FB /* BulluetinBoardCollectionViewCell.swift */; };
 		DB932AC22B6511E300B456FB /* BulluetinBoardCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB932AC02B6511E300B456FB /* BulluetinBoardCollectionViewCell.xib */; };
 		DBB345F22B42BFD100E70380 /* BulletinBoardMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB345F12B42BFD100E70380 /* BulletinBoardMainViewController.swift */; };
+		DBC001D82BBAEDBB00228CD9 /* AddImageBaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC001D72BBAEDBB00228CD9 /* AddImageBaseView.swift */; };
 		DBC54C432B568B350071164C /* UIFontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC54C422B568B350071164C /* UIFontExtension.swift */; };
 		DBC54C552B56A46B0071164C /* PretendardVariable.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DBC54C542B56A46B0071164C /* PretendardVariable.ttf */; };
 		DBC54C572B56A4820071164C /* Pretendard-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DBC54C562B56A4820071164C /* Pretendard-Bold.ttf */; };
@@ -88,6 +89,7 @@
 		DB932ABF2B6511E300B456FB /* BulluetinBoardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulluetinBoardCollectionViewCell.swift; sourceTree = "<group>"; };
 		DB932AC02B6511E300B456FB /* BulluetinBoardCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BulluetinBoardCollectionViewCell.xib; sourceTree = "<group>"; };
 		DBB345F12B42BFD100E70380 /* BulletinBoardMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulletinBoardMainViewController.swift; sourceTree = "<group>"; };
+		DBC001D72BBAEDBB00228CD9 /* AddImageBaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddImageBaseView.swift; sourceTree = "<group>"; };
 		DBC54C422B568B350071164C /* UIFontExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFontExtension.swift; sourceTree = "<group>"; };
 		DBC54C542B56A46B0071164C /* PretendardVariable.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = PretendardVariable.ttf; sourceTree = "<group>"; };
 		DBC54C562B56A4820071164C /* Pretendard-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Bold.ttf"; sourceTree = "<group>"; };
@@ -189,6 +191,7 @@
 				DB02B5282B98C92200C45F56 /* ReplyHeaderCollectionReusableView.xib */,
 				DBE682B52BA592CC00DAA4CD /* PhotoScrollView.swift */,
 				DB1971D42BAB088C00C09648 /* AddPhotoImageView.swift */,
+				DBC001D72BBAEDBB00228CD9 /* AddImageBaseView.swift */,
 			);
 			path = BulletinBoard;
 			sourceTree = "<group>";
@@ -441,6 +444,7 @@
 				DB02B5292B98C92200C45F56 /* ReplyHeaderCollectionReusableView.swift in Sources */,
 				DBF466FD2AA5F4E4009FF3EB /* SceneDelegate.swift in Sources */,
 				DBB345F22B42BFD100E70380 /* BulletinBoardMainViewController.swift in Sources */,
+				DBC001D82BBAEDBB00228CD9 /* AddImageBaseView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

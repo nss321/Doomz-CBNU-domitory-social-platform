@@ -7,8 +7,8 @@
 
 import UIKit
 
+
 class PhotoScrollView: UIScrollView {
-    
     var addPhotoStackView = UIStackView()
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -134,33 +134,13 @@ class AddPhotoScrollView: PhotoScrollView {
 
     
     override func addImage(image: UIImage) {
-        let newImageView = AddPhotoImageView(image: image)
-        let baseView = UIView()
-        let cancelButton = UIButton()
-        cancelButton.setImage(UIImage(named: "cancelButton"), for: .normal)
-        baseView.addSubview(newImageView)
-        baseView.addSubview(cancelButton)
-        addPhotoStackView.addArrangedSubview(baseView)
-        
-        baseView.translatesAutoresizingMaskIntoConstraints = false
-        newImageView.translatesAutoresizingMaskIntoConstraints = false
-        cancelButton.translatesAutoresizingMaskIntoConstraints = false
-        
-        NSLayoutConstraint.activate([
-
-            baseView.widthAnchor.constraint(equalToConstant: 90),
-            baseView.heightAnchor.constraint(equalToConstant: 90),
-
-            newImageView.topAnchor.constraint(equalTo: baseView.topAnchor, constant: 10),
-            newImageView.leadingAnchor.constraint(equalTo: baseView.leadingAnchor),
-            newImageView.heightAnchor.constraint(equalToConstant: 80),
-            newImageView.widthAnchor.constraint(equalToConstant: 80),
-
-            cancelButton.topAnchor.constraint(equalTo: baseView.topAnchor),
-            cancelButton.trailingAnchor.constraint(equalTo: baseView.trailingAnchor),
-            cancelButton.heightAnchor.constraint(equalToConstant: 20),
-            cancelButton.widthAnchor.constraint(equalToConstant: 20)
-        ])
+        let customImageViewContainer = AddImageBaseView(image: image)
+            addPhotoStackView.addArrangedSubview(customImageViewContainer)
+            
+            NSLayoutConstraint.activate([
+                customImageViewContainer.heightAnchor.constraint(equalToConstant: 90),
+                customImageViewContainer.widthAnchor.constraint(equalToConstant: 90)
+            ])
     
     }
 }
