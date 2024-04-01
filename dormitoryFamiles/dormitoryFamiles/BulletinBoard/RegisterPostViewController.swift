@@ -7,6 +7,7 @@
 
 import UIKit
 import DropDown
+import PhotosUI
 
 class RegisterPostViewController: UIViewController {
     
@@ -39,8 +40,9 @@ class RegisterPostViewController: UIViewController {
     let dropDown = DropDown()
     let textFieldMaxLength = 20
     let textViewMaxLength = 300
-    let addPhotoScrollView = AddPhotoScrollView()
-    
+    let photoScrollView = AddPhotoScrollView()
+    private var photoArray = [PHPickerResult]()
+    private let maximumPhotoNumber = 5
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setNavigationBar()
@@ -52,6 +54,7 @@ class RegisterPostViewController: UIViewController {
         setDropDown()
         setDelegate()
         [dormitoryLabel, bulletinBoardLabel, countTextFieldTextLabel, titleLabel, descriptionLabel].forEach{$0.asColor(targetString: ["*"], color: .primary!)}
+        setPHPPicker()
     }
     
     private func setNavigationBar() {
@@ -160,13 +163,13 @@ class RegisterPostViewController: UIViewController {
     }
     
     private func layoutPhotoScrollView() {
-        addPhotoScrollView.translatesAutoresizingMaskIntoConstraints = false
-        self.view.addSubview(addPhotoScrollView)
+        photoScrollView.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview(photoScrollView)
         NSLayoutConstraint.activate([
-            addPhotoScrollView.topAnchor.constraint(equalTo: self.descriptionStack.bottomAnchor, constant: 24),
-            addPhotoScrollView.leadingAnchor.constraint(equalTo: self.descriptionStack.leadingAnchor),
-            addPhotoScrollView.trailingAnchor.constraint(equalTo: self.descriptionStack.trailingAnchor),
-            addPhotoScrollView.heightAnchor.constraint(equalToConstant: 88)
+            photoScrollView.topAnchor.constraint(equalTo: self.descriptionStack.bottomAnchor, constant: 24),
+            photoScrollView.leadingAnchor.constraint(equalTo: self.descriptionStack.leadingAnchor),
+            photoScrollView.trailingAnchor.constraint(equalTo: self.descriptionStack.trailingAnchor),
+            photoScrollView.heightAnchor.constraint(equalToConstant: 88)
         ])
     }
     
@@ -288,6 +291,67 @@ extension RegisterPostViewController: UINavigationBarDelegate {
         }
 }
 
+//갤러리와 관련된 코드들 집합
+extension RegisterPostViewController: PHPickerViewControllerDelegate  {
+    
+    func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
+        dismiss(animated: true, completion: nil)
+        
+        for result in results {
+            let itemProvider = result.itemProvider
+            if let typeIdentifier = itemProvider.registeredTypeIdentifiers.first,
+               let utType = UTType(typeIdentifier),
+               utType.conforms(to: .image) {
+                itemProvider.loadObject(ofClass: UIImage.self) { (image, error) in
+                    if let image = image as? UIImage {
+                        DispatchQueue.main.async { [self] in
+                            //여기서 스크롤뷰에 이미지뷰가 하나씩 생기고 append를 시켜주며 진행
+                            //TODO: 특정한 사진이 안올라가는 버그 고치기
+                            photoScrollView.addImage(image: image)
+                            //사진이 아무것도 없는 상황에 추가를 한다면, 첫번째 사진에 대표사진 레이블을 세팅
+                            if photoScrollView.addPhotoStackView.arrangedSubviews.count == 2 {
+                                let secondView = (photoScrollView.addPhotoStackView.arrangedSubviews[1]) as?  (AddPhotoImageView)
+                                //secondView?.setTitlePhotoLabel()
+                            }
+                            self.photoScrollView.countPictureLabel.text = "\(photoScrollView.addPhotoStackView.arrangedSubviews.count-1)/\(maximumPhotoNumber)"
+                        }
+                    }
+                }
+            }
+        }
+        photoArray.append(contentsOf: results)
+        print(photoArray.count)
+    }
+    
+    private func setPHPPicker() {
+        photoScrollView.addPhotoButton.addTarget(self, action: #selector(addPhotoButtonTapped), for: .touchUpInside)
+        
+    }
+    
+    @objc private func addPhotoButtonTapped() {
+        //TODO: 버튼배경(?)을눌렀으시만(카메라뷰나 카운팅레이블을누르면 터치가안먹음) 반응이 되는데, 힛테스트 통해서 전체를 눌러도 가능하도록 수정조치 취해야함
+        var configuration = PHPickerConfiguration()
+        configuration.filter = .images
+        configuration.selectionLimit = maximumPhotoNumber-photoScrollView.addPhotoStackView.arrangedSubviews.count
+        
+        
+        if photoArray.count == maximumPhotoNumber {
+            print("더이상 사진을 추가할 수 없습니다.")
+        }else{
+            let picker = PHPickerViewController(configuration: configuration)
+            picker.delegate = self
+            
+            DispatchQueue.main.async {
+                self.present(picker, animated: true, completion: nil)
+            }
+        }
+    }
+    
+    func pickerDidCancel(_ picker: PHPickerViewController) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+}
 
 extension String {
     var isConsonant: Bool {

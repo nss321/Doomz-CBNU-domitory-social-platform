@@ -9,7 +9,7 @@ import Foundation
 
 class Token {
     static let shared = Token()
-    var number = "eyJraWQiOiJrZXkzIiwiYWxnIjoiSFMzODQifQ.eyJzdWIiOiJkbmxnaWQxMTlAZGF1bS5uZXQiLCJpYXQiOjE3MTEzNTcyNjksImV4cCI6MTcxMTk1NzI2OX0.PtqPkipWBDEIheo_eDAmjSKksQwvxkWpwPm2OM1ucqKG9Q_atuB2wyuQp53q0h_y"
+    var number = "eyJraWQiOiJrZXkzIiwiYWxnIjoiSFMzODQifQ.eyJzdWIiOiJkbmxnaWQxMTlAZGF1bS5uZXQiLCJpYXQiOjE3MTE5Njg4MjEsImV4cCI6MTcxMjU2ODgyMX0.uvfe3jBzZ4Xm_4H0JD0fLxZ6JUUxNlQSpbjUJJJa_qgSq-2M6VRwtfP3iS0eV_6Z"
     
     private init() { }
 }
