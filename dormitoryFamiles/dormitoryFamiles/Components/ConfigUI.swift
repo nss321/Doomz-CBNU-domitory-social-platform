@@ -32,7 +32,7 @@ extension UIViewController {
         let label = UILabel()
         label.text = navigationTitle
         label.font = FontManager.head1()
-        label.textColor = .blackYak
+        label.textColor = .doomzBlack
         
         self.navigationController?.navigationBar.tintColor = UIColor.gray5
         self.navigationItem.titleView = label
