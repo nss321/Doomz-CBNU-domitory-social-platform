@@ -184,7 +184,7 @@ final class SleepPatternViewController: UIViewController, ConfigUI {
         sleepingHabitsCollectionView.snp.makeConstraints {
             $0.left.right.equalToSuperview()
             $0.width.equalTo(view.snp.width).inset(20)
-            $0.height.equalTo((currentScreenWidth - 94) / 4)
+            $0.height.equalTo((currentScreenWidth - 86) / 4)
         }
         
         sleepSensitivityCollectionView.snp.makeConstraints {
@@ -279,7 +279,8 @@ extension SleepPatternViewController: UICollectionViewDelegateFlowLayout {
         
         switch collectionView {
         case sleepingHabitsCollectionView:
-            cellSize = CGSize(width: (currentScreenWidth - 94) / 4, height: (currentScreenWidth - 94) / 4 )
+            // MARK: cell 간격
+            cellSize = CGSize(width: (currentScreenWidth - 86) / 4, height: (currentScreenWidth - 86) / 4 )
         default:
             cellSize = CGSize(width: (currentScreenWidth - 58) / 3, height: 48)
         }

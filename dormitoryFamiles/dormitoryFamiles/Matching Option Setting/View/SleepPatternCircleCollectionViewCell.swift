@@ -14,7 +14,7 @@ class SleepPatternCircleCollectionViewCell: UICollectionViewCell {
     private let sleepTimeBlock: UIView = {
         let view = UIView()
         view.backgroundColor = .clear
-        view.layer.cornerRadius = (UIScreen.main.bounds.width - 94) / 4 / 2
+        view.layer.cornerRadius = (UIScreen.main.bounds.width - 86) / 4 / 2
         view.layer.borderColor = UIColor.gray1?.cgColor
         view.layer.borderWidth = 1
         return view
