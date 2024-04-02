@@ -103,6 +103,10 @@ class AddPhotoScrollView: PhotoScrollView {
     }
     
     private func setAddPhotoButton() {
+        addPhotoButton.backgroundColor = .gray0
+        addPhotoButton.cornerRadius = 8
+        addPhotoButton.clipsToBounds = false
+        
         addPhotoButtonView.translatesAutoresizingMaskIntoConstraints = false
         buttonComponentStackView.translatesAutoresizingMaskIntoConstraints = false
         addPhotoButton.translatesAutoresizingMaskIntoConstraints = false

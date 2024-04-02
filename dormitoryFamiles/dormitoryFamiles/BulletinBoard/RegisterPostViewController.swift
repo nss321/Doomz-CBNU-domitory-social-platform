@@ -168,7 +168,7 @@ class RegisterPostViewController: UIViewController, CancelButtonTappedDelegate {
         photoScrollView.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(photoScrollView)
         NSLayoutConstraint.activate([
-            photoScrollView.topAnchor.constraint(equalTo: self.descriptionStack.bottomAnchor, constant: 24),
+            photoScrollView.topAnchor.constraint(equalTo: self.descriptionStack.bottomAnchor, constant: 18),
             photoScrollView.leadingAnchor.constraint(equalTo: self.descriptionStack.leadingAnchor),
             photoScrollView.trailingAnchor.constraint(equalTo: self.descriptionStack.trailingAnchor),
             photoScrollView.heightAnchor.constraint(equalToConstant: 88)
