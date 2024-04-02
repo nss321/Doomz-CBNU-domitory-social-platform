@@ -30,6 +30,8 @@ final class SleepPatternViewController: UIViewController, ConfigUI {
         "어두움", "밝음", "없음"
     ]
     
+    let currentScreenWidth: CGFloat = UIScreen.main.bounds.width
+    
     private let scrollView: UIScrollView = {
         let view = UIScrollView()
         view.backgroundColor = .gray2
@@ -182,7 +184,7 @@ final class SleepPatternViewController: UIViewController, ConfigUI {
         sleepingHabitsCollectionView.snp.makeConstraints {
             $0.left.right.equalToSuperview()
             $0.width.equalTo(view.snp.width).inset(20)
-            $0.height.equalTo(72)
+            $0.height.equalTo((currentScreenWidth - 94) / 4)
         }
         
         sleepSensitivityCollectionView.snp.makeConstraints {
@@ -277,9 +279,9 @@ extension SleepPatternViewController: UICollectionViewDelegateFlowLayout {
         
         switch collectionView {
         case sleepingHabitsCollectionView:
-            cellSize = CGSize(width: 72, height: 72)
+            cellSize = CGSize(width: (currentScreenWidth - 94) / 4, height: (currentScreenWidth - 94) / 4 )
         default:
-            cellSize = CGSize(width: 106, height: 48)
+            cellSize = CGSize(width: (currentScreenWidth - 58) / 3, height: 48)
         }
         return cellSize
     }
