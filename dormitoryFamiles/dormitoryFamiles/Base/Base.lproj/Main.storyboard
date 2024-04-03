@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="peN-Im-ACT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="peN-Im-ACT">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -2106,51 +2107,39 @@
             </objects>
             <point key="canvasLocation" x="2036" y="-87"/>
         </scene>
-        <!--Root View Controller-->
-        <scene sceneID="Tce-lu-U0e">
-            <objects>
-                <tableViewController id="ydR-zY-C3y" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="NDT-om-5gm">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="kbi-CP-tFO">
-                                <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kbi-CP-tFO" id="mXd-46-4o5">
-                                    <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="ydR-zY-C3y" id="loy-d5-hAI"/>
-                            <outlet property="delegate" destination="ydR-zY-C3y" id="rfj-Ib-fmW"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="hZJ-O5-oUk"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="TDT-3U-qH9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2943" y="630"/>
-        </scene>
         <!--룸메 매칭-->
         <scene sceneID="r41-W2-SEI">
             <objects>
                 <navigationController id="EQY-LB-4eN" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="룸메 매칭" image="tabbarItemMateMatchingGray" selectedImage="tabbarItemMateMatching" id="ahK-I5-dSL"/>
+                    <navigationItem key="navigationItem" id="Q7g-pT-WGH"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ADX-Th-sGA">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="ydR-zY-C3y" kind="relationship" relationship="rootViewController" id="hpE-mG-ihx"/>
+                        <segue destination="k3S-FQ-RvK" kind="relationship" relationship="rootViewController" id="28U-WA-ygB"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uiU-rf-nQn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2036" y="630"/>
+            <point key="canvasLocation" x="2036" y="620"/>
+        </scene>
+        <!--Sleep Pattern View Controller-->
+        <scene sceneID="fDK-57-Zo4">
+            <objects>
+                <viewController id="k3S-FQ-RvK" customClass="SleepPatternViewController" customModule="dormitoryFamiles" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="HPB-yh-1Ho">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="LDi-VJ-Lcm"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="2mX-Tw-IQB"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UkK-GV-fcM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2929" y="620"/>
         </scene>
         <!--Root View Controller-->
         <scene sceneID="nGh-cp-9w8">
@@ -3529,7 +3518,7 @@
             <color red="1" green="0.90980392156862744" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="labelColor">
-            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

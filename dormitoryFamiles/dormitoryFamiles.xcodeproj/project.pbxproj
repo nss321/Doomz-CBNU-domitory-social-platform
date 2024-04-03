@@ -8,6 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		0C03D7843BE1BA839B23F614 /* Pods_dormitoryFamiles.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43ACFB5BF55DE00DF2B4C0CA /* Pods_dormitoryFamiles.framework */; };
+		11707A232BA4C8CC0027802D /* SleepPatternViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11707A222BA4C8CC0027802D /* SleepPatternViewController.swift */; };
+		11707A262BA4C8F10027802D /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 11707A252BA4C8F10027802D /* SnapKit */; };
+		11707A282BA4C8F10027802D /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 11707A272BA4C8F10027802D /* SnapKit-Dynamic */; };
+		11707A2C2BA4CA780027802D /* FontManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11707A2B2BA4CA780027802D /* FontManager.swift */; };
+		11707A2E2BA4D3AC0027802D /* UILabel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11707A2D2BA4D3AC0027802D /* UILabel+.swift */; };
+		11707A322BA617EE0027802D /* ConfigUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11707A312BA617EE0027802D /* ConfigUI.swift */; };
+		11707A342BA83EED0027802D /* SleepPatternCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11707A332BA83EED0027802D /* SleepPatternCollectionViewCell.swift */; };
+		117250E52BB19FE20083F181 /* SleepPatternCircleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117250E42BB19FE20083F181 /* SleepPatternCircleCollectionViewCell.swift */; };
+		117250E72BB31AF60083F181 /* CommomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117250E62BB31AF60083F181 /* CommomButton.swift */; };
+		117250E92BB5927E0083F181 /* SmokeAndAlcoholPatternViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117250E82BB5927E0083F181 /* SmokeAndAlcoholPatternViewController.swift */; };
 		DB02B5292B98C92200C45F56 /* ReplyHeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB02B5272B98C92200C45F56 /* ReplyHeaderCollectionReusableView.swift */; };
 		DB02B52A2B98C92200C45F56 /* ReplyHeaderCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB02B5282B98C92200C45F56 /* ReplyHeaderCollectionReusableView.xib */; };
 		DB1971D52BAB088C00C09648 /* AddPhotoImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1971D42BAB088C00C09648 /* AddPhotoImageView.swift */; };
@@ -58,6 +68,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		11707A222BA4C8CC0027802D /* SleepPatternViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepPatternViewController.swift; sourceTree = "<group>"; };
+		11707A2B2BA4CA780027802D /* FontManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontManager.swift; sourceTree = "<group>"; };
+		11707A2D2BA4D3AC0027802D /* UILabel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+.swift"; sourceTree = "<group>"; };
+		11707A312BA617EE0027802D /* ConfigUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigUI.swift; sourceTree = "<group>"; };
+		11707A332BA83EED0027802D /* SleepPatternCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepPatternCollectionViewCell.swift; sourceTree = "<group>"; };
+		117250E42BB19FE20083F181 /* SleepPatternCircleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepPatternCircleCollectionViewCell.swift; sourceTree = "<group>"; };
+		117250E62BB31AF60083F181 /* CommomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommomButton.swift; sourceTree = "<group>"; };
+		117250E82BB5927E0083F181 /* SmokeAndAlcoholPatternViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmokeAndAlcoholPatternViewController.swift; sourceTree = "<group>"; };
 		43ACFB5BF55DE00DF2B4C0CA /* Pods_dormitoryFamiles.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_dormitoryFamiles.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDEE29642D63D4042822783C /* Pods-dormitoryFamiles.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dormitoryFamiles.release.xcconfig"; path = "Target Support Files/Pods-dormitoryFamiles/Pods-dormitoryFamiles.release.xcconfig"; sourceTree = "<group>"; };
 		C5E033F1B4291ED8F85F0DAE /* Pods-dormitoryFamiles.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dormitoryFamiles.debug.xcconfig"; path = "Target Support Files/Pods-dormitoryFamiles/Pods-dormitoryFamiles.debug.xcconfig"; sourceTree = "<group>"; };
@@ -118,12 +136,66 @@
 			buildActionMask = 2147483647;
 			files = (
 				0C03D7843BE1BA839B23F614 /* Pods_dormitoryFamiles.framework in Frameworks */,
+				11707A262BA4C8F10027802D /* SnapKit in Frameworks */,
+				11707A282BA4C8F10027802D /* SnapKit-Dynamic in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		11707A1F2BA4C7BB0027802D /* Matching Option Setting */ = {
+			isa = PBXGroup;
+			children = (
+				11707A202BA4C8870027802D /* View */,
+				11707A212BA4C88D0027802D /* ViewController */,
+			);
+			path = "Matching Option Setting";
+			sourceTree = "<group>";
+		};
+		11707A202BA4C8870027802D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				11707A332BA83EED0027802D /* SleepPatternCollectionViewCell.swift */,
+				117250E42BB19FE20083F181 /* SleepPatternCircleCollectionViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		11707A212BA4C88D0027802D /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				11707A222BA4C8CC0027802D /* SleepPatternViewController.swift */,
+				117250E82BB5927E0083F181 /* SmokeAndAlcoholPatternViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		11707A292BA4CA4C0027802D /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				11707A2A2BA4CA520027802D /* FontManager */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		11707A2A2BA4CA520027802D /* FontManager */ = {
+			isa = PBXGroup;
+			children = (
+				11707A2B2BA4CA780027802D /* FontManager.swift */,
+			);
+			path = FontManager;
+			sourceTree = "<group>";
+		};
+		11707A302BA617D80027802D /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				11707A312BA617EE0027802D /* ConfigUI.swift */,
+				117250E62BB31AF60083F181 /* CommomButton.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		3EF87502A881A8B8B123AF34 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -159,6 +231,7 @@
 				DB2B7BCE2B457F7200C1847D /* UIButtonExtension.swift */,
 				DB81CFFF2B56E723005EF497 /* UIColorExtension.swift */,
 				DB2B7BCA2B45727B00C1847D /* TagButton.swift */,
+				11707A2D2BA4D3AC0027802D /* UILabel+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -274,6 +347,9 @@
 		DBF466F92AA5F4E4009FF3EB /* dormitoryFamiles */ = {
 			isa = PBXGroup;
 			children = (
+				11707A302BA617D80027802D /* Components */,
+				11707A292BA4CA4C0027802D /* Manager */,
+				11707A1F2BA4C7BB0027802D /* Matching Option Setting */,
 				DB32D7612BA3452300DE387A /* Network */,
 				DB32D7602BA3445D00DE387A /* Onboarding */,
 				DB32D75F2BA3439400DE387A /* Base */,
@@ -304,6 +380,10 @@
 			dependencies = (
 			);
 			name = dormitoryFamiles;
+			packageProductDependencies = (
+				11707A252BA4C8F10027802D /* SnapKit */,
+				11707A272BA4C8F10027802D /* SnapKit-Dynamic */,
+			);
 			productName = dormitoryFamiles;
 			productReference = DBF466F72AA5F4E4009FF3EB /* dormitoryFamiles.app */;
 			productType = "com.apple.product-type.application";
@@ -332,6 +412,9 @@
 				Base,
 			);
 			mainGroup = DBF466EE2AA5F4E4009FF3EB;
+			packageReferences = (
+				11707A242BA4C8F10027802D /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = DBF466F82AA5F4E4009FF3EB /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -412,20 +495,27 @@
 			files = (
 				DB2B7BC92B456F4700C1847D /* TagScrollView.swift in Sources */,
 				DB7EF2772B5E9CB20062FAB5 /* ServicePermissonViewController.swift in Sources */,
+				11707A232BA4C8CC0027802D /* SleepPatternViewController.swift in Sources */,
 				DB1E0E892B629804000A4AA5 /* DormitoryButtonHandlingProtocol.swift in Sources */,
 				DB3F18092B6162AB002F1738 /* ProfileSettingViewController.swift in Sources */,
+
 				DBE682B62BA592CC00DAA4CD /* PhotoScrollView.swift in Sources */,
 				DBCE10E12B595506008C3367 /* loginViewController.swift in Sources */,
 				DB1971D52BAB088C00C09648 /* AddPhotoImageView.swift in Sources */,
+
 				DB81D0002B56E723005EF497 /* UIColorExtension.swift in Sources */,
 				DB5ACD602AA70D190054CA15 /* ExtenstionColor.swift in Sources */,
 				DB7EF2792B5EA4B00062FAB5 /* AlrmElementView.swift in Sources */,
+				117250E72BB31AF60083F181 /* CommomButton.swift in Sources */,
 				DB7BE9E72BA47A5E00BC25E3 /* ReplyCollectionViewCell.swift in Sources */,
 				DB61AA342B4C1EA70040418B /* RegisterPostViewController.swift in Sources */,
 				DB20E38E2B53D75F000D12A7 /* extensionStroyboard.swift in Sources */,
+				117250E92BB5927E0083F181 /* SmokeAndAlcoholPatternViewController.swift in Sources */,
 				DBD1E7FC2B84A9D500FD71C6 /* Network.swift in Sources */,
 				DB2B7BCB2B45727B00C1847D /* TagButton.swift in Sources */,
+
 				DB5B0C272BB1919F008B6D3E /* Token.swift in Sources */,
+
 				DB1E0E8B2B629865000A4AA5 /* ChoiceDormitoryViewController.swift in Sources */,
 				DB74D0C62B73EEBF00A90D68 /* Codable.swift in Sources */,
 				DBC54C432B568B350071164C /* UIFontExtension.swift in Sources */,
@@ -439,7 +529,9 @@
 				DBF466FB2AA5F4E4009FF3EB /* AppDelegate.swift in Sources */,
 				DB20F2942B95CBE00052CF5C /* SearchViewController.swift in Sources */,
 				DB1E0E8D2B62A995000A4AA5 /* SelectedDormitory.swift in Sources */,
+				11707A342BA83EED0027802D /* SleepPatternCollectionViewCell.swift in Sources */,
 				DBDF96EF2B84BFB2000E74AE /* ProfileFinishedViewController.swift in Sources */,
+				11707A2C2BA4CA780027802D /* FontManager.swift in Sources */,
 				DB2B7BCF2B457F7200C1847D /* UIButtonExtension.swift in Sources */,
 				DB02B5292B98C92200C45F56 /* ReplyHeaderCollectionReusableView.swift in Sources */,
 				DBF466FD2AA5F4E4009FF3EB /* SceneDelegate.swift in Sources */,
@@ -664,6 +756,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		11707A242BA4C8F10027802D /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		11707A252BA4C8F10027802D /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 11707A242BA4C8F10027802D /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		11707A272BA4C8F10027802D /* SnapKit-Dynamic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 11707A242BA4C8F10027802D /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = "SnapKit-Dynamic";
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = DBF466EF2AA5F4E4009FF3EB /* Project object */;
 }
