@@ -34,7 +34,11 @@ class BulletinBoardDetailViewViewController: UIViewController {
     
     @IBOutlet weak var replyCountLabel: UILabel!
     
+    @IBOutlet weak var tagStackView: UIStackView!
     @IBOutlet weak var chatCountLabel: UILabel!
+    var scrollPhotoView = PhotoScrollView()
+    var hasImage = true
+    
     let headerCell = ReplyHeaderCollectionReusableView()
     var dataClass : DataClass?
     var id: Int = 0
@@ -46,12 +50,12 @@ class BulletinBoardDetailViewViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        network(url: url)
         setIndicator()
         setDelegate()
         setCollectionViewAutoSizing()
         setTextView()
         collectionView.isScrollEnabled = false
-        network(url: url)
         replyNetwork(id: id)
     }
     
@@ -77,6 +81,8 @@ class BulletinBoardDetailViewViewController: UIViewController {
             }
             var request = URLRequest(url: url!)
             request.httpMethod = "POST"
+            let token = Token.shared.number
+            request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
             request.addValue("application/json", forHTTPHeaderField: "Content-Type")
             request.httpBody = jsonData
             
@@ -93,38 +99,169 @@ class BulletinBoardDetailViewViewController: UIViewController {
     }
     
     private func network(url: String) {
-        Network.getMethod(url: url) { (result: Result<DetailResponse, Error>) in
-            switch result {
-            case .success(let response):
-                let response = response.data
-                DispatchQueue.main.async { [self] in
-                    self.titleLabel.title2 = response.title
-                    self.nickname.title5 = response.nickName
-                    self.profileImage.image = UIImage(named: response.profileUrl)
-                    self.dormitory.title5 = response.memberDormitory
-                    self.categoryTag.subTitle2 = response.boardType
-                    //TODO: 태그 세팅도 해야함.
-                    self.contentLabel.body1 = response.content
-                    self.likeCountLabel.text = String(response.wishCount)
-                    //TODO: isWIshed구현해야함
-                    self.statusTag.subTitle2 = response.status
-                    
-                    let datetime = response.createdAt
-                    self.timeLabel.body2 = changeToTime(createdAt: datetime)
-                    self.dateLabel.body2 = changeToDate(createdAt: datetime)
-                    
-                    //TODO: 이미지url구현해야함
-                    
-                    self.collectionView.reloadData()
-                    
-                    self.activityIndicator.stopAnimating()
-                    self.activityIndicator.isHidden = true
+                Network.getMethod(url: url) { (result: Result<DetailResponse, Error>) in
+                    switch result {
+                    case .success(let response):
+                        let data = response.data
+                        DispatchQueue.main.async { [weak self] in
+                            guard let self = self else { return }
+                            self.titleLabel.title2 = data.title
+                            self.nickname.title5 = data.nickName ?? "ㅇㄹ"
+                            self.profileImage.image = UIImage(named: data.profileUrl)
+                            self.dormitory.title5 = data.memberDormitory
+                            self.categoryTag.subTitle2 = data.boardType
+                            
+                            //TODO: 태그를 스택뷰로 구현하였는데, 스택뷰는 한줄처리만 된다는 특성이 있기 때문에 컬렉션뷰로 대체해야함.
+                            let tagArr = data.tags.split(separator: "#")
+                            let trimmedString = String(data.tags.dropFirst())
+                            let tagsArray = trimmedString.components(separatedBy: "#").map { "#\($0)" }
+                            for tag in tagsArray {
+                                let tagButton = RoundButton()
+                                tagButton.backgroundColor = .gray0
+                                tagButton.setTitleColor(.gray5, for: .normal)
+                                tagButton.body2 = tag
+                                self.tagStackView.addArrangedSubview(tagButton)
+                            }
+                            
+                            
+                            self.contentLabel.body1 = data.content
+                            self.likeCountLabel.text = String(data.wishCount)
+                            // isWished 구현 필요
+                            self.statusTag.subTitle2 = data.status
+                            
+                            let datetime = data.createdAt
+                            self.timeLabel.body2 = self.changeToTime(createdAt: datetime)
+                            self.dateLabel.body2 = self.changeToDate(createdAt: datetime)
+                            if data.imagesUrls.isEmpty {
+                                self.hasImage = false
+                                self.layout()
+                            }else {
+                                self.layout()
+                                for imageUrl in data.imagesUrls {
+                                    if let url = URL(string: imageUrl) {
+                                        self.loadImage(from: url) { [weak self] image in
+                                            DispatchQueue.main.async {
+                                                if let image = image {
+                                                    self?.scrollPhotoView.addImage(image: image)
+                                                } else {
+                                                    print("이미지를 로드할 수 없습니다.")
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            self.collectionView.reloadData()
+                            
+                            self.activityIndicator.stopAnimating()
+                            self.activityIndicator.isHidden = true
+                        }
+                    case .failure(let error):
+                        print("Error: \(error)")
+                    }
                 }
-            case .failure(let error):
-                print("Error: \(error)")
-            }
-        }
+        
+        //더미데이터 사용!!!
+//        let jsonString = """
+//            {
+//                "code": 200,
+//                "data": {
+//                    "articleId": 17,
+//                    "memberId": 1,
+//                    "nickName": "캡틴코어",
+//                    "profileUrl": "profileurlurlurl",
+//                    "memberDormitory": "인의관",
+//                    "articleDormitory": "양진재",
+//                    "boardType": "궁금해요",
+//                    "tags": "#바퀴벌래#무서워#갓생",
+//                    "title": "바퀴벌레 잡아주실 분",
+//                    "content": "ㅠㅠㅠ 무서워용. 어서 저를 도와주세요!!",
+//                    "wishCount": 0,
+//                    "isWished": true,
+//                    "status": "모집중",
+//                    "createdAt": "2024-02-16T16-28-10",
+//                    "imagesUrls": [
+//
+//                    ]
+//                }
+//            }
+//            """
+//
+//        guard let jsonData = jsonString.data(using: .utf8) else { return }
+//
+//        do {
+//            let response = try JSONDecoder().decode(DetailResponse.self, from: jsonData)
+//            let data = response.data
+//            DispatchQueue.main.async { [weak self] in
+//                guard let self = self else { return }
+//                self.titleLabel.title2 = data.title
+//                self.nickname.title5 = data.nickName
+//                self.profileImage.image = UIImage(named: data.profileUrl)
+//                self.dormitory.title5 = data.memberDormitory
+//                self.categoryTag.subTitle2 = data.boardType
+//
+//                //TODO: 태그를 스택뷰로 구현하였는데, 스택뷰는 한줄처리만 된다는 특성이 있기 때문에 컬렉션뷰로 대체해야함.
+//                let tagArr = data.tags.split(separator: "#")
+//                let trimmedString = String(data.tags.dropFirst())
+//                let tagsArray = trimmedString.components(separatedBy: "#").map { "#\($0)" }
+//                for tag in tagsArray {
+//                    let tagButton = RoundButton()
+//                    tagButton.backgroundColor = .gray0
+//                    tagButton.setTitleColor(.gray5, for: .normal)
+//                    tagButton.body2 = tag
+//                    self.tagStackView.addArrangedSubview(tagButton)
+//                }
+//
+//
+//                self.contentLabel.body1 = data.content
+//                self.likeCountLabel.text = String(data.wishCount)
+//                // isWished 구현 필요
+//                self.statusTag.subTitle2 = data.status
+//
+//                let datetime = data.createdAt
+//                self.timeLabel.body2 = self.changeToTime(createdAt: datetime)
+//                self.dateLabel.body2 = self.changeToDate(createdAt: datetime)
+//                if data.imagesUrls.isEmpty {
+//                    self.hasImage = false
+//                    self.layout()
+//                }else {
+//                    self.layout()
+//                    for imageUrl in data.imagesUrls {
+//                        if let url = URL(string: imageUrl) {
+//                            self.loadImage(from: url) { [weak self] image in
+//                                DispatchQueue.main.async {
+//                                    if let image = image {
+//                                        self?.scrollPhotoView.addImage(image: image)
+//                                    } else {
+//                                        print("이미지를 로드할 수 없습니다.")
+//                                    }
+//                                }
+//                            }
+//                        }
+//                    }
+//                }
+//                self.collectionView.reloadData()
+//
+//                self.activityIndicator.stopAnimating()
+//                self.activityIndicator.isHidden = true
+//            }
+//        } catch {
+//           print("더미 못받아옴")
+//        }
     }
+    
+    func loadImage(from url: URL, completion: @escaping (UIImage?) -> Void) {
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            guard let data = data, error == nil, let image = UIImage(data: data) else {
+                print("Error downloading image: \(String(describing: error))")
+                completion(nil)
+                return
+            }
+            
+            completion(image)
+        }.resume()
+    }
+    
     
     private func replyNetwork(id: Int) {
         let commentUrl = Network.replyUrl(id: id)
@@ -200,6 +337,26 @@ class BulletinBoardDetailViewViewController: UIViewController {
         //텍스트뷰 사이즈에 맞게 늘리기
         commentTextView.isScrollEnabled = false
         commentTextView.sizeToFit()
+    }
+    
+    func layout() {
+        self.view.addSubview(scrollPhotoView)
+        scrollPhotoView.translatesAutoresizingMaskIntoConstraints = false
+        tagStackView.translatesAutoresizingMaskIntoConstraints = false
+        
+        var constraints = [
+            self.scrollPhotoView.topAnchor.constraint(equalTo: contentLabel.bottomAnchor, constant: 16),
+            self.scrollPhotoView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            self.scrollPhotoView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            self.scrollPhotoView.heightAnchor.constraint(equalToConstant: 100)
+        ]
+        
+        if !hasImage {
+            let tagStackViewConstraint = tagStackView.topAnchor.constraint(equalTo: self.contentLabel.bottomAnchor, constant: 16)
+            constraints.append(tagStackViewConstraint)
+        }
+        
+        NSLayoutConstraint.activate(constraints)
     }
     
 }
@@ -278,36 +435,36 @@ extension BulletinBoardDetailViewViewController: UICollectionViewDelegate, UICol
     }
     
     func moreButtonTapped(replyId: Int, format: Reply) {
-            print(replyId)
-            let actionSheet = UIAlertController(title: "댓글 메뉴", message: nil, preferredStyle: .actionSheet)
-            actionSheet.addAction(UIAlertAction(title: "삭제하기", style: .destructive, handler: {(ACTION:UIAlertAction) in
-                
-                var url = ""
-                switch format {
-                case .rereply:
-                    url = "http://43.202.254.127:8080/api/replyComments/\(replyId)"
-                case .reply:
-                    url = "http://43.202.254.127:8080/api/comments/\(replyId)"
-                }
-                Network.deleteMethod(url: url) { (result: Result<ReplyDelete, Error>) in
-                    switch result {
-                    case .success(let response):
-                        print(response)
-                        print("아아")
-                    case .failure(let error):
-                        print("Error: \(error)")
-                    }
-                }
-                
-            }))
-            actionSheet.addAction(UIAlertAction(title: "닫기", style: .cancel, handler: nil))
+        print(replyId)
+        let actionSheet = UIAlertController(title: "댓글 메뉴", message: nil, preferredStyle: .actionSheet)
+        actionSheet.addAction(UIAlertAction(title: "삭제하기", style: .destructive, handler: {(ACTION:UIAlertAction) in
             
-            self.present(actionSheet, animated: true, completion: nil)
-        }
+            var url = ""
+            switch format {
+            case .rereply:
+                url = "http://43.202.254.127:8080/api/replyComments/\(replyId)"
+            case .reply:
+                url = "http://43.202.254.127:8080/api/comments/\(replyId)"
+            }
+            Network.deleteMethod(url: url) { (result: Result<ReplyDelete, Error>) in
+                switch result {
+                case .success(let response):
+                    print(response)
+                    print("아아")
+                case .failure(let error):
+                    print("Error: \(error)")
+                }
+            }
+            
+        }))
+        actionSheet.addAction(UIAlertAction(title: "닫기", style: .cancel, handler: nil))
         
-        func rereplyButtonTapped(replyId: Int) {
-            selectedReplyId = replyId
-        }
+        self.present(actionSheet, animated: true, completion: nil)
+    }
+    
+    func rereplyButtonTapped(replyId: Int) {
+        selectedReplyId = replyId
+    }
 }
 
 extension BulletinBoardDetailViewViewController: UICollectionViewDelegateFlowLayout {

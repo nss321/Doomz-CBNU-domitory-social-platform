@@ -20,6 +20,7 @@
 		117250E92BB5927E0083F181 /* SmokeAndAlcoholPatternViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117250E82BB5927E0083F181 /* SmokeAndAlcoholPatternViewController.swift */; };
 		DB02B5292B98C92200C45F56 /* ReplyHeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB02B5272B98C92200C45F56 /* ReplyHeaderCollectionReusableView.swift */; };
 		DB02B52A2B98C92200C45F56 /* ReplyHeaderCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB02B5282B98C92200C45F56 /* ReplyHeaderCollectionReusableView.xib */; };
+		DB1971D52BAB088C00C09648 /* AddPhotoImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1971D42BAB088C00C09648 /* AddPhotoImageView.swift */; };
 		DB1E0E892B629804000A4AA5 /* DormitoryButtonHandlingProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1E0E882B629804000A4AA5 /* DormitoryButtonHandlingProtocol.swift */; };
 		DB1E0E8B2B629865000A4AA5 /* ChoiceDormitoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1E0E8A2B629865000A4AA5 /* ChoiceDormitoryViewController.swift */; };
 		DB1E0E8D2B62A995000A4AA5 /* SelectedDormitory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1E0E8C2B62A995000A4AA5 /* SelectedDormitory.swift */; };
@@ -33,6 +34,7 @@
 		DB41008C2B6A665D005C4DD8 /* BrownVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB41008B2B6A665D005C4DD8 /* BrownVC.swift */; };
 		DB496DEB2B70EAFB00F97324 /* TabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB496DEA2B70EAFB00F97324 /* TabbarViewController.swift */; };
 		DB5ACD602AA70D190054CA15 /* ExtenstionColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5ACD5F2AA70D190054CA15 /* ExtenstionColor.swift */; };
+		DB5B0C272BB1919F008B6D3E /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5B0C262BB1919F008B6D3E /* Token.swift */; };
 		DB61AA342B4C1EA70040418B /* RegisterPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB61AA332B4C1EA70040418B /* RegisterPostViewController.swift */; };
 		DB74D0C62B73EEBF00A90D68 /* Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB74D0C52B73EEBF00A90D68 /* Codable.swift */; };
 		DB7BE9E72BA47A5E00BC25E3 /* ReplyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7BE9E52BA47A5E00BC25E3 /* ReplyCollectionViewCell.swift */; };
@@ -44,6 +46,7 @@
 		DB932AC12B6511E300B456FB /* BulluetinBoardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB932ABF2B6511E300B456FB /* BulluetinBoardCollectionViewCell.swift */; };
 		DB932AC22B6511E300B456FB /* BulluetinBoardCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB932AC02B6511E300B456FB /* BulluetinBoardCollectionViewCell.xib */; };
 		DBB345F22B42BFD100E70380 /* BulletinBoardMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB345F12B42BFD100E70380 /* BulletinBoardMainViewController.swift */; };
+		DBC001D82BBAEDBB00228CD9 /* AddImageBaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC001D72BBAEDBB00228CD9 /* AddImageBaseView.swift */; };
 		DBC54C432B568B350071164C /* UIFontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC54C422B568B350071164C /* UIFontExtension.swift */; };
 		DBC54C552B56A46B0071164C /* PretendardVariable.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DBC54C542B56A46B0071164C /* PretendardVariable.ttf */; };
 		DBC54C572B56A4820071164C /* Pretendard-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DBC54C562B56A4820071164C /* Pretendard-Bold.ttf */; };
@@ -54,6 +57,7 @@
 		DBCE10E12B595506008C3367 /* loginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCE10E02B595506008C3367 /* loginViewController.swift */; };
 		DBD1E7FC2B84A9D500FD71C6 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD1E7FB2B84A9D500FD71C6 /* Network.swift */; };
 		DBDF96EF2B84BFB2000E74AE /* ProfileFinishedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDF96EE2B84BFB2000E74AE /* ProfileFinishedViewController.swift */; };
+		DBE682B62BA592CC00DAA4CD /* PhotoScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE682B52BA592CC00DAA4CD /* PhotoScrollView.swift */; };
 		DBF466FB2AA5F4E4009FF3EB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF466FA2AA5F4E4009FF3EB /* AppDelegate.swift */; };
 		DBF466FD2AA5F4E4009FF3EB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF466FC2AA5F4E4009FF3EB /* SceneDelegate.swift */; };
 		DBF466FF2AA5F4E4009FF3EB /* MealMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF466FE2AA5F4E4009FF3EB /* MealMenuViewController.swift */; };
@@ -77,6 +81,7 @@
 		C5E033F1B4291ED8F85F0DAE /* Pods-dormitoryFamiles.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dormitoryFamiles.debug.xcconfig"; path = "Target Support Files/Pods-dormitoryFamiles/Pods-dormitoryFamiles.debug.xcconfig"; sourceTree = "<group>"; };
 		DB02B5272B98C92200C45F56 /* ReplyHeaderCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReplyHeaderCollectionReusableView.swift; sourceTree = "<group>"; };
 		DB02B5282B98C92200C45F56 /* ReplyHeaderCollectionReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReplyHeaderCollectionReusableView.xib; sourceTree = "<group>"; };
+		DB1971D42BAB088C00C09648 /* AddPhotoImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhotoImageView.swift; sourceTree = "<group>"; };
 		DB1E0E882B629804000A4AA5 /* DormitoryButtonHandlingProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DormitoryButtonHandlingProtocol.swift; sourceTree = "<group>"; };
 		DB1E0E8A2B629865000A4AA5 /* ChoiceDormitoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceDormitoryViewController.swift; sourceTree = "<group>"; };
 		DB1E0E8C2B62A995000A4AA5 /* SelectedDormitory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedDormitory.swift; sourceTree = "<group>"; };
@@ -90,6 +95,7 @@
 		DB41008B2B6A665D005C4DD8 /* BrownVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrownVC.swift; sourceTree = "<group>"; };
 		DB496DEA2B70EAFB00F97324 /* TabbarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarViewController.swift; sourceTree = "<group>"; };
 		DB5ACD5F2AA70D190054CA15 /* ExtenstionColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtenstionColor.swift; sourceTree = "<group>"; };
+		DB5B0C262BB1919F008B6D3E /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
 		DB61AA332B4C1EA70040418B /* RegisterPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPostViewController.swift; sourceTree = "<group>"; };
 		DB74D0C52B73EEBF00A90D68 /* Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Codable.swift; sourceTree = "<group>"; };
 		DB7BE9E52BA47A5E00BC25E3 /* ReplyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ReplyCollectionViewCell.swift; path = ../../ReplyCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -101,6 +107,7 @@
 		DB932ABF2B6511E300B456FB /* BulluetinBoardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulluetinBoardCollectionViewCell.swift; sourceTree = "<group>"; };
 		DB932AC02B6511E300B456FB /* BulluetinBoardCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BulluetinBoardCollectionViewCell.xib; sourceTree = "<group>"; };
 		DBB345F12B42BFD100E70380 /* BulletinBoardMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulletinBoardMainViewController.swift; sourceTree = "<group>"; };
+		DBC001D72BBAEDBB00228CD9 /* AddImageBaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddImageBaseView.swift; sourceTree = "<group>"; };
 		DBC54C422B568B350071164C /* UIFontExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFontExtension.swift; sourceTree = "<group>"; };
 		DBC54C542B56A46B0071164C /* PretendardVariable.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = PretendardVariable.ttf; sourceTree = "<group>"; };
 		DBC54C562B56A4820071164C /* Pretendard-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Bold.ttf"; sourceTree = "<group>"; };
@@ -111,6 +118,7 @@
 		DBCE10E02B595506008C3367 /* loginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginViewController.swift; sourceTree = "<group>"; };
 		DBD1E7FB2B84A9D500FD71C6 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		DBDF96EE2B84BFB2000E74AE /* ProfileFinishedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFinishedViewController.swift; sourceTree = "<group>"; };
+		DBE682B52BA592CC00DAA4CD /* PhotoScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoScrollView.swift; sourceTree = "<group>"; };
 		DBF466F72AA5F4E4009FF3EB /* dormitoryFamiles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dormitoryFamiles.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBF466FA2AA5F4E4009FF3EB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DBF466FC2AA5F4E4009FF3EB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -254,6 +262,9 @@
 				DB7BE9EA2BA47AF700BC25E3 /* ReplyCollectionViewCell.xib */,
 				DB02B5272B98C92200C45F56 /* ReplyHeaderCollectionReusableView.swift */,
 				DB02B5282B98C92200C45F56 /* ReplyHeaderCollectionReusableView.xib */,
+				DBE682B52BA592CC00DAA4CD /* PhotoScrollView.swift */,
+				DB1971D42BAB088C00C09648 /* AddPhotoImageView.swift */,
+				DBC001D72BBAEDBB00228CD9 /* AddImageBaseView.swift */,
 			);
 			path = BulletinBoard;
 			sourceTree = "<group>";
@@ -296,6 +307,7 @@
 			children = (
 				DBD1E7FB2B84A9D500FD71C6 /* Network.swift */,
 				DB74D0C52B73EEBF00A90D68 /* Codable.swift */,
+				DB5B0C262BB1919F008B6D3E /* Token.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -486,9 +498,11 @@
 				11707A232BA4C8CC0027802D /* SleepPatternViewController.swift in Sources */,
 				DB1E0E892B629804000A4AA5 /* DormitoryButtonHandlingProtocol.swift in Sources */,
 				DB3F18092B6162AB002F1738 /* ProfileSettingViewController.swift in Sources */,
-				117250E52BB19FE20083F181 /* SleepPatternCircleCollectionViewCell.swift in Sources */,
+
+				DBE682B62BA592CC00DAA4CD /* PhotoScrollView.swift in Sources */,
 				DBCE10E12B595506008C3367 /* loginViewController.swift in Sources */,
-				11707A2E2BA4D3AC0027802D /* UILabel+.swift in Sources */,
+				DB1971D52BAB088C00C09648 /* AddPhotoImageView.swift in Sources */,
+
 				DB81D0002B56E723005EF497 /* UIColorExtension.swift in Sources */,
 				DB5ACD602AA70D190054CA15 /* ExtenstionColor.swift in Sources */,
 				DB7EF2792B5EA4B00062FAB5 /* AlrmElementView.swift in Sources */,
@@ -499,7 +513,9 @@
 				117250E92BB5927E0083F181 /* SmokeAndAlcoholPatternViewController.swift in Sources */,
 				DBD1E7FC2B84A9D500FD71C6 /* Network.swift in Sources */,
 				DB2B7BCB2B45727B00C1847D /* TagButton.swift in Sources */,
-				11707A322BA617EE0027802D /* ConfigUI.swift in Sources */,
+
+				DB5B0C272BB1919F008B6D3E /* Token.swift in Sources */,
+
 				DB1E0E8B2B629865000A4AA5 /* ChoiceDormitoryViewController.swift in Sources */,
 				DB74D0C62B73EEBF00A90D68 /* Codable.swift in Sources */,
 				DBC54C432B568B350071164C /* UIFontExtension.swift in Sources */,
@@ -520,6 +536,7 @@
 				DB02B5292B98C92200C45F56 /* ReplyHeaderCollectionReusableView.swift in Sources */,
 				DBF466FD2AA5F4E4009FF3EB /* SceneDelegate.swift in Sources */,
 				DBB345F22B42BFD100E70380 /* BulletinBoardMainViewController.swift in Sources */,
+				DBC001D82BBAEDBB00228CD9 /* AddImageBaseView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

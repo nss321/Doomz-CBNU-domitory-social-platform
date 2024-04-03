@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "bulletinBoardMagnifier 1.svg",
+      "filename" : "cancelButton.svg",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "bulletinBoardMagnifier 2.svg",
+      "filename" : "cancelButton 1.svg",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "bulletinBoardMagnifier 3.svg",
+      "filename" : "cancelButton 2.svg",
       "idiom" : "universal",
       "scale" : "3x"
     }

@@ -45,11 +45,24 @@ struct Network {
     }
     
     static func getMethod<T: Codable>(url: String, completion: @escaping (Result<T, Error>) -> Void) {
-        let url = URL(string: url)!
-        let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
-            if let error = error {
-                completion(.failure(error))
-            } else if let data = data {
+            guard let url = URL(string: url) else {
+                completion(.failure(NSError(domain: "InvalidURL", code: 400, userInfo: nil)))
+                return
+            }
+
+            var request = URLRequest(url: url)
+            request.httpMethod = "GET"
+            
+            // "Authorization" 헤더에 "Bearer" 스키마를 사용해 토큰 추가
+        let token = Token.shared.number
+            request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+
+            let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+                guard let data = data, error == nil else {
+                    completion(.failure(error ?? NSError(domain: "NetworkError", code: 500, userInfo: nil)))
+                    return
+                }
+
                 let decoder = JSONDecoder()
                 do {
                     let response = try decoder.decode(T.self, from: data)
@@ -58,9 +71,9 @@ struct Network {
                     completion(.failure(error))
                 }
             }
+            
+            task.resume()
         }
-        task.resume()
-    }
     
     static func deleteMethod<T: Codable>(url: String, completion: @escaping (Result<T, Error>) -> Void) {
         //TODO: 여기 부분 안되서 도움을 좀 받았는데, 코드 수정해야함 작동은 잘 됨
@@ -70,6 +83,8 @@ struct Network {
            }
            var request = URLRequest(url: url)
            request.httpMethod = "DELETE"
+        let token = Token.shared.number
+        request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
         
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
             if let error = error {

@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "룸메매칭아이콘 13.svg",
+      "filename" : "tabbarItemMateMatching 1.svg",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "룸메매칭아이콘 9.svg",
+      "filename" : "tabbarItemMateMatching 2.svg",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "룸메매칭아이콘 10.svg",
+      "filename" : "tabbarItemMateMatching 3.svg",
       "idiom" : "universal",
       "scale" : "3x"
     }
