@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ProfileFinishedViewController: UIViewController {
+final class ProfileFinishedViewController: UIViewController {
     @IBOutlet weak var descriptionLabel: UILabel!
     
     override func viewDidLoad() {

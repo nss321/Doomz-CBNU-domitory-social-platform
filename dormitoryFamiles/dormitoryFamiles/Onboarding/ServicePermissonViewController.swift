@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ServicePermissonViewController: UIViewController {
+final class ServicePermissonViewController: UIViewController {
 
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var cameraDescriptionLabel: UILabel!

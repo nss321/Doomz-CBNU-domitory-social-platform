@@ -7,7 +7,7 @@
 
 import UIKit
 
-class BulluetinBoardCollectionViewCell: UICollectionViewCell {
+final class BulluetinBoardCollectionViewCell: UICollectionViewCell {
     var articleId: Int?
     var profileUrl: String?
     var status: String?

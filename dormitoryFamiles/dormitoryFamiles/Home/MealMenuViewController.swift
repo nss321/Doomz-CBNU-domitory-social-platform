@@ -8,7 +8,7 @@
 import UIKit
 import WebKit
 
-class MealMenuViewController: UIViewController {
+final class MealMenuViewController: UIViewController {
     
     private lazy var schoolMealButton: UIButton = {
         let button = UIButton()

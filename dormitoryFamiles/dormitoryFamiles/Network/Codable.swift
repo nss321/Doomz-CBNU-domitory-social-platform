@@ -9,7 +9,7 @@ import Foundation
 
 struct Article: Codable {
     let articleId: Int
-    let nickName: String
+    let nickName: String?
     let profileUrl: String
     let boardType: String
     let title: String
@@ -59,7 +59,7 @@ struct DetailResponse: Codable {
 struct ArticleDetail: Codable {
     let articleId: Int
     let memberId: Int
-    let nickName: String
+    let nickName: String?
     let profileUrl: String
     let memberDormitory: String
     let articleDormitory: String

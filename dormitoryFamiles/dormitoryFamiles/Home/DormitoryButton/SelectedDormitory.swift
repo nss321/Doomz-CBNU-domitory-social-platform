@@ -6,7 +6,7 @@
 //
 
 import Foundation
-class SelectedDormitory {
+final class SelectedDormitory {
     static let shared = SelectedDormitory()
     var domitory = "본관"
     
