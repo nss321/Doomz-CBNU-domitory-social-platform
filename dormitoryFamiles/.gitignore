@@ -113,4 +113,9 @@ iOSInjectionProject/
 ### Xcode Patch ###
 **/xcshareddata/WorkspaceSettings.xcsettings
 
+### private ###
+*Token.swift
+*Url.swift
+
+
 # End of https://www.gitignore.io/api/xcode,swift,cocoapods

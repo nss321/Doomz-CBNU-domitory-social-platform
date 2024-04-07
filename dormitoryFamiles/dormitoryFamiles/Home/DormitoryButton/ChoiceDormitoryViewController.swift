@@ -8,7 +8,7 @@
 import UIKit
 
 
-class ChoiceDormitoryViewController: UIViewController {
+final class ChoiceDormitoryViewController: UIViewController {
     @IBOutlet weak var label: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
