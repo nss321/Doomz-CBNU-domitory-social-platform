@@ -75,9 +75,9 @@ final class BulletinBoardDetailViewViewController: UIViewController {
         if let jsonData = try? JSONEncoder().encode(commentData) {
             var url = URL(string: "")
             if selectedReplyId == -1 {
-                url = URL(string: Network.replyUrl(id: id))!
+                url = URL(string: Url.replyUrl(id: id))!
             }else {
-                url = URL(string: Network.postRereplyUrl(replyId: selectedReplyId))!
+                url = URL(string: Url.postRereplyUrl(replyId: selectedReplyId))!
             }
             var request = URLRequest(url: url!)
             request.httpMethod = "POST"
@@ -178,7 +178,7 @@ final class BulletinBoardDetailViewViewController: UIViewController {
     
     
     private func replyNetwork(id: Int) {
-        let commentUrl = Network.replyUrl(id: id)
+        let commentUrl = Url.replyUrl(id: id)
         Network.getMethod(url: commentUrl) { [self] (result: Result<ReplyResponse, Error>) in
             switch result {
             case .success(let response):
