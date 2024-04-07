@@ -322,3 +322,4 @@ extension SleepPatternViewController {
         return stackView
     }
 }
+
