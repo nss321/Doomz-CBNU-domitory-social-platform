@@ -20,14 +20,20 @@ protocol ConfigUI {
     
     ///  VoiceOver 설정용
     func setupAccessibility()
+
 }
 
 extension ConfigUI {
+    
     func setupNavigationBar() { }
+    
     func setupAccessibility() { }
+    
+    
 }
 
 extension UIViewController {
+    /// String을 param으로 받아서 지정된 서식에 따라 Navigation Title로 설정
     func setupNavigationBar(_ navigationTitle: String) {
         let label = UILabel()
         label.text = navigationTitle
@@ -39,4 +45,28 @@ extension UIViewController {
 //        self.navigationItem.leftBarButtonItem = self.leftBarButtonItem
     }
     
+    /// Label과 StackView를 하나의 Container로 묶어서 return
+    /// - Parameters:
+    ///   - string: String
+    ///   - subview: UIView
+    /// - Returns: UIstackView
+    func createStackViewWithLabelAndSubview(string: String, subview: UIView) -> UIStackView {
+        let stackView = UIStackView()
+        stackView.axis = .vertical
+        stackView.spacing = 8
+        stackView.distribution = .fillProportionally
+        stackView.alignment = .leading
+        
+        let label = UILabel()
+        label.text = string
+        label.font = FontManager.subtitle1()
+        label.textColor = .gray5
+        label.addCharacterSpacing()
+        
+        stackView.addArrangedSubview(label)
+        stackView.addArrangedSubview(subview)
+        
+        return stackView
+    }
 }
+

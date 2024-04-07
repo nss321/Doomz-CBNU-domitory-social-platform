@@ -301,25 +301,4 @@ extension SleepPatternViewController: UICollectionViewDelegateFlowLayout {
         
     }
 }
-    
-extension SleepPatternViewController {
-    func createStackViewWithLabelAndSubview(string: String, subview: UIView) -> UIStackView {
-        let stackView = UIStackView()
-        stackView.axis = .vertical
-        stackView.spacing = 8
-        stackView.distribution = .fillProportionally
-        stackView.alignment = .leading
-        
-        let label = UILabel()
-        label.text = string
-        label.font = FontManager.subtitle1()
-        label.textColor = .gray5
-        label.addCharacterSpacing()
-        
-        stackView.addArrangedSubview(label)
-        stackView.addArrangedSubview(subview)
-        
-        return stackView
-    }
-}
 
