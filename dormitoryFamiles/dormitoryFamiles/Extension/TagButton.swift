@@ -1,7 +1,7 @@
 import UIKit
 
 class RoundButton: UIButton {
-    var spacing: CGFloat = 4 {
+    private var spacing: CGFloat = 4 {
         didSet {
             updateSpacing()
         }
@@ -46,7 +46,7 @@ class RoundButton: UIButton {
     }
 }
 
-class TagButton: RoundButton {
+final class TagButton: RoundButton {
 
     override func setNeedsLayout() {
         super.setNeedsLayout()
@@ -67,15 +67,15 @@ class TagButton: RoundButton {
         self.setTitleColor(.gray4, for: .normal)
     }
     
-    func changePinkColor() {
+    private func changePinkColor() {
         self.backgroundColor = .primaryMid
     }
 
-    func changeWhiteColor() {
+    private func changeWhiteColor() {
         self.backgroundColor = .white
     }
     
-    func changeTitleGray() {
+    private func changeTitleGray() {
         self.setTitleColor(.gray4, for: .normal)
     }
 }

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class BulletinBoardDetailViewViewController: UIViewController {
+final class BulletinBoardDetailViewViewController: UIViewController {
     @IBOutlet weak var roundLine: UIView!
     
     @IBOutlet weak var collectionView: UICollectionView!
@@ -36,16 +36,16 @@ class BulletinBoardDetailViewViewController: UIViewController {
     
     @IBOutlet weak var tagStackView: UIStackView!
     @IBOutlet weak var chatCountLabel: UILabel!
-    var scrollPhotoView = PhotoScrollView()
-    var hasImage = true
+    private var scrollPhotoView = PhotoScrollView()
+    private var hasImage = true
     
-    let headerCell = ReplyHeaderCollectionReusableView()
-    var dataClass : DataClass?
+    private let headerCell = ReplyHeaderCollectionReusableView()
+    private var dataClass : DataClass?
     var id: Int = 0
-    var collectionViewHeightConstraint = NSLayoutConstraint()
-    var url = ""
-    var activityIndicator = UIActivityIndicatorView(style: .large)
-    var selectedReplyId = -1
+    private var collectionViewHeightConstraint = NSLayoutConstraint()
+    private var url = ""
+    private var activityIndicator = UIActivityIndicatorView(style: .large)
+    private var selectedReplyId = -1
     
     
     override func viewDidLoad() {
@@ -99,158 +99,72 @@ class BulletinBoardDetailViewViewController: UIViewController {
     }
     
     private func network(url: String) {
-                Network.getMethod(url: url) { (result: Result<DetailResponse, Error>) in
-                    switch result {
-                    case .success(let response):
-                        let data = response.data
-                        DispatchQueue.main.async { [weak self] in
-                            guard let self = self else { return }
-                            self.titleLabel.title2 = data.title
-                            self.nickname.title5 = data.nickName ?? "ㅇㄹ"
-                            self.profileImage.image = UIImage(named: data.profileUrl)
-                            self.dormitory.title5 = data.memberDormitory
-                            self.categoryTag.subTitle2 = data.boardType
-                            
-                            //TODO: 태그를 스택뷰로 구현하였는데, 스택뷰는 한줄처리만 된다는 특성이 있기 때문에 컬렉션뷰로 대체해야함.
-                            let tagArr = data.tags.split(separator: "#")
-                            let trimmedString = String(data.tags.dropFirst())
-                            let tagsArray = trimmedString.components(separatedBy: "#").map { "#\($0)" }
-                            for tag in tagsArray {
-                                let tagButton = RoundButton()
-                                tagButton.backgroundColor = .gray0
-                                tagButton.setTitleColor(.gray5, for: .normal)
-                                tagButton.body2 = tag
-                                self.tagStackView.addArrangedSubview(tagButton)
-                            }
-                            
-                            
-                            self.contentLabel.body1 = data.content
-                            self.likeCountLabel.text = String(data.wishCount)
-                            // isWished 구현 필요
-                            self.statusTag.subTitle2 = data.status
-                            
-                            let datetime = data.createdAt
-                            self.timeLabel.body2 = self.changeToTime(createdAt: datetime)
-                            self.dateLabel.body2 = self.changeToDate(createdAt: datetime)
-                            if data.imagesUrls.isEmpty {
-                                self.hasImage = false
-                                self.layout()
-                            }else {
-                                self.layout()
-                                for imageUrl in data.imagesUrls {
-                                    if let url = URL(string: imageUrl) {
-                                        self.loadImage(from: url) { [weak self] image in
-                                            DispatchQueue.main.async {
-                                                if let image = image {
-                                                    self?.scrollPhotoView.addImage(image: image)
-                                                } else {
-                                                    print("이미지를 로드할 수 없습니다.")
-                                                }
-                                            }
+        Network.getMethod(url: url) { (result: Result<DetailResponse, Error>) in
+            switch result {
+            case .success(let response):
+                let data = response.data
+                DispatchQueue.main.async { [weak self] in
+                    guard let self = self else { return }
+                    self.titleLabel.title2 = data.title
+                    self.nickname.title5 = data.nickName ?? "ㅇㄹ"
+                    self.profileImage.image = UIImage(named: data.profileUrl)
+                    self.dormitory.title5 = data.memberDormitory
+                    self.categoryTag.subTitle2 = data.boardType
+                    
+                    //TODO: 태그를 스택뷰로 구현하였는데, 스택뷰는 한줄처리만 된다는 특성이 있기 때문에 컬렉션뷰로 대체해야함.
+                    let tagArr = data.tags.split(separator: "#")
+                    let trimmedString = String(data.tags.dropFirst())
+                    let tagsArray = trimmedString.components(separatedBy: "#").map { "#\($0)" }
+                    for tag in tagsArray {
+                        let tagButton = RoundButton()
+                        tagButton.backgroundColor = .gray0
+                        tagButton.setTitleColor(.gray5, for: .normal)
+                        tagButton.body2 = tag
+                        self.tagStackView.addArrangedSubview(tagButton)
+                    }
+                    
+                    
+                    self.contentLabel.body1 = data.content
+                    self.likeCountLabel.text = String(data.wishCount)
+                    // isWished 구현 필요
+                    self.statusTag.subTitle2 = data.status
+                    
+                    let datetime = data.createdAt
+                    self.timeLabel.body2 = self.changeToTime(createdAt: datetime)
+                    self.dateLabel.body2 = self.changeToDate(createdAt: datetime)
+                    if data.imagesUrls.isEmpty {
+                        self.hasImage = false
+                        self.layout()
+                    }else {
+                        self.layout()
+                        for imageUrl in data.imagesUrls {
+                            if let url = URL(string: imageUrl) {
+                                self.loadImage(from: url) { [weak self] image in
+                                    DispatchQueue.main.async {
+                                        if let image = image {
+                                            self?.scrollPhotoView.addImage(image: image)
+                                        } else {
+                                            print("이미지를 로드할 수 없습니다.")
                                         }
                                     }
                                 }
                             }
-                            self.collectionView.reloadData()
-                            
-                            self.activityIndicator.stopAnimating()
-                            self.activityIndicator.isHidden = true
                         }
-                    case .failure(let error):
-                        print("Error: \(error)")
                     }
+                    self.collectionView.reloadData()
+                    
+                    self.activityIndicator.stopAnimating()
+                    self.activityIndicator.isHidden = true
                 }
+            case .failure(let error):
+                print("Error: \(error)")
+            }
+        }
         
-        //더미데이터 사용!!!
-//        let jsonString = """
-//            {
-//                "code": 200,
-//                "data": {
-//                    "articleId": 17,
-//                    "memberId": 1,
-//                    "nickName": "캡틴코어",
-//                    "profileUrl": "profileurlurlurl",
-//                    "memberDormitory": "인의관",
-//                    "articleDormitory": "양진재",
-//                    "boardType": "궁금해요",
-//                    "tags": "#바퀴벌래#무서워#갓생",
-//                    "title": "바퀴벌레 잡아주실 분",
-//                    "content": "ㅠㅠㅠ 무서워용. 어서 저를 도와주세요!!",
-//                    "wishCount": 0,
-//                    "isWished": true,
-//                    "status": "모집중",
-//                    "createdAt": "2024-02-16T16-28-10",
-//                    "imagesUrls": [
-//
-//                    ]
-//                }
-//            }
-//            """
-//
-//        guard let jsonData = jsonString.data(using: .utf8) else { return }
-//
-//        do {
-//            let response = try JSONDecoder().decode(DetailResponse.self, from: jsonData)
-//            let data = response.data
-//            DispatchQueue.main.async { [weak self] in
-//                guard let self = self else { return }
-//                self.titleLabel.title2 = data.title
-//                self.nickname.title5 = data.nickName
-//                self.profileImage.image = UIImage(named: data.profileUrl)
-//                self.dormitory.title5 = data.memberDormitory
-//                self.categoryTag.subTitle2 = data.boardType
-//
-//                //TODO: 태그를 스택뷰로 구현하였는데, 스택뷰는 한줄처리만 된다는 특성이 있기 때문에 컬렉션뷰로 대체해야함.
-//                let tagArr = data.tags.split(separator: "#")
-//                let trimmedString = String(data.tags.dropFirst())
-//                let tagsArray = trimmedString.components(separatedBy: "#").map { "#\($0)" }
-//                for tag in tagsArray {
-//                    let tagButton = RoundButton()
-//                    tagButton.backgroundColor = .gray0
-//                    tagButton.setTitleColor(.gray5, for: .normal)
-//                    tagButton.body2 = tag
-//                    self.tagStackView.addArrangedSubview(tagButton)
-//                }
-//
-//
-//                self.contentLabel.body1 = data.content
-//                self.likeCountLabel.text = String(data.wishCount)
-//                // isWished 구현 필요
-//                self.statusTag.subTitle2 = data.status
-//
-//                let datetime = data.createdAt
-//                self.timeLabel.body2 = self.changeToTime(createdAt: datetime)
-//                self.dateLabel.body2 = self.changeToDate(createdAt: datetime)
-//                if data.imagesUrls.isEmpty {
-//                    self.hasImage = false
-//                    self.layout()
-//                }else {
-//                    self.layout()
-//                    for imageUrl in data.imagesUrls {
-//                        if let url = URL(string: imageUrl) {
-//                            self.loadImage(from: url) { [weak self] image in
-//                                DispatchQueue.main.async {
-//                                    if let image = image {
-//                                        self?.scrollPhotoView.addImage(image: image)
-//                                    } else {
-//                                        print("이미지를 로드할 수 없습니다.")
-//                                    }
-//                                }
-//                            }
-//                        }
-//                    }
-//                }
-//                self.collectionView.reloadData()
-//
-//                self.activityIndicator.stopAnimating()
-//                self.activityIndicator.isHidden = true
-//            }
-//        } catch {
-//           print("더미 못받아옴")
-//        }
+        
     }
     
-    func loadImage(from url: URL, completion: @escaping (UIImage?) -> Void) {
+    private func loadImage(from url: URL, completion: @escaping (UIImage?) -> Void) {
         URLSession.shared.dataTask(with: url) { data, response, error in
             guard let data = data, error == nil, let image = UIImage(data: data) else {
                 print("Error downloading image: \(String(describing: error))")
@@ -339,7 +253,7 @@ class BulletinBoardDetailViewViewController: UIViewController {
         commentTextView.sizeToFit()
     }
     
-    func layout() {
+    private func layout() {
         self.view.addSubview(scrollPhotoView)
         scrollPhotoView.translatesAutoresizingMaskIntoConstraints = false
         tagStackView.translatesAutoresizingMaskIntoConstraints = false

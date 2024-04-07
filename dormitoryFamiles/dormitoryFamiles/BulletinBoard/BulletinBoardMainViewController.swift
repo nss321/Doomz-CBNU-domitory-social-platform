@@ -8,7 +8,7 @@ import Tabman
 import Pageboy
 import UIKit
 
-class BulletinBoardMainViewController: TabmanViewController, DormitoryButtonHandling {
+final class BulletinBoardMainViewController: TabmanViewController, DormitoryButtonHandling {
     private var viewControllers: [UIViewController] {
         let allVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "brownVC") as! BrownVC
         allVC.path = Network.pathAllPostUrl
@@ -70,7 +70,7 @@ class BulletinBoardMainViewController: TabmanViewController, DormitoryButtonHand
         NotificationCenter.default.addObserver(self, selector: #selector(dormitoryChangeNotification(_:)), name: .init("DormitoryChangeNotification"), object: nil)
     }
     
-    func setTintAdjustmentModeForButtons(in view: UIView) {
+    private func setTintAdjustmentModeForButtons(in view: UIView) {
         //받아온 뷰를 돌며 타입이 버튼이거나 버튼을 상속받은 엘리먼트들만
         for subview in view.subviews {
             if let button = subview as? UIButton {

@@ -8,7 +8,7 @@
 import UIKit
 import DropDown
 
-class ProfileSettingViewController: UIViewController {
+final class ProfileSettingViewController: UIViewController {
     
     let array: [(abstract: String, detail: [String])] =
     [("인문대학",["국어국문학과", "중어중문학과", "영어영문학과", "독일언어문화학과", "프랑스언어문화학과", "러시안언어문화학과", "철학과", "사학과", "고고미술사학과"]),

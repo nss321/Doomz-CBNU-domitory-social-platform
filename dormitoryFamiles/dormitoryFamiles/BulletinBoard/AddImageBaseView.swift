@@ -13,10 +13,10 @@ protocol CancelButtonTappedDelegate {
 
 final class AddImageBaseView: UIView {
     
-    let imageView: AddPhotoImageView
-    let cancelButton: UIButton
+    private let imageView: AddPhotoImageView
+    private let cancelButton: UIButton
     static var cancelButtonTappedDelegate: CancelButtonTappedDelegate?
-    static var index = 0
+    private static var index = 0
     
     init(image: UIImage) {
         self.imageView = AddPhotoImageView(image: image)
