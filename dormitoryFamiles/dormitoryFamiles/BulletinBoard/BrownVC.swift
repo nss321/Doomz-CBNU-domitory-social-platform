@@ -7,8 +7,8 @@
 
 import UIKit
 
-class BrownVC: UIViewController {
-    var articles: [Article] = []
+final class BrownVC: UIViewController {
+    private var articles: [Article] = []
     var path = ""
     @IBOutlet weak var collectionView: UICollectionView!
 

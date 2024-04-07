@@ -7,9 +7,9 @@
 
 import UIKit
 
-class TagScrollView: UIScrollView {
+final class TagScrollView: UIScrollView {
 
-    var tagStackView = UIStackView()
+    private var tagStackView = UIStackView()
     
     override init(frame: CGRect) {
         super.init(frame: frame)

@@ -15,7 +15,7 @@ protocol HeaderRereplyButtonDelegate: AnyObject {
     func rereplyButtonTapped(replyId: Int)
 }
 
-class ReplyHeaderCollectionReusableView: UICollectionReusableView {
+final class ReplyHeaderCollectionReusableView: UICollectionReusableView {
     weak var moreButtonDelegate: MoreButtonDelegate?
     weak var rereplyButtonDelegate: HeaderRereplyButtonDelegate?
    

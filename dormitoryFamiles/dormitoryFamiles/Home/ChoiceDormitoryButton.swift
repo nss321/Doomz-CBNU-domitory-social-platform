@@ -7,11 +7,11 @@
 
 import UIKit
 
-class DormitoryButton: UIButton {
-    var actionSheet: UIAlertController?
-    var site: [String: String]?
+final class DormitoryButton: UIButton {
+    private var actionSheet: UIAlertController?
+    private var site: [String: String]?
   
-    func setupActionSheet(dormitories: [String], site: [String: String]) {
+    private func setupActionSheet(dormitories: [String], site: [String: String]) {
         self.site = site
         let alert = UIAlertController(title: "", message: "기숙사 선택", preferredStyle: .actionSheet)
         for dormitory in dormitories {

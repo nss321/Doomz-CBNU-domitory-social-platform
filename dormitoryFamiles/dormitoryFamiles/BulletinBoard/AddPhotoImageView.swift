@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AddPhotoImageView: UIImageView {
+final class AddPhotoImageView: UIImageView {
     
     override init(image: UIImage?) {
             super.init(image: image)

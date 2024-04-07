@@ -50,7 +50,7 @@ class PhotoScrollView: UIScrollView {
 
 }
 
-class AddPhotoScrollView: PhotoScrollView {
+final class AddPhotoScrollView: PhotoScrollView {
     let addPhotoButton = UIButton()
     let addPhotoButtonView = UIView()
     private let cameraView = UIImageView()
@@ -128,7 +128,7 @@ class AddPhotoScrollView: PhotoScrollView {
 
     }
     
-    func setLayout() {
+    private func setLayout() {
         NSLayoutConstraint.activate([
             addPhotoStackView.heightAnchor.constraint(equalTo: self.heightAnchor),
             addPhotoStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor),

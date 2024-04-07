@@ -9,7 +9,7 @@ import UIKit
 import DropDown
 import PhotosUI
 
-class RegisterPostViewController: UIViewController, CancelButtonTappedDelegate {
+final class RegisterPostViewController: UIViewController, CancelButtonTappedDelegate {
  
     
     @IBOutlet weak var textField: UITextField!
@@ -38,10 +38,10 @@ class RegisterPostViewController: UIViewController, CancelButtonTappedDelegate {
     
     @IBOutlet weak var descriptionStack: UIStackView!
     
-    let dropDown = DropDown()
-    let textFieldMaxLength = 20
-    let textViewMaxLength = 300
-    let photoScrollView = AddPhotoScrollView()
+    private let dropDown = DropDown()
+    private let textFieldMaxLength = 20
+    private let textViewMaxLength = 300
+    private let photoScrollView = AddPhotoScrollView()
     private var photoArray = [PHPickerResult]()
     private let maximumPhotoNumber = 5
     override func viewWillAppear(_ animated: Bool) {

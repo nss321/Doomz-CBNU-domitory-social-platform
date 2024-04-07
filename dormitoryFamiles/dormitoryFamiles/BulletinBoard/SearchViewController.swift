@@ -7,9 +7,9 @@
 
 import UIKit
 
-class SearchViewController: UIViewController {
-    var articles: [Article] = []
-    var path = ""
+final class SearchViewController: UIViewController {
+    private var articles: [Article] = []
+    private var path = ""
     
     @IBOutlet weak var noPostImageSettingView: UIView!
     @IBOutlet weak var collectionView: UICollectionView!

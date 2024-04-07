@@ -8,7 +8,7 @@
 import UIKit
 import SwiftSoup
 
-class HomeViewController: UIViewController, DormitoryButtonHandling {
+final class HomeViewController: UIViewController, DormitoryButtonHandling {
     
     @IBOutlet weak var menuLabel: UILabel!
     
@@ -26,7 +26,7 @@ class HomeViewController: UIViewController, DormitoryButtonHandling {
     
     @IBOutlet weak var eveningButton: RoundButton!
     
-    var todayString: String {
+    private var todayString: String {
         get {
             let dateFormmatter = DateFormatter()
             dateFormmatter.dateFormat = "yyyy-MM-dd"
@@ -34,7 +34,7 @@ class HomeViewController: UIViewController, DormitoryButtonHandling {
         }
     }
     
-    let site = ["본관": "https://dorm.chungbuk.ac.kr/home/sub.php?menukey=20041&type=1", "양성재":"https://dorm.chungbuk.ac.kr/home/sub.php?menukey=20041&type=2", "양진재":"https://dorm.chungbuk.ac.kr/home/sub.php?menukey=20041&type=3"]
+    private let site = ["본관": "https://dorm.chungbuk.ac.kr/home/sub.php?menukey=20041&type=1", "양성재":"https://dorm.chungbuk.ac.kr/home/sub.php?menukey=20041&type=2", "양진재":"https://dorm.chungbuk.ac.kr/home/sub.php?menukey=20041&type=3"]
     
     
     override func viewDidLoad() {
@@ -77,7 +77,7 @@ class HomeViewController: UIViewController, DormitoryButtonHandling {
     }
     
     //시트를 동작하였을때 버튼의 컬러가 변하지 않게 하는 함수
-    func setTintAdjustmentModeForButtons(in view: UIView) {
+    private func setTintAdjustmentModeForButtons(in view: UIView) {
         //받아온 뷰를 돌며 타입이 버튼이거나 버튼을 상속받은 엘리먼트들만
         for subview in view.subviews {
             if let button = subview as? UIButton {
@@ -94,7 +94,7 @@ class HomeViewController: UIViewController, DormitoryButtonHandling {
     }
     
     
-    func setLabelAndButton() {
+    private func setLabelAndButton() {
         morningButton.setTitle("아침", for: .normal)
         lunchButton.setTitle("점심", for: .normal)
         eveningButton.setTitle("저녁", for: .normal)
@@ -102,7 +102,7 @@ class HomeViewController: UIViewController, DormitoryButtonHandling {
     }
     
     
-    func setDormitoryButton() {
+    private func setDormitoryButton() {
         var configuration = UIButton.Configuration.plain()
         configuration.imagePadding = .init(4)
         dormitoryButton.configuration = configuration
@@ -132,21 +132,7 @@ class HomeViewController: UIViewController, DormitoryButtonHandling {
         presentSheet()
     }
     
-    
-    
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
-    
-    func fetchWebsite(time: MealTime) {
+    private func fetchWebsite(time: MealTime) {
         guard dormitoryButton.currentTitle! != "양현재" else {
             return
         }
@@ -162,7 +148,7 @@ class HomeViewController: UIViewController, DormitoryButtonHandling {
         task.resume()
     }
     
-    func parseHTML(html: String, for date: String, time: MealTime) {
+    private func parseHTML(html: String, for date: String, time: MealTime) {
         let mealTimeString = time.rawValue
         do {
             let document = try SwiftSoup.parse(html)
