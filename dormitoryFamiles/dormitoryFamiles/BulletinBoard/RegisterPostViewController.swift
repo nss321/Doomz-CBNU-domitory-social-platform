@@ -139,6 +139,7 @@ final class RegisterPostViewController: UIViewController, CancelButtonTappedDele
         //TODO: 이미지와 태그는 UI세팅 후에 다시 처리해야함
         let post = Post(dormitoryType: dormitoryButton.title(for: .normal) ?? "", boardType: categoryButton.title(for: .normal) ?? "", title: textField.text ?? "" , content: textView.text ?? "", tags: "태그는 추후 구현!", imagesUrls: [])
         let encoder = JSONEncoder()
+        let imagesData = convertImageToData()
         if let jsonData = try? encoder.encode(post) {
             let url = URL(string: "http://43.202.254.127:8080/api/articles")!
             var request = URLRequest(url: url)
@@ -224,6 +225,46 @@ extension RegisterPostViewController: UITextFieldDelegate {
             textField.text = fixedText
         }
         changeFinishButtonBackgroundColor()
+    }
+    
+    private func convertImageToData() -> [Data]{
+        let group = DispatchGroup()
+        var imagesData: [Data] = []
+        
+        for result in photoArray {
+            group.enter()
+            getImageData(from: result) { imageData in
+                if let imageData = imageData {
+                    imagesData.append(imageData)
+                }
+                group.leave()
+            }
+        }
+        group.wait()
+        return imagesData
+    }
+    
+    func getImageData(from result: PHPickerResult, completion: @escaping (Data?) -> Void) {
+        let itemProvider = result.itemProvider
+        
+        if itemProvider.canLoadObject(ofClass: UIImage.self) {
+            itemProvider.loadObject(ofClass: UIImage.self) { image, error in
+                if let error = error {
+                    print("Error loading image: \(error.localizedDescription)")
+                    completion(nil)
+                    return
+                }
+                
+                if let image = image as? UIImage, let data = image.jpegData(compressionQuality: 0.8) {
+                    // 이미지 데이터 반환
+                    completion(data)
+                } else {
+                    completion(nil)
+                }
+            }
+        } else {
+            completion(nil)
+        }
     }
     
 }
