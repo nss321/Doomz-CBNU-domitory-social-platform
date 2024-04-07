@@ -7,8 +7,8 @@
 
 import UIKit
 
-class BrownVC: UIViewController {
-    var articles: [Article] = []
+final class BrownVC: UIViewController {
+    private var articles: [Article] = []
     var path = ""
     @IBOutlet weak var collectionView: UICollectionView!
 
@@ -19,7 +19,7 @@ class BrownVC: UIViewController {
         setDelegate()
         self.collectionView.register(UINib(nibName: "BulluetinBoardCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "cell")
         
-        network(url: Network.url + path)
+        network(url: Url.url + path)
         
         NotificationCenter.default.addObserver(self, selector: #selector(changeDormiotry), name: .changeDormiotry, object: nil)
     }
@@ -44,7 +44,7 @@ class BrownVC: UIViewController {
     }
     
     @objc private func changeDormiotry() {
-            network(url: Network.url + path)
+            network(url: Url.url + path)
         self.collectionView.reloadData()
         }
     

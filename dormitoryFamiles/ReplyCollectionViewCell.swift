@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ReplyCollectionViewCell: UICollectionViewCell {
+final class ReplyCollectionViewCell: UICollectionViewCell {
     weak var moreButtonDelegate: MoreButtonDelegate?
     var replyCommentId: Int?
     var memberId: Int?

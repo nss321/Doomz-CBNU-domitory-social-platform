@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AlrmElementView: UIView {
+final class AlrmElementView: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)

@@ -7,69 +7,48 @@
 
 import Foundation
 struct Network {
-    static let url = "http://43.202.254.127:8080"
-
-    static var pathAllPostUrl: String {
-        "/api/dormitories/\(SelectedDormitory.shared.domitory)/articles?page=0&size=10&sort=s&status=모집중".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
-       }
-       static var helpPostUrl: String {
-           "/api/dormitories/\(SelectedDormitory.shared.domitory)/board-type/도와주세요/articles?page=0&size=10&sort=createdAt&status=모집중".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
-       }
-       static var togetherUrl: String {
-           "/api/dormitories/\(SelectedDormitory.shared.domitory)/board-type/함께해요/articles?page=0&size=10&sort=createdAt&status=모집중".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
-       }
-       static var shareUrl: String {
-           "/api/dormitories/\(SelectedDormitory.shared.domitory)/board-type/나눔해요/articles?page=0&size=10&sort=createdAt&status=모집중".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
-       }
-       static var lostUrl: String {
-           "/api/dormitories/\(SelectedDormitory.shared.domitory)/board-type/분실신고/articles?page=0&size=10&sort=createdAt&status=모집중".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
-       }
-    
-    static func searchUrl(searchText: String) -> String {
-        var url: String {
-            "/api/dormitories/\(SelectedDormitory.shared.domitory)/articles/search?&page=0&size=10&q=\(searchText)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
-        }
-        return url
-    }
-    
-    static func postRereplyUrl(replyId: Int) -> String {
-        return Network.url + "/api/comments/\(replyId)/replyComments"
-    }
-
-    static func replyUrl(id: Int) -> String {
-        return Network.url + "/api/articles/\(id)/comments"
-    }
-    
-    static func postReplyUrl(id: Int) -> String {
-        return Network.url + "/api/articles/\(id)/comments"
-    }
     
     static func getMethod<T: Codable>(url: String, completion: @escaping (Result<T, Error>) -> Void) {
-        let url = URL(string: url)!
-        let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
-            if let error = error {
+        guard let url = URL(string: url) else {
+            completion(.failure(NSError(domain: "InvalidURL", code: 400, userInfo: nil)))
+            return
+        }
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        
+        // "Authorization" 헤더에 "Bearer" 스키마를 사용해 토큰 추가
+        let token = Token.shared.number
+        request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        
+        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+            guard let data = data, error == nil else {
+                completion(.failure(error ?? NSError(domain: "NetworkError", code: 500, userInfo: nil)))
+                return
+            }
+            
+            let decoder = JSONDecoder()
+            do {
+                let response = try decoder.decode(T.self, from: data)
+                completion(.success(response))
+            } catch {
                 completion(.failure(error))
-            } else if let data = data {
-                let decoder = JSONDecoder()
-                do {
-                    let response = try decoder.decode(T.self, from: data)
-                    completion(.success(response))
-                } catch {
-                    completion(.failure(error))
-                }
             }
         }
+        
         task.resume()
     }
     
     static func deleteMethod<T: Codable>(url: String, completion: @escaping (Result<T, Error>) -> Void) {
         //TODO: 여기 부분 안되서 도움을 좀 받았는데, 코드 수정해야함 작동은 잘 됨
         guard let url = URL(string: url) else {
-               print("url오류")
-               return
-           }
-           var request = URLRequest(url: url)
-           request.httpMethod = "DELETE"
+            print("url오류")
+            return
+        }
+        var request = URLRequest(url: url)
+        request.httpMethod = "DELETE"
+        let token = Token.shared.number
+        request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
         
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
             if let error = error {
@@ -100,7 +79,7 @@ struct Network {
         }
         task.resume()
     }
-
+    
 }
 
 enum Dormitory: String {

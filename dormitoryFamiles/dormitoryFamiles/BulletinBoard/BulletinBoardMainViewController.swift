@@ -8,22 +8,22 @@ import Tabman
 import Pageboy
 import UIKit
 
-class BulletinBoardMainViewController: TabmanViewController, DormitoryButtonHandling {
+final class BulletinBoardMainViewController: TabmanViewController, DormitoryButtonHandling {
     private var viewControllers: [UIViewController] {
         let allVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "brownVC") as! BrownVC
-        allVC.path = Network.pathAllPostUrl
+        allVC.path = Url.pathAllPostUrl
         
         let helpVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "brownVC") as! BrownVC
-        helpVC.path = Network.helpPostUrl
+        helpVC.path = Url.helpPostUrl
         
         let togetherVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "brownVC") as! BrownVC
-        togetherVC.path = Network.togetherUrl
+        togetherVC.path = Url.togetherUrl
         
         let shareVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "brownVC") as! BrownVC
-        shareVC.path = Network.shareUrl
+        shareVC.path = Url.shareUrl
         
         let lostVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "brownVC") as! BrownVC
-        lostVC.path = Network.lostUrl
+        lostVC.path = Url.lostUrl
         
         return [allVC, helpVC, togetherVC, shareVC, lostVC]
     }
@@ -70,7 +70,7 @@ class BulletinBoardMainViewController: TabmanViewController, DormitoryButtonHand
         NotificationCenter.default.addObserver(self, selector: #selector(dormitoryChangeNotification(_:)), name: .init("DormitoryChangeNotification"), object: nil)
     }
     
-    func setTintAdjustmentModeForButtons(in view: UIView) {
+    private func setTintAdjustmentModeForButtons(in view: UIView) {
         //받아온 뷰를 돌며 타입이 버튼이거나 버튼을 상속받은 엘리먼트들만
         for subview in view.subviews {
             if let button = subview as? UIButton {
