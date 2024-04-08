@@ -7,7 +7,7 @@
 
 import Foundation
 struct Url {
-    static let url = "http://43.202.254.127:8080"
+    static let base = "http://43.202.254.127:8080"
     
     static var pathAllPostUrl: String {
         "/api/dormitories/\(SelectedDormitory.shared.domitory)/articles?page=0&size=10&sort=s&status=모집중".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
@@ -25,6 +25,15 @@ struct Url {
         "/api/dormitories/\(SelectedDormitory.shared.domitory)/board-type/분실신고/articles?page=0&size=10&sort=createdAt&status=모집중".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
     }
     
+    static var imageToUrl: String {
+        Self.base+"/api/images"
+    }
+    
+    static var articles: String {
+        Self.base+"/api/articles"
+    }
+    
+    
     static func searchUrl(searchText: String) -> String {
         var url: String {
             "/api/dormitories/\(SelectedDormitory.shared.domitory)/articles/search?&page=0&size=10&q=\(searchText)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
@@ -33,14 +42,14 @@ struct Url {
     }
     
     static func postRereplyUrl(replyId: Int) -> String {
-        return self.url + "/api/comments/\(replyId)/replyComments"
+        return self.base + "/api/comments/\(replyId)/replyComments"
     }
     
     static func replyUrl(id: Int) -> String {
-        return self.url + "/api/articles/\(id)/comments"
+        return self.base + "/api/articles/\(id)/comments"
     }
     
     static func postReplyUrl(id: Int) -> String {
-        return self.url + "/api/articles/\(id)/comments"
+        return self.base + "/api/articles/\(id)/comments"
     }
 }
