@@ -10,7 +10,7 @@ import DropDown
 import PhotosUI
 
 final class RegisterPostViewController: UIViewController, CancelButtonTappedDelegate {
- 
+    
     
     @IBOutlet weak var textField: UITextField!
     
@@ -44,6 +44,9 @@ final class RegisterPostViewController: UIViewController, CancelButtonTappedDele
     private let photoScrollView = AddPhotoScrollView()
     private var photoArray = [PHPickerResult]()
     private let maximumPhotoNumber = 5
+    private var imageURL = [String]()
+    private var imageNameIndex = -1
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setNavigationBar()
@@ -74,7 +77,7 @@ final class RegisterPostViewController: UIViewController, CancelButtonTappedDele
         countTextViewTextLabel.textAlignment = .right
         countTextViewTextLabel.numberOfLines = 0 // 라인 수 제한을 해제
         countTextViewTextLabel.sizeToFit()
-
+        
         
         //textViewPlaceHolder느낌
         textView.delegate = self
@@ -131,7 +134,7 @@ final class RegisterPostViewController: UIViewController, CancelButtonTappedDele
         }else{
             finishButton.backgroundColor = .primary
         }
-
+        
     }
     
     @IBAction func finishButtonTapped(_ sender: UIButton) {
@@ -140,10 +143,24 @@ final class RegisterPostViewController: UIViewController, CancelButtonTappedDele
         let post = Post(dormitoryType: dormitoryButton.title(for: .normal) ?? "", boardType: categoryButton.title(for: .normal) ?? "", title: textField.text ?? "" , content: textView.text ?? "", tags: "태그는 추후 구현!", imagesUrls: [])
         let encoder = JSONEncoder()
         let imagesData = convertImageToData()
+        let group = DispatchGroup()
+        
+        for imageData in imagesData {
+            group.enter()
+            //멀티파트파일로 전환
+            let body = makeBody(imageData: imageData)
+            sendRequest(body: body) { url in
+                if let url = url {
+                    self.imageURL.append(url)
+                }
+                group.leave()
+            }
+        }
         if let jsonData = try? encoder.encode(post) {
-            let url = URL(string: "http://43.202.254.127:8080/api/articles")!
+            let url = URL(string: Url.articles)!
             var request = URLRequest(url: url)
             request.httpMethod = "POST"
+            request.setValue("multipart/form-data; boundary=\(generateBoundaryString())", forHTTPHeaderField: "Content-Type")
             let token = Token.shared.number
             request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
             request.addValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -155,13 +172,54 @@ final class RegisterPostViewController: UIViewController, CancelButtonTappedDele
                 } else if let data = data {
                     print("Response: \(response)")
                     let decoder = JSONDecoder()
-                           if let response = try? decoder.decode(PostResponse.self, from: data) {
-                               print("Article ID: \(response.data.articleId)")
-                           }
+                    if let response = try? decoder.decode(PostResponse.self, from: data) {
+                        print("Article ID: \(response.data.articleId)")
+                    }
                 }
             }
             
             task.resume()
+        }
+        
+        func sendRequest(body: Data, completion: @escaping (String?) -> Void) {
+            let url = URL(string: Url.imageToUrl)
+            var request = URLRequest(url: url!)
+            request.httpMethod = "POST"
+            request.httpBody = body
+            
+            URLSession.shared.dataTask(with: request) { data, response, error in
+                let alert = UIAlertController(title: "오류가 발생하였습니다.", message: "다시 시도해주세요.", preferredStyle: .alert)
+                let confirm = UIAlertAction(title: "확인", style: .default)
+                alert.addAction(confirm)
+                
+                if let error = error {
+                    DispatchQueue.main.async {
+                        self.present(alert, animated: true, completion: nil)
+                    }
+                    print("Error: \(error)")
+                    completion(nil)
+                    return
+                }
+                
+                if let httpResponse = response as? HTTPURLResponse {
+                    if (200..<300).contains(httpResponse.statusCode) {
+                        
+                        if let data = data, let responseString = String(data: data, encoding: .utf8) {
+                            print("Response: \(responseString)")
+                        }
+                        do {
+                            let responseData = try JSONDecoder().decode(responseImageUrl.self, from: data ?? Data())
+                            let imageUrl = responseData.data.imageUrl
+                            completion(imageUrl)
+                        } catch {
+                            print("Error decoding JSON: \(error)")
+                            completion(nil)
+                        }
+                        
+                    } else {
+                    }
+                }
+            }.resume()
         }
     }
     
@@ -177,10 +235,31 @@ final class RegisterPostViewController: UIViewController, CancelButtonTappedDele
     }
     
     func cancelButtonTapped() {
-       //TODO: post시 url관리 해야하는곳
+        //TODO: post시 url관리 해야하는곳
         
     }
     
+    private func makeBody(imageData: Data) -> Data {
+        let boundary = generateBoundaryString()
+        var body = Data()
+        let imgDataKey = "itemImages"
+        let boundaryPrefix = "--\(boundary)\r\n"
+        let boundarySuffix = "--\(boundary)--\r\n"
+        
+        let imageName = "image\(imageNameIndex)"
+        imageNameIndex -= 1
+        body.append(Data(boundaryPrefix.utf8))
+        body.append(Data("Content-Disposition: form-data; name=\"\(imgDataKey)\"; filename=\"\(imageName).jpeg\"\r\n".utf8))
+        body.append(Data("Content-Type: image/jpeg\r\n\r\n".utf8))
+        body.append(imageData)
+        body.append(Data("\r\n".utf8))
+        body.append(Data(boundarySuffix.utf8))
+        return body
+    }
+    
+    private func generateBoundaryString() -> String {
+        return "Boundary-\(UUID().uuidString)"
+    }
     
 }
 
@@ -195,26 +274,26 @@ extension RegisterPostViewController: UITextFieldDelegate {
         if newTextLength <= textFieldMaxLength {
             return true
         }
-
+        
         let lastWordOfOldText = String(oldText[oldText.index(before: oldText.endIndex)])
         let separatedCharacters = lastWordOfOldText.decomposedStringWithCanonicalMapping.unicodeScalars.map{ String($0) }
         let separatedCharactersCount = separatedCharacters.count
-
+        
         if separatedCharactersCount == 1 && !addedText.isConsonant {
             return true
         }
-
+        
         if separatedCharactersCount == 2 && addedText.isConsonant {
             return true
         }
-
+        
         if separatedCharactersCount == 3 && addedText.isConsonant {
             return true
         }
-
+        
         return false
     }
-
+    
     func textFieldDidChangeSelection(_ textField: UITextField) {
         countTextFieldTextLabel.text = String(textField.text!.count) + "/" + String(textFieldMaxLength)
         let text = textField.text ?? ""
@@ -276,30 +355,30 @@ extension RegisterPostViewController: UITextViewDelegate {
         let newText = oldText + addedText
         let newTextLength = newText.count
         
-
+        
         if newTextLength <= textViewMaxLength {
             return true
         }
-
+        
         let lastWordOfOldText = String(oldText[oldText.index(before: oldText.endIndex)])
         let separatedCharacters = lastWordOfOldText.decomposedStringWithCanonicalMapping.unicodeScalars.map{ String($0) }
         let separatedCharactersCount = separatedCharacters.count
-
+        
         if separatedCharactersCount == 1 && !addedText.isConsonant {
             return true
         }
-
+        
         if separatedCharactersCount == 2 && addedText.isConsonant {
             return true
         }
-
+        
         if separatedCharactersCount == 3 && addedText.isConsonant {
             return true
         }
-
+        
         return false
     }
-
+    
     func textViewDidChange(_ textView: UITextView) {
         countTextViewTextLabel.text = String(textView.text!.count) + "/" + String(textViewMaxLength)
         let text = textView.text ?? ""
@@ -329,15 +408,15 @@ extension RegisterPostViewController: UITextViewDelegate {
 
 extension RegisterPostViewController: UINavigationBarDelegate {
     func navigationBar(_ navigationBar: UINavigationBar, shouldPop item: UINavigationItem) -> Bool {
-            let alert = UIAlertController(title: "확인", message: "진짜 뒤로 가시겠습니까?", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "아니오", style: .cancel, handler: { _ in
-            }))
-            alert.addAction(UIAlertAction(title: "예", style: .default, handler: { _ in
-                self.navigationController?.popViewController(animated: true)
-            }))
-            present(alert, animated: true, completion: nil)
-            return false
-        }
+        let alert = UIAlertController(title: "확인", message: "진짜 뒤로 가시겠습니까?", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "아니오", style: .cancel, handler: { _ in
+        }))
+        alert.addAction(UIAlertAction(title: "예", style: .default, handler: { _ in
+            self.navigationController?.popViewController(animated: true)
+        }))
+        present(alert, animated: true, completion: nil)
+        return false
+    }
 }
 
 //갤러리와 관련된 코드들 집합
