@@ -137,7 +137,7 @@ final class SleepPatternViewController: UIViewController, ConfigUI {
     private let nextButton = CommonButton()
     
     private lazy var nextButtonModel = CommonbuttonModel(title: "다음", titleColor: .white ,backgroundColor: .gray3!, height: 52) {
-        print("hi")
+        self.didClickNextButton()
     }
     
     override func viewDidLoad() {
@@ -202,6 +202,11 @@ final class SleepPatternViewController: UIViewController, ConfigUI {
         nextButton.snp.makeConstraints {
             $0.left.right.equalToSuperview()
         }
+    }
+    
+    @objc
+    func didClickNextButton() {
+        self.navigationController?.pushViewController(SmokeAndAlcoholPatternViewController(), animated: false)
     }
 }
 
