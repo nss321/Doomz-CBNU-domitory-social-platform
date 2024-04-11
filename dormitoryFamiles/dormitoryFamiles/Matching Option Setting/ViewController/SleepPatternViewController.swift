@@ -206,7 +206,8 @@ final class SleepPatternViewController: UIViewController, ConfigUI {
     
     @objc
     func didClickNextButton() {
-        self.navigationController?.pushViewController(SmokeAndAlcoholPatternViewController(), animated: false)
+        self.tabBarController?.tabBar.isHidden = true
+        self.navigationController?.pushViewController(SmokeAndAlcoholPatternViewController(), animated: true)
     }
 }
 

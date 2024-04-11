@@ -119,6 +119,11 @@ final class SmokeAndAlcoholPatternViewController: UIViewController, ConfigUI {
         nextButton.setup(model: nextButtonModel)
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.tabBarController?.tabBar.isHidden = false
+    }
+    
     func addComponents() {
         let smokeSection = createStackViewWithLabelAndSubview(string: "흡연여부", subview: smokeCollectionView)
         let alcoholSection = createStackViewWithLabelAndSubview(string: "음주빈도", subview: alcoholCollectionView)
@@ -129,7 +134,7 @@ final class SmokeAndAlcoholPatternViewController: UIViewController, ConfigUI {
         
         [currentStep, progressBar, smokeAndAlcoholPatternLogo, contentLabel].forEach { logoStackView.addArrangedSubview($0) }
         
-        [smokeSection, alcoholSection, alcoholHabitSection].forEach { smokeAndAlcoholPatternStackView.addArrangedSubview($0) }
+        [smokeSection, alcoholSection, alcoholHabitSection, nextButton].forEach { smokeAndAlcoholPatternStackView.addArrangedSubview($0) }
         
     }
     
@@ -155,6 +160,10 @@ final class SmokeAndAlcoholPatternViewController: UIViewController, ConfigUI {
         drinkHabitTextField.snp.makeConstraints {
             $0.width.equalTo(currentScreenWidth - 40)
             $0.height.equalTo(52)
+        }
+        
+        nextButton.snp.makeConstraints {
+            $0.left.right.equalToSuperview()
         }
     }
     
