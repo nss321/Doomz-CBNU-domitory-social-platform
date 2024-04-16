@@ -11,9 +11,9 @@ import SnapKit
 final class SmokeAndAlcoholPatternViewController: UIViewController, ConfigUI {
     
     let smoke = ["비흡연", "흡연"]
-    let alcohol = ["없음", "가끔", "종종", "자주"]    
+    let alcohol = ["없음", "가끔", "종종", "자주"]
     let currentScreenWidth: CGFloat = UIScreen.main.bounds.width
-
+    
     private let stackView: UIStackView = {
         let view = UIStackView()
         view.axis = .vertical
@@ -93,14 +93,18 @@ final class SmokeAndAlcoholPatternViewController: UIViewController, ConfigUI {
         let view = UITextField()
         view.frame.size.height = 52
         view.borderStyle = .roundedRect
+        view.layer.borderColor = UIColor.gray1?.cgColor
+        view.layer.borderWidth = 1
         view.layer.cornerRadius = 12
         view.autocorrectionType = .no
         view.spellCheckingType = .no
         view.autocapitalizationType = .none
-        view.placeholder = "나의 주사를 적어주세요."
+        view.attributedPlaceholder = NSAttributedString(string: "나의 주사를 적어주세요.", attributes: [NSAttributedString.Key.foregroundColor : UIColor.gray4])
         view.clearsOnBeginEditing = false
         view.returnKeyType = .done
         view.backgroundColor = .clear
+        view.font = .subTitle1
+        view.textColor = .black
         return view
     }()
     
@@ -117,11 +121,14 @@ final class SmokeAndAlcoholPatternViewController: UIViewController, ConfigUI {
         addComponents()
         setConstraints()
         nextButton.setup(model: nextButtonModel)
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        self.tabBarController?.tabBar.isHidden = false
+        drinkHabitTextField.delegate = self
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        view.addGestureRecognizer(tapGesture)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
     }
     
     func addComponents() {
@@ -142,7 +149,7 @@ final class SmokeAndAlcoholPatternViewController: UIViewController, ConfigUI {
         stackView.snp.makeConstraints {
             $0.top.equalToSuperview().offset(124)
             $0.left.right.equalToSuperview().inset(20)
-//            $0.bottom.equalToSuperview()
+            //            $0.bottom.equalToSuperview()
         }
         
         smokeCollectionView.snp.makeConstraints {
@@ -169,7 +176,9 @@ final class SmokeAndAlcoholPatternViewController: UIViewController, ConfigUI {
     
     @objc
     func didClickNextButton() {
-        self.navigationController?.pushViewController(SmokeAndAlcoholPatternViewController(), animated: false)
+        print("nextBtn")
+        print("textField: \(String(describing: drinkHabitTextField.text))")
+        //        self.navigationController?.pushViewController(SmokeAndAlcoholPatternViewController(), animated: false)
     }
 }
 
@@ -257,4 +266,27 @@ extension UITextField {
         self.leftView = paddingView
         self.leftViewMode = ViewMode.always
     }
+}
+
+extension SmokeAndAlcoholPatternViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    @objc private func dismissKeyboard() {
+        view.endEditing(true)
+    }
+    
+    @objc private func keyboardWillShow(_ notification: Notification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            let contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardSize.height, right: 0)
+            view.frame.origin.y = -(keyboardSize.height)
+        }
+    }
+    
+    @objc private func keyboardWillHide(_ notification: Notification) {
+        view.frame.origin.y = 0
+    }
+    
 }
