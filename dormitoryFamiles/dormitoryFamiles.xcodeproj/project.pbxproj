@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1126FE1C2BCEA662004C6C81 /* LifeStyleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1126FE1B2BCEA662004C6C81 /* LifeStyleViewController.swift */; };
 		11707A232BA4C8CC0027802D /* SleepPatternViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11707A222BA4C8CC0027802D /* SleepPatternViewController.swift */; };
 		11707A2C2BA4CA780027802D /* FontManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11707A2B2BA4CA780027802D /* FontManager.swift */; };
 		11707A342BA83EED0027802D /* SleepPatternCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11707A332BA83EED0027802D /* SleepPatternCollectionViewCell.swift */; };
@@ -83,6 +84,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1126FE1B2BCEA662004C6C81 /* LifeStyleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifeStyleViewController.swift; sourceTree = "<group>"; };
 		11707A222BA4C8CC0027802D /* SleepPatternViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepPatternViewController.swift; sourceTree = "<group>"; };
 		11707A2B2BA4CA780027802D /* FontManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontManager.swift; sourceTree = "<group>"; };
 		11707A2D2BA4D3AC0027802D /* UILabel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+.swift"; sourceTree = "<group>"; };
@@ -182,6 +184,7 @@
 			children = (
 				11707A222BA4C8CC0027802D /* SleepPatternViewController.swift */,
 				117250E82BB5927E0083F181 /* SmokeAndAlcoholPatternViewController.swift */,
+				1126FE1B2BCEA662004C6C81 /* LifeStyleViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -510,6 +513,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DBC1CFFE2BC2AFDE005C93C0 /* SleepPatternCircleCollectionViewCell.swift in Sources */,
+				1126FE1C2BCEA662004C6C81 /* LifeStyleViewController.swift in Sources */,
 				DBC1CFF72BC2AE2D005C93C0 /* UILabel+.swift in Sources */,
 				DBC1CFF62BC2AE25005C93C0 /* ConfigUI.swift in Sources */,
 				DB2B7BC92B456F4700C1847D /* TagScrollView.swift in Sources */,
@@ -518,10 +522,8 @@
 				DB1E0E892B629804000A4AA5 /* DormitoryButtonHandlingProtocol.swift in Sources */,
 				DB3F18092B6162AB002F1738 /* ProfileSettingViewController.swift in Sources */,
 				DBE682B62BA592CC00DAA4CD /* PhotoScrollView.swift in Sources */,
-				117250E52BB19FE20083F181 /* SleepPatternCircleCollectionViewCell.swift in Sources */,
 				DBCE10E12B595506008C3367 /* loginViewController.swift in Sources */,
 				DB1971D52BAB088C00C09648 /* AddPhotoImageView.swift in Sources */,
-				11707A2E2BA4D3AC0027802D /* UILabel+.swift in Sources */,
 				DB81D0002B56E723005EF497 /* UIColorExtension.swift in Sources */,
 				DB5ACD602AA70D190054CA15 /* ExtenstionColor.swift in Sources */,
 				DB7EF2792B5EA4B00062FAB5 /* AlrmElementView.swift in Sources */,
@@ -533,7 +535,6 @@
 				DBC1D0032BC2C8A1005C93C0 /* Url.swift in Sources */,
 				DBD1E7FC2B84A9D500FD71C6 /* Network.swift in Sources */,
 				DB2B7BCB2B45727B00C1847D /* TagButton.swift in Sources */,
-				11707A322BA617EE0027802D /* ConfigUI.swift in Sources */,
 				DB5B0C272BB1919F008B6D3E /* Token.swift in Sources */,
 				DB1E0E8B2B629865000A4AA5 /* ChoiceDormitoryViewController.swift in Sources */,
 				DB74D0C62B73EEBF00A90D68 /* Codable.swift in Sources */,
