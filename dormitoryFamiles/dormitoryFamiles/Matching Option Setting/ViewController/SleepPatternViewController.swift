@@ -137,7 +137,7 @@ final class SleepPatternViewController: UIViewController, ConfigUI {
     private let nextButton = CommonButton()
     
     private lazy var nextButtonModel = CommonbuttonModel(title: "다음", titleColor: .white ,backgroundColor: .gray3!, height: 52) {
-        print("hi")
+        self.didClickNextButton()
     }
     
     override func viewDidLoad() {
@@ -147,6 +147,11 @@ final class SleepPatternViewController: UIViewController, ConfigUI {
         setConstraints()
         setupNavigationBar("긱사생활 설정")
         nextButton.setup(model: nextButtonModel)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tabBarController?.tabBar.isHidden = false
     }
     
     func addComponents() {
@@ -202,6 +207,12 @@ final class SleepPatternViewController: UIViewController, ConfigUI {
         nextButton.snp.makeConstraints {
             $0.left.right.equalToSuperview()
         }
+    }
+    
+    @objc
+    func didClickNextButton() {
+        self.tabBarController?.tabBar.isHidden = true
+        self.navigationController?.pushViewController(SmokeAndAlcoholPatternViewController(), animated: true)
     }
 }
 
@@ -299,27 +310,6 @@ extension SleepPatternViewController: UICollectionViewDelegateFlowLayout {
             print("\(indexPath.row) 선택")
         }
         
-    }
-}
-    
-extension SleepPatternViewController {
-    func createStackViewWithLabelAndSubview(string: String, subview: UIView) -> UIStackView {
-        let stackView = UIStackView()
-        stackView.axis = .vertical
-        stackView.spacing = 8
-        stackView.distribution = .fillProportionally
-        stackView.alignment = .leading
-        
-        let label = UILabel()
-        label.text = string
-        label.font = FontManager.subtitle1()
-        label.textColor = .gray5
-        label.addCharacterSpacing()
-        
-        stackView.addArrangedSubview(label)
-        stackView.addArrangedSubview(subview)
-        
-        return stackView
     }
 }
 
