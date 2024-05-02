@@ -25,7 +25,7 @@ final class SearchViewController: UIViewController {
         setDelegate()
         self.collectionView.register(UINib(nibName: "BulluetinBoardCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "cell")
         
-        network(url: Url.url + path)
+        network(url: Url.base + path)
         setSearchBar()
         
     }
@@ -132,7 +132,7 @@ extension SearchViewController: UISearchBarDelegate {
         noPostImageSettingView.isHidden = true
         if let searchText = searchBar.text {
             print("검색어: \(searchText)")
-            network(url: Url.url+Url.searchUrl(searchText: searchText))
+            network(url: Url.base+Url.searchUrl(searchText: searchText))
         }
     }
 }
