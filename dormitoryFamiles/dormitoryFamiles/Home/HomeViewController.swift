@@ -153,7 +153,7 @@ final class HomeViewController: UIViewController, DormitoryButtonHandling {
         do {
             let document = try SwiftSoup.parse(html)
             if let element = try document.select("tr#\(date)").first() {
-                let menu = try element.select("td.\(mealTimeString)").first()?.html().replacingOccurrences(of: "<br>", with: "\n")
+                let menu = try element.select("td.\(mealTimeString)").first()?.html().replacingOccurrences(of: "<br />", with: "\n")
                 
                 DispatchQueue.main.async {
                     self.menuLabel.text = menu
