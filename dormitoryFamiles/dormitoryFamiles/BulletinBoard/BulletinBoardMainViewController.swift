@@ -14,7 +14,7 @@ final class BulletinBoardMainViewController: TabmanViewController, DormitoryButt
         case createdAt = "createdAt"
         case popularity = "popularity"
     }
-
+    
     enum Status: String {
         case ing = "모집중"
         case finish = "모집완료"
@@ -106,7 +106,7 @@ final class BulletinBoardMainViewController: TabmanViewController, DormitoryButt
     }
     
     //url을 필터단위로 업데이트 시킴. (카테고리별로 뒤에 path를 추가하는 로직
-    func updateUrl(_ sender: String) {
+    private func updateUrl(_ sender: String) {
         for vc in viewControllers {
             var newUrl = vc.path
             switch sender {
@@ -127,7 +127,7 @@ final class BulletinBoardMainViewController: TabmanViewController, DormitoryButt
         }
         viewControllers.forEach { print($0.path) }
     }
-
+    
     private func updateUrlForSort(_ url: String, newSort: String) -> String {
         if url.contains("sort") {
             return url.replacingOccurrences(of: Sort.popularity.rawValue, with: newSort)
@@ -137,7 +137,7 @@ final class BulletinBoardMainViewController: TabmanViewController, DormitoryButt
             return "\(url)?sort=\(newSort)"
         }
     }
-
+    
     private func updateUrlForStatus(_ url: String, newStatus: String?) -> String {
         if let status = newStatus {
             if url.contains("status") {
@@ -155,7 +155,7 @@ final class BulletinBoardMainViewController: TabmanViewController, DormitoryButt
                 .replacingOccurrences(of: "?status=\(Status.finish.rawValue)", with: "")
         }
     }
-
+    
     
     
     private func setTapman() {
@@ -163,19 +163,19 @@ final class BulletinBoardMainViewController: TabmanViewController, DormitoryButt
         // 바 세팅
         let bar = TMBar.ButtonBar()
         bar.backgroundView.style = .blur(style: .regular)
-                bar.layout.contentInset = UIEdgeInsets(top: 0.0, left: 20.0, bottom: 0.0, right: 0.0)
-                bar.buttons.customize { (button) in
-                    button.tintColor = .gray3 // 선택 안되어 있을 때
-                    button.selectedTintColor = .primary // 선택 되어 있을 때
-                    button.font = .body1!
-                    button.selectedFont = .title5!
-                }
+        bar.layout.contentInset = UIEdgeInsets(top: 0.0, left: 20.0, bottom: 0.0, right: 0.0)
+        bar.buttons.customize { (button) in
+            button.tintColor = .gray3 // 선택 안되어 있을 때
+            button.selectedTintColor = .primary // 선택 되어 있을 때
+            button.font = .body1!
+            button.selectedFont = .title5!
+        }
         
         //인디케이터 세팅
         bar.indicator.weight = .light
         bar.indicator.tintColor = .primary
         bar.layout.alignment = .centerDistributed
-               
+        
         bar.layout.interButtonSpacing = 24 // 버튼 사이 간격
         bar.layout.transitionStyle = .progressive// Customize
         
@@ -185,7 +185,7 @@ final class BulletinBoardMainViewController: TabmanViewController, DormitoryButt
         addBar(bar, dataSource: dataSource as! TMBarDataSource, at: .custom(view: tabmanView, layout: nil))
     }
     
-
+    
     
     @IBAction func dormitoryButtonTapped(_ sender: UIButton) {
         presentSheet()
@@ -196,7 +196,7 @@ final class BulletinBoardMainViewController: TabmanViewController, DormitoryButt
         showDropDown(sender)
     }
     
-
+    
     func showDropDown(_ sender: UIButton) {
         //버튼에 따라 데이터 소스 세팅
         switch sender.titleLabel?.text ?? ""{

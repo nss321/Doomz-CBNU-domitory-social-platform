@@ -11,7 +11,7 @@ final class BrownVC: UIViewController {
     private var articles: [Article] = []
     var path = ""
     @IBOutlet weak var collectionView: UICollectionView!
-
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
@@ -49,9 +49,9 @@ final class BrownVC: UIViewController {
     }
     
     @objc private func changeDormiotry() {
-            network(url: Url.base + path)
+        network(url: Url.base + path)
         self.collectionView.reloadData()
-        }
+    }
     
 }
 
@@ -81,7 +81,7 @@ extension BrownVC: UICollectionViewDelegate, UICollectionViewDataSource, UIColle
         cell.statusTag.body2 = article.status
         cell.profileUrl = article.profileUrl
         cell.thumbnailUrl = article.thumbnailUrl
-
+        
         if article.status == "모집완료" {
             cell.changeFinish()
         }
@@ -94,11 +94,11 @@ extension BrownVC: UICollectionViewDelegate, UICollectionViewDataSource, UIColle
         let id = articleElement.articleId
         let url = "http://43.202.254.127:8080/api/articles/\(id)"
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            if let articleDetailViewController = storyboard.instantiateViewController(withIdentifier: "detail") as? BulletinBoardDetailViewViewController { 
-                articleDetailViewController.setUrl(url: url)
-                articleDetailViewController.id = id
-                self.navigationController?.pushViewController(articleDetailViewController, animated: true)
-            }
+        if let articleDetailViewController = storyboard.instantiateViewController(withIdentifier: "detail") as? BulletinBoardDetailViewViewController {
+            articleDetailViewController.setUrl(url: url)
+            articleDetailViewController.id = id
+            self.navigationController?.pushViewController(articleDetailViewController, animated: true)
+        }
     }
     
     
