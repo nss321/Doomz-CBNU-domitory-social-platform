@@ -10,7 +10,17 @@ import UIKit
 import DropDown
 
 final class BulletinBoardMainViewController: TabmanViewController, DormitoryButtonHandling {
-    private var viewControllers: [UIViewController] {
+    enum Sort: String {
+        case createdAt = "createdAt"
+        case popularity = "popularity"
+    }
+
+    enum Status: String {
+        case ing = "모집중"
+        case finish = "모집완료"
+    }
+    
+    private var viewControllers: [BrownVC] {
         let allVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "brownVC") as! BrownVC
         allVC.path = Url.pathAllPostUrl
         
@@ -95,23 +105,31 @@ final class BulletinBoardMainViewController: TabmanViewController, DormitoryButt
         }
     }
     
-    func updateURL(_ sender: String) {
+    func updateUrl(_ sender: String) {
+        for vc in viewControllers {
+            var newUrl = vc.path
+            
             switch sender {
             case "최신순":
-                print("최신순을 선택했습니다.")
+                newUrl = newUrl.replacingOccurrences(of: Sort.popularity.rawValue, with: Sort.createdAt.rawValue)
             case "인기순":
-                print("인기순을 선택했습니다.")
+                newUrl = newUrl.replacingOccurrences(of: Sort.createdAt.rawValue, with: Sort.popularity.rawValue)
             case "전체":
-                print("전체를 선택했습니다.")
+                newUrl = newUrl.replacingOccurrences(of: "status=\(Status.ing.rawValue)", with: "")
+                newUrl = newUrl.replacingOccurrences(of: "status=\(Status.finish.rawValue)", with: "")
             case "모집중":
-                print("모집중을 선택했습니다.")
+                newUrl += vc.path.contains("?") ? "&status=\(Status.ing.rawValue)" : "?status=\(Status.ing.rawValue)"
             case "모집완료":
-                print("모집완료를 선택했습니다.")
+                newUrl += vc.path.contains("?") ? "&status=\(Status.finish.rawValue)" : "?status=\(Status.finish.rawValue)"
             default:
                 break
             }
+            
+            vc.path = newUrl.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+        }
+        viewControllers.forEach { print($0.path) }
     }
-    
+
     
     
     private func setTapman() {
@@ -172,7 +190,7 @@ final class BulletinBoardMainViewController: TabmanViewController, DormitoryButt
             guard let self = self else { return }
             //item 선택시 -> 1. 버튼의 title변경, 2. 해당 url세팅
             sender.body2 = item
-            self.updateURL(item)
+            self.updateUrl(item)
         }
     }
 }
@@ -198,7 +216,7 @@ extension BulletinBoardMainViewController: PageboyViewControllerDataSource, TMBa
         case 3:
             return TMBarItem(title: "나눔해요")
         case 4:
-            return TMBarItem(title: "분실신고")
+            return TMBarItem(title: "궁금해요")
         default:
             let title = "Page \(index)"
             return TMBarItem(title: title)

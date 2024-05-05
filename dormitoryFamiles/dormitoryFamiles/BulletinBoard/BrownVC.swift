@@ -12,6 +12,11 @@ final class BrownVC: UIViewController {
     var path = ""
     @IBOutlet weak var collectionView: UICollectionView!
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
+        print(path)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
