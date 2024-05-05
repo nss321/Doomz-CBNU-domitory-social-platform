@@ -7,6 +7,7 @@
 import Tabman
 import Pageboy
 import UIKit
+import DropDown
 
 final class BulletinBoardMainViewController: TabmanViewController, DormitoryButtonHandling {
     private var viewControllers: [UIViewController] {
@@ -27,6 +28,7 @@ final class BulletinBoardMainViewController: TabmanViewController, DormitoryButt
         
         return [allVC, helpVC, togetherVC, shareVC, lostVC]
     }
+    let dropDown = DropDown()
     @IBOutlet weak var naviCustomView: UIView!
     
     @IBOutlet weak var tabmanView: UIView!
@@ -39,8 +41,7 @@ final class BulletinBoardMainViewController: TabmanViewController, DormitoryButt
         setTapman()
         setTintAdjustmentModeForButtons(in: self.view)
         setObserver()
-        
-        
+        setDropDown()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -56,6 +57,17 @@ final class BulletinBoardMainViewController: TabmanViewController, DormitoryButt
     
     private func setUI() {
         writeButton.configuration?.image = UIImage(named: "bulletinBoardPlus")
+    }
+    
+    private func setDropDown() {
+        DropDown.startListeningToKeyboard()
+        DropDown.appearance().setupCornerRadius(20)
+        DropDown.appearance().backgroundColor = .white
+        DropDown.appearance().cellHeight = 52
+        DropDown.appearance().shadowOpacity = 0
+        DropDown.appearance().selectionBackgroundColor = .gray0 ?? .white
+        DropDown.appearance().textFont = .pretendard14Variable ?? .init()
+        DropDown.appearance().textColor = .gray4 ?? .gray
     }
     
     @objc func dormitoryChangeNotification(_ notification: Notification) {
@@ -117,6 +129,28 @@ final class BulletinBoardMainViewController: TabmanViewController, DormitoryButt
     }
     
     
+    @IBAction func sortList(_ sender: UIButton) {
+        showDropDown(sender)
+    }
+    
+
+    func showDropDown(_ sender: UIButton) {
+        //버튼에 따라 데이터 소스 세팅
+        switch sender.titleLabel?.text ?? ""{
+        case "최신순":
+            dropDown.dataSource = ["최신순", "인기순"]
+        case "전체":
+            dropDown.dataSource = ["전체", "모집중"]
+        default:
+            dropDown.dataSource = []
+        }
+        
+        //공통으로 dropdown을 보여주기 위한 코드
+        dropDown.anchorView = sender
+        dropDown.bottomOffset = CGPoint(x: 0, y:((dropDown.anchorView?.plainView.bounds.height)!+5))
+        dropDown.show()
+    }
+    
 }
 
 
@@ -160,5 +194,6 @@ extension BulletinBoardMainViewController: PageboyViewControllerDataSource, TMBa
     func defaultPage(for pageboyViewController: PageboyViewController) -> PageboyViewController.Page? {
         return nil
     }
+    
     
 }

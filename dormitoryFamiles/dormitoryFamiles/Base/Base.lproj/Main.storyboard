@@ -1492,6 +1492,9 @@
                                                     </userDefinedRuntimeAttribute>
                                                     <userDefinedRuntimeAttribute type="string" keyPath="body2" value="최신순"/>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="sortList:" destination="r5Q-f3-hGS" eventType="touchUpInside" id="bTm-Vg-mzb"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oPs-Mx-3k4" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
                                                 <rect key="frame" x="91.333333333333343" y="0.0" width="83.333333333333343" height="34.333333333333336"/>
@@ -1507,6 +1510,9 @@
                                                     </userDefinedRuntimeAttribute>
                                                     <userDefinedRuntimeAttribute type="string" keyPath="body2" value="전체"/>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="sortList:" destination="r5Q-f3-hGS" eventType="touchUpInside" id="mqj-zf-nl9"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
