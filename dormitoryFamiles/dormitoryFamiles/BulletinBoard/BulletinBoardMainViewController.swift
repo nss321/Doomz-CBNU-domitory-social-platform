@@ -105,29 +105,55 @@ final class BulletinBoardMainViewController: TabmanViewController, DormitoryButt
         }
     }
     
+    //url을 필터단위로 업데이트 시킴. (카테고리별로 뒤에 path를 추가하는 로직
     func updateUrl(_ sender: String) {
         for vc in viewControllers {
             var newUrl = vc.path
-            
             switch sender {
             case "최신순":
-                newUrl = newUrl.replacingOccurrences(of: Sort.popularity.rawValue, with: Sort.createdAt.rawValue)
+                newUrl = updateUrlForSort(vc.path, newSort: Sort.createdAt.rawValue)
             case "인기순":
-                newUrl = newUrl.replacingOccurrences(of: Sort.createdAt.rawValue, with: Sort.popularity.rawValue)
+                newUrl = updateUrlForSort(vc.path, newSort: Sort.popularity.rawValue)
             case "전체":
-                newUrl = newUrl.replacingOccurrences(of: "status=\(Status.ing.rawValue)", with: "")
-                newUrl = newUrl.replacingOccurrences(of: "status=\(Status.finish.rawValue)", with: "")
+                newUrl = updateUrlForStatus(vc.path, newStatus: nil)
             case "모집중":
-                newUrl += vc.path.contains("?") ? "&status=\(Status.ing.rawValue)" : "?status=\(Status.ing.rawValue)"
+                newUrl = updateUrlForStatus(vc.path, newStatus: Status.ing.rawValue)
             case "모집완료":
-                newUrl += vc.path.contains("?") ? "&status=\(Status.finish.rawValue)" : "?status=\(Status.finish.rawValue)"
+                newUrl = updateUrlForStatus(vc.path, newStatus: Status.finish.rawValue)
             default:
                 break
             }
-            
-            vc.path = newUrl.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+            vc.path = newUrl
         }
         viewControllers.forEach { print($0.path) }
+    }
+
+    private func updateUrlForSort(_ url: String, newSort: String) -> String {
+        if url.contains("sort") {
+            return url.replacingOccurrences(of: Sort.popularity.rawValue, with: newSort)
+        } else if url.contains("?") {
+            return "\(url)&sort=\(newSort)"
+        } else {
+            return "\(url)?sort=\(newSort)"
+        }
+    }
+
+    private func updateUrlForStatus(_ url: String, newStatus: String?) -> String {
+        if let status = newStatus {
+            if url.contains("status") {
+                return url.replacingOccurrences(of: "\(Status.ing.rawValue)", with: status)
+                    .replacingOccurrences(of: "\(Status.finish.rawValue)", with: status)
+            } else if url.contains("?") {
+                return "\(url)&status=\(status)"
+            } else {
+                return "\(url)?status=\(status)"
+            }
+        } else {
+            return url.replacingOccurrences(of: "&status=\(Status.ing.rawValue)", with: "")
+                .replacingOccurrences(of: "&status=\(Status.finish.rawValue)", with: "")
+                .replacingOccurrences(of: "?status=\(Status.ing.rawValue)", with: "")
+                .replacingOccurrences(of: "?status=\(Status.finish.rawValue)", with: "")
+        }
     }
 
     
