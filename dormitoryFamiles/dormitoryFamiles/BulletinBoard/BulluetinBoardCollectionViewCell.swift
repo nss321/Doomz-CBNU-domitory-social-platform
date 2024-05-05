@@ -25,7 +25,13 @@ final class BulluetinBoardCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var content: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+    }
+    
+    //모집완료일경우 색상 변경
+    func changeFinish() {
+        statusTag.backgroundColor = .gray0
+        statusTag.tintColor = .gray5
     }
 
 }
