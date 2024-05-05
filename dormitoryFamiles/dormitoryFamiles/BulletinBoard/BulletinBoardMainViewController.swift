@@ -34,6 +34,8 @@ final class BulletinBoardMainViewController: TabmanViewController, DormitoryButt
     @IBOutlet weak var tabmanView: UIView!
     @IBOutlet weak var writeButton: TagButton!
     
+    @IBOutlet weak var sortListButton: UIButton!
+    @IBOutlet weak var filterListButton: UIButton!
     @IBOutlet weak var dormitoryButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -93,6 +95,23 @@ final class BulletinBoardMainViewController: TabmanViewController, DormitoryButt
         }
     }
     
+    func updateURL(_ sender: String) {
+            switch sender {
+            case "최신순":
+                print("최신순을 선택했습니다.")
+            case "인기순":
+                print("인기순을 선택했습니다.")
+            case "전체":
+                print("전체를 선택했습니다.")
+            case "모집중":
+                print("모집중을 선택했습니다.")
+            case "모집완료":
+                print("모집완료를 선택했습니다.")
+            default:
+                break
+            }
+    }
+    
     
     
     private func setTapman() {
@@ -137,9 +156,9 @@ final class BulletinBoardMainViewController: TabmanViewController, DormitoryButt
     func showDropDown(_ sender: UIButton) {
         //버튼에 따라 데이터 소스 세팅
         switch sender.titleLabel?.text ?? ""{
-        case "최신순":
+        case "최신순", "인기순":
             dropDown.dataSource = ["최신순", "인기순"]
-        case "전체":
+        case "전체", "모집중":
             dropDown.dataSource = ["전체", "모집중"]
         default:
             dropDown.dataSource = []
@@ -149,8 +168,13 @@ final class BulletinBoardMainViewController: TabmanViewController, DormitoryButt
         dropDown.anchorView = sender
         dropDown.bottomOffset = CGPoint(x: 0, y:((dropDown.anchorView?.plainView.bounds.height)!+5))
         dropDown.show()
+        dropDown.selectionAction = { [weak self] (index: Int, item: String) in
+            guard let self = self else { return }
+            //item 선택시 -> 1. 버튼의 title변경, 2. 해당 url세팅
+            sender.body2 = item
+            self.updateURL(item)
+        }
     }
-    
 }
 
 

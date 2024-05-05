@@ -2824,7 +2824,6 @@
                                                     <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                                                         <real key="value" value="1"/>
                                                     </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="string" keyPath="body2" value="최신순"/>
                                                 </userDefinedRuntimeAttributes>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="488-NF-ysg" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
@@ -2839,7 +2838,6 @@
                                                     <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                                                         <real key="value" value="1"/>
                                                     </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="string" keyPath="body2" value="전체"/>
                                                 </userDefinedRuntimeAttributes>
                                             </button>
                                         </subviews>
@@ -2918,7 +2916,9 @@
                     <navigationItem key="navigationItem" title="게시판" id="qbz-U1-i8t"/>
                     <connections>
                         <outlet property="dormitoryButton" destination="UTU-ZK-vbF" id="Xy2-Oo-8fi"/>
+                        <outlet property="filterListButton" destination="488-NF-ysg" id="dyr-fF-aqt"/>
                         <outlet property="naviCustomView" destination="fad-G7-5aP" id="tdf-UT-Wpl"/>
+                        <outlet property="sortListButton" destination="Jb0-KK-Kah" id="9pe-1r-eD5"/>
                         <outlet property="tabmanView" destination="sYB-KG-qMH" id="ygT-Jy-qEL"/>
                         <outlet property="writeButton" destination="cEh-7q-gFT" id="oYw-W6-N10"/>
                     </connections>
