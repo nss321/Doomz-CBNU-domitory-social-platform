@@ -24,7 +24,7 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="EPc-sW-8rF">
-                        <rect key="frame" x="16" y="78.333333333333329" width="231" height="64.999999999999986"/>
+                        <rect key="frame" x="16" y="55" width="231" height="65"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="바퀴벌레 잡아주실분 ㅠㅠ!!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nJr-b4-0XJ">
                                 <rect key="frame" x="0.0" y="0.0" width="180.33333333333334" height="20.333333333333332"/>
@@ -36,7 +36,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="양진재 예지관 907호 바퀴벌레 나왔어요.. 제발 잡아주세요 제발 잡아줄사람 사례할게요" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bjf-f6-SsP">
-                                <rect key="frame" x="0.0" y="24.333333333333339" width="227" height="40.666666666666657"/>
+                                <rect key="frame" x="0.0" y="24.333333333333325" width="227" height="40.666666666666657"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" name="gray5"/>
                                 <nil key="highlightedColor"/>
@@ -62,7 +62,7 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </imageView>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bulluetinBoardProfileBackground" translatesAutoresizingMaskIntoConstraints="NO" id="1UP-zM-b1w">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profileIcon" translatesAutoresizingMaskIntoConstraints="NO" id="1UP-zM-b1w">
                         <rect key="frame" x="16" y="134" width="16" height="16"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="16" id="MMZ-Vq-5gA"/>
@@ -113,13 +113,6 @@
                             </label>
                         </subviews>
                     </stackView>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bulluetinBoardProfileIcon" translatesAutoresizingMaskIntoConstraints="NO" id="5c3-St-VWS">
-                        <rect key="frame" x="16.666666666666668" y="134.66666666666666" width="14.666666666666668" height="14.666666666666657"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="14.5" id="TXc-KX-j8d"/>
-                            <constraint firstAttribute="height" constant="14.5" id="i2J-Cg-PcC"/>
-                        </constraints>
-                    </imageView>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bulluetinBoardChat" translatesAutoresizingMaskIntoConstraints="NO" id="PnJ-sO-cHV">
                         <rect key="frame" x="298.33333333333331" y="137" width="12" height="12"/>
                         <constraints>
@@ -147,10 +140,10 @@
                         </constraints>
                     </imageView>
                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="UFo-WA-dgi">
-                        <rect key="frame" x="16" y="16.000000000000004" width="155" height="54.333333333333343"/>
+                        <rect key="frame" x="16" y="16" width="151.66666666666666" height="31"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rfh-xG-L3a" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="87" height="54.333333333333336"/>
+                                <rect key="frame" x="0.0" y="0.0" width="83.666666666666671" height="31"/>
                                 <color key="backgroundColor" name="secondary"/>
                                 <color key="tintColor" name="primary"/>
                                 <state key="normal" title="Button"/>
@@ -168,7 +161,7 @@
                                 </userDefinedRuntimeAttributes>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uk3-md-aWm" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
-                                <rect key="frame" x="95" y="0.0" width="60" height="54.333333333333336"/>
+                                <rect key="frame" x="91.666666666666671" y="0.0" width="60.000000000000014" height="31"/>
                                 <color key="backgroundColor" red="0.84705882352941175" green="0.91764705882352937" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="MLh-ok-EBS"/>
@@ -198,7 +191,6 @@
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
                 <constraint firstItem="UFo-WA-dgi" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="16" id="Fwf-Mr-JcZ"/>
-                <constraint firstItem="5c3-St-VWS" firstAttribute="centerY" secondItem="1UP-zM-b1w" secondAttribute="centerY" id="JLq-Jn-OSl"/>
                 <constraint firstItem="1UP-zM-b1w" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="16" id="K3k-eG-Rq6"/>
                 <constraint firstAttribute="trailing" secondItem="4D9-Wa-ky2" secondAttribute="trailing" constant="16" id="Lt5-6g-mjF"/>
                 <constraint firstItem="4D9-Wa-ky2" firstAttribute="leading" secondItem="PnJ-sO-cHV" secondAttribute="trailing" constant="3" id="LwR-Bl-2fg"/>
@@ -207,7 +199,6 @@
                 <constraint firstAttribute="bottom" secondItem="3L1-Hq-CEM" secondAttribute="bottom" constant="16" id="QOw-bl-FO2"/>
                 <constraint firstItem="PnJ-sO-cHV" firstAttribute="leading" secondItem="t2h-SG-48e" secondAttribute="trailing" constant="8" id="R8D-cQ-1Qf"/>
                 <constraint firstItem="EPc-sW-8rF" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="16" id="ScM-f4-NtC"/>
-                <constraint firstItem="5c3-St-VWS" firstAttribute="centerX" secondItem="1UP-zM-b1w" secondAttribute="centerX" id="YIp-Sq-vL8"/>
                 <constraint firstAttribute="bottom" secondItem="t2h-SG-48e" secondAttribute="bottom" constant="16" id="Zad-Yn-9qk"/>
                 <constraint firstItem="PnJ-sO-cHV" firstAttribute="centerY" secondItem="4D9-Wa-ky2" secondAttribute="centerY" id="ZjB-F2-pB1"/>
                 <constraint firstItem="bOg-mS-y3r" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="dEp-25-pf1"/>
@@ -224,7 +215,9 @@
                 <outlet property="commentCount" destination="4D9-Wa-ky2" id="dkO-6i-aAq"/>
                 <outlet property="content" destination="Bjf-f6-SsP" id="jMd-0p-Hfm"/>
                 <outlet property="nickName" destination="SQE-bh-vgU" id="T0K-st-VAm"/>
+                <outlet property="profileImageView" destination="1UP-zM-b1w" id="4YW-7E-Jxk"/>
                 <outlet property="statusTag" destination="uk3-md-aWm" id="bW8-Et-wjX"/>
+                <outlet property="thumbnailImageView" destination="bOg-mS-y3r" id="yyF-gc-UuJ"/>
                 <outlet property="title" destination="nJr-b4-0XJ" id="ow7-TC-4dr"/>
                 <outlet property="viewCount" destination="YQx-58-eSh" id="aP3-Nl-OCl"/>
                 <outlet property="wishCount" destination="t2h-SG-48e" id="UKD-NC-Y0t"/>
@@ -234,17 +227,16 @@
     </objects>
     <designables>
         <designable name="rfh-xG-L3a">
-            <size key="intrinsicContentSize" width="97.666666666666671" height="34.333333333333336"/>
+            <size key="intrinsicContentSize" width="83.333333333333329" height="31"/>
         </designable>
         <designable name="uk3-md-aWm">
-            <size key="intrinsicContentSize" width="68.333333333333329" height="34.333333333333336"/>
+            <size key="intrinsicContentSize" width="59.666666666666664" height="31"/>
         </designable>
     </designables>
     <resources>
         <image name="bulluetinBoardChat" width="12" height="12"/>
         <image name="bulluetinBoardLike" width="12" height="12"/>
-        <image name="bulluetinBoardProfileBackground" width="16" height="16"/>
-        <image name="bulluetinBoardProfileIcon" width="5.3333334922790527" height="5.3333334922790527"/>
+        <image name="profileIcon" width="16" height="16"/>
         <namedColor name="gary2">
             <color red="0.79607843137254897" green="0.80000000000000004" blue="0.80784313725490198" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

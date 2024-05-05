@@ -1,5 +1,6 @@
 PODS:
   - DropDown (2.3.13)
+  - Kingfisher (7.11.0)
   - Pageboy (4.1.0)
   - SwiftSoup (2.7.2)
   - Tabman (3.1.0):
@@ -7,22 +8,25 @@ PODS:
 
 DEPENDENCIES:
   - DropDown
+  - Kingfisher
   - SwiftSoup
   - Tabman (~> 3.0)
 
 SPEC REPOS:
   trunk:
     - DropDown
+    - Kingfisher
     - Pageboy
     - SwiftSoup
     - Tabman
 
 SPEC CHECKSUMS:
   DropDown: 8a2116376c1981888557f72ec2ffc9a5e0e456ec
+  Kingfisher: b9c985d864d43515f404f1ef4a8ce7d802ace3ac
   Pageboy: e1c494f866874697493da9528777c5006fee613c
   SwiftSoup: 4164c6bd8af69acd119c23fb36906975a60d71bb
   Tabman: b4211db1d33b7e993015e2e7c6746e6003c02725
 
-PODFILE CHECKSUM: af3cb28b330c6450e4890cc856fcef860608f3e2
+PODFILE CHECKSUM: 8857d4300b5e41123e81bac473745978612fa724
 
 COCOAPODS: 1.12.1

@@ -8,6 +8,7 @@ target 'dormitoryFamiles' do
   pod 'SwiftSoup'
   pod 'DropDown'
   pod 'Tabman', '~> 3.0'
+  pod 'Kingfisher' 
   # Pods for dormitoryFamiles
 
 end

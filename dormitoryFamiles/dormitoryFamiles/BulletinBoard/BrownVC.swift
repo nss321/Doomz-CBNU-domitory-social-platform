@@ -79,7 +79,9 @@ extension BrownVC: UICollectionViewDelegate, UICollectionViewDataSource, UIColle
         cell.content.text = article.content
         cell.categoryTag.body2 = article.boardType
         cell.statusTag.body2 = article.status
-        
+        cell.profileUrl = article.profileUrl
+        cell.thumbnailUrl = article.thumbnailUrl
+
         if article.status == "모집완료" {
             cell.changeFinish()
         }
