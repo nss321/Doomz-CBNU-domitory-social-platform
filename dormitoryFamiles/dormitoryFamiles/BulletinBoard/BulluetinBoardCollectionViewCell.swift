@@ -11,17 +11,17 @@ import Kingfisher
 final class BulluetinBoardCollectionViewCell: UICollectionViewCell {
     var articleId: Int?
     var profileUrl: String? {
-            didSet {
-                updateProfileImage()
-            }
+        didSet {
+            updateProfileImage()
         }
+    }
     var status: String?
     var createdDate: String?
     var thumbnailUrl: String? {
-            didSet {
-                updateThumbnailImage()
-            }
+        didSet {
+            updateThumbnailImage()
         }
+    }
     
     @IBOutlet weak var categoryTag: RoundButton!
     @IBOutlet weak var statusTag: RoundButton!
@@ -41,19 +41,20 @@ final class BulluetinBoardCollectionViewCell: UICollectionViewCell {
         statusTag.backgroundColor = .gray0
         statusTag.tintColor = .gray5
     }
-
+    
     private func updateProfileImage() {
-           guard let profileUrl = profileUrl, let url = URL(string: profileUrl) else {
-               return
-           }
-        print("ddd",profileUrl)
-           profileImageView.kf.setImage(with: url)
-       }
-       
-       private func updateThumbnailImage() {
-           guard let thumbnailUrl = thumbnailUrl, let url = URL(string: thumbnailUrl) else {
-               return
-           }
-           thumbnailImageView.kf.setImage(with: url)
-       }
+        guard let profileUrl = profileUrl, let url = URL(string: profileUrl) else {
+            return
+        }
+        profileImageView.kf.setImage(with: url)
+        profileImageView.contentMode = .scaleAspectFill
+    }
+    
+    private func updateThumbnailImage() {
+        guard let thumbnailUrl = thumbnailUrl, let url = URL(string: thumbnailUrl) else {
+            return
+        }
+        thumbnailImageView.kf.setImage(with: url)
+        thumbnailImageView.contentMode = .scaleAspectFill
+    }
 }
