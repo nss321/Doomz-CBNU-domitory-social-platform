@@ -38,6 +38,7 @@
 		DB7EF27D2B5EAC790062FAB5 /* ChoiceDormitoryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7EF27C2B5EAC790062FAB5 /* ChoiceDormitoryButton.swift */; };
 		DB81D0002B56E723005EF497 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB81CFFF2B56E723005EF497 /* UIColorExtension.swift */; };
 		DB8DDFD72BECB0B600B3A676 /* DateFomat.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8DDFD62BECB0B600B3A676 /* DateFomat.swift */; };
+		DB8DDFD92BECC5AC00B3A676 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8DDFD82BECC5AC00B3A676 /* Category.swift */; };
 		DB932AC12B6511E300B456FB /* BulluetinBoardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB932ABF2B6511E300B456FB /* BulluetinBoardCollectionViewCell.swift */; };
 		DB932AC22B6511E300B456FB /* BulluetinBoardCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB932AC02B6511E300B456FB /* BulluetinBoardCollectionViewCell.xib */; };
 		DBB345F22B42BFD100E70380 /* BulletinBoardMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB345F12B42BFD100E70380 /* BulletinBoardMainViewController.swift */; };
@@ -121,6 +122,7 @@
 		DB7EF27C2B5EAC790062FAB5 /* ChoiceDormitoryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceDormitoryButton.swift; sourceTree = "<group>"; };
 		DB81CFFF2B56E723005EF497 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		DB8DDFD62BECB0B600B3A676 /* DateFomat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFomat.swift; sourceTree = "<group>"; };
+		DB8DDFD82BECC5AC00B3A676 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		DB932ABF2B6511E300B456FB /* BulluetinBoardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulluetinBoardCollectionViewCell.swift; sourceTree = "<group>"; };
 		DB932AC02B6511E300B456FB /* BulluetinBoardCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BulluetinBoardCollectionViewCell.xib; sourceTree = "<group>"; };
 		DBB345F12B42BFD100E70380 /* BulletinBoardMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulletinBoardMainViewController.swift; sourceTree = "<group>"; };
@@ -335,6 +337,7 @@
 			isa = PBXGroup;
 			children = (
 				DB8DDFD62BECB0B600B3A676 /* DateFomat.swift */,
+				DB8DDFD82BECC5AC00B3A676 /* Category.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -557,6 +560,7 @@
 				DBF466FB2AA5F4E4009FF3EB /* AppDelegate.swift in Sources */,
 				DB20F2942B95CBE00052CF5C /* SearchViewController.swift in Sources */,
 				DB1E0E8D2B62A995000A4AA5 /* SelectedDormitory.swift in Sources */,
+				DB8DDFD92BECC5AC00B3A676 /* Category.swift in Sources */,
 				11707A342BA83EED0027802D /* SleepPatternCollectionViewCell.swift in Sources */,
 				DBDF96EF2B84BFB2000E74AE /* ProfileFinishedViewController.swift in Sources */,
 				11707A2C2BA4CA780027802D /* FontManager.swift in Sources */,
