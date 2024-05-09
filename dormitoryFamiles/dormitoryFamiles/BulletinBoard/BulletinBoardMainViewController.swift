@@ -22,20 +22,20 @@ final class BulletinBoardMainViewController: TabmanViewController, DormitoryButt
     
     private var viewControllers: [BrownVC] {
         let allVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "brownVC") as! BrownVC
-        allVC.path = Url.pathAllPostUrl
-        
+        allVC.path = Url.pathAllPostUrl(page: 0)
+        allVC.kind = .all
         let helpVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "brownVC") as! BrownVC
-        helpVC.path = Url.helpPostUrl
-        
+        helpVC.path = Url.helpPostUrl(page: 0)
+        helpVC.kind = .help
         let togetherVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "brownVC") as! BrownVC
-        togetherVC.path = Url.togetherUrl
-        
+        togetherVC.path = Url.togetherUrl(page: 0)
+        togetherVC.kind = .together
         let shareVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "brownVC") as! BrownVC
-        shareVC.path = Url.shareUrl
-        
+        shareVC.path = Url.shareUrl(page: 0)
+        shareVC.kind = .share
         let lostVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "brownVC") as! BrownVC
-        lostVC.path = Url.lostUrl
-        
+        lostVC.path = Url.lostUrl(page: 0)
+        lostVC.kind = .lost
         return [allVC, helpVC, togetherVC, shareVC, lostVC]
     }
     let dropDown = DropDown()
