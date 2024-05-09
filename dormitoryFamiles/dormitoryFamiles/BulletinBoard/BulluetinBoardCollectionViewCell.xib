@@ -51,7 +51,6 @@
                     </stackView>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bOg-mS-y3r">
                         <rect key="frame" x="261" y="53" width="60" height="60"/>
-                        <color key="backgroundColor" name="gary2"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="60" id="ACu-IJ-jCz"/>
                             <constraint firstAttribute="width" constant="60" id="t7c-Pa-CIR"/>
@@ -62,12 +61,17 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </imageView>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bulluetinBoardProfileBackground" translatesAutoresizingMaskIntoConstraints="NO" id="1UP-zM-b1w">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profileIcon" translatesAutoresizingMaskIntoConstraints="NO" id="1UP-zM-b1w">
                         <rect key="frame" x="16" y="134" width="16" height="16"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="16" id="MMZ-Vq-5gA"/>
                             <constraint firstAttribute="width" constant="16" id="qYT-ol-tip"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="8"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </imageView>
                     <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="3L1-Hq-CEM">
                         <rect key="frame" x="37" y="129.66666666666666" width="152" height="20.333333333333343"/>
@@ -113,13 +117,6 @@
                             </label>
                         </subviews>
                     </stackView>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bulluetinBoardProfileIcon" translatesAutoresizingMaskIntoConstraints="NO" id="5c3-St-VWS">
-                        <rect key="frame" x="16.666666666666668" y="134.66666666666666" width="14.666666666666668" height="14.666666666666657"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="14.5" id="TXc-KX-j8d"/>
-                            <constraint firstAttribute="height" constant="14.5" id="i2J-Cg-PcC"/>
-                        </constraints>
-                    </imageView>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bulluetinBoardChat" translatesAutoresizingMaskIntoConstraints="NO" id="PnJ-sO-cHV">
                         <rect key="frame" x="298.33333333333331" y="137" width="12" height="12"/>
                         <constraints>
@@ -198,7 +195,6 @@
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
                 <constraint firstItem="UFo-WA-dgi" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="16" id="Fwf-Mr-JcZ"/>
-                <constraint firstItem="5c3-St-VWS" firstAttribute="centerY" secondItem="1UP-zM-b1w" secondAttribute="centerY" id="JLq-Jn-OSl"/>
                 <constraint firstItem="1UP-zM-b1w" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="16" id="K3k-eG-Rq6"/>
                 <constraint firstAttribute="trailing" secondItem="4D9-Wa-ky2" secondAttribute="trailing" constant="16" id="Lt5-6g-mjF"/>
                 <constraint firstItem="4D9-Wa-ky2" firstAttribute="leading" secondItem="PnJ-sO-cHV" secondAttribute="trailing" constant="3" id="LwR-Bl-2fg"/>
@@ -207,7 +203,6 @@
                 <constraint firstAttribute="bottom" secondItem="3L1-Hq-CEM" secondAttribute="bottom" constant="16" id="QOw-bl-FO2"/>
                 <constraint firstItem="PnJ-sO-cHV" firstAttribute="leading" secondItem="t2h-SG-48e" secondAttribute="trailing" constant="8" id="R8D-cQ-1Qf"/>
                 <constraint firstItem="EPc-sW-8rF" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="16" id="ScM-f4-NtC"/>
-                <constraint firstItem="5c3-St-VWS" firstAttribute="centerX" secondItem="1UP-zM-b1w" secondAttribute="centerX" id="YIp-Sq-vL8"/>
                 <constraint firstAttribute="bottom" secondItem="t2h-SG-48e" secondAttribute="bottom" constant="16" id="Zad-Yn-9qk"/>
                 <constraint firstItem="PnJ-sO-cHV" firstAttribute="centerY" secondItem="4D9-Wa-ky2" secondAttribute="centerY" id="ZjB-F2-pB1"/>
                 <constraint firstItem="bOg-mS-y3r" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="dEp-25-pf1"/>
@@ -224,7 +219,9 @@
                 <outlet property="commentCount" destination="4D9-Wa-ky2" id="dkO-6i-aAq"/>
                 <outlet property="content" destination="Bjf-f6-SsP" id="jMd-0p-Hfm"/>
                 <outlet property="nickName" destination="SQE-bh-vgU" id="T0K-st-VAm"/>
+                <outlet property="profileImageView" destination="1UP-zM-b1w" id="4YW-7E-Jxk"/>
                 <outlet property="statusTag" destination="uk3-md-aWm" id="bW8-Et-wjX"/>
+                <outlet property="thumbnailImageView" destination="bOg-mS-y3r" id="yyF-gc-UuJ"/>
                 <outlet property="title" destination="nJr-b4-0XJ" id="ow7-TC-4dr"/>
                 <outlet property="viewCount" destination="YQx-58-eSh" id="aP3-Nl-OCl"/>
                 <outlet property="wishCount" destination="t2h-SG-48e" id="UKD-NC-Y0t"/>
@@ -243,11 +240,7 @@
     <resources>
         <image name="bulluetinBoardChat" width="12" height="12"/>
         <image name="bulluetinBoardLike" width="12" height="12"/>
-        <image name="bulluetinBoardProfileBackground" width="16" height="16"/>
-        <image name="bulluetinBoardProfileIcon" width="5.3333334922790527" height="5.3333334922790527"/>
-        <namedColor name="gary2">
-            <color red="0.79607843137254897" green="0.80000000000000004" blue="0.80784313725490198" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
+        <image name="profileIcon" width="16" height="16"/>
         <namedColor name="gray3">
             <color red="0.74509803921568629" green="0.74509803921568629" blue="0.74509803921568629" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
