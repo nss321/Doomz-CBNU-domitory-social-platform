@@ -127,6 +127,8 @@ extension BrownVC: UICollectionViewDelegate, UICollectionViewDataSource, UIColle
         
         if article.status == "모집완료" {
             cell.changeFinish()
+        }else {
+            cell.changeIng()
         }
         return cell
     }

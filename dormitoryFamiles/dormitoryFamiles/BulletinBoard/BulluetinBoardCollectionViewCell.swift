@@ -43,6 +43,12 @@ final class BulluetinBoardCollectionViewCell: UICollectionViewCell {
         statusTag.tintColor = .gray5
     }
     
+    func changeIng() {
+        statusTag.backgroundColor = UIColor(hex: "#D8EAFF")
+        statusTag.borderColor = UIColor(hex: "#D8EAFF")
+        statusTag.tintColor = .black
+    }
+    
     private func updateProfileImage() {
         guard let profileUrl = profileUrl, let url = URL(string: profileUrl) else {
             return
