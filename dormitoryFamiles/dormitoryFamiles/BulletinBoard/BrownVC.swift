@@ -82,6 +82,13 @@ extension BrownVC: UICollectionViewDelegate, UICollectionViewDataSource, UIColle
         cell.profileUrl = article.profileUrl
         cell.thumbnailUrl = article.thumbnailUrl
         
+        let dateString = article.createdAt
+        if let formattedString = DateUtility.formattedDateString(from: dateString) {
+            cell.createdDateLabel.body2 = formattedString
+        } else {
+            cell.createdDateLabel.body2 = article.createdAt
+        }
+        
         if article.status == "모집완료" {
             cell.changeFinish()
         }

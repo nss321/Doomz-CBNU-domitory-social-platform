@@ -24,7 +24,7 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="EPc-sW-8rF">
-                        <rect key="frame" x="16" y="55" width="231" height="65"/>
+                        <rect key="frame" x="16" y="78.333333333333329" width="231" height="64.999999999999986"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="바퀴벌레 잡아주실분 ㅠㅠ!!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nJr-b4-0XJ">
                                 <rect key="frame" x="0.0" y="0.0" width="180.33333333333334" height="20.333333333333332"/>
@@ -36,7 +36,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="양진재 예지관 907호 바퀴벌레 나왔어요.. 제발 잡아주세요 제발 잡아줄사람 사례할게요" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bjf-f6-SsP">
-                                <rect key="frame" x="0.0" y="24.333333333333325" width="227" height="40.666666666666657"/>
+                                <rect key="frame" x="0.0" y="24.333333333333339" width="227" height="40.666666666666657"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" name="gray5"/>
                                 <nil key="highlightedColor"/>
@@ -144,10 +144,10 @@
                         </constraints>
                     </imageView>
                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="UFo-WA-dgi">
-                        <rect key="frame" x="16" y="16" width="151.66666666666666" height="31"/>
+                        <rect key="frame" x="16" y="16.000000000000004" width="155" height="54.333333333333343"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rfh-xG-L3a" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="83.666666666666671" height="31"/>
+                                <rect key="frame" x="0.0" y="0.0" width="87" height="54.333333333333336"/>
                                 <color key="backgroundColor" name="secondary"/>
                                 <color key="tintColor" name="primary"/>
                                 <state key="normal" title="Button"/>
@@ -165,7 +165,7 @@
                                 </userDefinedRuntimeAttributes>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uk3-md-aWm" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
-                                <rect key="frame" x="91.666666666666671" y="0.0" width="60.000000000000014" height="31"/>
+                                <rect key="frame" x="95" y="0.0" width="60" height="54.333333333333336"/>
                                 <color key="backgroundColor" red="0.84705882352941175" green="0.91764705882352937" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="MLh-ok-EBS"/>
@@ -218,6 +218,7 @@
                 <outlet property="categoryTag" destination="rfh-xG-L3a" id="Fnj-Em-ite"/>
                 <outlet property="commentCount" destination="4D9-Wa-ky2" id="dkO-6i-aAq"/>
                 <outlet property="content" destination="Bjf-f6-SsP" id="jMd-0p-Hfm"/>
+                <outlet property="createdDateLabel" destination="Sj9-bg-ZmC" id="DpB-a4-EcO"/>
                 <outlet property="nickName" destination="SQE-bh-vgU" id="T0K-st-VAm"/>
                 <outlet property="profileImageView" destination="1UP-zM-b1w" id="4YW-7E-Jxk"/>
                 <outlet property="statusTag" destination="uk3-md-aWm" id="bW8-Et-wjX"/>
@@ -231,10 +232,10 @@
     </objects>
     <designables>
         <designable name="rfh-xG-L3a">
-            <size key="intrinsicContentSize" width="83.333333333333329" height="31"/>
+            <size key="intrinsicContentSize" width="97.666666666666671" height="34.333333333333336"/>
         </designable>
         <designable name="uk3-md-aWm">
-            <size key="intrinsicContentSize" width="59.666666666666664" height="31"/>
+            <size key="intrinsicContentSize" width="68.333333333333329" height="34.333333333333336"/>
         </designable>
     </designables>
     <resources>
