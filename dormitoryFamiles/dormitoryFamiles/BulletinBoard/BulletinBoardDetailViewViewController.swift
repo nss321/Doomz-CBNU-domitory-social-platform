@@ -50,6 +50,7 @@ final class BulletinBoardDetailViewViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setUI()
         network(url: url)
         setIndicator()
         setDelegate()
@@ -63,6 +64,11 @@ final class BulletinBoardDetailViewViewController: UIViewController {
         view.addSubview(activityIndicator)
         activityIndicator.center = view.center
         activityIndicator.startAnimating()
+    }
+    
+    private func setUI() {
+        self.profileImage.layer.cornerRadius = profileImage.frame.height/2
+        self.profileImage.clipsToBounds = true
     }
     
     func setUrl(url: String) {
@@ -132,6 +138,12 @@ final class BulletinBoardDetailViewViewController: UIViewController {
                     let datetime = data.createdAt
                     self.timeLabel.body2 = self.changeToTime(createdAt: datetime)
                     self.dateLabel.body2 = self.changeToDate(createdAt: datetime)
+                    //프로필 이미지 불러오기
+                    let url = URL(string: data.profileUrl)
+                    self.profileImage.kf.setImage(with: url)
+                    self.profileImage.contentMode = .scaleAspectFill
+                    
+                    //게시물 이미지 불러오기
                     if data.imagesUrls.isEmpty {
                         self.hasImage = false
                         self.layout()
