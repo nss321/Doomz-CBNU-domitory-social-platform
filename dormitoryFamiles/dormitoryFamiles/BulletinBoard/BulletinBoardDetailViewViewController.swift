@@ -406,9 +406,9 @@ extension BulletinBoardDetailViewViewController: UICollectionViewDelegate, UICol
             var url = ""
             switch format {
             case .rereply:
-                url = "http://43.202.254.127:8080/api/replyComments/\(replyId)"
+                url = Url.deleteRereply(replyId: replyId)
             case .reply:
-                url = "http://43.202.254.127:8080/api/comments/\(replyId)"
+                url = Url.deleteReply(replyId: replyId)
             }
             Network.deleteMethod(url: url) { (result: Result<ReplyDelete, Error>) in
                 switch result {
