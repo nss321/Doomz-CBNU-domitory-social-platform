@@ -112,11 +112,15 @@ struct DeleteError: Codable {
     let errorMessage: String
 }
 
-struct responseImageUrl: Codable {
+struct ResponseImageUrl: Codable {
     let code: Int
     let data: ResponseImageUrlData
 }
 
 struct ResponseImageUrlData: Codable {
     let imageUrl: String
+}
+
+struct SuccessCode: Codable {
+    let code: Int
 }
