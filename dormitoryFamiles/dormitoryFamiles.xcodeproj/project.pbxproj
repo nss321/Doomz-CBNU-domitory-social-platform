@@ -281,8 +281,8 @@
 				DB7BE9E52BA47A5E00BC25E3 /* ReplyCollectionViewCell.swift */,
 				DB7BE9EA2BA47AF700BC25E3 /* ReplyCollectionViewCell.xib */,
 				DB02B5272B98C92200C45F56 /* ReplyHeaderCollectionReusableView.swift */,
-				DB02B5282B98C92200C45F56 /* ReplyHeaderCollectionReusableView.xib */,
 				DBE682B52BA592CC00DAA4CD /* PhotoScrollView.swift */,
+				DB02B5282B98C92200C45F56 /* ReplyHeaderCollectionReusableView.xib */,
 				DB1971D42BAB088C00C09648 /* AddPhotoImageView.swift */,
 				DBC001D72BBAEDBB00228CD9 /* AddImageBaseView.swift */,
 			);
