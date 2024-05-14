@@ -293,33 +293,36 @@ final class BulletinBoardDetailViewViewController: UIViewController {
     @objc private func postMoreButtonTapped() {
         let actionSheet = UIAlertController(title: "글메뉴", message: nil, preferredStyle: .actionSheet)
         actionSheet.addAction(UIAlertAction(title: "삭제하기", style: .destructive, handler: {(ACTION:UIAlertAction) in
-            
-            
+            let url = Url.deletePost(id: self.id)
+            Network.deleteMethod(url: url) { (result: Result<DeleteError, Error>) in
+                switch result {
+                case .success(let response):
+                    print(response)
+                case .failure(let error):
+                    print("Error: \(error)")
+                }
+            }
         }))
+        
         actionSheet.addAction(UIAlertAction(title: "수정하기", style: .default, handler: {(ACTION:UIAlertAction) in
             
         }))
         actionSheet.addAction(UIAlertAction(title: "모집 완료하기", style: .default, handler: {(ACTION:UIAlertAction) in
             let finishAlert = UIAlertController(title: "모집완료를 할까요?", message: "모집을 완료하면 1주일 뒤에 게시판에서 글이 내려가고, 보관함으로 이동해요.", preferredStyle: .alert)
 
-            // 취소 액션 추가
+           
             finishAlert.addAction(UIAlertAction(title: "취소", style: .cancel, handler: { _ in
-                // 취소를 눌렀을 때 수행할 작업을 여기에 추가합니다 (선택사항)
-                print("취소 버튼을 눌렀습니다.")
+              
             }))
 
-            // 완료하기 액션 추가
             finishAlert.addAction(UIAlertAction(title: "완료하기", style: .default, handler: { _ in
-                // 완료하기를 눌렀을 때 수행할 작업을 여기에 추가합니다
-                print("완료하기 버튼을 눌렀습니다.")
-                // 모집 완료 처리 로직을 여기에 추가합니다.
+             
             }))
-
-            // UIAlertController를 표시합니다
+            
             self.present(finishAlert, animated: true, completion: nil)
         }))
-        actionSheet.addAction(UIAlertAction(title: "닫기", style: .cancel, handler: nil))
         
+        actionSheet.addAction(UIAlertAction(title: "닫기", style: .cancel, handler: nil))
         self.present(actionSheet, animated: true, completion: nil)
     }
     
@@ -410,11 +413,11 @@ extension BulletinBoardDetailViewViewController: UICollectionViewDelegate, UICol
             case .reply:
                 url = Url.deleteReply(replyId: replyId)
             }
-            Network.deleteMethod(url: url) { (result: Result<ReplyDelete, Error>) in
+            
+            Network.deleteMethod(url: url) { (result: Result<DeleteError, Error>) in
                 switch result {
                 case .success(let response):
                     print(response)
-                    print("아아")
                 case .failure(let error):
                     print("Error: \(error)")
                 }
