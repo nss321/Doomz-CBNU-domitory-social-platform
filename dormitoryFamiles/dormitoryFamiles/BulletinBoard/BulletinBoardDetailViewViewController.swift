@@ -69,6 +69,11 @@ final class BulletinBoardDetailViewViewController: UIViewController {
     private func setUI() {
         self.profileImage.layer.cornerRadius = profileImage.frame.height/2
         self.profileImage.clipsToBounds = true
+        
+        //네비게이션바 오른쪽 more버튼 UI
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "bulletinBoardDetailMore"), style: .plain, target: self, action: #selector(postMoreButtonTapped))
+        self.navigationItem.rightBarButtonItem?.tintColor = .gray4
+        
     }
     
     func setUrl(url: String) {
@@ -283,6 +288,10 @@ final class BulletinBoardDetailViewViewController: UIViewController {
         }
         
         NSLayoutConstraint.activate(constraints)
+    }
+    
+    @objc private func postMoreButtonTapped() {
+        print("dddd")
     }
     
 }
