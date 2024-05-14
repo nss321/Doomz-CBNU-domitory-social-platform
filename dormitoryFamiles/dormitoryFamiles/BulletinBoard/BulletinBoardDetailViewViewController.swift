@@ -100,7 +100,7 @@ final class BulletinBoardDetailViewViewController: UIViewController {
             let task = URLSession.shared.dataTask(with: request) { data, response, error in
                 if let error = error {
                     print("Error: \(error)")
-                } else if let data = data {
+                } else if data != nil {
                     print("Response: \(response)")
                 }
             }
@@ -315,8 +315,17 @@ final class BulletinBoardDetailViewViewController: UIViewController {
               
             }))
 
-            finishAlert.addAction(UIAlertAction(title: "완료하기", style: .default, handler: { _ in
-             
+            finishAlert.addAction(UIAlertAction(title: "완료하기", style: .default, handler: { [self] _ in
+                let finishUrl = Url.changeStatus(id: id, status: .finish)
+                Network.putMethod(url: finishUrl) { (result: Result<SuccessCode, Error>) in
+                    switch result {
+                    case .success(let successCode):
+                        print("PUT 성공: \(successCode)")
+                    case .failure(let error):
+                        print("Error: \(error)")
+                    }
+                }
+
             }))
             
             self.present(finishAlert, animated: true, completion: nil)
@@ -452,4 +461,9 @@ extension BulletinBoardDetailViewViewController: UICollectionViewDelegateFlowLay
         return CGSize(width: collectionView.bounds.width, height: 148)
     }
     
+}
+
+enum Status:String {
+case ing = "모집중"
+case finish = "모집완료"
 }

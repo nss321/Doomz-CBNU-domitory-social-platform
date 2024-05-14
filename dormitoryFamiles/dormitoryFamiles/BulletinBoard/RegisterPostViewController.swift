@@ -219,7 +219,7 @@ final class RegisterPostViewController: UIViewController, CancelButtonTappedDele
                         print("Response: \(responseString)")
                     }
                     do {
-                        let responseData = try JSONDecoder().decode(responseImageUrl.self, from: data ?? Data())
+                        let responseData = try JSONDecoder().decode(ResponseImageUrl.self, from: data ?? Data())
                         let imageUrl = responseData.data.imageUrl
                         completion(imageUrl)
                     } catch {

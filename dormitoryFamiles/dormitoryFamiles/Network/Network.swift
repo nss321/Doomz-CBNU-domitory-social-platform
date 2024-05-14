@@ -80,21 +80,15 @@ struct Network {
         task.resume()
     }
     
-    static func putMethod<T: Codable>(url: String, body: T, completion: @escaping (Result<T, Error>) -> Void) {
-        guard let url = URL(string: url) else {return}
+    static func putMethod<T: Codable>(url: String,  completion: @escaping (Result<T, Error>) -> Void) {
+        guard let url = URL(string: url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "") else {
+                   print("Invalid URL: \(url)")
+                   return
+               }
         var request = URLRequest(url: url)
         request.httpMethod = "PUT"
         let token = Token.shared.number
         request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
-        
-        do {
-            let jsonData = try JSONEncoder().encode(body)
-            request.httpBody = jsonData
-        } catch {
-            completion(.failure(error))
-            return
-        }
-        
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
             if let error = error {
                 completion(.failure(error))
