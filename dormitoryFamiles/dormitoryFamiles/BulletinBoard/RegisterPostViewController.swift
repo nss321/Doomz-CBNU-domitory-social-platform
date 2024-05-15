@@ -144,7 +144,7 @@ final class RegisterPostViewController: UIViewController, CancelButtonTappedDele
                         boardType: categoryButton.title(for: .normal) ?? "",
                         title: textField.text ?? "",
                         content: textView.text ?? "",
-                        tags: "태그는 추후 구현!",
+                        tags: "#태그는 추후 구현!",
                         imagesUrls: [])
         
         let encoder = JSONEncoder()

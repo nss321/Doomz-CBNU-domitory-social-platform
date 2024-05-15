@@ -121,11 +121,10 @@ final class BulletinBoardDetailViewViewController: UIViewController {
                     self.dormitory.title5 = data.memberDormitory
                     self.categoryTag.subTitle2 = data.boardType
                     
-                    //TODO: 태그를 스택뷰로 구현하였는데, 스택뷰는 한줄처리만 된다는 특성이 있기 때문에 컬렉션뷰로 대체해야함.
                     let tagArr = data.tags.split(separator: "#")
                     let trimmedString = String(data.tags.dropFirst())
                     self.tagArray = trimmedString.components(separatedBy: "#").map { "#\($0)" }
-                    
+                    print("ddddddddddddddddd",self.tagArray,"Ddddddddddddddfsfsdfsdfsdfs")
                     self.contentLabel.body1 = data.content
                     self.likeCountLabel.text = String(data.wishCount)
                     // isWished 구현 필요
@@ -220,11 +219,16 @@ final class BulletinBoardDetailViewViewController: UIViewController {
     
     private func setDelegate() {
         commentTextView?.delegate = self
+        tagCollectionView.delegate = self
+        //TODO: 태그 구현시 dataSource 주석 해제 후 header부분 재 시도 해봐야 함. -1
+        //tagCollectionView.dataSource = self
         collectionView.delegate = self
         collectionView.dataSource = self
         
+        
         collectionView.register(UINib(nibName: "ReplyCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "rereplyCell")
         collectionView.register(UINib(nibName: "ReplyHeaderCollectionReusableView", bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "replyCell")
+        tagCollectionView.register(TagCollectionViewCell.self, forCellWithReuseIdentifier: "tagCell")
     }
     
     private func setCollectionViewAutoSizing() {
@@ -347,58 +351,78 @@ extension BulletinBoardDetailViewViewController: UITextViewDelegate {
 extension BulletinBoardDetailViewViewController: UICollectionViewDelegate, UICollectionViewDataSource, MoreButtonDelegate, HeaderRereplyButtonDelegate {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return dataClass?.comments.count ?? 0
+        if collectionView == self.collectionView {
+            return dataClass?.comments.count ?? 0
+        }
+        return 1
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        guard let count = dataClass?.comments[section].replyComments?.count, count > 0 else {
-            return 0
+        if collectionView == self.collectionView {
+            guard let count = dataClass?.comments[section].replyComments?.count, count > 0 else {
+                return 0
+            }
+            return count
         }
-        return count
+        return tagArray.count
+        
     }
     
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "rereplyCell", for: indexPath) as! ReplyCollectionViewCell
-        print(indexPath.section)
-        let replyComment = dataClass?.comments[indexPath.section].replyComments?[indexPath.row]
-        cell.nickname.text = replyComment?.nickname ?? ""
-        cell.content.text = replyComment?.content ?? ""
-        cell.replyCommentId = replyComment?.replyCommentId ?? 0
-        cell.memberId = replyComment?.memberId ?? 0
-        cell.profileUrl = replyComment?.profileUrl ?? ""
-        cell.createdAt = replyComment?.createdAt ?? ""
-        cell.isWriter = ((replyComment?.isWriter) != nil)
-        cell.moreButtonDelegate = self
-        return cell
+        if collectionView == self.collectionView {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "rereplyCell", for: indexPath) as! ReplyCollectionViewCell
+            print(indexPath.section)
+            let replyComment = dataClass?.comments[indexPath.section].replyComments?[indexPath.row]
+            cell.nickname.text = replyComment?.nickname ?? ""
+            cell.content.text = replyComment?.content ?? ""
+            cell.replyCommentId = replyComment?.replyCommentId ?? 0
+            cell.memberId = replyComment?.memberId ?? 0
+            cell.profileUrl = replyComment?.profileUrl ?? ""
+            cell.createdAt = replyComment?.createdAt ?? ""
+            cell.isWriter = ((replyComment?.isWriter) != nil)
+            cell.moreButtonDelegate = self
+            return cell
+            
+        } else {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "tagCell", for: indexPath) as! TagCollectionViewCell
+            
+            // 태그 배열에서 해당 인덱스의 태그를 가져옵니다.
+            let tag = tagArray[indexPath.item]
+            
+            // 버튼에 태그를 설정합니다.
+            cell.tagButton.setTitle(tag, for: .normal)
+            
+            return cell
+        }
     }
     
     //헤더뷰관련
+    //TODO: 태그 구현시 dataSource 주석 해제 후 header부분 재 시도 해봐야 함. -2
+    //collectionView(댓글컬렉션뷰)는 헤더가 있지만,
+    //tagCollectionView는 헤더가 없음 -> 해당 컬렉션뷰가 오면 UICollectionReusableView()를 반환 시 에러 발생하는것 잡아야함
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        switch kind {
-        case UICollectionView.elementKindSectionHeader:
-            let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "replyCell", for: indexPath) as! ReplyHeaderCollectionReusableView
-            
-            let replyComment = dataClass?.comments[indexPath.section]
-            headerView.moreButtonDelegate = self
-            headerView.rereplyButtonDelegate = self
-            headerView.commentId = replyComment?.commentId ?? 0
-            headerView.memberId = replyComment?.memberId ?? 0
-            headerView.profileUrl = replyComment?.profileUrl ?? ""
-            headerView.nickname.text = replyComment?.nickName ?? ""
-            let datetime = replyComment?.createdAt ?? ""
-            headerView.timeLabel.body2 = changeToTime(createdAt: datetime)
-            headerView.dateLabel.body2 = changeToDate(createdAt: datetime)
-            headerView.content.text = replyComment?.content ?? ""
-            headerView.isWriter = ((replyComment?.isWriter) != nil)
-            headerView.isDeleted = ((replyComment?.isDeleted) != nil)
-            
-            
-            return headerView
-        default:
-            assert(false, "Invalid element type")
-        }
+        
+        
+        let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "replyCell", for: indexPath) as! ReplyHeaderCollectionReusableView
+        let replyComment = dataClass?.comments[indexPath.section]
+        headerView.moreButtonDelegate = self
+        headerView.rereplyButtonDelegate = self
+        headerView.commentId = replyComment?.commentId ?? 0
+        headerView.memberId = replyComment?.memberId ?? 0
+        headerView.profileUrl = replyComment?.profileUrl ?? ""
+        headerView.nickname.text = replyComment?.nickName ?? ""
+        let datetime = replyComment?.createdAt ?? ""
+        headerView.timeLabel.body2 = changeToTime(createdAt: datetime)
+        headerView.dateLabel.body2 = changeToDate(createdAt: datetime)
+        headerView.content.text = replyComment?.content ?? ""
+        headerView.isWriter = (replyComment?.isWriter ?? false)
+        headerView.isDeleted = (replyComment?.isDeleted ?? false)
+        
+        return headerView
+        
     }
+
     
     func moreButtonTapped(replyId: Int, format: Reply) {
         print(replyId)
@@ -435,10 +459,20 @@ extension BulletinBoardDetailViewViewController: UICollectionViewDelegate, UICol
 
 extension BulletinBoardDetailViewViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width: CGFloat = collectionView.bounds.width
-        let height: CGFloat = 100
+        if collectionView == self.collectionView {
+            let width: CGFloat = collectionView.bounds.width
+            let height: CGFloat = 100
+            
+            return CGSize(width: width, height: height)
+        }else {
+            let tag = tagArray[indexPath.item]
+                   let tagSize = tag.size(withAttributes: [NSAttributedString.Key.font: UIFont.body2])
+                   let cellWidth = tagSize.width + 20 // 여유 공간 추가
+                   let cellHeight: CGFloat = 30 // 적절한 높이 설정
+                   
+                   return CGSize(width: cellWidth, height: cellHeight)
+        }
         
-        return CGSize(width: width, height: height)
     }
     
     //셀과 셀 사이의 간격
@@ -456,4 +490,36 @@ extension BulletinBoardDetailViewViewController: UICollectionViewDelegateFlowLay
 enum Status:String {
 case ing = "모집중"
 case finish = "모집완료"
+}
+
+import UIKit
+
+class TagCollectionViewCell: UICollectionViewCell {
+    // 태그를 표시할 버튼
+    let tagButton = RoundButton()
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        
+        // 버튼의 속성 설정
+        tagButton.backgroundColor = .gray0
+        tagButton.setTitleColor(.gray5, for: .normal)
+        tagButton.titleLabel?.font = .body2
+        
+        // 버튼을 셀에 추가
+        contentView.addSubview(tagButton)
+        
+        // 버튼을 셀의 영역에 맞게 설정
+        tagButton.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            tagButton.topAnchor.constraint(equalTo: contentView.topAnchor),
+            tagButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            tagButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            tagButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
+        ])
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 }
