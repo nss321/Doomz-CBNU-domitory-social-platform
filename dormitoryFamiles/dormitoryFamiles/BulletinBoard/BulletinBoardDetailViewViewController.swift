@@ -32,9 +32,8 @@ final class BulletinBoardDetailViewViewController: UIViewController {
     
     @IBOutlet weak var likeCountLabel: UILabel!
     
+    @IBOutlet weak var tagCollectionView: UICollectionView!
     @IBOutlet weak var replyCountLabel: UILabel!
-    
-    @IBOutlet weak var tagStackView: UIStackView!
     @IBOutlet weak var chatCountLabel: UILabel!
     private var scrollPhotoView = PhotoScrollView()
     private var hasImage = true
@@ -46,7 +45,7 @@ final class BulletinBoardDetailViewViewController: UIViewController {
     private var url = ""
     private var activityIndicator = UIActivityIndicatorView(style: .large)
     private var selectedReplyId = -1
-    
+    private var tagArray = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -125,15 +124,7 @@ final class BulletinBoardDetailViewViewController: UIViewController {
                     //TODO: 태그를 스택뷰로 구현하였는데, 스택뷰는 한줄처리만 된다는 특성이 있기 때문에 컬렉션뷰로 대체해야함.
                     let tagArr = data.tags.split(separator: "#")
                     let trimmedString = String(data.tags.dropFirst())
-                    let tagsArray = trimmedString.components(separatedBy: "#").map { "#\($0)" }
-                    for tag in tagsArray {
-                        let tagButton = RoundButton()
-                        tagButton.backgroundColor = .gray0
-                        tagButton.setTitleColor(.gray5, for: .normal)
-                        tagButton.body2 = tag
-                        self.tagStackView.addArrangedSubview(tagButton)
-                    }
-                    
+                    self.tagArray = trimmedString.components(separatedBy: "#").map { "#\($0)" }
                     
                     self.contentLabel.body1 = data.content
                     self.likeCountLabel.text = String(data.wishCount)
@@ -273,7 +264,6 @@ final class BulletinBoardDetailViewViewController: UIViewController {
     private func layout() {
         self.view.addSubview(scrollPhotoView)
         scrollPhotoView.translatesAutoresizingMaskIntoConstraints = false
-        tagStackView.translatesAutoresizingMaskIntoConstraints = false
         
         var constraints = [
             self.scrollPhotoView.topAnchor.constraint(equalTo: contentLabel.bottomAnchor, constant: 16),
@@ -283,8 +273,8 @@ final class BulletinBoardDetailViewViewController: UIViewController {
         ]
         
         if !hasImage {
-            let tagStackViewConstraint = tagStackView.topAnchor.constraint(equalTo: self.contentLabel.bottomAnchor, constant: 16)
-            constraints.append(tagStackViewConstraint)
+            let tagCollectionViewConstraint = tagCollectionView.topAnchor.constraint(equalTo: self.contentLabel.bottomAnchor, constant: 16)
+            constraints.append(tagCollectionViewConstraint)
         }
         
         NSLayoutConstraint.activate(constraints)
