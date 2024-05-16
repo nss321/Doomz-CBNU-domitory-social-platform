@@ -124,3 +124,7 @@ struct ResponseImageUrlData: Codable {
 struct SuccessCode: Codable {
     let code: Int
 }
+
+struct LikeStatus: Codable {
+    let status: Int
+}

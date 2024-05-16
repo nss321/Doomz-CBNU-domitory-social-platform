@@ -46,6 +46,7 @@ final class BulletinBoardDetailViewViewController: UIViewController {
     private var activityIndicator = UIActivityIndicatorView(style: .large)
     private var selectedReplyId = -1
     private var tagArray = [String]()
+    private var isWished = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -127,7 +128,7 @@ final class BulletinBoardDetailViewViewController: UIViewController {
                     print("ddddddddddddddddd",self.tagArray,"Ddddddddddddddfsfsdfsdfsdfs")
                     self.contentLabel.body1 = data.content
                     self.likeCountLabel.text = String(data.wishCount)
-                    // isWished 구현 필요
+                    self.isWished = data.isWished
                     self.statusTag.subTitle2 = data.status
                     
                     let datetime = data.createdAt
@@ -329,6 +330,29 @@ final class BulletinBoardDetailViewViewController: UIViewController {
         self.present(actionSheet, animated: true, completion: nil)
     }
     
+    
+    @IBAction func likeButtonTapped(_ sender: UIButton) {
+        let likeUrl = Url.like(id: id)
+        if isWished {
+            Network.deleteMethod(url: likeUrl, completion: { (result: Result<SuccessCode, Error>) in
+                switch result {
+                case .success(let response):
+                    print(response)
+                case .failure(_):
+                    print("error")
+                }
+            })
+        }else {
+            Network.postMethod(url: likeUrl, completion: { (result: Result<LikeStatus, Error>) in
+                switch result {
+                case .success(let response):
+                    print(response)
+                case .failure(_):
+                    print("error")
+                }
+            })
+        }
+    }
 }
 
 
