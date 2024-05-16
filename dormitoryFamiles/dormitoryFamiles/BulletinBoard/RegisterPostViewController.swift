@@ -138,39 +138,47 @@ final class RegisterPostViewController: UIViewController, CancelButtonTappedDele
     }
     
     @IBAction func finishButtonTapped(_ sender: UIButton) {
-        //이미지 없다고 가정함 일단은.
-        //TODO: 이미지와 태그는 UI세팅 후에 다시 처리해야함
-        let post = Post(dormitoryType: dormitoryButton.title(for: .normal) ?? "", boardType: categoryButton.title(for: .normal) ?? "", title: textField.text ?? "" , content: textView.text ?? "", tags: "태그는 추후 구현!", imagesUrls: [])
-        let encoder = JSONEncoder()
-        let imagesData = convertImageToData()
-        let group = DispatchGroup()
+        // 이미지 없다고 가정함 일단은.
+        // TODO: 이미지와 태그는 UI 세팅 후에 다시 처리해야 함
+        let post = Post(dormitoryType: dormitoryButton.title(for: .normal) ?? "",
+                        boardType: categoryButton.title(for: .normal) ?? "",
+                        title: textField.text ?? "",
+                        content: textView.text ?? "",
+                        tags: "#태그는 추후 구현!",
+                        imagesUrls: [])
         
-        for imageData in imagesData {
-            group.enter()
-            //멀티파트파일로 전환
-            let body = makeBody(imageData: imageData)
-            sendRequest(body: body) { url in
-                if let url = url {
-                    self.imageURL.append(url)
-                }
-                group.leave()
-            }
-        }
+        let encoder = JSONEncoder()
+        
+//        let imagesData = convertImageToData()
+//        let group = DispatchGroup()
+//
+//        for imageData in imagesData {
+//            group.enter()
+//            //멀티파트파일로 전환
+//            let body = makeBody(imageData: imageData)
+//            sendRequest(body: body) { url in
+//                if let url = url {
+//                    self.imageURL.append(url)
+//                }
+//                group.leave()
+//            }
+//        }
+//
         if let jsonData = try? encoder.encode(post) {
             let url = URL(string: Url.articles)!
             var request = URLRequest(url: url)
             request.httpMethod = "POST"
-            request.setValue("multipart/form-data; boundary=\(generateBoundaryString())", forHTTPHeaderField: "Content-Type")
+//            request.setValue("multipart/form-data; boundary=\(generateBoundaryString())", forHTTPHeaderField: "Content-Type")
+            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
             let token = Token.shared.number
             request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
-            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
             request.httpBody = jsonData
             
             let task = URLSession.shared.dataTask(with: request) { data, response, error in
                 if let error = error {
                     print("Error: \(error)")
                 } else if let data = data {
-                    print("Response: \(response)")
+                    print("Response: \(String(describing: response))")
                     let decoder = JSONDecoder()
                     if let response = try? decoder.decode(PostResponse.self, from: data) {
                         print("Article ID: \(response.data.articleId)")
@@ -179,59 +187,61 @@ final class RegisterPostViewController: UIViewController, CancelButtonTappedDele
             }
             
             task.resume()
-        }
-        
-        func sendRequest(body: Data, completion: @escaping (String?) -> Void) {
-            let url = URL(string: Url.imageToUrl)
-            var request = URLRequest(url: url!)
-            request.httpMethod = "POST"
-            request.httpBody = body
-            
-            URLSession.shared.dataTask(with: request) { data, response, error in
-                let alert = UIAlertController(title: "오류가 발생하였습니다.", message: "다시 시도해주세요.", preferredStyle: .alert)
-                let confirm = UIAlertAction(title: "확인", style: .default)
-                alert.addAction(confirm)
-                
-                if let error = error {
-                    DispatchQueue.main.async {
-                        self.present(alert, animated: true, completion: nil)
-                    }
-                    print("Error: \(error)")
-                    completion(nil)
-                    return
-                }
-                
-                if let httpResponse = response as? HTTPURLResponse {
-                    if (200..<300).contains(httpResponse.statusCode) {
-                        
-                        if let data = data, let responseString = String(data: data, encoding: .utf8) {
-                            print("Response: \(responseString)")
-                        }
-                        do {
-                            let responseData = try JSONDecoder().decode(responseImageUrl.self, from: data ?? Data())
-                            let imageUrl = responseData.data.imageUrl
-                            completion(imageUrl)
-                        } catch {
-                            print("Error decoding JSON: \(error)")
-                            completion(nil)
-                        }
-                        
-                    } else {
-                    }
-                }
-            }.resume()
+        } else {
+            print("글쓰기 실패")
         }
     }
     
+    func sendRequest(body: Data, completion: @escaping (String?) -> Void) {
+        let url = URL(string: Url.imageToUrl)
+        var request = URLRequest(url: url!)
+        request.httpMethod = "POST"
+        request.httpBody = body
+        
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            let alert = UIAlertController(title: "오류가 발생하였습니다.", message: "다시 시도해주세요.", preferredStyle: .alert)
+            let confirm = UIAlertAction(title: "확인", style: .default)
+            alert.addAction(confirm)
+            
+            if let error = error {
+                DispatchQueue.main.async {
+                    self.present(alert, animated: true, completion: nil)
+                }
+                print("Error: \(error)")
+                completion(nil)
+                return
+            }
+            
+            if let httpResponse = response as? HTTPURLResponse {
+                if (200..<300).contains(httpResponse.statusCode) {
+                    
+                    if let data = data, let responseString = String(data: data, encoding: .utf8) {
+                        print("Response: \(responseString)")
+                    }
+                    do {
+                        let responseData = try JSONDecoder().decode(ResponseImageUrl.self, from: data ?? Data())
+                        let imageUrl = responseData.data.imageUrl
+                        completion(imageUrl)
+                    } catch {
+                        print("Error decoding JSON: \(error)")
+                        completion(nil)
+                    }
+                    
+                } else {
+                }
+            }
+        }.resume()
+    }
+    
     private func layoutPhotoScrollView() {
-        photoScrollView.translatesAutoresizingMaskIntoConstraints = false
-        self.view.addSubview(photoScrollView)
-        NSLayoutConstraint.activate([
-            photoScrollView.topAnchor.constraint(equalTo: self.descriptionStack.bottomAnchor, constant: 18),
-            photoScrollView.leadingAnchor.constraint(equalTo: self.descriptionStack.leadingAnchor),
-            photoScrollView.trailingAnchor.constraint(equalTo: self.descriptionStack.trailingAnchor),
-            photoScrollView.heightAnchor.constraint(equalToConstant: 88)
-        ])
+        //        photoScrollView.translatesAutoresizingMaskIntoConstraints = false
+        //        self.view.addSubview(photoScrollView)
+        //        NSLayoutConstraint.activate([
+        //            photoScrollView.topAnchor.constraint(equalTo: self.descriptionStack.bottomAnchor, constant: 18),
+        //            photoScrollView.leadingAnchor.constraint(equalTo: self.descriptionStack.leadingAnchor),
+        //            photoScrollView.trailingAnchor.constraint(equalTo: self.descriptionStack.trailingAnchor),
+        //            photoScrollView.heightAnchor.constraint(equalToConstant: 88)
+        //        ])
     }
     
     func cancelButtonTapped() {
@@ -239,29 +249,33 @@ final class RegisterPostViewController: UIViewController, CancelButtonTappedDele
         
     }
     
-    private func makeBody(imageData: Data) -> Data {
-        let boundary = generateBoundaryString()
-        var body = Data()
-        let imgDataKey = "itemImages"
-        let boundaryPrefix = "--\(boundary)\r\n"
-        let boundarySuffix = "--\(boundary)--\r\n"
+    private func makeBody(imageData: Data) -> Data? {
+        //        let boundary = generateBoundaryString()
+        //        var body = Data()
+        //        let imgDataKey = "itemImages"
+        //        let boundaryPrefix = "--\(boundary)\r\n"
+        //        let boundarySuffix = "--\(boundary)--\r\n"
+        //
+        //        let imageName = "image\(imageNameIndex)"
+        //        imageNameIndex -= 1
+        //        body.append(Data(boundaryPrefix.utf8))
+        //        body.append(Data("Content-Disposition: form-data; name=\"\(imgDataKey)\"; filename=\"\(imageName).jpeg\"\r\n".utf8))
+        //        body.append(Data("Content-Type: image/jpeg\r\n\r\n".utf8))
+        //        body.append(imageData)
+        //        body.append(Data("\r\n".utf8))
+        //        body.append(Data(boundarySuffix.utf8))
+        //        return body
+        //    }
+        return nil
+    }
         
-        let imageName = "image\(imageNameIndex)"
-        imageNameIndex -= 1
-        body.append(Data(boundaryPrefix.utf8))
-        body.append(Data("Content-Disposition: form-data; name=\"\(imgDataKey)\"; filename=\"\(imageName).jpeg\"\r\n".utf8))
-        body.append(Data("Content-Type: image/jpeg\r\n\r\n".utf8))
-        body.append(imageData)
-        body.append(Data("\r\n".utf8))
-        body.append(Data(boundarySuffix.utf8))
-        return body
-    }
     
-    private func generateBoundaryString() -> String {
-        return "Boundary-\(UUID().uuidString)"
-    }
-    
+    //    private func generateBoundaryString() -> String {
+    //        return "Boundary-\(UUID().uuidString)"
+    //    }
 }
+    
+
 
 extension RegisterPostViewController: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {

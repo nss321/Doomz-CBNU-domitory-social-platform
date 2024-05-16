@@ -80,6 +80,88 @@ struct Network {
         task.resume()
     }
     
+    static func putMethod<T: Codable>(url: String,  completion: @escaping (Result<T, Error>) -> Void) {
+        guard let url = URL(string: url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "") else {
+                   print("Invalid URL: \(url)")
+                   return
+               }
+        var request = URLRequest(url: url)
+        request.httpMethod = "PUT"
+        let token = Token.shared.number
+        request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
+            
+            guard let httpResponse = response as? HTTPURLResponse else {
+                completion(.failure(NSError(domain: "Invalid response", code: 0, userInfo: ["description": "No HTTP response"])))
+                return
+            }
+            
+            if (200...299).contains(httpResponse.statusCode) {
+                guard let data = data else {
+                    completion(.failure(NSError(domain: "No data", code: 0, userInfo: ["description": "No data received from server"])))
+                    return
+                }
+                do {
+                    let decodedData = try JSONDecoder().decode(T.self, from: data)
+                    completion(.success(decodedData))
+                } catch {
+                    completion(.failure(error))
+                }
+            } else {
+                completion(.failure(NSError(domain: "Invalid response", code: httpResponse.statusCode, userInfo: ["description": "HTTP Status Code: \(httpResponse.statusCode)"])))
+            }
+        }
+        task.resume()
+    }
+    
+    static func postMethod<T: Codable>(url: String, body: T, completion: @escaping (Result<T, Error>) -> Void) {
+            guard let url = URL(string: url) else { return }
+            
+            var request = URLRequest(url: url)
+            request.httpMethod = "POST"
+            let token = Token.shared.number
+            request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+            
+            do {
+                let jsonData = try JSONEncoder().encode(body)
+                request.httpBody = jsonData
+            } catch {
+                completion(.failure(error))
+                return
+            }
+            
+            let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+                if let error = error {
+                    completion(.failure(error))
+                    return
+                }
+                
+                guard let httpResponse = response as? HTTPURLResponse else {
+                    completion(.failure(NSError(domain: "Invalid response", code: 0, userInfo: ["description": "No HTTP response"])))
+                    return
+                }
+                
+                if (200...299).contains(httpResponse.statusCode) {
+                    guard let data = data else {
+                        completion(.failure(NSError(domain: "No data", code: 0, userInfo: ["description": "No data received from server"])))
+                        return
+                    }
+                    do {
+                        let decodedData = try JSONDecoder().decode(T.self, from: data)
+                        completion(.success(decodedData))
+                    } catch {
+                        completion(.failure(error))
+                    }
+                } else {
+                    completion(.failure(NSError(domain: "Invalid response", code: httpResponse.statusCode, userInfo: ["description": "HTTP Status Code: \(httpResponse.statusCode)"])))
+                }
+            }
+            task.resume()
+        }
 }
 
 enum Dormitory: String {
