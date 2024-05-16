@@ -54,6 +54,8 @@ final class HomeViewController: UIViewController, DormitoryButtonHandling {
         self.navigationController?.setNavigationBarHidden(true, animated: true)
         fetchWebsite(time: .morning)
         setTintAdjustmentModeForButtons(in: self.view)
+        dormitoryButton.head1 = SelectedDormitory.shared.domitory
+        dormitoryButton.setTitle(SelectedDormitory.shared.domitory, for: .normal)
     }
     
     
