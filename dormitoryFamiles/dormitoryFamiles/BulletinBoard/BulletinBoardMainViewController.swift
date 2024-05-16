@@ -69,6 +69,7 @@ final class BulletinBoardMainViewController: TabmanViewController, DormitoryButt
     
     private func setUI() {
         writeButton.configuration?.image = UIImage(named: "bulletinBoardPlus")
+        dormitoryButton.head1 = SelectedDormitory.shared.domitory
     }
     
     private func setDropDown() {

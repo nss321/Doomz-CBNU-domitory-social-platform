@@ -107,6 +107,7 @@ final class HomeViewController: UIViewController, DormitoryButtonHandling {
         configuration.imagePadding = .init(4)
         dormitoryButton.configuration = configuration
         dormitoryButton?.tintAdjustmentMode = .normal
+        dormitoryButton.head1 = SelectedDormitory.shared.domitory
     }
     
     
