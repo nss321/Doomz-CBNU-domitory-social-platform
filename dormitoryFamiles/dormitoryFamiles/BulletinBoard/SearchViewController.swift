@@ -10,7 +10,7 @@ import UIKit
 final class SearchViewController: UIViewController {
     private var articles: [Article] = []
     private var path = ""
-    
+    @IBOutlet weak var searchWordLabel: UILabel!
     @IBOutlet weak var noPostImageSettingView: UIView!
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -25,7 +25,7 @@ final class SearchViewController: UIViewController {
         setDelegate()
         self.collectionView.register(UINib(nibName: "BulluetinBoardCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "cell")
         
-        network(url: Url.base + path)
+        network(url: Url.base + path, searchText: "")
         setSearchBar()
         
     }
@@ -53,7 +53,7 @@ final class SearchViewController: UIViewController {
         self.collectionView.dataSource = self
     }
     
-    private func network(url: String) {
+    private func network(url: String, searchText: String) {
         Network.getMethod(url: url) { (result: Result<ArticleResponse, Error>) in
             switch result {
             case .success(let response):
@@ -62,6 +62,7 @@ final class SearchViewController: UIViewController {
                     self.collectionView.reloadData()
                     if self.articles.isEmpty {
                         print("검색 결과 없음")
+                        self.searchWordLabel.title3 = "'\(searchText)'"
                         self.noPostImageSettingView.isHidden = false
                     }
                 }
@@ -132,7 +133,7 @@ extension SearchViewController: UISearchBarDelegate {
         noPostImageSettingView.isHidden = true
         if let searchText = searchBar.text {
             print("검색어: \(searchText)")
-            network(url: Url.base+Url.searchUrl(searchText: searchText))
+            network(url: Url.base+Url.searchUrl(searchText: searchText), searchText: searchText)
         }
     }
 }
