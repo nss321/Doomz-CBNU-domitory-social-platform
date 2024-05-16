@@ -144,10 +144,10 @@
                         </constraints>
                     </imageView>
                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="UFo-WA-dgi">
-                        <rect key="frame" x="16" y="16" width="151.66666666666666" height="31"/>
+                        <rect key="frame" x="16" y="16" width="151" height="31"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rfh-xG-L3a" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="83.666666666666671" height="31"/>
+                                <rect key="frame" x="0.0" y="0.0" width="83.333333333333329" height="31"/>
                                 <color key="backgroundColor" name="secondary"/>
                                 <color key="tintColor" name="primary"/>
                                 <state key="normal" title="Button"/>
@@ -165,16 +165,19 @@
                                 </userDefinedRuntimeAttributes>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uk3-md-aWm" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
-                                <rect key="frame" x="91.666666666666671" y="0.0" width="60.000000000000014" height="31"/>
+                                <rect key="frame" x="91.333333333333329" y="0.0" width="59.666666666666671" height="31"/>
                                 <color key="backgroundColor" red="0.84705882352941175" green="0.91764705882352937" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="60" id="MLh-ok-EBS"/>
-                                </constraints>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain">
                                     <attributedString key="attributedTitle">
-                                        <fragment content="모집중"/>
+                                        <fragment content="모집중">
+                                            <attributes>
+                                                <font key="NSFont" size="12" name="AppleSDGothicNeo-Regular"/>
+                                                <font key="NSOriginalFont" size="12" name="Helvetica"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
                                     </attributedString>
                                     <color key="baseForegroundColor" systemColor="labelColor"/>
                                 </buttonConfiguration>
@@ -218,6 +221,7 @@
                 <outlet property="categoryTag" destination="rfh-xG-L3a" id="Fnj-Em-ite"/>
                 <outlet property="commentCount" destination="4D9-Wa-ky2" id="dkO-6i-aAq"/>
                 <outlet property="content" destination="Bjf-f6-SsP" id="jMd-0p-Hfm"/>
+                <outlet property="createdDateLabel" destination="Sj9-bg-ZmC" id="DpB-a4-EcO"/>
                 <outlet property="nickName" destination="SQE-bh-vgU" id="T0K-st-VAm"/>
                 <outlet property="profileImageView" destination="1UP-zM-b1w" id="4YW-7E-Jxk"/>
                 <outlet property="statusTag" destination="uk3-md-aWm" id="bW8-Et-wjX"/>

@@ -107,16 +107,20 @@ struct ReplyComment: Codable {
     let isWriter: Bool
 }
 
-struct ReplyDelete: Codable {
+struct DeleteError: Codable {
     let code: Int
     let errorMessage: String
 }
 
-struct responseImageUrl: Codable {
+struct ResponseImageUrl: Codable {
     let code: Int
     let data: ResponseImageUrlData
 }
 
 struct ResponseImageUrlData: Codable {
     let imageUrl: String
+}
+
+struct SuccessCode: Codable {
+    let code: Int
 }

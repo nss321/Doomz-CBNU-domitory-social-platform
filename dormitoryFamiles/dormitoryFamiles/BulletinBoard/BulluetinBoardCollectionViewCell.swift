@@ -16,7 +16,6 @@ final class BulluetinBoardCollectionViewCell: UICollectionViewCell {
         }
     }
     var status: String?
-    var createdDate: String?
     var thumbnailUrl: String? {
         didSet {
             updateThumbnailImage()
@@ -34,12 +33,20 @@ final class BulluetinBoardCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var content: UILabel!
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var thumbnailImageView: UIImageView!
+    @IBOutlet weak var createdDateLabel: UILabel!
+    
     
     
     //모집완료일경우 색상 변경
     func changeFinish() {
         statusTag.backgroundColor = .gray0
         statusTag.tintColor = .gray5
+    }
+    
+    func changeIng() {
+        statusTag.backgroundColor = UIColor(hex: "#D8EAFF")
+        statusTag.borderColor = UIColor(hex: "#D8EAFF")
+        statusTag.tintColor = .black
     }
     
     private func updateProfileImage() {
