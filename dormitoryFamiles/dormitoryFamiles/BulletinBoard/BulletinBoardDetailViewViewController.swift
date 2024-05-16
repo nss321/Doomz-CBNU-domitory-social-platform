@@ -329,6 +329,19 @@ final class BulletinBoardDetailViewViewController: UIViewController {
         self.present(actionSheet, animated: true, completion: nil)
     }
     
+    
+    @IBAction func likeButtonTapped(_ sender: UIButton) {
+        let likeUrl = Url.likePost(id: id)
+        print(likeUrl)
+        Network.postMethod(url: likeUrl, completion: { (result: Result<LikeStatus, Error>) in
+            switch result {
+            case .success(let response):
+                print(response)
+            case .failure(_):
+                print("error")
+            }
+        })
+    }
 }
 
 
