@@ -48,11 +48,12 @@ final class BulletinBoardDetailViewViewController: UIViewController {
     private var tagArray = [String]()
     private var isWished = false
     private var status = ""
+    private var isWriter = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUI()
         network(url: url)
+        setUI()
         setIndicator()
         setDelegate()
         setCollectionViewAutoSizing()
@@ -70,11 +71,14 @@ final class BulletinBoardDetailViewViewController: UIViewController {
     private func setUI() {
         self.profileImage.layer.cornerRadius = profileImage.frame.height/2
         self.profileImage.clipsToBounds = true
-        
+    }
+    
+    private func setNavigationItem() {
         //네비게이션바 오른쪽 more버튼 UI
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "bulletinBoardDetailMore"), style: .plain, target: self, action: #selector(postMoreButtonTapped))
-        self.navigationItem.rightBarButtonItem?.tintColor = .gray4
-        
+        if isWriter {
+            self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "bulletinBoardDetailMore"), style: .plain, target: self, action: #selector(postMoreButtonTapped))
+            self.navigationItem.rightBarButtonItem?.tintColor = .gray4
+        }
     }
     
     func setUrl(url: String) {
@@ -139,7 +143,8 @@ final class BulletinBoardDetailViewViewController: UIViewController {
                     let url = URL(string: data.profileUrl)
                     self.profileImage.kf.setImage(with: url)
                     self.profileImage.contentMode = .scaleAspectFill
-                    
+                    self.isWriter = data.isWriter
+                    self.setNavigationItem()
                     self.status = data.status
                     
                     //게시물 이미지 불러오기
