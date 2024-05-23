@@ -178,7 +178,7 @@ final class SmokeAndAlcoholPatternViewController: UIViewController, ConfigUI {
     func didClickNextButton() {
         print("nextBtn")
         print("textField: \(String(describing: drinkHabitTextField.text))")
-        //        self.navigationController?.pushViewController(SmokeAndAlcoholPatternViewController(), animated: false)
+        self.navigationController?.pushViewController(LifeStyleViewController(), animated: true)
     }
 }
 
@@ -242,7 +242,7 @@ extension SmokeAndAlcoholPatternViewController: UICollectionViewDelegateFlowLayo
             // MARK: cell 간격
             cellSize = CGSize(width: (currentScreenWidth - 86) / 4, height: (currentScreenWidth - 86) / 4 )
         default:
-            cellSize = CGSize(width: (currentScreenWidth - 58) / 2, height: 48)
+            cellSize = CGSize(width: (currentScreenWidth - 48) / 2, height: 48)
         }
         return cellSize
     }
