@@ -39,6 +39,8 @@
 		DB7EF2792B5EA4B00062FAB5 /* AlrmElementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7EF2782B5EA4B00062FAB5 /* AlrmElementView.swift */; };
 		DB7EF27D2B5EAC790062FAB5 /* ChoiceDormitoryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7EF27C2B5EAC790062FAB5 /* ChoiceDormitoryButton.swift */; };
 		DB81D0002B56E723005EF497 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB81CFFF2B56E723005EF497 /* UIColorExtension.swift */; };
+		DB8DDFD72BECB0B600B3A676 /* DateFomat.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8DDFD62BECB0B600B3A676 /* DateFomat.swift */; };
+		DB8DDFD92BECC5AC00B3A676 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8DDFD82BECC5AC00B3A676 /* Category.swift */; };
 		DB932AC12B6511E300B456FB /* BulluetinBoardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB932ABF2B6511E300B456FB /* BulluetinBoardCollectionViewCell.swift */; };
 		DB932AC22B6511E300B456FB /* BulluetinBoardCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB932AC02B6511E300B456FB /* BulluetinBoardCollectionViewCell.xib */; };
 		DBB345F22B42BFD100E70380 /* BulletinBoardMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB345F12B42BFD100E70380 /* BulletinBoardMainViewController.swift */; };
@@ -123,6 +125,8 @@
 		DB7EF2782B5EA4B00062FAB5 /* AlrmElementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlrmElementView.swift; sourceTree = "<group>"; };
 		DB7EF27C2B5EAC790062FAB5 /* ChoiceDormitoryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceDormitoryButton.swift; sourceTree = "<group>"; };
 		DB81CFFF2B56E723005EF497 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		DB8DDFD62BECB0B600B3A676 /* DateFomat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFomat.swift; sourceTree = "<group>"; };
+		DB8DDFD82BECC5AC00B3A676 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		DB932ABF2B6511E300B456FB /* BulluetinBoardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulluetinBoardCollectionViewCell.swift; sourceTree = "<group>"; };
 		DB932AC02B6511E300B456FB /* BulluetinBoardCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BulluetinBoardCollectionViewCell.xib; sourceTree = "<group>"; };
 		DBB345F12B42BFD100E70380 /* BulletinBoardMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulletinBoardMainViewController.swift; sourceTree = "<group>"; };
@@ -271,6 +275,7 @@
 		DB32D75D2BA3435C00DE387A /* BulletinBoard */ = {
 			isa = PBXGroup;
 			children = (
+				DB8DDFD52BECB08600B3A676 /* Model */,
 				DB20F2932B95CBE00052CF5C /* SearchViewController.swift */,
 				DB41008B2B6A665D005C4DD8 /* BrownVC.swift */,
 				DB932AC02B6511E300B456FB /* BulluetinBoardCollectionViewCell.xib */,
@@ -282,8 +287,8 @@
 				DB7BE9E52BA47A5E00BC25E3 /* ReplyCollectionViewCell.swift */,
 				DB7BE9EA2BA47AF700BC25E3 /* ReplyCollectionViewCell.xib */,
 				DB02B5272B98C92200C45F56 /* ReplyHeaderCollectionReusableView.swift */,
-				DB02B5282B98C92200C45F56 /* ReplyHeaderCollectionReusableView.xib */,
 				DBE682B52BA592CC00DAA4CD /* PhotoScrollView.swift */,
+				DB02B5282B98C92200C45F56 /* ReplyHeaderCollectionReusableView.xib */,
 				DB1971D42BAB088C00C09648 /* AddPhotoImageView.swift */,
 				DBC001D72BBAEDBB00228CD9 /* AddImageBaseView.swift */,
 			);
@@ -332,6 +337,15 @@
 				DBC1D0022BC2C8A1005C93C0 /* Url.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		DB8DDFD52BECB08600B3A676 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DB8DDFD62BECB0B600B3A676 /* DateFomat.swift */,
+				DB8DDFD82BECC5AC00B3A676 /* Category.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		DBC54C3F2B568A6A0071164C /* Font */ = {
@@ -532,6 +546,7 @@
 				DB7EF2792B5EA4B00062FAB5 /* AlrmElementView.swift in Sources */,
 				1131E8A22BF6220B00D40120 /* UIScreen+.swift in Sources */,
 				117250E72BB31AF60083F181 /* CommomButton.swift in Sources */,
+				DB8DDFD72BECB0B600B3A676 /* DateFomat.swift in Sources */,
 				DB7BE9E72BA47A5E00BC25E3 /* ReplyCollectionViewCell.swift in Sources */,
 				DB61AA342B4C1EA70040418B /* RegisterPostViewController.swift in Sources */,
 				DB20E38E2B53D75F000D12A7 /* extensionStroyboard.swift in Sources */,
@@ -553,6 +568,7 @@
 				DBF466FB2AA5F4E4009FF3EB /* AppDelegate.swift in Sources */,
 				DB20F2942B95CBE00052CF5C /* SearchViewController.swift in Sources */,
 				DB1E0E8D2B62A995000A4AA5 /* SelectedDormitory.swift in Sources */,
+				DB8DDFD92BECC5AC00B3A676 /* Category.swift in Sources */,
 				11707A342BA83EED0027802D /* SleepPatternCollectionViewCell.swift in Sources */,
 				DBDF96EF2B84BFB2000E74AE /* ProfileFinishedViewController.swift in Sources */,
 				11707A2C2BA4CA780027802D /* FontManager.swift in Sources */,

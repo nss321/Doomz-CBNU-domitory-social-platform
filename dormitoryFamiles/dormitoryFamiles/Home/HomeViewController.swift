@@ -107,6 +107,7 @@ final class HomeViewController: UIViewController, DormitoryButtonHandling {
         configuration.imagePadding = .init(4)
         dormitoryButton.configuration = configuration
         dormitoryButton?.tintAdjustmentMode = .normal
+        dormitoryButton.head1 = SelectedDormitory.shared.domitory
     }
     
     
@@ -153,7 +154,7 @@ final class HomeViewController: UIViewController, DormitoryButtonHandling {
         do {
             let document = try SwiftSoup.parse(html)
             if let element = try document.select("tr#\(date)").first() {
-                let menu = try element.select("td.\(mealTimeString)").first()?.html().replacingOccurrences(of: "<br>", with: "\n")
+                let menu = try element.select("td.\(mealTimeString)").first()?.html().replacingOccurrences(of: "<br />", with: "\n")
                 
                 DispatchQueue.main.async {
                     self.menuLabel.text = menu

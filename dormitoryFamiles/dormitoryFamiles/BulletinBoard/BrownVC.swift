@@ -8,10 +8,20 @@
 import UIKit
 
 final class BrownVC: UIViewController {
+    private var arraylist: [Article] = []
+    private var pageNum = 0
+    private var isLoadingItems = true
+    var kind : Category?
+    
     private var articles: [Article] = []
     var path = ""
     @IBOutlet weak var collectionView: UICollectionView!
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
+        print(path)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,7 +29,7 @@ final class BrownVC: UIViewController {
         setDelegate()
         self.collectionView.register(UINib(nibName: "BulluetinBoardCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "cell")
         
-        network(url: Url.url + path)
+        network(url: Url.base + path)
         
         NotificationCenter.default.addObserver(self, selector: #selector(changeDormiotry), name: .changeDormiotry, object: nil)
     }
@@ -31,22 +41,53 @@ final class BrownVC: UIViewController {
     
     private func network(url: String) {
         Network.getMethod(url: url) { (result: Result<ArticleResponse, Error>) in
-            switch result {
-            case .success(let response):
-                self.articles = response.data.articles
-                DispatchQueue.main.async {
-                    self.collectionView.reloadData()
-                }
-            case .failure(let error):
-                print("Error: \(error)")
-            }
-        }
+                   switch result {
+                   case .success(let response):
+                       let newArticles = response.data.articles
+                       if newArticles.isEmpty {
+                           // 더 이상 아이템이 없는 경우
+                           self.isLoadingItems = false
+                       } else {
+                           self.articles.append(contentsOf: newArticles)
+                           DispatchQueue.main.async {
+                               self.collectionView.reloadData()
+                           }
+                       }
+                   case .failure(let error):
+                       print("Error: \(error)")
+                   }
+               }
     }
     
     @objc private func changeDormiotry() {
-            network(url: Url.url + path)
+        network(url: Url.base + path)
         self.collectionView.reloadData()
-        }
+    }
+    
+    
+    private func loadNextPage() {
+           // 카테고리에 맞는 다음 페이지 보여주기
+           guard isLoadingItems else { return }
+           
+           pageNum += 1
+           
+           switch kind {
+           case .lost:
+               path = Url.lostUrl(page: pageNum)
+           case .share:
+               path = Url.shareUrl(page: pageNum)
+           case .together:
+               path = Url.togetherUrl(page: pageNum)
+           case .help:
+               path = Url.helpPostUrl(page: pageNum)
+           case .all:
+               path = Url.pathAllPostUrl(page: pageNum)
+           case .none:
+               break
+           }
+           
+           network(url: Url.base + path)
+       }
     
 }
 
@@ -74,22 +115,35 @@ extension BrownVC: UICollectionViewDelegate, UICollectionViewDataSource, UIColle
         cell.content.text = article.content
         cell.categoryTag.body2 = article.boardType
         cell.statusTag.body2 = article.status
+        cell.profileUrl = article.profileUrl
+        cell.thumbnailUrl = article.thumbnailUrl
+        
+        let dateString = article.createdAt
+        if let formattedString = DateUtility.formattedDateString(from: dateString) {
+            cell.createdDateLabel.body2 = formattedString
+        } else {
+            cell.createdDateLabel.body2 = article.createdAt
+        }
+        
+        if article.status == "모집완료" {
+            cell.changeFinish()
+        }else {
+            cell.changeIng()
+        }
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
         let articleElement = articles[indexPath.row]
         
         let id = articleElement.articleId
-        
         let url = "http://43.202.254.127:8080/api/articles/\(id)"
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            if let articleDetailViewController = storyboard.instantiateViewController(withIdentifier: "detail") as? BulletinBoardDetailViewViewController { 
-                articleDetailViewController.setUrl(url: url)
-                articleDetailViewController.id = id
-                self.navigationController?.pushViewController(articleDetailViewController, animated: true)
-            }
+        if let articleDetailViewController = storyboard.instantiateViewController(withIdentifier: "detail") as? BulletinBoardDetailViewViewController {
+            articleDetailViewController.setUrl(url: url)
+            articleDetailViewController.id = id
+            self.navigationController?.pushViewController(articleDetailViewController, animated: true)
+        }
     }
     
     
@@ -100,4 +154,17 @@ extension BrownVC: UICollectionViewDelegate, UICollectionViewDataSource, UIColle
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 12
     }
+}
+
+extension BrownVC: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+            // 스크롤 끝나면 다음페이지로
+            let offsetY = scrollView.contentOffset.y
+            let contentHeight = scrollView.contentSize.height
+            let height = scrollView.frame.size.height
+            
+            if offsetY > contentHeight - height {
+                loadNextPage()
+            }
+        }
 }
