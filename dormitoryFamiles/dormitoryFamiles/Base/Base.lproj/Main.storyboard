@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="peN-Im-ACT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="peN-Im-ACT">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -781,12 +780,12 @@
                                                                 </constraints>
                                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                                <state key="normal" title="양진재" image="homeImageArrow">
+                                                                <state key="normal" title="본관" image="homeImageArrow">
                                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="10"/>
                                                                 </state>
                                                                 <userDefinedRuntimeAttributes>
-                                                                    <userDefinedRuntimeAttribute type="string" keyPath="head1" value="양진재"/>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="head1" value="본관"/>
                                                                 </userDefinedRuntimeAttributes>
                                                                 <connections>
                                                                     <action selector="dormitoryButtonTapped:" destination="pDX-kV-96B" eventType="touchUpInside" id="JJd-Yy-wRL"/>
@@ -1194,11 +1193,11 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                        <state key="normal" title="분실신고">
+                                                        <state key="normal" title="궁금해요">
                                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
                                                         <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="string" keyPath="body2" value="분실신고"/>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="body2" value="궁금해요"/>
                                                             <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
                                                                 <color key="value" name="secondary"/>
                                                             </userDefinedRuntimeAttribute>
@@ -1477,28 +1476,13 @@
                                         </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="nmc-r2-3Yr">
-                                        <rect key="frame" x="20" y="120" width="195" height="31"/>
+                                        <rect key="frame" x="20" y="120" width="157.33333333333334" height="31"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xSs-DI-vlz" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="59.666666666666664" height="31"/>
-                                                <color key="tintColor" name="gray4"/>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                        <color key="value" name="gary2"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                        <real key="value" value="1"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="string" keyPath="body2" value="인기순"/>
-                                                </userDefinedRuntimeAttributes>
-                                            </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zMd-RW-f50" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
-                                                <rect key="frame" x="67.666666666666671" y="0.0" width="59.666666666666671" height="31"/>
-                                                <color key="tintColor" name="gray4"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="74.666666666666671" height="31"/>
+                                                <color key="tintColor" name="gray5"/>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" title="최신순"/>
+                                                <buttonConfiguration key="configuration" style="plain" image="bulletinBoardVector" imagePlacement="trailing" title="최신순" imagePadding="5"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
                                                         <color key="value" name="gary2"/>
@@ -1508,12 +1492,15 @@
                                                     </userDefinedRuntimeAttribute>
                                                     <userDefinedRuntimeAttribute type="string" keyPath="body2" value="최신순"/>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="sortList:" destination="r5Q-f3-hGS" eventType="touchUpInside" id="bTm-Vg-mzb"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oPs-Mx-3k4" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
-                                                <rect key="frame" x="135.33333333333334" y="0.0" width="59.666666666666657" height="31"/>
-                                                <color key="tintColor" name="gray4"/>
+                                                <rect key="frame" x="82.666666666666657" y="0.0" width="74.666666666666657" height="31"/>
+                                                <color key="tintColor" name="gray5"/>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" title="모집중"/>
+                                                <buttonConfiguration key="configuration" style="plain" image="bulletinBoardVector" imagePlacement="trailing" title="전체" imagePadding="5"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
                                                         <color key="value" name="gary2"/>
@@ -1521,8 +1508,11 @@
                                                     <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                                                         <real key="value" value="1"/>
                                                     </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="string" keyPath="body2" value="모집중"/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="body2" value="전체"/>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="sortList:" destination="r5Q-f3-hGS" eventType="touchUpInside" id="mqj-zf-nl9"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -2243,7 +2233,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LBb-Kh-04d">
-                                <rect key="frame" x="0.0" y="59" width="393" height="621"/>
+                                <rect key="frame" x="0.0" y="59" width="393" height="618"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pJ9-Zw-OY6">
                                         <rect key="frame" x="0.0" y="0.0" width="393" height="1000"/>
@@ -2308,7 +2298,7 @@
                                                     <userDefinedRuntimeAttribute type="string" keyPath="body2" value="10/31"/>
                                                 </userDefinedRuntimeAttributes>
                                             </label>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tulletinBoardProfile" translatesAutoresizingMaskIntoConstraints="NO" id="LzO-7n-Hi4">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bulletinBoardProfile" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LzO-7n-Hi4">
                                                 <rect key="frame" x="20" y="66" width="45" height="45"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="45" id="fkx-Ok-bZk"/>
@@ -2420,56 +2410,6 @@
                                                     </button>
                                                 </subviews>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Y1o-fA-GbL">
-                                                <rect key="frame" x="20" y="552.33333333333337" width="353" height="29"/>
-                                                <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hpp-GL-I8u" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="122.33333333333333" height="29"/>
-                                                        <color key="backgroundColor" name="gray0"/>
-                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                        <state key="normal" title="#아침_헬스">
-                                                            <color key="titleColor" name="gray5"/>
-                                                        </state>
-                                                        <buttonConfiguration key="configuration" style="plain" title="#아침_헬스">
-                                                            <color key="baseForegroundColor" name="gray5"/>
-                                                        </buttonConfiguration>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="string" keyPath="body2" value="#아침_헬스"/>
-                                                        </userDefinedRuntimeAttributes>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lg7-V9-yuC" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
-                                                        <rect key="frame" x="126.33333333333334" y="0.0" width="80.333333333333343" height="29"/>
-                                                        <color key="backgroundColor" name="gray0"/>
-                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                        <state key="normal" title="#갓생">
-                                                            <color key="titleColor" name="gray5"/>
-                                                        </state>
-                                                        <buttonConfiguration key="configuration" style="plain" title="#갓생">
-                                                            <color key="baseForegroundColor" name="gray5"/>
-                                                        </buttonConfiguration>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="string" keyPath="body2" value="#갓생"/>
-                                                        </userDefinedRuntimeAttributes>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IDC-Ym-YKC" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
-                                                        <rect key="frame" x="210.66666666666663" y="0.0" width="142.33333333333337" height="29"/>
-                                                        <color key="backgroundColor" name="gray0"/>
-                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                        <state key="normal" title="#미라클_모닝">
-                                                            <color key="titleColor" name="gray5"/>
-                                                        </state>
-                                                        <buttonConfiguration key="configuration" style="plain" title="#미라클_모닝">
-                                                            <color key="baseForegroundColor" name="gray5"/>
-                                                        </buttonConfiguration>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="string" keyPath="body2" value="#미라클_모닝"/>
-                                                        </userDefinedRuntimeAttributes>
-                                                    </button>
-                                                </subviews>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="29" id="rYZ-rF-Yty"/>
-                                                </constraints>
-                                            </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="5A3-Fj-D1b">
                                                 <rect key="frame" x="20" y="601.33333333333337" width="115" height="18"/>
                                                 <subviews>
@@ -2570,26 +2510,52 @@
                                                     </collectionViewCell>
                                                 </cells>
                                             </collectionView>
+                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="8mX-Qt-H0c">
+                                                <rect key="frame" x="20" y="552.33333333333337" width="353" height="29"/>
+                                                <color key="backgroundColor" red="0.96078431369999995" green="0.0078431372550000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" priority="250" constant="29" id="7NZ-Ia-0Jg"/>
+                                                </constraints>
+                                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="xhD-EG-LBd">
+                                                    <size key="itemSize" width="72" height="62"/>
+                                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                </collectionViewFlowLayout>
+                                                <cells>
+                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="tagCell" reuseIdentifier="tagCell" id="Wdk-2r-7TS" customClass="TagCollectionViewCell" customModule="dormitoryFamiles" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="72" height="62"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="FoS-rJ-rkH">
+                                                            <rect key="frame" x="0.0" y="0.0" width="72" height="62"/>
+                                                            <autoresizingMask key="autoresizingMask"/>
+                                                        </collectionViewCellContentView>
+                                                        <size key="customSize" width="72" height="62"/>
+                                                    </collectionViewCell>
+                                                </cells>
+                                            </collectionView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstItem="Y1o-fA-GbL" firstAttribute="top" secondItem="bHT-nc-4kp" secondAttribute="bottom" constant="16" id="0jt-yQ-gW7"/>
                                             <constraint firstItem="g8I-rb-EBj" firstAttribute="leading" secondItem="pJ9-Zw-OY6" secondAttribute="leading" constant="20" id="3ED-8q-qIC"/>
+                                            <constraint firstItem="8mX-Qt-H0c" firstAttribute="leading" secondItem="pJ9-Zw-OY6" secondAttribute="leading" constant="20" id="6dm-uG-QRN"/>
                                             <constraint firstItem="PGl-25-Agc" firstAttribute="leading" secondItem="T8N-SY-msx" secondAttribute="trailing" constant="6" id="70f-C4-xuS"/>
                                             <constraint firstItem="g8I-rb-EBj" firstAttribute="top" secondItem="pJ9-Zw-OY6" secondAttribute="top" constant="22" id="866-0T-m05"/>
                                             <constraint firstItem="bHT-nc-4kp" firstAttribute="top" secondItem="zCM-Pt-zrq" secondAttribute="bottom" constant="16" id="Ccg-pI-KQy"/>
                                             <constraint firstItem="LzO-7n-Hi4" firstAttribute="top" secondItem="g8I-rb-EBj" secondAttribute="bottom" constant="16" id="Cts-vr-Z6P"/>
                                             <constraint firstAttribute="trailing" secondItem="ULa-b8-nsE" secondAttribute="trailing" id="E2e-br-5lK"/>
                                             <constraint firstItem="ks2-cG-ESp" firstAttribute="top" secondItem="ULa-b8-nsE" secondAttribute="bottom" constant="20" id="FkW-mv-i5b"/>
+                                            <constraint firstAttribute="trailing" secondItem="8mX-Qt-H0c" secondAttribute="trailing" constant="20" id="Gz4-Ru-F0R"/>
                                             <constraint firstItem="gcn-uh-z8K" firstAttribute="top" secondItem="XXG-oc-o5X" secondAttribute="bottom" constant="20" id="IME-Vz-IKl"/>
                                             <constraint firstItem="XXG-oc-o5X" firstAttribute="leading" secondItem="LFM-0h-h1Z" secondAttribute="trailing" constant="6" id="J4m-iz-aOc"/>
                                             <constraint firstItem="zCM-Pt-zrq" firstAttribute="top" secondItem="gcn-uh-z8K" secondAttribute="bottom" constant="8" id="KaP-ID-NSb"/>
                                             <constraint firstItem="3XP-3L-Mrw" firstAttribute="top" secondItem="ihM-NF-joD" secondAttribute="bottom" constant="4" id="KgO-tx-vzX"/>
                                             <constraint firstItem="LFM-0h-h1Z" firstAttribute="leading" secondItem="LzO-7n-Hi4" secondAttribute="trailing" constant="12" id="MJj-eD-Ka0"/>
+                                            <constraint firstItem="5A3-Fj-D1b" firstAttribute="top" secondItem="pJ9-Zw-OY6" secondAttribute="top" constant="601.33333333333337" id="MXA-z3-Rah"/>
                                             <constraint firstItem="3XP-3L-Mrw" firstAttribute="leading" secondItem="XXG-oc-o5X" secondAttribute="trailing" constant="6" id="RxB-Bf-fkc"/>
                                             <constraint firstItem="zCM-Pt-zrq" firstAttribute="leading" secondItem="pJ9-Zw-OY6" secondAttribute="leading" constant="20" id="Szq-oe-Iec"/>
+                                            <constraint firstItem="8mX-Qt-H0c" firstAttribute="top" secondItem="bHT-nc-4kp" secondAttribute="bottom" constant="16" id="Tsh-IF-cZm"/>
                                             <constraint firstAttribute="trailing" secondItem="zCM-Pt-zrq" secondAttribute="trailing" constant="20" id="VDm-Ht-Vfe"/>
-                                            <constraint firstItem="Y1o-fA-GbL" firstAttribute="leading" secondItem="pJ9-Zw-OY6" secondAttribute="leading" constant="20" id="Xyi-YB-eNG"/>
                                             <constraint firstItem="bHT-nc-4kp" firstAttribute="leading" secondItem="pJ9-Zw-OY6" secondAttribute="leading" constant="20" id="aLi-E7-MpV"/>
                                             <constraint firstItem="ihM-NF-joD" firstAttribute="leading" secondItem="PGl-25-Agc" secondAttribute="trailing" constant="6" id="aq7-ge-rYW"/>
                                             <constraint firstAttribute="height" priority="250" constant="1000" id="e8a-vB-LIP"/>
@@ -2601,15 +2567,14 @@
                                             <constraint firstAttribute="bottom" secondItem="ks2-cG-ESp" secondAttribute="bottom" constant="3" id="l1T-ka-ZMf"/>
                                             <constraint firstItem="PGl-25-Agc" firstAttribute="top" secondItem="LzO-7n-Hi4" secondAttribute="top" id="mre-Po-1YO"/>
                                             <constraint firstItem="XXG-oc-o5X" firstAttribute="top" secondItem="ihM-NF-joD" secondAttribute="bottom" constant="4" id="o7g-tA-5nC"/>
-                                            <constraint firstAttribute="trailing" secondItem="Y1o-fA-GbL" secondAttribute="trailing" constant="20" id="oBU-je-cHI"/>
                                             <constraint firstItem="ks2-cG-ESp" firstAttribute="leading" secondItem="pJ9-Zw-OY6" secondAttribute="leading" id="ocE-Aq-Qap"/>
                                             <constraint firstItem="LFM-0h-h1Z" firstAttribute="top" secondItem="ihM-NF-joD" secondAttribute="bottom" constant="4" id="qyI-re-Rcz"/>
                                             <constraint firstItem="T8N-SY-msx" firstAttribute="top" secondItem="LzO-7n-Hi4" secondAttribute="top" id="t2G-Rz-wVq"/>
-                                            <constraint firstItem="5A3-Fj-D1b" firstAttribute="top" secondItem="Y1o-fA-GbL" secondAttribute="bottom" constant="20" id="tEk-i9-Wd3"/>
-                                            <constraint firstItem="5A3-Fj-D1b" firstAttribute="leading" secondItem="Y1o-fA-GbL" secondAttribute="leading" id="tt9-VJ-5NT"/>
+                                            <constraint firstItem="5A3-Fj-D1b" firstAttribute="leading" secondItem="8mX-Qt-H0c" secondAttribute="leading" id="tAK-CS-pmi"/>
                                             <constraint firstItem="LzO-7n-Hi4" firstAttribute="leading" secondItem="pJ9-Zw-OY6" secondAttribute="leading" constant="20" id="ttO-p7-CZr"/>
                                             <constraint firstItem="ULa-b8-nsE" firstAttribute="leading" secondItem="pJ9-Zw-OY6" secondAttribute="leading" id="vtv-cQ-Ziy"/>
                                             <constraint firstItem="T8N-SY-msx" firstAttribute="leading" secondItem="LzO-7n-Hi4" secondAttribute="trailing" constant="12" id="wqF-rR-NWq"/>
+                                            <constraint firstItem="5A3-Fj-D1b" firstAttribute="top" secondItem="8mX-Qt-H0c" secondAttribute="bottom" constant="20" id="zrw-d9-Jxu"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -2624,7 +2589,7 @@
                                 <viewLayoutGuide key="frameLayoutGuide" id="2wb-qa-H2I"/>
                             </scrollView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ADz-W5-7tf">
-                                <rect key="frame" x="0.0" y="683" width="393" height="135"/>
+                                <rect key="frame" x="0.0" y="680" width="393" height="138"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" priority="250" constant="129.66999999999999" id="Q00-B3-hDD"/>
@@ -2642,7 +2607,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oZ0-t3-IMB">
-                                <rect key="frame" x="0.0" y="703" width="393" height="115"/>
+                                <rect key="frame" x="0.0" y="700" width="393" height="118"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hQh-uO-d5P" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
                                         <rect key="frame" x="20.000000000000004" y="0.0" width="51.333333333333343" height="30"/>
@@ -2662,22 +2627,25 @@
                                                 <real key="value" value="1"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="likeButtonTapped:" destination="uo4-JF-1aB" eventType="touchUpInside" id="zvG-up-OAT"/>
+                                        </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wxR-xj-rw3" customClass="TagButton" customModule="dormitoryFamiles" customModuleProvider="target">
-                                        <rect key="frame" x="20" y="42" width="353" height="54"/>
+                                        <rect key="frame" x="20" y="42" width="353" height="57"/>
                                         <subviews>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="fnL-Fu-qit">
-                                                <rect key="frame" x="16" y="12" width="255" height="30"/>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fnL-Fu-qit">
+                                                <rect key="frame" x="16" y="12" width="255" height="33"/>
                                                 <color key="backgroundColor" name="gray0"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="z4Q-PV-lNN"/>
                                                 </constraints>
                                                 <color key="textColor" name="gray4"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mkz-v3-one" customClass="TagButton" customModule="dormitoryFamiles" customModuleProvider="target">
-                                                <rect key="frame" x="287" y="10" width="56" height="34.333333333333336"/>
+                                                <rect key="frame" x="287" y="13" width="56" height="34.333333333333336"/>
                                                 <color key="backgroundColor" name="primary"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="56" id="okP-dq-W2M"/>
@@ -2774,7 +2742,7 @@
                         <outlet property="replyCountLabel" destination="2cL-XS-mzW" id="9tG-dV-0S8"/>
                         <outlet property="roundLine" destination="ADz-W5-7tf" id="t1V-Gh-dzW"/>
                         <outlet property="statusTag" destination="WpS-3I-E5y" id="1k1-U9-KOa"/>
-                        <outlet property="tagStackView" destination="Y1o-fA-GbL" id="6kK-Zv-jsc"/>
+                        <outlet property="tagCollectionView" destination="8mX-Qt-H0c" id="C2N-6f-d7J"/>
                         <outlet property="textViewSuperView" destination="wxR-xj-rw3" id="lmO-KF-1wL"/>
                         <outlet property="timeLabel" destination="3XP-3L-Mrw" id="HRf-Qb-UjP"/>
                         <outlet property="titleLabel" destination="gcn-uh-z8K" id="Sk0-rd-u7f"/>
@@ -2793,7 +2761,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fad-G7-5aP">
-                                <rect key="frame" x="0.0" y="59" width="393" height="171"/>
+                                <rect key="frame" x="0.0" y="59.000000000000014" width="393" height="174.33333333333337"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bulletinBoardLogo" translatesAutoresizingMaskIntoConstraints="NO" id="X9e-Qp-kaG">
                                         <rect key="frame" x="20" y="15" width="40" height="30"/>
@@ -2820,28 +2788,13 @@
                                         <buttonConfiguration key="configuration" style="plain" image="bulletinBoardMagnifier"/>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="2wU-Fz-MJG">
-                                        <rect key="frame" x="20" y="120" width="195" height="31"/>
+                                        <rect key="frame" x="20" y="119.99999999999999" width="174.66666666666666" height="34.333333333333329"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iWG-qz-lub" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="59.666666666666664" height="31"/>
-                                                <color key="tintColor" name="gray4"/>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                        <color key="value" name="gary2"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                        <real key="value" value="1"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="string" keyPath="body2" value="인기순"/>
-                                                </userDefinedRuntimeAttributes>
-                                            </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jb0-KK-Kah" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
-                                                <rect key="frame" x="67.666666666666671" y="0.0" width="59.666666666666671" height="31"/>
-                                                <color key="tintColor" name="gray4"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="83.333333333333329" height="34.333333333333336"/>
+                                                <color key="tintColor" name="gray5"/>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" title="최신순"/>
+                                                <buttonConfiguration key="configuration" style="plain" image="bolletinBoardVector" imagePlacement="trailing" title="최신순" imagePadding="5"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
                                                         <color key="value" name="gary2"/>
@@ -2849,14 +2802,13 @@
                                                     <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                                                         <real key="value" value="1"/>
                                                     </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="string" keyPath="body2" value="최신순"/>
                                                 </userDefinedRuntimeAttributes>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="488-NF-ysg" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
-                                                <rect key="frame" x="135.33333333333334" y="0.0" width="59.666666666666657" height="31"/>
-                                                <color key="tintColor" name="gray4"/>
+                                                <rect key="frame" x="91.333333333333343" y="0.0" width="83.333333333333343" height="34.333333333333336"/>
+                                                <color key="tintColor" name="gray5"/>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" title="모집중"/>
+                                                <buttonConfiguration key="configuration" style="plain" image="bolletinBoardVector" imagePlacement="trailing" title="전체" imagePadding="5"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
                                                         <color key="value" name="gary2"/>
@@ -2864,7 +2816,6 @@
                                                     <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                                                         <real key="value" value="1"/>
                                                     </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="string" keyPath="body2" value="모집중"/>
                                                 </userDefinedRuntimeAttributes>
                                             </button>
                                         </subviews>
@@ -2943,7 +2894,9 @@
                     <navigationItem key="navigationItem" title="게시판" id="qbz-U1-i8t"/>
                     <connections>
                         <outlet property="dormitoryButton" destination="UTU-ZK-vbF" id="Xy2-Oo-8fi"/>
+                        <outlet property="filterListButton" destination="488-NF-ysg" id="dyr-fF-aqt"/>
                         <outlet property="naviCustomView" destination="fad-G7-5aP" id="tdf-UT-Wpl"/>
+                        <outlet property="sortListButton" destination="Jb0-KK-Kah" id="9pe-1r-eD5"/>
                         <outlet property="tabmanView" destination="sYB-KG-qMH" id="ygT-Jy-qEL"/>
                         <outlet property="writeButton" destination="cEh-7q-gFT" id="oYw-W6-N10"/>
                     </connections>
@@ -3261,23 +3214,23 @@
                                         <rect key="frame" x="0.0" y="0.0" width="393" height="633"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="u8i-ZD-sqp">
-                                                <rect key="frame" x="1.6666666666666572" y="222.66666666666669" width="389.66666666666674" height="187.66666666666669"/>
+                                                <rect key="frame" x="73" y="222.66666666666669" width="247" height="187.66666666666669"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="searchNoPost" translatesAutoresizingMaskIntoConstraints="NO" id="gR9-sN-wX8">
-                                                        <rect key="frame" x="122.33333333333331" y="0.0" width="145" height="125"/>
+                                                        <rect key="frame" x="51" y="0.0" width="145" height="125"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="145" id="fzN-rD-4jP"/>
                                                             <constraint firstAttribute="height" constant="125" id="vXO-ag-p6b"/>
                                                         </constraints>
                                                     </imageView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="kJu-bd-KhH">
-                                                        <rect key="frame" x="0.0" y="149" width="389.66666666666669" height="38.666666666666657"/>
+                                                        <rect key="frame" x="0.0" y="149" width="247" height="38.666666666666657"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="haW-su-neC">
-                                                                <rect key="frame" x="0.0" y="0.0" width="389.66666666666669" height="21.666666666666668"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="247" height="21.666666666666668"/>
                                                                 <subviews>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="'어쩌고저쩌고' 검색 결과가 없어요." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QP1-sU-yQB">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="243.33333333333334" height="21.666666666666668"/>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="'어쩌고저쩌고'" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QP1-sU-yQB">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="100.66666666666667" height="21.666666666666668"/>
                                                                         <fontDescription key="fontDescription" name="PretendardVariable-Regular" family="Pretendard Variable" pointSize="18"/>
                                                                         <color key="textColor" name="gray3"/>
                                                                         <nil key="highlightedColor"/>
@@ -3286,19 +3239,22 @@
                                                                         </userDefinedRuntimeAttributes>
                                                                     </label>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="검색 결과가 없어요." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b2q-We-p3U">
-                                                                        <rect key="frame" x="251.33333333333331" y="0.0" width="138.33333333333331" height="21.666666666666668"/>
+                                                                        <rect key="frame" x="108.66666666666663" y="0.0" width="138.33333333333337" height="21.666666666666668"/>
                                                                         <fontDescription key="fontDescription" name="PretendardVariable-Regular" family="Pretendard Variable" pointSize="18"/>
                                                                         <color key="textColor" name="gray3"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                 </subviews>
                                                             </stackView>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="'어쩌고저쩌고' 검색 결과가 없어요." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cl7-9Z-F0D">
-                                                                <rect key="frame" x="100.33333333333333" y="21.666666666666629" width="189.33333333333337" height="17"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="검색어가 정확한지 확인해주세요." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cl7-9Z-F0D">
+                                                                <rect key="frame" x="33.666666666666671" y="21.666666666666629" width="180" height="17"/>
                                                                 <color key="tintColor" name="gray3"/>
                                                                 <fontDescription key="fontDescription" name="PretendardVariable-Regular" family="Pretendard Variable" pointSize="14"/>
                                                                 <color key="textColor" name="gray3"/>
                                                                 <nil key="highlightedColor"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="body2" value="검색어가 정확한지 확인해주세요."/>
+                                                                </userDefinedRuntimeAttributes>
                                                             </label>
                                                         </subviews>
                                                     </stackView>
@@ -3334,6 +3290,7 @@
                     <connections>
                         <outlet property="collectionView" destination="P5O-h2-nlr" id="uMu-7T-HfX"/>
                         <outlet property="noPostImageSettingView" destination="f6v-sN-W4f" id="BBG-Ep-2VR"/>
+                        <outlet property="searchWordLabel" destination="QP1-sU-yQB" id="7hJ-D2-nVx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5DN-aK-q3v" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -3346,7 +3303,7 @@
             <size key="intrinsicContentSize" width="51.333333333333336" height="33.333333333333336"/>
         </designable>
         <designable name="488-NF-ysg">
-            <size key="intrinsicContentSize" width="59.666666666666664" height="31"/>
+            <size key="intrinsicContentSize" width="68.666666666666671" height="34.333333333333336"/>
         </designable>
         <designable name="5JZ-3p-UmG">
             <size key="intrinsicContentSize" width="60" height="28.666666666666668"/>
@@ -3366,14 +3323,8 @@
         <designable name="9Cx-cb-x6K">
             <size key="intrinsicContentSize" width="94.666666666666671" height="31"/>
         </designable>
-        <designable name="Hpp-GL-I8u">
-            <size key="intrinsicContentSize" width="85.333333333333329" height="31"/>
-        </designable>
-        <designable name="IDC-Ym-YKC">
-            <size key="intrinsicContentSize" width="97" height="31"/>
-        </designable>
         <designable name="Jb0-KK-Kah">
-            <size key="intrinsicContentSize" width="59.666666666666664" height="31"/>
+            <size key="intrinsicContentSize" width="83.333333333333329" height="34.333333333333336"/>
         </designable>
         <designable name="JfS-Y1-OHE">
             <size key="intrinsicContentSize" width="51.333333333333336" height="33.333333333333336"/>
@@ -3414,12 +3365,6 @@
         <designable name="iMM-KA-ESC">
             <size key="intrinsicContentSize" width="51.333333333333336" height="33.333333333333336"/>
         </designable>
-        <designable name="iWG-qz-lub">
-            <size key="intrinsicContentSize" width="59.666666666666664" height="31"/>
-        </designable>
-        <designable name="lg7-V9-yuC">
-            <size key="intrinsicContentSize" width="56" height="31"/>
-        </designable>
         <designable name="mkz-v3-one">
             <size key="intrinsicContentSize" width="53.666666666666664" height="34.333333333333336"/>
         </designable>
@@ -3430,7 +3375,7 @@
             <size key="intrinsicContentSize" width="94.666666666666671" height="31"/>
         </designable>
         <designable name="oPs-Mx-3k4">
-            <size key="intrinsicContentSize" width="59.666666666666664" height="31"/>
+            <size key="intrinsicContentSize" width="62.666666666666664" height="31"/>
         </designable>
         <designable name="pf8-z7-rET">
             <size key="intrinsicContentSize" width="94.666666666666671" height="31"/>
@@ -3438,11 +3383,8 @@
         <designable name="wxR-xj-rw3">
             <size key="intrinsicContentSize" width="4" height="22"/>
         </designable>
-        <designable name="xSs-DI-vlz">
-            <size key="intrinsicContentSize" width="59.666666666666664" height="31"/>
-        </designable>
         <designable name="zMd-RW-f50">
-            <size key="intrinsicContentSize" width="59.666666666666664" height="31"/>
+            <size key="intrinsicContentSize" width="74.666666666666671" height="31"/>
         </designable>
         <designable name="zs1-QO-A3O">
             <size key="intrinsicContentSize" width="103.33333333333333" height="31"/>
@@ -3450,6 +3392,7 @@
     </designables>
     <resources>
         <image name="arrow.right" catalog="system" width="128" height="95"/>
+        <image name="bolletinBoardVector" width="10" height="6"/>
         <image name="bulletinBaordDetailLike" width="15" height="14"/>
         <image name="bulletinBoardAlram" width="20" height="24"/>
         <image name="bulletinBoardDetailChat" width="16" height="16"/>
@@ -3458,6 +3401,8 @@
         <image name="bulletinBoardMagnifier" width="24" height="24"/>
         <image name="bulletinBoardNotice" width="16" height="16"/>
         <image name="bulletinBoardPlus" width="16" height="16"/>
+        <image name="bulletinBoardProfile" width="24" height="24"/>
+        <image name="bulletinBoardVector" width="10" height="6"/>
         <image name="homeImageAlarm" width="22" height="26"/>
         <image name="homeImageArrow" width="10" height="6"/>
         <image name="homeImageClock" width="16" height="15"/>
@@ -3480,7 +3425,6 @@
         <image name="tabbarItemMateMatchingGray" width="27" height="26"/>
         <image name="tabbarItemMyPage" width="24" height="24"/>
         <image name="tabbarItemMyPageGray" width="21" height="24"/>
-        <image name="tulletinBoardProfile" width="45" height="45"/>
         <namedColor name="background">
             <color red="1" green="0.99215686274509807" blue="0.99215686274509807" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
@@ -3518,7 +3462,7 @@
             <color red="1" green="0.90980392156862744" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="labelColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

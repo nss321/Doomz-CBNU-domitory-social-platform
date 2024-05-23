@@ -111,7 +111,7 @@ final class AddPhotoScrollView: PhotoScrollView {
         buttonComponentStackView.translatesAutoresizingMaskIntoConstraints = false
         addPhotoButton.translatesAutoresizingMaskIntoConstraints = false
 
-        addPhotoButton.isUserInteractionEnabled = true 
+        addPhotoButton.isUserInteractionEnabled = true
         addPhotoButtonView.addSubview(addPhotoButton)
         addPhotoButton.addSubview(buttonComponentStackView)
         addPhotoStackView.addArrangedSubview(addPhotoButtonView)
@@ -122,7 +122,7 @@ final class AddPhotoScrollView: PhotoScrollView {
             addPhotoButton.bottomAnchor.constraint(equalTo: addPhotoButtonView.bottomAnchor),
             addPhotoButton.widthAnchor.constraint(equalToConstant: 80),
             addPhotoButton.heightAnchor.constraint(equalToConstant: 80),
-            addPhotoButtonView.widthAnchor.constraint(equalToConstant: 80),
+            addPhotoButtonView.widthAnchor.constraint(equalToConstant: 92),
             addPhotoButtonView.heightAnchor.constraint(equalToConstant: 90)
         ])
 
