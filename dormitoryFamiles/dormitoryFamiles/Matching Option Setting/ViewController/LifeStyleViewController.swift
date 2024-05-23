@@ -108,6 +108,11 @@ final class LifeStyleViewController: UIViewController, ConfigUI {
         return view
     }()
     
+    private let spacerView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .clear
+        return view
+    }()
     
     private let nextButton = CommonButton()
     
@@ -132,7 +137,7 @@ final class LifeStyleViewController: UIViewController, ConfigUI {
         view.addSubview(stackView)
         [logoStackView, lifeStyleStack].forEach{ stackView.addArrangedSubview($0) }
         [currentStep, progressBar, lifeStyleLogo, contentLabel].forEach{ logoStackView.addArrangedSubview($0) }
-        [sliderSection,showerSection, cleanSection, nextButton].forEach{ lifeStyleStack.addArrangedSubview($0) }
+        [sliderSection,showerSection, cleanSection, spacerView, nextButton].forEach{ lifeStyleStack.addArrangedSubview($0) }
     }
     
     func setConstraints() {
@@ -161,6 +166,10 @@ final class LifeStyleViewController: UIViewController, ConfigUI {
         showerTimeSlider.snp.makeConstraints {
             $0.left.right.equalToSuperview()
             $0.width.equalTo(view.snp.width).inset(20)
+        }
+        
+        spacerView.snp.makeConstraints {
+            $0.height.greaterThanOrEqualTo(0)
         }
     }
     

@@ -108,6 +108,12 @@ final class SmokeAndAlcoholPatternViewController: UIViewController, ConfigUI {
         return view
     }()
     
+    private let spacerView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .clear
+        return view
+    }()
+    
     private let nextButton = CommonButton()
     
     private lazy var nextButtonModel = CommonbuttonModel(title: "다음", titleColor: .white ,backgroundColor: .gray3!, height: 52) {
@@ -141,7 +147,7 @@ final class SmokeAndAlcoholPatternViewController: UIViewController, ConfigUI {
         
         [currentStep, progressBar, smokeAndAlcoholPatternLogo, contentLabel].forEach { logoStackView.addArrangedSubview($0) }
         
-        [smokeSection, alcoholSection, alcoholHabitSection, nextButton].forEach { smokeAndAlcoholPatternStackView.addArrangedSubview($0) }
+        [smokeSection, alcoholSection, alcoholHabitSection, spacerView, nextButton].forEach { smokeAndAlcoholPatternStackView.addArrangedSubview($0) }
         
     }
     
@@ -171,6 +177,10 @@ final class SmokeAndAlcoholPatternViewController: UIViewController, ConfigUI {
         
         nextButton.snp.makeConstraints {
             $0.left.right.equalToSuperview()
+        }
+        
+        spacerView.snp.makeConstraints {
+            $0.height.greaterThanOrEqualTo(0)
         }
     }
     
