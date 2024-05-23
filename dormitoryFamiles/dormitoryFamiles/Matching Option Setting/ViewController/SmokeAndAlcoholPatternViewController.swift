@@ -149,7 +149,7 @@ final class SmokeAndAlcoholPatternViewController: UIViewController, ConfigUI {
         stackView.snp.makeConstraints {
             $0.top.equalToSuperview().offset(124)
             $0.left.right.equalToSuperview().inset(20)
-            //            $0.bottom.equalToSuperview()
+            $0.bottom.equalToSuperview().inset(32)
         }
         
         smokeCollectionView.snp.makeConstraints {
