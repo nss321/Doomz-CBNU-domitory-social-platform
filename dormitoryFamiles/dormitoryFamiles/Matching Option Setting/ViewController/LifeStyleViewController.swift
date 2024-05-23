@@ -71,11 +71,22 @@ final class LifeStyleViewController: UIViewController, ConfigUI {
         return label
     }()
     
-    private let showerTimeSlider: UISlider = {
-        let slider = UISlider()
+    private let showerTimeSlider: CustomSlider = {
+        let slider = CustomSlider()
+        
+        if let minTrackImage = UIImage(named: "trackImage")?.resizableImage(withCapInsets: UIEdgeInsets(top: 0, left: 3, bottom: 0, right: 3), resizingMode: .stretch) {
+            slider.setMinimumTrackImage(minTrackImage, for: .normal)
+        }
+        
+        if let thumbImage = UIImage(named: "thumb")?.resized(to: CGSize(width: 16, height: 16)) {
+            slider.setThumbImage(thumbImage, for: .normal)
+        }
+        
+        slider.tintColor = .primaryMid
         slider.value = 30
         slider.minimumValue = 0
         slider.maximumValue = 60
+        slider.contentMode = .center
         return slider
     }()
     
@@ -128,7 +139,7 @@ final class LifeStyleViewController: UIViewController, ConfigUI {
         stackView.snp.makeConstraints {
             $0.top.equalToSuperview().offset(124)
             $0.left.right.equalToSuperview().inset(20)
-//            $0.bottom.equalToSuperview()
+            
         }
         
         showerTimeCollectionView.snp.makeConstraints {
@@ -148,14 +159,15 @@ final class LifeStyleViewController: UIViewController, ConfigUI {
         }
         
         showerTimeSlider.snp.makeConstraints {
-            $0.left.right.equalToSuperview().inset(20)
+            $0.left.right.equalToSuperview()
+            $0.width.equalTo(view.snp.width).inset(20)
         }
     }
     
     @objc
     func didClickNextButton() {
         print("nextBtn")
-//        self.navigationController?.pushViewController(SmokeAndAlcoholPatternViewController(), animated: false)
+        //        self.navigationController?.pushViewController(SmokeAndAlcoholPatternViewController(), animated: false)
     }
     
 }
@@ -232,3 +244,5 @@ extension LifeStyleViewController: UICollectionViewDelegateFlowLayout {
         
     }
 }
+
+
