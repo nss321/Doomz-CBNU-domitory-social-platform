@@ -108,6 +108,12 @@ final class SmokeAndAlcoholPatternViewController: UIViewController, ConfigUI {
         return view
     }()
     
+    private let spacerView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .clear
+        return view
+    }()
+    
     private let nextButton = CommonButton()
     
     private lazy var nextButtonModel = CommonbuttonModel(title: "다음", titleColor: .white ,backgroundColor: .gray3!, height: 52) {
@@ -141,7 +147,7 @@ final class SmokeAndAlcoholPatternViewController: UIViewController, ConfigUI {
         
         [currentStep, progressBar, smokeAndAlcoholPatternLogo, contentLabel].forEach { logoStackView.addArrangedSubview($0) }
         
-        [smokeSection, alcoholSection, alcoholHabitSection, nextButton].forEach { smokeAndAlcoholPatternStackView.addArrangedSubview($0) }
+        [smokeSection, alcoholSection, alcoholHabitSection, spacerView, nextButton].forEach { smokeAndAlcoholPatternStackView.addArrangedSubview($0) }
         
     }
     
@@ -149,7 +155,7 @@ final class SmokeAndAlcoholPatternViewController: UIViewController, ConfigUI {
         stackView.snp.makeConstraints {
             $0.top.equalToSuperview().offset(124)
             $0.left.right.equalToSuperview().inset(20)
-            //            $0.bottom.equalToSuperview()
+            $0.bottom.equalToSuperview().inset(32)
         }
         
         smokeCollectionView.snp.makeConstraints {
@@ -172,13 +178,17 @@ final class SmokeAndAlcoholPatternViewController: UIViewController, ConfigUI {
         nextButton.snp.makeConstraints {
             $0.left.right.equalToSuperview()
         }
+        
+        spacerView.snp.makeConstraints {
+            $0.height.greaterThanOrEqualTo(0)
+        }
     }
     
     @objc
     func didClickNextButton() {
         print("nextBtn")
         print("textField: \(String(describing: drinkHabitTextField.text))")
-        //        self.navigationController?.pushViewController(SmokeAndAlcoholPatternViewController(), animated: false)
+        self.navigationController?.pushViewController(LifeStyleViewController(), animated: true)
     }
 }
 
@@ -242,7 +252,7 @@ extension SmokeAndAlcoholPatternViewController: UICollectionViewDelegateFlowLayo
             // MARK: cell 간격
             cellSize = CGSize(width: (currentScreenWidth - 86) / 4, height: (currentScreenWidth - 86) / 4 )
         default:
-            cellSize = CGSize(width: (currentScreenWidth - 58) / 2, height: 48)
+            cellSize = CGSize(width: (currentScreenWidth - 48) / 2, height: 48)
         }
         return cellSize
     }

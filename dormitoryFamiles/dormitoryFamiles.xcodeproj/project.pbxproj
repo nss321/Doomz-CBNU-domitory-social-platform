@@ -7,11 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1126FE1C2BCEA662004C6C81 /* LifeStyleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1126FE1B2BCEA662004C6C81 /* LifeStyleViewController.swift */; };
+		1131E8A22BF6220B00D40120 /* UIScreen+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1131E8A12BF6220B00D40120 /* UIScreen+.swift */; };
 		11707A232BA4C8CC0027802D /* SleepPatternViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11707A222BA4C8CC0027802D /* SleepPatternViewController.swift */; };
 		11707A2C2BA4CA780027802D /* FontManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11707A2B2BA4CA780027802D /* FontManager.swift */; };
 		11707A342BA83EED0027802D /* SleepPatternCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11707A332BA83EED0027802D /* SleepPatternCollectionViewCell.swift */; };
 		117250E72BB31AF60083F181 /* CommomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117250E62BB31AF60083F181 /* CommomButton.swift */; };
 		117250E92BB5927E0083F181 /* SmokeAndAlcoholPatternViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117250E82BB5927E0083F181 /* SmokeAndAlcoholPatternViewController.swift */; };
+		11AC97FB2BFF27940008C910 /* CustomSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AC97FA2BFF27940008C910 /* CustomSlider.swift */; };
+		11AC97FD2BFF27AE0008C910 /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AC97FC2BFF27AE0008C910 /* UIImage+.swift */; };
 		DB02B5292B98C92200C45F56 /* ReplyHeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB02B5272B98C92200C45F56 /* ReplyHeaderCollectionReusableView.swift */; };
 		DB02B52A2B98C92200C45F56 /* ReplyHeaderCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB02B5282B98C92200C45F56 /* ReplyHeaderCollectionReusableView.xib */; };
 		DB1971D52BAB088C00C09648 /* AddPhotoImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1971D42BAB088C00C09648 /* AddPhotoImageView.swift */; };
@@ -85,6 +89,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1126FE1B2BCEA662004C6C81 /* LifeStyleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifeStyleViewController.swift; sourceTree = "<group>"; };
+		1131E8A12BF6220B00D40120 /* UIScreen+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScreen+.swift"; sourceTree = "<group>"; };
 		11707A222BA4C8CC0027802D /* SleepPatternViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepPatternViewController.swift; sourceTree = "<group>"; };
 		11707A2B2BA4CA780027802D /* FontManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontManager.swift; sourceTree = "<group>"; };
 		11707A2D2BA4D3AC0027802D /* UILabel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+.swift"; sourceTree = "<group>"; };
@@ -93,6 +99,8 @@
 		117250E42BB19FE20083F181 /* SleepPatternCircleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepPatternCircleCollectionViewCell.swift; sourceTree = "<group>"; };
 		117250E62BB31AF60083F181 /* CommomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommomButton.swift; sourceTree = "<group>"; };
 		117250E82BB5927E0083F181 /* SmokeAndAlcoholPatternViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmokeAndAlcoholPatternViewController.swift; sourceTree = "<group>"; };
+		11AC97FA2BFF27940008C910 /* CustomSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSlider.swift; sourceTree = "<group>"; };
+		11AC97FC2BFF27AE0008C910 /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
 		43ACFB5BF55DE00DF2B4C0CA /* Pods_dormitoryFamiles.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_dormitoryFamiles.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDEE29642D63D4042822783C /* Pods-dormitoryFamiles.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dormitoryFamiles.release.xcconfig"; path = "Target Support Files/Pods-dormitoryFamiles/Pods-dormitoryFamiles.release.xcconfig"; sourceTree = "<group>"; };
 		C5E033F1B4291ED8F85F0DAE /* Pods-dormitoryFamiles.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dormitoryFamiles.debug.xcconfig"; path = "Target Support Files/Pods-dormitoryFamiles/Pods-dormitoryFamiles.debug.xcconfig"; sourceTree = "<group>"; };
@@ -186,6 +194,7 @@
 			children = (
 				11707A222BA4C8CC0027802D /* SleepPatternViewController.swift */,
 				117250E82BB5927E0083F181 /* SmokeAndAlcoholPatternViewController.swift */,
+				1126FE1B2BCEA662004C6C81 /* LifeStyleViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -211,6 +220,7 @@
 			children = (
 				11707A312BA617EE0027802D /* ConfigUI.swift */,
 				117250E62BB31AF60083F181 /* CommomButton.swift */,
+				11AC97FA2BFF27940008C910 /* CustomSlider.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -251,6 +261,8 @@
 				DB81CFFF2B56E723005EF497 /* UIColorExtension.swift */,
 				DB2B7BCA2B45727B00C1847D /* TagButton.swift */,
 				11707A2D2BA4D3AC0027802D /* UILabel+.swift */,
+				1131E8A12BF6220B00D40120 /* UIScreen+.swift */,
+				11AC97FC2BFF27AE0008C910 /* UIImage+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -524,12 +536,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				DBC1CFFE2BC2AFDE005C93C0 /* SleepPatternCircleCollectionViewCell.swift in Sources */,
+				1126FE1C2BCEA662004C6C81 /* LifeStyleViewController.swift in Sources */,
 				DBC1CFF72BC2AE2D005C93C0 /* UILabel+.swift in Sources */,
 				DBC1CFF62BC2AE25005C93C0 /* ConfigUI.swift in Sources */,
 				DB2B7BC92B456F4700C1847D /* TagScrollView.swift in Sources */,
 				DB7EF2772B5E9CB20062FAB5 /* ServicePermissonViewController.swift in Sources */,
 				11707A232BA4C8CC0027802D /* SleepPatternViewController.swift in Sources */,
 				DB1E0E892B629804000A4AA5 /* DormitoryButtonHandlingProtocol.swift in Sources */,
+				11AC97FB2BFF27940008C910 /* CustomSlider.swift in Sources */,
 				DB3F18092B6162AB002F1738 /* ProfileSettingViewController.swift in Sources */,
 				DBE682B62BA592CC00DAA4CD /* PhotoScrollView.swift in Sources */,
 				DBCE10E12B595506008C3367 /* loginViewController.swift in Sources */,
@@ -537,6 +551,8 @@
 				DB81D0002B56E723005EF497 /* UIColorExtension.swift in Sources */,
 				DB5ACD602AA70D190054CA15 /* ExtenstionColor.swift in Sources */,
 				DB7EF2792B5EA4B00062FAB5 /* AlrmElementView.swift in Sources */,
+				1131E8A22BF6220B00D40120 /* UIScreen+.swift in Sources */,
+				11AC97FD2BFF27AE0008C910 /* UIImage+.swift in Sources */,
 				117250E72BB31AF60083F181 /* CommomButton.swift in Sources */,
 				DB8DDFD72BECB0B600B3A676 /* DateFomat.swift in Sources */,
 				DB7BE9E72BA47A5E00BC25E3 /* ReplyCollectionViewCell.swift in Sources */,
