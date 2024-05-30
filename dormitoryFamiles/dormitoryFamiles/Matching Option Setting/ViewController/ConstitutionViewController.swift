@@ -1,19 +1,19 @@
 //
-//  LifeStyleViewController.swift
+//  ConstitutionViewController.swift
 //  dormitoryFamiles
 //
-//  Created by BAE on 4/16/24.
+//  Created by BAE on 5/30/24.
 //
 
 import UIKit
 import SnapKit
 
-final class LifeStyleViewController: UIViewController, ConfigUI {
+final class ConstitutionViewController: UIViewController, ConfigUI {
+  
     
-    let shower = ["아침", "저녁"]
-    let cleanHabit = ["바로바로", "가끔", "몰아서"]
-    let currentScreenWidth:  CGFloat = UIScreen.main.bounds.width
-    
+    let hot = ["적게 탐", "조금 탐", "많이 탐"]
+    let cold = ["적게 탐", "조금 탐", "많이 탐"]
+
     private let stackView: UIStackView = {
         let view = UIStackView()
         view.axis = .vertical
@@ -30,7 +30,7 @@ final class LifeStyleViewController: UIViewController, ConfigUI {
         return view
     }()
     
-    private let lifeStyleStack: UIStackView = {
+    private let constitutionStack: UIStackView = {
         let view = UIStackView()
         view.axis = .vertical
         view.spacing = 28
@@ -40,7 +40,7 @@ final class LifeStyleViewController: UIViewController, ConfigUI {
     
     private let currentStep: UILabel = {
         let label = UILabel()
-        label.text = "3 / 10"
+        label.text = "4 / 10"
         label.font = FontManager.subtitle1()
         label.textColor = .gray5
         label.addCharacterSpacing()
@@ -49,21 +49,21 @@ final class LifeStyleViewController: UIViewController, ConfigUI {
     
     private let progressBar: UIImageView = {
         let view = UIImageView()
-        view.image = UIImage(named: "progress3")
+        view.image = UIImage(named: "progress4")
         view.contentMode = .scaleAspectFit
         return view
     }()
     
-    private let lifeStyleLogo: UIImageView = {
+    private let constitutionLogo: UIImageView = {
         let view = UIImageView()
-        view.image = UIImage(named: "lifeStyle_logo")
+        view.image = UIImage(named: "constitution_logo")
         view.contentMode = .scaleAspectFit
         return view
     }()
     
     private let contentLabel: UILabel = {
         let label = UILabel()
-        label.text = "나의 생활방식은?"
+        label.text = "나의 체질은?"
         label.font = FontManager.title2()
         label.textAlignment = .center
         label.textColor = .doomzBlack
@@ -71,26 +71,7 @@ final class LifeStyleViewController: UIViewController, ConfigUI {
         return label
     }()
     
-    private let showerTimeSlider: CustomSlider = {
-        let slider = CustomSlider()
-        
-        if let minTrackImage = UIImage(named: "trackImage")?.resizableImage(withCapInsets: UIEdgeInsets(top: 0, left: 3, bottom: 0, right: 3), resizingMode: .stretch) {
-            slider.setMinimumTrackImage(minTrackImage, for: .normal)
-        }
-        
-        if let thumbImage = UIImage(named: "thumb")?.resized(to: CGSize(width: 16, height: 16)) {
-            slider.setThumbImage(thumbImage, for: .normal)
-        }
-        
-        slider.tintColor = .primaryMid
-        slider.value = 30
-        slider.minimumValue = 0
-        slider.maximumValue = 60
-        slider.contentMode = .center
-        return slider
-    }()
-    
-    private lazy var showerTimeCollectionView: UICollectionView = {
+    private lazy var hotCollectionView: UICollectionView = {
         let view = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
         view.register(SleepPatternCollectionViewCell.self, forCellWithReuseIdentifier: SleepPatternCollectionViewCell.identifier)
         view.backgroundColor = .clear
@@ -99,7 +80,7 @@ final class LifeStyleViewController: UIViewController, ConfigUI {
         return view
     }()
     
-    private lazy var cleanHabitCollectionView: UICollectionView = {
+    private lazy var coldCollectionView: UICollectionView = {
         let view = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
         view.register(SleepPatternCollectionViewCell.self, forCellWithReuseIdentifier: SleepPatternCollectionViewCell.identifier)
         view.backgroundColor = .clear
@@ -120,6 +101,7 @@ final class LifeStyleViewController: UIViewController, ConfigUI {
         self.didClickNextButton()
     }
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .background
@@ -130,14 +112,13 @@ final class LifeStyleViewController: UIViewController, ConfigUI {
     }
     
     func addComponents() {
-        let sliderSection = createStackViewWithLabelAndSubview(string: "샤워시간", subview: showerTimeSlider)
-        let showerSection = createStackViewWithLabelAndSubview(string: "샤워시간대", subview: showerTimeCollectionView)
-        let cleanSection = createStackViewWithLabelAndSubview(string: "청소", subview: cleanHabitCollectionView)
+        let hotSection = createStackViewWithLabelAndSubview(string: "더위", subview: hotCollectionView)
+        let coldSection = createStackViewWithLabelAndSubview(string: "추위", subview: coldCollectionView)
         
         view.addSubview(stackView)
-        [logoStackView, lifeStyleStack].forEach{ stackView.addArrangedSubview($0) }
-        [currentStep, progressBar, lifeStyleLogo, contentLabel].forEach{ logoStackView.addArrangedSubview($0) }
-        [showerSection, sliderSection, cleanSection, spacerView, nextButton].forEach{ lifeStyleStack.addArrangedSubview($0) }
+        [logoStackView, constitutionStack].forEach{ stackView.addArrangedSubview($0) }
+        [currentStep, progressBar, constitutionLogo, contentLabel].forEach { logoStackView.addArrangedSubview($0) }
+        [hotSection, coldSection, spacerView, nextButton].forEach{ constitutionStack.addArrangedSubview($0) }
     }
     
     func setConstraints() {
@@ -147,13 +128,13 @@ final class LifeStyleViewController: UIViewController, ConfigUI {
             $0.bottom.equalToSuperview().inset(32)
         }
         
-        showerTimeCollectionView.snp.makeConstraints {
+        hotCollectionView.snp.makeConstraints {
             $0.left.right.equalToSuperview()
             $0.width.equalTo(view.snp.width).inset(20)
             $0.height.equalTo(48)
         }
         
-        cleanHabitCollectionView.snp.makeConstraints {
+        coldCollectionView.snp.makeConstraints {
             $0.left.right.equalToSuperview()
             $0.width.equalTo(view.snp.width).inset(20)
             $0.height.equalTo(48)
@@ -161,11 +142,6 @@ final class LifeStyleViewController: UIViewController, ConfigUI {
         
         nextButton.snp.makeConstraints {
             $0.left.right.equalToSuperview()
-        }
-        
-        showerTimeSlider.snp.makeConstraints {
-            $0.left.right.equalToSuperview()
-            $0.width.equalTo(view.snp.width).inset(20)
         }
         
         spacerView.snp.makeConstraints {
@@ -176,47 +152,38 @@ final class LifeStyleViewController: UIViewController, ConfigUI {
     @objc
     func didClickNextButton() {
         print("nextBtn")
-        self.navigationController?.pushViewController(ConstitutionViewController(), animated: true)
+//        self.navigationController?.pushViewController(ConstitutionViewController(), animated: false)
     }
     
 }
 
-extension LifeStyleViewController: UICollectionViewDataSource {
+extension ConstitutionViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         switch collectionView {
-        case showerTimeCollectionView:
+        case hotCollectionView:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SleepPatternCollectionViewCell.identifier, for: indexPath) as? SleepPatternCollectionViewCell else {
                 fatalError()
             }
-            cell.configure(with: shower[indexPath.row])
+            cell.configure(with: hot[indexPath.row])
             return cell
-        case cleanHabitCollectionView:
+        case coldCollectionView:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SleepPatternCollectionViewCell.identifier, for: indexPath) as? SleepPatternCollectionViewCell else {
                 fatalError()
             }
-            cell.configure(with: cleanHabit[indexPath.row])
+            cell.configure(with: cold[indexPath.row])
             return cell
         default:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SleepPatternCollectionViewCell.identifier, for: indexPath) as? SleepPatternCollectionViewCell else {
                 fatalError()
             }
-            cell.configure(with: shower[indexPath.row])
+            cell.configure(with: hot[indexPath.row])
             return cell
         }
     }
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        let numberOfItem: Int
-        
-        switch collectionView {
-        case showerTimeCollectionView:
-            numberOfItem = shower.count
-        case cleanHabitCollectionView:
-            numberOfItem = cleanHabit.count
-        default:
-            numberOfItem = shower.count
-        }
+        let numberOfItem = hot.count
         return numberOfItem
     }
     
@@ -226,26 +193,20 @@ extension LifeStyleViewController: UICollectionViewDataSource {
     }
 }
 
-extension LifeStyleViewController: UICollectionViewDelegateFlowLayout {
+extension ConstitutionViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let cellSize: CGSize
-        
-        switch collectionView {
-        case showerTimeCollectionView:
-            cellSize = CGSize(width: (currentScreenWidth - 48) / 2, height: 48)
-        case cleanHabitCollectionView:
-            cellSize = CGSize(width: (currentScreenWidth - 56) / 3, height: 48)
-        default:
-            cellSize = CGSize(width: (currentScreenWidth - 48) / 3, height: 48)
-        }
+        let numberOfinter:Int = hot.count - 1
+        let interSpacing:Int = 8
+        let cellSize = CGSize(width: (UIScreen.screenWidthLayoutGuide - numberOfinter * interSpacing) / 3, height: 48)
+
         return cellSize
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         switch collectionView {
-        case showerTimeCollectionView:
+        case hotCollectionView:
             print("\(collectionView)의 \(indexPath.row) 선택")
-        case cleanHabitCollectionView:
+        case coldCollectionView:
             print("\(collectionView)의 \(indexPath.row) 선택")
         default:
             print("\(indexPath.row) 선택")
@@ -253,5 +214,3 @@ extension LifeStyleViewController: UICollectionViewDelegateFlowLayout {
         
     }
 }
-
-

@@ -8,5 +8,6 @@
 import UIKit
 
 extension UIScreen {
-    static let currentScreenWidth:  CGFloat = UIScreen.main.bounds.width
+    static let currentScreenWidth:  Int = Int(UIScreen.main.bounds.width)
+    static let screenWidthLayoutGuide:  Int = Int(UIScreen.main.bounds.width - 40)
 }
