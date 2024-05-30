@@ -139,7 +139,7 @@ final class MBTIViewController: UIViewController, ConfigUI {
         }
         
         mbtiLogo.snp.makeConstraints{
-            $0.height.equalTo(120)
+            $0.height.equalTo(Double(UIScreen.currentScreenHeight)*0.148)
         }
     }
     

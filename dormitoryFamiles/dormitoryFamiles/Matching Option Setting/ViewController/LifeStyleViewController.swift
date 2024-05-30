@@ -173,7 +173,7 @@ final class LifeStyleViewController: UIViewController, ConfigUI {
         }
         
         lifeStyleLogo.snp.makeConstraints{
-            $0.height.equalTo(120)
+            $0.height.equalTo(Double(UIScreen.currentScreenHeight)*0.148)
         }
     }
     

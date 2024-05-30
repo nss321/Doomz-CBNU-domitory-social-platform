@@ -150,7 +150,7 @@ final class ConstitutionViewController: UIViewController, ConfigUI {
         }
         
         constitutionLogo.snp.makeConstraints{
-            $0.height.equalTo(120)
+            $0.height.equalTo(Double(UIScreen.currentScreenHeight)*0.148)
         }
     }
     
