@@ -207,6 +207,10 @@ final class SleepPatternViewController: UIViewController, ConfigUI {
         nextButton.snp.makeConstraints {
             $0.left.right.equalToSuperview()
         }
+        
+        sleepPatternLogo.snp.makeConstraints{
+            $0.height.equalTo(120)
+        }
     }
     
     @objc
