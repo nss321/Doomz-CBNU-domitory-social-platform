@@ -147,7 +147,7 @@ final class SmokeAndAlcoholPatternViewController: UIViewController, ConfigUI {
         
         [currentStep, progressBar, smokeAndAlcoholPatternLogo, contentLabel].forEach { logoStackView.addArrangedSubview($0) }
         
-        [smokeSection, alcoholSection, alcoholHabitSection, spacerView, nextButton].forEach { smokeAndAlcoholPatternStackView.addArrangedSubview($0) }
+        [smokeSection, alcoholSection, alcoholHabitSection, /*spacerView,*/ nextButton].forEach { smokeAndAlcoholPatternStackView.addArrangedSubview($0) }
         
     }
     
@@ -177,10 +177,15 @@ final class SmokeAndAlcoholPatternViewController: UIViewController, ConfigUI {
         
         nextButton.snp.makeConstraints {
             $0.left.right.equalToSuperview()
+            $0.bottom.equalToSuperview()
         }
         
         spacerView.snp.makeConstraints {
             $0.height.greaterThanOrEqualTo(0)
+        }
+        
+        smokeAndAlcoholPatternLogo.snp.makeConstraints{
+            $0.height.equalTo(Double(UIScreen.currentScreenHeight)*0.148)
         }
     }
     

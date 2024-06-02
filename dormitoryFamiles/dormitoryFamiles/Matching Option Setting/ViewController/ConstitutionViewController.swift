@@ -142,17 +142,22 @@ final class ConstitutionViewController: UIViewController, ConfigUI {
         
         nextButton.snp.makeConstraints {
             $0.left.right.equalToSuperview()
+            $0.bottom.equalToSuperview()
         }
         
         spacerView.snp.makeConstraints {
             $0.height.greaterThanOrEqualTo(0)
+        }
+        
+        constitutionLogo.snp.makeConstraints{
+            $0.height.equalTo(Double(UIScreen.currentScreenHeight)*0.148)
         }
     }
     
     @objc
     func didClickNextButton() {
         print("nextBtn")
-//        self.navigationController?.pushViewController(ConstitutionViewController(), animated: false)
+        self.navigationController?.pushViewController(MBTIViewController(), animated: true)
     }
     
 }
