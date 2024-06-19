@@ -72,6 +72,7 @@ struct ArticleDetail: Codable {
     let status: String
     let createdAt: String
     let imagesUrls: [String]
+    let isWriter: Bool
 }
 
 
@@ -123,4 +124,8 @@ struct ResponseImageUrlData: Codable {
 
 struct SuccessCode: Codable {
     let code: Int
+}
+
+struct LikeStatus: Codable {
+    let status: Int
 }
