@@ -10,7 +10,7 @@ import SwiftSoup
 
 final class MealOfWeekViewController: UIViewController {
 
-    var url = ""
+    var date = ""
     @IBOutlet weak var menuLabel: UILabel!
     
     @IBOutlet weak var timeLabel: UILabel!
@@ -124,7 +124,7 @@ final class MealOfWeekViewController: UIViewController {
                 print("Error: \(error)")
             } else if let data = data {
                 let html = String(data: data, encoding: .utf8)!
-                self.parseHTML(html: html, for: self.todayString, time: time)
+                self.parseHTML(html: html, for: self.date, time: time)
             }
         }
         task.resume()

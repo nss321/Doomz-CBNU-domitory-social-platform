@@ -15,28 +15,41 @@ final class MealMenuViewController: TabmanViewController, DormitoryButtonHandlin
     @IBOutlet weak var dormitoryButton: UIButton!
     @IBOutlet weak var tabmanView: UIView!
     
+    private var year: String {
+        get{
+            let today = Date()
+            let calendar = Calendar.current
+            return String(calendar.component(.year, from: today))
+
+        }
+    }
+    
+    //year가 초기화 된 후 세팅이 되야함으로 lazy
+    private lazy var mondayDate = year+"-"+DateUtility.weekRangeString(seperator: "-")[0]
+    
     private var viewControllers: [MealOfWeekViewController] {
         let mondayVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "mealOfWeekViewController") as! MealOfWeekViewController
-        mondayVC.url = ""
+        mondayVC.date = mondayDate
         let tuesdayVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "mealOfWeekViewController") as! MealOfWeekViewController
-        tuesdayVC.url = ""
+        tuesdayVC.date = DateUtility.addDaysToDate(dateString: mondayDate, daysToAdd: 1) ?? ""
         let wednesdayVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "mealOfWeekViewController") as! MealOfWeekViewController
-        wednesdayVC.url = ""
+        wednesdayVC.date = DateUtility.addDaysToDate(dateString: mondayDate, daysToAdd: 2) ?? ""
         let thursdayVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "mealOfWeekViewController") as! MealOfWeekViewController
-        thursdayVC.url = ""
+        thursdayVC.date = DateUtility.addDaysToDate(dateString: mondayDate, daysToAdd: 3) ?? ""
         let fridayVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "mealOfWeekViewController") as! MealOfWeekViewController
-        fridayVC.url = ""
+        fridayVC.date = DateUtility.addDaysToDate(dateString: mondayDate, daysToAdd: 4) ?? ""
         let saturdayVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "mealOfWeekViewController") as! MealOfWeekViewController
-        saturdayVC.url = ""
+        saturdayVC.date = DateUtility.addDaysToDate(dateString: mondayDate, daysToAdd: 5) ?? ""
         let sundayVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "mealOfWeekViewController") as! MealOfWeekViewController
-        sundayVC.url = ""
+        sundayVC.date = DateUtility.addDaysToDate(dateString: mondayDate, daysToAdd: 6) ?? ""
         return [mondayVC, tuesdayVC, wednesdayVC, thursdayVC, fridayVC, saturdayVC, sundayVC]
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setObserver()
-        weekDateLabel.button = DateUtility.weekRangeString()
+        let dateArr = DateUtility.weekRangeString(seperator: ".")
+        weekDateLabel.button = dateArr[0]+"~"+dateArr[1]
         setTapman()
         dormitoryButton.head1 = SelectedDormitory.shared.domitory
         dormitoryButton.setTitle(SelectedDormitory.shared.domitory, for: .normal)
