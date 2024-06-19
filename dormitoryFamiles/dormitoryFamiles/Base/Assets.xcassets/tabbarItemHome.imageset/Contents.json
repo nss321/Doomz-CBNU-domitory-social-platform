@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "tabbarItemHome 3.svg",
+      "filename" : "tabbarItemHome.svg",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "tabbarItemHome 2.svg",
+      "filename" : "tabbarItemHome 1.svg",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "tabbarItemHome 4.svg",
+      "filename" : "tabbarItemHome 2.svg",
       "idiom" : "universal",
       "scale" : "3x"
     }
