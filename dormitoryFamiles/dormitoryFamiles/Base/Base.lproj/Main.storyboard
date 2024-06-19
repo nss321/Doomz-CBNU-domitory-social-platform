@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="peN-Im-ACT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="F8n-0Z-Nxd">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
@@ -3304,7 +3304,7 @@
         <!--Meal Of Week View Controller-->
         <scene sceneID="Jnh-RG-MK2">
             <objects>
-                <viewController id="dOf-lN-0Cy" customClass="MealOfWeekViewController" customModule="dormitoryFamiles" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="mealOfWeekViewController" id="dOf-lN-0Cy" customClass="MealOfWeekViewController" customModule="dormitoryFamiles" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="IQ7-wY-lQr">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -3482,123 +3482,103 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WOj-rt-1kd">
-                                <rect key="frame" x="0.0" y="103" width="393" height="666"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="69" translatesAutoresizingMaskIntoConstraints="NO" id="C5F-6e-iug">
+                                <rect key="frame" x="20" y="179" width="353" height="27"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EA5-ko-ZGr">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="758.33333333333337"/>
-                                        <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="48" translatesAutoresizingMaskIntoConstraints="NO" id="bne-39-n9W">
-                                                <rect key="frame" x="20" y="0.0" width="353" height="52"/>
-                                                <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bulletinBoardLogo" translatesAutoresizingMaskIntoConstraints="NO" id="a18-nX-rrS">
-                                                        <rect key="frame" x="0.0" y="10" width="42" height="32"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" constant="42" id="XGo-vW-V3m"/>
-                                                            <constraint firstAttribute="height" constant="32" id="eCe-1p-cFS"/>
-                                                        </constraints>
-                                                    </imageView>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="hPx-h9-1rO">
-                                                        <rect key="frame" x="90" y="11" width="195" height="30"/>
-                                                        <subviews>
-                                                            <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="289-s2-DUq">
-                                                                <rect key="frame" x="0.0" y="0.0" width="195" height="30"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="height" constant="30" id="irL-Nx-udo"/>
-                                                                </constraints>
-                                                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                                <state key="normal" title="본관" image="homeImageArrow">
-                                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="10"/>
-                                                                </state>
-                                                                <userDefinedRuntimeAttributes>
-                                                                    <userDefinedRuntimeAttribute type="string" keyPath="head1" value="본관"/>
-                                                                </userDefinedRuntimeAttributes>
-                                                            </button>
-                                                        </subviews>
-                                                    </stackView>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="095-Om-PNL">
-                                                        <rect key="frame" x="333" y="14" width="20" height="24"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="24" id="WnJ-hs-VII"/>
-                                                            <constraint firstAttribute="width" constant="20" id="wVn-Q9-Iux"/>
-                                                        </constraints>
-                                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                        <state key="normal" title="Button" image="homeImageAlarm"/>
-                                                    </button>
-                                                </subviews>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="52" id="VHl-VV-91z"/>
-                                                </constraints>
-                                            </stackView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="메뉴 전체보기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" showsExpansionTextWhenTruncated="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9N8-OT-jJQ">
-                                                <rect key="frame" x="20.000000000000004" y="86" width="60.333333333333343" height="27"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="27" id="veQ-HY-yUF"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" name="PretendardGOVVariable-Regular" family="Pretendard GOV Variable" pointSize="11"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="string" keyPath="title2" value="메뉴 전체보기"/>
-                                                </userDefinedRuntimeAttributes>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="월욜날짜~일욜날짜" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5nW-Jj-w3k">
-                                                <rect key="frame" x="245" y="86" width="128" height="20.333333333333329"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" name="gray4"/>
-                                                <nil key="highlightedColor"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="string" keyPath="button" value="월욜날짜~일욜날짜"/>
-                                                </userDefinedRuntimeAttributes>
-                                            </label>
-                                        </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="메뉴 전체보기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" showsExpansionTextWhenTruncated="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9N8-OT-jJQ">
+                                        <rect key="frame" x="0.0" y="0.0" width="156" height="27"/>
                                         <constraints>
-                                            <constraint firstItem="bne-39-n9W" firstAttribute="leading" secondItem="EA5-ko-ZGr" secondAttribute="leading" constant="20" id="0YR-iz-AzS"/>
-                                            <constraint firstAttribute="trailing" secondItem="bne-39-n9W" secondAttribute="trailing" constant="20" id="7jw-fS-EwG"/>
-                                            <constraint firstAttribute="trailing" secondItem="5nW-Jj-w3k" secondAttribute="trailing" constant="20" id="GnB-si-yrL"/>
-                                            <constraint firstItem="5nW-Jj-w3k" firstAttribute="top" secondItem="bne-39-n9W" secondAttribute="bottom" constant="34" id="QAe-b5-95e"/>
-                                            <constraint firstItem="bne-39-n9W" firstAttribute="top" secondItem="EA5-ko-ZGr" secondAttribute="top" id="Stt-aj-zME"/>
-                                            <constraint firstItem="9N8-OT-jJQ" firstAttribute="top" secondItem="bne-39-n9W" secondAttribute="bottom" constant="34" id="jEZ-VE-qA0"/>
-                                            <constraint firstItem="9N8-OT-jJQ" firstAttribute="leading" secondItem="EA5-ko-ZGr" secondAttribute="leading" constant="20" id="jRq-iR-1sh"/>
-                                            <constraint firstAttribute="height" priority="250" constant="747" id="xXH-G2-9O0"/>
+                                            <constraint firstAttribute="height" constant="27" id="veQ-HY-yUF"/>
                                         </constraints>
-                                    </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ps5-nQ-PWs">
-                                        <rect key="frame" x="176" y="1121" width="41.333333333333343" height="20.333333333333258"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <fontDescription key="fontDescription" name="PretendardGOVVariable-Regular" family="Pretendard GOV Variable" pointSize="11"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="title2" value="메뉴 전체보기"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="월욜날짜~일욜날짜" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5nW-Jj-w3k">
+                                        <rect key="frame" x="225" y="0.0" width="128" height="27"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" name="gray4"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="button" value="월욜날짜~일욜날짜"/>
+                                        </userDefinedRuntimeAttributes>
                                     </label>
                                 </subviews>
+                            </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cRC-hr-K7d">
+                                <rect key="frame" x="0.0" y="218" width="393" height="38"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="ps5-nQ-PWs" secondAttribute="bottom" constant="-383" id="MOU-fO-ZJC"/>
-                                    <constraint firstItem="EA5-ko-ZGr" firstAttribute="trailing" secondItem="dkm-xH-ZEq" secondAttribute="trailing" id="O9R-FF-b9Q"/>
-                                    <constraint firstItem="EA5-ko-ZGr" firstAttribute="width" secondItem="F5p-zW-C5J" secondAttribute="width" id="U7s-gw-09m"/>
-                                    <constraint firstItem="EA5-ko-ZGr" firstAttribute="top" secondItem="dkm-xH-ZEq" secondAttribute="top" id="ad7-b6-mts"/>
-                                    <constraint firstItem="EA5-ko-ZGr" firstAttribute="bottom" secondItem="dkm-xH-ZEq" secondAttribute="bottom" id="cbT-Sx-YJ8"/>
-                                    <constraint firstItem="EA5-ko-ZGr" firstAttribute="leading" secondItem="dkm-xH-ZEq" secondAttribute="leading" id="eoD-PO-VbG"/>
-                                    <constraint firstItem="ps5-nQ-PWs" firstAttribute="top" secondItem="WOj-rt-1kd" secondAttribute="top" constant="1121" id="jSE-6K-UUe"/>
-                                    <constraint firstItem="ps5-nQ-PWs" firstAttribute="centerX" secondItem="EA5-ko-ZGr" secondAttribute="centerX" id="oeI-ze-LOV"/>
+                                    <constraint firstAttribute="height" constant="38" id="7de-pe-vch"/>
                                 </constraints>
-                                <viewLayoutGuide key="contentLayoutGuide" id="dkm-xH-ZEq"/>
-                                <viewLayoutGuide key="frameLayoutGuide" id="F5p-zW-C5J"/>
-                            </scrollView>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="48" translatesAutoresizingMaskIntoConstraints="NO" id="bne-39-n9W">
+                                <rect key="frame" x="20" y="103" width="353" height="52"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bulletinBoardLogo" translatesAutoresizingMaskIntoConstraints="NO" id="a18-nX-rrS">
+                                        <rect key="frame" x="0.0" y="10" width="42" height="32"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="42" id="XGo-vW-V3m"/>
+                                            <constraint firstAttribute="height" constant="32" id="eCe-1p-cFS"/>
+                                        </constraints>
+                                    </imageView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="hPx-h9-1rO">
+                                        <rect key="frame" x="90" y="11" width="195" height="30"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="289-s2-DUq">
+                                                <rect key="frame" x="0.0" y="0.0" width="195" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="irL-Nx-udo"/>
+                                                </constraints>
+                                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" title="본관" image="homeImageArrow">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="10"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="head1" value="본관"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="095-Om-PNL">
+                                        <rect key="frame" x="333" y="14" width="20" height="24"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="24" id="WnJ-hs-VII"/>
+                                            <constraint firstAttribute="width" constant="20" id="wVn-Q9-Iux"/>
+                                        </constraints>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Button" image="homeImageAlarm"/>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="a18-nX-rrS" firstAttribute="leading" secondItem="bne-39-n9W" secondAttribute="leading" id="H6o-Ta-063"/>
+                                    <constraint firstAttribute="height" constant="52" id="VHl-VV-91z"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="x8t-XD-UMo"/>
                         <color key="backgroundColor" name="background"/>
                         <constraints>
-                            <constraint firstItem="x8t-XD-UMo" firstAttribute="bottom" secondItem="WOj-rt-1kd" secondAttribute="bottom" id="9Sk-7K-QGI"/>
-                            <constraint firstItem="WOj-rt-1kd" firstAttribute="top" secondItem="x8t-XD-UMo" secondAttribute="top" id="AA8-wF-JQ3"/>
-                            <constraint firstItem="x8t-XD-UMo" firstAttribute="trailing" secondItem="WOj-rt-1kd" secondAttribute="trailing" id="Iwb-gV-0MH"/>
-                            <constraint firstItem="WOj-rt-1kd" firstAttribute="leading" secondItem="x8t-XD-UMo" secondAttribute="leading" id="uNK-nx-vxT"/>
+                            <constraint firstItem="bne-39-n9W" firstAttribute="leading" secondItem="x8t-XD-UMo" secondAttribute="leading" constant="20" id="4Xh-P7-a6y"/>
+                            <constraint firstItem="C5F-6e-iug" firstAttribute="top" secondItem="bne-39-n9W" secondAttribute="bottom" constant="24" id="CMp-dg-ZSE"/>
+                            <constraint firstItem="cRC-hr-K7d" firstAttribute="top" secondItem="C5F-6e-iug" secondAttribute="bottom" constant="12" id="EJV-hq-N32"/>
+                            <constraint firstItem="cRC-hr-K7d" firstAttribute="leading" secondItem="x8t-XD-UMo" secondAttribute="leading" id="Flf-dM-9eV"/>
+                            <constraint firstItem="C5F-6e-iug" firstAttribute="leading" secondItem="x8t-XD-UMo" secondAttribute="leading" constant="20" id="NF4-u9-wDF"/>
+                            <constraint firstItem="x8t-XD-UMo" firstAttribute="trailing" secondItem="C5F-6e-iug" secondAttribute="trailing" constant="20" id="g4T-yj-kUX"/>
+                            <constraint firstItem="x8t-XD-UMo" firstAttribute="trailing" secondItem="bne-39-n9W" secondAttribute="trailing" constant="20" id="mgu-II-j9c"/>
+                            <constraint firstItem="x8t-XD-UMo" firstAttribute="trailing" secondItem="cRC-hr-K7d" secondAttribute="trailing" id="pgF-UM-K0w"/>
+                            <constraint firstItem="bne-39-n9W" firstAttribute="top" secondItem="x8t-XD-UMo" secondAttribute="top" id="zCU-SL-S2d"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="9SK-qq-4zF"/>
                     <connections>
+                        <outlet property="tabmanView" destination="cRC-hr-K7d" id="uT9-Tb-seO"/>
                         <outlet property="weekDateLabel" destination="5nW-Jj-w3k" id="Tbn-UN-e5A"/>
                     </connections>
                 </viewController>

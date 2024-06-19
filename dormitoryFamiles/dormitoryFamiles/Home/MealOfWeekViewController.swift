@@ -9,6 +9,7 @@ import UIKit
 
 final class MealOfWeekViewController: UIViewController {
 
+    var url = ""
     override func viewDidLoad() {
         super.viewDidLoad()
 
