@@ -1026,7 +1026,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nzJ-Yb-Hjd" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
-                                                        <rect key="frame" x="16" y="68.666666666666742" width="94.666666666666686" height="28"/>
+                                                        <rect key="frame" x="16" y="68.666666666666742" width="94.666666666666671" height="28"/>
                                                         <color key="backgroundColor" name="primaryMid"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="28" id="iWk-PQ-m4c"/>
@@ -3403,7 +3403,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="잡곡밥 근대 된장국 돈육 두부 두루치기 감자채 피망볶음 김치" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" showsExpansionTextWhenTruncated="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eh7-E6-z9H">
-                                        <rect key="frame" x="125" y="63.999999999999993" width="126.33333333333331" height="94.333333333333286"/>
+                                        <rect key="frame" x="125" y="64" width="126.33333333333331" height="189"/>
                                         <fontDescription key="fontDescription" name=".AppleSDGothicNeoI-Regular" family=".Apple SD Gothic NeoI" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -3412,7 +3412,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="운영시간 11:00 ~ 14:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HdI-Su-mXt">
-                                        <rect key="frame" x="44" y="170.33333333333331" width="139.33333333333334" height="15"/>
+                                        <rect key="frame" x="44" y="265" width="139.33333333333334" height="15"/>
                                         <color key="tintColor" name="gray4"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" name="gray4"/>
@@ -3422,7 +3422,10 @@
                                         </userDefinedRuntimeAttributes>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="총 칼로리 890kcal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1tI-iL-gGt">
-                                        <rect key="frame" x="240" y="170.33333333333331" width="108" height="15"/>
+                                        <rect key="frame" x="240" y="265" width="108" height="15"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="Y7A-Z8-bhW"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" name="gray4"/>
                                         <nil key="highlightedColor"/>
@@ -3431,7 +3434,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="homeImageClock" translatesAutoresizingMaskIntoConstraints="NO" id="YXd-bb-VTY">
-                                        <rect key="frame" x="25" y="170.33333333333331" width="15" height="15"/>
+                                        <rect key="frame" x="25" y="265" width="15" height="15"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="15" id="MDi-x6-Qy9"/>
                                             <constraint firstAttribute="width" constant="15" id="ecQ-xr-iDn"/>
@@ -3449,12 +3452,13 @@
                                     <constraint firstItem="YXd-bb-VTY" firstAttribute="leading" secondItem="oXO-vx-Z1W" secondAttribute="leading" constant="25" id="XYd-Z2-hKD"/>
                                     <constraint firstItem="YXd-bb-VTY" firstAttribute="bottom" secondItem="HdI-Su-mXt" secondAttribute="bottom" id="Zwu-uZ-Qot"/>
                                     <constraint firstAttribute="trailing" secondItem="LKE-sW-Mhb" secondAttribute="trailing" constant="16" id="dGW-ou-Hus"/>
+                                    <constraint firstAttribute="bottom" relation="lessThanOrEqual" secondItem="HdI-Su-mXt" secondAttribute="bottom" constant="20" id="hOi-Z8-phF"/>
                                     <constraint firstItem="eh7-E6-z9H" firstAttribute="centerX" secondItem="oXO-vx-Z1W" secondAttribute="centerX" constant="1.5" id="hhy-Ca-653"/>
                                     <constraint firstItem="1tI-iL-gGt" firstAttribute="top" secondItem="YXd-bb-VTY" secondAttribute="top" id="j68-Ku-T4x"/>
                                     <constraint firstItem="HdI-Su-mXt" firstAttribute="leading" secondItem="YXd-bb-VTY" secondAttribute="trailing" constant="4" id="jzk-LR-mgN"/>
                                     <constraint firstItem="LKE-sW-Mhb" firstAttribute="top" secondItem="oXO-vx-Z1W" secondAttribute="top" constant="12" id="lEN-gT-HHc"/>
                                     <constraint firstItem="eh7-E6-z9H" firstAttribute="top" secondItem="LKE-sW-Mhb" secondAttribute="bottom" constant="12" id="pgs-kq-Cor"/>
-                                    <constraint firstAttribute="height" priority="250" constant="300" id="wdO-fL-Yen"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" priority="500" constant="300" id="wdO-fL-Yen"/>
                                     <constraint firstItem="HdI-Su-mXt" firstAttribute="top" secondItem="YXd-bb-VTY" secondAttribute="top" id="wu7-nz-lej"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
