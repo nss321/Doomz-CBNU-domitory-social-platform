@@ -658,7 +658,7 @@
                                         <rect key="frame" x="32.999999999999986" y="0.0" width="244.66666666666663" height="136"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launchScreenLogo" translatesAutoresizingMaskIntoConstraints="NO" id="cQd-3T-lEe">
-                                                <rect key="frame" x="16.333333333333343" y="0.0" width="212" height="80"/>
+                                                <rect key="frame" x="16.333333333333343" y="0.0" width="212.00000000000003" height="80"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="212" id="fa2-sj-W4t"/>
                                                     <constraint firstAttribute="height" constant="80" id="gx4-X2-toX"/>
@@ -824,7 +824,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pf8-z7-rET" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
-                                                <rect key="frame" x="254" y="86" width="119" height="29"/>
+                                                <rect key="frame" x="278.33333333333331" y="86" width="94.666666666666686" height="29"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="29" id="hza-8j-0gq"/>
                                                 </constraints>
@@ -1026,7 +1026,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nzJ-Yb-Hjd" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
-                                                        <rect key="frame" x="15.999999999999993" y="68.666666666666742" width="107.33333333333331" height="28"/>
+                                                        <rect key="frame" x="16" y="68.666666666666742" width="94.666666666666686" height="28"/>
                                                         <color key="backgroundColor" name="primaryMid"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="28" id="iWk-PQ-m4c"/>
@@ -1315,7 +1315,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Cx-cb-x6K" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
-                                                <rect key="frame" x="258" y="579.33333333333337" width="115" height="29"/>
+                                                <rect key="frame" x="278.33333333333331" y="579.33333333333337" width="94.666666666666686" height="29"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="29" id="DZE-Ex-hkf"/>
                                                 </constraints>
@@ -1438,7 +1438,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NkX-t3-Dqc">
-                                <rect key="frame" x="0.0" y="103.00000000000001" width="393" height="174.33333333333337"/>
+                                <rect key="frame" x="0.0" y="103" width="393" height="171"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jW8-v6-Usi">
                                         <rect key="frame" x="153.33333333333334" y="13" width="86.333333333333343" height="34.333333333333336"/>
@@ -1480,10 +1480,10 @@
                                         </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="nmc-r2-3Yr">
-                                        <rect key="frame" x="20" y="119.99999999999999" width="174.66666666666666" height="34.333333333333329"/>
+                                        <rect key="frame" x="20" y="120" width="157.33333333333334" height="31"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zMd-RW-f50" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="83.333333333333329" height="34.333333333333336"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="74.666666666666671" height="31"/>
                                                 <color key="tintColor" name="gray5"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" image="bulletinBoardVector" imagePlacement="trailing" title="최신순" imagePadding="5"/>
@@ -1501,7 +1501,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oPs-Mx-3k4" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
-                                                <rect key="frame" x="91.333333333333343" y="0.0" width="83.333333333333343" height="34.333333333333336"/>
+                                                <rect key="frame" x="82.666666666666657" y="0.0" width="74.666666666666657" height="31"/>
                                                 <color key="tintColor" name="gray5"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" image="bulletinBoardVector" imagePlacement="trailing" title="전체" imagePadding="5"/>
@@ -2310,10 +2310,10 @@
                                                 </constraints>
                                             </imageView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="g8I-rb-EBj">
-                                                <rect key="frame" x="20" y="22" width="182" height="28"/>
+                                                <rect key="frame" x="20" y="22" width="153.66666666666666" height="28"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n0i-BB-GvX" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="81" height="28"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="73.666666666666671" height="28"/>
                                                         <color key="backgroundColor" name="secondary"/>
                                                         <color key="tintColor" name="primary"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
@@ -2324,7 +2324,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WpS-3I-E5y" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
-                                                        <rect key="frame" x="89" y="0.0" width="93" height="28"/>
+                                                        <rect key="frame" x="81.666666666666671" y="0.0" width="72.000000000000014" height="28"/>
                                                         <color key="backgroundColor" red="0.84705882352941175" green="0.91764705882352937" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <state key="normal" title="Button"/>
@@ -2614,7 +2614,7 @@
                                 <rect key="frame" x="0.0" y="700" width="393" height="118"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hQh-uO-d5P" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
-                                        <rect key="frame" x="20.000000000000004" y="0.0" width="53.333333333333343" height="30"/>
+                                        <rect key="frame" x="20.000000000000004" y="0.0" width="51.333333333333343" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="1X9-OA-YY9"/>
                                         </constraints>
@@ -2675,7 +2675,7 @@
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zs1-QO-A3O" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
-                                        <rect key="frame" x="255.33333333333334" y="0.0" width="117.66666666666666" height="30"/>
+                                        <rect key="frame" x="269.66666666666669" y="0.0" width="103.33333333333331" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="IEy-tu-t4D"/>
                                         </constraints>
@@ -3301,6 +3301,179 @@
             </objects>
             <point key="canvasLocation" x="3725.9541984732823" y="-1281.6901408450706"/>
         </scene>
+        <!--Meal Of Week View Controller-->
+        <scene sceneID="Jnh-RG-MK2">
+            <objects>
+                <viewController id="dOf-lN-0Cy" customClass="MealOfWeekViewController" customModule="dormitoryFamiles" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="IQ7-wY-lQr">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oXO-vx-Z1W">
+                                <rect key="frame" x="10" y="259" width="373" height="300"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LKE-sW-Mhb" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
+                                        <rect key="frame" x="16" y="12" width="341" height="40"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="V3e-nV-wNP">
+                                                <rect key="frame" x="4" y="4" width="333" height="32"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o1m-Pq-b3w" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="97.666666666666671" height="32"/>
+                                                        <color key="backgroundColor" name="primaryLight"/>
+                                                        <color key="tintColor" name="primary"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain" title="아침"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="title5" value="아침"/>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                <real key="value" value="1"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                <color key="value" name="secondary"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u5e-Mw-OyW" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
+                                                        <rect key="frame" x="117.66666666666666" y="0.0" width="97.666666666666657" height="32"/>
+                                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain" title="점심"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="title5" value="점심"/>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                <real key="value" value="1"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                <color key="value" name="secondary"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KoZ-HB-q2x" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
+                                                        <rect key="frame" x="235.33333333333329" y="0.0" width="97.666666666666657" height="32"/>
+                                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain" title="저녁"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="title5" value="저녁"/>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                <real key="value" value="1"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                <color key="value" name="secondary"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </button>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="o1m-Pq-b3w" firstAttribute="leading" secondItem="V3e-nV-wNP" secondAttribute="leading" id="8Ua-AP-3jZ"/>
+                                                    <constraint firstAttribute="bottom" secondItem="o1m-Pq-b3w" secondAttribute="bottom" id="lyN-PC-VmF"/>
+                                                    <constraint firstItem="o1m-Pq-b3w" firstAttribute="top" secondItem="V3e-nV-wNP" secondAttribute="top" id="oZX-Da-sfy"/>
+                                                </constraints>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" name="secondary"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <accessibility key="accessibilityConfiguration">
+                                            <accessibilityTraits key="traits" button="YES"/>
+                                        </accessibility>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="V3e-nV-wNP" secondAttribute="bottom" constant="4" id="AWM-y4-wZK"/>
+                                            <constraint firstAttribute="height" constant="40" id="ODt-yJ-TfW"/>
+                                            <constraint firstAttribute="trailing" secondItem="V3e-nV-wNP" secondAttribute="trailing" constant="4" id="iiy-bN-kYd"/>
+                                            <constraint firstItem="V3e-nV-wNP" firstAttribute="top" secondItem="LKE-sW-Mhb" secondAttribute="top" constant="4" id="nHE-Ep-hhs"/>
+                                            <constraint firstItem="V3e-nV-wNP" firstAttribute="leading" secondItem="LKE-sW-Mhb" secondAttribute="leading" constant="4" id="tdD-jY-R0W"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" name="secondary"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="잡곡밥 근대 된장국 돈육 두부 두루치기 감자채 피망볶음 김치" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" showsExpansionTextWhenTruncated="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eh7-E6-z9H">
+                                        <rect key="frame" x="125" y="63.999999999999993" width="126.33333333333331" height="94.333333333333286"/>
+                                        <fontDescription key="fontDescription" name=".AppleSDGothicNeoI-Regular" family=".Apple SD Gothic NeoI" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="body1" value="정보를 받아오는 중.."/>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="운영시간 11:00 ~ 14:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HdI-Su-mXt">
+                                        <rect key="frame" x="44" y="170.33333333333331" width="139.33333333333334" height="15"/>
+                                        <color key="tintColor" name="gray4"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" name="gray4"/>
+                                        <color key="highlightedColor" name="gray4"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="body2" value="운영시간 11:00 ~ 14:00"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="총 칼로리 890kcal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1tI-iL-gGt">
+                                        <rect key="frame" x="240" y="170.33333333333331" width="108" height="15"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" name="gray4"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="body2" value="총 칼로리 890kcal"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="homeImageClock" translatesAutoresizingMaskIntoConstraints="NO" id="YXd-bb-VTY">
+                                        <rect key="frame" x="25" y="170.33333333333331" width="15" height="15"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="15" id="MDi-x6-Qy9"/>
+                                            <constraint firstAttribute="width" constant="15" id="ecQ-xr-iDn"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" name="secondary"/>
+                                <constraints>
+                                    <constraint firstItem="YXd-bb-VTY" firstAttribute="bottom" secondItem="1tI-iL-gGt" secondAttribute="bottom" id="0M1-Sk-wGa"/>
+                                    <constraint firstItem="LKE-sW-Mhb" firstAttribute="leading" secondItem="oXO-vx-Z1W" secondAttribute="leading" constant="16" id="2KK-kS-zMm"/>
+                                    <constraint firstAttribute="trailing" secondItem="1tI-iL-gGt" secondAttribute="trailing" constant="25" id="HdW-gd-dec"/>
+                                    <constraint firstItem="YXd-bb-VTY" firstAttribute="top" secondItem="eh7-E6-z9H" secondAttribute="bottom" constant="12" id="TKe-Dj-tyi"/>
+                                    <constraint firstItem="1tI-iL-gGt" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="HdI-Su-mXt" secondAttribute="trailing" constant="8" symbolic="YES" id="XBl-Ee-0OG"/>
+                                    <constraint firstItem="YXd-bb-VTY" firstAttribute="leading" secondItem="oXO-vx-Z1W" secondAttribute="leading" constant="25" id="XYd-Z2-hKD"/>
+                                    <constraint firstItem="YXd-bb-VTY" firstAttribute="bottom" secondItem="HdI-Su-mXt" secondAttribute="bottom" id="Zwu-uZ-Qot"/>
+                                    <constraint firstAttribute="trailing" secondItem="LKE-sW-Mhb" secondAttribute="trailing" constant="16" id="dGW-ou-Hus"/>
+                                    <constraint firstItem="eh7-E6-z9H" firstAttribute="centerX" secondItem="oXO-vx-Z1W" secondAttribute="centerX" constant="1.5" id="hhy-Ca-653"/>
+                                    <constraint firstItem="1tI-iL-gGt" firstAttribute="top" secondItem="YXd-bb-VTY" secondAttribute="top" id="j68-Ku-T4x"/>
+                                    <constraint firstItem="HdI-Su-mXt" firstAttribute="leading" secondItem="YXd-bb-VTY" secondAttribute="trailing" constant="4" id="jzk-LR-mgN"/>
+                                    <constraint firstItem="LKE-sW-Mhb" firstAttribute="top" secondItem="oXO-vx-Z1W" secondAttribute="top" constant="12" id="lEN-gT-HHc"/>
+                                    <constraint firstItem="eh7-E6-z9H" firstAttribute="top" secondItem="LKE-sW-Mhb" secondAttribute="bottom" constant="12" id="pgs-kq-Cor"/>
+                                    <constraint firstAttribute="height" priority="250" constant="300" id="wdO-fL-Yen"/>
+                                    <constraint firstItem="HdI-Su-mXt" firstAttribute="top" secondItem="YXd-bb-VTY" secondAttribute="top" id="wu7-nz-lej"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1.5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" name="secondary"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="30"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="iZZ-8K-4RM"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="iZZ-8K-4RM" firstAttribute="trailing" secondItem="oXO-vx-Z1W" secondAttribute="trailing" constant="10" id="H73-jn-nS3"/>
+                            <constraint firstItem="oXO-vx-Z1W" firstAttribute="top" secondItem="iZZ-8K-4RM" secondAttribute="top" constant="200" id="Izf-aC-XPi"/>
+                            <constraint firstItem="oXO-vx-Z1W" firstAttribute="leading" secondItem="iZZ-8K-4RM" secondAttribute="leading" constant="10" id="a1t-nU-Ks0"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ozo-4r-NKZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2665" y="-3129"/>
+        </scene>
         <!--Meal Menu View Controller-->
         <scene sceneID="B8N-OX-axc">
             <objects>
@@ -3342,9 +3515,6 @@
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="string" keyPath="head1" value="본관"/>
                                                                 </userDefinedRuntimeAttributes>
-                                                                <connections>
-                                                                    <action selector="dormitoryButtonTapped:" destination="F8n-0Z-Nxd" eventType="touchUpInside" id="sGh-Lz-QBp"/>
-                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                     </stackView>
@@ -3363,8 +3533,8 @@
                                                     <constraint firstAttribute="height" constant="52" id="VHl-VV-91z"/>
                                                 </constraints>
                                             </stackView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="오늘의 메뉴" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" showsExpansionTextWhenTruncated="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9N8-OT-jJQ">
-                                                <rect key="frame" x="19.999999999999996" y="86" width="50.666666666666657" height="27"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="메뉴 전체보기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" showsExpansionTextWhenTruncated="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9N8-OT-jJQ">
+                                                <rect key="frame" x="20.000000000000004" y="86" width="60.333333333333343" height="27"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="27" id="veQ-HY-yUF"/>
                                                 </constraints>
@@ -3372,547 +3542,29 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                                 <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="string" keyPath="title2" value="오늘의 메뉴"/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="title2" value="메뉴 전체보기"/>
                                                 </userDefinedRuntimeAttributes>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ysV-q9-Sz8" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
-                                                <rect key="frame" x="254" y="86" width="119" height="29"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="29" id="Zef-Ff-7vS"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="18"/>
-                                                <color key="tintColor" name="primaryMid"/>
-                                                <inset key="imageEdgeInsets" minX="100" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                <state key="normal" title="  전체보기" image="arrow.right" catalog="system">
-                                                    <color key="titleColor" name="primaryMid"/>
-                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="13"/>
-                                                </state>
-                                                <buttonConfiguration key="configuration" style="plain" image="arrow.right" catalog="system" title="  전체보기" imagePadding="4">
-                                                    <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="13"/>
-                                                    <fontDescription key="titleFontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="18"/>
-                                                    <color key="baseForegroundColor" name="primaryMid"/>
-                                                </buttonConfiguration>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                        <color key="value" name="primaryMid"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="string" keyPath="button" value="전체보기"/>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                        <real key="value" value="1"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                            </button>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Hw-gc-sC7">
-                                                <rect key="frame" x="20" y="127.00000000000003" width="353" height="274.66666666666674"/>
-                                                <subviews>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vTN-BI-JA9" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
-                                                        <rect key="frame" x="16" y="12" width="321" height="40"/>
-                                                        <subviews>
-                                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="BPQ-Ma-BqC">
-                                                                <rect key="frame" x="4" y="4" width="313" height="32"/>
-                                                                <subviews>
-                                                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="csD-1l-mUE" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="91" height="32"/>
-                                                                        <color key="backgroundColor" name="primaryLight"/>
-                                                                        <color key="tintColor" name="primary"/>
-                                                                        <state key="normal" title="Button"/>
-                                                                        <buttonConfiguration key="configuration" style="plain" title="아침"/>
-                                                                        <userDefinedRuntimeAttributes>
-                                                                            <userDefinedRuntimeAttribute type="string" keyPath="title5" value="아침"/>
-                                                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                                                <real key="value" value="1"/>
-                                                                            </userDefinedRuntimeAttribute>
-                                                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                                                <color key="value" name="secondary"/>
-                                                                            </userDefinedRuntimeAttribute>
-                                                                        </userDefinedRuntimeAttributes>
-                                                                        <connections>
-                                                                            <action selector="menuButtonTapped:" destination="F8n-0Z-Nxd" eventType="touchUpInside" id="Wtx-Z8-g08"/>
-                                                                        </connections>
-                                                                    </button>
-                                                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e2O-jy-tGR" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
-                                                                        <rect key="frame" x="111" y="0.0" width="91" height="32"/>
-                                                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                        <state key="normal" title="Button"/>
-                                                                        <buttonConfiguration key="configuration" style="plain" title="점심"/>
-                                                                        <userDefinedRuntimeAttributes>
-                                                                            <userDefinedRuntimeAttribute type="string" keyPath="title5" value="점심"/>
-                                                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                                                <real key="value" value="1"/>
-                                                                            </userDefinedRuntimeAttribute>
-                                                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                                                <color key="value" name="secondary"/>
-                                                                            </userDefinedRuntimeAttribute>
-                                                                        </userDefinedRuntimeAttributes>
-                                                                        <connections>
-                                                                            <action selector="menuButtonTapped:" destination="F8n-0Z-Nxd" eventType="touchUpInside" id="NV5-7w-bYP"/>
-                                                                        </connections>
-                                                                    </button>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S7p-Kd-Vi9" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
-                                                                        <rect key="frame" x="222" y="0.0" width="91" height="32"/>
-                                                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                        <state key="normal" title="Button"/>
-                                                                        <buttonConfiguration key="configuration" style="plain" title="저녁"/>
-                                                                        <userDefinedRuntimeAttributes>
-                                                                            <userDefinedRuntimeAttribute type="string" keyPath="title5" value="저녁"/>
-                                                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                                                <real key="value" value="1"/>
-                                                                            </userDefinedRuntimeAttribute>
-                                                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                                                <color key="value" name="secondary"/>
-                                                                            </userDefinedRuntimeAttribute>
-                                                                        </userDefinedRuntimeAttributes>
-                                                                        <connections>
-                                                                            <action selector="menuButtonTapped:" destination="F8n-0Z-Nxd" eventType="touchUpInside" id="ilp-vs-7Az"/>
-                                                                        </connections>
-                                                                    </button>
-                                                                </subviews>
-                                                                <constraints>
-                                                                    <constraint firstItem="csD-1l-mUE" firstAttribute="leading" secondItem="BPQ-Ma-BqC" secondAttribute="leading" id="OSi-jl-VKy"/>
-                                                                    <constraint firstItem="csD-1l-mUE" firstAttribute="top" secondItem="BPQ-Ma-BqC" secondAttribute="top" id="S9r-za-FEh"/>
-                                                                    <constraint firstAttribute="bottom" secondItem="csD-1l-mUE" secondAttribute="bottom" id="T4J-D9-EJt"/>
-                                                                </constraints>
-                                                            </stackView>
-                                                        </subviews>
-                                                        <color key="backgroundColor" name="secondary"/>
-                                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <accessibility key="accessibilityConfiguration">
-                                                            <accessibilityTraits key="traits" button="YES"/>
-                                                        </accessibility>
-                                                        <constraints>
-                                                            <constraint firstAttribute="bottom" secondItem="BPQ-Ma-BqC" secondAttribute="bottom" constant="4" id="3xc-2z-w6N"/>
-                                                            <constraint firstAttribute="trailing" secondItem="BPQ-Ma-BqC" secondAttribute="trailing" constant="4" id="D5x-qd-SSJ"/>
-                                                            <constraint firstAttribute="height" constant="40" id="LhO-sI-SoU"/>
-                                                            <constraint firstItem="BPQ-Ma-BqC" firstAttribute="top" secondItem="vTN-BI-JA9" secondAttribute="top" constant="4" id="VLC-JM-HlD"/>
-                                                            <constraint firstItem="BPQ-Ma-BqC" firstAttribute="leading" secondItem="vTN-BI-JA9" secondAttribute="leading" constant="4" id="hCh-Mf-fEw"/>
-                                                        </constraints>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                                <real key="value" value="1"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                                <color key="value" name="secondary"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                    </view>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="잡곡밥 근대 된장국 돈육 두부 두루치기 감자채 피망볶음 김치" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" showsExpansionTextWhenTruncated="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="50E-XP-OuR">
-                                                        <rect key="frame" x="115" y="63.999999999999993" width="126.33333333333331" height="94.333333333333286"/>
-                                                        <fontDescription key="fontDescription" name=".AppleSDGothicNeoI-Regular" family=".Apple SD Gothic NeoI" pointSize="17"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="string" keyPath="body1" value="정보를 받아오는 중.."/>
-                                                        </userDefinedRuntimeAttributes>
-                                                    </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="운영시간 11:00 ~ 14:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RDQ-xC-h83">
-                                                        <rect key="frame" x="44" y="170.33333333333331" width="139.33333333333334" height="15"/>
-                                                        <color key="tintColor" name="gray4"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <color key="textColor" name="gray4"/>
-                                                        <color key="highlightedColor" name="gray4"/>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="string" keyPath="body2" value="운영시간 11:00 ~ 14:00"/>
-                                                        </userDefinedRuntimeAttributes>
-                                                    </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="총 칼로리 890kcal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gQ2-JM-lqT">
-                                                        <rect key="frame" x="220" y="170.33333333333331" width="108" height="15"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <color key="textColor" name="gray4"/>
-                                                        <nil key="highlightedColor"/>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="string" keyPath="body2" value="총 칼로리 890kcal"/>
-                                                        </userDefinedRuntimeAttributes>
-                                                    </label>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="homeImageClock" translatesAutoresizingMaskIntoConstraints="NO" id="SPo-je-MC0">
-                                                        <rect key="frame" x="25" y="170.33333333333331" width="15" height="15"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" constant="15" id="8Q1-45-e9d"/>
-                                                            <constraint firstAttribute="height" constant="15" id="IlL-ei-KRR"/>
-                                                        </constraints>
-                                                    </imageView>
-                                                </subviews>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <color key="tintColor" name="secondary"/>
-                                                <constraints>
-                                                    <constraint firstItem="SPo-je-MC0" firstAttribute="bottom" secondItem="gQ2-JM-lqT" secondAttribute="bottom" id="3C8-9L-ehq"/>
-                                                    <constraint firstItem="gQ2-JM-lqT" firstAttribute="top" secondItem="SPo-je-MC0" secondAttribute="top" id="5Zd-UI-b2X"/>
-                                                    <constraint firstItem="SPo-je-MC0" firstAttribute="bottom" secondItem="RDQ-xC-h83" secondAttribute="bottom" id="Bb3-Eh-lgh"/>
-                                                    <constraint firstItem="gQ2-JM-lqT" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="RDQ-xC-h83" secondAttribute="trailing" constant="8" symbolic="YES" id="D0l-2d-CPj"/>
-                                                    <constraint firstItem="vTN-BI-JA9" firstAttribute="top" secondItem="7Hw-gc-sC7" secondAttribute="top" constant="12" id="FsW-yF-JfU"/>
-                                                    <constraint firstItem="SPo-je-MC0" firstAttribute="leading" secondItem="7Hw-gc-sC7" secondAttribute="leading" constant="25" id="KGE-Wz-mO8"/>
-                                                    <constraint firstAttribute="height" priority="250" constant="300" id="LYU-q0-cIR"/>
-                                                    <constraint firstItem="RDQ-xC-h83" firstAttribute="leading" secondItem="SPo-je-MC0" secondAttribute="trailing" constant="4" id="QgF-Dl-mlo"/>
-                                                    <constraint firstAttribute="trailing" secondItem="vTN-BI-JA9" secondAttribute="trailing" constant="16" id="WMd-SL-OH3"/>
-                                                    <constraint firstItem="50E-XP-OuR" firstAttribute="top" secondItem="vTN-BI-JA9" secondAttribute="bottom" constant="12" id="bgp-pH-Ury"/>
-                                                    <constraint firstAttribute="trailing" secondItem="gQ2-JM-lqT" secondAttribute="trailing" constant="25" id="gVi-YL-5LH"/>
-                                                    <constraint firstItem="50E-XP-OuR" firstAttribute="centerX" secondItem="7Hw-gc-sC7" secondAttribute="centerX" constant="1.5" id="mdb-4i-GBO"/>
-                                                    <constraint firstItem="SPo-je-MC0" firstAttribute="top" secondItem="50E-XP-OuR" secondAttribute="bottom" constant="12" id="o11-LN-CsI"/>
-                                                    <constraint firstItem="RDQ-xC-h83" firstAttribute="top" secondItem="SPo-je-MC0" secondAttribute="top" id="wTa-g2-CQK"/>
-                                                    <constraint firstItem="vTN-BI-JA9" firstAttribute="leading" secondItem="7Hw-gc-sC7" secondAttribute="leading" constant="16" id="wom-ei-gPT"/>
-                                                </constraints>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                        <real key="value" value="1.5"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                        <color key="value" name="secondary"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                        <real key="value" value="30"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zHF-L0-116">
-                                                <rect key="frame" x="20" y="433.66666666666663" width="353" height="112.66666666666663"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="룸메 매칭을 통해 원하는 룸메를 구해보세요!" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" showsExpansionTextWhenTruncated="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x43-pY-8H6">
-                                                        <rect key="frame" x="16" y="15.999999999999996" width="175.33333333333334" height="40.666666666666657"/>
-                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="string" keyPath="title3" value="룸메 매칭을 통해 원하는 룸메를 구해보세요!"/>
-                                                        </userDefinedRuntimeAttributes>
-                                                    </label>
-                                                    <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Vy-KQ-T6I" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
-                                                        <rect key="frame" x="15.999999999999993" y="68.666666666666742" width="107.33333333333331" height="28"/>
-                                                        <color key="backgroundColor" name="primaryMid"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="28" id="W37-5f-pso"/>
-                                                        </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                        <state key="normal" title="  룸메찾기" image="arrow.right" catalog="system">
-                                                            <color key="titleColor" name="primaryLight"/>
-                                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="13"/>
-                                                        </state>
-                                                        <buttonConfiguration key="configuration" style="plain" image="arrow.right" catalog="system" title="  룸메찾기" imagePadding="4">
-                                                            <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="13"/>
-                                                            <fontDescription key="titleFontDescription" type="system" pointSize="15"/>
-                                                            <color key="baseForegroundColor" name="primaryLight"/>
-                                                        </buttonConfiguration>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                                <color key="value" name="primaryMid"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                                <real key="value" value="1"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="string" keyPath="pretendard14Variable" value="룸메찾기"/>
-                                                        </userDefinedRuntimeAttributes>
-                                                    </button>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="homeImageMateMatching" translatesAutoresizingMaskIntoConstraints="NO" id="BmP-Aw-ycC">
-                                                        <rect key="frame" x="237" y="22" width="100" height="95"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="95" id="8Ej-N7-dGr"/>
-                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="1" id="FwI-Io-3aA"/>
-                                                            <constraint firstAttribute="width" constant="100" id="vvE-5U-dJq"/>
-                                                        </constraints>
-                                                    </imageView>
-                                                </subviews>
-                                                <color key="backgroundColor" name="secondary"/>
-                                                <constraints>
-                                                    <constraint firstItem="BmP-Aw-ycC" firstAttribute="top" secondItem="zHF-L0-116" secondAttribute="top" constant="22" id="47R-5D-EMf"/>
-                                                    <constraint firstAttribute="height" priority="250" constant="110" id="5Ql-yA-IE1"/>
-                                                    <constraint firstItem="2Vy-KQ-T6I" firstAttribute="leading" secondItem="zHF-L0-116" secondAttribute="leading" constant="16" id="7rN-1y-Ton"/>
-                                                    <constraint firstItem="x43-pY-8H6" firstAttribute="top" secondItem="zHF-L0-116" secondAttribute="top" constant="16" id="JFn-F7-LZb"/>
-                                                    <constraint firstAttribute="trailing" secondItem="BmP-Aw-ycC" secondAttribute="trailing" constant="16" id="NWK-1p-xrJ"/>
-                                                    <constraint firstItem="BmP-Aw-ycC" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="2Vy-KQ-T6I" secondAttribute="trailing" constant="8" symbolic="YES" id="OUv-XP-Gwq"/>
-                                                    <constraint firstAttribute="bottom" secondItem="2Vy-KQ-T6I" secondAttribute="bottom" constant="16" id="Ord-SM-b9y"/>
-                                                    <constraint firstItem="2Vy-KQ-T6I" firstAttribute="top" secondItem="x43-pY-8H6" secondAttribute="bottom" constant="12" id="an8-qH-kpY"/>
-                                                    <constraint firstItem="BmP-Aw-ycC" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="x43-pY-8H6" secondAttribute="trailing" constant="8" symbolic="YES" id="bVB-ft-pyR"/>
-                                                    <constraint firstItem="x43-pY-8H6" firstAttribute="leading" secondItem="zHF-L0-116" secondAttribute="leading" constant="16" id="wQf-bz-clR"/>
-                                                </constraints>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                        <real key="value" value="20"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                        <color key="value" name="secondary"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                        <real key="value" value="1"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                            </view>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="인기게시글" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" showsExpansionTextWhenTruncated="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9hd-lM-uEj">
-                                                <rect key="frame" x="20" y="579.33333333333337" width="73.666666666666671" height="27"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="27" id="xTI-WU-KJc"/>
-                                                </constraints>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="월욜날짜~일욜날짜" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5nW-Jj-w3k">
+                                                <rect key="frame" x="245" y="86" width="128" height="20.333333333333329"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" name="gray4"/>
                                                 <nil key="highlightedColor"/>
                                                 <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="string" keyPath="title2" value="인기게시글"/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="button" value="월욜날짜~일욜날짜"/>
                                                 </userDefinedRuntimeAttributes>
                                             </label>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Isx-5a-uMM">
-                                                <rect key="frame" x="20" y="620.33333333333337" width="353" height="122"/>
-                                                <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3II-vK-V2W" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
-                                                        <rect key="frame" x="16" y="16" width="76" height="24"/>
-                                                        <color key="backgroundColor" name="secondary"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="24" id="2YB-Kg-Af7"/>
-                                                            <constraint firstAttribute="width" constant="76" id="wmV-w3-2C4"/>
-                                                        </constraints>
-                                                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="16"/>
-                                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                        <state key="normal" title="도와주세요">
-                                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        </state>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="string" keyPath="body2" value="도와주세요"/>
-                                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                                <color key="value" name="secondary"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                                <real key="value" value="1"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                    </button>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="23.12.16" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d0M-Pa-DvQ">
-                                                        <rect key="frame" x="290" y="16" width="47" height="24"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="24" id="STe-QI-FuA"/>
-                                                        </constraints>
-                                                        <fontDescription key="fontDescription" name="PretendardGOVVariable-Bold" family="Pretendard GOV Variable" pointSize="12"/>
-                                                        <color key="textColor" name="gray3"/>
-                                                        <nil key="highlightedColor"/>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="string" keyPath="pretendardVariable" value="23.12.16"/>
-                                                        </userDefinedRuntimeAttributes>
-                                                    </label>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F2A-DG-cMp">
-                                                        <rect key="frame" x="16" y="44" width="321" height="1"/>
-                                                        <color key="backgroundColor" red="0.93725490570000003" green="0.94117647410000005" blue="0.99607843159999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="1" id="9oM-aH-hgO"/>
-                                                        </constraints>
-                                                    </view>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="376-Hw-kor" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
-                                                        <rect key="frame" x="16" y="49" width="76" height="24"/>
-                                                        <color key="backgroundColor" name="secondary"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="24" id="SnB-c3-mzK"/>
-                                                            <constraint firstAttribute="width" constant="76" id="WxT-2o-Ofg"/>
-                                                        </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                        <state key="normal" title="함께해요">
-                                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        </state>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="string" keyPath="body2" value="함께해요"/>
-                                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                                <color key="value" name="secondary"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                                <real key="value" value="1"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                    </button>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="24.01.01" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9VT-s5-ehb">
-                                                        <rect key="frame" x="274.33333333333331" y="49" width="62.666666666666686" height="24"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="24" id="9g1-5e-cnV"/>
-                                                        </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <color key="textColor" name="gray3"/>
-                                                        <nil key="highlightedColor"/>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="string" keyPath="pretendardVariable" value="24.01.01"/>
-                                                        </userDefinedRuntimeAttributes>
-                                                    </label>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5L7-27-zYN">
-                                                        <rect key="frame" x="16" y="77" width="321" height="1"/>
-                                                        <color key="backgroundColor" red="0.93725490570000003" green="0.94117647410000005" blue="0.99607843159999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="1" id="Qhx-50-QmK"/>
-                                                        </constraints>
-                                                    </view>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zVf-Kk-ezR" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
-                                                        <rect key="frame" x="16" y="82" width="76" height="24"/>
-                                                        <color key="backgroundColor" name="secondary"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="24" id="gDj-0z-XYX"/>
-                                                            <constraint firstAttribute="width" constant="76" id="njP-KB-Xq8"/>
-                                                        </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                        <state key="normal" title="궁금해요">
-                                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        </state>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="string" keyPath="body2" value="궁금해요"/>
-                                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                                <color key="value" name="secondary"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                                <real key="value" value="1"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                    </button>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="24.01.01" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7r5-ia-UhP">
-                                                        <rect key="frame" x="274.33333333333331" y="82" width="62.666666666666686" height="24"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="24" id="5eM-RR-raq"/>
-                                                        </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <color key="textColor" name="gray3"/>
-                                                        <nil key="highlightedColor"/>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="string" keyPath="pretendardVariable" value="24.01.01"/>
-                                                        </userDefinedRuntimeAttributes>
-                                                    </label>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nva-Th-f1L">
-                                                        <rect key="frame" x="100" y="16" width="160" height="24"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="24" id="E2T-hc-knk"/>
-                                                            <constraint firstAttribute="width" constant="160" id="Npc-cp-F89"/>
-                                                        </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                        <state key="normal" title="바퀴벌레 잡아주실분 ㅠㅜ">
-                                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        </state>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="string" keyPath="body2" value="바퀴벌레 잡아주실분 ㅠㅠ!!"/>
-                                                        </userDefinedRuntimeAttributes>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zMZ-0R-PsY">
-                                                        <rect key="frame" x="100" y="49" width="160" height="24"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" constant="160" id="4DO-Ne-iBk"/>
-                                                            <constraint firstAttribute="height" constant="24" id="WnB-Ld-tiD"/>
-                                                        </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                        <state key="normal" title="양성재 운동 같이 할 사람~!">
-                                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        </state>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="string" keyPath="body2" value="양성재 운동 같이 할 사람~!"/>
-                                                        </userDefinedRuntimeAttributes>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0cH-ww-lzI">
-                                                        <rect key="frame" x="100" y="82" width="160" height="24"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="24" id="4ks-pN-NYJ"/>
-                                                            <constraint firstAttribute="width" constant="160" id="BDT-Ao-I8I"/>
-                                                        </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                        <state key="normal" title="바퀴벌레 잡아주실분 ㅠㅠ">
-                                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        </state>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="string" keyPath="body2" value="이거 누구껀가요"/>
-                                                        </userDefinedRuntimeAttributes>
-                                                    </button>
-                                                </subviews>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <color key="tintColor" name="secondary"/>
-                                                <constraints>
-                                                    <constraint firstItem="7r5-ia-UhP" firstAttribute="top" secondItem="zVf-Kk-ezR" secondAttribute="top" id="45h-EK-QfY"/>
-                                                    <constraint firstItem="d0M-Pa-DvQ" firstAttribute="top" secondItem="3II-vK-V2W" secondAttribute="top" id="54B-xH-DHG"/>
-                                                    <constraint firstAttribute="trailing" secondItem="9VT-s5-ehb" secondAttribute="trailing" constant="16" id="54E-BH-RAL"/>
-                                                    <constraint firstItem="9VT-s5-ehb" firstAttribute="top" secondItem="F2A-DG-cMp" secondAttribute="bottom" constant="4" id="7XH-IN-Fko"/>
-                                                    <constraint firstItem="3II-vK-V2W" firstAttribute="top" secondItem="Isx-5a-uMM" secondAttribute="top" constant="16" id="7yk-5o-med"/>
-                                                    <constraint firstAttribute="trailing" secondItem="d0M-Pa-DvQ" secondAttribute="trailing" constant="16" id="8vX-PX-Zur"/>
-                                                    <constraint firstItem="376-Hw-kor" firstAttribute="top" secondItem="F2A-DG-cMp" secondAttribute="bottom" constant="4" id="9fe-Qu-d6R"/>
-                                                    <constraint firstAttribute="bottom" secondItem="zVf-Kk-ezR" secondAttribute="bottom" constant="16" id="BAF-Ga-RvU"/>
-                                                    <constraint firstItem="9VT-s5-ehb" firstAttribute="top" secondItem="376-Hw-kor" secondAttribute="top" id="BhA-ZL-Dv0"/>
-                                                    <constraint firstItem="376-Hw-kor" firstAttribute="leading" secondItem="Isx-5a-uMM" secondAttribute="leading" constant="16" id="CGQ-kn-9OH"/>
-                                                    <constraint firstItem="zMZ-0R-PsY" firstAttribute="leading" secondItem="376-Hw-kor" secondAttribute="trailing" constant="8" id="CVj-8q-1Z4"/>
-                                                    <constraint firstItem="5L7-27-zYN" firstAttribute="top" secondItem="376-Hw-kor" secondAttribute="bottom" constant="4" id="Ccq-hm-mV7"/>
-                                                    <constraint firstItem="9VT-s5-ehb" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="zMZ-0R-PsY" secondAttribute="trailing" constant="8" symbolic="YES" id="DJj-Ci-bXG"/>
-                                                    <constraint firstItem="7r5-ia-UhP" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="0cH-ww-lzI" secondAttribute="trailing" constant="8" symbolic="YES" id="FAC-zd-28r"/>
-                                                    <constraint firstItem="7r5-ia-UhP" firstAttribute="top" secondItem="5L7-27-zYN" secondAttribute="bottom" constant="4" id="Fnc-g5-Zvo"/>
-                                                    <constraint firstItem="3II-vK-V2W" firstAttribute="leading" secondItem="Isx-5a-uMM" secondAttribute="leading" constant="16" id="G6Z-Vv-27C"/>
-                                                    <constraint firstItem="nva-Th-f1L" firstAttribute="top" secondItem="3II-vK-V2W" secondAttribute="top" id="IdM-us-aTg"/>
-                                                    <constraint firstItem="nva-Th-f1L" firstAttribute="leading" secondItem="3II-vK-V2W" secondAttribute="trailing" constant="8" id="Ij7-ab-bYA"/>
-                                                    <constraint firstAttribute="bottom" secondItem="7r5-ia-UhP" secondAttribute="bottom" constant="16" id="NCU-py-Mno"/>
-                                                    <constraint firstItem="F2A-DG-cMp" firstAttribute="top" secondItem="3II-vK-V2W" secondAttribute="bottom" constant="4" id="Rji-CE-0so"/>
-                                                    <constraint firstItem="d0M-Pa-DvQ" firstAttribute="trailing" secondItem="5L7-27-zYN" secondAttribute="trailing" id="SfL-1P-msP"/>
-                                                    <constraint firstAttribute="height" priority="250" constant="122" id="aSI-ll-aYc"/>
-                                                    <constraint firstItem="zMZ-0R-PsY" firstAttribute="top" secondItem="376-Hw-kor" secondAttribute="top" id="c4N-VM-ncH"/>
-                                                    <constraint firstItem="F2A-DG-cMp" firstAttribute="leading" secondItem="3II-vK-V2W" secondAttribute="leading" id="cwt-w0-JgC"/>
-                                                    <constraint firstItem="0cH-ww-lzI" firstAttribute="leading" secondItem="zVf-Kk-ezR" secondAttribute="trailing" constant="8" id="kHK-n2-jdo"/>
-                                                    <constraint firstItem="5L7-27-zYN" firstAttribute="leading" secondItem="3II-vK-V2W" secondAttribute="leading" id="qo1-ab-DOy"/>
-                                                    <constraint firstItem="d0M-Pa-DvQ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="nva-Th-f1L" secondAttribute="trailing" constant="8" symbolic="YES" id="sRt-mm-Ky8"/>
-                                                    <constraint firstAttribute="trailing" secondItem="7r5-ia-UhP" secondAttribute="trailing" constant="16" id="th1-Tq-kDt"/>
-                                                    <constraint firstItem="d0M-Pa-DvQ" firstAttribute="trailing" secondItem="F2A-DG-cMp" secondAttribute="trailing" id="wxa-EP-mNv"/>
-                                                    <constraint firstItem="zVf-Kk-ezR" firstAttribute="leading" secondItem="Isx-5a-uMM" secondAttribute="leading" constant="16" id="ynA-Up-TRh"/>
-                                                    <constraint firstItem="0cH-ww-lzI" firstAttribute="top" secondItem="zVf-Kk-ezR" secondAttribute="top" id="zNL-FD-zKe"/>
-                                                </constraints>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                        <real key="value" value="1.5"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                        <color key="value" name="secondary"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                        <real key="value" value="30"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                            </view>
-                                            <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="enm-Li-boD" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
-                                                <rect key="frame" x="258" y="579.33333333333337" width="115" height="29"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="29" id="ihW-Cg-eTD"/>
-                                                </constraints>
-                                                <color key="tintColor" name="primaryMid"/>
-                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                <state key="normal" title="  전체보기" image="arrow.right" catalog="system">
-                                                    <color key="titleColor" name="primaryMid"/>
-                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="13"/>
-                                                </state>
-                                                <buttonConfiguration key="configuration" style="plain" image="arrow.right" catalog="system" title="  전체보기" imagePadding="4">
-                                                    <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="13"/>
-                                                    <color key="baseForegroundColor" name="primaryMid"/>
-                                                </buttonConfiguration>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                        <color key="value" name="primaryMid"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="string" keyPath="button" value="전체보기"/>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                        <real key="value" value="1"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstItem="bne-39-n9W" firstAttribute="leading" secondItem="EA5-ko-ZGr" secondAttribute="leading" constant="20" id="0YR-iz-AzS"/>
-                                            <constraint firstItem="Isx-5a-uMM" firstAttribute="top" secondItem="enm-Li-boD" secondAttribute="bottom" constant="12" id="29t-UN-3bg"/>
-                                            <constraint firstItem="7Hw-gc-sC7" firstAttribute="top" secondItem="ysV-q9-Sz8" secondAttribute="bottom" constant="12" id="40a-DM-iJV"/>
-                                            <constraint firstAttribute="bottom" secondItem="Isx-5a-uMM" secondAttribute="bottom" constant="16" id="4dx-9y-xCd"/>
-                                            <constraint firstItem="zHF-L0-116" firstAttribute="leading" secondItem="9N8-OT-jJQ" secondAttribute="leading" id="4eH-Cm-Aql"/>
                                             <constraint firstAttribute="trailing" secondItem="bne-39-n9W" secondAttribute="trailing" constant="20" id="7jw-fS-EwG"/>
-                                            <constraint firstItem="zHF-L0-116" firstAttribute="top" secondItem="7Hw-gc-sC7" secondAttribute="bottom" constant="32" id="8rX-Fq-evz"/>
-                                            <constraint firstAttribute="trailing" secondItem="ysV-q9-Sz8" secondAttribute="trailing" constant="20" id="Crh-Em-b8B"/>
-                                            <constraint firstItem="ysV-q9-Sz8" firstAttribute="trailing" secondItem="enm-Li-boD" secondAttribute="trailing" id="GGR-n1-MUm"/>
-                                            <constraint firstItem="9hd-lM-uEj" firstAttribute="top" secondItem="zHF-L0-116" secondAttribute="bottom" constant="33" id="Iem-1m-f8k"/>
-                                            <constraint firstItem="Isx-5a-uMM" firstAttribute="leading" secondItem="9N8-OT-jJQ" secondAttribute="leading" id="JVB-iB-ffn"/>
+                                            <constraint firstAttribute="trailing" secondItem="5nW-Jj-w3k" secondAttribute="trailing" constant="20" id="GnB-si-yrL"/>
+                                            <constraint firstItem="5nW-Jj-w3k" firstAttribute="top" secondItem="bne-39-n9W" secondAttribute="bottom" constant="34" id="QAe-b5-95e"/>
                                             <constraint firstItem="bne-39-n9W" firstAttribute="top" secondItem="EA5-ko-ZGr" secondAttribute="top" id="Stt-aj-zME"/>
-                                            <constraint firstItem="ysV-q9-Sz8" firstAttribute="trailing" secondItem="zHF-L0-116" secondAttribute="trailing" id="Tp8-Xb-H5M"/>
-                                            <constraint firstItem="9hd-lM-uEj" firstAttribute="leading" secondItem="9N8-OT-jJQ" secondAttribute="leading" id="ap4-3F-qqf"/>
-                                            <constraint firstItem="ysV-q9-Sz8" firstAttribute="top" secondItem="bne-39-n9W" secondAttribute="bottom" constant="34" id="iKa-rn-R5H"/>
                                             <constraint firstItem="9N8-OT-jJQ" firstAttribute="top" secondItem="bne-39-n9W" secondAttribute="bottom" constant="34" id="jEZ-VE-qA0"/>
                                             <constraint firstItem="9N8-OT-jJQ" firstAttribute="leading" secondItem="EA5-ko-ZGr" secondAttribute="leading" constant="20" id="jRq-iR-1sh"/>
-                                            <constraint firstItem="ysV-q9-Sz8" firstAttribute="trailing" secondItem="7Hw-gc-sC7" secondAttribute="trailing" id="kqO-2o-yaB"/>
-                                            <constraint firstItem="7Hw-gc-sC7" firstAttribute="leading" secondItem="9N8-OT-jJQ" secondAttribute="leading" id="mjP-CV-FJS"/>
-                                            <constraint firstItem="ysV-q9-Sz8" firstAttribute="trailing" secondItem="Isx-5a-uMM" secondAttribute="trailing" id="qZ6-gT-ySb"/>
                                             <constraint firstAttribute="height" priority="250" constant="747" id="xXH-G2-9O0"/>
-                                            <constraint firstItem="enm-Li-boD" firstAttribute="top" secondItem="9hd-lM-uEj" secondAttribute="top" id="zcL-Gb-xup"/>
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ps5-nQ-PWs">
@@ -3946,133 +3598,114 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="9SK-qq-4zF"/>
-                    <connections>
-                        <outlet property="dormitoryButton" destination="289-s2-DUq" id="HZk-4z-e7n"/>
-                        <outlet property="eveningButton" destination="S7p-Kd-Vi9" id="5iK-fP-70g"/>
-                        <outlet property="lineView" destination="7Hw-gc-sC7" id="tR6-cJ-pHN"/>
-                        <outlet property="lunchButton" destination="e2O-jy-tGR" id="ftF-Wd-KRO"/>
-                        <outlet property="menuLabel" destination="50E-XP-OuR" id="VMl-Sd-eid"/>
-                        <outlet property="morningButton" destination="csD-1l-mUE" id="Ffk-KW-UgW"/>
-                        <outlet property="timeLabel" destination="RDQ-xC-h83" id="ApS-JC-381"/>
-                        <outlet property="todayMenuLabel" destination="9N8-OT-jJQ" id="JSD-T9-UGh"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XU0-DC-Ajs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3483" y="-2970"/>
+            <point key="canvasLocation" x="3481.679389312977" y="-2970.4225352112676"/>
         </scene>
     </scenes>
     <designables>
         <designable name="0c7-Sa-8eC">
-            <size key="intrinsicContentSize" width="53.666666666666664" height="34.333333333333336"/>
-        </designable>
-        <designable name="2Vy-KQ-T6I">
-            <size key="intrinsicContentSize" width="107.33333333333333" height="32"/>
-        </designable>
-        <designable name="376-Hw-kor">
-            <size key="intrinsicContentSize" width="56" height="32"/>
-        </designable>
-        <designable name="3II-vK-V2W">
-            <size key="intrinsicContentSize" width="70" height="32"/>
+            <size key="intrinsicContentSize" width="51.333333333333336" height="33.333333333333336"/>
         </designable>
         <designable name="488-NF-ysg">
             <size key="intrinsicContentSize" width="68.666666666666671" height="34.333333333333336"/>
         </designable>
         <designable name="5JZ-3p-UmG">
-            <size key="intrinsicContentSize" width="70" height="32"/>
+            <size key="intrinsicContentSize" width="60" height="28.666666666666668"/>
         </designable>
         <designable name="63s-np-sbo">
-            <size key="intrinsicContentSize" width="92.333333333333329" height="34.333333333333336"/>
+            <size key="intrinsicContentSize" width="88.666666666666671" height="33.333333333333336"/>
+        </designable>
+        <designable name="6cz-aZ-WRa">
+            <size key="intrinsicContentSize" width="4" height="22"/>
         </designable>
         <designable name="6sd-MD-ybY">
-            <size key="intrinsicContentSize" width="53.666666666666664" height="34.333333333333336"/>
+            <size key="intrinsicContentSize" width="51.333333333333336" height="33.333333333333336"/>
         </designable>
         <designable name="8YI-Dj-a5U">
             <size key="intrinsicContentSize" width="28" height="24"/>
         </designable>
         <designable name="9Cx-cb-x6K">
-            <size key="intrinsicContentSize" width="115" height="34.333333333333336"/>
+            <size key="intrinsicContentSize" width="94.666666666666671" height="31"/>
         </designable>
         <designable name="Jb0-KK-Kah">
             <size key="intrinsicContentSize" width="83.333333333333329" height="34.333333333333336"/>
         </designable>
         <designable name="JfS-Y1-OHE">
-            <size key="intrinsicContentSize" width="53.666666666666664" height="34.333333333333336"/>
+            <size key="intrinsicContentSize" width="51.333333333333336" height="33.333333333333336"/>
+        </designable>
+        <designable name="KoZ-HB-q2x">
+            <size key="intrinsicContentSize" width="51.333333333333336" height="33.333333333333336"/>
+        </designable>
+        <designable name="LKE-sW-Mhb">
+            <size key="intrinsicContentSize" width="4" height="22"/>
         </designable>
         <designable name="PCT-uB-HO6">
-            <size key="intrinsicContentSize" width="56" height="32"/>
-        </designable>
-        <designable name="S7p-Kd-Vi9">
-            <size key="intrinsicContentSize" width="53.666666666666664" height="34.333333333333336"/>
+            <size key="intrinsicContentSize" width="48" height="28.666666666666668"/>
         </designable>
         <designable name="Tfo-Ee-43X">
-            <size key="intrinsicContentSize" width="53.666666666666664" height="34.333333333333336"/>
+            <size key="intrinsicContentSize" width="51.333333333333336" height="33.333333333333336"/>
         </designable>
         <designable name="TvH-Er-0RP">
             <size key="intrinsicContentSize" width="21" height="25"/>
         </designable>
         <designable name="WpS-3I-E5y">
-            <size key="intrinsicContentSize" width="93" height="34.333333333333336"/>
+            <size key="intrinsicContentSize" width="72" height="31"/>
         </designable>
         <designable name="X9n-VV-0my">
-            <size key="intrinsicContentSize" width="131.33333333333334" height="34.333333333333336"/>
+            <size key="intrinsicContentSize" width="122.33333333333333" height="33.333333333333336"/>
         </designable>
         <designable name="bPC-1x-PCY">
-            <size key="intrinsicContentSize" width="56" height="32"/>
+            <size key="intrinsicContentSize" width="48" height="28.666666666666668"/>
         </designable>
         <designable name="cEh-7q-gFT">
-            <size key="intrinsicContentSize" width="92.333333333333329" height="34.333333333333336"/>
-        </designable>
-        <designable name="csD-1l-mUE">
-            <size key="intrinsicContentSize" width="53.666666666666664" height="34.333333333333336"/>
-        </designable>
-        <designable name="e2O-jy-tGR">
-            <size key="intrinsicContentSize" width="53.666666666666664" height="34.333333333333336"/>
-        </designable>
-        <designable name="enm-Li-boD">
-            <size key="intrinsicContentSize" width="115" height="34.333333333333336"/>
+            <size key="intrinsicContentSize" width="88.666666666666671" height="33.333333333333336"/>
         </designable>
         <designable name="f7A-Tr-9xV">
             <size key="intrinsicContentSize" width="24" height="14"/>
         </designable>
         <designable name="h0R-IE-oKn">
-            <size key="intrinsicContentSize" width="83" height="34.333333333333336"/>
+            <size key="intrinsicContentSize" width="71.333333333333329" height="31"/>
         </designable>
         <designable name="hQh-uO-d5P">
-            <size key="intrinsicContentSize" width="53.333333333333336" height="34.333333333333336"/>
+            <size key="intrinsicContentSize" width="51.333333333333336" height="31"/>
         </designable>
         <designable name="i0r-bW-D14">
-            <size key="intrinsicContentSize" width="24" height="14"/>
+            <size key="intrinsicContentSize" width="135.66666666666666" height="33.333333333333336"/>
         </designable>
         <designable name="iMM-KA-ESC">
-            <size key="intrinsicContentSize" width="53.666666666666664" height="34.333333333333336"/>
+            <size key="intrinsicContentSize" width="51.333333333333336" height="33.333333333333336"/>
         </designable>
         <designable name="mkz-v3-one">
             <size key="intrinsicContentSize" width="53.666666666666664" height="34.333333333333336"/>
         </designable>
         <designable name="n0i-BB-GvX">
-            <size key="intrinsicContentSize" width="81" height="34.333333333333336"/>
+            <size key="intrinsicContentSize" width="73.666666666666671" height="31"/>
         </designable>
         <designable name="nzJ-Yb-Hjd">
-            <size key="intrinsicContentSize" width="107.33333333333333" height="32"/>
+            <size key="intrinsicContentSize" width="94.666666666666671" height="31"/>
+        </designable>
+        <designable name="o1m-Pq-b3w">
+            <size key="intrinsicContentSize" width="51.333333333333336" height="33.333333333333336"/>
         </designable>
         <designable name="oPs-Mx-3k4">
-            <size key="intrinsicContentSize" width="68.666666666666671" height="34.333333333333336"/>
+            <size key="intrinsicContentSize" width="62.666666666666664" height="31"/>
         </designable>
         <designable name="pf8-z7-rET">
-            <size key="intrinsicContentSize" width="119" height="35.666666666666664"/>
+            <size key="intrinsicContentSize" width="94.666666666666671" height="31"/>
         </designable>
-        <designable name="ysV-q9-Sz8">
-            <size key="intrinsicContentSize" width="119" height="35.666666666666664"/>
+        <designable name="u5e-Mw-OyW">
+            <size key="intrinsicContentSize" width="51.333333333333336" height="33.333333333333336"/>
+        </designable>
+        <designable name="wxR-xj-rw3">
+            <size key="intrinsicContentSize" width="4" height="22"/>
         </designable>
         <designable name="zMd-RW-f50">
-            <size key="intrinsicContentSize" width="83.333333333333329" height="34.333333333333336"/>
-        </designable>
-        <designable name="zVf-Kk-ezR">
-            <size key="intrinsicContentSize" width="56" height="32"/>
+            <size key="intrinsicContentSize" width="74.666666666666671" height="31"/>
         </designable>
         <designable name="zs1-QO-A3O">
-            <size key="intrinsicContentSize" width="117.66666666666667" height="34.333333333333336"/>
+            <size key="intrinsicContentSize" width="103.33333333333333" height="31"/>
         </designable>
     </designables>
     <resources>

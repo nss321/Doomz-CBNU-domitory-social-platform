@@ -37,6 +37,7 @@
 		DB61AA342B4C1EA70040418B /* RegisterPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB61AA332B4C1EA70040418B /* RegisterPostViewController.swift */; };
 		DB6491322C22A84000E0AE25 /* Url.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6491312C22A84000E0AE25 /* Url.swift */; };
 		DB6491342C22A86F00E0AE25 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6491332C22A86F00E0AE25 /* Token.swift */; };
+		DB6491362C22F7FD00E0AE25 /* MealOfWeekViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6491352C22F7FD00E0AE25 /* MealOfWeekViewController.swift */; };
 		DB74D0C62B73EEBF00A90D68 /* Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB74D0C52B73EEBF00A90D68 /* Codable.swift */; };
 		DB7BE9E72BA47A5E00BC25E3 /* ReplyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7BE9E52BA47A5E00BC25E3 /* ReplyCollectionViewCell.swift */; };
 		DB7BE9EC2BA47AF800BC25E3 /* ReplyCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB7BE9EA2BA47AF700BC25E3 /* ReplyCollectionViewCell.xib */; };
@@ -127,6 +128,7 @@
 		DB61AA332B4C1EA70040418B /* RegisterPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPostViewController.swift; sourceTree = "<group>"; };
 		DB6491312C22A84000E0AE25 /* Url.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Url.swift; sourceTree = "<group>"; };
 		DB6491332C22A86F00E0AE25 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
+		DB6491352C22F7FD00E0AE25 /* MealOfWeekViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealOfWeekViewController.swift; sourceTree = "<group>"; };
 		DB74D0C52B73EEBF00A90D68 /* Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Codable.swift; sourceTree = "<group>"; };
 		DB7BE9E52BA47A5E00BC25E3 /* ReplyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ReplyCollectionViewCell.swift; path = ../../ReplyCollectionViewCell.swift; sourceTree = "<group>"; };
 		DB7BE9EA2BA47AF700BC25E3 /* ReplyCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ReplyCollectionViewCell.xib; path = ../ReplyCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -280,6 +282,7 @@
 				DB20E38B2B53C2BD000D12A7 /* HomeViewController.swift */,
 				DB7EF27C2B5EAC790062FAB5 /* ChoiceDormitoryButton.swift */,
 				DB1E0E872B6297D0000A4AA5 /* DormitoryButton */,
+				DB6491352C22F7FD00E0AE25 /* MealOfWeekViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -568,6 +571,7 @@
 				DB61AA342B4C1EA70040418B /* RegisterPostViewController.swift in Sources */,
 				DB20E38E2B53D75F000D12A7 /* extensionStroyboard.swift in Sources */,
 				117250E92BB5927E0083F181 /* SmokeAndAlcoholPatternViewController.swift in Sources */,
+				DB6491362C22F7FD00E0AE25 /* MealOfWeekViewController.swift in Sources */,
 				DBD1E7FC2B84A9D500FD71C6 /* Network.swift in Sources */,
 				DB2B7BCB2B45727B00C1847D /* TagButton.swift in Sources */,
 				DB1E0E8B2B629865000A4AA5 /* ChoiceDormitoryViewController.swift in Sources */,
