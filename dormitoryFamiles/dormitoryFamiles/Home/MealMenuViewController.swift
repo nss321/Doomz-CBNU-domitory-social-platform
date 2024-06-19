@@ -67,9 +67,7 @@ final class MealMenuViewController: TabmanViewController {
         bar.layout.interButtonSpacing = 15 // 버튼 사이 간격
         bar.layout.transitionStyle = .progressive// Customize
         
-        let item = TMBarItem(title: "dddddddd")
-        item.title = "Item 1"
-        item.badgeValue = "New"
+       
         addBar(bar, dataSource: dataSource as! TMBarDataSource, at: .custom(view: tabmanView, layout: nil))
     }
     
