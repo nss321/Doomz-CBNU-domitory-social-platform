@@ -40,8 +40,10 @@ final class MealMenuViewController: TabmanViewController, DormitoryButtonHandlin
         fridayVC.date = DateUtility.addDaysToDate(dateString: mondayDate, daysToAdd: 4) ?? ""
         let saturdayVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "mealOfWeekViewController") as! MealOfWeekViewController
         saturdayVC.date = DateUtility.addDaysToDate(dateString: mondayDate, daysToAdd: 5) ?? ""
+        saturdayVC.isWeekend = true
         let sundayVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "mealOfWeekViewController") as! MealOfWeekViewController
         sundayVC.date = DateUtility.addDaysToDate(dateString: mondayDate, daysToAdd: 6) ?? ""
+        sundayVC.isWeekend = true
         return [mondayVC, tuesdayVC, wednesdayVC, thursdayVC, fridayVC, saturdayVC, sundayVC]
     }
     

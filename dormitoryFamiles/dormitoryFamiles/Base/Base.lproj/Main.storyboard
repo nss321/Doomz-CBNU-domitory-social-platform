@@ -3402,8 +3402,8 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="잡곡밥 근대 된장국 돈육 두부 두루치기 감자채 피망볶음 김치" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" showsExpansionTextWhenTruncated="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eh7-E6-z9H">
-                                        <rect key="frame" x="125" y="64" width="126.33333333333331" height="189"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="정보를 받아오는 중.." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" showsExpansionTextWhenTruncated="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eh7-E6-z9H">
+                                        <rect key="frame" x="120.66666666666667" y="64" width="134.66666666666663" height="187"/>
                                         <fontDescription key="fontDescription" name=".AppleSDGothicNeoI-Regular" family=".Apple SD Gothic NeoI" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -3412,7 +3412,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="운영시간 11:00 ~ 14:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HdI-Su-mXt">
-                                        <rect key="frame" x="44" y="265" width="139.33333333333334" height="15"/>
+                                        <rect key="frame" x="44" y="263" width="139.33333333333334" height="17"/>
                                         <color key="tintColor" name="gray4"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" name="gray4"/>
@@ -3421,22 +3421,18 @@
                                             <userDefinedRuntimeAttribute type="string" keyPath="body2" value="운영시간 11:00 ~ 14:00"/>
                                         </userDefinedRuntimeAttributes>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="총 칼로리 890kcal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1tI-iL-gGt">
-                                        <rect key="frame" x="240" y="265" width="108" height="15"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="20" id="Y7A-Z8-bhW"/>
-                                        </constraints>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="총 칼로리 kcal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1tI-iL-gGt">
+                                        <rect key="frame" x="266" y="263" width="82" height="17"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" name="gray4"/>
                                         <nil key="highlightedColor"/>
                                         <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="body2" value="총 칼로리 890kcal"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="body2" value="총 칼로리 kcal"/>
                                         </userDefinedRuntimeAttributes>
                                     </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="homeImageClock" translatesAutoresizingMaskIntoConstraints="NO" id="YXd-bb-VTY">
-                                        <rect key="frame" x="25" y="265" width="15" height="15"/>
+                                        <rect key="frame" x="25" y="263" width="15" height="17"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="15" id="MDi-x6-Qy9"/>
                                             <constraint firstAttribute="width" constant="15" id="ecQ-xr-iDn"/>
                                         </constraints>
                                     </imageView>
@@ -3488,7 +3484,7 @@
                         <outlet property="lunchButton" destination="u5e-Mw-OyW" id="saa-CF-YdP"/>
                         <outlet property="menuLabel" destination="eh7-E6-z9H" id="brN-YZ-v0f"/>
                         <outlet property="morningButton" destination="o1m-Pq-b3w" id="TlX-bY-Ilu"/>
-                        <outlet property="timeLabel" destination="HdI-Su-mXt" id="FWK-D8-BxB"/>
+                        <outlet property="timeLabel" destination="HdI-Su-mXt" id="3hU-M1-fTB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ozo-4r-NKZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

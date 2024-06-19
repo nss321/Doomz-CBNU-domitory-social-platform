@@ -11,6 +11,7 @@ import SwiftSoup
 final class MealOfWeekViewController: UIViewController {
 
     var date = ""
+    var isWeekend = false
     @IBOutlet weak var menuLabel: UILabel!
     
     @IBOutlet weak var timeLabel: UILabel!
@@ -22,6 +23,7 @@ final class MealOfWeekViewController: UIViewController {
     @IBOutlet weak var eveningButton: RoundButton!
     
     @IBOutlet weak var kcalLabel: UILabel!
+    
     
     
     private var todayString: String {
@@ -95,7 +97,6 @@ final class MealOfWeekViewController: UIViewController {
     
     
     @IBAction func menuButtonTapped(_ sender: RoundButton) {
-        
         [morningButton, lunchButton, eveningButton].forEach{
             $0?.backgroundColor = .secondary
             $0?.tintColor = .black
@@ -106,16 +107,33 @@ final class MealOfWeekViewController: UIViewController {
         let mealTimeMapping = ["아침": "morning", "점심": "lunch", "저녁": "evening"]
         if let title = sender.currentTitle, let mappedTitle = mealTimeMapping[title], let time = MealTime(rawValue: mappedTitle) {
             self.fetchWebsite(time: time)
+
         }
     }
-    
-    
-    
-
     
     private func fetchWebsite(time: MealTime) {
         guard SelectedDormitory.shared.domitory != "양현재" else {
             return
+        }
+        
+        if !isWeekend {
+            //평일
+            if time == .morning {
+                timeLabel.body2 = "운영시간 7:20 ~ 09:00"
+            }else if time == .lunch {
+                timeLabel.body2 = "운영시간 11:30 ~ 13:30"
+            }else if time == .evening {
+                timeLabel.body2 = "운영시간 17:30 ~ 19:10"
+            }
+        }else {
+            //주말
+            if time == .morning {
+                timeLabel.body2 = "운영시간 8:00 ~ 09:00"
+            }else if time == .lunch {
+                timeLabel.body2 = "운영시간 12:00 ~ 13:00"
+            }else if time == .evening {
+                timeLabel.body2 = "운영시간 17:30 ~ 19:00"
+            }
         }
         
         guard let url = URL(string: site[SelectedDormitory.shared.domitory]!) else {return}
@@ -149,8 +167,18 @@ final class MealOfWeekViewController: UIViewController {
                 }
                 
                 DispatchQueue.main.async { [self] in
-                    self.menuLabel.text = cutKcalLine(str: menu)
-                    self.kcalLabel.text = "총 칼로리 \(kcal)kcal"
+                    if menu == "\n" {
+                        self.menuLabel.text = "긱식 정보 없음"
+                        self.kcalLabel.text = ""
+                    }else {
+                        self.menuLabel.text = cutKcalLine(str: menu)
+                        self.kcalLabel.text = "총 칼로리 \(kcal)kcal"
+                    }
+                }
+            }else {
+                DispatchQueue.main.async { [self] in
+                    self.menuLabel.text = "긱식 정보 없음"
+                    self.kcalLabel.text = ""
                 }
             }
         } catch Exception.Error(_, let message) {
