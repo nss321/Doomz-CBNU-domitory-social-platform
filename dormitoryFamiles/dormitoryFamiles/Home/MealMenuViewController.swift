@@ -9,10 +9,10 @@ import Tabman
 import Pageboy
 import UIKit
 
-final class MealMenuViewController: TabmanViewController {
+final class MealMenuViewController: TabmanViewController, DormitoryButtonHandling {
  
     @IBOutlet weak var weekDateLabel: UILabel!
-    
+    @IBOutlet weak var dormitoryButton: UIButton!
     @IBOutlet weak var tabmanView: UIView!
     
     private var viewControllers: [MealOfWeekViewController] {
@@ -35,8 +35,11 @@ final class MealMenuViewController: TabmanViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setObserver()
         weekDateLabel.button = DateUtility.weekRangeString()
         setTapman()
+        dormitoryButton.head1 = SelectedDormitory.shared.domitory
+        dormitoryButton.setTitle(SelectedDormitory.shared.domitory, for: .normal)
     }
     
    
@@ -71,6 +74,31 @@ final class MealMenuViewController: TabmanViewController {
         addBar(bar, dataSource: dataSource as! TMBarDataSource, at: .custom(view: tabmanView, layout: nil))
     }
     
+    private func setDormitoryButton() {
+        var configuration = UIButton.Configuration.plain()
+        configuration.imagePadding = .init(4)
+        dormitoryButton.configuration = configuration
+        dormitoryButton?.tintAdjustmentMode = .normal
+        dormitoryButton.head1 = SelectedDormitory.shared.domitory
+    }
+    
+
+    @IBAction func dormitoryButtonTapped(_ sender: DormitoryButton) {
+        presentSheet()
+    }
+    
+    @objc func dormitoryChangeNotification(_ notification: Notification) {
+        if notification.object is String {
+            dormitoryButton.head1 = SelectedDormitory.shared.domitory
+            dormitoryButton.setTitle(SelectedDormitory.shared.domitory, for: .normal)
+        }
+    }
+    
+    private func setObserver() {
+        NotificationCenter.default.addObserver(self, selector: #selector(dormitoryChangeNotification(_:)), name: .init("DormitoryChangeNotification"), object: nil)
+    }
+    
+   
 }
 
 extension MealMenuViewController: PageboyViewControllerDataSource, TMBarDataSource {

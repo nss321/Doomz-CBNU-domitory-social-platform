@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="F8n-0Z-Nxd">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="peN-Im-ACT">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
@@ -1026,7 +1026,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nzJ-Yb-Hjd" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
-                                                        <rect key="frame" x="16" y="68.666666666666742" width="94.666666666666671" height="28"/>
+                                                        <rect key="frame" x="16" y="68.666666666666742" width="94.666666666666686" height="28"/>
                                                         <color key="backgroundColor" name="primaryMid"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="28" id="iWk-PQ-m4c"/>
@@ -3333,6 +3333,9 @@
                                                                 <color key="value" name="secondary"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="menuButtonTapped:" destination="dOf-lN-0Cy" eventType="touchUpInside" id="4nJ-kL-Fot"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u5e-Mw-OyW" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
                                                         <rect key="frame" x="117.66666666666666" y="0.0" width="97.666666666666657" height="32"/>
@@ -3348,6 +3351,9 @@
                                                                 <color key="value" name="secondary"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="menuButtonTapped:" destination="dOf-lN-0Cy" eventType="touchUpInside" id="lZf-s5-tIX"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KoZ-HB-q2x" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
                                                         <rect key="frame" x="235.33333333333329" y="0.0" width="97.666666666666657" height="32"/>
@@ -3363,6 +3369,9 @@
                                                                 <color key="value" name="secondary"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="menuButtonTapped:" destination="dOf-lN-0Cy" eventType="touchUpInside" id="R0P-bD-AdB"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <constraints>
@@ -3469,6 +3478,14 @@
                             <constraint firstItem="oXO-vx-Z1W" firstAttribute="leading" secondItem="iZZ-8K-4RM" secondAttribute="leading" constant="10" id="a1t-nU-Ks0"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="eveningButton" destination="KoZ-HB-q2x" id="Esq-6A-IIs"/>
+                        <outlet property="kcalLabel" destination="1tI-iL-gGt" id="vSb-wi-fVy"/>
+                        <outlet property="lunchButton" destination="u5e-Mw-OyW" id="saa-CF-YdP"/>
+                        <outlet property="menuLabel" destination="eh7-E6-z9H" id="brN-YZ-v0f"/>
+                        <outlet property="morningButton" destination="o1m-Pq-b3w" id="TlX-bY-Ilu"/>
+                        <outlet property="timeLabel" destination="HdI-Su-mXt" id="FWK-D8-BxB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ozo-4r-NKZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -3542,6 +3559,9 @@
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="string" keyPath="head1" value="본관"/>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="dormitoryButtonTapped:" destination="F8n-0Z-Nxd" eventType="touchUpInside" id="00i-eS-Yd8"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -3589,6 +3609,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="9SK-qq-4zF"/>
                     <connections>
+                        <outlet property="dormitoryButton" destination="289-s2-DUq" id="Lvw-au-2Ox"/>
                         <outlet property="tabmanView" destination="cRC-hr-K7d" id="uT9-Tb-seO"/>
                         <outlet property="weekDateLabel" destination="5nW-Jj-w3k" id="Tbn-UN-e5A"/>
                     </connections>
