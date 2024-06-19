@@ -40,5 +40,33 @@ struct DateUtility {
             return "방금 전"
         }
     }
+    
+    //오늘을 기점으로 return "월요일(MM.DD)~일요일(MM.dd)"
+    static func weekRangeString() -> String {
+        let calendar = Calendar.current
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM.dd"
+        let today = Date()
+
+        // 오늘의 요일을 가져옴 (월요일이 2, 일요일이 1)
+        let weekday = calendar.component(.weekday, from: today)
+        
+        // 오늘의 요일을 기준으로 월요일과 일요일을 계산
+        let daysFromMonday = weekday == 1 ? -6 : 2 - weekday
+        let daysToSunday = weekday == 1 ? 0 : 8 - weekday
+        
+        // 월요일과 일요일의 날짜를 구함
+        guard let monday = calendar.date(byAdding: .day, value: daysFromMonday, to: today),
+              let sunday = calendar.date(byAdding: .day, value: daysToSunday, to: today) else {
+            return ""
+        }
+        
+        // 날짜를 문자열로 변환
+        let mondayString = dateFormatter.string(from: monday)
+        let sundayString = dateFormatter.string(from: sunday)
+
+        return "\(mondayString)~\(sundayString)"
+    }
+
 }
 

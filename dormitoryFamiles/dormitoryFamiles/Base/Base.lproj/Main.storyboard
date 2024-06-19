@@ -3598,6 +3598,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="9SK-qq-4zF"/>
+                    <connections>
+                        <outlet property="weekDateLabel" destination="5nW-Jj-w3k" id="Tbn-UN-e5A"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XU0-DC-Ajs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -3737,7 +3740,7 @@
         <image name="tabbarItemBulletinBoardGray" width="21" height="24"/>
         <image name="tabbarItemChatting" width="24" height="20.579999923706055"/>
         <image name="tabbarItemChattingGray" width="25" height="24"/>
-        <image name="tabbarItemHome" width="25" height="24"/>
+        <image name="tabbarItemHome" width="32" height="32"/>
         <image name="tabbarItemHomeGray" width="25" height="24"/>
         <image name="tabbarItemMateMatching" width="22.319999694824219" height="19.819999694824219"/>
         <image name="tabbarItemMateMatchingGray" width="27" height="26"/>

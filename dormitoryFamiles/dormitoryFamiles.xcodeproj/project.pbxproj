@@ -281,8 +281,8 @@
 				DBF466FE2AA5F4E4009FF3EB /* MealMenuViewController.swift */,
 				DB20E38B2B53C2BD000D12A7 /* HomeViewController.swift */,
 				DB7EF27C2B5EAC790062FAB5 /* ChoiceDormitoryButton.swift */,
-				DB1E0E872B6297D0000A4AA5 /* DormitoryButton */,
 				DB6491352C22F7FD00E0AE25 /* MealOfWeekViewController.swift */,
+				DB1E0E872B6297D0000A4AA5 /* DormitoryButton */,
 			);
 			path = Home;
 			sourceTree = "<group>";
