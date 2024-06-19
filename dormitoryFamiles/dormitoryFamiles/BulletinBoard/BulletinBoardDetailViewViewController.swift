@@ -337,6 +337,7 @@ final class BulletinBoardDetailViewViewController: UIViewController {
 
             finishAlert.addAction(UIAlertAction(title: "완료하기", style: .default, handler: { [self] _ in
                 let finishUrl = Url.changeStatus(id: id, status: statusQuery)
+
                 Network.putMethod(url: finishUrl) { (result: Result<SuccessCode, Error>) in
                     switch result {
                     case .success(let successCode):
@@ -536,9 +537,9 @@ extension BulletinBoardDetailViewViewController: UICollectionViewDelegateFlowLay
     
 }
 
-enum Status:String {
-case ing = "모집중"
-case finish = "모집완료"
+enum Status: String {
+    case ing = "모집중"
+    case finish = "모집완료"
 }
 
 import UIKit

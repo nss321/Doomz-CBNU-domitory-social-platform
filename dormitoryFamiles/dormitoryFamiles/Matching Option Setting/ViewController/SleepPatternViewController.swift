@@ -159,7 +159,7 @@ final class SleepPatternViewController: UIViewController, ConfigUI {
         let wakeupTimeSection =  createStackViewWithLabelAndSubview(string: "기상시간", subview: wakeupTimeCollcetionView)
         let habitsSection = createStackViewWithLabelAndSubview(string: "잠버릇", subview: sleepingHabitsCollectionView)
         let sensitivitySection = createStackViewWithLabelAndSubview(string: "잠귀", subview: sleepSensitivityCollectionView)
-
+        
         view.addSubview(scrollView)
         scrollView.addSubview(stackView)
         [logoStackView, sleepPatternStackView].forEach{ stackView.addArrangedSubview($0) }
@@ -207,6 +207,10 @@ final class SleepPatternViewController: UIViewController, ConfigUI {
         nextButton.snp.makeConstraints {
             $0.left.right.equalToSuperview()
         }
+        
+        sleepPatternLogo.snp.makeConstraints{
+            $0.height.equalTo(Double(UIScreen.currentScreenHeight)*0.148)
+        }
     }
     
     @objc
@@ -236,7 +240,7 @@ extension SleepPatternViewController: UICollectionViewDataSource {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SleepPatternCollectionViewCell.identifier, for: indexPath) as? SleepPatternCollectionViewCell else { fatalError() }
             cell.configure(with: sensitivity[indexPath.row])
             return cell
-        
+            
         default:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SleepPatternCollectionViewCell.identifier, for: indexPath) as? SleepPatternCollectionViewCell else { fatalError() }
             cell.configure(with: goToSleepTimes[indexPath.row])
@@ -283,7 +287,7 @@ extension SleepPatternViewController: UICollectionViewDataSource {
         return interSpacing
     }
 }
-    
+
 extension SleepPatternViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let cellSize: CGSize
@@ -312,4 +316,3 @@ extension SleepPatternViewController: UICollectionViewDelegateFlowLayout {
         
     }
 }
-
