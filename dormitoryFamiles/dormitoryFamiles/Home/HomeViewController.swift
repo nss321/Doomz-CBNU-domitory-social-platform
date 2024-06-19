@@ -55,10 +55,10 @@ final class HomeViewController: UIViewController, DormitoryButtonHandling {
         stackViewBottomConstraint.isActive = true
         
         self.navigationController?.setNavigationBarHidden(true, animated: true)
-        fetchWebsite(time: .morning)
         setTintAdjustmentModeForButtons(in: self.view)
         dormitoryButton.head1 = SelectedDormitory.shared.domitory
         dormitoryButton.setTitle(SelectedDormitory.shared.domitory, for: .normal)
+        fetchWebsite(time: .morning)
     }
     
     
@@ -142,6 +142,7 @@ final class HomeViewController: UIViewController, DormitoryButtonHandling {
         guard dormitoryButton.currentTitle! != "양현재" else {
             return
         }
+        
         guard let url = URL(string: site[dormitoryButton.currentTitle!]!) else {return}
         let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
             if let error = error {
