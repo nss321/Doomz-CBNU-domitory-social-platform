@@ -26,6 +26,9 @@ final class HomeViewController: UIViewController, DormitoryButtonHandling {
     
     @IBOutlet weak var eveningButton: RoundButton!
     
+    @IBOutlet weak var kcalLabel: UILabel!
+    
+    
     private var todayString: String {
         get {
             let dateFormmatter = DateFormatter()
@@ -156,10 +159,23 @@ final class HomeViewController: UIViewController, DormitoryButtonHandling {
         do {
             let document = try SwiftSoup.parse(html)
             if let element = try document.select("tr#\(date)").first() {
-                let menu = try element.select("td.\(mealTimeString)").first()?.html().replacingOccurrences(of: "<br />", with: "\n")
+                let menu = try element.select("td.\(mealTimeString)").first()?.html().replacingOccurrences(of: "<br />", with: "\n").replacingOccurrences(of: "amp;", with: "")
+                
+                var kcal = ""
+                //(\\d+)는 숫자형식이 들어온다는것,\\s*Kcal는 Kcal앞에 공백이 있을수도 없을수도 있다는 뜻
+                let regex = try! NSRegularExpression(pattern: "(\\d+)\\s*Kcal", options: [.caseInsensitive])
+                let range = NSRange(location: 0, length: menu?.utf16.count ?? 0)
+                if let match = regex.firstMatch(in: menu ?? "", options: [], range: range) {
+                    if let energyRange = Range(match.range(at: 1), in: menu ?? "") {
+                        kcal = String(menu?[energyRange] ?? "")
+                    }
+                }
+
+                
                 
                 DispatchQueue.main.async {
                     self.menuLabel.text = menu
+                    self.kcalLabel.text = "총 칼로리 \(kcal)kcal"
                 }
             }
         } catch Exception.Error(_, let message) {
