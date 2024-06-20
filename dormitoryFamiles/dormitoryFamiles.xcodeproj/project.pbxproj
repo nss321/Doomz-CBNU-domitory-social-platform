@@ -49,6 +49,7 @@
 		DB8DDFD92BECC5AC00B3A676 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8DDFD82BECC5AC00B3A676 /* Category.swift */; };
 		DB932AC12B6511E300B456FB /* BulluetinBoardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB932ABF2B6511E300B456FB /* BulluetinBoardCollectionViewCell.swift */; };
 		DB932AC22B6511E300B456FB /* BulluetinBoardCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB932AC02B6511E300B456FB /* BulluetinBoardCollectionViewCell.xib */; };
+		DB94B2AF2C23B3D80077A7BE /* NickNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB94B2AE2C23B3D80077A7BE /* NickNameViewController.swift */; };
 		DBB345F22B42BFD100E70380 /* BulletinBoardMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB345F12B42BFD100E70380 /* BulletinBoardMainViewController.swift */; };
 		DBC001D82BBAEDBB00228CD9 /* AddImageBaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC001D72BBAEDBB00228CD9 /* AddImageBaseView.swift */; };
 		DBC1CFF62BC2AE25005C93C0 /* ConfigUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11707A312BA617EE0027802D /* ConfigUI.swift */; };
@@ -140,6 +141,7 @@
 		DB8DDFD82BECC5AC00B3A676 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		DB932ABF2B6511E300B456FB /* BulluetinBoardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulluetinBoardCollectionViewCell.swift; sourceTree = "<group>"; };
 		DB932AC02B6511E300B456FB /* BulluetinBoardCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BulluetinBoardCollectionViewCell.xib; sourceTree = "<group>"; };
+		DB94B2AE2C23B3D80077A7BE /* NickNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NickNameViewController.swift; sourceTree = "<group>"; };
 		DBB345F12B42BFD100E70380 /* BulletinBoardMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulletinBoardMainViewController.swift; sourceTree = "<group>"; };
 		DBC001D72BBAEDBB00228CD9 /* AddImageBaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddImageBaseView.swift; sourceTree = "<group>"; };
 		DBC54C422B568B350071164C /* UIFontExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFontExtension.swift; sourceTree = "<group>"; };
@@ -339,6 +341,7 @@
 				DBCE10E02B595506008C3367 /* loginViewController.swift */,
 				DB7EF2782B5EA4B00062FAB5 /* AlrmElementView.swift */,
 				DB3F18082B6162AB002F1738 /* ProfileSettingViewController.swift */,
+				DB94B2AE2C23B3D80077A7BE /* NickNameViewController.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -572,6 +575,7 @@
 				DB20E38E2B53D75F000D12A7 /* extensionStroyboard.swift in Sources */,
 				117250E92BB5927E0083F181 /* SmokeAndAlcoholPatternViewController.swift in Sources */,
 				DB6491362C22F7FD00E0AE25 /* MealOfWeekViewController.swift in Sources */,
+				DB94B2AF2C23B3D80077A7BE /* NickNameViewController.swift in Sources */,
 				DBD1E7FC2B84A9D500FD71C6 /* Network.swift in Sources */,
 				DB2B7BCB2B45727B00C1847D /* TagButton.swift in Sources */,
 				DB1E0E8B2B629865000A4AA5 /* ChoiceDormitoryViewController.swift in Sources */,
