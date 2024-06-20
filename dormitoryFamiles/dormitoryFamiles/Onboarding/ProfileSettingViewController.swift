@@ -37,11 +37,46 @@ final class ProfileSettingViewController: UIViewController {
     @IBOutlet weak var collegeOfCollegesButton: UIButton!
     @IBOutlet weak var departmentSelectionButton: UIButton!
     @IBOutlet weak var dormitoryButton: UIButton!
+    @IBOutlet weak var nextButton: RoundButton!
+    
+    @IBOutlet weak var studentNumberTextField: UITextField!
+    private var departmentObserver: NSKeyValueObservation?
+    private var collegeOfCollegesObserver: NSKeyValueObservation?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        setTextfield()
+        departmentObserver = departmentSelectionButton.titleLabel?.observe(\.text, options: [.new, .old], changeHandler: { [weak self] (label, change) in
+                    if let newText = change.newValue {
+                        self?.departmentTextDidChange(newText: newText)
+                    }
+                })
+        collegeOfCollegesObserver = collegeOfCollegesButton.titleLabel?.observe(\.text, options: [.new, .old], changeHandler: { [weak self] (label, change) in
+            if let newText = change.newValue {
+                self?.collegeOfCollegesTextDidChange(newText: newText)
+            }
+        })
         [universityLabel, departmentLabel, identifierNumberLabel, dormitoryLabel].forEach{$0.asColor(targetString: ["*"], color: .primary!)}
         setDropDown()
+        nextButton.isEnabled = false
+        
+    }
+    
+    private func setTextfield() {
+        studentNumberTextField.delegate = self
+        studentNumberTextField.keyboardType = .numberPad
+    }
+    
+    private func  departmentTextDidChange(newText: String?) {
+        if (newText != "학과선택") && (studentNumberTextField.text != "") {
+            nextButton.isEnabled = true
+        }else {
+            nextButton.isEnabled = false
+        }
+    }
+    
+    private func collegeOfCollegesTextDidChange(newText: String?) {
+        departmentSelectionButton.setTitle("학과선택", for: .normal)
     }
     
     private func setDropDown() {
@@ -85,6 +120,34 @@ final class ProfileSettingViewController: UIViewController {
             sender.setTitle(item, for: .normal)
             sender.borderColor = .gray1
         }
+        
+        if departmentSelectionButton.currentTitle != "학과선택" {
+            nextButton.isEnabled = true
+            nextButton.backgroundColor = .primary
+        }else {
+            nextButton.isEnabled = false
+            nextButton.backgroundColor = .gray3
+        }
     }
     
+}
+
+extension ProfileSettingViewController: UITextFieldDelegate {
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        let textFieldMaxLength = 10
+        let text = textField.text ?? ""
+        if text.count > textFieldMaxLength {
+            let startIndex = text.startIndex
+            let endIndex = text.index(startIndex, offsetBy: textFieldMaxLength - 1)
+            let fixedText = String(text[startIndex...endIndex])
+            textField.text = fixedText
+        }
+        if (departmentSelectionButton.currentTitle != "학과선택") && (studentNumberTextField.text != "") {
+            nextButton.isEnabled = true
+            nextButton.backgroundColor = .primary
+        }else {
+            nextButton.isEnabled = false
+            nextButton.backgroundColor = .gray3
+        }
+    }
 }

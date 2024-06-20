@@ -357,7 +357,7 @@
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="PretendardVariable-Regular" family="Pretendard Variable" pointSize="16"/>
                                                 <inset key="contentEdgeInsets" minX="16" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                <state key="normal" title="양진재">
+                                                <state key="normal" title="본관">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <userDefinedRuntimeAttributes>
@@ -382,9 +382,9 @@
                                                     <constraint firstAttribute="width" constant="10" id="pWE-Vm-sOE"/>
                                                 </constraints>
                                             </imageView>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6sd-MD-ybY" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6sd-MD-ybY" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
                                                 <rect key="frame" x="21.666666666666657" y="655" width="350" height="52"/>
-                                                <color key="backgroundColor" name="primary"/>
+                                                <color key="backgroundColor" name="gray3"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="52" id="iKN-Ot-rIr"/>
                                                 </constraints>
@@ -494,6 +494,8 @@
                         <outlet property="dormitoryButton" destination="9Vh-0B-AMs" id="cAc-ZX-byZ"/>
                         <outlet property="dormitoryLabel" destination="dPq-Cc-i8A" id="I46-Qi-lwd"/>
                         <outlet property="identifierNumberLabel" destination="xv8-lB-uHt" id="QPL-J7-CIw"/>
+                        <outlet property="nextButton" destination="6sd-MD-ybY" id="EOa-Zb-TuZ"/>
+                        <outlet property="studentNumberTextField" destination="E4s-aH-Eyh" id="jSU-rK-Seh"/>
                         <outlet property="universityLabel" destination="Epx-IA-gan" id="qJY-lt-kFp"/>
                     </connections>
                 </viewController>
@@ -2960,7 +2962,7 @@
                                 <rect key="frame" x="0.0" y="103" width="393" height="715"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l0m-hn-rrr">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="715"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="381.66666666666669" height="715"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="학생증 인증을 해주세요." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cvZ-bq-tUL">
                                                 <rect key="frame" x="20" y="32" width="161" height="21"/>
@@ -2972,7 +2974,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.69999999999999996" translatesAutoresizingMaskIntoConstraints="NO" id="ZVB-64-UcZ">
-                                                <rect key="frame" x="20" y="8" width="353" height="4"/>
+                                                <rect key="frame" x="20" y="8" width="341.66666666666669" height="4"/>
                                                 <color key="progressTintColor" name="primaryMid"/>
                                             </progressView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="충북대 학생을 인증하면" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c7t-Ku-SQ5">
@@ -2985,9 +2987,9 @@
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Myg-8V-Xg2">
-                                                <rect key="frame" x="20" y="110" width="353" height="124"/>
+                                                <rect key="frame" x="20" y="110" width="341.66666666666669" height="124"/>
                                                 <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0AW-3P-54T">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="airplane" translatesAutoresizingMaskIntoConstraints="NO" id="0AW-3P-54T">
                                                         <rect key="frame" x="20" y="12" width="100" height="100"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="100" id="mBY-o9-kIH"/>
@@ -2995,7 +2997,7 @@
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="기숙사에 대한 다양한 정보와 소식을 빠르게 전해요!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oAr-ZZ-Twp">
-                                                        <rect key="frame" x="132" y="12" width="201" height="100"/>
+                                                        <rect key="frame" x="132" y="12" width="189.66666666666663" height="100"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -3021,9 +3023,9 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QeN-Kr-diU">
-                                                <rect key="frame" x="20" y="246" width="353" height="124"/>
+                                                <rect key="frame" x="20" y="246" width="341.66666666666669" height="124"/>
                                                 <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ftr-hN-bwy">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="highfive" translatesAutoresizingMaskIntoConstraints="NO" id="ftr-hN-bwy">
                                                         <rect key="frame" x="20" y="12" width="100" height="100"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="100" id="6ub-L1-4j6"/>
@@ -3031,7 +3033,7 @@
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="룸메 매칭으로 원하는 룸메를 추천해요!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ThE-5H-3sj">
-                                                        <rect key="frame" x="132" y="12" width="201" height="100"/>
+                                                        <rect key="frame" x="132" y="12" width="189.66666666666663" height="100"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -3057,7 +3059,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X9n-VV-0my" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
-                                                <rect key="frame" x="20" y="647" width="353" height="52"/>
+                                                <rect key="frame" x="21.666666666666657" y="647" width="338.66666666666674" height="52"/>
                                                 <color key="backgroundColor" name="primary"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="52" id="CAw-rM-sbt"/>
@@ -3082,12 +3084,12 @@
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
+                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="cvZ-bq-tUL" secondAttribute="trailing" constant="20" symbolic="YES" id="0Kl-uv-zDZ"/>
+                                            <constraint firstItem="X9n-VV-0my" firstAttribute="leading" secondItem="l0m-hn-rrr" secondAttribute="leading" constant="21.5" id="15m-Gw-Yce"/>
                                             <constraint firstItem="c7t-Ku-SQ5" firstAttribute="leading" secondItem="l0m-hn-rrr" secondAttribute="leading" constant="20" id="2d9-eq-pTB"/>
                                             <constraint firstItem="cvZ-bq-tUL" firstAttribute="leading" secondItem="l0m-hn-rrr" secondAttribute="leading" constant="20" id="2rp-SI-qGm"/>
                                             <constraint firstItem="c7t-Ku-SQ5" firstAttribute="top" secondItem="cvZ-bq-tUL" secondAttribute="bottom" constant="24" id="9C7-a5-lAv"/>
-                                            <constraint firstAttribute="width" constant="393" id="Cab-BF-lEL"/>
                                             <constraint firstAttribute="trailing" secondItem="QeN-Kr-diU" secondAttribute="trailing" constant="20" id="Hmj-kg-NWy"/>
-                                            <constraint firstItem="X9n-VV-0my" firstAttribute="leading" secondItem="l0m-hn-rrr" secondAttribute="leading" constant="20" id="MDM-ka-J9t"/>
                                             <constraint firstItem="ZVB-64-UcZ" firstAttribute="top" secondItem="l0m-hn-rrr" secondAttribute="top" constant="8" id="MYm-gu-5y5"/>
                                             <constraint firstItem="Myg-8V-Xg2" firstAttribute="top" secondItem="c7t-Ku-SQ5" secondAttribute="bottom" constant="12" id="MxO-bk-ZM9"/>
                                             <constraint firstItem="cvZ-bq-tUL" firstAttribute="top" secondItem="l0m-hn-rrr" secondAttribute="top" constant="32" id="SiK-ox-xVf"/>
@@ -3096,8 +3098,9 @@
                                             <constraint firstAttribute="trailing" secondItem="Myg-8V-Xg2" secondAttribute="trailing" constant="20" id="bZb-az-xN2"/>
                                             <constraint firstItem="Myg-8V-Xg2" firstAttribute="leading" secondItem="l0m-hn-rrr" secondAttribute="leading" constant="20" id="cjz-aj-j4y"/>
                                             <constraint firstAttribute="trailing" secondItem="ZVB-64-UcZ" secondAttribute="trailing" constant="20" id="fFB-bg-w5X"/>
+                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="c7t-Ku-SQ5" secondAttribute="trailing" constant="20" symbolic="YES" id="kuA-TQ-ZxV"/>
                                             <constraint firstAttribute="bottom" secondItem="X9n-VV-0my" secondAttribute="bottom" constant="16" id="mZC-0E-DPC"/>
-                                            <constraint firstAttribute="trailing" secondItem="X9n-VV-0my" secondAttribute="trailing" constant="20" id="p4r-Xc-aQS"/>
+                                            <constraint firstAttribute="trailing" secondItem="X9n-VV-0my" secondAttribute="trailing" constant="21.5" id="qOh-ch-IE1"/>
                                             <constraint firstItem="QeN-Kr-diU" firstAttribute="top" secondItem="Myg-8V-Xg2" secondAttribute="bottom" constant="12" id="vaR-CX-zFd"/>
                                         </constraints>
                                     </view>
@@ -3763,6 +3766,7 @@
         </designable>
     </designables>
     <resources>
+        <image name="airplane" width="101" height="100"/>
         <image name="arrow.right" catalog="system" width="128" height="95"/>
         <image name="bolletinBoardVector" width="10" height="6"/>
         <image name="bulletinBaordDetailLike" width="15" height="14"/>
@@ -3775,6 +3779,7 @@
         <image name="bulletinBoardPlus" width="16" height="16"/>
         <image name="bulletinBoardProfile" width="24" height="24"/>
         <image name="bulletinBoardVector" width="10" height="6"/>
+        <image name="highfive" width="89" height="84"/>
         <image name="homeImageAlarm" width="20" height="24"/>
         <image name="homeImageArrow" width="10" height="6"/>
         <image name="homeImageClock" width="16" height="15"/>
