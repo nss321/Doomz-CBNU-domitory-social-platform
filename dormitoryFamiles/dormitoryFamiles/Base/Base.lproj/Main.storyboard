@@ -29,7 +29,7 @@
         <!--Navigation Controller-->
         <scene sceneID="piR-OT-B3u">
             <objects>
-                <navigationController id="Bxa-fI-Tgd" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="JoinLogic" id="Bxa-fI-Tgd" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="U5y-W8-lfO">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -643,7 +643,7 @@
         <!--Tabbar View Controller-->
         <scene sceneID="kBO-GE-U1n">
             <objects>
-                <tabBarController id="peN-Im-ACT" customClass="TabbarViewController" customModule="dormitoryFamiles" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="MainTabBarController" id="peN-Im-ACT" customClass="TabbarViewController" customModule="dormitoryFamiles" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="9ZE-lM-Jv1">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -865,7 +865,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pf8-z7-rET" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
-                                                <rect key="frame" x="254" y="86" width="119" height="29"/>
+                                                <rect key="frame" x="278.33333333333331" y="86" width="94.666666666666686" height="29"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="29" id="hza-8j-0gq"/>
                                                 </constraints>
@@ -1067,7 +1067,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nzJ-Yb-Hjd" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
-                                                        <rect key="frame" x="15.999999999999993" y="68.666666666666742" width="107.33333333333331" height="28"/>
+                                                        <rect key="frame" x="16" y="68.666666666666742" width="94.666666666666686" height="28"/>
                                                         <color key="backgroundColor" name="primaryMid"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="28" id="iWk-PQ-m4c"/>
@@ -1356,7 +1356,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Cx-cb-x6K" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
-                                                <rect key="frame" x="258" y="579.33333333333337" width="115" height="29"/>
+                                                <rect key="frame" x="278.33333333333331" y="579.33333333333337" width="94.666666666666686" height="29"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="29" id="DZE-Ex-hkf"/>
                                                 </constraints>
