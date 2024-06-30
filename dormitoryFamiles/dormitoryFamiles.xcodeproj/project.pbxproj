@@ -65,7 +65,7 @@
 		DBC54C5D2B56A4A00071164C /* Pretendard-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DBC54C5C2B56A4A00071164C /* Pretendard-Regular.ttf */; };
 		DBC54C5F2B56A4A80071164C /* Pretendard-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DBC54C5E2B56A4A80071164C /* Pretendard-SemiBold.ttf */; };
 		DBC54C632B56A86D0071164C /* NPSfont_bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DBC54C622B56A86D0071164C /* NPSfont_bold.ttf */; };
-		DBCE10E12B595506008C3367 /* loginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCE10E02B595506008C3367 /* loginViewController.swift */; };
+		DBCE10E12B595506008C3367 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCE10E02B595506008C3367 /* LoginViewController.swift */; };
 		DBD1E7FC2B84A9D500FD71C6 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD1E7FB2B84A9D500FD71C6 /* Network.swift */; };
 		DBDF96EF2B84BFB2000E74AE /* ProfileFinishedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDF96EE2B84BFB2000E74AE /* ProfileFinishedViewController.swift */; };
 		DBE682B62BA592CC00DAA4CD /* PhotoScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE682B52BA592CC00DAA4CD /* PhotoScrollView.swift */; };
@@ -151,7 +151,7 @@
 		DBC54C5C2B56A4A00071164C /* Pretendard-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.ttf"; sourceTree = "<group>"; };
 		DBC54C5E2B56A4A80071164C /* Pretendard-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.ttf"; sourceTree = "<group>"; };
 		DBC54C622B56A86D0071164C /* NPSfont_bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NPSfont_bold.ttf; sourceTree = "<group>"; };
-		DBCE10E02B595506008C3367 /* loginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginViewController.swift; sourceTree = "<group>"; };
+		DBCE10E02B595506008C3367 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		DBD1E7FB2B84A9D500FD71C6 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		DBDF96EE2B84BFB2000E74AE /* ProfileFinishedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFinishedViewController.swift; sourceTree = "<group>"; };
 		DBE682B52BA592CC00DAA4CD /* PhotoScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoScrollView.swift; sourceTree = "<group>"; };
@@ -338,7 +338,7 @@
 			children = (
 				DBDF96EE2B84BFB2000E74AE /* ProfileFinishedViewController.swift */,
 				DB7EF2762B5E9CB20062FAB5 /* ServicePermissonViewController.swift */,
-				DBCE10E02B595506008C3367 /* loginViewController.swift */,
+				DBCE10E02B595506008C3367 /* LoginViewController.swift */,
 				DB7EF2782B5EA4B00062FAB5 /* AlrmElementView.swift */,
 				DB3F18082B6162AB002F1738 /* ProfileSettingViewController.swift */,
 				DB94B2AE2C23B3D80077A7BE /* NickNameViewController.swift */,
@@ -561,7 +561,7 @@
 				DB6491342C22A86F00E0AE25 /* Token.swift in Sources */,
 				DB3F18092B6162AB002F1738 /* ProfileSettingViewController.swift in Sources */,
 				DBE682B62BA592CC00DAA4CD /* PhotoScrollView.swift in Sources */,
-				DBCE10E12B595506008C3367 /* loginViewController.swift in Sources */,
+				DBCE10E12B595506008C3367 /* LoginViewController.swift in Sources */,
 				DB1971D52BAB088C00C09648 /* AddPhotoImageView.swift in Sources */,
 				DB81D0002B56E723005EF497 /* UIColorExtension.swift in Sources */,
 				DB5ACD602AA70D190054CA15 /* ExtenstionColor.swift in Sources */,

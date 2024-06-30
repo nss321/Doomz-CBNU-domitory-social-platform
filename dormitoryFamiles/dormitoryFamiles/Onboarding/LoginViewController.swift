@@ -7,7 +7,7 @@
 
 import UIKit
 
-final  class loginViewController: UIViewController {
+final  class LoginViewController: UIViewController {
 
     @IBOutlet weak var titleLabel: UILabel!
     
