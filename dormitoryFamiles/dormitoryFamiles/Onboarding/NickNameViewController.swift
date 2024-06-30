@@ -47,13 +47,19 @@ final class NickNameViewController: UIViewController {
             //중복확인이 활성화 되었을때
             if availableNickname(nickName: textField.text ?? "") {
                 changeAuthenticatedState()
+            }else {
+                availableLabel.isHidden = false
+                availableLabel.text = "사용 불가능한 닉네임이에요. 다시 입력해주세요."
+                textField.layer.borderWidth = 1
+                textField.layer.borderColor = .init(red: 255, green: 126, blue: 141, alpha: 1)
             }
         }
     }
     
     private func availableNickname(nickName: String) -> Bool {
-        //TODO: 기획쪽에서 닉네임 규칙이 정해지면 업데이트 해야함 지금은 무조건 되게 처리
+        //TODO: 백앤드api기다리는중
         return true
+        
     }
     
     private func changeUnauthenticatedState() {

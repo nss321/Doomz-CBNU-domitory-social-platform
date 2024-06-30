@@ -63,12 +63,7 @@ final  class LoginViewController: UIViewController, WKNavigationDelegate {
         if let url = navigationAction.request.url {
             print("Navigating to URL: \(url)")
             // URL이 정확히 "http://43.202.254.127:8080/"인 경우
-            if url.absoluteString == "http://43.202.254.127:8080/" {
-                print("Redirected URL: \(url)")
-                
-                // 리디렉션된 URL을 감지하여 웹뷰를 닫고 앱으로 돌아오기
-                removeWebView()
-                
+            if url.absoluteString == "http://43.202.254.127:8080/somin" {
                 // 필요한 추가 작업이 있다면 여기서 처리
                 if let components = URLComponents(url: url, resolvingAgainstBaseURL: false),
                    let queryItems = components.queryItems {
@@ -82,6 +77,13 @@ final  class LoginViewController: UIViewController, WKNavigationDelegate {
                         }
                     }
                 }
+            }else if url.absoluteString == "http://43.202.254.127:8080/" {
+                print("Redirected URL: \(url)")
+                
+                // 리디렉션된 URL을 감지하여 웹뷰를 닫고 앱으로 돌아오기
+                removeWebView()
+                
+                
                 
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 // 탭바 컨트롤러 인스턴스 생성
