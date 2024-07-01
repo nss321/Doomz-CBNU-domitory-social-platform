@@ -1,24 +1,20 @@
 //
-//  homeViewController.swift
+//  MealOfWeekViewController.swift
 //  dormitoryFamiles
 //
-//  Created by leehwajin on 2024/01/14.
+//  Created by leehwajin on 2024/06/19.
 //
 
 import UIKit
 import SwiftSoup
 
-final class HomeViewController: UIViewController, DormitoryButtonHandling {
-    
+final class MealOfWeekViewController: UIViewController {
+
+    var date = ""
+    var isWeekend = false
     @IBOutlet weak var menuLabel: UILabel!
     
-    @IBOutlet weak var lineView: UIView!
-    
     @IBOutlet weak var timeLabel: UILabel!
-    
-    @IBOutlet weak var todayMenuLabel: UILabel!
-    
-    @IBOutlet weak var dormitoryButton: UIButton!
     
     @IBOutlet weak var morningButton: RoundButton!
     
@@ -29,6 +25,7 @@ final class HomeViewController: UIViewController, DormitoryButtonHandling {
     @IBOutlet weak var kcalLabel: UILabel!
     
     
+    
     private var todayString: String {
         get {
             let dateFormmatter = DateFormatter()
@@ -36,19 +33,6 @@ final class HomeViewController: UIViewController, DormitoryButtonHandling {
             return dateFormmatter.string(from: Date())
         }
     }
-    
-    private var isWeekend: Bool {
-            let currentDate = Date()
-            let calendar = Calendar.current
-            let components = calendar.dateComponents([.weekday], from: currentDate)
-            
-            if let weekday = components.weekday {
-                return (weekday == 1 || weekday == 7)
-            }
-            
-            // weekday 값이 nil일 경우 기본값으로 false 반환
-            return false
-        }
     
     private let site = ["본관": "https://dorm.chungbuk.ac.kr/home/sub.php?menukey=20041&type=1", "양성재":"https://dorm.chungbuk.ac.kr/home/sub.php?menukey=20041&type=2", "양진재":"https://dorm.chungbuk.ac.kr/home/sub.php?menukey=20041&type=3"]
     
@@ -62,26 +46,15 @@ final class HomeViewController: UIViewController, DormitoryButtonHandling {
         self.menuLabel.textAlignment = .center
         setLabelAndButton()
         
-        setDormitoryButton()
-        
-        let stackViewBottomConstraint = timeLabel.bottomAnchor.constraint(equalTo: lineView.bottomAnchor, constant: -16)
-        stackViewBottomConstraint.isActive = true
-        
         self.navigationController?.setNavigationBarHidden(true, animated: true)
         setTintAdjustmentModeForButtons(in: self.view)
-        dormitoryButton.head1 = SelectedDormitory.shared.domitory
-        dormitoryButton.setTitle(SelectedDormitory.shared.domitory, for: .normal)
         fetchWebsite(time: .morning)
     }
     
     
     //기숙사 시트의 버튼이 눌려지면(기숙사가 선택되면) 그 title을 버튼의 title과 일치시키는 함수
     @objc func dormitoryChangeNotification(_ notification: Notification) {
-        if notification.object is String {
-            dormitoryButton.head1 = SelectedDormitory.shared.domitory
-            dormitoryButton.setTitle(SelectedDormitory.shared.domitory, for: .normal)
-        }
-        
+
         //홈이라 메뉴 세팅도 다시 해줘야 함.
         //아침메뉴받아오는거
         fetchWebsite(time: .morning)
@@ -116,29 +89,20 @@ final class HomeViewController: UIViewController, DormitoryButtonHandling {
         morningButton.setTitle("아침", for: .normal)
         lunchButton.setTitle("점심", for: .normal)
         eveningButton.setTitle("저녁", for: .normal)
-        dormitoryButton.setTitle("양진재", for: .normal)
     }
     
     
-    private func setDormitoryButton() {
-        var configuration = UIButton.Configuration.plain()
-        configuration.imagePadding = .init(4)
-        dormitoryButton.configuration = configuration
-        dormitoryButton?.tintAdjustmentMode = .normal
-        dormitoryButton.head1 = SelectedDormitory.shared.domitory
-    }
+    
     
     
     
     @IBAction func menuButtonTapped(_ sender: RoundButton) {
-        
         [morningButton, lunchButton, eveningButton].forEach{
             $0?.backgroundColor = .secondary
             $0?.tintColor = .black
         }
         sender.backgroundColor = .white
         sender.tintColor = .primary
-        
         
         let mealTimeMapping = ["아침": "morning", "점심": "lunch", "저녁": "evening"]
         if let title = sender.currentTitle, let mappedTitle = mealTimeMapping[title], let time = MealTime(rawValue: mappedTitle) {
@@ -147,14 +111,8 @@ final class HomeViewController: UIViewController, DormitoryButtonHandling {
         }
     }
     
-    
-    
-    @IBAction func dormitoryButtonTapped(_ sender: DormitoryButton) {
-        presentSheet()
-    }
-    
     private func fetchWebsite(time: MealTime) {
-        guard dormitoryButton.currentTitle! != "양현재" else {
+        guard SelectedDormitory.shared.domitory != "양현재" else {
             return
         }
         
@@ -178,13 +136,13 @@ final class HomeViewController: UIViewController, DormitoryButtonHandling {
             }
         }
         
-        guard let url = URL(string: site[dormitoryButton.currentTitle!]!) else {return}
+        guard let url = URL(string: site[SelectedDormitory.shared.domitory]!) else {return}
         let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
             if let error = error {
                 print("Error: \(error)")
             } else if let data = data {
                 let html = String(data: data, encoding: .utf8)!
-                self.parseHTML(html: html, for: self.todayString, time: time)
+                self.parseHTML(html: html, for: self.date, time: time)
             }
         }
         task.resume()
@@ -239,12 +197,5 @@ final class HomeViewController: UIViewController, DormitoryButtonHandling {
         }
         return lines?.joined(separator: "\n") ?? ""
     }
-    
-}
 
-enum MealTime:String, CaseIterable {
-    case morning = "morning"
-    case lunch = "lunch"
-    case evening = "evening"
 }
-

@@ -15,7 +15,7 @@ final class SelectedDormitory {
     func changeKind(_ kind: String) {
             self.domitory = kind
         NotificationCenter.default.post(name: .changeDormiotry, object: nil)
-        }
+    }
 
 }
 

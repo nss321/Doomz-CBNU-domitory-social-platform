@@ -72,6 +72,7 @@ struct ArticleDetail: Codable {
     let status: String
     let createdAt: String
     let imagesUrls: [String]
+    let isWriter: Bool
 }
 
 
