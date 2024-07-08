@@ -26,6 +26,8 @@ class SleepPatternCircleCollectionViewCell: UICollectionViewCell {
         label.textAlignment = .center
         label.textColor = .gray4
         label.addCharacterSpacing()
+        label.numberOfLines = 2
+//        label.lineBreakMode = .byCharWrapping
         return label
     }()
     
@@ -39,7 +41,7 @@ class SleepPatternCircleCollectionViewCell: UICollectionViewCell {
         }
         sleepTimeLabel.snp.makeConstraints {
             $0.center.equalToSuperview()
-            $0.top.bottom.equalToSuperview().inset(28)
+            $0.top.bottom.equalToSuperview().inset(10)
         }
     }
     

@@ -146,7 +146,7 @@ final class MBTIViewController: UIViewController, ConfigUI {
     @objc
     func didClickNextButton() {
         print("nextBtn")
-        //        self.navigationController?.pushViewController(ConstitutionViewController(), animated: true)
+        self.navigationController?.pushViewController(HomeCycleViewController(), animated: true)
     }
     
     func createCollectionView(tag:Int, data: [String]) -> UICollectionView {
