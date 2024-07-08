@@ -138,6 +138,7 @@ final class HomeCycleViewController: UIViewController, ConfigUI {
     @objc
     func didClickNextButton() {
         print("next")
+        self.navigationController?.pushViewController(EatingFoodViewController(), animated: true)
     }
 }
 
