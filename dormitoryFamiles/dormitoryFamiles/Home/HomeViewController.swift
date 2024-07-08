@@ -28,6 +28,8 @@ final class HomeViewController: UIViewController, DormitoryButtonHandling {
     
     @IBOutlet weak var kcalLabel: UILabel!
     
+    var myTabBarController: UITabBarController?
+    
     
     private var todayString: String {
         get {
@@ -38,24 +40,24 @@ final class HomeViewController: UIViewController, DormitoryButtonHandling {
     }
     
     private var isWeekend: Bool {
-            let currentDate = Date()
-            let calendar = Calendar.current
-            let components = calendar.dateComponents([.weekday], from: currentDate)
-            
-            if let weekday = components.weekday {
-                return (weekday == 1 || weekday == 7)
-            }
-            
-            // weekday 값이 nil일 경우 기본값으로 false 반환
-            return false
+        let currentDate = Date()
+        let calendar = Calendar.current
+        let components = calendar.dateComponents([.weekday], from: currentDate)
+        
+        if let weekday = components.weekday {
+            return (weekday == 1 || weekday == 7)
         }
+        
+        // weekday 값이 nil일 경우 기본값으로 false 반환
+        return false
+    }
     
     private let site = ["본관": "https://dorm.chungbuk.ac.kr/home/sub.php?menukey=20041&type=1", "양성재":"https://dorm.chungbuk.ac.kr/home/sub.php?menukey=20041&type=2", "양진재":"https://dorm.chungbuk.ac.kr/home/sub.php?menukey=20041&type=3"]
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setTabber()
         setObserver()
         self.menuLabel.sizeToFit()
         self.menuLabel.lineSpacing(12)
@@ -74,6 +76,11 @@ final class HomeViewController: UIViewController, DormitoryButtonHandling {
         fetchWebsite(time: .morning)
     }
     
+    private func setTabber() {
+        if let tabBarController = self.tabBarController as? UITabBarController {
+                    self.myTabBarController = tabBarController
+                }
+    }
     
     //기숙사 시트의 버튼이 눌려지면(기숙사가 선택되면) 그 title을 버튼의 title과 일치시키는 함수
     @objc func dormitoryChangeNotification(_ notification: Notification) {
@@ -143,7 +150,7 @@ final class HomeViewController: UIViewController, DormitoryButtonHandling {
         let mealTimeMapping = ["아침": "morning", "점심": "lunch", "저녁": "evening"]
         if let title = sender.currentTitle, let mappedTitle = mealTimeMapping[title], let time = MealTime(rawValue: mappedTitle) {
             self.fetchWebsite(time: time)
-
+            
         }
     }
     
@@ -238,6 +245,14 @@ final class HomeViewController: UIViewController, DormitoryButtonHandling {
             lines = Array((lines?[0..<index])!)
         }
         return lines?.joined(separator: "\n") ?? ""
+    }
+    
+    @IBAction func bulletinBoardButtonTapped(_ sender: UIButton) {
+        self.myTabBarController?.selectedIndex = 1
+    }
+    
+    @IBAction func roomateButtonTapped(_ sender: UIButton) {
+        self.myTabBarController?.selectedIndex = 3
     }
     
 }
