@@ -1,5 +1,5 @@
 //
-//  NoiseAndPerfumeViewController.swift
+//  StudyStyleViewController.swift
 //  dormitoryFamiles
 //
 //  Created by BAE on 7/8/24.
@@ -8,11 +8,11 @@
 import UIKit
 import SnapKit
 
-final class NoiseAndPerfumeViewController: UIViewController, ConfigUI {
-  
-    let noise = ["이어폰", "스피커", "유동적"]
-    let perfume = ["미사용", "가끔", "자주"]
-
+final class StudyStyleViewController: UIViewController, ConfigUI {
+    
+    let studyPlace = ["기숙사", "기숙사 외", "유동적"]
+    let exam = ["시험 준비", "해당없어요"]
+    
     private let stackView: UIStackView = {
         let view = UIStackView()
         view.axis = .vertical
@@ -29,7 +29,7 @@ final class NoiseAndPerfumeViewController: UIViewController, ConfigUI {
         return view
     }()
     
-    private let noiseAndPerfumeStack: UIStackView = {
+    private let studyStyleStack: UIStackView = {
         let view = UIStackView()
         view.axis = .vertical
         view.spacing = 28
@@ -39,7 +39,7 @@ final class NoiseAndPerfumeViewController: UIViewController, ConfigUI {
     
     private let currentStep: UILabel = {
         let label = UILabel()
-        label.text = "8 / 10"
+        label.text = "9 / 10"
         label.font = FontManager.subtitle1()
         label.textColor = .gray5
         label.addCharacterSpacing()
@@ -48,21 +48,21 @@ final class NoiseAndPerfumeViewController: UIViewController, ConfigUI {
     
     private let progressBar: UIImageView = {
         let view = UIImageView()
-        view.image = UIImage(named: "progress8")
+        view.image = UIImage(named: "progress9")
         view.contentMode = .scaleAspectFit
         return view
     }()
     
-    private let noiseAndPerFumeLogo: UIImageView = {
+    private let studyStyleLogo: UIImageView = {
         let view = UIImageView()
-        view.image = UIImage(named: "noiseAndPerfume_logo")
+        view.image = UIImage(named: "studyStyle_logo")
         view.contentMode = .scaleAspectFit
         return view
     }()
     
     private let contentLabel: UILabel = {
         let label = UILabel()
-        label.text = "나는 주로 어떤 편인가요?"
+        label.text = "시험기간에 나는?"
         label.font = FontManager.title2()
         label.textAlignment = .center
         label.textColor = .doomzBlack
@@ -70,7 +70,7 @@ final class NoiseAndPerfumeViewController: UIViewController, ConfigUI {
         return label
     }()
     
-    private lazy var noiseCollectionView: UICollectionView = {
+    private lazy var studyPlaceCollectionView: UICollectionView = {
         let view = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
         view.register(SleepPatternCollectionViewCell.self, forCellWithReuseIdentifier: SleepPatternCollectionViewCell.identifier)
         view.backgroundColor = .clear
@@ -79,7 +79,7 @@ final class NoiseAndPerfumeViewController: UIViewController, ConfigUI {
         return view
     }()
     
-    private lazy var perfumeCollectionView: UICollectionView = {
+    private lazy var examCollectionView: UICollectionView = {
         let view = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
         view.register(SleepPatternCollectionViewCell.self, forCellWithReuseIdentifier: SleepPatternCollectionViewCell.identifier)
         view.backgroundColor = .clear
@@ -100,7 +100,6 @@ final class NoiseAndPerfumeViewController: UIViewController, ConfigUI {
         self.didClickNextButton()
     }
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .background
@@ -111,13 +110,14 @@ final class NoiseAndPerfumeViewController: UIViewController, ConfigUI {
     }
     
     func addComponents() {
-        let noiseSection = createStackViewWithLabelAndSubview(string: "휴대폰 소리", subview: noiseCollectionView)
-        let perfumeSection = createStackViewWithLabelAndSubview(string: "향수", subview: perfumeCollectionView)
+        let midnightSnackSection = createStackViewWithLabelAndSubview(string: "야식", subview: studyPlaceCollectionView)
+        let eatingFoodInRoomSection = createStackViewWithLabelAndSubview(string: "방 안에서", subview: examCollectionView)
+
         
         view.addSubview(stackView)
-        [logoStackView, noiseAndPerfumeStack].forEach{ stackView.addArrangedSubview($0) }
-        [currentStep, progressBar, noiseAndPerFumeLogo, contentLabel].forEach { logoStackView.addArrangedSubview($0) }
-        [noiseSection, perfumeSection, spacerView, nextButton].forEach{ noiseAndPerfumeStack.addArrangedSubview($0) }
+        [logoStackView, studyStyleStack].forEach{ stackView.addArrangedSubview($0) }
+        [currentStep, progressBar, studyStyleLogo, contentLabel].forEach{ logoStackView.addArrangedSubview($0) }
+        [midnightSnackSection, eatingFoodInRoomSection, spacerView, nextButton].forEach{ studyStyleStack.addArrangedSubview($0) }
     }
     
     func setConstraints() {
@@ -127,13 +127,13 @@ final class NoiseAndPerfumeViewController: UIViewController, ConfigUI {
             $0.bottom.equalToSuperview().inset(32)
         }
         
-        noiseCollectionView.snp.makeConstraints {
+        studyPlaceCollectionView.snp.makeConstraints {
             $0.left.right.equalToSuperview()
             $0.width.equalTo(view.snp.width).inset(20)
             $0.height.equalTo(48)
         }
         
-        perfumeCollectionView.snp.makeConstraints {
+        examCollectionView.snp.makeConstraints {
             $0.left.right.equalToSuperview()
             $0.width.equalTo(view.snp.width).inset(20)
             $0.height.equalTo(48)
@@ -141,47 +141,53 @@ final class NoiseAndPerfumeViewController: UIViewController, ConfigUI {
         
         nextButton.snp.makeConstraints {
             $0.left.right.equalToSuperview()
-            $0.bottom.equalToSuperview()
         }
         
         spacerView.snp.makeConstraints {
             $0.height.greaterThanOrEqualTo(0)
         }
         
-        noiseAndPerFumeLogo.snp.makeConstraints{
+        studyStyleLogo.snp.makeConstraints{
             $0.height.equalTo(Double(UIScreen.currentScreenHeight)*0.148)
         }
+        
     }
     
     @objc
     func didClickNextButton() {
         print("nextBtn")
-        self.navigationController?.pushViewController(StudyStyleViewController(), animated: true)
+//        self.navigationController?.pushViewController(NoiseAndPerfumeViewController(), animated: true)
     }
-    
 }
 
-extension NoiseAndPerfumeViewController: UICollectionViewDataSource {
+extension StudyStyleViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         switch collectionView {
-        case noiseCollectionView:
+        case studyPlaceCollectionView:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SleepPatternCollectionViewCell.identifier, for: indexPath) as? SleepPatternCollectionViewCell else {
                 fatalError()
             }
-            cell.configure(with: noise[indexPath.row])
+            cell.configure(with: studyPlace[indexPath.row])
             return cell
         default:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SleepPatternCollectionViewCell.identifier, for: indexPath) as? SleepPatternCollectionViewCell else {
                 fatalError()
             }
-            cell.configure(with: perfume[indexPath.row])
+            cell.configure(with: exam[indexPath.row])
             return cell
         }
     }
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        let numberOfItem: Int
+        switch collectionView {
+        case studyPlaceCollectionView:
+            numberOfItem = studyPlace.count
+        default:
+            numberOfItem = exam.count
+        }
+        return numberOfItem
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
@@ -189,24 +195,29 @@ extension NoiseAndPerfumeViewController: UICollectionViewDataSource {
     }
 }
 
-extension NoiseAndPerfumeViewController: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let numberOfinter:Int = noise.count - 1
-        let interSpacing:Int = 8
-        let cellSize = CGSize(width: (UIScreen.screenWidthLayoutGuide - numberOfinter * interSpacing) / 3, height: 48)
 
+extension StudyStyleViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let cellSize: CGSize
+        
+        switch collectionView {
+        case studyPlaceCollectionView:
+            cellSize = CGSize(width: (UIScreen.currentScreenWidth - 56) / 3, height: 48)
+        default:
+            cellSize = CGSize(width: (UIScreen.currentScreenWidth - 48) / 2, height: 48)
+        }
         return cellSize
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         switch collectionView {
-        case noiseCollectionView:
-            print("\(collectionView)의 \(indexPath.row) 선택")
-        case perfumeCollectionView:
+        case studyPlaceCollectionView:
             print("\(collectionView)의 \(indexPath.row) 선택")
         default:
-            print("\(indexPath.row) 선택")
+            print("\(collectionView)의 \(indexPath.row) 선택")
         }
-        
     }
 }
+
+
+
