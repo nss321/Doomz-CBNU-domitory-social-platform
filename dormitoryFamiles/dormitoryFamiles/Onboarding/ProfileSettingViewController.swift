@@ -69,14 +69,31 @@ final class ProfileSettingViewController: UIViewController {
     
     private func  departmentTextDidChange(newText: String?) {
         if (newText != "학과선택") && (studentNumberTextField.text != "") {
-            nextButton.isEnabled = true
-        }else {
-            nextButton.isEnabled = false
-        }
+            } else {
+            }
+            updateButtonTitleColors() // 버튼 타이틀 색상 업데이트
+        enableNextButton()
     }
     
     private func collegeOfCollegesTextDidChange(newText: String?) {
         departmentSelectionButton.setTitle("학과선택", for: .normal)
+            updateButtonTitleColors() // 버튼 타이틀 색상 업데이트
+        enableNextButton()
+        
+    }
+    
+    private func updateButtonTitleColors() {
+        if collegeOfCollegesButton.currentTitle == "단과대학교" {
+            collegeOfCollegesButton.setTitleColor(.gray4, for: .normal)
+        } else {
+            collegeOfCollegesButton.setTitleColor(.black, for: .normal)
+        }
+        
+        if departmentSelectionButton.currentTitle == "학과선택" {
+            departmentSelectionButton.setTitleColor(.gray4, for: .normal)
+        } else {
+            departmentSelectionButton.setTitleColor(.black, for: .normal)
+        }
     }
     
     private func setDropDown() {
@@ -119,9 +136,13 @@ final class ProfileSettingViewController: UIViewController {
         dropDown.selectionAction = { [unowned self] (index: Int, item: String) in
             sender.setTitle(item, for: .normal)
             sender.borderColor = .gray1
+            //enableNextButton()
         }
-        
-        if departmentSelectionButton.currentTitle != "학과선택" {
+       
+    }
+    
+    private func enableNextButton() {
+        if (departmentSelectionButton.currentTitle != "학과선택") && (studentNumberTextField.text != "") {
             nextButton.isEnabled = true
             nextButton.backgroundColor = .primary
         }else {
@@ -142,12 +163,6 @@ extension ProfileSettingViewController: UITextFieldDelegate {
             let fixedText = String(text[startIndex...endIndex])
             textField.text = fixedText
         }
-        if (departmentSelectionButton.currentTitle != "학과선택") && (studentNumberTextField.text != "") {
-            nextButton.isEnabled = true
-            nextButton.backgroundColor = .primary
-        }else {
-            nextButton.isEnabled = false
-            nextButton.backgroundColor = .gray3
-        }
+        enableNextButton()
     }
 }
