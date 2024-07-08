@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		11036F212C3C05D60042B9EF /* HomeCycleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11036F202C3C05D60042B9EF /* HomeCycleViewController.swift */; };
+		11036F232C3C0E690042B9EF /* EatingFoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11036F222C3C0E690042B9EF /* EatingFoodViewController.swift */; };
 		1126FE1C2BCEA662004C6C81 /* LifeStyleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1126FE1B2BCEA662004C6C81 /* LifeStyleViewController.swift */; };
 		1131E8A22BF6220B00D40120 /* UIScreen+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1131E8A12BF6220B00D40120 /* UIScreen+.swift */; };
 		11707A232BA4C8CC0027802D /* SleepPatternViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11707A222BA4C8CC0027802D /* SleepPatternViewController.swift */; };
@@ -94,6 +95,7 @@
 
 /* Begin PBXFileReference section */
 		11036F202C3C05D60042B9EF /* HomeCycleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCycleViewController.swift; sourceTree = "<group>"; };
+		11036F222C3C0E690042B9EF /* EatingFoodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EatingFoodViewController.swift; sourceTree = "<group>"; };
 		1126FE1B2BCEA662004C6C81 /* LifeStyleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifeStyleViewController.swift; sourceTree = "<group>"; };
 		1131E8A12BF6220B00D40120 /* UIScreen+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScreen+.swift"; sourceTree = "<group>"; };
 		11707A222BA4C8CC0027802D /* SleepPatternViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepPatternViewController.swift; sourceTree = "<group>"; };
@@ -206,6 +208,7 @@
 				118EAA842C07E56400436A6F /* ConstitutionViewController.swift */,
 				1197F25A2C081E7D006F75D2 /* MBTIViewController.swift */,
 				11036F202C3C05D60042B9EF /* HomeCycleViewController.swift */,
+				11036F222C3C0E690042B9EF /* EatingFoodViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -561,6 +564,7 @@
 				DB6491342C22A86F00E0AE25 /* Token.swift in Sources */,
 				DB3F18092B6162AB002F1738 /* ProfileSettingViewController.swift in Sources */,
 				DBE682B62BA592CC00DAA4CD /* PhotoScrollView.swift in Sources */,
+				11036F232C3C0E690042B9EF /* EatingFoodViewController.swift in Sources */,
 				DBCE10E12B595506008C3367 /* loginViewController.swift in Sources */,
 				DB1971D52BAB088C00C09648 /* AddPhotoImageView.swift in Sources */,
 				DB81D0002B56E723005EF497 /* UIColorExtension.swift in Sources */,
