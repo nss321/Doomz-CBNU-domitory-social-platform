@@ -47,10 +47,10 @@ final class ProfileSettingViewController: UIViewController {
         super.viewDidLoad()
         setTextfield()
         departmentObserver = departmentSelectionButton.titleLabel?.observe(\.text, options: [.new, .old], changeHandler: { [weak self] (label, change) in
-                    if let newText = change.newValue {
-                        self?.departmentTextDidChange(newText: newText)
-                    }
-                })
+            if let newText = change.newValue {
+                self?.departmentTextDidChange(newText: newText)
+            }
+        })
         collegeOfCollegesObserver = collegeOfCollegesButton.titleLabel?.observe(\.text, options: [.new, .old], changeHandler: { [weak self] (label, change) in
             if let newText = change.newValue {
                 self?.collegeOfCollegesTextDidChange(newText: newText)
@@ -69,15 +69,15 @@ final class ProfileSettingViewController: UIViewController {
     
     private func  departmentTextDidChange(newText: String?) {
         if (newText != "학과선택") && (studentNumberTextField.text != "") {
-            } else {
-            }
-            updateButtonTitleColors() // 버튼 타이틀 색상 업데이트
+        } else {
+        }
+        updateButtonTitleColors() // 버튼 타이틀 색상 업데이트
         enableNextButton()
     }
     
     private func collegeOfCollegesTextDidChange(newText: String?) {
         departmentSelectionButton.setTitle("학과선택", for: .normal)
-            updateButtonTitleColors() // 버튼 타이틀 색상 업데이트
+        updateButtonTitleColors() // 버튼 타이틀 색상 업데이트
         enableNextButton()
         
     }
@@ -104,9 +104,9 @@ final class ProfileSettingViewController: UIViewController {
         DropDown.appearance().shadowOpacity = 0
         DropDown.appearance().selectionBackgroundColor = .gray0 ?? .white
         DropDown.appearance().textFont = UIFont(name: CustomFonts.defult.rawValue, size: 16)!
-
+        
     }
-
+    
     @IBAction func showDropDown(_ sender: UIButton) {
         
         //버튼에 따라 데이터 소스 세팅
@@ -114,14 +114,14 @@ final class ProfileSettingViewController: UIViewController {
         case collegeOfCollegesButton:
             dropDown.dataSource = self.array.map { $0.abstract }
         case departmentSelectionButton:
-                if let collegeTitle = collegeOfCollegesButton.currentTitle {
-                    for element in self.array {
-                        if element.abstract == collegeTitle {
-                            dropDown.dataSource = element.detail
-                            break
-                        }
+            if let collegeTitle = collegeOfCollegesButton.currentTitle {
+                for element in self.array {
+                    if element.abstract == collegeTitle {
+                        dropDown.dataSource = element.detail
+                        break
                     }
                 }
+            }
         case dormitoryButton:
             dropDown.dataSource = ["본관", "양성재","양진재", "양현재"]
         default:
@@ -138,7 +138,13 @@ final class ProfileSettingViewController: UIViewController {
             sender.borderColor = .gray1
             //enableNextButton()
         }
-       
+        
+        dropDown.cancelAction = { [weak self] in
+            self?.collegeOfCollegesButton.borderColor = .gray1
+            self?.departmentSelectionButton.borderColor = .gray1
+            self?.dormitoryButton.borderColor = .gray1
+        }
+        
     }
     
     private func enableNextButton() {
