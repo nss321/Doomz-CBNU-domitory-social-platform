@@ -131,9 +131,14 @@ final class ProfileSettingViewController: UIViewController {
         //공통된 작업
         dropDown.anchorView = sender
         dropDown.bottomOffset = CGPoint(x: 0, y:((dropDown.anchorView?.plainView.bounds.height)!-5))
-        sender.borderColor = .primaryMid
+        
+        if sender == departmentSelectionButton && collegeOfCollegesButton.currentTitle == "단과대학교"{
+            return
+        }else {
+            sender.borderColor = .primaryMid
+        }
         dropDown.show()
-        dropDown.selectionAction = { [unowned self] (index: Int, item: String) in
+        dropDown.selectionAction = { (index: Int, item: String) in
             sender.setTitle(item, for: .normal)
             sender.borderColor = .gray1
             //enableNextButton()
