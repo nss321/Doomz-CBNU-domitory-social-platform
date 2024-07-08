@@ -171,6 +171,10 @@ final class LifeStyleViewController: UIViewController, ConfigUI {
         spacerView.snp.makeConstraints {
             $0.height.greaterThanOrEqualTo(0)
         }
+        
+        lifeStyleLogo.snp.makeConstraints{
+            $0.height.equalTo(Double(UIScreen.currentScreenHeight)*0.148)
+        }
     }
     
     @objc
