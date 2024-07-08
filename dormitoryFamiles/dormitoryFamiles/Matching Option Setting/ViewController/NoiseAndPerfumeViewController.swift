@@ -1,5 +1,5 @@
 //
-//  EatingFoodViewController.swift
+//  NoiseAndPerfumeViewController.swift
 //  dormitoryFamiles
 //
 //  Created by BAE on 7/8/24.
@@ -8,11 +8,11 @@
 import UIKit
 import SnapKit
 
-final class EatingFoodViewController: UIViewController, ConfigUI {
-    
-    let midnightSnack = ["안먹어요", "가끔", "자주"]
-    let eatingFoodInRoom = ["괜찮아요", "싫어요"]
-    
+final class NoiseAndPerfumeViewController: UIViewController, ConfigUI {
+  
+    let noise = ["이어폰", "스피커", "유동적"]
+    let perfume = ["미사용", "가끔", "자주"]
+
     private let stackView: UIStackView = {
         let view = UIStackView()
         view.axis = .vertical
@@ -29,7 +29,7 @@ final class EatingFoodViewController: UIViewController, ConfigUI {
         return view
     }()
     
-    private let eatingFoodStack: UIStackView = {
+    private let noiseAndPerfumeStack: UIStackView = {
         let view = UIStackView()
         view.axis = .vertical
         view.spacing = 28
@@ -39,7 +39,7 @@ final class EatingFoodViewController: UIViewController, ConfigUI {
     
     private let currentStep: UILabel = {
         let label = UILabel()
-        label.text = "7 / 10"
+        label.text = "8 / 10"
         label.font = FontManager.subtitle1()
         label.textColor = .gray5
         label.addCharacterSpacing()
@@ -48,21 +48,21 @@ final class EatingFoodViewController: UIViewController, ConfigUI {
     
     private let progressBar: UIImageView = {
         let view = UIImageView()
-        view.image = UIImage(named: "progress7")
+        view.image = UIImage(named: "progress8")
         view.contentMode = .scaleAspectFit
         return view
     }()
     
-    private let eatingFoodLogo: UIImageView = {
+    private let noiseAndPerFumeLogo: UIImageView = {
         let view = UIImageView()
-        view.image = UIImage(named: "eatingFood_logo")
+        view.image = UIImage(named: "noiseAndPerfume_logo")
         view.contentMode = .scaleAspectFit
         return view
     }()
     
     private let contentLabel: UILabel = {
         let label = UILabel()
-        label.text = "음식은 어떤가요?"
+        label.text = "나는 주로 어떤 편인가요?"
         label.font = FontManager.title2()
         label.textAlignment = .center
         label.textColor = .doomzBlack
@@ -70,7 +70,7 @@ final class EatingFoodViewController: UIViewController, ConfigUI {
         return label
     }()
     
-    private lazy var midnightSnackCollectionView: UICollectionView = {
+    private lazy var noiseCollectionView: UICollectionView = {
         let view = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
         view.register(SleepPatternCollectionViewCell.self, forCellWithReuseIdentifier: SleepPatternCollectionViewCell.identifier)
         view.backgroundColor = .clear
@@ -79,7 +79,7 @@ final class EatingFoodViewController: UIViewController, ConfigUI {
         return view
     }()
     
-    private lazy var eatingFoodInRoomCollectionView: UICollectionView = {
+    private lazy var perfumeCollectionView: UICollectionView = {
         let view = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
         view.register(SleepPatternCollectionViewCell.self, forCellWithReuseIdentifier: SleepPatternCollectionViewCell.identifier)
         view.backgroundColor = .clear
@@ -100,6 +100,7 @@ final class EatingFoodViewController: UIViewController, ConfigUI {
         self.didClickNextButton()
     }
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .background
@@ -110,14 +111,13 @@ final class EatingFoodViewController: UIViewController, ConfigUI {
     }
     
     func addComponents() {
-        let midnightSnackSection = createStackViewWithLabelAndSubview(string: "야식", subview: midnightSnackCollectionView)
-        let eatingFoodInRoomSection = createStackViewWithLabelAndSubview(string: "방 안에서", subview: eatingFoodInRoomCollectionView)
-
+        let noiseSection = createStackViewWithLabelAndSubview(string: "휴대폰 소리", subview: noiseCollectionView)
+        let perfumeSection = createStackViewWithLabelAndSubview(string: "향수", subview: perfumeCollectionView)
         
         view.addSubview(stackView)
-        [logoStackView, eatingFoodStack].forEach{ stackView.addArrangedSubview($0) }
-        [currentStep, progressBar, eatingFoodLogo, contentLabel].forEach{ logoStackView.addArrangedSubview($0) }
-        [midnightSnackSection, eatingFoodInRoomSection, spacerView, nextButton].forEach{ eatingFoodStack.addArrangedSubview($0) }
+        [logoStackView, noiseAndPerfumeStack].forEach{ stackView.addArrangedSubview($0) }
+        [currentStep, progressBar, noiseAndPerFumeLogo, contentLabel].forEach { logoStackView.addArrangedSubview($0) }
+        [noiseSection, perfumeSection, spacerView, nextButton].forEach{ noiseAndPerfumeStack.addArrangedSubview($0) }
     }
     
     func setConstraints() {
@@ -127,13 +127,13 @@ final class EatingFoodViewController: UIViewController, ConfigUI {
             $0.bottom.equalToSuperview().inset(32)
         }
         
-        midnightSnackCollectionView.snp.makeConstraints {
+        noiseCollectionView.snp.makeConstraints {
             $0.left.right.equalToSuperview()
             $0.width.equalTo(view.snp.width).inset(20)
             $0.height.equalTo(48)
         }
         
-        eatingFoodInRoomCollectionView.snp.makeConstraints {
+        perfumeCollectionView.snp.makeConstraints {
             $0.left.right.equalToSuperview()
             $0.width.equalTo(view.snp.width).inset(20)
             $0.height.equalTo(48)
@@ -141,53 +141,47 @@ final class EatingFoodViewController: UIViewController, ConfigUI {
         
         nextButton.snp.makeConstraints {
             $0.left.right.equalToSuperview()
+            $0.bottom.equalToSuperview()
         }
         
         spacerView.snp.makeConstraints {
             $0.height.greaterThanOrEqualTo(0)
         }
         
-        eatingFoodLogo.snp.makeConstraints{
+        noiseAndPerFumeLogo.snp.makeConstraints{
             $0.height.equalTo(Double(UIScreen.currentScreenHeight)*0.148)
         }
-        
     }
     
     @objc
     func didClickNextButton() {
         print("nextBtn")
-        self.navigationController?.pushViewController(NoiseAndPerfumeViewController(), animated: true)
+//        self.navigationController?.pushViewController(MBTIViewController(), animated: true)
     }
+    
 }
 
-extension EatingFoodViewController: UICollectionViewDataSource {
+extension NoiseAndPerfumeViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         switch collectionView {
-        case midnightSnackCollectionView:
+        case noiseCollectionView:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SleepPatternCollectionViewCell.identifier, for: indexPath) as? SleepPatternCollectionViewCell else {
                 fatalError()
             }
-            cell.configure(with: midnightSnack[indexPath.row])
+            cell.configure(with: noise[indexPath.row])
             return cell
         default:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SleepPatternCollectionViewCell.identifier, for: indexPath) as? SleepPatternCollectionViewCell else {
                 fatalError()
             }
-            cell.configure(with: eatingFoodInRoom[indexPath.row])
+            cell.configure(with: perfume[indexPath.row])
             return cell
         }
     }
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        let numberOfItem: Int
-        switch collectionView {
-        case midnightSnackCollectionView:
-            numberOfItem = midnightSnack.count
-        default:
-            numberOfItem = eatingFoodInRoom.count
-        }
-        return numberOfItem
+        return 3
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
@@ -195,28 +189,24 @@ extension EatingFoodViewController: UICollectionViewDataSource {
     }
 }
 
-
-extension EatingFoodViewController: UICollectionViewDelegateFlowLayout {
+extension NoiseAndPerfumeViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let cellSize: CGSize
-        
-        switch collectionView {
-        case midnightSnackCollectionView:
-            cellSize = CGSize(width: (UIScreen.currentScreenWidth - 56) / 3, height: 48)
-        default:
-            cellSize = CGSize(width: (UIScreen.currentScreenWidth - 48) / 2, height: 48)
-        }
+        let numberOfinter:Int = noise.count - 1
+        let interSpacing:Int = 8
+        let cellSize = CGSize(width: (UIScreen.screenWidthLayoutGuide - numberOfinter * interSpacing) / 3, height: 48)
+
         return cellSize
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         switch collectionView {
-        case midnightSnackCollectionView:
+        case noiseCollectionView:
+            print("\(collectionView)의 \(indexPath.row) 선택")
+        case perfumeCollectionView:
             print("\(collectionView)의 \(indexPath.row) 선택")
         default:
-            print("\(collectionView)의 \(indexPath.row) 선택")
+            print("\(indexPath.row) 선택")
         }
+        
     }
 }
-
-
