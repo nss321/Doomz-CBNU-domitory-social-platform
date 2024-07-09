@@ -39,8 +39,6 @@
 		DB496DEB2B70EAFB00F97324 /* TabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB496DEA2B70EAFB00F97324 /* TabbarViewController.swift */; };
 		DB5ACD602AA70D190054CA15 /* ExtenstionColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5ACD5F2AA70D190054CA15 /* ExtenstionColor.swift */; };
 		DB61AA342B4C1EA70040418B /* RegisterPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB61AA332B4C1EA70040418B /* RegisterPostViewController.swift */; };
-		DB6491322C22A84000E0AE25 /* Url.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6491312C22A84000E0AE25 /* Url.swift */; };
-		DB6491342C22A86F00E0AE25 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6491332C22A86F00E0AE25 /* Token.swift */; };
 		DB6491362C22F7FD00E0AE25 /* MealOfWeekViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6491352C22F7FD00E0AE25 /* MealOfWeekViewController.swift */; };
 		DB74D0C62B73EEBF00A90D68 /* Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB74D0C52B73EEBF00A90D68 /* Codable.swift */; };
 		DB7BE9E72BA47A5E00BC25E3 /* ReplyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7BE9E52BA47A5E00BC25E3 /* ReplyCollectionViewCell.swift */; };
@@ -53,6 +51,7 @@
 		DB8DDFD92BECC5AC00B3A676 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8DDFD82BECC5AC00B3A676 /* Category.swift */; };
 		DB932AC12B6511E300B456FB /* BulluetinBoardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB932ABF2B6511E300B456FB /* BulluetinBoardCollectionViewCell.swift */; };
 		DB932AC22B6511E300B456FB /* BulluetinBoardCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB932AC02B6511E300B456FB /* BulluetinBoardCollectionViewCell.xib */; };
+		DB94B2AF2C23B3D80077A7BE /* NickNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB94B2AE2C23B3D80077A7BE /* NickNameViewController.swift */; };
 		DBB345F22B42BFD100E70380 /* BulletinBoardMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB345F12B42BFD100E70380 /* BulletinBoardMainViewController.swift */; };
 		DBC001D82BBAEDBB00228CD9 /* AddImageBaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC001D72BBAEDBB00228CD9 /* AddImageBaseView.swift */; };
 		DBC1CFF62BC2AE25005C93C0 /* ConfigUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11707A312BA617EE0027802D /* ConfigUI.swift */; };
@@ -68,7 +67,9 @@
 		DBC54C5D2B56A4A00071164C /* Pretendard-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DBC54C5C2B56A4A00071164C /* Pretendard-Regular.ttf */; };
 		DBC54C5F2B56A4A80071164C /* Pretendard-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DBC54C5E2B56A4A80071164C /* Pretendard-SemiBold.ttf */; };
 		DBC54C632B56A86D0071164C /* NPSfont_bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DBC54C622B56A86D0071164C /* NPSfont_bold.ttf */; };
-		DBCE10E12B595506008C3367 /* loginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCE10E02B595506008C3367 /* loginViewController.swift */; };
+		DBCE10E12B595506008C3367 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCE10E02B595506008C3367 /* LoginViewController.swift */; };
+		DBD1E00A2C3D49C900FDD5FE /* Url.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD1E0092C3D49C900FDD5FE /* Url.swift */; };
+		DBD1E00C2C3D49E900FDD5FE /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD1E00B2C3D49E900FDD5FE /* Token.swift */; };
 		DBD1E7FC2B84A9D500FD71C6 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD1E7FB2B84A9D500FD71C6 /* Network.swift */; };
 		DBDF96EF2B84BFB2000E74AE /* ProfileFinishedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDF96EE2B84BFB2000E74AE /* ProfileFinishedViewController.swift */; };
 		DBE682B62BA592CC00DAA4CD /* PhotoScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE682B52BA592CC00DAA4CD /* PhotoScrollView.swift */; };
@@ -134,8 +135,6 @@
 		DB496DEA2B70EAFB00F97324 /* TabbarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarViewController.swift; sourceTree = "<group>"; };
 		DB5ACD5F2AA70D190054CA15 /* ExtenstionColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtenstionColor.swift; sourceTree = "<group>"; };
 		DB61AA332B4C1EA70040418B /* RegisterPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPostViewController.swift; sourceTree = "<group>"; };
-		DB6491312C22A84000E0AE25 /* Url.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Url.swift; sourceTree = "<group>"; };
-		DB6491332C22A86F00E0AE25 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
 		DB6491352C22F7FD00E0AE25 /* MealOfWeekViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealOfWeekViewController.swift; sourceTree = "<group>"; };
 		DB74D0C52B73EEBF00A90D68 /* Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Codable.swift; sourceTree = "<group>"; };
 		DB7BE9E52BA47A5E00BC25E3 /* ReplyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ReplyCollectionViewCell.swift; path = ../../ReplyCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -148,6 +147,7 @@
 		DB8DDFD82BECC5AC00B3A676 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		DB932ABF2B6511E300B456FB /* BulluetinBoardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulluetinBoardCollectionViewCell.swift; sourceTree = "<group>"; };
 		DB932AC02B6511E300B456FB /* BulluetinBoardCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BulluetinBoardCollectionViewCell.xib; sourceTree = "<group>"; };
+		DB94B2AE2C23B3D80077A7BE /* NickNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NickNameViewController.swift; sourceTree = "<group>"; };
 		DBB345F12B42BFD100E70380 /* BulletinBoardMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulletinBoardMainViewController.swift; sourceTree = "<group>"; };
 		DBC001D72BBAEDBB00228CD9 /* AddImageBaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddImageBaseView.swift; sourceTree = "<group>"; };
 		DBC54C422B568B350071164C /* UIFontExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFontExtension.swift; sourceTree = "<group>"; };
@@ -157,7 +157,9 @@
 		DBC54C5C2B56A4A00071164C /* Pretendard-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.ttf"; sourceTree = "<group>"; };
 		DBC54C5E2B56A4A80071164C /* Pretendard-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.ttf"; sourceTree = "<group>"; };
 		DBC54C622B56A86D0071164C /* NPSfont_bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NPSfont_bold.ttf; sourceTree = "<group>"; };
-		DBCE10E02B595506008C3367 /* loginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginViewController.swift; sourceTree = "<group>"; };
+		DBCE10E02B595506008C3367 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		DBD1E0092C3D49C900FDD5FE /* Url.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Url.swift; sourceTree = "<group>"; };
+		DBD1E00B2C3D49E900FDD5FE /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
 		DBD1E7FB2B84A9D500FD71C6 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		DBDF96EE2B84BFB2000E74AE /* ProfileFinishedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFinishedViewController.swift; sourceTree = "<group>"; };
 		DBE682B52BA592CC00DAA4CD /* PhotoScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoScrollView.swift; sourceTree = "<group>"; };
@@ -348,9 +350,10 @@
 			children = (
 				DBDF96EE2B84BFB2000E74AE /* ProfileFinishedViewController.swift */,
 				DB7EF2762B5E9CB20062FAB5 /* ServicePermissonViewController.swift */,
-				DBCE10E02B595506008C3367 /* loginViewController.swift */,
+				DBCE10E02B595506008C3367 /* LoginViewController.swift */,
 				DB7EF2782B5EA4B00062FAB5 /* AlrmElementView.swift */,
 				DB3F18082B6162AB002F1738 /* ProfileSettingViewController.swift */,
+				DB94B2AE2C23B3D80077A7BE /* NickNameViewController.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -360,8 +363,8 @@
 			children = (
 				DBD1E7FB2B84A9D500FD71C6 /* Network.swift */,
 				DB74D0C52B73EEBF00A90D68 /* Codable.swift */,
-				DB6491312C22A84000E0AE25 /* Url.swift */,
-				DB6491332C22A86F00E0AE25 /* Token.swift */,
+				DBD1E0092C3D49C900FDD5FE /* Url.swift */,
+				DBD1E00B2C3D49E900FDD5FE /* Token.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -559,7 +562,6 @@
 				DBC1CFFE2BC2AFDE005C93C0 /* SleepPatternCircleCollectionViewCell.swift in Sources */,
 				1126FE1C2BCEA662004C6C81 /* LifeStyleViewController.swift in Sources */,
 				DBC1CFF72BC2AE2D005C93C0 /* UILabel+.swift in Sources */,
-				DB6491322C22A84000E0AE25 /* Url.swift in Sources */,
 				DBC1CFF62BC2AE25005C93C0 /* ConfigUI.swift in Sources */,
 				DB2B7BC92B456F4700C1847D /* TagScrollView.swift in Sources */,
 				DB7EF2772B5E9CB20062FAB5 /* ServicePermissonViewController.swift in Sources */,
@@ -567,11 +569,10 @@
 				11707A232BA4C8CC0027802D /* SleepPatternViewController.swift in Sources */,
 				DB1E0E892B629804000A4AA5 /* DormitoryButtonHandlingProtocol.swift in Sources */,
 				11AC97FB2BFF27940008C910 /* CustomSlider.swift in Sources */,
-				DB6491342C22A86F00E0AE25 /* Token.swift in Sources */,
 				DB3F18092B6162AB002F1738 /* ProfileSettingViewController.swift in Sources */,
 				DBE682B62BA592CC00DAA4CD /* PhotoScrollView.swift in Sources */,
+				DBCE10E12B595506008C3367 /* LoginViewController.swift in Sources */,
 				11036F232C3C0E690042B9EF /* EatingFoodViewController.swift in Sources */,
-				DBCE10E12B595506008C3367 /* loginViewController.swift in Sources */,
 				DB1971D52BAB088C00C09648 /* AddPhotoImageView.swift in Sources */,
 				DB81D0002B56E723005EF497 /* UIColorExtension.swift in Sources */,
 				DB5ACD602AA70D190054CA15 /* ExtenstionColor.swift in Sources */,
@@ -586,6 +587,7 @@
 				DB20E38E2B53D75F000D12A7 /* extensionStroyboard.swift in Sources */,
 				117250E92BB5927E0083F181 /* SmokeAndAlcoholPatternViewController.swift in Sources */,
 				DB6491362C22F7FD00E0AE25 /* MealOfWeekViewController.swift in Sources */,
+				DB94B2AF2C23B3D80077A7BE /* NickNameViewController.swift in Sources */,
 				DBD1E7FC2B84A9D500FD71C6 /* Network.swift in Sources */,
 				DB2B7BCB2B45727B00C1847D /* TagButton.swift in Sources */,
 				DB1E0E8B2B629865000A4AA5 /* ChoiceDormitoryViewController.swift in Sources */,
@@ -595,10 +597,12 @@
 				118EAA852C07E56400436A6F /* ConstitutionViewController.swift in Sources */,
 				DB7EF27D2B5EAC790062FAB5 /* ChoiceDormitoryButton.swift in Sources */,
 				DBFF14932B7BA7EC002DA3AA /* BulletinBoardDetailViewViewController.swift in Sources */,
+				DBD1E00A2C3D49C900FDD5FE /* Url.swift in Sources */,
 				DB932AC12B6511E300B456FB /* BulluetinBoardCollectionViewCell.swift in Sources */,
 				DBF466FF2AA5F4E4009FF3EB /* MealMenuViewController.swift in Sources */,
 				DB496DEB2B70EAFB00F97324 /* TabbarViewController.swift in Sources */,
 				DB41008C2B6A665D005C4DD8 /* BrownVC.swift in Sources */,
+				DBD1E00C2C3D49E900FDD5FE /* Token.swift in Sources */,
 				DB20E38C2B53C2BD000D12A7 /* HomeViewController.swift in Sources */,
 				DBF466FB2AA5F4E4009FF3EB /* AppDelegate.swift in Sources */,
 				DB20F2942B95CBE00052CF5C /* SearchViewController.swift in Sources */,

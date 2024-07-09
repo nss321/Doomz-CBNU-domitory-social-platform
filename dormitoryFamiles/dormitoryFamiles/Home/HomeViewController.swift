@@ -29,6 +29,27 @@ final class HomeViewController: UIViewController, DormitoryButtonHandling {
     @IBOutlet weak var kcalLabel: UILabel!
     
     
+    @IBOutlet weak var fBoardTypeLabel: RoundButton!
+    @IBOutlet weak var fTitleLabel: UIButton!
+    @IBOutlet weak var fCreatedAtLabel: UILabel!
+    
+    @IBOutlet weak var sBoardTypeLabel: RoundButton!
+    @IBOutlet weak var sTitleLabel: UIButton!
+    @IBOutlet weak var sCreatedAtLabel: UILabel!
+    
+    @IBOutlet weak var tBoardTypeLabel: RoundButton!
+    @IBOutlet weak var tTitleLabel: UIButton!
+    @IBOutlet weak var tCreatedAtLabel: UILabel!
+    
+    @IBOutlet weak var fGoDetailButton: UIButton!
+    
+    @IBOutlet weak var sGoDetailButton: UIButton!
+    
+    @IBOutlet weak var tGoDetailButton: UIButton!
+    
+    var myTabBarController: UITabBarController?
+    
+    
     private var todayString: String {
         get {
             let dateFormmatter = DateFormatter()
@@ -38,42 +59,48 @@ final class HomeViewController: UIViewController, DormitoryButtonHandling {
     }
     
     private var isWeekend: Bool {
-            let currentDate = Date()
-            let calendar = Calendar.current
-            let components = calendar.dateComponents([.weekday], from: currentDate)
-            
-            if let weekday = components.weekday {
-                return (weekday == 1 || weekday == 7)
-            }
-            
-            // weekday 값이 nil일 경우 기본값으로 false 반환
-            return false
+        let currentDate = Date()
+        let calendar = Calendar.current
+        let components = calendar.dateComponents([.weekday], from: currentDate)
+        
+        if let weekday = components.weekday {
+            return (weekday == 1 || weekday == 7)
         }
+        
+        // weekday 값이 nil일 경우 기본값으로 false 반환
+        return false
+    }
     
     private let site = ["본관": "https://dorm.chungbuk.ac.kr/home/sub.php?menukey=20041&type=1", "양성재":"https://dorm.chungbuk.ac.kr/home/sub.php?menukey=20041&type=2", "양진재":"https://dorm.chungbuk.ac.kr/home/sub.php?menukey=20041&type=3"]
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setTabber()
         setObserver()
-        self.menuLabel.sizeToFit()
-        self.menuLabel.lineSpacing(12)
-        self.menuLabel.textAlignment = .center
         setLabelAndButton()
-        
         setDormitoryButton()
         
         let stackViewBottomConstraint = timeLabel.bottomAnchor.constraint(equalTo: lineView.bottomAnchor, constant: -16)
         stackViewBottomConstraint.isActive = true
         
-        self.navigationController?.setNavigationBarHidden(true, animated: true)
         setTintAdjustmentModeForButtons(in: self.view)
         dormitoryButton.head1 = SelectedDormitory.shared.domitory
         dormitoryButton.setTitle(SelectedDormitory.shared.domitory, for: .normal)
         fetchWebsite(time: .morning)
+        
+        popularPost()
     }
     
+    private func setTabber() {
+        if let tabBarController = self.tabBarController as? UITabBarController {
+            self.myTabBarController = tabBarController
+        }
+    }
     
     //기숙사 시트의 버튼이 눌려지면(기숙사가 선택되면) 그 title을 버튼의 title과 일치시키는 함수
     @objc func dormitoryChangeNotification(_ notification: Notification) {
@@ -113,6 +140,9 @@ final class HomeViewController: UIViewController, DormitoryButtonHandling {
     
     
     private func setLabelAndButton() {
+        self.menuLabel.sizeToFit()
+        self.menuLabel.lineSpacing(12)
+        self.menuLabel.textAlignment = .center
         morningButton.setTitle("아침", for: .normal)
         lunchButton.setTitle("점심", for: .normal)
         eveningButton.setTitle("저녁", for: .normal)
@@ -143,7 +173,7 @@ final class HomeViewController: UIViewController, DormitoryButtonHandling {
         let mealTimeMapping = ["아침": "morning", "점심": "lunch", "저녁": "evening"]
         if let title = sender.currentTitle, let mappedTitle = mealTimeMapping[title], let time = MealTime(rawValue: mappedTitle) {
             self.fetchWebsite(time: time)
-
+            
         }
     }
     
@@ -195,13 +225,13 @@ final class HomeViewController: UIViewController, DormitoryButtonHandling {
         do {
             let document = try SwiftSoup.parse(html)
             if let element = try document.select("tr#\(date)").first() {
-                var menu = try element.select("td.\(mealTimeString)").first()?.html().replacingOccurrences(of: "<br />", with: "\n").replacingOccurrences(of: "amp;", with: "")
+                let menu = try element.select("td.\(mealTimeString)").first()?.html().replacingOccurrences(of: "<br />", with: "\n").replacingOccurrences(of: "amp;", with: "")
                 
                 var kcal = ""
                 //칼로리의 값을 얻기 위한 정규표현식 사용
                 //(\\d+)는 숫자형식이 들어온다는것,\\s*Kcal는 Kcal앞에 공백이 있을수도 없을수도 있다는 뜻
-                var regex = try! NSRegularExpression(pattern: "(\\d+)\\s*Kcal", options: [.caseInsensitive])
-                var range = NSRange(location: 0, length: menu?.utf16.count ?? 0)
+                let regex = try! NSRegularExpression(pattern: "(\\d+)\\s*Kcal", options: [.caseInsensitive])
+                let range = NSRange(location: 0, length: menu?.utf16.count ?? 0)
                 if let match = regex.firstMatch(in: menu ?? "", options: [], range: range) {
                     if let energyRange = Range(match.range(at: 1), in: menu ?? "") {
                         kcal = String(menu?[energyRange] ?? "")
@@ -238,6 +268,55 @@ final class HomeViewController: UIViewController, DormitoryButtonHandling {
             lines = Array((lines?[0..<index])!)
         }
         return lines?.joined(separator: "\n") ?? ""
+    }
+    
+    @IBAction func bulletinBoardButtonTapped(_ sender: UIButton) {
+        self.myTabBarController?.selectedIndex = 1
+    }
+    
+    @IBAction func roomateButtonTapped(_ sender: UIButton) {
+        self.myTabBarController?.selectedIndex = 3
+    }
+    
+    private func popularPost() {
+        let url = Url.popular(dormitoryType: SelectedDormitory.shared.domitory)
+        print(url)
+        Network.getMethod(url: url) { [self] (result: Result<ArticleResponse, Error>) in
+            switch result {
+            case .success(let response):
+                let newArticles = response.data.articles
+                let popularBoard = [fBoardTypeLabel, sBoardTypeLabel, tBoardTypeLabel]
+                let popularTitle = [fTitleLabel, sTitleLabel, tTitleLabel]
+                let popularCreatedAt = [fCreatedAtLabel, sCreatedAtLabel, tCreatedAtLabel]
+                let popularGoDetail = [fGoDetailButton, sGoDetailButton, tGoDetailButton]
+                DispatchQueue.main.async {
+                    for index in 0..<3 {
+                        popularBoard[index]?.body2 = newArticles[index].boardType
+                        popularTitle[index]?.body2 = newArticles[index].title
+                        popularCreatedAt[index]?.pretendardVariable = DateUtility.yymmdd(from: newArticles[index].createdAt, separator: ".")
+                        popularGoDetail[index]?.tag = newArticles[index].articleId
+                        
+                    }
+                }
+                
+            case .failure(let error):
+                print("Error: \(error)")
+            }
+        }
+    }
+    
+    
+    @IBAction func goDetailButtonTapped(_ sender: UIButton) {
+        let articleId = sender.tag
+        print(articleId)
+        
+        let url = "http://43.202.254.127:8080/api/articles/\(articleId)"
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            if let articleDetailViewController = storyboard.instantiateViewController(withIdentifier: "detail") as? BulletinBoardDetailViewViewController {
+                articleDetailViewController.setUrl(url: url)
+                self.navigationController?.pushViewController(articleDetailViewController, animated: true)
+            }
+        
     }
     
 }

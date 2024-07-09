@@ -2,18 +2,7 @@
   "images" : [
     {
       "filename" : "bulletinBaordDetailLike 1.svg",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "bulletinBaordDetailLike 2.svg",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "bulletinBaordDetailLike 3.svg",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "idiom" : "universal"
     }
   ],
   "info" : {

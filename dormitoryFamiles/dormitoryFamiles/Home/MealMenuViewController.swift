@@ -9,10 +9,9 @@ import Tabman
 import Pageboy
 import UIKit
 
-final class MealMenuViewController: TabmanViewController, DormitoryButtonHandling {
+final class MealMenuViewController: TabmanViewController {
  
     @IBOutlet weak var weekDateLabel: UILabel!
-    @IBOutlet weak var dormitoryButton: UIButton!
     @IBOutlet weak var tabmanView: UIView!
     
     private var year: String {
@@ -47,16 +46,29 @@ final class MealMenuViewController: TabmanViewController, DormitoryButtonHandlin
         return [mondayVC, tuesdayVC, wednesdayVC, thursdayVC, fridayVC, saturdayVC, sundayVC]
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        setObserver()
+        setNavi()
         let dateArr = DateUtility.weekRangeString(seperator: ".")
         weekDateLabel.button = dateArr[0]+"~"+dateArr[1]
         setTapman()
-        dormitoryButton.head1 = SelectedDormitory.shared.domitory
-        dormitoryButton.setTitle(SelectedDormitory.shared.domitory, for: .normal)
     }
     
+    private func setNavi() {
+        self.title = "\(SelectedDormitory.shared.domitory) 메뉴"
+        if let navigationController = self.navigationController {
+                let navBarAppearance = navigationController.navigationBar
+                navBarAppearance.titleTextAttributes = [
+                    NSAttributedString.Key.font: UIFont.head1
+                ]
+            }
+    }
    
     private func setTapman() {
         self.dataSource = self
@@ -88,31 +100,6 @@ final class MealMenuViewController: TabmanViewController, DormitoryButtonHandlin
        
         addBar(bar, dataSource: dataSource as! TMBarDataSource, at: .custom(view: tabmanView, layout: nil))
     }
-    
-    private func setDormitoryButton() {
-        var configuration = UIButton.Configuration.plain()
-        configuration.imagePadding = .init(4)
-        dormitoryButton.configuration = configuration
-        dormitoryButton?.tintAdjustmentMode = .normal
-        dormitoryButton.head1 = SelectedDormitory.shared.domitory
-    }
-    
-
-    @IBAction func dormitoryButtonTapped(_ sender: DormitoryButton) {
-        presentSheet()
-    }
-    
-    @objc func dormitoryChangeNotification(_ notification: Notification) {
-        if notification.object is String {
-            dormitoryButton.head1 = SelectedDormitory.shared.domitory
-            dormitoryButton.setTitle(SelectedDormitory.shared.domitory, for: .normal)
-        }
-    }
-    
-    private func setObserver() {
-        NotificationCenter.default.addObserver(self, selector: #selector(dormitoryChangeNotification(_:)), name: .init("DormitoryChangeNotification"), object: nil)
-    }
-    
    
 }
 

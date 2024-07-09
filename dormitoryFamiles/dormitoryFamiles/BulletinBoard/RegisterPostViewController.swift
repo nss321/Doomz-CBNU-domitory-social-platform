@@ -171,7 +171,7 @@ final class RegisterPostViewController: UIViewController, CancelButtonTappedDele
 //            request.setValue("multipart/form-data; boundary=\(generateBoundaryString())", forHTTPHeaderField: "Content-Type")
             request.setValue("application/json", forHTTPHeaderField: "Content-Type")
             let token = Token.shared.number
-            request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+            request.addValue("Bearer \(token)", forHTTPHeaderField: "Accesstoken")
             request.httpBody = jsonData
             
             let task = URLSession.shared.dataTask(with: request) { data, response, error in
