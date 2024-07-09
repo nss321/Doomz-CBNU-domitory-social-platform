@@ -41,6 +41,12 @@ final class HomeViewController: UIViewController, DormitoryButtonHandling {
     @IBOutlet weak var tTitleLabel: UIButton!
     @IBOutlet weak var tCreatedAtLabel: UILabel!
     
+    @IBOutlet weak var fGoDetailButton: UIButton!
+    
+    @IBOutlet weak var sGoDetailButton: UIButton!
+    
+    @IBOutlet weak var tGoDetailButton: UIButton!
+    
     var myTabBarController: UITabBarController?
     
     
