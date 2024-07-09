@@ -11,6 +11,8 @@
 		11036F232C3C0E690042B9EF /* EatingFoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11036F222C3C0E690042B9EF /* EatingFoodViewController.swift */; };
 		11036F252C3C16B00042B9EF /* NoiseAndPerfumeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11036F242C3C16B00042B9EF /* NoiseAndPerfumeViewController.swift */; };
 		11036F272C3C19A00042B9EF /* StudyStyleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11036F262C3C19A00042B9EF /* StudyStyleViewController.swift */; };
+		11036F292C3D57840042B9EF /* MiscViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11036F282C3D57840042B9EF /* MiscViewController.swift */; };
+		11036F2D2C3D5CE40042B9EF /* CompleteMyCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11036F2C2C3D5CE40042B9EF /* CompleteMyCondition.swift */; };
 		1126FE1C2BCEA662004C6C81 /* LifeStyleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1126FE1B2BCEA662004C6C81 /* LifeStyleViewController.swift */; };
 		1131E8A22BF6220B00D40120 /* UIScreen+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1131E8A12BF6220B00D40120 /* UIScreen+.swift */; };
 		11707A232BA4C8CC0027802D /* SleepPatternViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11707A222BA4C8CC0027802D /* SleepPatternViewController.swift */; };
@@ -101,6 +103,8 @@
 		11036F222C3C0E690042B9EF /* EatingFoodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EatingFoodViewController.swift; sourceTree = "<group>"; };
 		11036F242C3C16B00042B9EF /* NoiseAndPerfumeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoiseAndPerfumeViewController.swift; sourceTree = "<group>"; };
 		11036F262C3C19A00042B9EF /* StudyStyleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyStyleViewController.swift; sourceTree = "<group>"; };
+		11036F282C3D57840042B9EF /* MiscViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiscViewController.swift; sourceTree = "<group>"; };
+		11036F2C2C3D5CE40042B9EF /* CompleteMyCondition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteMyCondition.swift; sourceTree = "<group>"; };
 		1126FE1B2BCEA662004C6C81 /* LifeStyleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifeStyleViewController.swift; sourceTree = "<group>"; };
 		1131E8A12BF6220B00D40120 /* UIScreen+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScreen+.swift"; sourceTree = "<group>"; };
 		11707A222BA4C8CC0027802D /* SleepPatternViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepPatternViewController.swift; sourceTree = "<group>"; };
@@ -217,6 +221,8 @@
 				11036F222C3C0E690042B9EF /* EatingFoodViewController.swift */,
 				11036F242C3C16B00042B9EF /* NoiseAndPerfumeViewController.swift */,
 				11036F262C3C19A00042B9EF /* StudyStyleViewController.swift */,
+				11036F282C3D57840042B9EF /* MiscViewController.swift */,
+				11036F2C2C3D5CE40042B9EF /* CompleteMyCondition.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -585,9 +591,11 @@
 				11036F272C3C19A00042B9EF /* StudyStyleViewController.swift in Sources */,
 				DB61AA342B4C1EA70040418B /* RegisterPostViewController.swift in Sources */,
 				DB20E38E2B53D75F000D12A7 /* extensionStroyboard.swift in Sources */,
+				11036F292C3D57840042B9EF /* MiscViewController.swift in Sources */,
 				117250E92BB5927E0083F181 /* SmokeAndAlcoholPatternViewController.swift in Sources */,
 				DB6491362C22F7FD00E0AE25 /* MealOfWeekViewController.swift in Sources */,
 				DB94B2AF2C23B3D80077A7BE /* NickNameViewController.swift in Sources */,
+				11036F2D2C3D5CE40042B9EF /* CompleteMyCondition.swift in Sources */,
 				DBD1E7FC2B84A9D500FD71C6 /* Network.swift in Sources */,
 				DB2B7BCB2B45727B00C1847D /* TagButton.swift in Sources */,
 				DB1E0E8B2B629865000A4AA5 /* ChoiceDormitoryViewController.swift in Sources */,
