@@ -26,6 +26,9 @@ final class HomeViewController: UIViewController, DormitoryButtonHandling {
     
     @IBOutlet weak var eveningButton: RoundButton!
     
+    @IBOutlet weak var kcalLabel: UILabel!
+    
+    
     private var todayString: String {
         get {
             let dateFormmatter = DateFormatter()
@@ -33,6 +36,19 @@ final class HomeViewController: UIViewController, DormitoryButtonHandling {
             return dateFormmatter.string(from: Date())
         }
     }
+    
+    private var isWeekend: Bool {
+            let currentDate = Date()
+            let calendar = Calendar.current
+            let components = calendar.dateComponents([.weekday], from: currentDate)
+            
+            if let weekday = components.weekday {
+                return (weekday == 1 || weekday == 7)
+            }
+            
+            // weekday 값이 nil일 경우 기본값으로 false 반환
+            return false
+        }
     
     private let site = ["본관": "https://dorm.chungbuk.ac.kr/home/sub.php?menukey=20041&type=1", "양성재":"https://dorm.chungbuk.ac.kr/home/sub.php?menukey=20041&type=2", "양진재":"https://dorm.chungbuk.ac.kr/home/sub.php?menukey=20041&type=3"]
     
@@ -52,8 +68,10 @@ final class HomeViewController: UIViewController, DormitoryButtonHandling {
         stackViewBottomConstraint.isActive = true
         
         self.navigationController?.setNavigationBarHidden(true, animated: true)
-        fetchWebsite(time: .morning)
         setTintAdjustmentModeForButtons(in: self.view)
+        dormitoryButton.head1 = SelectedDormitory.shared.domitory
+        dormitoryButton.setTitle(SelectedDormitory.shared.domitory, for: .normal)
+        fetchWebsite(time: .morning)
     }
     
     
@@ -121,9 +139,11 @@ final class HomeViewController: UIViewController, DormitoryButtonHandling {
         sender.backgroundColor = .white
         sender.tintColor = .primary
         
+        
         let mealTimeMapping = ["아침": "morning", "점심": "lunch", "저녁": "evening"]
         if let title = sender.currentTitle, let mappedTitle = mealTimeMapping[title], let time = MealTime(rawValue: mappedTitle) {
             self.fetchWebsite(time: time)
+
         }
     }
     
@@ -137,6 +157,27 @@ final class HomeViewController: UIViewController, DormitoryButtonHandling {
         guard dormitoryButton.currentTitle! != "양현재" else {
             return
         }
+        
+        if !isWeekend {
+            //평일
+            if time == .morning {
+                timeLabel.body2 = "운영시간 7:20 ~ 09:00"
+            }else if time == .lunch {
+                timeLabel.body2 = "운영시간 11:30 ~ 13:30"
+            }else if time == .evening {
+                timeLabel.body2 = "운영시간 17:30 ~ 19:10"
+            }
+        }else {
+            //주말
+            if time == .morning {
+                timeLabel.body2 = "운영시간 8:00 ~ 09:00"
+            }else if time == .lunch {
+                timeLabel.body2 = "운영시간 12:00 ~ 13:00"
+            }else if time == .evening {
+                timeLabel.body2 = "운영시간 17:30 ~ 19:00"
+            }
+        }
+        
         guard let url = URL(string: site[dormitoryButton.currentTitle!]!) else {return}
         let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
             if let error = error {
@@ -154,10 +195,32 @@ final class HomeViewController: UIViewController, DormitoryButtonHandling {
         do {
             let document = try SwiftSoup.parse(html)
             if let element = try document.select("tr#\(date)").first() {
-                let menu = try element.select("td.\(mealTimeString)").first()?.html().replacingOccurrences(of: "<br />", with: "\n")
+                var menu = try element.select("td.\(mealTimeString)").first()?.html().replacingOccurrences(of: "<br />", with: "\n").replacingOccurrences(of: "amp;", with: "")
                 
-                DispatchQueue.main.async {
-                    self.menuLabel.text = menu
+                var kcal = ""
+                //칼로리의 값을 얻기 위한 정규표현식 사용
+                //(\\d+)는 숫자형식이 들어온다는것,\\s*Kcal는 Kcal앞에 공백이 있을수도 없을수도 있다는 뜻
+                var regex = try! NSRegularExpression(pattern: "(\\d+)\\s*Kcal", options: [.caseInsensitive])
+                var range = NSRange(location: 0, length: menu?.utf16.count ?? 0)
+                if let match = regex.firstMatch(in: menu ?? "", options: [], range: range) {
+                    if let energyRange = Range(match.range(at: 1), in: menu ?? "") {
+                        kcal = String(menu?[energyRange] ?? "")
+                    }
+                }
+                
+                DispatchQueue.main.async { [self] in
+                    if menu == "\n" {
+                        self.menuLabel.text = "긱식 정보 없음"
+                        self.kcalLabel.text = ""
+                    }else {
+                        self.menuLabel.text = cutKcalLine(str: menu)
+                        self.kcalLabel.text = "총 칼로리 \(kcal)kcal"
+                    }
+                }
+            }else {
+                DispatchQueue.main.async { [self] in
+                    self.menuLabel.text = "긱식 정보 없음"
+                    self.kcalLabel.text = ""
                 }
             }
         } catch Exception.Error(_, let message) {
@@ -165,6 +228,16 @@ final class HomeViewController: UIViewController, DormitoryButtonHandling {
         } catch {
             print("error")
         }
+    }
+    
+    //메뉴에 칼로리 부터 이후 줄 없앰
+    private func cutKcalLine(str: String?) -> String {
+        var lines = str?.components(separatedBy: "\n")
+        // 칼로리의 인덱스 찾기
+        if let index = lines?.firstIndex(where: { $0.contains("Kcal") || $0.contains("kcal") }) {
+            lines = Array((lines?[0..<index])!)
+        }
+        return lines?.joined(separator: "\n") ?? ""
     }
     
 }

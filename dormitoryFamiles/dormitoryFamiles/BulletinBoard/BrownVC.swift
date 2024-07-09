@@ -17,18 +17,12 @@ final class BrownVC: UIViewController {
     var path = ""
     @IBOutlet weak var collectionView: UICollectionView!
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        
-        print(path)
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setDelegate()
         self.collectionView.register(UINib(nibName: "BulluetinBoardCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "cell")
-        
+
         network(url: Url.base + path)
         
         NotificationCenter.default.addObserver(self, selector: #selector(changeDormiotry), name: .changeDormiotry, object: nil)

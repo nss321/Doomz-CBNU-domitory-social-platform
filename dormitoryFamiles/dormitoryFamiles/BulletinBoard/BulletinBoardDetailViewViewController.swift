@@ -47,11 +47,13 @@ final class BulletinBoardDetailViewViewController: UIViewController {
     private var selectedReplyId = -1
     private var tagArray = [String]()
     private var isWished = false
+    private var status = ""
+    private var isWriter = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUI()
         network(url: url)
+        setUI()
         setIndicator()
         setDelegate()
         setCollectionViewAutoSizing()
@@ -69,11 +71,14 @@ final class BulletinBoardDetailViewViewController: UIViewController {
     private func setUI() {
         self.profileImage.layer.cornerRadius = profileImage.frame.height/2
         self.profileImage.clipsToBounds = true
-        
+    }
+    
+    private func setNavigationItem() {
         //네비게이션바 오른쪽 more버튼 UI
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "bulletinBoardDetailMore"), style: .plain, target: self, action: #selector(postMoreButtonTapped))
-        self.navigationItem.rightBarButtonItem?.tintColor = .gray4
-        
+        if isWriter {
+            self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "bulletinBoardDetailMore"), style: .plain, target: self, action: #selector(postMoreButtonTapped))
+            self.navigationItem.rightBarButtonItem?.tintColor = .gray4
+        }
     }
     
     func setUrl(url: String) {
@@ -138,6 +143,9 @@ final class BulletinBoardDetailViewViewController: UIViewController {
                     let url = URL(string: data.profileUrl)
                     self.profileImage.kf.setImage(with: url)
                     self.profileImage.contentMode = .scaleAspectFill
+                    self.isWriter = data.isWriter
+                    self.setNavigationItem()
+                    self.status = data.status
                     
                     //게시물 이미지 불러오기
                     if data.imagesUrls.isEmpty {
@@ -286,6 +294,23 @@ final class BulletinBoardDetailViewViewController: UIViewController {
     }
     
     @objc private func postMoreButtonTapped() {
+        var statusText = ""
+        var statusTitle = ""
+        var statusMessage = ""
+        var statusQuery = ""
+        
+        if status == Status.ing.rawValue {
+            statusText = "모집 완료하기"
+            statusTitle = "모집완료를 할까요?"
+            statusMessage = "모집을 완료하면 1주일 뒤에 게시판에서 글이 내려가고, 보관함으로 이동해요."
+            statusQuery = Status.finish.rawValue
+        }else {
+            statusText = "모집하기"
+            statusTitle = "모집을 할까요?"
+            statusMessage = "모집을 하게되면 글이 내려가지 않고 유지되요"
+            statusQuery = Status.ing.rawValue
+        }
+        
         let actionSheet = UIAlertController(title: "글메뉴", message: nil, preferredStyle: .actionSheet)
         actionSheet.addAction(UIAlertAction(title: "삭제하기", style: .destructive, handler: {(ACTION:UIAlertAction) in
             let url = Url.deletePost(id: self.id)
@@ -302,8 +327,8 @@ final class BulletinBoardDetailViewViewController: UIViewController {
         actionSheet.addAction(UIAlertAction(title: "수정하기", style: .default, handler: {(ACTION:UIAlertAction) in
             
         }))
-        actionSheet.addAction(UIAlertAction(title: "모집 완료하기", style: .default, handler: {(ACTION:UIAlertAction) in
-            let finishAlert = UIAlertController(title: "모집완료를 할까요?", message: "모집을 완료하면 1주일 뒤에 게시판에서 글이 내려가고, 보관함으로 이동해요.", preferredStyle: .alert)
+        actionSheet.addAction(UIAlertAction(title: statusText, style: .default, handler: {(ACTION:UIAlertAction) in
+            let finishAlert = UIAlertController(title: statusTitle, message: statusMessage, preferredStyle: .alert)
 
            
             finishAlert.addAction(UIAlertAction(title: "취소", style: .cancel, handler: { _ in
@@ -311,7 +336,8 @@ final class BulletinBoardDetailViewViewController: UIViewController {
             }))
 
             finishAlert.addAction(UIAlertAction(title: "완료하기", style: .default, handler: { [self] _ in
-                let finishUrl = Url.changeStatus(id: id, status: .finish)
+                let finishUrl = Url.changeStatus(id: id, status: statusQuery)
+
                 Network.putMethod(url: finishUrl) { (result: Result<SuccessCode, Error>) in
                     switch result {
                     case .success(let successCode):
@@ -511,9 +537,9 @@ extension BulletinBoardDetailViewViewController: UICollectionViewDelegateFlowLay
     
 }
 
-enum Status:String {
-case ing = "모집중"
-case finish = "모집완료"
+enum Status: String {
+    case ing = "모집중"
+    case finish = "모집완료"
 }
 
 import UIKit
