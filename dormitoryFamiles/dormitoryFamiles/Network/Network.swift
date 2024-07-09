@@ -17,9 +17,9 @@ struct Network {
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         
-        // "Authorization" 헤더에 "Bearer" 스키마를 사용해 토큰 추가
+        // "Accesstoken" 헤더에 "Bearer" 스키마를 사용해 토큰 추가
         let token = Token.shared.number
-        request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        request.addValue("Bearer \(token)", forHTTPHeaderField: "Accesstoken")
         
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
             guard let data = data, error == nil else {
@@ -48,7 +48,7 @@ struct Network {
         var request = URLRequest(url: url)
         request.httpMethod = "DELETE"
         let token = Token.shared.number
-        request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        request.addValue("Bearer \(token)", forHTTPHeaderField: "Accesstoken")
         
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
             if let error = error {
@@ -88,7 +88,7 @@ struct Network {
         var request = URLRequest(url: url)
         request.httpMethod = "PUT"
         let token = Token.shared.number
-        request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        request.addValue("Bearer \(token)", forHTTPHeaderField: "Accesstoken")
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
             if let error = error {
                 completion(.failure(error))
@@ -127,7 +127,7 @@ struct Network {
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         let token = Token.shared.number
-        request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        request.addValue("Bearer \(token)", forHTTPHeaderField: "Accesstoken")
         
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
             if let error = error {

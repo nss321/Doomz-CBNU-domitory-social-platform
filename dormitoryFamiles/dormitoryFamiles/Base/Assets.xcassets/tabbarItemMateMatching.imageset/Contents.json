@@ -2,18 +2,7 @@
   "images" : [
     {
       "filename" : "tabbarItemMateMatching 1.svg",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "tabbarItemMateMatching 2.svg",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "tabbarItemMateMatching 3.svg",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "idiom" : "universal"
     }
   ],
   "info" : {
