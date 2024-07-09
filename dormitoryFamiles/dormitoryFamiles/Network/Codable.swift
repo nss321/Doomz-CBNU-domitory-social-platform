@@ -83,6 +83,7 @@ struct ReplyResponse: Codable {
 
 struct DataClass: Codable {
     let totalCount: Int
+    let loginMemberId: Int
     let comments: [Comment]
 }
 
@@ -90,10 +91,10 @@ struct Comment: Codable {
     let commentId: Int
     let memberId: Int
     let profileUrl: String
-    let nickName: String
+    let nickname: String
     let createdAt: String
     let content: String
-    let isWriter: Bool
+    let isArticleWriter: Bool
     let isDeleted: Bool
     let replyComments: [ReplyComment]?
 }
@@ -105,7 +106,7 @@ struct ReplyComment: Codable {
     let nickname: String
     let createdAt: String
     let content: String
-    let isWriter: Bool
+    let isArticleWriter: Bool
 }
 
 struct DeleteError: Codable {
