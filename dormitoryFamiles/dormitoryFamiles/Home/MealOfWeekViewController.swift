@@ -36,17 +36,13 @@ final class MealOfWeekViewController: UIViewController {
     
     private let site = ["본관": "https://dorm.chungbuk.ac.kr/home/sub.php?menukey=20041&type=1", "양성재":"https://dorm.chungbuk.ac.kr/home/sub.php?menukey=20041&type=2", "양진재":"https://dorm.chungbuk.ac.kr/home/sub.php?menukey=20041&type=3"]
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setObserver()
         self.menuLabel.sizeToFit()
         self.menuLabel.lineSpacing(12)
         self.menuLabel.textAlignment = .center
         setLabelAndButton()
-        
-        self.navigationController?.setNavigationBarHidden(true, animated: true)
         setTintAdjustmentModeForButtons(in: self.view)
         fetchWebsite(time: .morning)
     }

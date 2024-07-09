@@ -2,18 +2,7 @@
   "images" : [
     {
       "filename" : "Vector 304.svg",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "Vector 305.svg",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "Vector 306.svg",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "idiom" : "universal"
     }
   ],
   "info" : {

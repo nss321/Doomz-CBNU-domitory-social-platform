@@ -37,11 +37,63 @@ final class ProfileSettingViewController: UIViewController {
     @IBOutlet weak var collegeOfCollegesButton: UIButton!
     @IBOutlet weak var departmentSelectionButton: UIButton!
     @IBOutlet weak var dormitoryButton: UIButton!
+    @IBOutlet weak var nextButton: RoundButton!
+    
+    @IBOutlet weak var studentNumberTextField: UITextField!
+    private var departmentObserver: NSKeyValueObservation?
+    private var collegeOfCollegesObserver: NSKeyValueObservation?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        setTextfield()
+        departmentObserver = departmentSelectionButton.titleLabel?.observe(\.text, options: [.new, .old], changeHandler: { [weak self] (label, change) in
+            if let newText = change.newValue {
+                self?.departmentTextDidChange(newText: newText)
+            }
+        })
+        collegeOfCollegesObserver = collegeOfCollegesButton.titleLabel?.observe(\.text, options: [.new, .old], changeHandler: { [weak self] (label, change) in
+            if let newText = change.newValue {
+                self?.collegeOfCollegesTextDidChange(newText: newText)
+            }
+        })
         [universityLabel, departmentLabel, identifierNumberLabel, dormitoryLabel].forEach{$0.asColor(targetString: ["*"], color: .primary!)}
         setDropDown()
+        nextButton.isEnabled = false
+        
+    }
+    
+    private func setTextfield() {
+        studentNumberTextField.delegate = self
+        studentNumberTextField.keyboardType = .numberPad
+    }
+    
+    private func  departmentTextDidChange(newText: String?) {
+        if (newText != "학과선택") && (studentNumberTextField.text != "") {
+        } else {
+        }
+        updateButtonTitleColors() // 버튼 타이틀 색상 업데이트
+        enableNextButton()
+    }
+    
+    private func collegeOfCollegesTextDidChange(newText: String?) {
+        departmentSelectionButton.setTitle("학과선택", for: .normal)
+        updateButtonTitleColors() // 버튼 타이틀 색상 업데이트
+        enableNextButton()
+        
+    }
+    
+    private func updateButtonTitleColors() {
+        if collegeOfCollegesButton.currentTitle == "단과대학교" {
+            collegeOfCollegesButton.setTitleColor(.gray4, for: .normal)
+        } else {
+            collegeOfCollegesButton.setTitleColor(.black, for: .normal)
+        }
+        
+        if departmentSelectionButton.currentTitle == "학과선택" {
+            departmentSelectionButton.setTitleColor(.gray4, for: .normal)
+        } else {
+            departmentSelectionButton.setTitleColor(.black, for: .normal)
+        }
     }
     
     private func setDropDown() {
@@ -52,9 +104,9 @@ final class ProfileSettingViewController: UIViewController {
         DropDown.appearance().shadowOpacity = 0
         DropDown.appearance().selectionBackgroundColor = .gray0 ?? .white
         DropDown.appearance().textFont = UIFont(name: CustomFonts.defult.rawValue, size: 16)!
-
+        
     }
-
+    
     @IBAction func showDropDown(_ sender: UIButton) {
         
         //버튼에 따라 데이터 소스 세팅
@@ -62,14 +114,14 @@ final class ProfileSettingViewController: UIViewController {
         case collegeOfCollegesButton:
             dropDown.dataSource = self.array.map { $0.abstract }
         case departmentSelectionButton:
-                if let collegeTitle = collegeOfCollegesButton.currentTitle {
-                    for element in self.array {
-                        if element.abstract == collegeTitle {
-                            dropDown.dataSource = element.detail
-                            break
-                        }
+            if let collegeTitle = collegeOfCollegesButton.currentTitle {
+                for element in self.array {
+                    if element.abstract == collegeTitle {
+                        dropDown.dataSource = element.detail
+                        break
                     }
                 }
+            }
         case dormitoryButton:
             dropDown.dataSource = ["본관", "양성재","양진재", "양현재"]
         default:
@@ -79,12 +131,49 @@ final class ProfileSettingViewController: UIViewController {
         //공통된 작업
         dropDown.anchorView = sender
         dropDown.bottomOffset = CGPoint(x: 0, y:((dropDown.anchorView?.plainView.bounds.height)!-5))
-        sender.borderColor = .primaryMid
+        
+        if sender == departmentSelectionButton && collegeOfCollegesButton.currentTitle == "단과대학교"{
+            return
+        }else {
+            sender.borderColor = .primaryMid
+        }
         dropDown.show()
-        dropDown.selectionAction = { [unowned self] (index: Int, item: String) in
+        dropDown.selectionAction = { (index: Int, item: String) in
             sender.setTitle(item, for: .normal)
             sender.borderColor = .gray1
+            //enableNextButton()
+        }
+        
+        dropDown.cancelAction = { [weak self] in
+            self?.collegeOfCollegesButton.borderColor = .gray1
+            self?.departmentSelectionButton.borderColor = .gray1
+            self?.dormitoryButton.borderColor = .gray1
+        }
+        
+    }
+    
+    private func enableNextButton() {
+        if (departmentSelectionButton.currentTitle != "학과선택") && (studentNumberTextField.text != "") {
+            nextButton.isEnabled = true
+            nextButton.backgroundColor = .primary
+        }else {
+            nextButton.isEnabled = false
+            nextButton.backgroundColor = .gray3
         }
     }
     
+}
+
+extension ProfileSettingViewController: UITextFieldDelegate {
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        let textFieldMaxLength = 10
+        let text = textField.text ?? ""
+        if text.count > textFieldMaxLength {
+            let startIndex = text.startIndex
+            let endIndex = text.index(startIndex, offsetBy: textFieldMaxLength - 1)
+            let fixedText = String(text[startIndex...endIndex])
+            textField.text = fixedText
+        }
+        enableNextButton()
+    }
 }
