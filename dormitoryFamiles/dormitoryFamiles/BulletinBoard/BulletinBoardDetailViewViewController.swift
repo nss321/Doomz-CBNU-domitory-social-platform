@@ -93,7 +93,7 @@ final class BulletinBoardDetailViewViewController: UIViewController {
             var url = URL(string: "")
             if selectedReplyId == -1 {
                 url = URL(string: Url.replyUrl(id: id))!
-            }else {
+            } else {
                 url = URL(string: Url.postRereplyUrl(replyId: selectedReplyId))!
             }
             var request = URLRequest(url: url!)
@@ -108,6 +108,16 @@ final class BulletinBoardDetailViewViewController: UIViewController {
                     print("Error: \(error)")
                 } else if data != nil {
                     print("Response: \(response)")
+                    DispatchQueue.main.async {
+                        self.replyNetwork(id: self.id) {
+                            self.collectionView.reloadData()
+                            self.commentTextView.text = ""
+                            self.showCompletionAlert()
+                            self.scrollToTop()
+                            guard let replyCount = self.replyCountLabel.text as? Int else { return }
+                            self.replyCountLabel.text = String(replyCount + 1)
+                        }
+                    }
                 }
             }
             
@@ -194,20 +204,35 @@ final class BulletinBoardDetailViewViewController: UIViewController {
     }
     
     
-    private func replyNetwork(id: Int) {
+    private func replyNetwork(id: Int, completion: (() -> Void)? = nil) {
         let commentUrl = Url.replyUrl(id: id)
         Network.getMethod(url: commentUrl) { [self] (result: Result<ReplyResponse, Error>) in
             switch result {
             case .success(let response):
                 self.dataClass = response.data
-                DispatchQueue.main.async { [self] in
+                DispatchQueue.main.async {
                     self.replyCountLabel.text = String(dataClass!.totalCount)
+                    completion?()
                 }
             case .failure(let error):
-                
                 print(error.localizedDescription)
+                DispatchQueue.main.async {
+                    completion?()
+                }
             }
         }
+    }
+    
+    private func showCompletionAlert() {
+        let alertController = UIAlertController(title: "댓글 작성 완료", message: "댓글 작성이 완료되었습니다.", preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
+        present(alertController, animated: true, completion: nil)
+    }
+
+    private func scrollToTop() {
+        if let scrollView = view.subviews.compactMap({ $0 as? UIScrollView }).first {
+                scrollView.setContentOffset(CGPoint(x: 0, y: -scrollView.contentInset.top), animated: true)
+            }
     }
     
     
@@ -330,15 +355,15 @@ final class BulletinBoardDetailViewViewController: UIViewController {
         }))
         actionSheet.addAction(UIAlertAction(title: statusText, style: .default, handler: {(ACTION:UIAlertAction) in
             let finishAlert = UIAlertController(title: statusTitle, message: statusMessage, preferredStyle: .alert)
-
-           
+            
+            
             finishAlert.addAction(UIAlertAction(title: "취소", style: .cancel, handler: { _ in
-              
+                
             }))
-
+            
             finishAlert.addAction(UIAlertAction(title: "완료하기", style: .default, handler: { [self] _ in
                 let finishUrl = Url.changeStatus(id: id, status: statusQuery)
-
+                
                 Network.putMethod(url: finishUrl) { (result: Result<SuccessCode, Error>) in
                     switch result {
                     case .success(let successCode):
@@ -347,7 +372,7 @@ final class BulletinBoardDetailViewViewController: UIViewController {
                         print("Error: \(error)")
                     }
                 }
-
+                
             }))
             
             self.present(finishAlert, animated: true, completion: nil)
@@ -473,7 +498,7 @@ extension BulletinBoardDetailViewViewController: UICollectionViewDelegate, UICol
         return headerView
         
     }
-
+    
     
     func moreButtonTapped(replyId: Int, format: Reply) {
         print(replyId)
@@ -517,11 +542,11 @@ extension BulletinBoardDetailViewViewController: UICollectionViewDelegateFlowLay
             return CGSize(width: width, height: height)
         }else {
             let tag = tagArray[indexPath.item]
-                   let tagSize = tag.size(withAttributes: [NSAttributedString.Key.font: UIFont.body2])
-                   let cellWidth = tagSize.width + 20 // 여유 공간 추가
-                   let cellHeight: CGFloat = 30 // 적절한 높이 설정
-                   
-                   return CGSize(width: cellWidth, height: cellHeight)
+            let tagSize = tag.size(withAttributes: [NSAttributedString.Key.font: UIFont.body2])
+            let cellWidth = tagSize.width + 20 // 여유 공간 추가
+            let cellHeight: CGFloat = 30 // 적절한 높이 설정
+            
+            return CGSize(width: cellWidth, height: cellHeight)
         }
         
     }
