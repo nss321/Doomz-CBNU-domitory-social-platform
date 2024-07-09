@@ -1,18 +1,18 @@
 //
-//  StudyStyleViewController.swift
+//  MiscViewController.swift
 //  dormitoryFamiles
 //
-//  Created by BAE on 7/8/24.
+//  Created by BAE on 7/9/24.
 //
 
 import UIKit
 import SnapKit
 
-final class StudyStyleViewController: UIViewController, ConfigUI {
+final class MiscViewController: UIViewController, ConfigUI {
     
-    let studyPlace = ["기숙사", "기숙사 외", "유동적"]
-    let exam = ["시험 준비", "해당없어요"]
-    
+    let workout = ["안해요", "긱사에서", "헬스장에서"]
+    let bugs = ["잘잡아요", "작은것만", "못잡아요"]
+
     private let stackView: UIStackView = {
         let view = UIStackView()
         view.axis = .vertical
@@ -29,7 +29,7 @@ final class StudyStyleViewController: UIViewController, ConfigUI {
         return view
     }()
     
-    private let studyStyleStack: UIStackView = {
+    private let miscStack: UIStackView = {
         let view = UIStackView()
         view.axis = .vertical
         view.spacing = 28
@@ -39,7 +39,7 @@ final class StudyStyleViewController: UIViewController, ConfigUI {
     
     private let currentStep: UILabel = {
         let label = UILabel()
-        label.text = "9 / 10"
+        label.text = "10 / 10"
         label.font = FontManager.subtitle1()
         label.textColor = .gray5
         label.addCharacterSpacing()
@@ -48,21 +48,21 @@ final class StudyStyleViewController: UIViewController, ConfigUI {
     
     private let progressBar: UIImageView = {
         let view = UIImageView()
-        view.image = UIImage(named: "progress9")
+        view.image = UIImage(named: "progress10")
         view.contentMode = .scaleAspectFit
         return view
     }()
     
-    private let studyStyleLogo: UIImageView = {
+    private let constitutionLogo: UIImageView = {
         let view = UIImageView()
-        view.image = UIImage(named: "studyStyle_logo")
+        view.image = UIImage(named: "miscellaneous_logo")
         view.contentMode = .scaleAspectFit
         return view
     }()
     
     private let contentLabel: UILabel = {
         let label = UILabel()
-        label.text = "시험기간에 나는?"
+        label.text = "기타 생활방식을 알려주세요."
         label.font = FontManager.title2()
         label.textAlignment = .center
         label.textColor = .doomzBlack
@@ -70,7 +70,7 @@ final class StudyStyleViewController: UIViewController, ConfigUI {
         return label
     }()
     
-    private lazy var studyPlaceCollectionView: UICollectionView = {
+    private lazy var workoutCollectionView: UICollectionView = {
         let view = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
         view.register(SleepPatternCollectionViewCell.self, forCellWithReuseIdentifier: SleepPatternCollectionViewCell.identifier)
         view.backgroundColor = .clear
@@ -79,7 +79,7 @@ final class StudyStyleViewController: UIViewController, ConfigUI {
         return view
     }()
     
-    private lazy var examCollectionView: UICollectionView = {
+    private lazy var bugsCollectionView: UICollectionView = {
         let view = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
         view.register(SleepPatternCollectionViewCell.self, forCellWithReuseIdentifier: SleepPatternCollectionViewCell.identifier)
         view.backgroundColor = .clear
@@ -100,6 +100,7 @@ final class StudyStyleViewController: UIViewController, ConfigUI {
         self.didClickNextButton()
     }
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .background
@@ -110,14 +111,13 @@ final class StudyStyleViewController: UIViewController, ConfigUI {
     }
     
     func addComponents() {
-        let midnightSnackSection = createStackViewWithLabelAndSubview(string: "야식", subview: studyPlaceCollectionView)
-        let eatingFoodInRoomSection = createStackViewWithLabelAndSubview(string: "방 안에서", subview: examCollectionView)
-
+        let hotSection = createStackViewWithLabelAndSubview(string: "운동", subview: workoutCollectionView)
+        let coldSection = createStackViewWithLabelAndSubview(string: "벌레", subview: bugsCollectionView)
         
         view.addSubview(stackView)
-        [logoStackView, studyStyleStack].forEach{ stackView.addArrangedSubview($0) }
-        [currentStep, progressBar, studyStyleLogo, contentLabel].forEach{ logoStackView.addArrangedSubview($0) }
-        [midnightSnackSection, eatingFoodInRoomSection, spacerView, nextButton].forEach{ studyStyleStack.addArrangedSubview($0) }
+        [logoStackView, miscStack].forEach{ stackView.addArrangedSubview($0) }
+        [currentStep, progressBar, constitutionLogo, contentLabel].forEach { logoStackView.addArrangedSubview($0) }
+        [hotSection, coldSection, spacerView, nextButton].forEach{ miscStack.addArrangedSubview($0) }
     }
     
     func setConstraints() {
@@ -127,13 +127,13 @@ final class StudyStyleViewController: UIViewController, ConfigUI {
             $0.bottom.equalToSuperview().inset(32)
         }
         
-        studyPlaceCollectionView.snp.makeConstraints {
+        workoutCollectionView.snp.makeConstraints {
             $0.left.right.equalToSuperview()
             $0.width.equalTo(view.snp.width).inset(20)
             $0.height.equalTo(48)
         }
         
-        examCollectionView.snp.makeConstraints {
+        bugsCollectionView.snp.makeConstraints {
             $0.left.right.equalToSuperview()
             $0.width.equalTo(view.snp.width).inset(20)
             $0.height.equalTo(48)
@@ -141,83 +141,80 @@ final class StudyStyleViewController: UIViewController, ConfigUI {
         
         nextButton.snp.makeConstraints {
             $0.left.right.equalToSuperview()
+            $0.bottom.equalToSuperview()
         }
         
         spacerView.snp.makeConstraints {
             $0.height.greaterThanOrEqualTo(0)
         }
         
-        studyStyleLogo.snp.makeConstraints{
+        constitutionLogo.snp.makeConstraints{
             $0.height.equalTo(Double(UIScreen.currentScreenHeight)*0.148)
         }
-        
     }
     
     @objc
     func didClickNextButton() {
         print("nextBtn")
-        self.navigationController?.pushViewController(MiscViewController(), animated: true)
+//        self.navigationController?.pushViewController(MBTIViewController(), animated: true)
     }
+    
 }
 
-extension StudyStyleViewController: UICollectionViewDataSource {
+extension MiscViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         switch collectionView {
-        case studyPlaceCollectionView:
+        case workoutCollectionView:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SleepPatternCollectionViewCell.identifier, for: indexPath) as? SleepPatternCollectionViewCell else {
                 fatalError()
             }
-            cell.configure(with: studyPlace[indexPath.row])
+            cell.configure(with: workout[indexPath.row])
+            return cell
+        case bugsCollectionView:
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SleepPatternCollectionViewCell.identifier, for: indexPath) as? SleepPatternCollectionViewCell else {
+                fatalError()
+            }
+            cell.configure(with: bugs[indexPath.row])
             return cell
         default:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SleepPatternCollectionViewCell.identifier, for: indexPath) as? SleepPatternCollectionViewCell else {
                 fatalError()
             }
-            cell.configure(with: exam[indexPath.row])
+            cell.configure(with: workout[indexPath.row])
             return cell
         }
     }
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        let numberOfItem: Int
-        switch collectionView {
-        case studyPlaceCollectionView:
-            numberOfItem = studyPlace.count
-        default:
-            numberOfItem = exam.count
-        }
+        let numberOfItem = workout.count
         return numberOfItem
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 8
+        let interSpacing: CGFloat = 8
+        return interSpacing
     }
 }
 
-
-extension StudyStyleViewController: UICollectionViewDelegateFlowLayout {
+extension MiscViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let cellSize: CGSize
-        
-        switch collectionView {
-        case studyPlaceCollectionView:
-            cellSize = CGSize(width: (UIScreen.currentScreenWidth - 56) / 3, height: 48)
-        default:
-            cellSize = CGSize(width: (UIScreen.currentScreenWidth - 48) / 2, height: 48)
-        }
+        let numberOfinter:Int = workout.count - 1
+        let interSpacing:Int = 8
+        let cellSize = CGSize(width: (UIScreen.screenWidthLayoutGuide - numberOfinter * interSpacing) / 3, height: 48)
+
         return cellSize
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         switch collectionView {
-        case studyPlaceCollectionView:
+        case workoutCollectionView:
+            print("\(collectionView)의 \(indexPath.row) 선택")
+        case bugsCollectionView:
             print("\(collectionView)의 \(indexPath.row) 선택")
         default:
-            print("\(collectionView)의 \(indexPath.row) 선택")
+            print("\(indexPath.row) 선택")
         }
+        
     }
 }
-
-
-
