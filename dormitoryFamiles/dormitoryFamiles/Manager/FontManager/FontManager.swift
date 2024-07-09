@@ -73,6 +73,9 @@ extension FontManager {
     static func body2() -> UIFont {
         FontManager.shared.pretendard(.regular, .fourTeen)
     }
+    static func body3() -> UIFont {
+        FontManager.shared.pretendard(.regular, .eightTeen)
+    }
     static func button() -> UIFont {
         FontManager.shared.pretendard(.medium, .fourTeen)
     }
