@@ -3417,7 +3417,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oXO-vx-Z1W">
-                                <rect key="frame" x="10" y="239" width="373" height="300"/>
+                                <rect key="frame" x="10" y="189" width="373" height="300"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LKE-sW-Mhb" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
                                         <rect key="frame" x="16" y="12" width="341" height="40"/>
@@ -3581,7 +3581,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="iZZ-8K-4RM" firstAttribute="trailing" secondItem="oXO-vx-Z1W" secondAttribute="trailing" constant="10" id="H73-jn-nS3"/>
-                            <constraint firstItem="oXO-vx-Z1W" firstAttribute="top" secondItem="iZZ-8K-4RM" secondAttribute="top" constant="180" id="Izf-aC-XPi"/>
+                            <constraint firstItem="oXO-vx-Z1W" firstAttribute="top" secondItem="iZZ-8K-4RM" secondAttribute="top" constant="130" id="Izf-aC-XPi"/>
                             <constraint firstItem="oXO-vx-Z1W" firstAttribute="leading" secondItem="iZZ-8K-4RM" secondAttribute="leading" constant="10" id="a1t-nU-Ks0"/>
                         </constraints>
                     </view>
@@ -3607,7 +3607,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="69" translatesAutoresizingMaskIntoConstraints="NO" id="C5F-6e-iug">
-                                <rect key="frame" x="20" y="179" width="353" height="27"/>
+                                <rect key="frame" x="20" y="127" width="353" height="27"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="메뉴 전체보기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" showsExpansionTextWhenTruncated="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9N8-OT-jJQ">
                                         <rect key="frame" x="0.0" y="0.0" width="156" height="27"/>
@@ -3633,63 +3633,14 @@
                                 </subviews>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cRC-hr-K7d">
-                                <rect key="frame" x="0.0" y="218" width="393" height="38"/>
+                                <rect key="frame" x="0.0" y="166" width="393" height="38"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="38" id="7de-pe-vch"/>
                                 </constraints>
                             </view>
-                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="48" translatesAutoresizingMaskIntoConstraints="NO" id="bne-39-n9W">
-                                <rect key="frame" x="20" y="103" width="353" height="52"/>
-                                <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bulletinBoardLogo" translatesAutoresizingMaskIntoConstraints="NO" id="a18-nX-rrS">
-                                        <rect key="frame" x="0.0" y="10" width="42" height="32"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="42" id="XGo-vW-V3m"/>
-                                            <constraint firstAttribute="height" constant="32" id="eCe-1p-cFS"/>
-                                        </constraints>
-                                    </imageView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="hPx-h9-1rO">
-                                        <rect key="frame" x="90" y="11" width="195" height="30"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="289-s2-DUq">
-                                                <rect key="frame" x="0.0" y="0.0" width="195" height="30"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="30" id="irL-Nx-udo"/>
-                                                </constraints>
-                                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                <state key="normal" title="본관" image="homeImageArrow">
-                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="10"/>
-                                                </state>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="string" keyPath="head1" value="본관"/>
-                                                </userDefinedRuntimeAttributes>
-                                                <connections>
-                                                    <action selector="dormitoryButtonTapped:" destination="F8n-0Z-Nxd" eventType="touchUpInside" id="00i-eS-Yd8"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                    </stackView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="095-Om-PNL">
-                                        <rect key="frame" x="333" y="14" width="20" height="24"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="24" id="WnJ-hs-VII"/>
-                                            <constraint firstAttribute="width" constant="20" id="wVn-Q9-Iux"/>
-                                        </constraints>
-                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" title="Button" image="homeImageAlarm"/>
-                                    </button>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="a18-nX-rrS" firstAttribute="leading" secondItem="bne-39-n9W" secondAttribute="leading" id="H6o-Ta-063"/>
-                                    <constraint firstAttribute="height" constant="52" id="VHl-VV-91z"/>
-                                </constraints>
-                            </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="POu-nC-epv">
-                                <rect key="frame" x="0.0" y="256" width="393" height="1"/>
+                                <rect key="frame" x="0.0" y="204" width="393" height="1"/>
                                 <color key="backgroundColor" name="gray1"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="PWa-fd-Fqg"/>
@@ -3699,24 +3650,20 @@
                         <viewLayoutGuide key="safeArea" id="x8t-XD-UMo"/>
                         <color key="backgroundColor" name="background"/>
                         <constraints>
-                            <constraint firstItem="bne-39-n9W" firstAttribute="leading" secondItem="x8t-XD-UMo" secondAttribute="leading" constant="20" id="4Xh-P7-a6y"/>
-                            <constraint firstItem="C5F-6e-iug" firstAttribute="top" secondItem="bne-39-n9W" secondAttribute="bottom" constant="24" id="CMp-dg-ZSE"/>
                             <constraint firstItem="cRC-hr-K7d" firstAttribute="top" secondItem="C5F-6e-iug" secondAttribute="bottom" constant="12" id="EJV-hq-N32"/>
                             <constraint firstItem="cRC-hr-K7d" firstAttribute="leading" secondItem="x8t-XD-UMo" secondAttribute="leading" id="Flf-dM-9eV"/>
+                            <constraint firstItem="C5F-6e-iug" firstAttribute="top" secondItem="x8t-XD-UMo" secondAttribute="top" constant="24" id="LWx-eR-C6L"/>
                             <constraint firstItem="C5F-6e-iug" firstAttribute="leading" secondItem="x8t-XD-UMo" secondAttribute="leading" constant="20" id="NF4-u9-wDF"/>
                             <constraint firstItem="POu-nC-epv" firstAttribute="top" secondItem="cRC-hr-K7d" secondAttribute="bottom" id="X9p-ER-pax"/>
                             <constraint firstItem="POu-nC-epv" firstAttribute="leading" secondItem="x8t-XD-UMo" secondAttribute="leading" id="Xwr-Ua-K8U"/>
                             <constraint firstItem="x8t-XD-UMo" firstAttribute="trailing" secondItem="C5F-6e-iug" secondAttribute="trailing" constant="20" id="g4T-yj-kUX"/>
                             <constraint firstItem="POu-nC-epv" firstAttribute="top" secondItem="cRC-hr-K7d" secondAttribute="bottom" id="mEE-1p-8bI"/>
-                            <constraint firstItem="x8t-XD-UMo" firstAttribute="trailing" secondItem="bne-39-n9W" secondAttribute="trailing" constant="20" id="mgu-II-j9c"/>
                             <constraint firstItem="x8t-XD-UMo" firstAttribute="trailing" secondItem="cRC-hr-K7d" secondAttribute="trailing" id="pgF-UM-K0w"/>
-                            <constraint firstItem="bne-39-n9W" firstAttribute="top" secondItem="x8t-XD-UMo" secondAttribute="top" id="zCU-SL-S2d"/>
                             <constraint firstItem="x8t-XD-UMo" firstAttribute="trailing" secondItem="POu-nC-epv" secondAttribute="trailing" id="zmr-N2-1W8"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="9SK-qq-4zF"/>
                     <connections>
-                        <outlet property="dormitoryButton" destination="289-s2-DUq" id="Lvw-au-2Ox"/>
                         <outlet property="tabmanView" destination="cRC-hr-K7d" id="uT9-Tb-seO"/>
                         <outlet property="weekDateLabel" destination="5nW-Jj-w3k" id="Tbn-UN-e5A"/>
                     </connections>
