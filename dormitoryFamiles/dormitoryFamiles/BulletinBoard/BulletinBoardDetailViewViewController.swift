@@ -98,7 +98,7 @@ final class BulletinBoardDetailViewViewController: UIViewController {
             var request = URLRequest(url: url!)
             request.httpMethod = "POST"
             let token = Token.shared.number
-            request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+            request.addValue("Bearer \(token)", forHTTPHeaderField: "Accesstoken")
             request.addValue("application/json", forHTTPHeaderField: "Content-Type")
             request.httpBody = jsonData
             

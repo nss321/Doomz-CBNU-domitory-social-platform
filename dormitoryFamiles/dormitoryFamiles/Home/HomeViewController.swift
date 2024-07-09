@@ -74,6 +74,8 @@ final class HomeViewController: UIViewController, DormitoryButtonHandling {
         dormitoryButton.head1 = SelectedDormitory.shared.domitory
         dormitoryButton.setTitle(SelectedDormitory.shared.domitory, for: .normal)
         fetchWebsite(time: .morning)
+        
+        popularPost()
     }
     
     private func setTabber() {
@@ -253,6 +255,25 @@ final class HomeViewController: UIViewController, DormitoryButtonHandling {
     
     @IBAction func roomateButtonTapped(_ sender: UIButton) {
         self.myTabBarController?.selectedIndex = 3
+    }
+    
+    private func popularPost() {
+        let url = Url.popular(dormitoryType: SelectedDormitory.shared.domitory)
+        print(url)
+        Network.getMethod(url: url) { (result: Result<ArticleResponse, Error>) in
+            switch result {
+            case .success(let response):
+                let newArticles = response.data.articles
+                for i in 0..<3 {
+                    newArticles.first!.boardType
+                    newArticles.first!.title
+                    newArticles.first!.createdAt
+                }
+                
+            case .failure(let error):
+                print("Error: \(error)")
+            }
+        }
     }
     
 }
