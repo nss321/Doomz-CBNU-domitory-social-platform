@@ -71,6 +71,7 @@ final class BulletinBoardDetailViewViewController: UIViewController {
     private func setUI() {
         self.profileImage.layer.cornerRadius = profileImage.frame.height/2
         self.profileImage.clipsToBounds = true
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
     private func setNavigationItem() {

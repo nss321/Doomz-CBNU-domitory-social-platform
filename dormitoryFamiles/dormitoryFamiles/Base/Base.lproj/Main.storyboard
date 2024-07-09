@@ -1321,16 +1321,25 @@
                                                         <rect key="frame" x="15" y="16" width="323" height="24"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain"/>
+                                                        <connections>
+                                                            <action selector="goDetailButtonTapped:" destination="pDX-kV-96B" eventType="touchUpInside" id="yWq-0C-huk"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EAb-TD-jCd">
                                                         <rect key="frame" x="15" y="45" width="323" height="32"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain"/>
+                                                        <connections>
+                                                            <action selector="goDetailButtonTapped:" destination="pDX-kV-96B" eventType="touchUpInside" id="U7M-EA-iQb"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="45G-Jf-DN5">
                                                         <rect key="frame" x="15" y="73" width="323" height="33"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain"/>
+                                                        <connections>
+                                                            <action selector="goDetailButtonTapped:" destination="pDX-kV-96B" eventType="touchUpInside" id="fIO-41-hnB"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

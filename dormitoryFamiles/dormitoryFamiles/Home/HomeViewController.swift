@@ -73,6 +73,10 @@ final class HomeViewController: UIViewController, DormitoryButtonHandling {
     
     private let site = ["본관": "https://dorm.chungbuk.ac.kr/home/sub.php?menukey=20041&type=1", "양성재":"https://dorm.chungbuk.ac.kr/home/sub.php?menukey=20041&type=2", "양진재":"https://dorm.chungbuk.ac.kr/home/sub.php?menukey=20041&type=3"]
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -84,7 +88,6 @@ final class HomeViewController: UIViewController, DormitoryButtonHandling {
         let stackViewBottomConstraint = timeLabel.bottomAnchor.constraint(equalTo: lineView.bottomAnchor, constant: -16)
         stackViewBottomConstraint.isActive = true
         
-        self.navigationController?.setNavigationBarHidden(true, animated: true)
         setTintAdjustmentModeForButtons(in: self.view)
         dormitoryButton.head1 = SelectedDormitory.shared.domitory
         dormitoryButton.setTitle(SelectedDormitory.shared.domitory, for: .normal)
@@ -282,16 +285,17 @@ final class HomeViewController: UIViewController, DormitoryButtonHandling {
             switch result {
             case .success(let response):
                 let newArticles = response.data.articles
-                
                 let popularBoard = [fBoardTypeLabel, sBoardTypeLabel, tBoardTypeLabel]
                 let popularTitle = [fTitleLabel, sTitleLabel, tTitleLabel]
                 let popularCreatedAt = [fCreatedAtLabel, sCreatedAtLabel, tCreatedAtLabel]
-                
+                let popularGoDetail = [fGoDetailButton, sGoDetailButton, tGoDetailButton]
                 DispatchQueue.main.async {
                     for index in 0..<3 {
                         popularBoard[index]?.body2 = newArticles[index].boardType
                         popularTitle[index]?.body2 = newArticles[index].title
                         popularCreatedAt[index]?.pretendardVariable = DateUtility.yymmdd(from: newArticles[index].createdAt, separator: ".")
+                        popularGoDetail[index]?.tag = newArticles[index].articleId
+                        
                     }
                 }
                 
@@ -299,6 +303,20 @@ final class HomeViewController: UIViewController, DormitoryButtonHandling {
                 print("Error: \(error)")
             }
         }
+    }
+    
+    
+    @IBAction func goDetailButtonTapped(_ sender: UIButton) {
+        let articleId = sender.tag
+        print(articleId)
+        
+        let url = "http://43.202.254.127:8080/api/articles/\(articleId)"
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            if let articleDetailViewController = storyboard.instantiateViewController(withIdentifier: "detail") as? BulletinBoardDetailViewViewController {
+                articleDetailViewController.setUrl(url: url)
+                self.navigationController?.pushViewController(articleDetailViewController, animated: true)
+            }
+        
     }
     
 }
