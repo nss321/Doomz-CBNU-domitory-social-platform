@@ -117,7 +117,7 @@ final class BulletinBoardDetailViewViewController: UIViewController {
                             self.selectedReplyId = -1
                             self.collectionView.reloadData()
                             self.commentTextView.text = ""
-                            self.showCompletionAlert()
+                            self.showCompletionAlert(status: "댓글 작성")
                             self.scrollToTop()
                             guard let replyCount = self.replyCountLabel.text as? Int else { return }
                             self.replyCountLabel.text = String(replyCount + 1)
@@ -229,8 +229,8 @@ final class BulletinBoardDetailViewViewController: UIViewController {
         }
     }
     
-    private func showCompletionAlert() {
-        let alertController = UIAlertController(title: "댓글 작성 완료", message: "댓글 작성이 완료되었습니다.", preferredStyle: .alert)
+    private func showCompletionAlert(status: String) {
+        let alertController = UIAlertController(title: "\(status) 완료", message: "\(status) 완료되었습니다.", preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
         present(alertController, animated: true, completion: nil)
     }
@@ -530,6 +530,16 @@ extension BulletinBoardDetailViewViewController: UICollectionViewDelegate, UICol
                     print(response)
                 case .failure(let error):
                     print("Error: \(error)")
+                    //TODO: 삭제가 완료되면 왜 failure로 빠지면서 정상작동이 되는지 모르겠음. 백앤드에게 물어보기
+                    DispatchQueue.main.async {
+                        self.replyNetwork(id: self.id) {
+                            self.collectionView.reloadData()
+                            self.showCompletionAlert(status: "댓글 삭제")
+                            self.scrollToTop()
+                            guard let replyCount = self.replyCountLabel.text as? Int else { return }
+                            self.replyCountLabel.text = String(replyCount - 1)
+                        }
+                    }
                 }
             }
             
