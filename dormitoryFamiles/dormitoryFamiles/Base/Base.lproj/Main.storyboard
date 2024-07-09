@@ -1067,11 +1067,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nzJ-Yb-Hjd" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
-<<<<<<< HEAD
                                                         <rect key="frame" x="16" y="68.666666666666742" width="94.666666666666686" height="28"/>
-=======
-                                                        <rect key="frame" x="15.999999999999993" y="68.666666666666742" width="107.33333333333331" height="28"/>
->>>>>>> dormitoryFamilies/develop
                                                         <color key="backgroundColor" name="primaryMid"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="28" id="iWk-PQ-m4c"/>
@@ -4453,15 +4449,11 @@
         </designable>
 <<<<<<< HEAD
         <designable name="u5e-Mw-OyW">
-<<<<<<< HEAD
             <size key="intrinsicContentSize" width="51.333333333333336" height="33.333333333333336"/>
 =======
         <designable name="vTN-BI-JA9">
             <size key="intrinsicContentSize" width="4" height="22"/>
 >>>>>>> bdb29c3 ([#47] DESIGN: 알람 이미지 ASSET 추가)
-=======
-            <size key="intrinsicContentSize" width="53.666666666666664" height="34.333333333333336"/>
->>>>>>> dormitoryFamilies/develop
         </designable>
         <designable name="wxR-xj-rw3">
             <size key="intrinsicContentSize" width="4" height="22"/>
