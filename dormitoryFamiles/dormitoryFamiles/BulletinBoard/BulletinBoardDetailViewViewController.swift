@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol successRereplyPost: AnyObject {
+    func successRereplyPost(replyId: Int)
+}
+
 final class BulletinBoardDetailViewViewController: UIViewController {
     @IBOutlet weak var roundLine: UIView!
     
@@ -37,7 +41,7 @@ final class BulletinBoardDetailViewViewController: UIViewController {
     @IBOutlet weak var chatCountLabel: UILabel!
     private var scrollPhotoView = PhotoScrollView()
     private var hasImage = true
-    
+    private var selectedRereplyButton: UIButton?
     private let headerCell = ReplyHeaderCollectionReusableView()
     private var dataClass : DataClass?
     var id: Int = 0
@@ -110,12 +114,14 @@ final class BulletinBoardDetailViewViewController: UIViewController {
                     print("Response: \(response)")
                     DispatchQueue.main.async {
                         self.replyNetwork(id: self.id) {
+                            self.selectedReplyId = -1
                             self.collectionView.reloadData()
                             self.commentTextView.text = ""
                             self.showCompletionAlert()
                             self.scrollToTop()
                             guard let replyCount = self.replyCountLabel.text as? Int else { return }
                             self.replyCountLabel.text = String(replyCount + 1)
+                            
                         }
                     }
                 }
@@ -228,11 +234,11 @@ final class BulletinBoardDetailViewViewController: UIViewController {
         alertController.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
         present(alertController, animated: true, completion: nil)
     }
-
+    
     private func scrollToTop() {
         if let scrollView = view.subviews.compactMap({ $0 as? UIScrollView }).first {
-                scrollView.setContentOffset(CGPoint(x: 0, y: -scrollView.contentInset.top), animated: true)
-            }
+            scrollView.setContentOffset(CGPoint(x: 0, y: -scrollView.contentInset.top), animated: true)
+        }
     }
     
     
@@ -495,8 +501,13 @@ extension BulletinBoardDetailViewViewController: UICollectionViewDelegate, UICol
         headerView.isWriter = (replyComment?.isArticleWriter ?? false)
         headerView.isDeleted = (replyComment?.isDeleted ?? false)
         
+        // 현재 선택된 버튼이 이 헤더의 버튼이면 배경색을 노란색으로 설정
+        if selectedReplyId == headerView.commentId {
+            headerView.rereplyButton.backgroundColor = .yellow
+        } else {
+            headerView.rereplyButton.backgroundColor = .white
+        }
         return headerView
-        
     }
     
     
@@ -528,9 +539,26 @@ extension BulletinBoardDetailViewViewController: UICollectionViewDelegate, UICol
         self.present(actionSheet, animated: true, completion: nil)
     }
     
-    func rereplyButtonTapped(replyId: Int) {
-        selectedReplyId = replyId
+    func rereplyButtonTapped(replyId: Int, sender: UIButton) {
+        // 이전에 선택된 버튼이 있다면 배경색을 흰색으로 변경
+        if let selectedButton = selectedRereplyButton, selectedButton != sender {
+            selectedButton.backgroundColor = .white
+        }
+        
+        // 클릭된 버튼이 이미 선택된 버튼인지 확인
+        if selectedRereplyButton == sender {
+            // 동일한 버튼이 다시 클릭되면 선택 해제
+            sender.backgroundColor = .white
+            selectedRereplyButton = nil
+            selectedReplyId = -1
+        } else {
+            // 새로운 버튼이 클릭되면 배경색을 노란색으로 변경
+            sender.backgroundColor = .yellow
+            selectedRereplyButton = sender
+            selectedReplyId = replyId
+        }
     }
+    
 }
 
 extension BulletinBoardDetailViewViewController: UICollectionViewDelegateFlowLayout {

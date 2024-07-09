@@ -12,13 +12,13 @@ protocol MoreButtonDelegate: AnyObject {
 }
 
 protocol HeaderRereplyButtonDelegate: AnyObject {
-    func rereplyButtonTapped(replyId: Int)
+    func rereplyButtonTapped(replyId: Int, sender: UIButton)
 }
 
 final class ReplyHeaderCollectionReusableView: UICollectionReusableView {
     weak var moreButtonDelegate: MoreButtonDelegate?
     weak var rereplyButtonDelegate: HeaderRereplyButtonDelegate?
-   
+    
     var commentId: Int?
     var memberId: Int?
     var profileUrl: String?
@@ -44,10 +44,13 @@ final class ReplyHeaderCollectionReusableView: UICollectionReusableView {
     }
     
     @IBAction func postRereplyButtonTapped(_ sender: UIButton) {
-        rereplyButtonDelegate?.rereplyButtonTapped(replyId: commentId!)
-                rereplyButton.backgroundColor = .yellow
+        rereplyButtonDelegate?.rereplyButtonTapped(replyId: commentId!, sender: sender)
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        rereplyButton.backgroundColor = .white
+    }
     
 }
 
