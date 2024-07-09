@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		11036F212C3C05D60042B9EF /* HomeCycleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11036F202C3C05D60042B9EF /* HomeCycleViewController.swift */; };
+		11036F232C3C0E690042B9EF /* EatingFoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11036F222C3C0E690042B9EF /* EatingFoodViewController.swift */; };
+		11036F252C3C16B00042B9EF /* NoiseAndPerfumeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11036F242C3C16B00042B9EF /* NoiseAndPerfumeViewController.swift */; };
+		11036F272C3C19A00042B9EF /* StudyStyleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11036F262C3C19A00042B9EF /* StudyStyleViewController.swift */; };
 		1126FE1C2BCEA662004C6C81 /* LifeStyleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1126FE1B2BCEA662004C6C81 /* LifeStyleViewController.swift */; };
 		1131E8A22BF6220B00D40120 /* UIScreen+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1131E8A12BF6220B00D40120 /* UIScreen+.swift */; };
 		11707A232BA4C8CC0027802D /* SleepPatternViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11707A222BA4C8CC0027802D /* SleepPatternViewController.swift */; };
@@ -93,6 +97,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		11036F202C3C05D60042B9EF /* HomeCycleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCycleViewController.swift; sourceTree = "<group>"; };
+		11036F222C3C0E690042B9EF /* EatingFoodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EatingFoodViewController.swift; sourceTree = "<group>"; };
+		11036F242C3C16B00042B9EF /* NoiseAndPerfumeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoiseAndPerfumeViewController.swift; sourceTree = "<group>"; };
+		11036F262C3C19A00042B9EF /* StudyStyleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyStyleViewController.swift; sourceTree = "<group>"; };
 		1126FE1B2BCEA662004C6C81 /* LifeStyleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifeStyleViewController.swift; sourceTree = "<group>"; };
 		1131E8A12BF6220B00D40120 /* UIScreen+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScreen+.swift"; sourceTree = "<group>"; };
 		11707A222BA4C8CC0027802D /* SleepPatternViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepPatternViewController.swift; sourceTree = "<group>"; };
@@ -205,6 +213,10 @@
 				1126FE1B2BCEA662004C6C81 /* LifeStyleViewController.swift */,
 				118EAA842C07E56400436A6F /* ConstitutionViewController.swift */,
 				1197F25A2C081E7D006F75D2 /* MBTIViewController.swift */,
+				11036F202C3C05D60042B9EF /* HomeCycleViewController.swift */,
+				11036F222C3C0E690042B9EF /* EatingFoodViewController.swift */,
+				11036F242C3C16B00042B9EF /* NoiseAndPerfumeViewController.swift */,
+				11036F262C3C19A00042B9EF /* StudyStyleViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -562,6 +574,7 @@
 				DB3F18092B6162AB002F1738 /* ProfileSettingViewController.swift in Sources */,
 				DBE682B62BA592CC00DAA4CD /* PhotoScrollView.swift in Sources */,
 				DBCE10E12B595506008C3367 /* LoginViewController.swift in Sources */,
+				11036F232C3C0E690042B9EF /* EatingFoodViewController.swift in Sources */,
 				DB1971D52BAB088C00C09648 /* AddPhotoImageView.swift in Sources */,
 				DB81D0002B56E723005EF497 /* UIColorExtension.swift in Sources */,
 				DB5ACD602AA70D190054CA15 /* ExtenstionColor.swift in Sources */,
@@ -571,6 +584,7 @@
 				117250E72BB31AF60083F181 /* CommomButton.swift in Sources */,
 				DB8DDFD72BECB0B600B3A676 /* DateFomat.swift in Sources */,
 				DB7BE9E72BA47A5E00BC25E3 /* ReplyCollectionViewCell.swift in Sources */,
+				11036F272C3C19A00042B9EF /* StudyStyleViewController.swift in Sources */,
 				DB61AA342B4C1EA70040418B /* RegisterPostViewController.swift in Sources */,
 				DB20E38E2B53D75F000D12A7 /* extensionStroyboard.swift in Sources */,
 				117250E92BB5927E0083F181 /* SmokeAndAlcoholPatternViewController.swift in Sources */,
@@ -580,6 +594,7 @@
 				DB2B7BCB2B45727B00C1847D /* TagButton.swift in Sources */,
 				DB1E0E8B2B629865000A4AA5 /* ChoiceDormitoryViewController.swift in Sources */,
 				DB74D0C62B73EEBF00A90D68 /* Codable.swift in Sources */,
+				11036F212C3C05D60042B9EF /* HomeCycleViewController.swift in Sources */,
 				DBC54C432B568B350071164C /* UIFontExtension.swift in Sources */,
 				118EAA852C07E56400436A6F /* ConstitutionViewController.swift in Sources */,
 				DB7EF27D2B5EAC790062FAB5 /* ChoiceDormitoryButton.swift in Sources */,
@@ -596,6 +611,7 @@
 				11707A342BA83EED0027802D /* SleepPatternCollectionViewCell.swift in Sources */,
 				DBDF96EF2B84BFB2000E74AE /* ProfileFinishedViewController.swift in Sources */,
 				11707A2C2BA4CA780027802D /* FontManager.swift in Sources */,
+				11036F252C3C16B00042B9EF /* NoiseAndPerfumeViewController.swift in Sources */,
 				DB2B7BCF2B457F7200C1847D /* UIButtonExtension.swift in Sources */,
 				DB02B5292B98C92200C45F56 /* ReplyHeaderCollectionReusableView.swift in Sources */,
 				DBF466FD2AA5F4E4009FF3EB /* SceneDelegate.swift in Sources */,
@@ -748,7 +764,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 7B9KLZFFL8;
+				DEVELOPMENT_TEAM = W43DLLFB4Q;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = dormitoryFamiles/App/info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -777,7 +793,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 7B9KLZFFL8;
+				DEVELOPMENT_TEAM = W43DLLFB4Q;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = dormitoryFamiles/App/info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
