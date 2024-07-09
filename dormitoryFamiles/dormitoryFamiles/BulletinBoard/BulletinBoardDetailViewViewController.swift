@@ -431,7 +431,7 @@ extension BulletinBoardDetailViewViewController: UICollectionViewDelegate, UICol
             cell.memberId = replyComment?.memberId ?? 0
             cell.profileUrl = replyComment?.profileUrl ?? ""
             cell.createdAt = replyComment?.createdAt ?? ""
-            cell.isWriter = ((replyComment?.isWriter) != nil)
+            cell.isWriter = ((replyComment?.isArticleWriter) != nil)
             cell.moreButtonDelegate = self
             return cell
             
@@ -462,12 +462,12 @@ extension BulletinBoardDetailViewViewController: UICollectionViewDelegate, UICol
         headerView.commentId = replyComment?.commentId ?? 0
         headerView.memberId = replyComment?.memberId ?? 0
         headerView.profileUrl = replyComment?.profileUrl ?? ""
-        headerView.nickname.text = replyComment?.nickName ?? ""
+        headerView.nickname.text = replyComment?.nickname ?? ""
         let datetime = replyComment?.createdAt ?? ""
         headerView.timeLabel.body2 = changeToTime(createdAt: datetime)
         headerView.dateLabel.body2 = changeToDate(createdAt: datetime)
         headerView.content.text = replyComment?.content ?? ""
-        headerView.isWriter = (replyComment?.isWriter ?? false)
+        headerView.isWriter = (replyComment?.isArticleWriter ?? false)
         headerView.isDeleted = (replyComment?.isDeleted ?? false)
         
         return headerView

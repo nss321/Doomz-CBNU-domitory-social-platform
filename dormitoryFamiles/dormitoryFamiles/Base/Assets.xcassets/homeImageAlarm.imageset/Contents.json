@@ -2,22 +2,7 @@
   "images" : [
     {
       "filename" : "homeImageAlarm.svg",
-<<<<<<< HEAD
       "idiom" : "universal"
-=======
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "homeImageAlarm 1.svg",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "homeImageAlarm 2.svg",
-      "idiom" : "universal",
-      "scale" : "3x"
->>>>>>> bdb29c3 ([#47] DESIGN: 알람 이미지 ASSET 추가)
     }
   ],
   "info" : {
