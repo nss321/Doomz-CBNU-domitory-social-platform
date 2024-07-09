@@ -53,7 +53,7 @@ final class MiscViewController: UIViewController, ConfigUI {
         return view
     }()
     
-    private let constitutionLogo: UIImageView = {
+    private let miscellaneousLogo: UIImageView = {
         let view = UIImageView()
         view.image = UIImage(named: "miscellaneous_logo")
         view.contentMode = .scaleAspectFit
@@ -116,7 +116,7 @@ final class MiscViewController: UIViewController, ConfigUI {
         
         view.addSubview(stackView)
         [logoStackView, miscStack].forEach{ stackView.addArrangedSubview($0) }
-        [currentStep, progressBar, constitutionLogo, contentLabel].forEach { logoStackView.addArrangedSubview($0) }
+        [currentStep, progressBar, miscellaneousLogo, contentLabel].forEach { logoStackView.addArrangedSubview($0) }
         [hotSection, coldSection, spacerView, nextButton].forEach{ miscStack.addArrangedSubview($0) }
     }
     
@@ -148,7 +148,7 @@ final class MiscViewController: UIViewController, ConfigUI {
             $0.height.greaterThanOrEqualTo(0)
         }
         
-        constitutionLogo.snp.makeConstraints{
+        miscellaneousLogo.snp.makeConstraints{
             $0.height.equalTo(Double(UIScreen.currentScreenHeight)*0.148)
         }
     }
@@ -156,7 +156,7 @@ final class MiscViewController: UIViewController, ConfigUI {
     @objc
     func didClickNextButton() {
         print("nextBtn")
-//        self.navigationController?.pushViewController(MBTIViewController(), animated: true)
+        self.navigationController?.pushViewController(CompleteMyCondition(), animated: true)
     }
     
 }
