@@ -699,7 +699,7 @@
                                         <rect key="frame" x="32.999999999999986" y="0.0" width="244.66666666666663" height="136"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launchScreenLogo" translatesAutoresizingMaskIntoConstraints="NO" id="cQd-3T-lEe">
-                                                <rect key="frame" x="16.333333333333343" y="0.0" width="212" height="80"/>
+                                                <rect key="frame" x="16.333333333333343" y="0.0" width="212.00000000000003" height="80"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="212" id="fa2-sj-W4t"/>
                                                     <constraint firstAttribute="height" constant="80" id="gx4-X2-toX"/>
@@ -1067,7 +1067,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nzJ-Yb-Hjd" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
-                                                        <rect key="frame" x="16" y="68.666666666666742" width="94.666666666666686" height="28"/>
+                                                        <rect key="frame" x="16" y="68.666666666666742" width="94.666666666666671" height="28"/>
                                                         <color key="backgroundColor" name="primaryMid"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="28" id="iWk-PQ-m4c"/>
@@ -1147,18 +1147,20 @@
                                                 <rect key="frame" x="20" y="620.33333333333337" width="353" height="122"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5JZ-3p-UmG" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
-                                                        <rect key="frame" x="16" y="16" width="76" height="24"/>
+                                                        <rect key="frame" x="15" y="16" width="84" height="24"/>
                                                         <color key="backgroundColor" name="secondary"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="76" id="FBy-Es-rJW"/>
+                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="84" id="9mW-AF-FFs"/>
                                                             <constraint firstAttribute="height" constant="24" id="bRB-O1-H0C"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="16"/>
                                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                         <state key="normal" title="도와주세요">
                                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
+                                                        <buttonConfiguration key="configuration" style="plain" title="도와주세요">
+                                                            <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </buttonConfiguration>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="string" keyPath="body2" value="도와주세요"/>
                                                             <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
@@ -1170,7 +1172,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="23.12.16" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hik-Ze-08B">
-                                                        <rect key="frame" x="290" y="16" width="47" height="24"/>
+                                                        <rect key="frame" x="291" y="16" width="47" height="24"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="24" id="tg6-P8-H80"/>
                                                         </constraints>
@@ -1182,25 +1184,29 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KfC-Dv-46u">
-                                                        <rect key="frame" x="16" y="44" width="321" height="1"/>
+                                                        <rect key="frame" x="15" y="44" width="323" height="1"/>
                                                         <color key="backgroundColor" red="0.93725490570000003" green="0.94117647410000005" blue="0.99607843159999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="1" id="JNu-zd-yH6"/>
                                                         </constraints>
                                                     </view>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bPC-1x-PCY" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
-                                                        <rect key="frame" x="16" y="49" width="76" height="24"/>
+                                                        <rect key="frame" x="15" y="49" width="84" height="24"/>
                                                         <color key="backgroundColor" name="secondary"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="76" id="0xP-h1-mqh"/>
+                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="84" id="RMG-6r-eVR"/>
                                                             <constraint firstAttribute="height" constant="24" id="yNB-QQ-Zxj"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                         <state key="normal" title="함께해요">
-                                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <color key="titleColor" systemColor="labelColor"/>
                                                         </state>
+                                                        <buttonConfiguration key="configuration" style="plain" title="함께해요">
+                                                            <fontDescription key="titleFontDescription" type="system" pointSize="16"/>
+                                                            <color key="baseForegroundColor" systemColor="labelColor"/>
+                                                        </buttonConfiguration>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="string" keyPath="body2" value="함께해요"/>
                                                             <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
@@ -1212,7 +1218,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="24.01.01" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hPN-J8-jYa">
-                                                        <rect key="frame" x="274.33333333333331" y="49" width="62.666666666666686" height="24"/>
+                                                        <rect key="frame" x="275.33333333333331" y="49" width="62.666666666666686" height="24"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="24" id="iof-70-oOC"/>
                                                         </constraints>
@@ -1224,25 +1230,29 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nwU-ay-fud">
-                                                        <rect key="frame" x="16" y="77" width="321" height="1"/>
+                                                        <rect key="frame" x="15" y="77" width="323" height="1"/>
                                                         <color key="backgroundColor" red="0.93725490570000003" green="0.94117647410000005" blue="0.99607843159999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="1" id="c5U-8F-qYl"/>
                                                         </constraints>
                                                     </view>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PCT-uB-HO6" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
-                                                        <rect key="frame" x="16" y="82" width="76" height="24"/>
+                                                        <rect key="frame" x="15" y="82" width="84" height="24"/>
                                                         <color key="backgroundColor" name="secondary"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="76" id="FpD-5D-fdj"/>
+                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="84" id="Yaw-aK-w6k"/>
                                                             <constraint firstAttribute="height" constant="24" id="fB7-Hy-WKI"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                         <state key="normal" title="궁금해요">
-                                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <color key="titleColor" systemColor="labelColor"/>
                                                         </state>
+                                                        <buttonConfiguration key="configuration" style="plain" title="궁금해요">
+                                                            <fontDescription key="titleFontDescription" type="system" pointSize="16"/>
+                                                            <color key="baseForegroundColor" systemColor="labelColor"/>
+                                                        </buttonConfiguration>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="string" keyPath="body2" value="궁금해요"/>
                                                             <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
@@ -1254,7 +1264,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="24.01.01" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H0x-mf-pEg">
-                                                        <rect key="frame" x="274.33333333333331" y="82" width="62.666666666666686" height="24"/>
+                                                        <rect key="frame" x="275.33333333333331" y="82" width="62.666666666666686" height="24"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="24" id="rWc-p7-ytF"/>
                                                         </constraints>
@@ -1265,10 +1275,9 @@
                                                             <userDefinedRuntimeAttribute type="string" keyPath="pretendardVariable" value="24.01.01"/>
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pxF-j1-LeE">
-                                                        <rect key="frame" x="100" y="16" width="160" height="24"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pxF-j1-LeE">
+                                                        <rect key="frame" x="107" y="16" width="141" height="24"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="160" id="WNP-2s-VHw"/>
                                                             <constraint firstAttribute="height" constant="24" id="zMZ-vT-KDH"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -1281,9 +1290,8 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NXV-en-7ys">
-                                                        <rect key="frame" x="100" y="49" width="160" height="24"/>
+                                                        <rect key="frame" x="107" y="49" width="150" height="24"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="160" id="BxS-qC-hPY"/>
                                                             <constraint firstAttribute="height" constant="24" id="wFB-No-uSf"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -1296,10 +1304,9 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g17-pN-0tz">
-                                                        <rect key="frame" x="100" y="82" width="160" height="24"/>
+                                                        <rect key="frame" x="107" y="82" width="141" height="24"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="24" id="G6m-t7-wps"/>
-                                                            <constraint firstAttribute="width" constant="160" id="yvc-kE-76X"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
@@ -1316,7 +1323,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="bottom" secondItem="H0x-mf-pEg" secondAttribute="bottom" constant="16" id="4U8-T8-uMw"/>
                                                     <constraint firstItem="nwU-ay-fud" firstAttribute="leading" secondItem="5JZ-3p-UmG" secondAttribute="leading" id="5mM-H9-gvG"/>
-                                                    <constraint firstItem="bPC-1x-PCY" firstAttribute="leading" secondItem="lHw-6m-68D" secondAttribute="leading" constant="16" id="6pG-pt-hF8"/>
+                                                    <constraint firstItem="bPC-1x-PCY" firstAttribute="leading" secondItem="lHw-6m-68D" secondAttribute="leading" constant="15" id="6pG-pt-hF8"/>
                                                     <constraint firstItem="bPC-1x-PCY" firstAttribute="top" secondItem="KfC-Dv-46u" secondAttribute="bottom" constant="4" id="8uW-hC-mOk"/>
                                                     <constraint firstItem="5JZ-3p-UmG" firstAttribute="top" secondItem="lHw-6m-68D" secondAttribute="top" constant="16" id="BXX-zc-OkX"/>
                                                     <constraint firstItem="H0x-mf-pEg" firstAttribute="top" secondItem="PCT-uB-HO6" secondAttribute="top" id="Bj4-6c-EMW"/>
@@ -1331,19 +1338,19 @@
                                                     <constraint firstItem="pxF-j1-LeE" firstAttribute="top" secondItem="5JZ-3p-UmG" secondAttribute="top" id="QrB-Yh-RJA"/>
                                                     <constraint firstItem="NXV-en-7ys" firstAttribute="top" secondItem="bPC-1x-PCY" secondAttribute="top" id="RBH-IL-1zt"/>
                                                     <constraint firstAttribute="height" priority="250" constant="122" id="VUx-Ab-0Tz"/>
-                                                    <constraint firstAttribute="trailing" secondItem="H0x-mf-pEg" secondAttribute="trailing" constant="16" id="Vy6-ai-yrR"/>
-                                                    <constraint firstItem="H0x-mf-pEg" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="g17-pN-0tz" secondAttribute="trailing" constant="8" symbolic="YES" id="aid-ho-gCX"/>
-                                                    <constraint firstAttribute="trailing" secondItem="hPN-J8-jYa" secondAttribute="trailing" constant="16" id="d8g-v8-jfC"/>
+                                                    <constraint firstAttribute="trailing" secondItem="H0x-mf-pEg" secondAttribute="trailing" constant="15" id="Vy6-ai-yrR"/>
+                                                    <constraint firstItem="H0x-mf-pEg" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="g17-pN-0tz" secondAttribute="trailing" constant="10" id="aid-ho-gCX"/>
+                                                    <constraint firstAttribute="trailing" secondItem="hPN-J8-jYa" secondAttribute="trailing" constant="15" id="d8g-v8-jfC"/>
                                                     <constraint firstItem="KfC-Dv-46u" firstAttribute="top" secondItem="5JZ-3p-UmG" secondAttribute="bottom" constant="4" id="iOB-rM-KVS"/>
                                                     <constraint firstItem="hPN-J8-jYa" firstAttribute="top" secondItem="KfC-Dv-46u" secondAttribute="bottom" constant="4" id="jMP-sr-jQ5"/>
                                                     <constraint firstItem="H0x-mf-pEg" firstAttribute="top" secondItem="nwU-ay-fud" secondAttribute="bottom" constant="4" id="lk0-vD-h05"/>
                                                     <constraint firstItem="nwU-ay-fud" firstAttribute="top" secondItem="bPC-1x-PCY" secondAttribute="bottom" constant="4" id="nWd-rm-tFE"/>
                                                     <constraint firstItem="Hik-Ze-08B" firstAttribute="top" secondItem="5JZ-3p-UmG" secondAttribute="top" id="oHk-9v-Rf9"/>
-                                                    <constraint firstItem="hPN-J8-jYa" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="NXV-en-7ys" secondAttribute="trailing" constant="8" symbolic="YES" id="rBI-3f-UdH"/>
-                                                    <constraint firstItem="PCT-uB-HO6" firstAttribute="leading" secondItem="lHw-6m-68D" secondAttribute="leading" constant="16" id="sc1-Sj-pJF"/>
-                                                    <constraint firstAttribute="trailing" secondItem="Hik-Ze-08B" secondAttribute="trailing" constant="16" id="uih-7h-frU"/>
-                                                    <constraint firstItem="5JZ-3p-UmG" firstAttribute="leading" secondItem="lHw-6m-68D" secondAttribute="leading" constant="16" id="w91-AV-rEc"/>
-                                                    <constraint firstItem="Hik-Ze-08B" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="pxF-j1-LeE" secondAttribute="trailing" constant="8" symbolic="YES" id="zFN-RM-2GG"/>
+                                                    <constraint firstItem="hPN-J8-jYa" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="NXV-en-7ys" secondAttribute="trailing" constant="10" id="rBI-3f-UdH"/>
+                                                    <constraint firstItem="PCT-uB-HO6" firstAttribute="leading" secondItem="lHw-6m-68D" secondAttribute="leading" constant="15" id="sc1-Sj-pJF"/>
+                                                    <constraint firstAttribute="trailing" secondItem="Hik-Ze-08B" secondAttribute="trailing" constant="15" id="uih-7h-frU"/>
+                                                    <constraint firstItem="5JZ-3p-UmG" firstAttribute="leading" secondItem="lHw-6m-68D" secondAttribute="leading" constant="15" id="w91-AV-rEc"/>
+                                                    <constraint firstItem="Hik-Ze-08B" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="pxF-j1-LeE" secondAttribute="trailing" constant="10" id="zFN-RM-2GG"/>
                                                     <constraint firstItem="Hik-Ze-08B" firstAttribute="trailing" secondItem="KfC-Dv-46u" secondAttribute="trailing" id="zhO-fG-6AG"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
@@ -1389,10 +1396,12 @@
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
+                                            <constraint firstItem="pf8-z7-rET" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="FpB-bN-XDq" secondAttribute="trailing" constant="8" symbolic="YES" id="3hG-NN-v43"/>
                                             <constraint firstItem="pf8-z7-rET" firstAttribute="trailing" secondItem="hn6-pI-50c" secondAttribute="trailing" id="44O-so-60x"/>
                                             <constraint firstItem="lHw-6m-68D" firstAttribute="top" secondItem="9Cx-cb-x6K" secondAttribute="bottom" constant="12" id="60Y-rS-hhm"/>
                                             <constraint firstItem="pf8-z7-rET" firstAttribute="trailing" secondItem="9v2-Ay-204" secondAttribute="trailing" id="AVS-UQ-7uF"/>
                                             <constraint firstItem="GcU-dT-A4V" firstAttribute="leading" secondItem="Ccg-wu-mHC" secondAttribute="leading" constant="20" id="BEu-DM-c4t"/>
+                                            <constraint firstItem="9Cx-cb-x6K" firstAttribute="leading" secondItem="pyd-XD-7Gc" secondAttribute="trailing" constant="184.66666666666663" id="HYu-qn-nop"/>
                                             <constraint firstAttribute="trailing" secondItem="pf8-z7-rET" secondAttribute="trailing" constant="20" id="HpO-K3-3la"/>
                                             <constraint firstItem="hn6-pI-50c" firstAttribute="leading" secondItem="FpB-bN-XDq" secondAttribute="leading" id="K3s-RA-4MU"/>
                                             <constraint firstItem="pyd-XD-7Gc" firstAttribute="top" secondItem="hn6-pI-50c" secondAttribute="bottom" constant="33" id="Mtd-YJ-OD1"/>
@@ -1402,7 +1411,7 @@
                                             <constraint firstItem="FpB-bN-XDq" firstAttribute="top" secondItem="GcU-dT-A4V" secondAttribute="bottom" constant="34" id="PYy-rM-iZJ"/>
                                             <constraint firstItem="hn6-pI-50c" firstAttribute="top" secondItem="9v2-Ay-204" secondAttribute="bottom" constant="32" id="Rpf-FI-loP"/>
                                             <constraint firstItem="FpB-bN-XDq" firstAttribute="leading" secondItem="Ccg-wu-mHC" secondAttribute="leading" constant="20" id="UdX-xr-ttb"/>
-                                            <constraint firstItem="pyd-XD-7Gc" firstAttribute="leading" secondItem="FpB-bN-XDq" secondAttribute="leading" id="ach-RW-78H"/>
+                                            <constraint firstItem="pyd-XD-7Gc" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="FpB-bN-XDq" secondAttribute="leading" id="ach-RW-78H"/>
                                             <constraint firstAttribute="bottom" secondItem="lHw-6m-68D" secondAttribute="bottom" constant="16" id="dET-ZS-Mg8"/>
                                             <constraint firstAttribute="height" priority="250" constant="747" id="ewA-cH-1rZ"/>
                                             <constraint firstItem="pf8-z7-rET" firstAttribute="trailing" secondItem="9Cx-cb-x6K" secondAttribute="trailing" id="iSj-1i-tx0"/>
@@ -1447,11 +1456,20 @@
                     <connections>
                         <outlet property="dormitoryButton" destination="UMG-c4-L00" id="ZQJ-us-Weh"/>
                         <outlet property="eveningButton" destination="Tfo-Ee-43X" id="X1H-h5-gzz"/>
+                        <outlet property="fBoardTypeLabel" destination="5JZ-3p-UmG" id="4ym-qP-kX4"/>
+                        <outlet property="fCreatedAtLabel" destination="Hik-Ze-08B" id="vY7-uX-RMK"/>
+                        <outlet property="fTitleLabel" destination="pxF-j1-LeE" id="m9I-6u-4I9"/>
                         <outlet property="kcalLabel" destination="2Mr-bc-H7S" id="6P4-wk-Stf"/>
                         <outlet property="lineView" destination="9v2-Ay-204" id="acQ-Nm-ENV"/>
                         <outlet property="lunchButton" destination="0c7-Sa-8eC" id="zEH-6R-dC0"/>
                         <outlet property="menuLabel" destination="srn-UG-enS" id="ike-PO-hcB"/>
                         <outlet property="morningButton" destination="JfS-Y1-OHE" id="K4o-XE-Y7x"/>
+                        <outlet property="sBoardTypeLabel" destination="bPC-1x-PCY" id="d0g-Ed-NfB"/>
+                        <outlet property="sCreatedAtLabel" destination="hPN-J8-jYa" id="yhG-2X-T4P"/>
+                        <outlet property="sTitleLabel" destination="NXV-en-7ys" id="bur-iI-Rc2"/>
+                        <outlet property="tBoardTypeLabel" destination="PCT-uB-HO6" id="uA7-Yy-Ixk"/>
+                        <outlet property="tCreatedAtLabel" destination="H0x-mf-pEg" id="WS0-UM-Taz"/>
+                        <outlet property="tTitleLabel" destination="g17-pN-0tz" id="CfL-cw-hbM"/>
                         <outlet property="timeLabel" destination="1Pi-hH-6dg" id="v9f-68-daM"/>
                         <outlet property="todayMenuLabel" destination="FpB-bN-XDq" id="YGc-WI-Euh"/>
                     </connections>
@@ -3676,7 +3694,7 @@
             <size key="intrinsicContentSize" width="68.666666666666671" height="34.333333333333336"/>
         </designable>
         <designable name="5JZ-3p-UmG">
-            <size key="intrinsicContentSize" width="60" height="28.666666666666668"/>
+            <size key="intrinsicContentSize" width="83.333333333333329" height="31"/>
         </designable>
         <designable name="63s-np-sbo">
             <size key="intrinsicContentSize" width="88.666666666666671" height="33.333333333333336"/>
@@ -3706,7 +3724,7 @@
             <size key="intrinsicContentSize" width="4" height="22"/>
         </designable>
         <designable name="PCT-uB-HO6">
-            <size key="intrinsicContentSize" width="48" height="28.666666666666668"/>
+            <size key="intrinsicContentSize" width="71.333333333333329" height="31"/>
         </designable>
         <designable name="Tfo-Ee-43X">
             <size key="intrinsicContentSize" width="51.333333333333336" height="33.333333333333336"/>
@@ -3721,7 +3739,7 @@
             <size key="intrinsicContentSize" width="122.33333333333333" height="33.333333333333336"/>
         </designable>
         <designable name="bPC-1x-PCY">
-            <size key="intrinsicContentSize" width="48" height="28.666666666666668"/>
+            <size key="intrinsicContentSize" width="71.333333333333329" height="31"/>
         </designable>
         <designable name="cEh-7q-gFT">
             <size key="intrinsicContentSize" width="88.666666666666671" height="33.333333333333336"/>

@@ -8,6 +8,24 @@
 import Foundation
 
 struct DateUtility {
+    
+    static func yymmdd(from dateString: String, separator: String) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+        
+        guard let date = dateFormatter.date(from: dateString) else {
+            return ""
+        }
+        
+        let now = Date()
+        let calendar = Calendar.current
+        
+        let components = calendar.dateComponents([.year, .month, .day, .hour, .minute], from: date, to: now)
+        
+        dateFormatter.dateFormat = "yy\(separator)MM\(separator)dd"
+        return dateFormatter.string(from: date)
+    }
+    
     static func formattedDateString(from dateString: String) -> String? {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"

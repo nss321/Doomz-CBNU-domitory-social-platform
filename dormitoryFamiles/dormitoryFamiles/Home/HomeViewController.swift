@@ -72,11 +72,7 @@ final class HomeViewController: UIViewController, DormitoryButtonHandling {
         super.viewDidLoad()
         setTabber()
         setObserver()
-        self.menuLabel.sizeToFit()
-        self.menuLabel.lineSpacing(12)
-        self.menuLabel.textAlignment = .center
         setLabelAndButton()
-        
         setDormitoryButton()
         
         let stackViewBottomConstraint = timeLabel.bottomAnchor.constraint(equalTo: lineView.bottomAnchor, constant: -16)
@@ -135,6 +131,9 @@ final class HomeViewController: UIViewController, DormitoryButtonHandling {
     
     
     private func setLabelAndButton() {
+        self.menuLabel.sizeToFit()
+        self.menuLabel.lineSpacing(12)
+        self.menuLabel.textAlignment = .center
         morningButton.setTitle("아침", for: .normal)
         lunchButton.setTitle("점심", for: .normal)
         eveningButton.setTitle("저녁", for: .normal)
@@ -217,13 +216,13 @@ final class HomeViewController: UIViewController, DormitoryButtonHandling {
         do {
             let document = try SwiftSoup.parse(html)
             if let element = try document.select("tr#\(date)").first() {
-                var menu = try element.select("td.\(mealTimeString)").first()?.html().replacingOccurrences(of: "<br />", with: "\n").replacingOccurrences(of: "amp;", with: "")
+                let menu = try element.select("td.\(mealTimeString)").first()?.html().replacingOccurrences(of: "<br />", with: "\n").replacingOccurrences(of: "amp;", with: "")
                 
                 var kcal = ""
                 //칼로리의 값을 얻기 위한 정규표현식 사용
                 //(\\d+)는 숫자형식이 들어온다는것,\\s*Kcal는 Kcal앞에 공백이 있을수도 없을수도 있다는 뜻
-                var regex = try! NSRegularExpression(pattern: "(\\d+)\\s*Kcal", options: [.caseInsensitive])
-                var range = NSRange(location: 0, length: menu?.utf16.count ?? 0)
+                let regex = try! NSRegularExpression(pattern: "(\\d+)\\s*Kcal", options: [.caseInsensitive])
+                let range = NSRange(location: 0, length: menu?.utf16.count ?? 0)
                 if let match = regex.firstMatch(in: menu ?? "", options: [], range: range) {
                     if let energyRange = Range(match.range(at: 1), in: menu ?? "") {
                         kcal = String(menu?[energyRange] ?? "")
@@ -281,15 +280,12 @@ final class HomeViewController: UIViewController, DormitoryButtonHandling {
                 let popularBoard = [fBoardTypeLabel, sBoardTypeLabel, tBoardTypeLabel]
                 let popularTitle = [fTitleLabel, sTitleLabel, tTitleLabel]
                 let popularCreatedAt = [fCreatedAtLabel, sCreatedAtLabel, tCreatedAtLabel]
+                
                 DispatchQueue.main.async {
                     for index in 0..<3 {
                         popularBoard[index]?.body2 = newArticles[index].boardType
                         popularTitle[index]?.body2 = newArticles[index].title
-                        popularCreatedAt[index]?.pretendardVariable = newArticles[index].createdAt
-                        
-                        print(newArticles[index].boardType)
-                        print(newArticles[index].title)
-                        print(newArticles[index].createdAt)
+                        popularCreatedAt[index]?.pretendardVariable = DateUtility.yymmdd(from: newArticles[index].createdAt, separator: ".")
                     }
                 }
                 
