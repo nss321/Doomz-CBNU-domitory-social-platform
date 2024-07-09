@@ -28,6 +28,19 @@ final class HomeViewController: UIViewController, DormitoryButtonHandling {
     
     @IBOutlet weak var kcalLabel: UILabel!
     
+    
+    @IBOutlet weak var fBoardTypeLabel: RoundButton!
+    @IBOutlet weak var fTitleLabel: UIButton!
+    @IBOutlet weak var fCreatedAtLabel: UILabel!
+    
+    @IBOutlet weak var sBoardTypeLabel: RoundButton!
+    @IBOutlet weak var sTitleLabel: UIButton!
+    @IBOutlet weak var sCreatedAtLabel: UILabel!
+    
+    @IBOutlet weak var tBoardTypeLabel: RoundButton!
+    @IBOutlet weak var tTitleLabel: UIButton!
+    @IBOutlet weak var tCreatedAtLabel: UILabel!
+    
     var myTabBarController: UITabBarController?
     
     
@@ -80,8 +93,8 @@ final class HomeViewController: UIViewController, DormitoryButtonHandling {
     
     private func setTabber() {
         if let tabBarController = self.tabBarController as? UITabBarController {
-                    self.myTabBarController = tabBarController
-                }
+            self.myTabBarController = tabBarController
+        }
     }
     
     //기숙사 시트의 버튼이 눌려지면(기숙사가 선택되면) 그 title을 버튼의 title과 일치시키는 함수
@@ -260,14 +273,24 @@ final class HomeViewController: UIViewController, DormitoryButtonHandling {
     private func popularPost() {
         let url = Url.popular(dormitoryType: SelectedDormitory.shared.domitory)
         print(url)
-        Network.getMethod(url: url) { (result: Result<ArticleResponse, Error>) in
+        Network.getMethod(url: url) { [self] (result: Result<ArticleResponse, Error>) in
             switch result {
             case .success(let response):
                 let newArticles = response.data.articles
-                for i in 0..<3 {
-                    newArticles.first!.boardType
-                    newArticles.first!.title
-                    newArticles.first!.createdAt
+                
+                let popularBoard = [fBoardTypeLabel, sBoardTypeLabel, tBoardTypeLabel]
+                let popularTitle = [fTitleLabel, sTitleLabel, tTitleLabel]
+                let popularCreatedAt = [fCreatedAtLabel, sCreatedAtLabel, tCreatedAtLabel]
+                DispatchQueue.main.async {
+                    for index in 0..<3 {
+                        popularBoard[index]?.body2 = newArticles[index].boardType
+                        popularTitle[index]?.body2 = newArticles[index].title
+                        popularCreatedAt[index]?.pretendardVariable = newArticles[index].createdAt
+                        
+                        print(newArticles[index].boardType)
+                        print(newArticles[index].title)
+                        print(newArticles[index].createdAt)
+                    }
                 }
                 
             case .failure(let error):
