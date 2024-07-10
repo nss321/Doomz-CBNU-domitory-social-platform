@@ -102,7 +102,7 @@ extension BrownVC: UICollectionViewDelegate, UICollectionViewDataSource, UIColle
         
         let article = articles[indexPath.row]
         cell.title.text = article.title
-        cell.nickName.text = article.nickName
+        cell.nickName.text = article.nickname
         cell.viewCount.text = "조회" + String(article.viewCount)
         cell.commentCount.text = String(article.commentCount)
         cell.wishCount.text = String(article.wishCount)

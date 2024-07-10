@@ -139,7 +139,7 @@ final class BulletinBoardDetailViewViewController: UIViewController {
                 DispatchQueue.main.async { [weak self] in
                     guard let self = self else { return }
                     self.titleLabel.title2 = data.title
-                    self.nickname.title5 = data.nickName ?? "ㅇㄹ"
+                    self.nickname.title5 = data.nickname ?? ""
                     self.profileImage.image = UIImage(named: data.profileUrl)
                     self.dormitory.title5 = data.memberDormitory
                     self.categoryTag.subTitle2 = data.boardType
