@@ -18,20 +18,44 @@ protocol HeaderRereplyButtonDelegate: AnyObject {
 final class ReplyHeaderCollectionReusableView: UICollectionReusableView {
     weak var moreButtonDelegate: MoreButtonDelegate?
     weak var rereplyButtonDelegate: HeaderRereplyButtonDelegate?
-    
-    var commentId: Int?
-    var memberId: Int?
-    var profileUrl: String?
-    var createdAt: String?
-    var isWriter: Bool?
-    var isDeleted: Bool?
-    
-    
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var rereplyButton: UIButton!
     @IBOutlet weak var nickname: UILabel!
     @IBOutlet weak var content: UILabel!
+    @IBOutlet weak var moreButton: UIButton!
+    @IBOutlet weak var profileImageView: UIImageView!
+    @IBOutlet weak var articleWriterButton: RoundButton!
+    
+    var commentId: Int?
+    var memberId: Int?
+    var createdAt: String?
+    var isDeleted: Bool?
+    var isArticleWriter = false {
+        didSet {
+            if isArticleWriter == true {
+                articleWriterButton.isHidden = false
+            }else {
+                articleWriterButton.isHidden = true
+            }
+        }
+    }
+    
+    var profileUrl: String? {
+        didSet {
+            updateProfileImage()
+        }
+    }
+    
+    var isCommentWriter = false {
+        didSet {
+            if isCommentWriter == false {
+                moreButton.isHidden = true
+            }else {
+                moreButton.isHidden = false
+            }
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -51,6 +75,17 @@ final class ReplyHeaderCollectionReusableView: UICollectionReusableView {
         super.prepareForReuse()
         rereplyButton.backgroundColor = .white
     }
+    
+    private func updateProfileImage() {
+        guard let profileUrl = profileUrl, let url = URL(string: profileUrl) else {
+            return
+        }
+        profileImageView.kf.setImage(with: url)
+        profileImageView.contentMode = .scaleAspectFill
+        profileImageView.clipsToBounds = true
+        profileImageView.layer.cornerRadius = profileImageView.frame.size.width / 2
+    }
+    
     
 }
 

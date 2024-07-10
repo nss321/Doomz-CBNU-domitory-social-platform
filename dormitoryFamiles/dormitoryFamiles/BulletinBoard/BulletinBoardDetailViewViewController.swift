@@ -464,13 +464,17 @@ extension BulletinBoardDetailViewViewController: UICollectionViewDelegate, UICol
             cell.createdTime.body2 = self.changeToTime(createdAt: replyComment?.createdAt ?? "")
             cell.createdAt.body2 = DateUtility.yymmdd(from: replyComment?.createdAt ?? "", separator: ".")
             cell.moreButtonDelegate = self
-            print(replyComment?.memberId, dataClass?.loginMemberId)
             if replyComment?.memberId == dataClass?.loginMemberId {
                 cell.isCommentWriter = true
             }else {
                 cell.isCommentWriter = false
             }
-            //TODO: 댓글작성자인지 확인하는 isArticleWriter는 일단 보류. (어떤기능에 사용하는지 모르겠음)
+//            if replyComment?.isArticleWriter ?? false {
+//                cell.isArticleWriter = true
+//            }else {
+//                cell.isArticleWriter = false
+//            }
+            
             return cell
             
         } else {
@@ -503,11 +507,25 @@ extension BulletinBoardDetailViewViewController: UICollectionViewDelegate, UICol
         headerView.nickname.text = replyComment?.nickname ?? ""
         let datetime = replyComment?.createdAt ?? ""
         headerView.timeLabel.body2 = changeToTime(createdAt: datetime)
-        headerView.dateLabel.body2 = changeToDate(createdAt: datetime)
+        headerView.dateLabel.body2 = DateUtility.yymmdd(from: replyComment?.createdAt ?? "", separator: ".")
         headerView.content.text = replyComment?.content ?? ""
-        headerView.isWriter = (replyComment?.isArticleWriter ?? false)
-        headerView.isDeleted = (replyComment?.isDeleted ?? false)
+        if (replyComment?.isDeleted) ?? false {
+            headerView.content.text = "삭제된 댓글입니다."
+            headerView.content.textColor = .gray4
+        }else {
+            headerView.content.textColor = .black
+        }
+        if replyComment?.memberId == dataClass?.loginMemberId {
+            headerView.isCommentWriter = true
+        }else {
+            headerView.isCommentWriter = false
+        }
         
+        if replyComment?.isArticleWriter ?? false {
+            headerView.isArticleWriter = true
+        }else {
+            headerView.isArticleWriter = false
+        }
         
         // 현재 선택된 버튼이 이 헤더의 버튼이면 배경색을 노란색으로 설정
         if selectedReplyId == headerView.commentId {
