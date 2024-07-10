@@ -17,6 +17,7 @@ final class ReplyCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var createdTime: UILabel!
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var moreButton: UIButton!
+    @IBOutlet weak var articleWriterButton: RoundButton!
     
     weak var moreButtonDelegate: MoreButtonDelegate?
     var replyCommentId: Int?
@@ -35,6 +36,17 @@ final class ReplyCollectionViewCell: UICollectionViewCell {
             }
         }
     }
+    
+    var isArticleWriter = false {
+        didSet {
+            if isArticleWriter == true {
+                articleWriterButton.isHidden = false
+            }else {
+                articleWriterButton.isHidden = true
+            }
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }

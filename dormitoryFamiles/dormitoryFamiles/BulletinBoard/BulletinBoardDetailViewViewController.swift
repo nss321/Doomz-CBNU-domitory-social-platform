@@ -469,11 +469,11 @@ extension BulletinBoardDetailViewViewController: UICollectionViewDelegate, UICol
             }else {
                 cell.isCommentWriter = false
             }
-//            if replyComment?.isArticleWriter ?? false {
-//                cell.isArticleWriter = true
-//            }else {
-//                cell.isArticleWriter = false
-//            }
+            if replyComment?.isArticleWriter ?? false {
+                cell.isArticleWriter = true
+            }else {
+                cell.isArticleWriter = false
+            }
             
             return cell
             

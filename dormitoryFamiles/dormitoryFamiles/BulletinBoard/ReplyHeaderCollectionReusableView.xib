@@ -24,7 +24,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="656" height="149"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="xnk-Y1-POG">
-                            <rect key="frame" x="60" y="19.666666666666671" width="119" height="20.333333333333329"/>
+                            <rect key="frame" x="60.000000000000007" y="19.666666666666671" width="117.66666666666669" height="20.333333333333329"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="23.12.10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FZh-Mc-rxt">
                                     <rect key="frame" x="0.0" y="0.0" width="62.666666666666664" height="20.333333333333332"/>
@@ -36,13 +36,13 @@
                                     </userDefinedRuntimeAttributes>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="|" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eA6-G4-EEO">
-                                    <rect key="frame" x="68.666666666666657" y="0.0" width="4" height="20.333333333333332"/>
+                                    <rect key="frame" x="68.666666666666657" y="0.0" width="2.6666666666666714" height="20.333333333333332"/>
                                     <fontDescription key="fontDescription" name="PretendardVariable-Regular" family="Pretendard Variable" pointSize="12"/>
                                     <color key="textColor" name="gray3"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="18:10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SlX-Ra-CtG">
-                                    <rect key="frame" x="78.666666666666657" y="0.0" width="40.333333333333343" height="20.333333333333332"/>
+                                    <rect key="frame" x="77.333333333333343" y="0.0" width="40.333333333333343" height="20.333333333333332"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <color key="textColor" name="gray4"/>
                                     <nil key="highlightedColor"/>
@@ -98,7 +98,7 @@
                             </constraints>
                         </imageView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t9S-yk-COV" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
-                            <rect key="frame" x="108.33333333333333" y="3" width="54.666666666666671" height="18"/>
+                            <rect key="frame" x="108.33333333333331" y="3" width="75" height="18"/>
                             <color key="backgroundColor" name="gray0"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="18" id="LYV-4h-Tu3"/>
@@ -159,7 +159,7 @@
     </objects>
     <designables>
         <designable name="t9S-yk-COV">
-            <size key="intrinsicContentSize" width="54.666666666666664" height="28.333333333333332"/>
+            <size key="intrinsicContentSize" width="75" height="34.333333333333336"/>
         </designable>
     </designables>
     <resources>
