@@ -26,15 +26,6 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OKS-GK-ZJu">
                         <rect key="frame" x="0.0" y="0.0" width="705" height="129"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V1q-nQ-F4U">
-                                <rect key="frame" x="88" y="4" width="32" height="32"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="32" id="InS-wl-8Yi"/>
-                                    <constraint firstAttribute="width" constant="32" id="RxL-nk-sxE"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="bulletinBoardProfile"/>
-                            </button>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="jUc-hl-MpB">
                                 <rect key="frame" x="128" y="24.333333333333336" width="119" height="20.333333333333336"/>
                                 <subviews>
@@ -64,8 +55,8 @@
                                     </label>
                                 </subviews>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cN4-bs-tgD">
-                                <rect key="frame" x="128" y="49.666666666666671" width="557" height="40.666666666666671"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cN4-bs-tgD">
+                                <rect key="frame" x="128" y="49.666666666666657" width="557" height="59.333333333333343"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -90,20 +81,29 @@
                                     <action selector="moreButtonTapped:" destination="gTV-IL-0wX" eventType="touchUpInside" id="Wko-zz-O0M"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bulletinBoardProfile" translatesAutoresizingMaskIntoConstraints="NO" id="RdO-Oc-LQI">
+                                <rect key="frame" x="88" y="4" width="32" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="32" id="3gC-3n-CEU"/>
+                                    <constraint firstAttribute="height" constant="32" id="fMg-6Y-F1E"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Edu-Wj-1Dx" firstAttribute="top" secondItem="V1q-nQ-F4U" secondAttribute="top" id="4ni-ma-2Ax"/>
-                            <constraint firstItem="V1q-nQ-F4U" firstAttribute="top" secondItem="OKS-GK-ZJu" secondAttribute="top" constant="4" id="KmA-t1-FiD"/>
+                            <constraint firstItem="RdO-Oc-LQI" firstAttribute="leading" secondItem="OKS-GK-ZJu" secondAttribute="leading" constant="88" id="2PT-gL-Ops"/>
+                            <constraint firstItem="Edu-Wj-1Dx" firstAttribute="leading" secondItem="RdO-Oc-LQI" secondAttribute="trailing" constant="8" id="2Xi-ff-epI"/>
+                            <constraint firstItem="Edu-Wj-1Dx" firstAttribute="top" secondItem="RdO-Oc-LQI" secondAttribute="top" id="4ni-ma-2Ax"/>
                             <constraint firstItem="jUc-hl-MpB" firstAttribute="top" secondItem="Edu-Wj-1Dx" secondAttribute="bottom" id="LCS-nm-S0O"/>
                             <constraint firstItem="cN4-bs-tgD" firstAttribute="leading" secondItem="jUc-hl-MpB" secondAttribute="leading" id="LgF-M1-ooe"/>
+                            <constraint firstAttribute="bottom" secondItem="cN4-bs-tgD" secondAttribute="bottom" constant="20" id="Ud6-8n-Kvo"/>
                             <constraint firstAttribute="trailing" secondItem="CHj-bx-gyZ" secondAttribute="trailing" constant="20" id="WyK-Ve-vhH"/>
+                            <constraint firstItem="RdO-Oc-LQI" firstAttribute="top" secondItem="OKS-GK-ZJu" secondAttribute="top" constant="4" id="YRF-SF-1ng"/>
                             <constraint firstAttribute="trailing" secondItem="cN4-bs-tgD" secondAttribute="trailing" constant="20" id="bnq-df-HoZ"/>
                             <constraint firstItem="jUc-hl-MpB" firstAttribute="leading" secondItem="Edu-Wj-1Dx" secondAttribute="leading" id="hBm-gF-BwZ"/>
-                            <constraint firstItem="V1q-nQ-F4U" firstAttribute="leading" secondItem="OKS-GK-ZJu" secondAttribute="leading" constant="88" id="pBh-NM-GRQ"/>
-                            <constraint firstItem="Edu-Wj-1Dx" firstAttribute="leading" secondItem="V1q-nQ-F4U" secondAttribute="trailing" constant="8" id="sfv-da-6cr"/>
+                            <constraint firstItem="Edu-Wj-1Dx" firstAttribute="leading" secondItem="RdO-Oc-LQI" secondAttribute="trailing" constant="8" id="sfv-da-6cr"/>
                             <constraint firstItem="cN4-bs-tgD" firstAttribute="top" secondItem="jUc-hl-MpB" secondAttribute="bottom" constant="5" id="w95-FH-TAZ"/>
-                            <constraint firstItem="CHj-bx-gyZ" firstAttribute="top" secondItem="V1q-nQ-F4U" secondAttribute="top" id="yeJ-fr-Zhr"/>
+                            <constraint firstItem="CHj-bx-gyZ" firstAttribute="top" secondItem="RdO-Oc-LQI" secondAttribute="top" id="yeJ-fr-Zhr"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -121,7 +121,11 @@
             <size key="customSize" width="705" height="129"/>
             <connections>
                 <outlet property="content" destination="cN4-bs-tgD" id="soU-jr-nL1"/>
+                <outlet property="createdAt" destination="Xup-Ug-ohw" id="Ayy-d7-KLK"/>
+                <outlet property="createdTime" destination="H5f-Z9-ZC0" id="5h3-zh-L3f"/>
+                <outlet property="moreButton" destination="CHj-bx-gyZ" id="0yE-CW-vYT"/>
                 <outlet property="nickname" destination="Edu-Wj-1Dx" id="3lt-JG-dci"/>
+                <outlet property="profileImageView" destination="RdO-Oc-LQI" id="zUh-6K-JaS"/>
             </connections>
             <point key="canvasLocation" x="704.58015267175574" y="-56.690140845070424"/>
         </collectionViewCell>

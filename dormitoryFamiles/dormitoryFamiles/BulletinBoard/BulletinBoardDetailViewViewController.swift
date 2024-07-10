@@ -461,9 +461,16 @@ extension BulletinBoardDetailViewViewController: UICollectionViewDelegate, UICol
             cell.replyCommentId = replyComment?.replyCommentId ?? 0
             cell.memberId = replyComment?.memberId ?? 0
             cell.profileUrl = replyComment?.profileUrl ?? ""
-            cell.createdAt = replyComment?.createdAt ?? ""
-            cell.isWriter = ((replyComment?.isArticleWriter) != nil)
+            cell.createdTime.body2 = self.changeToTime(createdAt: replyComment?.createdAt ?? "")
+            cell.createdAt.body2 = DateUtility.yymmdd(from: replyComment?.createdAt ?? "", separator: ".")
             cell.moreButtonDelegate = self
+            print(replyComment?.memberId, dataClass?.loginMemberId)
+            if replyComment?.memberId == dataClass?.loginMemberId {
+                cell.isCommentWriter = true
+            }else {
+                cell.isCommentWriter = false
+            }
+            //TODO: 댓글작성자인지 확인하는 isArticleWriter는 일단 보류. (어떤기능에 사용하는지 모르겠음)
             return cell
             
         } else {
@@ -500,6 +507,7 @@ extension BulletinBoardDetailViewViewController: UICollectionViewDelegate, UICol
         headerView.content.text = replyComment?.content ?? ""
         headerView.isWriter = (replyComment?.isArticleWriter ?? false)
         headerView.isDeleted = (replyComment?.isDeleted ?? false)
+        
         
         // 현재 선택된 버튼이 이 헤더의 버튼이면 배경색을 노란색으로 설정
         if selectedReplyId == headerView.commentId {
@@ -591,7 +599,7 @@ extension BulletinBoardDetailViewViewController: UICollectionViewDelegateFlowLay
     
     //셀과 셀 사이의 간격
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 24
+        return 0
     }
     
     //헤더 크기
