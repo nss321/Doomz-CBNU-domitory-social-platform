@@ -10,6 +10,11 @@ import SnapKit
 
 final class ChoosePriorityViewController: UIViewController, ConfigUI {
     
+    let priorities = [
+        "취침 시간", "기상 시간", "잠버릇", "흡연 여부", "음주 빈도", "샤워 시간대", "청소 빈도", "더위", "추위", "본가가는 빈도",
+        "야식", "휴대폰소리", "향수", "벌레"
+    ]
+    
     private let titleLabel: UILabel = {
         let label = UILabel()
         let string = "높은 우선순위대로 선택해주세요!"
@@ -39,26 +44,34 @@ final class ChoosePriorityViewController: UIViewController, ConfigUI {
         label.addCharacterSpacing()
         return label
     }()
-//
-//    private lazy var prioritiesCollectionView: UICollectionView = {
-//        let view = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
-//        view.register(SleepPatternCollectionViewCell.self, forCellWithReuseIdentifier: SleepPatternCollectionViewCell.identifier)
-//        view.backgroundColor = .clear
-//        view.dataSource = self
-//        view.delegate = self
-//        return view
-//    }()
-//    
+
+    private lazy var prioritiesCollectionView: UICollectionView = {
+        let view = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+        view.register(PriorityCell.self, forCellWithReuseIdentifier: PriorityCell.identifier)
+        view.backgroundColor = .clear
+        view.dataSource = self
+        view.delegate = self
+        view.allowsMultipleSelection = true
+        return view
+    }()
+    
+    private let nextButton = CommonButton()
+    
+    private lazy var nextButtonModel = CommonbuttonModel(title: "다음", titleColor: .white ,backgroundColor: .gray3!, height: 52) {
+        self.didClickNextButton()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .background
         setupNavigationBar("룸메 우선순위설정")
         addComponents()
         setConstraints()
+        nextButton.setup(model: nextButtonModel)
     }
     
     func addComponents() {
-        [titleLabel, contentLabel].forEach{ view.addSubview($0) }
+        [titleLabel, contentLabel, prioritiesCollectionView, nextButton].forEach{ view.addSubview($0) }
     }
     
     func setConstraints() {
@@ -71,103 +84,61 @@ final class ChoosePriorityViewController: UIViewController, ConfigUI {
             $0.top.equalTo(titleLabel.snp.bottom).offset(8)
             $0.left.equalToSuperview().inset(20)
         }
+        
+        prioritiesCollectionView.snp.makeConstraints {
+            $0.top.equalTo(contentLabel.snp.bottom).offset(12)
+            $0.left.right.equalToSuperview().inset(20)
+            $0.bottom.equalToSuperview().inset(158)
+        }
+        
+        nextButton.snp.makeConstraints {
+            $0.left.right.equalToSuperview().inset(20)
+            $0.bottom.equalToSuperview().inset(32)
+        }
+    }
+    
+    @objc
+    func didClickNextButton() {
+        print("next")
+//        self.navigationController?.pushViewController(MiscViewController(), animated: true)
     }
     
 }
-//
-//extension ChoosePriorityViewController: UICollectionViewDataSource {
-//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//        
-//        switch collectionView {
-//        case bedTiemCollectionView:
-//            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SleepPatternCollectionViewCell.identifier, for: indexPath) as? SleepPatternCollectionViewCell else { fatalError() }
-//            cell.configure(with: goToSleepTimes[indexPath.row])
-//            return cell
-//        case wakeupTimeCollcetionView:
-//            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SleepPatternCollectionViewCell.identifier, for: indexPath) as? SleepPatternCollectionViewCell else { fatalError() }
-//            cell.configure(with: wakeupTimes[indexPath.row])
-//            return cell
-//        case sleepingHabitsCollectionView:
-//            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SleepPatternCircleCollectionViewCell.identifier, for: indexPath) as? SleepPatternCircleCollectionViewCell else { fatalError() }
-//            cell.configure(with: habits[indexPath.row])
-//            return cell
-//        case sleepSensitivityCollectionView:
-//            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SleepPatternCollectionViewCell.identifier, for: indexPath) as? SleepPatternCollectionViewCell else { fatalError() }
-//            cell.configure(with: sensitivity[indexPath.row])
-//            return cell
-//            
-//        default:
-//            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SleepPatternCollectionViewCell.identifier, for: indexPath) as? SleepPatternCollectionViewCell else { fatalError() }
-//            cell.configure(with: goToSleepTimes[indexPath.row])
-//            return cell
-//        }
-//        
-//    }
-//    
-//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        let numberOfItem: Int
-//        
-//        switch collectionView {
-//        case sleepingHabitsCollectionView:
-//            numberOfItem = habits.count
-//        case sleepSensitivityCollectionView:
-//            numberOfItem = sensitivity.count
-//        default:
-//            numberOfItem = goToSleepTimes.count
-//        }
-//        return numberOfItem
-//    }
-//    
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-//        let lineSpacing: CGFloat
-//        
-//        switch collectionView {
-//        case sleepingHabitsCollectionView, sleepSensitivityCollectionView:
-//            lineSpacing = 0
-//        default:
-//            lineSpacing = 8
-//        }
-//        return lineSpacing
-//    }
-//    
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-//        let interSpacing: CGFloat
-//        
-//        switch collectionView {
-//        case sleepingHabitsCollectionView:
-//            interSpacing = 15
-//        default:
-//            interSpacing = 8
-//        }
-//        return interSpacing
-//    }
-//}
-//
-//extension ChoosePriorityViewController: UICollectionViewDelegateFlowLayout {
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        let cellSize: CGSize
-//        
-//        switch collectionView {
-//        case sleepingHabitsCollectionView:
-//            // MARK: cell 간격
-//            cellSize = CGSize(width: (currentScreenWidth - 86) / 4, height: (currentScreenWidth - 86) / 4 )
-//        default:
-//            cellSize = CGSize(width: (currentScreenWidth - 58) / 3, height: 48)
-//        }
-//        return cellSize
-//    }
-//    
-//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        switch collectionView {
-//        case bedTiemCollectionView:
-//            print("\(collectionView)의 \(indexPath.row) 선택")
-//        case wakeupTimeCollcetionView:
-//            print("\(collectionView)의 \(indexPath.row) 선택")
-//        case  sleepingHabitsCollectionView:
-//            print("\(collectionView)의 \(indexPath.row) 선택")
-//        default:
-//            print("\(indexPath.row) 선택")
-//        }
-//        
-//    }
-//}
+
+extension ChoosePriorityViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PriorityCell.identifier, for: indexPath) as? PriorityCell else { fatalError() }
+        cell.configure(with: priorities[indexPath.row])
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return priorities.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 16
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 16
+    }
+}
+
+extension ChoosePriorityViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: (UIScreen.screenWidthLayoutGuide - 16) / 2, height: 52)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("\(collectionView):  \(indexPath.row) 선택")
+        
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        print("deselect")
+    }
+    
+}
+
+
