@@ -13,8 +13,10 @@
 		11036F272C3C19A00042B9EF /* StudyStyleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11036F262C3C19A00042B9EF /* StudyStyleViewController.swift */; };
 		11036F292C3D57840042B9EF /* MiscViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11036F282C3D57840042B9EF /* MiscViewController.swift */; };
 		11036F2D2C3D5CE40042B9EF /* CompleteMyCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11036F2C2C3D5CE40042B9EF /* CompleteMyCondition.swift */; };
+		11036F2F2C3D70870042B9EF /* ChoosePriorityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11036F2E2C3D70870042B9EF /* ChoosePriorityViewController.swift */; };
 		1126FE1C2BCEA662004C6C81 /* LifeStyleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1126FE1B2BCEA662004C6C81 /* LifeStyleViewController.swift */; };
 		1131E8A22BF6220B00D40120 /* UIScreen+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1131E8A12BF6220B00D40120 /* UIScreen+.swift */; };
+		1148B3F62C3EAD4B0056671B /* PriorityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1148B3F52C3EAD4B0056671B /* PriorityCell.swift */; };
 		11707A232BA4C8CC0027802D /* SleepPatternViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11707A222BA4C8CC0027802D /* SleepPatternViewController.swift */; };
 		11707A2C2BA4CA780027802D /* FontManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11707A2B2BA4CA780027802D /* FontManager.swift */; };
 		11707A342BA83EED0027802D /* SleepPatternCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11707A332BA83EED0027802D /* SleepPatternCollectionViewCell.swift */; };
@@ -105,8 +107,12 @@
 		11036F262C3C19A00042B9EF /* StudyStyleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyStyleViewController.swift; sourceTree = "<group>"; };
 		11036F282C3D57840042B9EF /* MiscViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiscViewController.swift; sourceTree = "<group>"; };
 		11036F2C2C3D5CE40042B9EF /* CompleteMyCondition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteMyCondition.swift; sourceTree = "<group>"; };
+		11036F2E2C3D70870042B9EF /* ChoosePriorityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoosePriorityViewController.swift; sourceTree = "<group>"; };
 		1126FE1B2BCEA662004C6C81 /* LifeStyleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifeStyleViewController.swift; sourceTree = "<group>"; };
 		1131E8A12BF6220B00D40120 /* UIScreen+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScreen+.swift"; sourceTree = "<group>"; };
+		1148B3F52C3EAD4B0056671B /* PriorityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriorityCell.swift; sourceTree = "<group>"; };
+		1148B3F72C3EB9810056671B /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Main.strings; sourceTree = "<group>"; };
+		1148B3F82C3EB9810056671B /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		11707A222BA4C8CC0027802D /* SleepPatternViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepPatternViewController.swift; sourceTree = "<group>"; };
 		11707A2B2BA4CA780027802D /* FontManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontManager.swift; sourceTree = "<group>"; };
 		11707A2D2BA4D3AC0027802D /* UILabel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+.swift"; sourceTree = "<group>"; };
@@ -205,6 +211,7 @@
 			children = (
 				11707A332BA83EED0027802D /* SleepPatternCollectionViewCell.swift */,
 				117250E42BB19FE20083F181 /* SleepPatternCircleCollectionViewCell.swift */,
+				1148B3F52C3EAD4B0056671B /* PriorityCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -223,6 +230,7 @@
 				11036F262C3C19A00042B9EF /* StudyStyleViewController.swift */,
 				11036F282C3D57840042B9EF /* MiscViewController.swift */,
 				11036F2C2C3D5CE40042B9EF /* CompleteMyCondition.swift */,
+				11036F2E2C3D70870042B9EF /* ChoosePriorityViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -477,11 +485,12 @@
 			};
 			buildConfigurationList = DBF466F22AA5F4E4009FF3EB /* Build configuration list for PBXProject "dormitoryFamiles" */;
 			compatibilityVersion = "Xcode 14.0";
-			developmentRegion = en;
+			developmentRegion = ko;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
+				ko,
 			);
 			mainGroup = DBF466EE2AA5F4E4009FF3EB;
 			packageReferences = (
@@ -569,6 +578,7 @@
 				1126FE1C2BCEA662004C6C81 /* LifeStyleViewController.swift in Sources */,
 				DBC1CFF72BC2AE2D005C93C0 /* UILabel+.swift in Sources */,
 				DBC1CFF62BC2AE25005C93C0 /* ConfigUI.swift in Sources */,
+				11036F2F2C3D70870042B9EF /* ChoosePriorityViewController.swift in Sources */,
 				DB2B7BC92B456F4700C1847D /* TagScrollView.swift in Sources */,
 				DB7EF2772B5E9CB20062FAB5 /* ServicePermissonViewController.swift in Sources */,
 				1197F25B2C081E7D006F75D2 /* MBTIViewController.swift in Sources */,
@@ -587,6 +597,7 @@
 				11AC97FD2BFF27AE0008C910 /* UIImage+.swift in Sources */,
 				117250E72BB31AF60083F181 /* CommomButton.swift in Sources */,
 				DB8DDFD72BECB0B600B3A676 /* DateFomat.swift in Sources */,
+				1148B3F62C3EAD4B0056671B /* PriorityCell.swift in Sources */,
 				DB7BE9E72BA47A5E00BC25E3 /* ReplyCollectionViewCell.swift in Sources */,
 				11036F272C3C19A00042B9EF /* StudyStyleViewController.swift in Sources */,
 				DB61AA342B4C1EA70040418B /* RegisterPostViewController.swift in Sources */,
@@ -635,6 +646,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				DBF467012AA5F4E4009FF3EB /* Base */,
+				1148B3F72C3EB9810056671B /* ko */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -643,6 +655,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				DBF467062AA5F4E5009FF3EB /* Base */,
+				1148B3F82C3EB9810056671B /* ko */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -654,6 +667,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -714,6 +728,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -780,6 +795,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -809,6 +825,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
