@@ -31,6 +31,20 @@ class SleepPatternCircleCollectionViewCell: UICollectionViewCell {
         return label
     }()
     
+    override var isSelected: Bool {
+        didSet {
+            if isSelected {
+                sleepTimeBlock.backgroundColor = .primaryLight
+                sleepTimeBlock.layer.borderColor = UIColor.primaryMid?.cgColor
+                sleepTimeLabel.textColor = .black
+            } else {
+                sleepTimeBlock.backgroundColor = .background
+                sleepTimeBlock.layer.borderColor = UIColor.gray1?.cgColor
+                sleepTimeLabel.textColor = .gray4
+            }
+        }
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         addSubview(sleepTimeBlock)

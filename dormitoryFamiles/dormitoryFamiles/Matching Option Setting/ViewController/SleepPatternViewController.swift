@@ -13,7 +13,7 @@ final class SleepPatternViewController: UIViewController, ConfigUI {
     let goToSleepTimes: [String] = [
         "오후 9시 이전", "오후 9시", "오후 10시",
         "오후 11시", "오후 12시", "오전 1시",
-        "오전 1시", "오전 2시", "오전 3시 이후"
+        "오전 2시", "오전 3시", "오전 3시 이후"
     ]
     
     let wakeupTimes: [String] = [
@@ -30,7 +30,12 @@ final class SleepPatternViewController: UIViewController, ConfigUI {
         "어두움", "밝음", "없음"
     ]
     
-    let currentScreenWidth: CGFloat = UIScreen.main.bounds.width
+    var selectedBedTimes: [String] = []
+    var selectedWakeupTimes: [String] = []
+    var selectedHabits: [String] = []
+    var selectedSensitivity: [String] = []
+    
+    let currentScreenWidth = UIScreen.currentScreenWidth
     
     private let scrollView: UIScrollView = {
         let view = UIScrollView()
@@ -103,6 +108,7 @@ final class SleepPatternViewController: UIViewController, ConfigUI {
         view.backgroundColor = .clear
         view.dataSource = self
         view.delegate = self
+        view.allowsMultipleSelection = true
         return view
     }()
     
@@ -112,6 +118,7 @@ final class SleepPatternViewController: UIViewController, ConfigUI {
         view.backgroundColor = .clear
         view.dataSource = self
         view.delegate = self
+        view.allowsMultipleSelection = true
         return view
         
     }()
@@ -122,6 +129,7 @@ final class SleepPatternViewController: UIViewController, ConfigUI {
         view.backgroundColor = .clear
         view.dataSource = self
         view.delegate = self
+        view.allowsMultipleSelection = true
         return view
     }()
     
@@ -131,6 +139,7 @@ final class SleepPatternViewController: UIViewController, ConfigUI {
         view.backgroundColor = .clear
         view.dataSource = self
         view.delegate = self
+        view.allowsMultipleSelection = true
         return view
     }()
     
@@ -215,6 +224,18 @@ final class SleepPatternViewController: UIViewController, ConfigUI {
     
     @objc
     func didClickNextButton() {
+        let matchingOption: [String: Any] = [
+            "selectedBedTimes": selectedBedTimes,
+            "selectedWakeupTimes": selectedWakeupTimes,
+            "selectedHabits": selectedHabits,
+            "selectedSensitivity": selectedSensitivity
+        ]
+        UserDefaults.standard.setMatchingOption(matchingOption)
+        
+        // 저장된 정보 로그 출력
+        if let savedOptions = UserDefaults.standard.getMatchingOption() {
+            print("Saved Matching Options: \(savedOptions)")
+        }
         self.tabBarController?.tabBar.isHidden = true
         self.navigationController?.pushViewController(SmokeAndAlcoholPatternViewController(), animated: true)
     }
@@ -305,14 +326,54 @@ extension SleepPatternViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         switch collectionView {
         case bedTiemCollectionView:
-            print("\(collectionView)의 \(indexPath.row) 선택")
+            let selectedItem = goToSleepTimes[indexPath.row]
+            selectedBedTimes.append(selectedItem)
+            print("\(collectionView)의 \(selectedItem) 선택")
         case wakeupTimeCollcetionView:
-            print("\(collectionView)의 \(indexPath.row) 선택")
+            let selectedItem = wakeupTimes[indexPath.row]
+            selectedWakeupTimes.append(selectedItem)
+            print("\(collectionView)의 \(selectedItem) 선택")
         case  sleepingHabitsCollectionView:
-            print("\(collectionView)의 \(indexPath.row) 선택")
+            let selectedItem = habits[indexPath.row]
+            selectedHabits.append(selectedItem)
+            print("\(collectionView)의 \(selectedItem) 선택")
+        case sleepSensitivityCollectionView:
+            let selectedItem = sensitivity[indexPath.row]
+            selectedSensitivity.append(selectedItem)
+            print("\(collectionView)의 \(selectedItem) 선택")
         default:
             print("\(indexPath.row) 선택")
         }
-        
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        switch collectionView {
+        case bedTiemCollectionView:
+            let deselectedItem = goToSleepTimes[indexPath.row]
+            if let index = selectedBedTimes.firstIndex(of: deselectedItem) {
+                selectedBedTimes.remove(at: index)
+            }
+            print("deselect \(deselectedItem)")
+        case wakeupTimeCollcetionView:
+            let deselectedItem = wakeupTimes[indexPath.row]
+            if let index = selectedWakeupTimes.firstIndex(of: deselectedItem) {
+                selectedWakeupTimes.remove(at: index)
+            }
+            print("deselect \(deselectedItem)")
+        case  sleepingHabitsCollectionView:
+            let deselectedItem = habits[indexPath.row]
+            if let index = selectedHabits.firstIndex(of: deselectedItem) {
+                selectedHabits.remove(at: index)
+            }
+            print("deselect \(deselectedItem)")
+        case sleepSensitivityCollectionView:
+            let deselectedItem = sensitivity[indexPath.row]
+            if let index = selectedSensitivity.firstIndex(of: deselectedItem) {
+                selectedSensitivity.remove(at: index)
+            }
+            print("deselect \(deselectedItem)")
+        default:
+            print("deselect \(indexPath.row)")
+        }
     }
 }
