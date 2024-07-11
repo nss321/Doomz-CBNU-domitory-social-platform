@@ -13,7 +13,11 @@ extension UserDefaults {
     }
     
     func setMatchingOption(_ option: [String: Any]) {
-        set(option, forKey: Keys.matchingOption)
+        var existingOptions = getMatchingOption() ?? [:]
+        option.forEach { key, value in
+            existingOptions[key] = value
+        }
+        set(existingOptions, forKey: Keys.matchingOption)
     }
     
     func getMatchingOption() -> [String: Any]? {
