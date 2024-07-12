@@ -54,8 +54,12 @@ final class BulletinBoardDetailViewViewController: UIViewController {
     private var status = ""
     private var isWriter = false
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout
+        layout?.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
+        layout?.sectionHeadersPinToVisibleBounds = true
         network(url: url)
         setUI()
         setIndicator()
@@ -598,32 +602,18 @@ extension BulletinBoardDetailViewViewController: UICollectionViewDelegate, UICol
 }
 
 extension BulletinBoardDetailViewViewController: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        if collectionView == self.collectionView {
-            let width: CGFloat = collectionView.bounds.width
-            let height: CGFloat = 100
-            
-            return CGSize(width: width, height: height)
-        }else {
-            let tag = tagArray[indexPath.item]
-            let tagSize = tag.size(withAttributes: [NSAttributedString.Key.font: UIFont.body2])
-            let cellWidth = tagSize.width + 20 // 여유 공간 추가
-            let cellHeight: CGFloat = 30 // 적절한 높이 설정
-            
-            return CGSize(width: cellWidth, height: cellHeight)
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+            // 이 메서드는 필수적으로 헤더의 초기 크기를 반환해야 합니다.
+            // 이후 preferredLayoutAttributesFitting 메서드가 호출되어 크기가 자동으로 조정됩니다.
+        return CGSize(width: collectionView.frame.width, height: 50)
         }
-        
-    }
     
     //셀과 셀 사이의 간격
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 0
     }
-    
-    //헤더 크기
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return CGSize(width: collectionView.bounds.width, height: 148)
-    }
+
     
 }
 

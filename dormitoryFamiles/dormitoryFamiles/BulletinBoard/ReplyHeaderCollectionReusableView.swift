@@ -26,7 +26,7 @@ final class ReplyHeaderCollectionReusableView: UICollectionReusableView {
     @IBOutlet weak var moreButton: UIButton!
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var articleWriterButton: RoundButton!
-    
+    @IBOutlet weak var contentView: UIView!
     var commentId: Int?
     var memberId: Int?
     var createdAt: String?
@@ -86,7 +86,22 @@ final class ReplyHeaderCollectionReusableView: UICollectionReusableView {
         profileImageView.layer.cornerRadius = profileImageView.frame.size.width / 2
     }
     
-    
+    override func preferredLayoutAttributesFitting(_ layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
+        setNeedsLayout()
+        layoutIfNeeded()
+        
+        // contentView에 대해 layoutAttributes.size를 사용하여 fittingSize 계산
+        let fittingSize = UIView.layoutFittingCompressedSize
+        let size = contentView.systemLayoutSizeFitting(fittingSize,
+                                                       withHorizontalFittingPriority: .required,
+                                                       verticalFittingPriority: .fittingSizeLevel)
+        
+        var frame = layoutAttributes.frame
+        frame.size.height = size.height
+        layoutAttributes.frame = frame
+        
+        return layoutAttributes
+    }
 }
 
 enum Reply {
