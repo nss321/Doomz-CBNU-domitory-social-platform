@@ -8,8 +8,8 @@
 import UIKit
 import SnapKit
 
-class chattingHomeViewController: UIViewController {
-    
+class ChattingHomeViewController: UIViewController {
+    let sampleNickname = ["동민","소민","유림","정훈","화진","민경","채영","보희","민주","은아"]
     private let followingLabelButtonStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .horizontal
@@ -32,17 +32,21 @@ class chattingHomeViewController: UIViewController {
     private let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
-        layout.minimumLineSpacing = 10
-        layout.minimumInteritemSpacing = 10
+        layout.minimumLineSpacing = 12
+        layout.minimumInteritemSpacing = 12
+        layout.scrollDirection = .horizontal
+        layout.itemSize = CGSize(width: 48, height: 70)
+        
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.backgroundColor = .white
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+        collectionView.register(ChatFollowingCollectionViewCell.self, forCellWithReuseIdentifier: ChatFollowingCollectionViewCell.identifier)
+        collectionView.showsHorizontalScrollIndicator = false
         return collectionView
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setNavigationBar()
+        setCollectionView()
         addComponents()
         setConstraints()
         
@@ -80,10 +84,38 @@ class chattingHomeViewController: UIViewController {
     
     
     private func setConstraints() {
-        followingLabelButtonStackView.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide).inset(27)
-            make.height.equalTo(32)
-            make.leading.trailing.equalToSuperview().inset(20)
+        followingLabelButtonStackView.snp.makeConstraints {
+            $0.top.equalTo(view.safeAreaLayoutGuide).inset(27)
+            $0.height.equalTo(32)
+            $0.leading.trailing.equalToSuperview().inset(20)
+        }
+        collectionView.snp.makeConstraints {
+            $0.top.equalTo(followingLabelButtonStackView.snp.bottom).inset(-12)
+            $0.height.equalTo(70)
+            $0.leading.trailing.equalToSuperview().inset(20)
+            
         }
     }
+    
+    private func setCollectionView() {
+        view.addSubview(collectionView)
+        collectionView.delegate = self
+        collectionView.dataSource = self
+    }
+}
+
+extension ChattingHomeViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return sampleNickname.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ChatFollowingCollectionViewCell.identifier, for: indexPath) as? ChatFollowingCollectionViewCell else {
+            fatalError()
+        }
+        cell.configure(with: sampleNickname[indexPath.row])
+        return cell
+    }
+    
+    
 }

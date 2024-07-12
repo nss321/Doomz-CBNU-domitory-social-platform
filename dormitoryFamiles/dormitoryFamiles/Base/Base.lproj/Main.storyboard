@@ -3646,7 +3646,7 @@
         <!--Chatting Home View Controller-->
         <scene sceneID="A9X-IA-S8k">
             <objects>
-                <viewController id="lJG-sG-Ofy" customClass="chattingHomeViewController" customModule="dormitoryFamiles" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="lJG-sG-Ofy" customClass="ChattingHomeViewController" customModule="dormitoryFamiles" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="e1m-x0-f6d">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
