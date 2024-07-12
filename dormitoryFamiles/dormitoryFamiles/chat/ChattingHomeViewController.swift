@@ -49,6 +49,13 @@ class ChattingHomeViewController: UIViewController {
         return view
     }()
     
+    private let chattingListLabel: UILabel = {
+        let label = UILabel()
+        label.font = .title2
+        label.text = "채팅목록"
+        return label
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setNavigationBar()
@@ -107,6 +114,12 @@ class ChattingHomeViewController: UIViewController {
             $0.top.equalTo(collectionView.snp.bottom).inset(-12)
             $0.height.equalTo(1)
             $0.leading.trailing.equalToSuperview()
+        }
+        
+        view.addSubview(chattingListLabel)
+        chattingListLabel.snp.makeConstraints {
+            $0.top.equalTo(baseLine.snp.bottom).inset(-16)
+            $0.leading.equalToSuperview().inset(26)
         }
     }
     
