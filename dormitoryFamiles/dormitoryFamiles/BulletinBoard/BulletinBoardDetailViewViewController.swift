@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol successRereplyPost: AnyObject {
+    func successRereplyPost(replyId: Int)
+}
+
 final class BulletinBoardDetailViewViewController: UIViewController {
     @IBOutlet weak var roundLine: UIView!
     
@@ -37,7 +41,7 @@ final class BulletinBoardDetailViewViewController: UIViewController {
     @IBOutlet weak var chatCountLabel: UILabel!
     private var scrollPhotoView = PhotoScrollView()
     private var hasImage = true
-    
+    private var selectedRereplyButton: UIButton?
     private let headerCell = ReplyHeaderCollectionReusableView()
     private var dataClass : DataClass?
     var id: Int = 0
@@ -50,8 +54,12 @@ final class BulletinBoardDetailViewViewController: UIViewController {
     private var status = ""
     private var isWriter = false
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout
+        layout?.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
+        layout?.sectionHeadersPinToVisibleBounds = true
         network(url: url)
         setUI()
         setIndicator()
@@ -93,7 +101,7 @@ final class BulletinBoardDetailViewViewController: UIViewController {
             var url = URL(string: "")
             if selectedReplyId == -1 {
                 url = URL(string: Url.replyUrl(id: id))!
-            }else {
+            } else {
                 url = URL(string: Url.postRereplyUrl(replyId: selectedReplyId))!
             }
             var request = URLRequest(url: url!)
@@ -108,6 +116,18 @@ final class BulletinBoardDetailViewViewController: UIViewController {
                     print("Error: \(error)")
                 } else if data != nil {
                     print("Response: \(response)")
+                    DispatchQueue.main.async {
+                        self.replyNetwork(id: self.id) {
+                            self.selectedReplyId = -1
+                            self.collectionView.reloadData()
+                            self.commentTextView.text = ""
+                            self.showCompletionAlert(status: "댓글 작성")
+                            self.scrollToTop()
+                            guard let replyCount = self.replyCountLabel.text as? Int else { return }
+                            self.replyCountLabel.text = String(replyCount + 1)
+                            
+                        }
+                    }
                 }
             }
             
@@ -123,7 +143,7 @@ final class BulletinBoardDetailViewViewController: UIViewController {
                 DispatchQueue.main.async { [weak self] in
                     guard let self = self else { return }
                     self.titleLabel.title2 = data.title
-                    self.nickname.title5 = data.nickName ?? "ㅇㄹ"
+                    self.nickname.title5 = data.nickname ?? ""
                     self.profileImage.image = UIImage(named: data.profileUrl)
                     self.dormitory.title5 = data.memberDormitory
                     self.categoryTag.subTitle2 = data.boardType
@@ -194,19 +214,34 @@ final class BulletinBoardDetailViewViewController: UIViewController {
     }
     
     
-    private func replyNetwork(id: Int) {
+    private func replyNetwork(id: Int, completion: (() -> Void)? = nil) {
         let commentUrl = Url.replyUrl(id: id)
         Network.getMethod(url: commentUrl) { [self] (result: Result<ReplyResponse, Error>) in
             switch result {
             case .success(let response):
                 self.dataClass = response.data
-                DispatchQueue.main.async { [self] in
+                DispatchQueue.main.async {
                     self.replyCountLabel.text = String(dataClass!.totalCount)
+                    completion?()
                 }
             case .failure(let error):
-                
                 print(error.localizedDescription)
+                DispatchQueue.main.async {
+                    completion?()
+                }
             }
+        }
+    }
+    
+    private func showCompletionAlert(status: String) {
+        let alertController = UIAlertController(title: "\(status) 완료", message: "\(status) 완료되었습니다.", preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
+        present(alertController, animated: true, completion: nil)
+    }
+    
+    private func scrollToTop() {
+        if let scrollView = view.subviews.compactMap({ $0 as? UIScrollView }).first {
+            scrollView.setContentOffset(CGPoint(x: 0, y: -scrollView.contentInset.top), animated: true)
         }
     }
     
@@ -330,15 +365,15 @@ final class BulletinBoardDetailViewViewController: UIViewController {
         }))
         actionSheet.addAction(UIAlertAction(title: statusText, style: .default, handler: {(ACTION:UIAlertAction) in
             let finishAlert = UIAlertController(title: statusTitle, message: statusMessage, preferredStyle: .alert)
-
-           
+            
+            
             finishAlert.addAction(UIAlertAction(title: "취소", style: .cancel, handler: { _ in
-              
+                
             }))
-
+            
             finishAlert.addAction(UIAlertAction(title: "완료하기", style: .default, handler: { [self] _ in
                 let finishUrl = Url.changeStatus(id: id, status: statusQuery)
-
+                
                 Network.putMethod(url: finishUrl) { (result: Result<SuccessCode, Error>) in
                     switch result {
                     case .success(let successCode):
@@ -347,7 +382,7 @@ final class BulletinBoardDetailViewViewController: UIViewController {
                         print("Error: \(error)")
                     }
                 }
-
+                
             }))
             
             self.present(finishAlert, animated: true, completion: nil)
@@ -430,9 +465,20 @@ extension BulletinBoardDetailViewViewController: UICollectionViewDelegate, UICol
             cell.replyCommentId = replyComment?.replyCommentId ?? 0
             cell.memberId = replyComment?.memberId ?? 0
             cell.profileUrl = replyComment?.profileUrl ?? ""
-            cell.createdAt = replyComment?.createdAt ?? ""
-            cell.isWriter = ((replyComment?.isArticleWriter) != nil)
+            cell.createdTime.body2 = self.changeToTime(createdAt: replyComment?.createdAt ?? "")
+            cell.createdAt.body2 = DateUtility.yymmdd(from: replyComment?.createdAt ?? "", separator: ".")
             cell.moreButtonDelegate = self
+            if replyComment?.memberId == dataClass?.loginMemberId {
+                cell.isCommentWriter = true
+            }else {
+                cell.isCommentWriter = false
+            }
+            if replyComment?.isArticleWriter ?? false {
+                cell.isArticleWriter = true
+            }else {
+                cell.isArticleWriter = false
+            }
+            
             return cell
             
         } else {
@@ -465,15 +511,35 @@ extension BulletinBoardDetailViewViewController: UICollectionViewDelegate, UICol
         headerView.nickname.text = replyComment?.nickname ?? ""
         let datetime = replyComment?.createdAt ?? ""
         headerView.timeLabel.body2 = changeToTime(createdAt: datetime)
-        headerView.dateLabel.body2 = changeToDate(createdAt: datetime)
+        headerView.dateLabel.body2 = DateUtility.yymmdd(from: replyComment?.createdAt ?? "", separator: ".")
         headerView.content.text = replyComment?.content ?? ""
-        headerView.isWriter = (replyComment?.isArticleWriter ?? false)
-        headerView.isDeleted = (replyComment?.isDeleted ?? false)
+        if (replyComment?.isDeleted) ?? false {
+            headerView.content.text = "삭제된 댓글입니다."
+            headerView.content.textColor = .gray4
+        }else {
+            headerView.content.textColor = .black
+        }
+        if replyComment?.memberId == dataClass?.loginMemberId {
+            headerView.isCommentWriter = true
+        }else {
+            headerView.isCommentWriter = false
+        }
         
+        if replyComment?.isArticleWriter ?? false {
+            headerView.isArticleWriter = true
+        }else {
+            headerView.isArticleWriter = false
+        }
+        
+        // 현재 선택된 버튼이 이 헤더의 버튼이면 배경색을 노란색으로 설정
+        if selectedReplyId == headerView.commentId {
+            headerView.rereplyButton.backgroundColor = .yellow
+        } else {
+            headerView.rereplyButton.backgroundColor = .white
+        }
         return headerView
-        
     }
-
+    
     
     func moreButtonTapped(replyId: Int, format: Reply) {
         print(replyId)
@@ -494,6 +560,16 @@ extension BulletinBoardDetailViewViewController: UICollectionViewDelegate, UICol
                     print(response)
                 case .failure(let error):
                     print("Error: \(error)")
+                    //TODO: 삭제가 완료되면 왜 failure로 빠지면서 정상작동이 되는지 모르겠음. 백앤드에게 물어보기
+                    DispatchQueue.main.async {
+                        self.replyNetwork(id: self.id) {
+                            self.collectionView.reloadData()
+                            self.showCompletionAlert(status: "댓글 삭제")
+                            self.scrollToTop()
+                            guard let replyCount = self.replyCountLabel.text as? Int else { return }
+                            self.replyCountLabel.text = String(replyCount - 1)
+                        }
+                    }
                 }
             }
             
@@ -503,38 +579,41 @@ extension BulletinBoardDetailViewViewController: UICollectionViewDelegate, UICol
         self.present(actionSheet, animated: true, completion: nil)
     }
     
-    func rereplyButtonTapped(replyId: Int) {
-        selectedReplyId = replyId
+    func rereplyButtonTapped(replyId: Int, sender: UIButton) {
+        // 이전에 선택된 버튼이 있다면 배경색을 흰색으로 변경
+        if let selectedButton = selectedRereplyButton, selectedButton != sender {
+            selectedButton.backgroundColor = .white
+        }
+        
+        // 클릭된 버튼이 이미 선택된 버튼인지 확인
+        if selectedRereplyButton == sender {
+            // 동일한 버튼이 다시 클릭되면 선택 해제
+            sender.backgroundColor = .white
+            selectedRereplyButton = nil
+            selectedReplyId = -1
+        } else {
+            // 새로운 버튼이 클릭되면 배경색을 노란색으로 변경
+            sender.backgroundColor = .yellow
+            selectedRereplyButton = sender
+            selectedReplyId = replyId
+        }
     }
+    
 }
 
 extension BulletinBoardDetailViewViewController: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        if collectionView == self.collectionView {
-            let width: CGFloat = collectionView.bounds.width
-            let height: CGFloat = 100
-            
-            return CGSize(width: width, height: height)
-        }else {
-            let tag = tagArray[indexPath.item]
-                   let tagSize = tag.size(withAttributes: [NSAttributedString.Key.font: UIFont.body2])
-                   let cellWidth = tagSize.width + 20 // 여유 공간 추가
-                   let cellHeight: CGFloat = 30 // 적절한 높이 설정
-                   
-                   return CGSize(width: cellWidth, height: cellHeight)
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+            // 이 메서드는 필수적으로 헤더의 초기 크기를 반환해야 합니다.
+            // 이후 preferredLayoutAttributesFitting 메서드가 호출되어 크기가 자동으로 조정됩니다.
+        return CGSize(width: collectionView.frame.width, height: 50)
         }
-        
-    }
     
     //셀과 셀 사이의 간격
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 24
+        return 0
     }
-    
-    //헤더 크기
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return CGSize(width: collectionView.bounds.width, height: 148)
-    }
+
     
 }
 
