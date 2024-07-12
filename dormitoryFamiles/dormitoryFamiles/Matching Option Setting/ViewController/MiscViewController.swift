@@ -13,6 +13,9 @@ final class MiscViewController: UIViewController, ConfigUI {
     let workout = ["안해요", "긱사에서", "헬스장에서"]
     let bugs = ["잘잡아요", "작은것만", "못잡아요"]
 
+    var selectedWorkout: String?
+    var selectedBugs: String?
+    
     private let stackView: UIStackView = {
         let view = UIStackView()
         view.axis = .vertical
@@ -155,7 +158,16 @@ final class MiscViewController: UIViewController, ConfigUI {
     
     @objc
     func didClickNextButton() {
-        print("nextBtn")
+        let miscOption: [String: Any] = [
+            "selectedWorkout": selectedWorkout ?? "",
+            "selectedBugs": selectedBugs ?? ""
+        ]
+        UserDefaults.standard.setMatchingOption(miscOption)
+        
+        // 저장된 정보 로그 출력
+        ["selectedWorkout", "selectedBugs"].forEach {
+            print("\($0): \(UserDefaults.standard.getMatchingOptionValue(forKey: $0) ?? "")")
+        }
         self.navigationController?.pushViewController(CompleteMyCondition(), animated: true)
     }
     
@@ -209,12 +221,26 @@ extension MiscViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         switch collectionView {
         case workoutCollectionView:
-            print("\(collectionView)의 \(indexPath.row) 선택")
+            selectedWorkout = workout[indexPath.item]
+            print("Workout: \(workout[indexPath.item]) 선택")
         case bugsCollectionView:
-            print("\(collectionView)의 \(indexPath.row) 선택")
+            selectedBugs = bugs[indexPath.item]
+            print("Bugs: \(bugs[indexPath.item]) 선택")
         default:
-            print("\(indexPath.row) 선택")
+            print("default")
         }
-        
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        switch collectionView {
+        case workoutCollectionView:
+            selectedWorkout = nil
+            print("Workout: \(workout[indexPath.item]) 선택 해제")
+        case bugsCollectionView:
+            selectedBugs = nil
+            print("Bugs: \(bugs[indexPath.item]) 선택 해제")
+        default:
+            print("default")
+        }
     }
 }

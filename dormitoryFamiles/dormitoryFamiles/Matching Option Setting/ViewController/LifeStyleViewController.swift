@@ -14,6 +14,9 @@ final class LifeStyleViewController: UIViewController, ConfigUI {
     let cleanHabit = ["바로바로", "가끔", "몰아서"]
     let currentScreenWidth:  CGFloat = UIScreen.main.bounds.width
     
+    var selectedShower: String?
+    var selectedCleanHabit: String?
+    
     private let stackView: UIStackView = {
         let view = UIStackView()
         view.axis = .vertical
@@ -179,7 +182,17 @@ final class LifeStyleViewController: UIViewController, ConfigUI {
     
     @objc
     func didClickNextButton() {
-        print("nextBtn")
+        let matchingOption: [String: Any] = [
+            "selectedShower": selectedShower ?? "",
+            "selectedCleanHabit": selectedCleanHabit ?? ""
+        ]
+        UserDefaults.standard.setMatchingOption(matchingOption)
+        
+        // 저장된 정보 로그 출력
+        ["selectedShower", "selectedCleanHabit"].forEach {
+            print("\($0): \(UserDefaults.standard.getMatchingOptionValue(forKey: $0) ?? "")")
+        }
+        
         self.navigationController?.pushViewController(ConstitutionViewController(), animated: true)
     }
     
@@ -248,13 +261,27 @@ extension LifeStyleViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         switch collectionView {
         case showerTimeCollectionView:
-            print("\(collectionView)의 \(indexPath.row) 선택")
+            selectedShower = shower[indexPath.item]
+            print("Shower: \(shower[indexPath.item]) 선택")
         case cleanHabitCollectionView:
-            print("\(collectionView)의 \(indexPath.row) 선택")
+            selectedCleanHabit = cleanHabit[indexPath.item]
+            print("Clean Habit: \(cleanHabit[indexPath.item]) 선택")
         default:
-            print("\(indexPath.row) 선택")
+            print("default")
         }
-        
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        switch collectionView {
+        case showerTimeCollectionView:
+            selectedShower = nil
+            print("Shower: \(shower[indexPath.item]) 선택 해제")
+        case cleanHabitCollectionView:
+            selectedCleanHabit = nil
+            print("Clean Habit: \(cleanHabit[indexPath.item]) 선택 해제")
+        default:
+            print("default")
+        }
     }
 }
 

@@ -12,6 +12,8 @@ final class HomeCycleViewController: UIViewController, ConfigUI {
     
     let cycle = ["거의안감", "2,3달에\n한번", "1달에\n한번", "주에 한번"]
     
+    var selectedCycle: String?
+    
     private let stackView: UIStackView = {
         let view = UIStackView()
         view.axis = .vertical
@@ -137,7 +139,13 @@ final class HomeCycleViewController: UIViewController, ConfigUI {
     
     @objc
     func didClickNextButton() {
-        print("next")
+        let homeCycleOption: [String: Any] = [
+            "selectedCycle": selectedCycle ?? ""
+        ]
+        UserDefaults.standard.setMatchingOption(homeCycleOption)
+        
+        // 저장된 정보 로그 출력
+        print("selectedCycle: \(UserDefaults.standard.getMatchingOptionValue(forKey: "selectedCycle") ?? "")")
         self.navigationController?.pushViewController(EatingFoodViewController(), animated: true)
     }
 }
@@ -173,6 +181,12 @@ extension HomeCycleViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("\(indexPath.row) 선택")
+        selectedCycle = cycle[indexPath.item]
+        print("Cycle: \(cycle[indexPath.item]) 선택")
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        selectedCycle = nil
+        print("Cycle: \(cycle[indexPath.item]) 선택 해제")
     }
 }

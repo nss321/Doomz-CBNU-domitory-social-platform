@@ -23,4 +23,8 @@ extension UserDefaults {
     func getMatchingOption() -> [String: Any]? {
         return dictionary(forKey: Keys.matchingOption)
     }
+    
+    func getMatchingOptionValue(forKey key: String) -> Any? {
+        return getMatchingOption()?[key]
+    }
 }
