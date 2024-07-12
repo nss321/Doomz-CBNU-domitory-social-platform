@@ -113,7 +113,7 @@
                             </constraints>
                         </imageView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t9S-yk-COV" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
-                            <rect key="frame" x="108.33333333333333" y="7" width="54.666666666666671" height="18"/>
+                            <rect key="frame" x="108.33333333333331" y="7" width="75" height="18"/>
                             <color key="backgroundColor" name="gray0"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="18" id="LYV-4h-Tu3"/>
@@ -177,7 +177,7 @@
     </objects>
     <designables>
         <designable name="t9S-yk-COV">
-            <size key="intrinsicContentSize" width="54.666666666666664" height="28.333333333333332"/>
+            <size key="intrinsicContentSize" width="75" height="34.333333333333336"/>
         </designable>
     </designables>
     <resources>
