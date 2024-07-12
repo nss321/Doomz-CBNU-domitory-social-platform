@@ -46,7 +46,7 @@ class RoundButton: UIButton {
     }
 }
 
-final class TagButton: RoundButton {
+class TagButton: RoundButton {
 
     override func setNeedsLayout() {
         super.setNeedsLayout()
