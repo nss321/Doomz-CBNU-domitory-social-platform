@@ -43,6 +43,12 @@ class ChattingHomeViewController: UIViewController {
         return collectionView
     }()
     
+    private let baseLine: UIView = {
+        let view = UIView()
+        view.backgroundColor = .gray2
+        return view
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setNavigationBar()
@@ -89,11 +95,18 @@ class ChattingHomeViewController: UIViewController {
             $0.height.equalTo(32)
             $0.leading.trailing.equalToSuperview().inset(20)
         }
+        
         collectionView.snp.makeConstraints {
             $0.top.equalTo(followingLabelButtonStackView.snp.bottom).inset(-12)
             $0.height.equalTo(70)
             $0.leading.trailing.equalToSuperview().inset(20)
-            
+        }
+        
+        view.addSubview(baseLine)
+        baseLine.snp.makeConstraints {
+            $0.top.equalTo(collectionView.snp.bottom).inset(-12)
+            $0.height.equalTo(1)
+            $0.leading.trailing.equalToSuperview()
         }
     }
     
