@@ -1,0 +1,498 @@
+
+/* Class = "UIButton"; configuration.title = "점심"; ObjectID = "0c7-Sa-8eC"; */
+"0c7-Sa-8eC.configuration.title" = "점심";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "0c7-Sa-8eC"; */
+"0c7-Sa-8eC.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "운영시간 11:00 ~ 14:00"; ObjectID = "1Pi-hH-6dg"; */
+"1Pi-hH-6dg.text" = "운영시간 11:00 ~ 14:00";
+
+/* Class = "UILabel"; text = "총 칼로리 kcal"; ObjectID = "1tI-iL-gGt"; */
+"1tI-iL-gGt.text" = "총 칼로리 kcal";
+
+/* Class = "UINavigationItem"; title = "Root View Controller"; ObjectID = "2Ek-C6-Xze"; */
+"2Ek-C6-Xze.title" = "Root View Controller";
+
+/* Class = "UILabel"; text = "총 칼로리 890kcal"; ObjectID = "2Mr-bc-H7S"; */
+"2Mr-bc-H7S.text" = "총 칼로리 890kcal";
+
+/* Class = "UILabel"; text = "3"; ObjectID = "2cL-XS-mzW"; */
+"2cL-XS-mzW.text" = "3";
+
+/* Class = "UIButton"; normalTitle = "함께해요"; ObjectID = "2k0-J2-Afe"; */
+"2k0-J2-Afe.normalTitle" = "함께해요";
+
+/* Class = "UILabel"; text = "18:10"; ObjectID = "3XP-3L-Mrw"; */
+"3XP-3L-Mrw.text" = "18:10";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "45G-Jf-DN5"; */
+"45G-Jf-DN5.normalTitle" = "Button";
+
+/* Class = "UIButton"; configuration.title = "전체"; ObjectID = "488-NF-ysg"; */
+"488-NF-ysg.configuration.title" = "전체";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "488-NF-ysg"; */
+"488-NF-ysg.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "학생증 등록이 완료되었습니다."; ObjectID = "54P-Wb-4wy"; */
+"54P-Wb-4wy.text" = "학생증 등록이 완료되었습니다.";
+
+/* Class = "UILabel"; text = "관심"; ObjectID = "5Ig-aG-dRj"; */
+"5Ig-aG-dRj.text" = "관심";
+
+/* Class = "UIButton"; configuration.title = "도와주세요"; ObjectID = "5JZ-3p-UmG"; */
+"5JZ-3p-UmG.configuration.title" = "도와주세요";
+
+/* Class = "UIButton"; normalTitle = "도와주세요"; ObjectID = "5JZ-3p-UmG"; */
+"5JZ-3p-UmG.normalTitle" = "도와주세요";
+
+/* Class = "UINavigationItem"; title = "프로필 설정"; ObjectID = "5cC-h4-C0J"; */
+"5cC-h4-C0J.title" = "프로필 설정";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "5gA-fK-VfQ"; */
+"5gA-fK-VfQ.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "월욜날짜~일욜날짜"; ObjectID = "5nW-Jj-w3k"; */
+"5nW-Jj-w3k.text" = "월욜날짜~일욜날짜";
+
+/* Class = "UILabel"; text = "댓글"; ObjectID = "5vN-iV-K42"; */
+"5vN-iV-K42.text" = "댓글";
+
+/* Class = "UIButton"; configuration.title = "글쓰기"; ObjectID = "63s-np-sbo"; */
+"63s-np-sbo.configuration.title" = "글쓰기";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "63s-np-sbo"; */
+"63s-np-sbo.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "룸메 매칭을 통해 룸메를 만나고 기숙사의 관한 모든 정보를 담고 함께 공유해요!"; ObjectID = "6ZG-gn-GXP"; */
+"6ZG-gn-GXP.text" = "룸메 매칭을 통해 룸메를 만나고 기숙사의 관한 모든 정보를 담고 함께 공유해요!";
+
+/* Class = "UILabel"; text = "카카오로 시작하기"; ObjectID = "6g3-Ie-JaU"; */
+"6g3-Ie-JaU.text" = "카카오로 시작하기";
+
+/* Class = "UIButton"; configuration.title = "다음"; ObjectID = "6sd-MD-ybY"; */
+"6sd-MD-ybY.configuration.title" = "다음";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "6sd-MD-ybY"; */
+"6sd-MD-ybY.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "사진/카메라"; ObjectID = "7Eh-3F-Gvx"; */
+"7Eh-3F-Gvx.text" = "사진/카메라";
+
+/* Class = "UITextField"; placeholder = "닉네임을 입력해주세요."; ObjectID = "7Xd-SA-oMg"; */
+"7Xd-SA-oMg.placeholder" = "닉네임을 입력해주세요.";
+
+/* Class = "UILabel"; text = "0/20"; ObjectID = "7Z6-mB-qdJ"; */
+"7Z6-mB-qdJ.text" = "0/20";
+
+/* Class = "UIButton"; normalTitle = "학과선택"; ObjectID = "8Fg-lk-hcD"; */
+"8Fg-lk-hcD.normalTitle" = "학과선택";
+
+/* Class = "UITabBarItem"; title = "마이페이지"; ObjectID = "8cn-fn-nXd"; */
+"8cn-fn-nXd.title" = "마이페이지";
+
+/* Class = "UIButton"; configuration.title = "  전체보기"; ObjectID = "9Cx-cb-x6K"; */
+"9Cx-cb-x6K.configuration.title" = "  전체보기";
+
+/* Class = "UIButton"; normalTitle = "  전체보기"; ObjectID = "9Cx-cb-x6K"; */
+"9Cx-cb-x6K.normalTitle" = "  전체보기";
+
+/* Class = "UILabel"; text = "메뉴 전체보기"; ObjectID = "9N8-OT-jJQ"; */
+"9N8-OT-jJQ.text" = "메뉴 전체보기";
+
+/* Class = "UIButton"; normalTitle = "본관"; ObjectID = "9Vh-0B-AMs"; */
+"9Vh-0B-AMs.normalTitle" = "본관";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "BG7-JU-TdT"; */
+"BG7-JU-TdT.normalTitle" = "Button";
+
+/* Class = "UITabBarItem"; title = "게시판"; ObjectID = "C6f-tH-vUp"; */
+"C6f-tH-vUp.title" = "게시판";
+
+/* Class = "UILabel"; text = "채팅"; ObjectID = "DQk-pd-Tcg"; */
+"DQk-pd-Tcg.text" = "채팅";
+
+/* Class = "UITextField"; placeholder = "학번을 입력해주세요."; ObjectID = "E4s-aH-Eyh"; */
+"E4s-aH-Eyh.placeholder" = "학번을 입력해주세요.";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "EAb-TD-jCd"; */
+"EAb-TD-jCd.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "단과대학교 *"; ObjectID = "Epx-IA-gan"; */
+"Epx-IA-gan.text" = "단과대학교 *";
+
+/* Class = "UILabel"; text = "사진 업로드 및 저장 기능"; ObjectID = "Fc3-Fc-QP4"; */
+"Fc3-Fc-QP4.text" = "사진 업로드 및 저장 기능";
+
+/* Class = "UILabel"; text = "오늘의 메뉴"; ObjectID = "FpB-bN-XDq"; */
+"FpB-bN-XDq.text" = "오늘의 메뉴";
+
+/* Class = "UILabel"; text = "학과 *"; ObjectID = "Gbo-Hx-khx"; */
+"Gbo-Hx-khx.text" = "학과 *";
+
+/* Class = "UILabel"; text = "24.01.01"; ObjectID = "H0x-mf-pEg"; */
+"H0x-mf-pEg.text" = "24.01.01";
+
+/* Class = "UILabel"; text = "운영시간 11:00 ~ 14:00"; ObjectID = "HdI-Su-mXt"; */
+"HdI-Su-mXt.text" = "운영시간 11:00 ~ 14:00";
+
+/* Class = "UILabel"; text = "23.12.16"; ObjectID = "Hik-Ze-08B"; */
+"Hik-Ze-08B.text" = "23.12.16";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "HzM-Gc-WY1"; */
+"HzM-Gc-WY1.normalTitle" = "Button";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "I2H-IV-ci1"; */
+"I2H-IV-ci1.normalTitle" = "Button";
+
+/* Class = "UIButton"; configuration.title = "최신순"; ObjectID = "Jb0-KK-Kah"; */
+"Jb0-KK-Kah.configuration.title" = "최신순";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "Jb0-KK-Kah"; */
+"Jb0-KK-Kah.normalTitle" = "Button";
+
+/* Class = "UIButton"; configuration.title = "아침"; ObjectID = "JfS-Y1-OHE"; */
+"JfS-Y1-OHE.configuration.title" = "아침";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "JfS-Y1-OHE"; */
+"JfS-Y1-OHE.normalTitle" = "Button";
+
+/* Class = "UINavigationItem"; title = "알림"; ObjectID = "Jsn-fL-PWf"; */
+"Jsn-fL-PWf.title" = "알림";
+
+/* Class = "UILabel"; text = "기숙사 선택"; ObjectID = "KQX-6V-UWp"; */
+"KQX-6V-UWp.text" = "기숙사 선택";
+
+/* Class = "UIButton"; configuration.title = "저녁"; ObjectID = "KoZ-HB-q2x"; */
+"KoZ-HB-q2x.configuration.title" = "저녁";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "KoZ-HB-q2x"; */
+"KoZ-HB-q2x.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "3"; ObjectID = "LCv-X6-Hw0"; */
+"LCv-X6-Hw0.text" = "3";
+
+/* Class = "UILabel"; text = "10/31"; ObjectID = "LFM-0h-h1Z"; */
+"LFM-0h-h1Z.text" = "10/31";
+
+/* Class = "UILabel"; text = "내용 *"; ObjectID = "Lmo-OG-Y9M"; */
+"Lmo-OG-Y9M.text" = "내용 *";
+
+/* Class = "UINavigationItem"; title = "글 쓰기"; ObjectID = "Lon-Ww-bOV"; */
+"Lon-Ww-bOV.title" = "글 쓰기";
+
+/* Class = "UILabel"; text = "활동하실 닉네임을 입력해주세요."; ObjectID = "M0o-SN-Zxl"; */
+"M0o-SN-Zxl.text" = "활동하실 닉네임을 입력해주세요.";
+
+/* Class = "UILabel"; text = "사용 가능한 닉네임이에요."; ObjectID = "N38-ew-ndq"; */
+"N38-ew-ndq.text" = "사용 가능한 닉네임이에요.";
+
+/* Class = "UIButton"; normalTitle = "양성재 운동 같이 할 사람~!"; ObjectID = "NXV-en-7ys"; */
+"NXV-en-7ys.normalTitle" = "양성재 운동 같이 할 사람~!";
+
+/* Class = "UIButton"; configuration.title = "궁금해요"; ObjectID = "PCT-uB-HO6"; */
+"PCT-uB-HO6.configuration.title" = "궁금해요";
+
+/* Class = "UIButton"; normalTitle = "궁금해요"; ObjectID = "PCT-uB-HO6"; */
+"PCT-uB-HO6.normalTitle" = "궁금해요";
+
+/* Class = "UILabel"; text = "|"; ObjectID = "PGl-25-Agc"; */
+"PGl-25-Agc.text" = "|";
+
+/* Class = "UILabel"; text = "제목 *"; ObjectID = "PVY-L5-ksV"; */
+"PVY-L5-ksV.text" = "제목 *";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "Pch-Ui-YvU"; */
+"Pch-Ui-YvU.text" = "Label";
+
+/* Class = "UILabel"; text = "'어쩌고저쩌고'"; ObjectID = "QP1-sU-yQB"; */
+"QP1-sU-yQB.text" = "'어쩌고저쩌고'";
+
+/* Class = "UILabel"; text = "3"; ObjectID = "SIs-2n-Fiq"; */
+"SIs-2n-Fiq.text" = "3";
+
+/* Class = "UILabel"; text = "unnimm"; ObjectID = "T8N-SY-msx"; */
+"T8N-SY-msx.text" = "unnimm";
+
+/* Class = "UINavigationItem"; title = "Root View Controller"; ObjectID = "TOD-as-B9N"; */
+"TOD-as-B9N.title" = "Root View Controller";
+
+/* Class = "UIButton"; configuration.title = "저녁"; ObjectID = "Tfo-Ee-43X"; */
+"Tfo-Ee-43X.configuration.title" = "저녁";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "Tfo-Ee-43X"; */
+"Tfo-Ee-43X.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "룸메 매칭으로 원하는 룸메를 추천해요!"; ObjectID = "ThE-5H-3sj"; */
+"ThE-5H-3sj.text" = "룸메 매칭으로 원하는 룸메를 추천해요!";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "TvR-AB-mFS"; */
+"TvR-AB-mFS.normalTitle" = "Button";
+
+/* Class = "UIButton"; normalTitle = "본관"; ObjectID = "UMG-c4-L00"; */
+"UMG-c4-L00.normalTitle" = "본관";
+
+/* Class = "UIButton"; configuration.title = "Button"; ObjectID = "UTU-ZK-vbF"; */
+"UTU-ZK-vbF.configuration.title" = "Button";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "UTU-ZK-vbF"; */
+"UTU-ZK-vbF.normalTitle" = "Button";
+
+/* Class = "UITextField"; placeholder = "제목을 작성해주세요."; ObjectID = "Urb-I5-qHv"; */
+"Urb-I5-qHv.placeholder" = "제목을 작성해주세요.";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "VtT-Rq-CGs"; */
+"VtT-Rq-CGs.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "0/300"; ObjectID = "WVR-IT-xUm"; */
+"WVR-IT-xUm.text" = "0/300";
+
+/* Class = "UIButton"; configuration.title = "태그2222"; ObjectID = "WpS-3I-E5y"; */
+"WpS-3I-E5y.configuration.title" = "태그2222";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "WpS-3I-E5y"; */
+"WpS-3I-E5y.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "룸메 매칭을 통해 원하는 룸메를 구해보세요!"; ObjectID = "WyF-JV-MjP"; */
+"WyF-JV-MjP.text" = "룸메 매칭을 통해 원하는 룸메를 구해보세요!";
+
+/* Class = "UIButton"; configuration.title = "학생증 촬영하기"; ObjectID = "X9n-VV-0my"; */
+"X9n-VV-0my.configuration.title" = "학생증 촬영하기";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "X9n-VV-0my"; */
+"X9n-VV-0my.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "|"; ObjectID = "XXG-oc-o5X"; */
+"XXG-oc-o5X.text" = "|";
+
+/* Class = "UILabel"; text = "알림"; ObjectID = "Yzf-W3-SCe"; */
+"Yzf-W3-SCe.text" = "알림";
+
+/* Class = "UITabBarItem"; title = "룸메 매칭"; ObjectID = "ahK-I5-dSL"; */
+"ahK-I5-dSL.title" = "룸메 매칭";
+
+/* Class = "UILabel"; text = "검색 결과가 없어요."; ObjectID = "b2q-We-p3U"; */
+"b2q-We-p3U.text" = "검색 결과가 없어요.";
+
+/* Class = "UIButton"; configuration.title = "함께해요"; ObjectID = "bPC-1x-PCY"; */
+"bPC-1x-PCY.configuration.title" = "함께해요";
+
+/* Class = "UIButton"; normalTitle = "함께해요"; ObjectID = "bPC-1x-PCY"; */
+"bPC-1x-PCY.normalTitle" = "함께해요";
+
+/* Class = "UINavigationItem"; title = "긱사생활"; ObjectID = "bf0-4O-hGE"; */
+"bf0-4O-hGE.title" = "긱사생활";
+
+/* Class = "UINavigationItem"; title = "프로필 설정"; ObjectID = "bfG-kX-6mj"; */
+"bfG-kX-6mj.title" = "프로필 설정";
+
+/* Class = "UILabel"; text = "원활한 서비스 사용을 위해 다음 권한이 필요합니다."; ObjectID = "c5b-Jz-eXz"; */
+"c5b-Jz-eXz.text" = "원활한 서비스 사용을 위해 다음 권한이 필요합니다.";
+
+/* Class = "UILabel"; text = "충북대 학생을 인증하면"; ObjectID = "c7t-Ku-SQ5"; */
+"c7t-Ku-SQ5.text" = "충북대 학생을 인증하면";
+
+/* Class = "UIButton"; configuration.title = "중복확인"; ObjectID = "cEM-KQ-efb"; */
+"cEM-KQ-efb.configuration.title" = "중복확인";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "cEM-KQ-efb"; */
+"cEM-KQ-efb.normalTitle" = "Button";
+
+/* Class = "UIButton"; configuration.title = "글쓰기"; ObjectID = "cEh-7q-gFT"; */
+"cEh-7q-gFT.configuration.title" = "글쓰기";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "cEh-7q-gFT"; */
+"cEh-7q-gFT.normalTitle" = "Button";
+
+/* Class = "UINavigationItem"; title = "프로필 설정"; ObjectID = "cFJ-gE-yWL"; */
+"cFJ-gE-yWL.title" = "프로필 설정";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "chu-dA-cTO"; */
+"chu-dA-cTO.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "검색어가 정확한지 확인해주세요."; ObjectID = "cl7-9Z-F0D"; */
+"cl7-9Z-F0D.text" = "검색어가 정확한지 확인해주세요.";
+
+/* Class = "UILabel"; text = "학생증 인증을 해주세요."; ObjectID = "cvZ-bq-tUL"; */
+"cvZ-bq-tUL.text" = "학생증 인증을 해주세요.";
+
+/* Class = "UILabel"; text = "서비스 권한 접근 안내"; ObjectID = "d5x-Eq-VIO"; */
+"d5x-Eq-VIO.text" = "서비스 권한 접근 안내";
+
+/* Class = "UILabel"; text = "인증까지 최대 2일 정도 소요됩니다. 조금만 기다려 주세요!"; ObjectID = "d7K-fM-9De"; */
+"d7K-fM-9De.text" = "인증까지 최대 2일 정도 소요됩니다. 조금만 기다려 주세요!";
+
+/* Class = "UILabel"; text = "기숙사 *"; ObjectID = "dPq-Cc-i8A"; */
+"dPq-Cc-i8A.text" = "기숙사 *";
+
+/* Class = "UILabel"; text = "정보를 받아오는 중.."; ObjectID = "eh7-E6-z9H"; */
+"eh7-E6-z9H.text" = "정보를 받아오는 중..";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "f7A-Tr-9xV"; */
+"f7A-Tr-9xV.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "기숙사에 대한 정보를 담았어요!"; ObjectID = "ftZ-KC-7jq"; */
+"ftZ-KC-7jq.text" = "기숙사에 대한 정보를 담았어요!";
+
+/* Class = "UIButton"; normalTitle = "바퀴벌레 잡아주실분 ㅠㅠ"; ObjectID = "g17-pN-0tz"; */
+"g17-pN-0tz.normalTitle" = "바퀴벌레 잡아주실분 ㅠㅠ";
+
+/* Class = "UILabel"; text = "아침 7시 헬스 같이 가실 분 구합니다."; ObjectID = "gcn-uh-z8K"; */
+"gcn-uh-z8K.text" = "아침 7시 헬스 같이 가실 분 구합니다.";
+
+/* Class = "UIButton"; configuration.title = "작성완료"; ObjectID = "h0R-IE-oKn"; */
+"h0R-IE-oKn.configuration.title" = "작성완료";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "h0R-IE-oKn"; */
+"h0R-IE-oKn.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "게시판 *"; ObjectID = "h1o-EC-5oT"; */
+"h1o-EC-5oT.text" = "게시판 *";
+
+/* Class = "UILabel"; text = "24.01.01"; ObjectID = "hPN-J8-jYa"; */
+"hPN-J8-jYa.text" = "24.01.01";
+
+/* Class = "UIButton"; configuration.title = "0"; ObjectID = "hQh-uO-d5P"; */
+"hQh-uO-d5P.configuration.title" = "0";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "hQh-uO-d5P"; */
+"hQh-uO-d5P.normalTitle" = "Button";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "i0r-bW-D14"; */
+"i0r-bW-D14.normalTitle" = "Button";
+
+/* Class = "UIButton"; configuration.title = "다음"; ObjectID = "iMM-KA-ESC"; */
+"iMM-KA-ESC.configuration.title" = "다음";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "iMM-KA-ESC"; */
+"iMM-KA-ESC.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "양진재"; ObjectID = "ihM-NF-joD"; */
+"ihM-NF-joD.text" = "양진재";
+
+/* Class = "UIButton"; configuration.title = "양진재"; ObjectID = "jW8-v6-Usi"; */
+"jW8-v6-Usi.configuration.title" = "양진재";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "jW8-v6-Usi"; */
+"jW8-v6-Usi.normalTitle" = "Button";
+
+/* Class = "UIButton"; normalTitle = "본관"; ObjectID = "kue-DG-ZX0"; */
+"kue-DG-ZX0.normalTitle" = "본관";
+
+/* Class = "UILabel"; text = "푸시 알림 및 메세지 수신 안내"; ObjectID = "lmt-mF-eZy"; */
+"lmt-mF-eZy.text" = "푸시 알림 및 메세지 수신 안내";
+
+/* Class = "UINavigationItem"; title = "게시판"; ObjectID = "mHD-A0-F1x"; */
+"mHD-A0-F1x.title" = "게시판";
+
+/* Class = "UIButton"; configuration.title = "등록"; ObjectID = "mkz-v3-one"; */
+"mkz-v3-one.configuration.title" = "등록";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "mkz-v3-one"; */
+"mkz-v3-one.normalTitle" = "Button";
+
+/* Class = "UIButton"; configuration.title = "태그1"; ObjectID = "n0i-BB-GvX"; */
+"n0i-BB-GvX.configuration.title" = "태그1";
+
+/* Class = "UIButton"; normalTitle = "태그1"; ObjectID = "n0i-BB-GvX"; */
+"n0i-BB-GvX.normalTitle" = "태그1";
+
+/* Class = "UIButton"; configuration.title = "  룸메찾기"; ObjectID = "nzJ-Yb-Hjd"; */
+"nzJ-Yb-Hjd.configuration.title" = "  룸메찾기";
+
+/* Class = "UIButton"; normalTitle = "  룸메찾기"; ObjectID = "nzJ-Yb-Hjd"; */
+"nzJ-Yb-Hjd.normalTitle" = "  룸메찾기";
+
+/* Class = "UIButton"; configuration.title = "아침"; ObjectID = "o1m-Pq-b3w"; */
+"o1m-Pq-b3w.configuration.title" = "아침";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "o1m-Pq-b3w"; */
+"o1m-Pq-b3w.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "기숙사에 대한 다양한 정보와 소식을 빠르게 전해요!"; ObjectID = "oAr-ZZ-Twp"; */
+"oAr-ZZ-Twp.text" = "기숙사에 대한 다양한 정보와 소식을 빠르게 전해요!";
+
+/* Class = "UIButton"; configuration.title = "전체"; ObjectID = "oPs-Mx-3k4"; */
+"oPs-Mx-3k4.configuration.title" = "전체";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "oPs-Mx-3k4"; */
+"oPs-Mx-3k4.normalTitle" = "Button";
+
+/* Class = "UIButton"; configuration.title = "  전체보기"; ObjectID = "pf8-z7-rET"; */
+"pf8-z7-rET.configuration.title" = "  전체보기";
+
+/* Class = "UIButton"; normalTitle = "  전체보기"; ObjectID = "pf8-z7-rET"; */
+"pf8-z7-rET.normalTitle" = "  전체보기";
+
+/* Class = "UIButton"; normalTitle = "양진재"; ObjectID = "prk-jM-v1A"; */
+"prk-jM-v1A.normalTitle" = "양진재";
+
+/* Class = "UIButton"; normalTitle = "바퀴벌레 잡아주실분 ㅠㅜ"; ObjectID = "pxF-j1-LeE"; */
+"pxF-j1-LeE.normalTitle" = "바퀴벌레 잡아주실분 ㅠㅜ";
+
+/* Class = "UILabel"; text = "인기게시글"; ObjectID = "pyd-XD-7Gc"; */
+"pyd-XD-7Gc.text" = "인기게시글";
+
+/* Class = "UITabBarItem"; title = "채팅"; ObjectID = "qBF-BW-FBI"; */
+"qBF-BW-FBI.title" = "채팅";
+
+/* Class = "UINavigationItem"; title = "게시판"; ObjectID = "qbz-U1-i8t"; */
+"qbz-U1-i8t.title" = "게시판";
+
+/* Class = "UIButton"; normalTitle = "양진재"; ObjectID = "qt1-SB-MeG"; */
+"qt1-SB-MeG.normalTitle" = "양진재";
+
+/* Class = "UITabBarItem"; title = "홈"; ObjectID = "rAX-Bm-BZD"; */
+"rAX-Bm-BZD.title" = "홈";
+
+/* Class = "UILabel"; text = "학교 정보를 입력해 주세요."; ObjectID = "rPo-WS-1vB"; */
+"rPo-WS-1vB.text" = "학교 정보를 입력해 주세요.";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "rcF-R3-yOu"; */
+"rcF-R3-yOu.normalTitle" = "Button";
+
+/* Class = "UIButton"; normalTitle = "양성재"; ObjectID = "rnq-EQ-QQh"; */
+"rnq-EQ-QQh.normalTitle" = "양성재";
+
+/* Class = "UILabel"; text = "잡곡밥 근대 된장국 돈육 두부 두루치기 감자채 피망볶음 김치"; ObjectID = "srn-UG-enS"; */
+"srn-UG-enS.text" = "잡곡밥 근대 된장국 돈육 두부 두루치기 감자채 피망볶음 김치";
+
+/* Class = "UILabel"; text = "기숙사 *"; ObjectID = "tHe-iz-GKx"; */
+"tHe-iz-GKx.text" = "기숙사 *";
+
+/* Class = "UILabel"; text = "0/20"; ObjectID = "tuZ-lg-993"; */
+"tuZ-lg-993.text" = "0/20";
+
+/* Class = "UIButton"; configuration.title = "점심"; ObjectID = "u5e-Mw-OyW"; */
+"u5e-Mw-OyW.configuration.title" = "점심";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "u5e-Mw-OyW"; */
+"u5e-Mw-OyW.normalTitle" = "Button";
+
+/* Class = "UINavigationItem"; title = "프로필 설정"; ObjectID = "vHH-YL-NC8"; */
+"vHH-YL-NC8.title" = "프로필 설정";
+
+/* Class = "UIButton"; normalTitle = "양현재"; ObjectID = "wSG-1X-tEL"; */
+"wSG-1X-tEL.normalTitle" = "양현재";
+
+/* Class = "UIButton"; normalTitle = "단과대학교"; ObjectID = "wtu-Nt-cgs"; */
+"wtu-Nt-cgs.normalTitle" = "단과대학교";
+
+/* Class = "UILabel"; text = "학번 *"; ObjectID = "xv8-lB-uHt"; */
+"xv8-lB-uHt.text" = "학번 *";
+
+/* Class = "UILabel"; text = "아침 7시에 스포츠센터에서 헬스 같이하실 여성분 구합니다! \n나이는 상관 없고, 저와 같이 열심히 할 사람 모집합니다! \n\n[규칙] \n1. 월, 수, 금 오전 7:00 1층 로비에서 만나기 \n2. 1시간 헬스 \n3. 벌금 : 1만원 \n4. 10월 31일 ~ 12월 31일 \n\n[목표] \n5kg 감량"; ObjectID = "zCM-Pt-zrq"; */
+"zCM-Pt-zrq.text" = "아침 7시에 스포츠센터에서 헬스 같이하실 여성분 구합니다! \n나이는 상관 없고, 저와 같이 열심히 할 사람 모집합니다! \n\n[규칙] \n1. 월, 수, 금 오전 7:00 1층 로비에서 만나기 \n2. 1시간 헬스 \n3. 벌금 : 1만원 \n4. 10월 31일 ~ 12월 31일 \n\n[목표] \n5kg 감량";
+
+/* Class = "UIButton"; configuration.title = "최신순"; ObjectID = "zMd-RW-f50"; */
+"zMd-RW-f50.configuration.title" = "최신순";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "zMd-RW-f50"; */
+"zMd-RW-f50.normalTitle" = "Button";
+
+/* Class = "UIButton"; configuration.title = "채팅보내기"; ObjectID = "zs1-QO-A3O"; */
+"zs1-QO-A3O.configuration.title" = "채팅보내기";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "zs1-QO-A3O"; */
+"zs1-QO-A3O.normalTitle" = "Button";
