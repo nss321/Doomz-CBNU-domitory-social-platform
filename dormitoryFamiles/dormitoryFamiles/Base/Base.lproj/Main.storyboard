@@ -2161,46 +2161,17 @@
             </objects>
             <point key="canvasLocation" x="2036" y="-809"/>
         </scene>
-        <!--Root View Controller-->
-        <scene sceneID="e81-ne-WPG">
-            <objects>
-                <tableViewController id="rcn-L5-R5T" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="hjy-PS-Td4">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="VpZ-FU-u7n">
-                                <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VpZ-FU-u7n" id="jr9-YD-pM5">
-                                    <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="rcn-L5-R5T" id="0GT-80-hTf"/>
-                            <outlet property="delegate" destination="rcn-L5-R5T" id="HoE-4k-bFr"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="TOD-as-B9N"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ltZ-Sn-uNe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2943" y="-87"/>
-        </scene>
         <!--채팅-->
         <scene sceneID="AiI-zb-eSZ">
             <objects>
-                <navigationController id="k6X-MR-bmh" sceneMemberID="viewController">
+                <navigationController modalPresentationStyle="fullScreen" id="k6X-MR-bmh" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="채팅" image="tabbarItemChattingGray" selectedImage="tabbarItemChatting" id="qBF-BW-FBI"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Bdo-GT-gc8">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="rcn-L5-R5T" kind="relationship" relationship="rootViewController" id="ZaT-iq-faB"/>
+                        <segue destination="lJG-sG-Ofy" kind="relationship" relationship="rootViewController" id="dMj-X2-RtG"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u3b-q2-DiY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -3671,6 +3642,22 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XU0-DC-Ajs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3481.679389312977" y="-2970.4225352112676"/>
+        </scene>
+        <!--Chatting Home View Controller-->
+        <scene sceneID="A9X-IA-S8k">
+            <objects>
+                <viewController id="lJG-sG-Ofy" customClass="chattingHomeViewController" customModule="dormitoryFamiles" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="e1m-x0-f6d">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="zcT-pN-r3X"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="AnN-2P-Ye8"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5B4-ux-zAt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2895" y="-80"/>
         </scene>
     </scenes>
     <designables>

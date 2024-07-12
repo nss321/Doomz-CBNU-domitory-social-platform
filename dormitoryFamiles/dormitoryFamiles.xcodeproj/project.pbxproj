@@ -70,6 +70,7 @@
 		DBC54C5F2B56A4A80071164C /* Pretendard-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DBC54C5E2B56A4A80071164C /* Pretendard-SemiBold.ttf */; };
 		DBC54C632B56A86D0071164C /* NPSfont_bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DBC54C622B56A86D0071164C /* NPSfont_bold.ttf */; };
 		DBCE10E12B595506008C3367 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCE10E02B595506008C3367 /* LoginViewController.swift */; };
+		DBD0C57E2C41263700F6B456 /* chattingHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD0C57D2C41263700F6B456 /* chattingHomeViewController.swift */; };
 		DBD1E00A2C3D49C900FDD5FE /* Url.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD1E0092C3D49C900FDD5FE /* Url.swift */; };
 		DBD1E00C2C3D49E900FDD5FE /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD1E00B2C3D49E900FDD5FE /* Token.swift */; };
 		DBD1E7FC2B84A9D500FD71C6 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD1E7FB2B84A9D500FD71C6 /* Network.swift */; };
@@ -162,6 +163,7 @@
 		DBC54C5E2B56A4A80071164C /* Pretendard-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.ttf"; sourceTree = "<group>"; };
 		DBC54C622B56A86D0071164C /* NPSfont_bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NPSfont_bold.ttf; sourceTree = "<group>"; };
 		DBCE10E02B595506008C3367 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		DBD0C57D2C41263700F6B456 /* chattingHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = chattingHomeViewController.swift; sourceTree = "<group>"; };
 		DBD1E0092C3D49C900FDD5FE /* Url.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Url.swift; sourceTree = "<group>"; };
 		DBD1E00B2C3D49E900FDD5FE /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
 		DBD1E7FB2B84A9D500FD71C6 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
@@ -398,6 +400,14 @@
 			path = Font;
 			sourceTree = "<group>";
 		};
+		DBD0C57C2C41260B00F6B456 /* chat */ = {
+			isa = PBXGroup;
+			children = (
+				DBD0C57D2C41263700F6B456 /* chattingHomeViewController.swift */,
+			);
+			path = chat;
+			sourceTree = "<group>";
+		};
 		DBF466EE2AA5F4E4009FF3EB = {
 			isa = PBXGroup;
 			children = (
@@ -421,6 +431,7 @@
 			children = (
 				11707A302BA617D80027802D /* Components */,
 				11707A292BA4CA4C0027802D /* Manager */,
+				DBD0C57C2C41260B00F6B456 /* chat */,
 				11707A1F2BA4C7BB0027802D /* Matching Option Setting */,
 				DB32D7612BA3452300DE387A /* Network */,
 				DB32D7602BA3445D00DE387A /* Onboarding */,
@@ -586,6 +597,7 @@
 				1131E8A22BF6220B00D40120 /* UIScreen+.swift in Sources */,
 				11AC97FD2BFF27AE0008C910 /* UIImage+.swift in Sources */,
 				117250E72BB31AF60083F181 /* CommomButton.swift in Sources */,
+				DBD0C57E2C41263700F6B456 /* chattingHomeViewController.swift in Sources */,
 				DB8DDFD72BECB0B600B3A676 /* DateFomat.swift in Sources */,
 				DB7BE9E72BA47A5E00BC25E3 /* ReplyCollectionViewCell.swift in Sources */,
 				11036F272C3C19A00042B9EF /* StudyStyleViewController.swift in Sources */,
