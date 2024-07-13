@@ -39,6 +39,7 @@
 		DB3F05332C42AD440091349F /* SearchChattingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3F05322C42AD440091349F /* SearchChattingViewController.swift */; };
 		DB3F05352C42BB6B0091349F /* AllChattingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3F05342C42BB6B0091349F /* AllChattingViewController.swift */; };
 		DB3F05372C42BB7C0091349F /* SelectedChattingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3F05362C42BB7C0091349F /* SelectedChattingViewController.swift */; };
+		DB3F05392C43002E0091349F /* LabelAndPrimaryMidButtonStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3F05382C43002E0091349F /* LabelAndPrimaryMidButtonStackView.swift */; };
 		DB3F18092B6162AB002F1738 /* ProfileSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3F18082B6162AB002F1738 /* ProfileSettingViewController.swift */; };
 		DB41008C2B6A665D005C4DD8 /* BrownVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB41008B2B6A665D005C4DD8 /* BrownVC.swift */; };
 		DB496DEB2B70EAFB00F97324 /* TabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB496DEA2B70EAFB00F97324 /* TabbarViewController.swift */; };
@@ -143,6 +144,7 @@
 		DB3F05322C42AD440091349F /* SearchChattingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchChattingViewController.swift; sourceTree = "<group>"; };
 		DB3F05342C42BB6B0091349F /* AllChattingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllChattingViewController.swift; sourceTree = "<group>"; };
 		DB3F05362C42BB7C0091349F /* SelectedChattingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedChattingViewController.swift; sourceTree = "<group>"; };
+		DB3F05382C43002E0091349F /* LabelAndPrimaryMidButtonStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelAndPrimaryMidButtonStackView.swift; sourceTree = "<group>"; };
 		DB3F18082B6162AB002F1738 /* ProfileSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingViewController.swift; sourceTree = "<group>"; };
 		DB41008B2B6A665D005C4DD8 /* BrownVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrownVC.swift; sourceTree = "<group>"; };
 		DB496DEA2B70EAFB00F97324 /* TabbarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarViewController.swift; sourceTree = "<group>"; };
@@ -261,6 +263,7 @@
 				11707A312BA617EE0027802D /* ConfigUI.swift */,
 				117250E62BB31AF60083F181 /* CommomButton.swift */,
 				11AC97FA2BFF27940008C910 /* CustomSlider.swift */,
+				DB3F05382C43002E0091349F /* LabelAndPrimaryMidButtonStackView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -603,6 +606,7 @@
 				DB3F05352C42BB6B0091349F /* AllChattingViewController.swift in Sources */,
 				11AC97FB2BFF27940008C910 /* CustomSlider.swift in Sources */,
 				DB3F18092B6162AB002F1738 /* ProfileSettingViewController.swift in Sources */,
+				DB3F05392C43002E0091349F /* LabelAndPrimaryMidButtonStackView.swift in Sources */,
 				DBE682B62BA592CC00DAA4CD /* PhotoScrollView.swift in Sources */,
 				DBCE10E12B595506008C3367 /* LoginViewController.swift in Sources */,
 				11036F232C3C0E690042B9EF /* EatingFoodViewController.swift in Sources */,

@@ -54,24 +54,8 @@ class ChattingHomeViewController: UIViewController {
                             "lastMessage": "Hello, how are you?",
                             "lastMessageTime": "2024-05-30T13:56:25"
                           ]]
-    private let followingLabelButtonStackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.axis = .horizontal
-        stackView.alignment = .fill
-        return stackView
-    }()
     
-    private let followingLabel: UILabel = {
-        let label = UILabel()
-        label.font = .title2
-        label.text = "팔로잉"
-        return label
-    }()
-    
-    private let moreFollowingbutton: PrimaryButton = {
-        let button = PrimaryButton(title: "전체보기", isArrow: true)
-        return button
-    }()
+    let followingLabelButtonStackView = LabelAndRoundButtonStackView(labelText: "팔로잉", textFont: .title2 ?? UIFont(), buttonText: "전체보기", buttonHasArrow: true)
     
     private let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -111,9 +95,7 @@ class ChattingHomeViewController: UIViewController {
         setNavigationBar()
         setCollectionView()
         setTableView()
-        addComponents()
         setConstraints()
-        
     }
     
     private func setNavigationBar() {
@@ -138,13 +120,8 @@ class ChattingHomeViewController: UIViewController {
         print("로고 버튼 눌림")
     }
     
-    private func addComponents() {
-        view.addSubview(followingLabelButtonStackView)
-        [followingLabel, moreFollowingbutton].forEach{
-            followingLabelButtonStackView.addArrangedSubview($0) }
-    }
-    
     private func setConstraints() {
+        view.addSubview(followingLabelButtonStackView)
         followingLabelButtonStackView.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide).inset(27)
             $0.height.equalTo(32)
