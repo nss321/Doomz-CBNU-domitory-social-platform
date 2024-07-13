@@ -37,6 +37,8 @@
 		DB2B7BCB2B45727B00C1847D /* TagButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2B7BCA2B45727B00C1847D /* TagButton.swift */; };
 		DB2B7BCF2B457F7200C1847D /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2B7BCE2B457F7200C1847D /* UIButtonExtension.swift */; };
 		DB3F05332C42AD440091349F /* SearchChattingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3F05322C42AD440091349F /* SearchChattingViewController.swift */; };
+		DB3F05352C42BB6B0091349F /* AllChattingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3F05342C42BB6B0091349F /* AllChattingViewController.swift */; };
+		DB3F05372C42BB7C0091349F /* SelectedChattingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3F05362C42BB7C0091349F /* SelectedChattingViewController.swift */; };
 		DB3F18092B6162AB002F1738 /* ProfileSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3F18082B6162AB002F1738 /* ProfileSettingViewController.swift */; };
 		DB41008C2B6A665D005C4DD8 /* BrownVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB41008B2B6A665D005C4DD8 /* BrownVC.swift */; };
 		DB496DEB2B70EAFB00F97324 /* TabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB496DEA2B70EAFB00F97324 /* TabbarViewController.swift */; };
@@ -139,6 +141,8 @@
 		DB2B7BCA2B45727B00C1847D /* TagButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagButton.swift; sourceTree = "<group>"; };
 		DB2B7BCE2B457F7200C1847D /* UIButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
 		DB3F05322C42AD440091349F /* SearchChattingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchChattingViewController.swift; sourceTree = "<group>"; };
+		DB3F05342C42BB6B0091349F /* AllChattingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllChattingViewController.swift; sourceTree = "<group>"; };
+		DB3F05362C42BB7C0091349F /* SelectedChattingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedChattingViewController.swift; sourceTree = "<group>"; };
 		DB3F18082B6162AB002F1738 /* ProfileSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingViewController.swift; sourceTree = "<group>"; };
 		DB41008B2B6A665D005C4DD8 /* BrownVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrownVC.swift; sourceTree = "<group>"; };
 		DB496DEA2B70EAFB00F97324 /* TabbarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarViewController.swift; sourceTree = "<group>"; };
@@ -413,6 +417,8 @@
 				DBD0C57F2C41E52C00F6B456 /* ChatFollowingCollectionViewCell.swift */,
 				DBD0C5812C41F46100F6B456 /* ChattingHomeTableViewCell.swift */,
 				DB3F05322C42AD440091349F /* SearchChattingViewController.swift */,
+				DB3F05342C42BB6B0091349F /* AllChattingViewController.swift */,
+				DB3F05362C42BB7C0091349F /* SelectedChattingViewController.swift */,
 			);
 			path = chat;
 			sourceTree = "<group>";
@@ -594,6 +600,7 @@
 				1197F25B2C081E7D006F75D2 /* MBTIViewController.swift in Sources */,
 				11707A232BA4C8CC0027802D /* SleepPatternViewController.swift in Sources */,
 				DB1E0E892B629804000A4AA5 /* DormitoryButtonHandlingProtocol.swift in Sources */,
+				DB3F05352C42BB6B0091349F /* AllChattingViewController.swift in Sources */,
 				11AC97FB2BFF27940008C910 /* CustomSlider.swift in Sources */,
 				DB3F18092B6162AB002F1738 /* ProfileSettingViewController.swift in Sources */,
 				DBE682B62BA592CC00DAA4CD /* PhotoScrollView.swift in Sources */,
@@ -637,6 +644,7 @@
 				DBD1E00C2C3D49E900FDD5FE /* Token.swift in Sources */,
 				DB20E38C2B53C2BD000D12A7 /* HomeViewController.swift in Sources */,
 				DBF466FB2AA5F4E4009FF3EB /* AppDelegate.swift in Sources */,
+				DB3F05372C42BB7C0091349F /* SelectedChattingViewController.swift in Sources */,
 				DB20F2942B95CBE00052CF5C /* SearchViewController.swift in Sources */,
 				DB1E0E8D2B62A995000A4AA5 /* SelectedDormitory.swift in Sources */,
 				DB8DDFD92BECC5AC00B3A676 /* Category.swift in Sources */,
