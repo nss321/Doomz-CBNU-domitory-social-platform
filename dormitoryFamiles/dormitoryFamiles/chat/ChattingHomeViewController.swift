@@ -9,7 +9,26 @@ import UIKit
 import SnapKit
 
 class ChattingHomeViewController: UIViewController {
-    let sampleNickname = ["동민","소민","유림","정훈","화진","민경","채영","보희","민주","은아"]
+    let followingSampleData = [
+        "code": 200,
+        "data": [
+            "totalPageNumber": 1,
+            "nowPageNumber": 0,
+            "isLast": true,
+            "memberProfiles": [
+                [
+                    "memberId": 5,
+                    "nickname": "유림잉",
+                    "profileUrl": "https://dormitory-family-images-bucket.s3.ap-northeast-2.amazonaws.com/a0345319-feff-4998-b098-b2322261acba_IMG_0338.JPG"
+                ],
+                [
+                    "memberId": 3,
+                    "nickname": "해나짱",
+                    "profileUrl": "http://k.kakaocdn.net/dn/cTaX1s/btsFAgXr5mH/n2AXHaWczRKt2Fxmt8hJMk/img_640x640.jpg"
+                ]
+            ]
+        ]
+    ] as [String : Any]
     
     let sampleChatting = [["roomId": 8,
                            "memberId": 8,
@@ -157,14 +176,28 @@ class ChattingHomeViewController: UIViewController {
 
 extension ChattingHomeViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return sampleNickname.count
+        let data = followingSampleData["data"] as! [String: Any]
+        let profiles = data["memberProfiles"] as! [[String: Any]]
+        return profiles.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: UserProfileNicknameCollectionViewControllerCell.identifier, for: indexPath) as? UserProfileNicknameCollectionViewControllerCell else {
             fatalError()
         }
-        cell.configure(with: sampleNickname[indexPath.row])
+        
+        var profile: [String: Any] = [:]
+        
+        
+        let data = followingSampleData["data"] as! [String: Any]
+        let profiles = data["memberProfiles"] as! [[String: Any]]
+        profile = profiles[indexPath.row]
+        
+        
+        let nickname = profile["nickname"] as! String
+        let profileUrl = profile["profileUrl"] as! String
+        cell.configure(text: nickname, profileUrl: profileUrl)
+        
         return cell
     }
 }

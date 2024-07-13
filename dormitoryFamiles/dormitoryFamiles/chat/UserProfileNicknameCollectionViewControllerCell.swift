@@ -58,7 +58,13 @@ class UserProfileNicknameCollectionViewControllerCell: UICollectionViewCell {
         }
     }
     
-    func configure(with text: String) {
+    private func loadImage(url: String) {
+        let imageUrl = URL(string: url)
+        self.profileImageView.kf.setImage(with: imageUrl)
+    }
+    
+    func configure(text: String, profileUrl: String) {
         nicknameLabel.text = text
+        loadImage(url: profileUrl)
     }
 }
