@@ -72,6 +72,7 @@
 		DBCE10E12B595506008C3367 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCE10E02B595506008C3367 /* LoginViewController.swift */; };
 		DBD0C57E2C41263700F6B456 /* ChattingHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD0C57D2C41263700F6B456 /* ChattingHomeViewController.swift */; };
 		DBD0C5802C41E52C00F6B456 /* ChatFollowingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD0C57F2C41E52C00F6B456 /* ChatFollowingCollectionViewCell.swift */; };
+		DBD0C5822C41F46100F6B456 /* ChattingHomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD0C5812C41F46100F6B456 /* ChattingHomeTableViewCell.swift */; };
 		DBD1E00A2C3D49C900FDD5FE /* Url.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD1E0092C3D49C900FDD5FE /* Url.swift */; };
 		DBD1E00C2C3D49E900FDD5FE /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD1E00B2C3D49E900FDD5FE /* Token.swift */; };
 		DBD1E7FC2B84A9D500FD71C6 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD1E7FB2B84A9D500FD71C6 /* Network.swift */; };
@@ -166,6 +167,7 @@
 		DBCE10E02B595506008C3367 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		DBD0C57D2C41263700F6B456 /* ChattingHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingHomeViewController.swift; sourceTree = "<group>"; };
 		DBD0C57F2C41E52C00F6B456 /* ChatFollowingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatFollowingCollectionViewCell.swift; sourceTree = "<group>"; };
+		DBD0C5812C41F46100F6B456 /* ChattingHomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingHomeTableViewCell.swift; sourceTree = "<group>"; };
 		DBD1E0092C3D49C900FDD5FE /* Url.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Url.swift; sourceTree = "<group>"; };
 		DBD1E00B2C3D49E900FDD5FE /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
 		DBD1E7FB2B84A9D500FD71C6 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
@@ -407,6 +409,7 @@
 			children = (
 				DBD0C57D2C41263700F6B456 /* ChattingHomeViewController.swift */,
 				DBD0C57F2C41E52C00F6B456 /* ChatFollowingCollectionViewCell.swift */,
+				DBD0C5812C41F46100F6B456 /* ChattingHomeTableViewCell.swift */,
 			);
 			path = chat;
 			sourceTree = "<group>";
@@ -615,6 +618,7 @@
 				DBD1E7FC2B84A9D500FD71C6 /* Network.swift in Sources */,
 				DB2B7BCB2B45727B00C1847D /* TagButton.swift in Sources */,
 				DB1E0E8B2B629865000A4AA5 /* ChoiceDormitoryViewController.swift in Sources */,
+				DBD0C5822C41F46100F6B456 /* ChattingHomeTableViewCell.swift in Sources */,
 				DB74D0C62B73EEBF00A90D68 /* Codable.swift in Sources */,
 				11036F212C3C05D60042B9EF /* HomeCycleViewController.swift in Sources */,
 				DBC54C432B568B350071164C /* UIFontExtension.swift in Sources */,
