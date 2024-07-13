@@ -49,6 +49,12 @@ class SearchChattingViewController: TabmanViewController {
         return textField
     }()
     
+    private let baseLineView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .gray3
+        return view
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .white
@@ -103,6 +109,7 @@ class SearchChattingViewController: TabmanViewController {
     
     private func addComponents() {
         self.view.addSubview(tabmanView)
+        self.view.addSubview(baseLineView)
     }
     
     private func setConstraints() {
@@ -110,6 +117,12 @@ class SearchChattingViewController: TabmanViewController {
             $0.leading.trailing.equalToSuperview()
             $0.top.equalTo(view.safeAreaLayoutGuide).inset(8)
             $0.height.equalTo(38)
+        }
+        
+        baseLineView.snp.makeConstraints {
+            $0.top.equalTo(tabmanView.snp.bottom)
+            $0.leading.trailing.equalToSuperview()
+            $0.height.equalTo(1)
         }
     }
 }
