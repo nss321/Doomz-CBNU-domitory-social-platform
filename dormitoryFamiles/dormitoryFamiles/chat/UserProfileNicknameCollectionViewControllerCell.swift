@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ChatFollowingCollectionViewCell: UICollectionViewCell {
+class UserProfileNicknameCollectionViewControllerCell: UICollectionViewCell {
     static let identifier = "ChatFollowingCollectionViewCell"
     
     let profileImageView: UIImageView = {

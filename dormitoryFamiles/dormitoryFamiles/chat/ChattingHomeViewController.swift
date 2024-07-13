@@ -57,19 +57,7 @@ class ChattingHomeViewController: UIViewController {
     
     let followingLabelButtonStackView = LabelAndRoundButtonStackView(labelText: "팔로잉", textFont: .title2 ?? UIFont(), buttonText: "전체보기", buttonHasArrow: true)
     
-    private let collectionView: UICollectionView = {
-        let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .vertical
-        layout.minimumLineSpacing = 12
-        layout.minimumInteritemSpacing = 12
-        layout.scrollDirection = .horizontal
-        layout.itemSize = CGSize(width: 48, height: 70)
-        
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.register(ChatFollowingCollectionViewCell.self, forCellWithReuseIdentifier: ChatFollowingCollectionViewCell.identifier)
-        collectionView.showsHorizontalScrollIndicator = false
-        return collectionView
-    }()
+    private let collectionView = UserProfileNicknameCollectionView(spacing: 12, scrollDirection: .horizontal)
     
     private let tableView: UITableView = {
         let tableView = UITableView()
@@ -173,7 +161,7 @@ extension ChattingHomeViewController: UICollectionViewDelegate, UICollectionView
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ChatFollowingCollectionViewCell.identifier, for: indexPath) as? ChatFollowingCollectionViewCell else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: UserProfileNicknameCollectionViewControllerCell.identifier, for: indexPath) as? UserProfileNicknameCollectionViewControllerCell else {
             fatalError()
         }
         cell.configure(with: sampleNickname[indexPath.row])
