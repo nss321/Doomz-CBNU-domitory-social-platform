@@ -16,6 +16,11 @@ final class MBTIViewController: UIViewController, ConfigUI {
     let decisionMaking = ["F","T"]
     let lifestyleApproach = ["P","J"]
     
+    var selectedEnergyOrientation: String?
+    var selectedInformationProcessing: String?
+    var selectedDecisionMaking: String?
+    var selectedLifestyleApproach: String?
+    
     private let stackView: UIStackView = {
         let view = UIStackView()
         view.axis = .vertical
@@ -145,7 +150,22 @@ final class MBTIViewController: UIViewController, ConfigUI {
     
     @objc
     func didClickNextButton() {
-        print("nextBtn")
+        let matchingOption: [String: Any] = [
+            "selectedEnergyOrientation": selectedEnergyOrientation ?? "",
+            "selectedInformationProcessing": selectedInformationProcessing ?? "",
+            "selectedDecisionMaking": selectedDecisionMaking ?? "",
+            "selectedLifestyleApproach": selectedLifestyleApproach ?? ""
+        ]
+        UserDefaults.standard.setMatchingOption(matchingOption)
+        
+        guard let m = UserDefaults.standard.getMatchingOptionValue(forKey: "selectedEnergyOrientation") else { fatalError() }
+        guard let b = UserDefaults.standard.getMatchingOptionValue(forKey: "selectedInformationProcessing") else { fatalError() }
+        guard let t = UserDefaults.standard.getMatchingOptionValue(forKey: "selectedDecisionMaking") else { fatalError() }
+        guard let i = UserDefaults.standard.getMatchingOptionValue(forKey: "selectedLifestyleApproach") else { fatalError() }
+        
+        print("Selected MBTI: \(m)\(b)\(t)\(i)")
+        
+        
         self.navigationController?.pushViewController(HomeCycleViewController(), animated: true)
     }
     
@@ -212,16 +232,46 @@ extension MBTIViewController: UICollectionViewDataSource, UICollectionViewDelega
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         switch collectionView.tag {
         case 0:
-            print("\(energyOrientation[indexPath.item])")
+            selectedEnergyOrientation = energyOrientation[indexPath.item]
+            print("\(energyOrientation[indexPath.item]) 선택")
         case 1:
-            print("\(informationProcessing[indexPath.item])")
+            selectedInformationProcessing = informationProcessing[indexPath.item]
+            print("\(informationProcessing[indexPath.item]) 선택")
         case 2:
-            print("\(decisionMaking[indexPath.item])")
+            selectedDecisionMaking = decisionMaking[indexPath.item]
+            print("\(decisionMaking[indexPath.item]) 선택")
         case 3:
-            print("\(lifestyleApproach[indexPath.item])")
+            selectedLifestyleApproach = lifestyleApproach[indexPath.item]
+            print("\(lifestyleApproach[indexPath.item]) 선택")
         default:
             print("default")
-            
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        switch collectionView.tag {
+        case 0:
+            if selectedEnergyOrientation == energyOrientation[indexPath.item] {
+                selectedEnergyOrientation = nil
+            }
+            print("\(energyOrientation[indexPath.item]) 선택 해제")
+        case 1:
+            if selectedInformationProcessing == informationProcessing[indexPath.item] {
+                selectedInformationProcessing = nil
+            }
+            print("\(informationProcessing[indexPath.item]) 선택 해제")
+        case 2:
+            if selectedDecisionMaking == decisionMaking[indexPath.item] {
+                selectedDecisionMaking = nil
+            }
+            print("\(decisionMaking[indexPath.item]) 선택 해제")
+        case 3:
+            if selectedLifestyleApproach == lifestyleApproach[indexPath.item] {
+                selectedLifestyleApproach = nil
+            }
+            print("\(lifestyleApproach[indexPath.item]) 선택 해제")
+        default:
+            print("default")
         }
     }
 }
