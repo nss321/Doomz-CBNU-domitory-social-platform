@@ -131,7 +131,7 @@ class ChattingHomeViewController: UIViewController {
     }
     
     @objc func searchButtonTapped() {
-        print("돋보기 버튼 눌림")
+        self.navigationController?.pushViewController(SearchChattingViewController(), animated: true)
     }
     
     @objc func logoButtonTapped() {

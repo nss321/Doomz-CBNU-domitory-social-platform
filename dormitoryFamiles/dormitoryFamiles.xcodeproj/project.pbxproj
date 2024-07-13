@@ -36,6 +36,7 @@
 		DB2B7BC92B456F4700C1847D /* TagScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2B7BC82B456F4700C1847D /* TagScrollView.swift */; };
 		DB2B7BCB2B45727B00C1847D /* TagButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2B7BCA2B45727B00C1847D /* TagButton.swift */; };
 		DB2B7BCF2B457F7200C1847D /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2B7BCE2B457F7200C1847D /* UIButtonExtension.swift */; };
+		DB3F05332C42AD440091349F /* SearchChattingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3F05322C42AD440091349F /* SearchChattingViewController.swift */; };
 		DB3F18092B6162AB002F1738 /* ProfileSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3F18082B6162AB002F1738 /* ProfileSettingViewController.swift */; };
 		DB41008C2B6A665D005C4DD8 /* BrownVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB41008B2B6A665D005C4DD8 /* BrownVC.swift */; };
 		DB496DEB2B70EAFB00F97324 /* TabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB496DEA2B70EAFB00F97324 /* TabbarViewController.swift */; };
@@ -137,6 +138,7 @@
 		DB2B7BC82B456F4700C1847D /* TagScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagScrollView.swift; sourceTree = "<group>"; };
 		DB2B7BCA2B45727B00C1847D /* TagButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagButton.swift; sourceTree = "<group>"; };
 		DB2B7BCE2B457F7200C1847D /* UIButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
+		DB3F05322C42AD440091349F /* SearchChattingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchChattingViewController.swift; sourceTree = "<group>"; };
 		DB3F18082B6162AB002F1738 /* ProfileSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingViewController.swift; sourceTree = "<group>"; };
 		DB41008B2B6A665D005C4DD8 /* BrownVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrownVC.swift; sourceTree = "<group>"; };
 		DB496DEA2B70EAFB00F97324 /* TabbarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarViewController.swift; sourceTree = "<group>"; };
@@ -410,6 +412,7 @@
 				DBD0C57D2C41263700F6B456 /* ChattingHomeViewController.swift */,
 				DBD0C57F2C41E52C00F6B456 /* ChatFollowingCollectionViewCell.swift */,
 				DBD0C5812C41F46100F6B456 /* ChattingHomeTableViewCell.swift */,
+				DB3F05322C42AD440091349F /* SearchChattingViewController.swift */,
 			);
 			path = chat;
 			sourceTree = "<group>";
@@ -602,6 +605,7 @@
 				DB7EF2792B5EA4B00062FAB5 /* AlrmElementView.swift in Sources */,
 				1131E8A22BF6220B00D40120 /* UIScreen+.swift in Sources */,
 				11AC97FD2BFF27AE0008C910 /* UIImage+.swift in Sources */,
+				DB3F05332C42AD440091349F /* SearchChattingViewController.swift in Sources */,
 				117250E72BB31AF60083F181 /* CommomButton.swift in Sources */,
 				DBD0C57E2C41263700F6B456 /* ChattingHomeViewController.swift in Sources */,
 				DB8DDFD72BECB0B600B3A676 /* DateFomat.swift in Sources */,
