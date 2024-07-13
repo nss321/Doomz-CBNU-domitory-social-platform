@@ -35,6 +35,7 @@ class ChattingHomeTableViewCell: UITableViewCell {
         let stackView = UIStackView()
         stackView.axis = .vertical
         stackView.spacing = 4
+        stackView.alignment = .trailing
         return stackView
     }()
     
@@ -69,8 +70,8 @@ class ChattingHomeTableViewCell: UITableViewCell {
         return label
     }()
     
-    let unReadCountLabel: UILabel = {
-        let label = UILabel()
+    let unReadCountLabel: RoundLabel = {
+        let label = RoundLabel(title: "")
         label.font = FontManager.small1()
         label.backgroundColor = .primary
         label.textColor = .white
@@ -91,6 +92,12 @@ class ChattingHomeTableViewCell: UITableViewCell {
         super.layoutSubviews()
         profileImageView.layer.cornerRadius = profileImageView.frame.size.width / 2
         profileImageView.clipsToBounds = true
+        
+        guard let intUnReadCount = Int(unReadCountLabel.text ?? "") else {return}
+        
+        if intUnReadCount == 0 {
+            unReadCountLabel.backgroundColor = .white
+        }
     }
     
     private func addComponents() {
@@ -131,7 +138,8 @@ class ChattingHomeTableViewCell: UITableViewCell {
         self.nicknameLabel.text = memberNickname
         self.unReadCountLabel.text = String(unReadCount)
         self.messageLabel.text = lastMessage
-        self.timeLabel.text = lastMessageTime
+        self.timeLabel.text = DateUtility.yymmdd(from: lastMessageTime, separator: ".")
+        
         if memberProfileUrl != "" {
             loadImage(url: memberProfileUrl ?? "")
         }else {

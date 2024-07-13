@@ -113,3 +113,35 @@ final class PrimaryButton: TagButton {
         self.titleLabel?.font = UIFont.button
     }
 }
+
+class RoundLabel: UILabel {
+    
+    override var intrinsicContentSize: CGSize {
+            let originalContentSize = super.intrinsicContentSize
+            let width = originalContentSize.width + 16
+            let height = originalContentSize.height + 8
+            return CGSize(width: width, height: height)
+        }
+        
+        override func drawText(in rect: CGRect) {
+            let insets = UIEdgeInsets(top: 4, left: 8, bottom: 4, right: 8)
+            super.drawText(in: rect.inset(by: insets))
+        }
+        
+        override func layoutSubviews() {
+            super.layoutSubviews()
+            self.layer.cornerRadius = min(self.bounds.height, 48) / 2
+            self.layer.masksToBounds = true
+        }
+    
+    convenience init(title: String) {
+        self.init()
+        setUI(title: title)
+    }
+    
+    private func setUI(title: String) {
+        self.text = title
+        self.layer.masksToBounds = true
+        self.textAlignment = .center
+    }
+}

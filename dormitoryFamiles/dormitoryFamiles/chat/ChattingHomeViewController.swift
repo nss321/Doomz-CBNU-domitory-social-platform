@@ -13,9 +13,9 @@ class ChattingHomeViewController: UIViewController {
     
     let sampleChatting = [["roomId": 8,
                            "memberId": 8,
-                           "memberNickname": "김민경",
-                           "unReadCount": 0,
-                           "lastMessage": "키랑 몸무게 물어볼까?",
+                           "memberNickname": "닉네임8",
+                           "unReadCount": 1,
+                           "lastMessage": "Hello, how are you?",
                            "lastMessageTime": "2024-05-30T13:58:10"
                           ],
                           [
@@ -23,7 +23,7 @@ class ChattingHomeViewController: UIViewController {
                             "memberId": 7,
                             "memberNickname": "닉네임7",
                             "memberProfileUrl": "http://t1.kakaocdn.net/account_images/default_profile.jpeg.twg.thumb.R640x640",
-                            "unReadCount": 0,
+                            "unReadCount": 20,
                             "lastMessage": "Hello, how are you?",
                             "lastMessageTime": "2024-05-30T13:57:47"
                           ],
@@ -211,18 +211,18 @@ extension ChattingHomeViewController: UITableViewDelegate, UITableViewDataSource
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: ChattingHomeTableViewCell.identifier, for: indexPath) as? ChattingHomeTableViewCell else {
-                    return UITableViewCell()
-                }
+            return UITableViewCell()
+        }
         let chatData = sampleChatting[indexPath.row]
-                let memberNickname = chatData["memberNickname"] as? String ?? ""
-                let memberProfileUrl = chatData["memberProfileUrl"] as? String ?? ""
-                let unReadCount = chatData["unReadCount"] as? Int ?? 0
-                let lastMessage = chatData["lastMessage"] as? String ?? ""
-                let lastMessageTime = chatData["lastMessageTime"] as? String ?? ""
-                
-                cell.configure(memberNickname: memberNickname, memberProfileUrl: memberProfileUrl, unReadCount: unReadCount, lastMessage: lastMessage, lastMessageTime: lastMessageTime)
-                
-                return cell
+        let memberNickname = chatData["memberNickname"] as? String ?? ""
+        let memberProfileUrl = chatData["memberProfileUrl"] as? String ?? ""
+        let unReadCount = chatData["unReadCount"] as? Int ?? 0
+        let lastMessage = chatData["lastMessage"] as? String ?? ""
+        let lastMessageTime = chatData["lastMessageTime"] as? String ?? ""
+        
+        cell.configure(memberNickname: memberNickname, memberProfileUrl: memberProfileUrl, unReadCount: unReadCount, lastMessage: lastMessage, lastMessageTime: lastMessageTime)
+        cell.selectionStyle = .none
+        return cell
     }
     
     
