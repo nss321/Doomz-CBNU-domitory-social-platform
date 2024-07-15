@@ -31,14 +31,16 @@ class SearchChattingViewController: TabmanViewController {
         return view
     }()
     
-    private let navigationTextField: UITextField = {
-        let textField = UITextField()
-        textField.placeholder = "검색어를 입력해주세요."
-        textField.font = .subTitle2
-        textField.backgroundColor = .clear
-        textField.borderStyle = .none
-        textField.isUserInteractionEnabled = true
-        return textField
+    private let navigationTextFieldLabel: UILabel = {
+        let label = UILabel()
+        label.text = "검색어를 입력해주세요."
+        label.font = .subTitle2
+        label.backgroundColor = .gray0
+        label.textColor = .gray3
+        label.isUserInteractionEnabled = true
+        
+        
+        return label
     }()
     
     private let baseLineView: UIView = {
@@ -60,11 +62,13 @@ class SearchChattingViewController: TabmanViewController {
         let containerView = RoundLabel()
         containerView.backgroundColor = .gray0
         containerView.isUserInteractionEnabled = true
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(textFieldTapped))
+        containerView.addGestureRecognizer(tapGesture)
 
         navigationItem.titleView = containerView
         
-        containerView.addSubview(navigationTextField)
-        navigationTextField.snp.makeConstraints {
+        containerView.addSubview(navigationTextFieldLabel)
+        navigationTextFieldLabel.snp.makeConstraints {
             $0.top.bottom.equalToSuperview().inset(8)
             $0.leading.trailing.equalToSuperview().inset(16)
         }
@@ -116,6 +120,10 @@ class SearchChattingViewController: TabmanViewController {
             $0.leading.trailing.equalToSuperview()
             $0.height.equalTo(1)
         }
+    }
+    
+    @objc func textFieldTapped() {
+        self.navigationController?.pushViewController(SearchTextFieldChattingViewController(), animated: true)
     }
 }
 

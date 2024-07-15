@@ -44,6 +44,7 @@
 		DB3F05402C44BEF10091349F /* AllDoomzViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3F053F2C44BEF10091349F /* AllDoomzViewController.swift */; };
 		DB3F05422C44BF0D0091349F /* ChattingRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3F05412C44BF0D0091349F /* ChattingRoomViewController.swift */; };
 		DB3F05442C44BF1E0091349F /* MessagegViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3F05432C44BF1E0091349F /* MessagegViewController.swift */; };
+		DB3F05462C44D84B0091349F /* SearchTextFieldChattingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3F05452C44D84B0091349F /* SearchTextFieldChattingViewController.swift */; };
 		DB3F18092B6162AB002F1738 /* ProfileSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3F18082B6162AB002F1738 /* ProfileSettingViewController.swift */; };
 		DB41008C2B6A665D005C4DD8 /* BrownVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB41008B2B6A665D005C4DD8 /* BrownVC.swift */; };
 		DB496DEB2B70EAFB00F97324 /* TabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB496DEA2B70EAFB00F97324 /* TabbarViewController.swift */; };
@@ -153,6 +154,7 @@
 		DB3F053F2C44BEF10091349F /* AllDoomzViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllDoomzViewController.swift; sourceTree = "<group>"; };
 		DB3F05412C44BF0D0091349F /* ChattingRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingRoomViewController.swift; sourceTree = "<group>"; };
 		DB3F05432C44BF1E0091349F /* MessagegViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagegViewController.swift; sourceTree = "<group>"; };
+		DB3F05452C44D84B0091349F /* SearchTextFieldChattingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTextFieldChattingViewController.swift; sourceTree = "<group>"; };
 		DB3F18082B6162AB002F1738 /* ProfileSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingViewController.swift; sourceTree = "<group>"; };
 		DB41008B2B6A665D005C4DD8 /* BrownVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrownVC.swift; sourceTree = "<group>"; };
 		DB496DEA2B70EAFB00F97324 /* TabbarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarViewController.swift; sourceTree = "<group>"; };
@@ -407,6 +409,7 @@
 				DB3F053F2C44BEF10091349F /* AllDoomzViewController.swift */,
 				DB3F05412C44BF0D0091349F /* ChattingRoomViewController.swift */,
 				DB3F05432C44BF1E0091349F /* MessagegViewController.swift */,
+				DB3F05452C44D84B0091349F /* SearchTextFieldChattingViewController.swift */,
 			);
 			path = SearchChat;
 			sourceTree = "<group>";
@@ -668,6 +671,7 @@
 				DB932AC12B6511E300B456FB /* BulluetinBoardCollectionViewCell.swift in Sources */,
 				DBF466FF2AA5F4E4009FF3EB /* MealMenuViewController.swift in Sources */,
 				DB496DEB2B70EAFB00F97324 /* TabbarViewController.swift in Sources */,
+				DB3F05462C44D84B0091349F /* SearchTextFieldChattingViewController.swift in Sources */,
 				DB3F05422C44BF0D0091349F /* ChattingRoomViewController.swift in Sources */,
 				DB41008C2B6A665D005C4DD8 /* BrownVC.swift in Sources */,
 				DBD1E00C2C3D49E900FDD5FE /* Token.swift in Sources */,
