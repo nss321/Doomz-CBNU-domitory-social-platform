@@ -1,18 +1,17 @@
 //
-//  UIColorExtension.swift
+//  UIColor+.swift
 //  dormitoryFamiles
 //
-//  Created by leehwajin on 2024/01/17.
+//  Created by leehwajin on 2024/07/15.
 //
 
+import Foundation
 
-import UIKit
 extension UIColor {
-   
     static var background: UIColor? { return UIColor(named: "background") }
     
     static var gray0: UIColor? { return UIColor(named: "gray0") }
-   
+    
     static var gray1: UIColor? { return UIColor(named: "gray1") }
     
     static var gray2: UIColor? { return UIColor(named: "gray2") }
@@ -33,6 +32,9 @@ extension UIColor {
     
     static var secondary: UIColor? { return UIColor(named: "secondary") }
     
+    static let titleColor: UIColor =  #colorLiteral(red: 0.8296361566, green: 0.1152015552, blue: 0.3670018315, alpha: 1)
+    static let kakaoColor: UIColor = .kakaoColor
+    
     /// #191919
     static let doomzBlack = UIColor.init(hex: "#191919")
     
@@ -50,4 +52,3 @@ extension UIColor {
         self.init(red: CGFloat(r), green: CGFloat(g), blue: CGFloat(b), alpha: 1)
     }
 }
-
