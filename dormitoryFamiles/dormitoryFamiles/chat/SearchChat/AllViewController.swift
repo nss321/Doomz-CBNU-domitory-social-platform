@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AllChattingViewController: UIViewController {
+class AllViewController: UIViewController {
     
     let followingSampleData = [
         "code": 200,
@@ -187,7 +187,7 @@ class AllChattingViewController: UIViewController {
     }
 }
 
-extension AllChattingViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension AllViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch collectionView {
         case followingCollectionView:
@@ -231,7 +231,7 @@ extension AllChattingViewController: UICollectionViewDelegate, UICollectionViewD
     }
 }
 
-extension AllChattingViewController: UITableViewDataSource, UITableViewDelegate {
+extension AllViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch tableView {
         case chattingRoomTabelView:

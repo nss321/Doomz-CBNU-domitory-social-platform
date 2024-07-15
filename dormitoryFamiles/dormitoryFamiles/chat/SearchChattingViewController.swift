@@ -13,23 +13,15 @@ import SnapKit
 class SearchChattingViewController: TabmanViewController {
     
     private var viewControllers: [UIViewController] {
-        let allVC = AllChattingViewController()
+        let allVC = AllViewController()
         
-        let followingVC = SelectedChattingViewController()
-        followingVC.path = Url.helpPostUrl(page: 0)
-        followingVC.kind = .following
+        let followingVC = FollowingViewController()
         
-        let allDoomzVC = SelectedChattingViewController()
-        allDoomzVC.path = Url.helpPostUrl(page: 0)
-        allDoomzVC.kind = .allDoomz
+        let allDoomzVC = AllDoomzViewController()
         
-        let chattingRoomVC = SelectedChattingViewController()
-        chattingRoomVC.path = Url.helpPostUrl(page: 0)
-        chattingRoomVC.kind = .chattingRoom
+        let chattingRoomVC = ChattingRoomViewController()
         
-        let messageVC = SelectedChattingViewController()
-        messageVC.path = Url.helpPostUrl(page: 0)
-        messageVC.kind = .message
+        let messageVC = MessagegViewController()
         
         return [allVC, followingVC, allDoomzVC, chattingRoomVC, messageVC]
     }
@@ -157,11 +149,4 @@ extension SearchChattingViewController: PageboyViewControllerDataSource, TMBarDa
             return TMBarItem(title: title)
         }
     }
-}
-
-enum KindOfChattingRoom {
-    case following
-    case allDoomz
-    case chattingRoom
-    case message
 }
