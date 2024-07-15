@@ -44,7 +44,7 @@ class UserProfileNicknameCollectionViewControllerCell: UICollectionViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        profileImageView.layer.cornerRadius = profileImageView.frame.size.width / 2
+        profileImageView.layer.cornerRadius = 24
         profileImageView.clipsToBounds = true
     }
     
