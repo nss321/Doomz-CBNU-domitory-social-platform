@@ -33,33 +33,16 @@ class AllChattingViewController: UIViewController {
     let allDoomzData = [
         "code": 200,
         "data": [
-            "totalPageNumber": 1,
-            "nowPageNumber": 0,
-            "isLast": true,
             "memberProfiles": [
-                [
-                    "memberId": 6,
-                    "nickname": "닉네임6",
-                    "profileUrl": "http://t1.kakaocdn.net/account_images/default_profile.jpeg.twg.thumb.R640x640",
-                    "isFollowing": true
-                ],
-                [
-                    "memberId": 5,
-                    "nickname": "닉네임5",
-                    "profileUrl": "http://t1.kakaocdn.net/account_images/default_profile.jpeg.twg.thumb.R640x640",
-                    "isFollowing": true
-                ],
-                [
-                    "memberId": 3,
-                    "nickname": "닉네임3",
-                    "profileUrl": "http://t1.kakaocdn.net/account_images/default_profile.jpeg.twg.thumb.R640x640",
-                    "isFollowing": true
-                ],
                 [
                     "memberId": 2,
                     "nickname": "닉네임2",
-                    "profileUrl": "http://t1.kakaocdn.net/account_images/default_profile.jpeg.twg.thumb.R640x640",
-                    "isFollowing": false
+                    "profileUrl": "http://t1.kakaocdn.net/account_images/default_profile.jpeg.twg.thumb.R640x640"
+                ],
+                [
+                    "memberId": 8,
+                    "nickname": "닉네임8",
+                    "profileUrl": "http://t1.kakaocdn.net/account_images/default_profile.jpeg.twg.thumb.R640x640"
                 ]
             ]
         ]
@@ -108,6 +91,18 @@ class AllChattingViewController: UIViewController {
         
         followingCollectionView.snp.makeConstraints{
             $0.top.equalTo(followingLabelAndButtonStackView.snp.bottom).inset(-12)
+            $0.leading.trailing.equalToSuperview().inset(25)
+            $0.height.equalTo(70)
+        }
+        
+        allDoomzLabelAndButtonStackView.snp.makeConstraints {
+            $0.top.equalTo(followingCollectionView.snp.bottom).inset(-32)
+            $0.leading.trailing.equalToSuperview().inset(25)
+            $0.height.equalTo(32)
+        }
+        
+        allDoomzCollectionView.snp.makeConstraints{
+            $0.top.equalTo(allDoomzLabelAndButtonStackView.snp.bottom).inset(-12)
             $0.leading.trailing.equalToSuperview().inset(25)
             $0.height.equalTo(70)
         }
