@@ -1,17 +1,16 @@
-//
-//  chattingHomeViewController.swift
-//  dormitoryFamiles
-//
-//  Created by leehwajin on 2024/07/12.
-//
-
 import UIKit
 import SnapKit
 
 class ChattingHomeViewController: UIViewController {
     var followingData: [MemberProfile] = []
+    var followingPage = 0
+    var isfollowingLast = false
     
     var chattingRoomData: [ChattingRoom] = []
+    var chattingRoomPage = 0
+    var isChattingLast = false
+    
+    private var isLoading = false
     
     let followingLabelButtonStackView = LabelAndRoundButtonStackView(labelText: "팔로잉", textFont: .title2 ?? UIFont(), buttonText: "전체보기", buttonHasArrow: true)
     
@@ -42,6 +41,7 @@ class ChattingHomeViewController: UIViewController {
         setCollectionView()
         setTableView()
         setConstraints()
+        setApi()
     }
     
     private func setNavigationBar() {
@@ -110,11 +110,13 @@ class ChattingHomeViewController: UIViewController {
         view.addSubview(tableView)
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.scrollsToTop = true
     }
     
     private func setApi() {
-        followingApiNetwork(url: Url.following(page: 0, size: nil))
-        chatListApiNetwork(url: Url.chattingRoom)
+        followingApiNetwork(url: Url.following(page: followingPage, size: nil))
+        
+        chatListApiNetwork(url: Url.chattingRoom(page: chattingRoomPage, size: nil))
     }
     
     private func followingApiNetwork(url: String) {
@@ -132,17 +134,28 @@ class ChattingHomeViewController: UIViewController {
     }
     
     private func chatListApiNetwork(url: String) {
+        print(chattingRoomPage)
         Network.getMethod(url: url) { (result: Result<ChattingRoomsResponse, Error>) in
             switch result {
             case .success(let response):
-                self.chattingRoomData = response.data.chatRooms
+                self.chattingRoomData += response.data.chatRooms
+                self.isChattingLast = response.data.isLast
                 DispatchQueue.main.async {
-                    self.collectionView.reloadData()
+                    self.tableView.reloadData()
                 }
+                self.isLoading = false
             case .failure(let error):
                 print("Error: \(error)")
+                self.isLoading = false
             }
         }
+    }
+    
+    private func chattingRoomloadNextPage() {
+        guard !isChattingLast else { return }
+        
+        chatListApiNetwork(url: Url.chattingRoom(page: chattingRoomPage, size: nil))
+        chattingRoomPage += 1
     }
 }
 
@@ -157,9 +170,9 @@ extension ChattingHomeViewController: UICollectionViewDelegate, UICollectionView
         }
         
         let profile = followingData[indexPath.row]
-                cell.configure(text: profile.nickname, profileUrl: profile.profileUrl)
-                
-                return cell
+        cell.configure(text: profile.nickname, profileUrl: profile.profileUrl)
+        
+        return cell
     }
 }
 
@@ -172,6 +185,7 @@ extension ChattingHomeViewController: UITableViewDelegate, UITableViewDataSource
         guard let cell = tableView.dequeueReusableCell(withIdentifier: ChattingHomeTableViewCell.identifier, for: indexPath) as? ChattingHomeTableViewCell else {
             return UITableViewCell()
         }
+        
         let chattingRoom = chattingRoomData[indexPath.row]
         let memberNickname = chattingRoom.memberNickname
         let memberProfileUrl = chattingRoom.memberProfileUrl ?? ""
@@ -193,5 +207,20 @@ extension ChattingHomeViewController: UITableViewDelegate, UITableViewDataSource
         }
         delete.backgroundColor = .systemRed
         return UISwipeActionsConfiguration(actions:[delete])
+    }
+}
+
+extension ChattingHomeViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        guard chattingRoomPage != 0 else {return}
+        let offsetY = scrollView.contentOffset.y
+        let contentHeight = scrollView.contentSize.height
+        let height = scrollView.frame.size.height
+        if offsetY > contentHeight - height {
+            if !isLoading {
+                isLoading = true
+                chattingRoomloadNextPage()
+            }
+        }
     }
 }
