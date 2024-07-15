@@ -865,7 +865,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pf8-z7-rET" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
-                                                <rect key="frame" x="278.33333333333331" y="86" width="94.666666666666686" height="29"/>
+                                                <rect key="frame" x="254" y="86" width="119" height="29"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="29" id="hza-8j-0gq"/>
                                                 </constraints>
@@ -1067,7 +1067,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nzJ-Yb-Hjd" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
-                                                        <rect key="frame" x="16" y="68.666666666666742" width="94.666666666666686" height="28"/>
+                                                        <rect key="frame" x="15.999999999999993" y="68.666666666666742" width="107.33333333333331" height="28"/>
                                                         <color key="backgroundColor" name="primaryMid"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="28" id="iWk-PQ-m4c"/>
@@ -1147,7 +1147,7 @@
                                                 <rect key="frame" x="20" y="620.33333333333337" width="353" height="122"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5JZ-3p-UmG" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
-                                                        <rect key="frame" x="15" y="16" width="84" height="24"/>
+                                                        <rect key="frame" x="15" y="16" width="97.666666666666671" height="24"/>
                                                         <color key="backgroundColor" name="secondary"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="84" id="9mW-AF-FFs"/>
@@ -1276,7 +1276,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pxF-j1-LeE">
-                                                        <rect key="frame" x="107" y="16" width="141" height="24"/>
+                                                        <rect key="frame" x="120.66666666666666" y="16" width="140.99999999999997" height="24"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="24" id="zMZ-vT-KDH"/>
                                                         </constraints>
@@ -1402,7 +1402,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Cx-cb-x6K" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
-                                                <rect key="frame" x="278.33333333333331" y="579.33333333333337" width="94.666666666666686" height="29"/>
+                                                <rect key="frame" x="258" y="579.33333333333337" width="115" height="29"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="29" id="DZE-Ex-hkf"/>
                                                 </constraints>
@@ -1543,7 +1543,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NkX-t3-Dqc">
-                                <rect key="frame" x="0.0" y="103" width="393" height="171"/>
+                                <rect key="frame" x="0.0" y="103.00000000000001" width="393" height="174.33333333333337"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jW8-v6-Usi">
                                         <rect key="frame" x="153.33333333333334" y="13" width="86.333333333333343" height="34.333333333333336"/>
@@ -1585,10 +1585,10 @@
                                         </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="nmc-r2-3Yr">
-                                        <rect key="frame" x="20" y="120" width="157.33333333333334" height="31"/>
+                                        <rect key="frame" x="20" y="119.99999999999999" width="174.66666666666666" height="34.333333333333329"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zMd-RW-f50" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="74.666666666666671" height="31"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="83.333333333333329" height="34.333333333333336"/>
                                                 <color key="tintColor" name="gray5"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" image="bulletinBoardVector" imagePlacement="trailing" title="최신순" imagePadding="5"/>
@@ -1606,7 +1606,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oPs-Mx-3k4" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
-                                                <rect key="frame" x="82.666666666666657" y="0.0" width="74.666666666666657" height="31"/>
+                                                <rect key="frame" x="91.333333333333343" y="0.0" width="83.333333333333343" height="34.333333333333336"/>
                                                 <color key="tintColor" name="gray5"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" image="bulletinBoardVector" imagePlacement="trailing" title="전체" imagePadding="5"/>
@@ -2161,46 +2161,17 @@
             </objects>
             <point key="canvasLocation" x="2036" y="-809"/>
         </scene>
-        <!--Root View Controller-->
-        <scene sceneID="e81-ne-WPG">
-            <objects>
-                <tableViewController id="rcn-L5-R5T" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="hjy-PS-Td4">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="VpZ-FU-u7n">
-                                <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VpZ-FU-u7n" id="jr9-YD-pM5">
-                                    <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="rcn-L5-R5T" id="0GT-80-hTf"/>
-                            <outlet property="delegate" destination="rcn-L5-R5T" id="HoE-4k-bFr"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="TOD-as-B9N"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ltZ-Sn-uNe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2943" y="-87"/>
-        </scene>
         <!--채팅-->
         <scene sceneID="AiI-zb-eSZ">
             <objects>
-                <navigationController id="k6X-MR-bmh" sceneMemberID="viewController">
+                <navigationController modalPresentationStyle="fullScreen" id="k6X-MR-bmh" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="채팅" image="tabbarItemChattingGray" selectedImage="tabbarItemChatting" id="qBF-BW-FBI"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Bdo-GT-gc8">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="rcn-L5-R5T" kind="relationship" relationship="rootViewController" id="ZaT-iq-faB"/>
+                        <segue destination="lJG-sG-Ofy" kind="relationship" relationship="rootViewController" id="dMj-X2-RtG"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u3b-q2-DiY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -2416,10 +2387,10 @@
                                                 </constraints>
                                             </imageView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="g8I-rb-EBj">
-                                                <rect key="frame" x="20" y="22" width="153.66666666666666" height="28"/>
+                                                <rect key="frame" x="20" y="22" width="182" height="28"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n0i-BB-GvX" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="73.666666666666671" height="28"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="81" height="28"/>
                                                         <color key="backgroundColor" name="secondary"/>
                                                         <color key="tintColor" name="primary"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
@@ -2430,7 +2401,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WpS-3I-E5y" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
-                                                        <rect key="frame" x="81.666666666666671" y="0.0" width="72.000000000000014" height="28"/>
+                                                        <rect key="frame" x="89" y="0.0" width="93" height="28"/>
                                                         <color key="backgroundColor" red="0.84705882352941175" green="0.91764705882352937" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <state key="normal" title="Button"/>
@@ -2720,7 +2691,7 @@
                                 <rect key="frame" x="0.0" y="700" width="393" height="118"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hQh-uO-d5P" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
-                                        <rect key="frame" x="20.000000000000004" y="0.0" width="51.333333333333343" height="30"/>
+                                        <rect key="frame" x="20.000000000000004" y="0.0" width="53.333333333333343" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="1X9-OA-YY9"/>
                                         </constraints>
@@ -2781,7 +2752,7 @@
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zs1-QO-A3O" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
-                                        <rect key="frame" x="269.66666666666669" y="0.0" width="103.33333333333331" height="30"/>
+                                        <rect key="frame" x="255.33333333333334" y="0.0" width="117.66666666666666" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="IEy-tu-t4D"/>
                                         </constraints>
@@ -3672,109 +3643,125 @@
             </objects>
             <point key="canvasLocation" x="3481.679389312977" y="-2970.4225352112676"/>
         </scene>
+        <!--Chatting Home View Controller-->
+        <scene sceneID="A9X-IA-S8k">
+            <objects>
+                <viewController id="lJG-sG-Ofy" customClass="ChattingHomeViewController" customModule="dormitoryFamiles" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="e1m-x0-f6d">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="zcT-pN-r3X"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="AnN-2P-Ye8"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5B4-ux-zAt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2895" y="-80"/>
+        </scene>
     </scenes>
     <designables>
         <designable name="0c7-Sa-8eC">
-            <size key="intrinsicContentSize" width="51.333333333333336" height="33.333333333333336"/>
+            <size key="intrinsicContentSize" width="53.666666666666664" height="34.333333333333336"/>
         </designable>
         <designable name="488-NF-ysg">
             <size key="intrinsicContentSize" width="68.666666666666671" height="34.333333333333336"/>
         </designable>
         <designable name="5JZ-3p-UmG">
-            <size key="intrinsicContentSize" width="83.333333333333329" height="31"/>
+            <size key="intrinsicContentSize" width="97.666666666666671" height="34.333333333333336"/>
         </designable>
         <designable name="63s-np-sbo">
-            <size key="intrinsicContentSize" width="88.666666666666671" height="33.333333333333336"/>
+            <size key="intrinsicContentSize" width="92.333333333333329" height="34.333333333333336"/>
         </designable>
         <designable name="6cz-aZ-WRa">
             <size key="intrinsicContentSize" width="4" height="22"/>
         </designable>
         <designable name="6sd-MD-ybY">
-            <size key="intrinsicContentSize" width="51.333333333333336" height="33.333333333333336"/>
+            <size key="intrinsicContentSize" width="53.666666666666664" height="34.333333333333336"/>
         </designable>
         <designable name="8YI-Dj-a5U">
             <size key="intrinsicContentSize" width="28" height="24"/>
         </designable>
         <designable name="9Cx-cb-x6K">
-            <size key="intrinsicContentSize" width="94.666666666666671" height="31"/>
+            <size key="intrinsicContentSize" width="115" height="34.333333333333336"/>
         </designable>
         <designable name="Jb0-KK-Kah">
             <size key="intrinsicContentSize" width="83.333333333333329" height="34.333333333333336"/>
         </designable>
         <designable name="JfS-Y1-OHE">
-            <size key="intrinsicContentSize" width="51.333333333333336" height="33.333333333333336"/>
+            <size key="intrinsicContentSize" width="53.666666666666664" height="34.333333333333336"/>
         </designable>
         <designable name="KoZ-HB-q2x">
-            <size key="intrinsicContentSize" width="51.333333333333336" height="33.333333333333336"/>
+            <size key="intrinsicContentSize" width="53.666666666666664" height="34.333333333333336"/>
         </designable>
         <designable name="LKE-sW-Mhb">
             <size key="intrinsicContentSize" width="4" height="22"/>
         </designable>
         <designable name="PCT-uB-HO6">
-            <size key="intrinsicContentSize" width="71.333333333333329" height="31"/>
+            <size key="intrinsicContentSize" width="79.666666666666671" height="33.333333333333336"/>
         </designable>
         <designable name="Tfo-Ee-43X">
-            <size key="intrinsicContentSize" width="51.333333333333336" height="33.333333333333336"/>
+            <size key="intrinsicContentSize" width="53.666666666666664" height="34.333333333333336"/>
         </designable>
         <designable name="TvH-Er-0RP">
             <size key="intrinsicContentSize" width="21" height="25"/>
         </designable>
         <designable name="WpS-3I-E5y">
-            <size key="intrinsicContentSize" width="72" height="31"/>
+            <size key="intrinsicContentSize" width="93" height="34.333333333333336"/>
         </designable>
         <designable name="X9n-VV-0my">
-            <size key="intrinsicContentSize" width="122.33333333333333" height="33.333333333333336"/>
+            <size key="intrinsicContentSize" width="131.33333333333334" height="34.333333333333336"/>
         </designable>
         <designable name="bPC-1x-PCY">
-            <size key="intrinsicContentSize" width="71.333333333333329" height="31"/>
+            <size key="intrinsicContentSize" width="79.666666666666671" height="33.333333333333336"/>
         </designable>
         <designable name="cEh-7q-gFT">
-            <size key="intrinsicContentSize" width="88.666666666666671" height="33.333333333333336"/>
+            <size key="intrinsicContentSize" width="92.333333333333329" height="34.333333333333336"/>
         </designable>
         <designable name="f7A-Tr-9xV">
             <size key="intrinsicContentSize" width="24" height="14"/>
         </designable>
         <designable name="h0R-IE-oKn">
-            <size key="intrinsicContentSize" width="71.333333333333329" height="31"/>
+            <size key="intrinsicContentSize" width="83" height="34.333333333333336"/>
         </designable>
         <designable name="hQh-uO-d5P">
-            <size key="intrinsicContentSize" width="51.333333333333336" height="31"/>
+            <size key="intrinsicContentSize" width="53.333333333333336" height="34.333333333333336"/>
         </designable>
         <designable name="i0r-bW-D14">
-            <size key="intrinsicContentSize" width="135.66666666666666" height="33.333333333333336"/>
+            <size key="intrinsicContentSize" width="24" height="14"/>
         </designable>
         <designable name="iMM-KA-ESC">
-            <size key="intrinsicContentSize" width="51.333333333333336" height="33.333333333333336"/>
+            <size key="intrinsicContentSize" width="53.666666666666664" height="34.333333333333336"/>
         </designable>
         <designable name="mkz-v3-one">
             <size key="intrinsicContentSize" width="53.666666666666664" height="34.333333333333336"/>
         </designable>
         <designable name="n0i-BB-GvX">
-            <size key="intrinsicContentSize" width="73.666666666666671" height="31"/>
+            <size key="intrinsicContentSize" width="81" height="34.333333333333336"/>
         </designable>
         <designable name="nzJ-Yb-Hjd">
-            <size key="intrinsicContentSize" width="94.666666666666671" height="31"/>
+            <size key="intrinsicContentSize" width="107.33333333333333" height="32"/>
         </designable>
         <designable name="o1m-Pq-b3w">
-            <size key="intrinsicContentSize" width="51.333333333333336" height="33.333333333333336"/>
+            <size key="intrinsicContentSize" width="53.666666666666664" height="34.333333333333336"/>
         </designable>
         <designable name="oPs-Mx-3k4">
-            <size key="intrinsicContentSize" width="62.666666666666664" height="31"/>
+            <size key="intrinsicContentSize" width="68.666666666666671" height="34.333333333333336"/>
         </designable>
         <designable name="pf8-z7-rET">
-            <size key="intrinsicContentSize" width="94.666666666666671" height="31"/>
+            <size key="intrinsicContentSize" width="119" height="35.666666666666664"/>
         </designable>
         <designable name="u5e-Mw-OyW">
-            <size key="intrinsicContentSize" width="51.333333333333336" height="33.333333333333336"/>
+            <size key="intrinsicContentSize" width="53.666666666666664" height="34.333333333333336"/>
         </designable>
         <designable name="wxR-xj-rw3">
             <size key="intrinsicContentSize" width="4" height="22"/>
         </designable>
         <designable name="zMd-RW-f50">
-            <size key="intrinsicContentSize" width="74.666666666666671" height="31"/>
+            <size key="intrinsicContentSize" width="83.333333333333329" height="34.333333333333336"/>
         </designable>
         <designable name="zs1-QO-A3O">
-            <size key="intrinsicContentSize" width="103.33333333333333" height="31"/>
+            <size key="intrinsicContentSize" width="117.66666666666667" height="34.333333333333336"/>
         </designable>
     </designables>
     <resources>

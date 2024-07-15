@@ -46,8 +46,8 @@ class RoundButton: UIButton {
     }
 }
 
-final class TagButton: RoundButton {
-
+class TagButton: RoundButton {
+    
     override func setNeedsLayout() {
         super.setNeedsLayout()
         self.layer.cornerRadius = min(self.bounds.height, 48) / 2
@@ -70,7 +70,7 @@ final class TagButton: RoundButton {
     private func changePinkColor() {
         self.backgroundColor = .primaryMid
     }
-
+    
     private func changeWhiteColor() {
         self.backgroundColor = .white
     }

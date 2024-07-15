@@ -13,7 +13,7 @@ class SleepPatternCollectionViewCell: UICollectionViewCell {
     
     private let sleepTimeBlock: UIView = {
         let view = UIView()
-        view.backgroundColor = .clear
+        view.backgroundColor = .background
         view.layer.cornerRadius = 12
         view.layer.borderColor = UIColor.gray1?.cgColor
         view.layer.borderWidth = 1
@@ -28,6 +28,20 @@ class SleepPatternCollectionViewCell: UICollectionViewCell {
         label.addCharacterSpacing()
         return label
     }()
+    
+    override var isSelected: Bool {
+        didSet {
+            if isSelected {
+                sleepTimeBlock.backgroundColor = .primaryLight
+                sleepTimeBlock.layer.borderColor = UIColor.primaryMid?.cgColor
+                sleepTimeLabel.textColor = .black
+            } else {
+                sleepTimeBlock.backgroundColor = .background
+                sleepTimeBlock.layer.borderColor = UIColor.gray1?.cgColor
+                sleepTimeLabel.textColor = .gray4
+            }
+        }
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)

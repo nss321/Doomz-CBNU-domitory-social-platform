@@ -12,6 +12,9 @@ final class NoiseAndPerfumeViewController: UIViewController, ConfigUI {
   
     let noise = ["이어폰", "스피커", "유동적"]
     let perfume = ["미사용", "가끔", "자주"]
+    
+    var selectedNoise: String?
+    var selectedPerfume: String?
 
     private let stackView: UIStackView = {
         let view = UIStackView()
@@ -155,7 +158,16 @@ final class NoiseAndPerfumeViewController: UIViewController, ConfigUI {
     
     @objc
     func didClickNextButton() {
-        print("nextBtn")
+        let noiseAndPerfumeOption: [String: Any] = [
+            "selectedNoise": selectedNoise ?? "",
+            "selectedPerfume": selectedPerfume ?? ""
+        ]
+        UserDefaults.standard.setMatchingOption(noiseAndPerfumeOption)
+        
+        // 저장된 정보 로그 출력
+        ["selectedNoise", "selectedPerfume"].forEach {
+            print("\($0): \(UserDefaults.standard.getMatchingOptionValue(forKey: $0) ?? "")")
+        }
         self.navigationController?.pushViewController(StudyStyleViewController(), animated: true)
     }
     
@@ -201,12 +213,26 @@ extension NoiseAndPerfumeViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         switch collectionView {
         case noiseCollectionView:
-            print("\(collectionView)의 \(indexPath.row) 선택")
+            selectedNoise = noise[indexPath.item]
+            print("Noise: \(noise[indexPath.item]) 선택")
         case perfumeCollectionView:
-            print("\(collectionView)의 \(indexPath.row) 선택")
+            selectedPerfume = perfume[indexPath.item]
+            print("Perfume: \(perfume[indexPath.item]) 선택")
         default:
-            print("\(indexPath.row) 선택")
+            print("default")
         }
-        
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        switch collectionView {
+        case noiseCollectionView:
+            selectedNoise = nil
+            print("Noise: \(noise[indexPath.item]) 선택 해제")
+        case perfumeCollectionView:
+            selectedPerfume = nil
+            print("Perfume: \(perfume[indexPath.item]) 선택 해제")
+        default:
+            print("default")
+        }
     }
 }

@@ -98,6 +98,6 @@ final class CompleteMyCondition: UIViewController, ConfigUI {
     @objc
     func didClickNextButton() {
         print("nextBtn")
-//        self.navigationController?.pushViewController(MiscViewController(), animated: true)
+        self.navigationController?.pushViewController(ChoosePriorityViewController(), animated: true)
     }
 }

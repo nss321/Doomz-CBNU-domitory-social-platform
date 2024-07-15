@@ -13,6 +13,9 @@ final class StudyStyleViewController: UIViewController, ConfigUI {
     let studyPlace = ["기숙사", "기숙사 외", "유동적"]
     let exam = ["시험 준비", "해당없어요"]
     
+    var selectedStudyPlace: String?
+    var selectedExam: String?
+    
     private let stackView: UIStackView = {
         let view = UIStackView()
         view.axis = .vertical
@@ -155,7 +158,16 @@ final class StudyStyleViewController: UIViewController, ConfigUI {
     
     @objc
     func didClickNextButton() {
-        print("nextBtn")
+        let studyStyleOption: [String: Any] = [
+            "selectedStudyPlace": selectedStudyPlace ?? "",
+            "selectedExam": selectedExam ?? ""
+        ]
+        UserDefaults.standard.setMatchingOption(studyStyleOption)
+        
+        // 저장된 정보 로그 출력
+        ["selectedStudyPlace", "selectedExam"].forEach {
+            print("\($0): \(UserDefaults.standard.getMatchingOptionValue(forKey: $0) ?? "")")
+        }
         self.navigationController?.pushViewController(MiscViewController(), animated: true)
     }
 }
@@ -212,9 +224,26 @@ extension StudyStyleViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         switch collectionView {
         case studyPlaceCollectionView:
-            print("\(collectionView)의 \(indexPath.row) 선택")
+            selectedStudyPlace = studyPlace[indexPath.item]
+            print("Study Place: \(studyPlace[indexPath.item]) 선택")
+        case examCollectionView:
+            selectedExam = exam[indexPath.item]
+            print("Exam: \(exam[indexPath.item]) 선택")
         default:
-            print("\(collectionView)의 \(indexPath.row) 선택")
+            print("default")
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        switch collectionView {
+        case studyPlaceCollectionView:
+            selectedStudyPlace = nil
+            print("Study Place: \(studyPlace[indexPath.item]) 선택 해제")
+        case examCollectionView:
+            selectedExam = nil
+            print("Exam: \(exam[indexPath.item]) 선택 해제")
+        default:
+            print("default")
         }
     }
 }
