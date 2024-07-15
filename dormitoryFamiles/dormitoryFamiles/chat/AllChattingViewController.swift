@@ -48,6 +48,7 @@ class AllChattingViewController: UIViewController {
         ]
     ] as [String : Any]
     
+    //데이터 두개만 받아오기
     let chattingRoomData = [
         "code": 200,
         "data": [
@@ -114,15 +115,21 @@ class AllChattingViewController: UIViewController {
     
     let allDoomzCollectionView = UserProfileNicknameCollectionView(spacing: 20, scrollDirection: .horizontal)
     
+    let chattingRoomTabelView: UITableView = {
+        let tableView = UITableView()
+        tableView.register(ChattingHomeTableViewCell.self, forCellReuseIdentifier: ChattingHomeTableViewCell.identifier)
+        return tableView
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setCollectionView()
+        setTableView()
         addComponents()
         setConstraints()
     }
     
     private func setCollectionView() {
-        
         followingCollectionView.delegate = self
         followingCollectionView.dataSource = self
         
@@ -130,8 +137,13 @@ class AllChattingViewController: UIViewController {
         allDoomzCollectionView.dataSource = self
     }
     
+    private func setTableView() {
+        chattingRoomTabelView.delegate = self
+        chattingRoomTabelView.dataSource = self
+    }
+    
     private func addComponents() {
-        [followingLabelAndButtonStackView, allDoomzLabelAndButtonStackView, chattingRoomLabelAndButtonStackView, messageLabelAndButtonStackView, followingCollectionView, allDoomzCollectionView].forEach {
+        [followingLabelAndButtonStackView, allDoomzLabelAndButtonStackView, chattingRoomLabelAndButtonStackView, messageLabelAndButtonStackView, followingCollectionView, allDoomzCollectionView, chattingRoomTabelView].forEach {
             view.addSubview($0)
         }
     }
@@ -165,6 +177,12 @@ class AllChattingViewController: UIViewController {
             $0.top.equalTo(allDoomzCollectionView.snp.bottom).inset(-32)
             $0.leading.trailing.equalToSuperview().inset(25)
             $0.height.equalTo(32)
+        }
+        
+        chattingRoomTabelView.snp.makeConstraints {
+            $0.top.equalTo(chattingRoomLabelAndButtonStackView.snp.bottom).inset(-12)
+            $0.leading.trailing.equalToSuperview()
+            $0.height.equalTo(146)
         }
     }
 }
@@ -209,6 +227,40 @@ extension AllChattingViewController: UICollectionViewDelegate, UICollectionViewD
         let profileUrl = profile["profileUrl"] as! String
         cell.configure(text: nickname, profileUrl: profileUrl)
         
+        return cell
+    }
+}
+
+extension AllChattingViewController: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        switch tableView {
+        case chattingRoomTabelView:
+            let data = chattingRoomData["data"] as! [String: Any]
+            let chatRoom = data["chatRooms"] as! [[String: Any]]
+            return chatRoom.count
+        default:
+            return 0
+        }
+    }
+    
+    //데이터 두개만 받아오기
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: ChattingHomeTableViewCell.identifier, for: indexPath) as? ChattingHomeTableViewCell else {
+            return UITableViewCell()
+        }
+        
+        if let data = chattingRoomData["data"] as? [String: Any],
+           let chatRooms = data["chatRooms"] as? [[String: Any]] {
+            let chatData = chatRooms[indexPath.row]
+            let memberNickname = chatData["memberNickname"] as? String ?? ""
+            let memberProfileUrl = chatData["memberProfileUrl"] as? String ?? ""
+            let unReadCount = chatData["unReadCount"] as? Int ?? 0
+            let lastMessage = chatData["lastMessage"] as? String ?? ""
+            let lastMessageTime = chatData["lastMessageTime"] as? String ?? ""
+            
+            cell.configure(memberNickname: memberNickname, memberProfileUrl: memberProfileUrl, unReadCount: unReadCount, lastMessage: lastMessage, lastMessageTime: lastMessageTime)
+        }
+        cell.selectionStyle = .none
         return cell
     }
     
