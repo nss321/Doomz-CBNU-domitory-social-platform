@@ -138,7 +138,7 @@ class ChattingHomeTableViewCell: UITableViewCell {
         self.nicknameLabel.text = memberNickname
         self.unReadCountLabel.text = String(unReadCount)
         self.messageLabel.text = lastMessage
-        self.timeLabel.text = DateUtility.yymmdd(from: lastMessageTime, separator: ".")
+        self.timeLabel.text = DateUtility.chattingTimeFormet(from: lastMessageTime)
         
         if memberProfileUrl != "" {
             loadImage(url: memberProfileUrl ?? "")

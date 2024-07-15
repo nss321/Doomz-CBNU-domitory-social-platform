@@ -26,6 +26,23 @@ struct DateUtility {
         return dateFormatter.string(from: date)
     }
     
+    static func chattingTimeFormet(from dateString: String) -> String {
+        let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+            guard let date = dateFormatter.date(from: dateString) else {
+                return ""
+            }
+            let now = Date()
+            let calendar = Calendar.current
+            
+            if calendar.isDate(date, inSameDayAs: now) {
+                dateFormatter.dateFormat = "HH:mm"
+            } else {
+                dateFormatter.dateFormat = "yy.MM.dd"
+            }
+            return dateFormatter.string(from: date)
+    }
+    
     static func formattedDateString(from dateString: String) -> String? {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"

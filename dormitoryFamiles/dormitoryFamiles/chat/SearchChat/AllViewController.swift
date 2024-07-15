@@ -61,7 +61,7 @@ class AllViewController: UIViewController {
                     "memberNickname": "닉네임8",
                     "unReadCount": 0,
                     "lastMessage": "Hello, how are you?",
-                    "lastMessageTime": "2024-05-30T13:58:10"
+                    "lastMessageTime": "2024-07-15T13:58:10"
                 ],
                 [
                     "roomId": 7,
