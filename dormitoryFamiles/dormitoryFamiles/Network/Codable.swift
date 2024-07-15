@@ -45,7 +45,7 @@ struct Post: Codable {
 struct PostResponse: Decodable {
     let code: Int
     let data: ResponseData
-
+    
     struct ResponseData: Decodable {
         let articleId: Int
     }
@@ -130,3 +130,43 @@ struct SuccessCode: Codable {
 struct LikeStatus: Codable {
     let status: Int
 }
+
+struct FollowingUserResponse: Codable {
+    let code: Int
+    let data: FollowingUserData
+}
+
+struct FollowingUserData: Codable {
+    let totalPageNumber: Int
+    let nowPageNumber: Int
+    let isLast: Bool
+    let memberProfiles: [MemberProfile]
+}
+
+struct MemberProfile: Codable {
+    let memberId: Int
+    let nickname: String
+    let profileUrl: String
+}
+
+struct ChattingRoomsResponse: Codable {
+    let code: Int
+    let data: ChattingRoomsData
+}
+
+struct ChattingRoomsData: Codable {
+    let nowPageNumber: Int
+    let isLast: Bool
+    let chatRooms: [ChattingRoom]
+}
+
+struct ChattingRoom: Codable {
+    let roomId: Int
+    let memberId: Int
+    let memberNickname: String
+    let unReadCount: Int
+    let lastMessage: String
+    let lastMessageTime: String
+    let memberProfileUrl: String?
+}
+

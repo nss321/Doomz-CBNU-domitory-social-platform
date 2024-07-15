@@ -9,70 +9,9 @@ import UIKit
 import SnapKit
 
 class ChattingHomeViewController: UIViewController {
-    let followingSampleData = [
-        "code": 200,
-        "data": [
-            "totalPageNumber": 1,
-            "nowPageNumber": 0,
-            "isLast": true,
-            "memberProfiles": [
-                [
-                    "memberId": 5,
-                    "nickname": "유림잉",
-                    "profileUrl": "https://dormitory-family-images-bucket.s3.ap-northeast-2.amazonaws.com/a0345319-feff-4998-b098-b2322261acba_IMG_0338.JPG"
-                ],
-                [
-                    "memberId": 3,
-                    "nickname": "해나짱",
-                    "profileUrl": "http://k.kakaocdn.net/dn/cTaX1s/btsFAgXr5mH/n2AXHaWczRKt2Fxmt8hJMk/img_640x640.jpg"
-                ]
-            ]
-        ]
-    ] as [String : Any]
+    var followingData: [MemberProfile] = []
     
-    let sampleChatting = [["roomId": 8,
-                           "memberId": 8,
-                           "memberNickname": "닉네임8",
-                           "unReadCount": 1,
-                           "lastMessage": "Hello, how are you?",
-                           "lastMessageTime": "2024-05-30T13:58:10"
-                          ],
-                          [
-                            "roomId": 7,
-                            "memberId": 7,
-                            "memberNickname": "닉네임7",
-                            "memberProfileUrl": "http://t1.kakaocdn.net/account_images/default_profile.jpeg.twg.thumb.R640x640",
-                            "unReadCount": 20,
-                            "lastMessage": "Hello, how are you?",
-                            "lastMessageTime": "2024-05-30T13:57:47"
-                          ],
-                          [
-                            "roomId": 5,
-                            "memberId": 5,
-                            "memberNickname": "닉네임5",
-                            "memberProfileUrl": "http://t1.kakaocdn.net/account_images/default_profile.jpeg.twg.thumb.R640x640",
-                            "unReadCount": 0,
-                            "lastMessage": "Hello, how are you?",
-                            "lastMessageTime": "2024-05-30T13:57:10"
-                          ],
-                          [
-                            "roomId": 4,
-                            "memberId": 4,
-                            "memberNickname": "닉네임4",
-                            "memberProfileUrl": "http://t1.kakaocdn.net/account_images/default_profile.jpeg.twg.thumb.R640x640",
-                            "unReadCount": 0,
-                            "lastMessage": "Hello, how are you?",
-                            "lastMessageTime": "2024-05-30T13:56:49"
-                          ],
-                          [
-                            "roomId": 3,
-                            "memberId": 3,
-                            "memberNickname": "닉네임3",
-                            "memberProfileUrl": "http://t1.kakaocdn.net/account_images/default_profile.jpeg.twg.thumb.R640x640",
-                            "unReadCount": 0,
-                            "lastMessage": "Hello, how are you?",
-                            "lastMessageTime": "2024-05-30T13:56:25"
-                          ]]
+    var chattingRoomData: [ChattingRoom] = []
     
     let followingLabelButtonStackView = LabelAndRoundButtonStackView(labelText: "팔로잉", textFont: .title2 ?? UIFont(), buttonText: "전체보기", buttonHasArrow: true)
     
@@ -172,13 +111,44 @@ class ChattingHomeViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
     }
+    
+    private func setApi() {
+        followingApiNetwork(url: Url.following(page: 0, size: nil))
+        chatListApiNetwork(url: Url.chattingRoom)
+    }
+    
+    private func followingApiNetwork(url: String) {
+        Network.getMethod(url: url) { (result: Result<FollowingUserResponse, Error>) in
+            switch result {
+            case .success(let response):
+                self.followingData = response.data.memberProfiles
+                DispatchQueue.main.async {
+                    self.collectionView.reloadData()
+                }
+            case .failure(let error):
+                print("Error: \(error)")
+            }
+        }
+    }
+    
+    private func chatListApiNetwork(url: String) {
+        Network.getMethod(url: url) { (result: Result<ChattingRoomsResponse, Error>) in
+            switch result {
+            case .success(let response):
+                self.chattingRoomData = response.data.chatRooms
+                DispatchQueue.main.async {
+                    self.collectionView.reloadData()
+                }
+            case .failure(let error):
+                print("Error: \(error)")
+            }
+        }
+    }
 }
 
 extension ChattingHomeViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        let data = followingSampleData["data"] as! [String: Any]
-        let profiles = data["memberProfiles"] as! [[String: Any]]
-        return profiles.count
+        return followingData.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -186,37 +156,30 @@ extension ChattingHomeViewController: UICollectionViewDelegate, UICollectionView
             fatalError()
         }
         
-        var profile: [String: Any] = [:]
-        
-        
-        let data = followingSampleData["data"] as! [String: Any]
-        let profiles = data["memberProfiles"] as! [[String: Any]]
-        profile = profiles[indexPath.row]
-        
-        
-        let nickname = profile["nickname"] as! String
-        let profileUrl = profile["profileUrl"] as! String
-        cell.configure(text: nickname, profileUrl: profileUrl)
-        
-        return cell
+        let profile = followingData[indexPath.row]
+                cell.configure(text: profile.nickname, profileUrl: profile.profileUrl)
+                
+                return cell
     }
 }
 
 extension ChattingHomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return sampleChatting.count
+        return chattingRoomData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: ChattingHomeTableViewCell.identifier, for: indexPath) as? ChattingHomeTableViewCell else {
             return UITableViewCell()
         }
-        let chatData = sampleChatting[indexPath.row]
-        let memberNickname = chatData["memberNickname"] as? String ?? ""
-        let memberProfileUrl = chatData["memberProfileUrl"] as? String ?? ""
-        let unReadCount = chatData["unReadCount"] as? Int ?? 0
-        let lastMessage = chatData["lastMessage"] as? String ?? ""
-        let lastMessageTime = chatData["lastMessageTime"] as? String ?? ""
+        let chattingRoom = chattingRoomData[indexPath.row]
+        let memberNickname = chattingRoom.memberNickname
+        let memberProfileUrl = chattingRoom.memberProfileUrl ?? ""
+        let unReadCount = chattingRoom.unReadCount
+        let lastMessage = chattingRoom.lastMessage
+        let lastMessageTime = chattingRoom.lastMessageTime
+        let roomId = chattingRoom.roomId
+        let memberId = chattingRoom.memberId
         
         cell.configure(memberNickname: memberNickname, memberProfileUrl: memberProfileUrl, unReadCount: unReadCount, lastMessage: lastMessage, lastMessageTime: lastMessageTime)
         cell.selectionStyle = .none
