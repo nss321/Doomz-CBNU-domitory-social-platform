@@ -8,6 +8,7 @@
 import UIKit
 
 enum FontSize: CGFloat {
+    case twelve = 12
     case fourTeen = 14
     case sixTeen = 16
     case eightTeen = 18
@@ -78,6 +79,10 @@ extension FontManager {
     }
     static func button() -> UIFont {
         FontManager.shared.pretendard(.medium, .fourTeen)
+    }
+    
+    static func small1() -> UIFont {
+        FontManager.shared.pretendard(.regular, .twelve)
     }
     
 }
