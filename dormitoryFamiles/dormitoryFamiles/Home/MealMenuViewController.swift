@@ -57,7 +57,7 @@ final class MealMenuViewController: TabmanViewController {
         setNavi()
         let dateArr = DateUtility.weekRangeString(seperator: ".")
         weekDateLabel.button = dateArr[0]+"~"+dateArr[1]
-        setTapman()
+        setTabman()
     }
     
     private func setNavi() {
@@ -70,7 +70,7 @@ final class MealMenuViewController: TabmanViewController {
             }
     }
    
-    private func setTapman() {
+    private func setTabman() {
         self.dataSource = self
         // 바 세팅
         let bar = TMBar.ButtonBar()

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ChatFollowingCollectionViewCell: UICollectionViewCell {
+class UserProfileNicknameCollectionViewControllerCell: UICollectionViewCell {
     static let identifier = "ChatFollowingCollectionViewCell"
     
     let profileImageView: UIImageView = {
@@ -42,6 +42,12 @@ class ChatFollowingCollectionViewCell: UICollectionViewCell {
         setConstraints()
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        profileImageView.layer.cornerRadius = 24
+        profileImageView.clipsToBounds = true
+    }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -58,7 +64,13 @@ class ChatFollowingCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    func configure(with text: String) {
+    private func loadImage(url: String) {
+        let imageUrl = URL(string: url)
+        self.profileImageView.kf.setImage(with: imageUrl)
+    }
+    
+    func configure(text: String, profileUrl: String) {
         nicknameLabel.text = text
+        loadImage(url: profileUrl)
     }
 }

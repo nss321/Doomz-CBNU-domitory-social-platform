@@ -88,7 +88,7 @@ final class CommonbuttonModel: NSObject {
     }
 }
 
-final class PrimaryButton: TagButton {
+final class PrimaryMidRoundButton: TagButton {
     
     convenience init(title: String, isArrow: Bool) {
         self.init(title: title)
