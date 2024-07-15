@@ -223,5 +223,12 @@ extension ChattingHomeViewController: UITableViewDelegate, UITableViewDataSource
         return cell
     }
     
-    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let delete = UIContextualAction(style: .normal, title: "나가기") { (UIContextualAction, UIView, success: @escaping (Bool) -> Void) in
+            print("나가기\(indexPath)")
+            success(true)
+        }
+        delete.backgroundColor = .systemRed
+        return UISwipeActionsConfiguration(actions:[delete])
+    }
 }
