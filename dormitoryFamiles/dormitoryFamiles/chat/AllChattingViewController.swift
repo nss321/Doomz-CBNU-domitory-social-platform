@@ -48,6 +48,60 @@ class AllChattingViewController: UIViewController {
         ]
     ] as [String : Any]
     
+    let chattingRoomData = [
+        "code": 200,
+        "data": [
+            "nowPageNumber": 0,
+            "isLast": true,
+            "chatRooms": [
+                [
+                    "roomId": 8,
+                    "memberId": 8,
+                    "memberNickname": "닉네임8",
+                    "unReadCount": 0,
+                    "lastMessage": "Hello, how are you?",
+                    "lastMessageTime": "2024-05-30T13:58:10"
+                ],
+                [
+                    "roomId": 7,
+                    "memberId": 7,
+                    "memberNickname": "닉네임7",
+                    "memberProfileUrl": "http://t1.kakaocdn.net/account_images/default_profile.jpeg.twg.thumb.R640x640",
+                    "unReadCount": 0,
+                    "lastMessage": "Hello, how are you?",
+                    "lastMessageTime": "2024-05-30T13:57:47"
+                ],
+                [
+                    "roomId": 5,
+                    "memberId": 5,
+                    "memberNickname": "닉네임5",
+                    "memberProfileUrl": "http://t1.kakaocdn.net/account_images/default_profile.jpeg.twg.thumb.R640x640",
+                    "unReadCount": 0,
+                    "lastMessage": "Hello, how are you?",
+                    "lastMessageTime": "2024-05-30T13:57:10"
+                ],
+                [
+                    "roomId": 4,
+                    "memberId": 4,
+                    "memberNickname": "닉네임4",
+                    "memberProfileUrl": "http://t1.kakaocdn.net/account_images/default_profile.jpeg.twg.thumb.R640x640",
+                    "unReadCount": 0,
+                    "lastMessage": "Hello, how are you?",
+                    "lastMessageTime": "2024-05-30T13:56:49"
+                ],
+                [
+                    "roomId": 3,
+                    "memberId": 3,
+                    "memberNickname": "닉네임3",
+                    "memberProfileUrl": "http://t1.kakaocdn.net/account_images/default_profile.jpeg.twg.thumb.R640x640",
+                    "unReadCount": 0,
+                    "lastMessage": "Hello, how are you?",
+                    "lastMessageTime": "2024-05-30T13:56:25"
+                ]
+            ]
+        ]
+    ] as [String : Any]
+    
     let followingLabelAndButtonStackView = LabelAndRoundButtonStackView(labelText: "팔로잉", textFont: .title2 ?? UIFont(), buttonText: "더보기", buttonHasArrow: true)
     
     let allDoomzLabelAndButtonStackView = LabelAndRoundButtonStackView(labelText: "전체둠즈", textFont: .title2 ?? UIFont(), buttonText: "더보기", buttonHasArrow: true)
@@ -105,6 +159,12 @@ class AllChattingViewController: UIViewController {
             $0.top.equalTo(allDoomzLabelAndButtonStackView.snp.bottom).inset(-12)
             $0.leading.trailing.equalToSuperview().inset(25)
             $0.height.equalTo(70)
+        }
+        
+        chattingRoomLabelAndButtonStackView.snp.makeConstraints {
+            $0.top.equalTo(allDoomzCollectionView.snp.bottom).inset(-32)
+            $0.leading.trailing.equalToSuperview().inset(25)
+            $0.height.equalTo(32)
         }
     }
 }
