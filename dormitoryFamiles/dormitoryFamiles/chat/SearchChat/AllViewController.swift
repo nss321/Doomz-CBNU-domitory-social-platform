@@ -164,23 +164,6 @@ class AllViewController: UIViewController {
         }
     }
     
-    private func allDoomzApiNetwork(url: String) {
-        Network.getMethod(url: url) { (result: Result<AllDoomzResponse, Error>) in
-            switch result {
-            case .success(let response):
-                self.allDoomzData += response.data.memberProfiles
-                //self.isAllDoomzLast = response.data.isLast
-                DispatchQueue.main.async {
-                    self.allDoomzCollectionView.reloadData()
-                }
-                self.isLoading = false
-            case .failure(let error):
-                print("Error: \(error)")
-                self.isLoading = false
-            }
-        }
-    }
-    
     private func chatListApiNetwork(url: String) {
         Network.getMethod(url: url) { (result: Result<ChattingRoomsResponse, Error>) in
             switch result {
@@ -194,6 +177,21 @@ class AllViewController: UIViewController {
             case .failure(let error):
                 print("Error: \(error)")
                 self.isLoading = false
+            }
+        }
+    }
+    
+    private func allDoomzApiNetwork(url: String) {
+        Network.getMethod(url: url) { (result: Result<AllDoomzResponse, Error>) in
+            switch result {
+            case .success(let response):
+                self.allDoomzData += response.data.memberProfiles
+                //self.isAllDoomzLast = response.data.isLast
+                DispatchQueue.main.async {
+                    self.allDoomzCollectionView.reloadData()
+                }
+            case .failure(let error):
+                print("Error: \(error)")
             }
         }
     }

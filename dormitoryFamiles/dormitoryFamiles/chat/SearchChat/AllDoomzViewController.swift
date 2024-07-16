@@ -68,8 +68,6 @@ class AllDoomzViewController: UIViewController {
             }
         }
     }
-    
-    
 }
 extension AllDoomzViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
