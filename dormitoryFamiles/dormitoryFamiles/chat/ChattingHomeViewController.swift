@@ -2,17 +2,17 @@ import UIKit
 import SnapKit
 
 class ChattingHomeViewController: UIViewController {
-    var followingData: [MemberProfile] = []
-    var followingPage = 0
-    var isfollowingLast = false
+    private var followingData: [MemberProfile] = []
+    private var followingPage = 0
+    private var isFollowingLast = false
     
-    var chattingRoomData: [ChattingRoom] = []
-    var chattingRoomPage = 0
-    var isChattingLast = false
+    private var chattingRoomData: [ChattingRoom] = []
+    private var chattingRoomPage = 0
+    private var isChattingLast = false
     
     private var isLoading = false
     
-    let followingLabelButtonStackView = LabelAndRoundButtonStackView(labelText: "팔로잉", textFont: .title2 ?? UIFont(), buttonText: "전체보기", buttonHasArrow: true)
+    private let followingLabelButtonStackView = LabelAndRoundButtonStackView(labelText: "팔로잉", textFont: .title2 ?? UIFont(), buttonText: "전체보기", buttonHasArrow: true)
     
     private let collectionView = UserProfileNicknameCollectionView(spacing: 12, scrollDirection: .horizontal)
     
@@ -74,6 +74,7 @@ class ChattingHomeViewController: UIViewController {
             $0.leading.trailing.equalToSuperview().inset(20)
         }
         
+        view.addSubview(collectionView)
         collectionView.snp.makeConstraints {
             $0.top.equalTo(followingLabelButtonStackView.snp.bottom).inset(-12)
             $0.height.equalTo(70)
@@ -93,6 +94,7 @@ class ChattingHomeViewController: UIViewController {
             $0.leading.equalToSuperview().inset(26)
         }
         
+        view.addSubview(tableView)
         tableView.snp.makeConstraints {
             $0.top.equalTo(chattingListLabel.snp.bottom).inset(-20)
             $0.leading.trailing.equalToSuperview()
@@ -101,21 +103,17 @@ class ChattingHomeViewController: UIViewController {
     }
     
     private func setCollectionView() {
-        view.addSubview(collectionView)
         collectionView.delegate = self
         collectionView.dataSource = self
     }
     
     private func setTableView() {
-        view.addSubview(tableView)
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.scrollsToTop = true
     }
     
     private func setApi() {
         followingApiNetwork(url: Url.following(page: followingPage, size: nil))
-        
         chatListApiNetwork(url: Url.chattingRoom(page: chattingRoomPage, size: nil))
     }
     
@@ -123,12 +121,15 @@ class ChattingHomeViewController: UIViewController {
         Network.getMethod(url: url) { (result: Result<FollowingUserResponse, Error>) in
             switch result {
             case .success(let response):
-                self.followingData = response.data.memberProfiles
+                self.followingData += response.data.memberProfiles
+                self.isFollowingLast = response.data.isLast
                 DispatchQueue.main.async {
                     self.collectionView.reloadData()
                 }
+                self.isLoading = false
             case .failure(let error):
                 print("Error: \(error)")
+                self.isLoading = false
             }
         }
     }
@@ -153,9 +154,14 @@ class ChattingHomeViewController: UIViewController {
     
     private func chattingRoomloadNextPage() {
         guard !isChattingLast else { return }
-        
-        chatListApiNetwork(url: Url.chattingRoom(page: chattingRoomPage, size: nil))
         chattingRoomPage += 1
+        chatListApiNetwork(url: Url.chattingRoom(page: chattingRoomPage, size: 1))
+    }
+    
+    private func followingLoadNextPage() {
+        guard !isFollowingLast else { return }
+        followingPage += 1
+        followingApiNetwork(url: Url.following(page: followingPage, size: 1))
     }
 }
 
@@ -192,8 +198,6 @@ extension ChattingHomeViewController: UITableViewDelegate, UITableViewDataSource
         let unReadCount = chattingRoom.unReadCount
         let lastMessage = chattingRoom.lastMessage
         let lastMessageTime = chattingRoom.lastMessageTime
-        let roomId = chattingRoom.roomId
-        let memberId = chattingRoom.memberId
         
         cell.configure(memberNickname: memberNickname, memberProfileUrl: memberProfileUrl, unReadCount: unReadCount, lastMessage: lastMessage, lastMessageTime: lastMessageTime)
         cell.selectionStyle = .none
@@ -206,20 +210,33 @@ extension ChattingHomeViewController: UITableViewDelegate, UITableViewDataSource
             success(true)
         }
         delete.backgroundColor = .systemRed
-        return UISwipeActionsConfiguration(actions:[delete])
+        return UISwipeActionsConfiguration(actions: [delete])
     }
 }
 
 extension ChattingHomeViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        guard chattingRoomPage != 0 else {return}
         let offsetY = scrollView.contentOffset.y
         let contentHeight = scrollView.contentSize.height
         let height = scrollView.frame.size.height
-        if offsetY > contentHeight - height {
-            if !isLoading {
-                isLoading = true
-                chattingRoomloadNextPage()
+        
+        if scrollView == tableView {
+            if offsetY > contentHeight - height {
+                if !isLoading {
+                    isLoading = true
+                    chattingRoomloadNextPage()
+                }
+            }
+        } else if scrollView == collectionView {
+            let horizontalOffset = scrollView.contentOffset.x
+            let contentWidth = scrollView.contentSize.width
+            let width = scrollView.frame.size.width
+            
+            if horizontalOffset > contentWidth - width {
+                if !isLoading {
+                    isLoading = true
+                    followingLoadNextPage()
+                }
             }
         }
     }

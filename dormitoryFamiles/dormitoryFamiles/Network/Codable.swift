@@ -170,3 +170,12 @@ struct ChattingRoom: Codable {
     let memberProfileUrl: String?
 }
 
+struct AllDoomzResponse: Codable {
+    let code: Int
+    let data: AllDoomzData
+}
+
+struct AllDoomzData: Codable {
+    let memberProfiles: [MemberProfile]
+}
+
