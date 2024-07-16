@@ -11,6 +11,7 @@ class ChattingHomeViewController: UIViewController {
     private var isChattingLast = false
     
     private var isLoading = false
+    var didFollowingMoreButtonTapped = false
     
     private let followingLabelButtonStackView = LabelAndRoundButtonStackView(labelText: "팔로잉", textFont: .title2 ?? UIFont(), buttonText: "전체보기", buttonHasArrow: true)
     
@@ -37,11 +38,18 @@ class ChattingHomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        followingLabelButtonStackView.addButtonTarget(target: self, action: #selector(followingMoreButtonTapped), for: .touchUpInside)
         setNavigationBar()
         setCollectionView()
         setTableView()
         setConstraints()
         setApi()
+    }
+    
+    @objc func followingMoreButtonTapped() {
+        let searchChattingViewController = SearchChattingViewController()
+        didFollowingMoreButtonTapped = true
+        self.navigationController?.pushViewController(SearchChattingViewController(), animated: true)
     }
     
     private func setNavigationBar() {
