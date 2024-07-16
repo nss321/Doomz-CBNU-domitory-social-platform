@@ -44,12 +44,45 @@ class AllViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setButtonActon()
         setCollectionView()
         setTableView()
         addComponents()
         setConstraints()
         setApi()
     }
+    
+    private func setButtonActon() {
+        followingLabelAndButtonStackView.addButtonTarget(target: self, action: #selector(followingMoreButtonTapped), for: .touchUpInside)
+                allDoomzLabelAndButtonStackView.addButtonTarget(target: self, action: #selector(allDoomzMoreButtonTapped), for: .touchUpInside)
+                chattingRoomLabelAndButtonStackView.addButtonTarget(target: self, action: #selector(chattingRoomMoreButtonTapped), for: .touchUpInside)
+                messageLabelAndButtonStackView.addButtonTarget(target: self, action: #selector(messageMoreButtonTapped), for: .touchUpInside)
+    }
+    
+       @objc private func followingMoreButtonTapped() {
+           if let parentVC = self.parent?.parent as? SearchChattingViewController {
+                       parentVC.scrollToPage(.at(index: 1), animated: true)
+            }
+       }
+       
+       @objc private func allDoomzMoreButtonTapped() {
+           if let parentVC = self.parent?.parent as? SearchChattingViewController {
+                       parentVC.scrollToPage(.at(index: 2), animated: true)
+            }
+       }
+       
+       @objc private func chattingRoomMoreButtonTapped() {
+           if let parentVC = self.parent?.parent as? SearchChattingViewController {
+                       parentVC.scrollToPage(.at(index: 3), animated: true)
+            }
+       }
+       
+       @objc private func messageMoreButtonTapped() {
+           if let parentVC = self.parent?.parent as? SearchChattingViewController {
+                       parentVC.scrollToPage(.at(index: 4), animated: true)
+            }
+       }
+       
     
     private func setCollectionView() {
         followingCollectionView.delegate = self
