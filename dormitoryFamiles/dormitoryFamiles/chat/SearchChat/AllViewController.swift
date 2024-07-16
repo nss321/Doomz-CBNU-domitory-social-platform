@@ -110,7 +110,7 @@ class AllViewController: UIViewController {
         chattingRoomTableView.snp.makeConstraints {
             $0.top.equalTo(chattingRoomLabelAndButtonStackView.snp.bottom).inset(-12)
             $0.leading.trailing.equalToSuperview()
-            $0.height.equalTo(146)
+            $0.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
         }
     }
     
@@ -201,7 +201,7 @@ extension AllViewController: UICollectionViewDelegate, UICollectionViewDataSourc
             let profile = followingData[indexPath.row]
             cell.configure(text: profile.nickname, profileUrl: profile.profileUrl)
         case allDoomzCollectionView:
-            let profile = followingData[indexPath.row]
+            let profile = allDoomzData[indexPath.row]
             cell.configure(text: profile.nickname, profileUrl: profile.profileUrl)
         default:
             break
