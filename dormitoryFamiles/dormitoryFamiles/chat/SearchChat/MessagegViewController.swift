@@ -6,18 +6,28 @@
 //
 
 import UIKit
+import DropDown
 
 class MessagegViewController: UIViewController {
     private var messageData: [Message] = []
     private var messagePage = 0
     private var isMessageLast = false
     private var isLoading = false
-    
+    var sorted = "latest"
+    let dropDown = DropDown()
     let messageLabel: UILabel = {
         let label = UILabel()
         label.font = .title2
         label.text = "메세지"
         return label
+    }()
+    
+    let sortedButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("ddddddddd", for: .normal)
+        button.setTitleColor(.black, for: .normal)
+        button.addTarget(self, action: #selector(sortedButtonTapped), for: .touchUpInside)
+        return button
     }()
     
     let messageTableView: UITableView = {
@@ -31,12 +41,13 @@ class MessagegViewController: UIViewController {
         setTableView()
         addComponents()
         setConstraints()
+        setDropDown()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         messageData = []
-        chatListApiNetwork(url: Url.message(page: messagePage, size: nil, keyword: SearchChattingViewController.keyword, sorted: "latest"))
+        chatListApiNetwork(url: Url.message(page: messagePage, size: nil, keyword: SearchChattingViewController.keyword, sorted: sorted))
     }
     
     private func setTableView() {
@@ -45,7 +56,7 @@ class MessagegViewController: UIViewController {
     }
     
     private func addComponents() {
-        [messageLabel, messageTableView].forEach {
+        [messageLabel, sortedButton, messageTableView].forEach {
             view.addSubview($0)
         }
     }
@@ -54,6 +65,12 @@ class MessagegViewController: UIViewController {
         messageLabel.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide.snp.top).inset(66)
             $0.leading.equalToSuperview().inset(25)
+            $0.height.equalTo(32)
+        }
+        
+        sortedButton.snp.makeConstraints {
+            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top).inset(66)
+            $0.trailing.equalToSuperview().inset(25)
             $0.height.equalTo(32)
         }
         
@@ -85,6 +102,37 @@ class MessagegViewController: UIViewController {
         guard !isMessageLast else { return }
         messagePage += 1
         chatListApiNetwork(url: Url.chattingRoom(page: messagePage, size: nil, keyword: SearchChattingViewController.keyword))
+    }
+    
+    private func setDropDown() {
+        DropDown.startListeningToKeyboard()
+        DropDown.appearance().setupCornerRadius(20)
+        DropDown.appearance().backgroundColor = .white
+        DropDown.appearance().cellHeight = 52
+        DropDown.appearance().shadowOpacity = 0
+        DropDown.appearance().selectionBackgroundColor = .gray0 ?? .white
+        DropDown.appearance().textFont = .pretendard14Variable ?? .init()
+        DropDown.appearance().textColor = .gray4 ?? .gray
+    }
+    
+    @objc func sortedButtonTapped() {
+            dropDown.dataSource = ["최신순", "오래된순"]
+
+        //공통으로 dropdown을 보여주기 위한 코드
+        dropDown.anchorView = sortedButton
+        dropDown.bottomOffset = CGPoint(x: 0, y:((dropDown.anchorView?.plainView.bounds.height)!+5))
+        dropDown.show()
+        dropDown.selectionAction = { [weak self] (index: Int, item: String) in
+            guard let self = self else { return }
+            //item 선택시 -> 1. 버튼의 title변경, 2. 해당 url세팅
+            self.sortedButton.body2 = item
+            if item == "최신순" {
+                self.sorted = "latest"
+            }else {
+                self.sorted = "oldest"
+            }
+            self.chatListApiNetwork(url: Url.message(page: self.messagePage, size: nil, keyword: SearchChattingViewController.keyword, sorted: self.sorted))
+        }
     }
 }
 
