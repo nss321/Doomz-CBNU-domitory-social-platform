@@ -13,7 +13,11 @@ class MessagegViewController: UIViewController {
     private var messagePage = 0
     private var isMessageLast = false
     private var isLoading = false
-    var sorted = "latest"
+    var sorted = "latest" {
+        didSet {
+            messageData = []
+        }
+    }
     let dropDown = DropDown()
     let messageLabel: UILabel = {
         let label = UILabel()
@@ -22,13 +26,7 @@ class MessagegViewController: UIViewController {
         return label
     }()
     
-    let sortedButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("ddddddddd", for: .normal)
-        button.setTitleColor(.black, for: .normal)
-        button.addTarget(self, action: #selector(sortedButtonTapped), for: .touchUpInside)
-        return button
-    }()
+    let sortedButton = DropdownButton(frame: CGRect(), title: "최신순")
     
     let messageTableView: UITableView = {
         let tableView = UITableView()
@@ -38,6 +36,7 @@ class MessagegViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setSortedButton()
         setTableView()
         addComponents()
         setConstraints()
@@ -48,6 +47,10 @@ class MessagegViewController: UIViewController {
         super.viewWillAppear(true)
         messageData = []
         chatListApiNetwork(url: Url.message(page: messagePage, size: nil, keyword: SearchChattingViewController.keyword, sorted: sorted))
+    }
+    
+    private func setSortedButton() {
+        sortedButton.addTarget(self, action: #selector(sortedButtonTapped), for: .touchUpInside)
     }
     
     private func setTableView() {
