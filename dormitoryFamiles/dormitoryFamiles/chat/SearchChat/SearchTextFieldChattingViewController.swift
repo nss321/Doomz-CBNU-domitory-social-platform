@@ -59,6 +59,7 @@ extension SearchTextFieldChattingViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         //리턴 버튼이 눌린다면
         //이전 화면의 keyword변경
+        
         //이전화면으로 돌아가면서 willAppear 실행시키도록
         return true
     }

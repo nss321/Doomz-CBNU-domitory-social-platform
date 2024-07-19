@@ -28,6 +28,10 @@ class FollowingViewController: UIViewController {
         setCollectionView()
         addComponents()
         setConstraints()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
         followingApiNetwork(url: Url.following(page: followingPage, size: nil, keyword: keyword))
     }
     

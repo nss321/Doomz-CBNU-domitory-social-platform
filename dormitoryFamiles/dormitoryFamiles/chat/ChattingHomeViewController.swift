@@ -44,7 +44,11 @@ class ChattingHomeViewController: UIViewController {
         setCollectionView()
         setTableView()
         setConstraints()
-        setApi()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        setApi(keyword: keyword)
     }
     
     @objc func followingMoreButtonTapped() {
@@ -121,7 +125,7 @@ class ChattingHomeViewController: UIViewController {
         tableView.dataSource = self
     }
     
-    private func setApi() {
+    private func setApi(keyword: String?) {
         followingApiNetwork(url: Url.following(page: followingPage, size: nil, keyword: keyword))
         chatListApiNetwork(url: Url.chattingRoom(page: chattingRoomPage, size: nil, keyword: keyword))
     }
