@@ -8,7 +8,6 @@
 import UIKit
 
 class ChattingRoomViewController: UIViewController {
-    var keyword: String?
     private var chattingRoomData: [ChattingRoom] = []
     private var chattingRoomPage = 0
     private var isChattingLast = false
@@ -36,7 +35,8 @@ class ChattingRoomViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        chatListApiNetwork(url: Url.chattingRoom(page: chattingRoomPage, size: nil, keyword: keyword))
+        chattingRoomData = []
+        chatListApiNetwork(url: Url.chattingRoom(page: chattingRoomPage, size: nil, keyword: SearchChattingViewController.keyword))
     }
     
     private func setTableView() {
@@ -84,7 +84,7 @@ class ChattingRoomViewController: UIViewController {
     private func chattingRoomloadNextPage() {
         guard !isChattingLast else { return }
         chattingRoomPage += 1
-        chatListApiNetwork(url: Url.chattingRoom(page: chattingRoomPage, size: nil, keyword: keyword))
+        chatListApiNetwork(url: Url.chattingRoom(page: chattingRoomPage, size: nil, keyword: SearchChattingViewController.keyword))
     }
 }
 

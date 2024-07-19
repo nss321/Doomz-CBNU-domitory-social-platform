@@ -154,6 +154,15 @@ struct ChattingRoomsResponse: Codable {
     let data: ChattingRoomsData
 }
 
+struct FollowingUserSearchResponse: Codable {
+    let code: Int
+    let data: FollowingUserSearchData
+}
+
+struct FollowingUserSearchData: Codable {
+    let memberProfiles: [MemberProfile]
+}
+
 struct ChattingRoomsData: Codable {
     let nowPageNumber: Int
     let isLast: Bool

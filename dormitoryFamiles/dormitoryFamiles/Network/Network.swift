@@ -9,7 +9,8 @@ import Foundation
 struct Network {
     
     static func getMethod<T: Codable>(url: String, completion: @escaping (Result<T, Error>) -> Void) {
-        guard let url = URL(string: url) else {
+        guard let encodedUrlString = url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
+              let url = URL(string: encodedUrlString) else {
             completion(.failure(NSError(domain: "InvalidURL", code: 400, userInfo: nil)))
             return
         }

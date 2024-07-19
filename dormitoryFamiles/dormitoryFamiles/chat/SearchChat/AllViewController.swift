@@ -8,7 +8,6 @@
 import UIKit
 
 class AllViewController: UIViewController {
-    var keyword: String?
     private var followingData: [MemberProfile] = []
     private var followingPage = 0
     private var isFollowingLast = false
@@ -44,7 +43,9 @@ class AllViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        setApi(keyword: keyword)
+        followingData = []
+        chattingRoomData = []
+        setApi(keyword: SearchChattingViewController.keyword)
     }
     
     private func setButtonActon() {
@@ -61,13 +62,13 @@ class AllViewController: UIViewController {
        
        @objc private func chattingRoomMoreButtonTapped() {
            if let parentVC = self.parent?.parent as? SearchChattingViewController {
-                       parentVC.scrollToPage(.at(index: 3), animated: true)
+                       parentVC.scrollToPage(.at(index: 2), animated: true)
             }
        }
        
        @objc private func messageMoreButtonTapped() {
            if let parentVC = self.parent?.parent as? SearchChattingViewController {
-                       parentVC.scrollToPage(.at(index: 4), animated: true)
+                       parentVC.scrollToPage(.at(index: 3), animated: true)
             }
        }
        
@@ -120,18 +121,34 @@ class AllViewController: UIViewController {
     }
     
     private func followingApiNetwork(url: String) {
-        Network.getMethod(url: url) { (result: Result<FollowingUserResponse, Error>) in
-            switch result {
-            case .success(let response):
-                self.followingData += response.data.memberProfiles
-                self.isFollowingLast = response.data.isLast
-                DispatchQueue.main.async {
-                    self.followingCollectionView.reloadData()
+        if url.contains("search") {
+            Network.getMethod(url: url) { (result: Result<FollowingUserSearchResponse, Error>) in
+                switch result {
+                case .success(let response):
+                    self.followingData += response.data.memberProfiles
+                    DispatchQueue.main.async {
+                        self.followingCollectionView.reloadData()
+                    }
+                    self.isLoading = false
+                case .failure(let error):
+                    print("Error: \(error)")
+                    self.isLoading = false
                 }
-                self.isLoading = false
-            case .failure(let error):
-                print("Error: \(error)")
-                self.isLoading = false
+            }
+        }else {
+            Network.getMethod(url: url) { (result: Result<FollowingUserResponse, Error>) in
+                switch result {
+                case .success(let response):
+                    self.followingData += response.data.memberProfiles
+                    self.isFollowingLast = response.data.isLast
+                    DispatchQueue.main.async {
+                        self.followingCollectionView.reloadData()
+                    }
+                    self.isLoading = false
+                case .failure(let error):
+                    print("Error: \(error)")
+                    self.isLoading = false
+                }
             }
         }
     }
@@ -156,13 +173,13 @@ class AllViewController: UIViewController {
     private func chattingRoomloadNextPage() {
         guard !isChattingLast else { return }
         chattingRoomPage += 1
-        chatListApiNetwork(url: Url.chattingRoom(page: chattingRoomPage, size: 1, keyword: keyword))
+        chatListApiNetwork(url: Url.chattingRoom(page: chattingRoomPage, size: 1, keyword: SearchChattingViewController.keyword))
     }
     
     private func followingLoadNextPage() {
         guard !isFollowingLast else { return }
         followingPage += 1
-        followingApiNetwork(url: Url.following(page: followingPage, size: 1, keyword: keyword))
+        followingApiNetwork(url: Url.following(page: followingPage, size: 1, keyword: SearchChattingViewController.keyword))
     }
     
 }

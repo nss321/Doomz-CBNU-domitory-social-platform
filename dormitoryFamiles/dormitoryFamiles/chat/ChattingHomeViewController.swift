@@ -48,6 +48,8 @@ class ChattingHomeViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        followingData = []
+        chattingRoomData = []
         setApi(keyword: keyword)
     }
     
