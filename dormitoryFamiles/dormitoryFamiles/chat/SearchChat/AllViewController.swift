@@ -16,6 +16,10 @@ class AllViewController: UIViewController {
     private var chattingRoomPage = 0
     private var isChattingLast = false
     
+    private var messageData: [Message] = []
+    private var messagePage = 0
+    private var isMessageLast = false
+    
     private var isLoading = false
     
     private let followingLabelAndButtonStackView = LabelAndRoundButtonStackView(labelText: "팔로잉", textFont: .title2 ?? UIFont(), buttonText: "더보기", buttonHasArrow: true)
@@ -27,6 +31,12 @@ class AllViewController: UIViewController {
     private let followingCollectionView = UserProfileNicknameCollectionView(spacing: 20, scrollDirection: .horizontal)
     
     private let chattingRoomTableView: UITableView = {
+        let tableView = UITableView()
+        tableView.register(ChattingHomeTableViewCell.self, forCellReuseIdentifier: ChattingHomeTableViewCell.identifier)
+        return tableView
+    }()
+    
+    private let messageTableView: UITableView = {
         let tableView = UITableView()
         tableView.register(ChattingHomeTableViewCell.self, forCellReuseIdentifier: ChattingHomeTableViewCell.identifier)
         return tableView
@@ -45,6 +55,7 @@ class AllViewController: UIViewController {
         super.viewWillAppear(true)
         followingData = []
         chattingRoomData = []
+        messageData = []
         setApi(keyword: SearchChattingViewController.keyword)
     }
     
@@ -81,15 +92,20 @@ class AllViewController: UIViewController {
     private func setTableView() {
         chattingRoomTableView.delegate = self
         chattingRoomTableView.dataSource = self
+        chattingRoomTableView.isScrollEnabled = false
+        messageTableView.delegate = self
+        messageTableView.dataSource = self
+        messageTableView.isScrollEnabled = false
     }
     
     private func setApi(keyword: String?) {
-        followingApiNetwork(url: Url.following(page: followingPage, size: nil, keyword: keyword))
-        chatListApiNetwork(url: Url.chattingRoom(page: chattingRoomPage, size: nil, keyword: keyword))
+        followingApiNetwork(url: Url.following(page: followingPage, size: 5, keyword: keyword))
+        chatListApiNetwork(url: Url.chattingRoom(page: chattingRoomPage, size: 2, keyword: keyword))
+        messageListApiNetwork(url: Url.message(page: messagePage, size: nil, keyword: keyword, sorted: "latest"))
     }
     
     private func addComponents() {
-        [followingLabelAndButtonStackView, chattingRoomLabelAndButtonStackView, messageLabelAndButtonStackView, followingCollectionView, chattingRoomTableView].forEach {
+        [followingLabelAndButtonStackView, chattingRoomLabelAndButtonStackView, messageLabelAndButtonStackView, followingCollectionView, chattingRoomTableView, messageTableView].forEach {
             view.addSubview($0)
         }
     }
@@ -115,6 +131,18 @@ class AllViewController: UIViewController {
         
         chattingRoomTableView.snp.makeConstraints {
             $0.top.equalTo(chattingRoomLabelAndButtonStackView.snp.bottom).inset(-12)
+            $0.leading.trailing.equalToSuperview()
+            $0.height.equalTo(146)
+        }
+        
+        messageLabelAndButtonStackView.snp.makeConstraints {
+            $0.top.equalTo(chattingRoomTableView.snp.bottom).inset(-32)
+            $0.leading.trailing.equalToSuperview().inset(25)
+            $0.height.equalTo(32)
+        }
+        
+        messageTableView.snp.makeConstraints {
+            $0.top.equalTo(messageLabelAndButtonStackView.snp.bottom).inset(-12)
             $0.leading.trailing.equalToSuperview()
             $0.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
         }
@@ -170,6 +198,23 @@ class AllViewController: UIViewController {
         }
     }
     
+    private func messageListApiNetwork(url: String) {
+        Network.getMethod(url: url) { (result: Result<MessageResponse, Error>) in
+            switch result {
+            case .success(let response):
+                self.messageData += response.data.chatHistory
+                self.isMessageLast = response.data.isLast
+                DispatchQueue.main.async {
+                    self.messageTableView.reloadData()
+                }
+                self.isLoading = false
+            case .failure(let error):
+                print("Error: \(error)")
+                self.isLoading = false
+            }
+        }
+    }
+    
     private func chattingRoomloadNextPage() {
         guard !isChattingLast else { return }
         chattingRoomPage += 1
@@ -216,6 +261,8 @@ extension AllViewController: UITableViewDataSource, UITableViewDelegate {
         switch tableView {
         case chattingRoomTableView:
             return chattingRoomData.count
+        case messageTableView:
+            return messageData.count
         default:
             return 0
         }
@@ -227,45 +274,29 @@ extension AllViewController: UITableViewDataSource, UITableViewDelegate {
             return UITableViewCell()
         }
         
-        let chattingRoom = chattingRoomData[indexPath.row]
-        let memberNickname = chattingRoom.memberNickname
-        let memberProfileUrl = chattingRoom.memberProfileUrl ?? ""
-        let unReadCount = chattingRoom.unReadCount
-        let lastMessage = chattingRoom.lastMessage
-        let lastMessageTime = chattingRoom.lastMessageTime
-        
-        cell.configure(memberNickname: memberNickname, memberProfileUrl: memberProfileUrl, unReadCount: unReadCount, lastMessage: lastMessage, lastMessageTime: lastMessageTime)
+        switch tableView {
+        case chattingRoomTableView:
+            let chattingRoom = chattingRoomData[indexPath.row]
+            let memberNickname = chattingRoom.memberNickname
+            let memberProfileUrl = chattingRoom.memberProfileUrl ?? ""
+            let unReadCount = chattingRoom.unReadCount
+            let lastMessage = chattingRoom.lastMessage
+            let lastMessageTime = chattingRoom.lastMessageTime
+            cell.configure(memberNickname: memberNickname, memberProfileUrl: memberProfileUrl, unReadCount: unReadCount, lastMessage: lastMessage, lastMessageTime: lastMessageTime)
+            
+        case messageTableView:
+            let message = messageData[indexPath.row]
+            let memberNickname = message.memberNickname
+            let memberProfileUrl = message.memberProfileUrl ?? ""
+            let unReadCount = 0
+            let lastMessage = message.chatMessage
+            let lastMessageTime = message.sentTime
+            cell.configure(memberNickname: memberNickname, memberProfileUrl: memberProfileUrl, unReadCount: unReadCount, lastMessage: lastMessage, lastMessageTime: lastMessageTime)
+        default:
+            break
+        }
         cell.selectionStyle = .none
         return cell
     }
     
 }
-
-extension AllViewController: UIScrollViewDelegate {
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let offsetY = scrollView.contentOffset.y
-        let contentHeight = scrollView.contentSize.height
-        let height = scrollView.frame.size.height
-        
-        if scrollView == chattingRoomTableView {
-            if offsetY > contentHeight - height {
-                if !isLoading {
-                    isLoading = true
-                    chattingRoomloadNextPage()
-                }
-            }
-        } else if scrollView == followingCollectionView {
-            let horizontalOffset = scrollView.contentOffset.x
-            let contentWidth = scrollView.contentSize.width
-            let width = scrollView.frame.size.width
-            
-            if horizontalOffset > contentWidth - width {
-                if !isLoading {
-                    isLoading = true
-                    followingLoadNextPage()
-                }
-            }
-        }
-    }
-}
-
