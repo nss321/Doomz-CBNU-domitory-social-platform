@@ -146,4 +146,15 @@ class ChattingHomeTableViewCell: UITableViewCell {
             profileImageView.image = UIImage(named: "bulletinBoardProfile")
         }
     }
+    
+    func highlightKeyword(keyword: String) {
+        guard let messageText = messageLabel.text else { return }
+        let attributedString = NSMutableAttributedString(string: messageText)
+        let range = (messageText as NSString).range(of: keyword)
+        //키워드가 존재하지 않으면 종료
+        guard range.length > 0 else { return }
+        attributedString.addAttribute(.foregroundColor, value: UIColor.primary, range: range)
+        messageLabel.attributedText = attributedString
+    }
+
 }

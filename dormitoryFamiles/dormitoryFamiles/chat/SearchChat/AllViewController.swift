@@ -292,6 +292,7 @@ extension AllViewController: UITableViewDataSource, UITableViewDelegate {
             let lastMessage = message.chatMessage
             let lastMessageTime = message.sentTime
             cell.configure(memberNickname: memberNickname, memberProfileUrl: memberProfileUrl, unReadCount: unReadCount, lastMessage: lastMessage, lastMessageTime: lastMessageTime)
+            cell.highlightKeyword(keyword: SearchChattingViewController.keyword ?? "")
         default:
             break
         }

@@ -46,7 +46,7 @@ class MessagegViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         messageData = []
-        chatListApiNetwork(url: Url.message(page: messagePage, size: nil, keyword: SearchChattingViewController.keyword, sorted: sorted))
+        chatListApiNetwork(url: Url.message(page: messagePage, size: 1, keyword: SearchChattingViewController.keyword, sorted: sorted))
     }
     
     private func setSortedButton() {
@@ -104,7 +104,7 @@ class MessagegViewController: UIViewController {
     private func messageLoadNextPage() {
         guard !isMessageLast else { return }
         messagePage += 1
-        chatListApiNetwork(url: Url.chattingRoom(page: messagePage, size: nil, keyword: SearchChattingViewController.keyword))
+        chatListApiNetwork(url: Url.chattingRoom(page: messagePage, size: 1, keyword: SearchChattingViewController.keyword))
     }
     
     private func setDropDown() {
@@ -157,6 +157,7 @@ extension MessagegViewController: UITableViewDataSource, UITableViewDelegate {
         let lastMessageTime = message.sentTime
         
         cell.configure(memberNickname: memberNickname, memberProfileUrl: memberProfileUrl, unReadCount: unReadCount, lastMessage: lastMessage, lastMessageTime: lastMessageTime)
+        cell.highlightKeyword(keyword: SearchChattingViewController.keyword ?? "")
         cell.selectionStyle = .none
         return cell
     }
