@@ -17,23 +17,15 @@ class AllViewController: UIViewController {
     private var chattingRoomPage = 0
     private var isChattingLast = false
     
-    private var allDoomzData: [MemberProfile] = []
-    private var allDoomzPage = 0
-    private var isAllDoomzLast = false
-    
     private var isLoading = false
     
     private let followingLabelAndButtonStackView = LabelAndRoundButtonStackView(labelText: "팔로잉", textFont: .title2 ?? UIFont(), buttonText: "더보기", buttonHasArrow: true)
-    
-    private let allDoomzLabelAndButtonStackView = LabelAndRoundButtonStackView(labelText: "전체둠즈", textFont: .title2 ?? UIFont(), buttonText: "더보기", buttonHasArrow: true)
     
     private let chattingRoomLabelAndButtonStackView = LabelAndRoundButtonStackView(labelText: "채팅방", textFont: .title2 ?? UIFont(), buttonText: "더보기", buttonHasArrow: true)
     
     private let messageLabelAndButtonStackView = LabelAndRoundButtonStackView(labelText: "메세지", textFont: .title2 ?? UIFont(), buttonText: "더보기", buttonHasArrow: true)
     
     private let followingCollectionView = UserProfileNicknameCollectionView(spacing: 20, scrollDirection: .horizontal)
-    
-    private let allDoomzCollectionView = UserProfileNicknameCollectionView(spacing: 20, scrollDirection: .horizontal)
     
     private let chattingRoomTableView: UITableView = {
         let tableView = UITableView()
@@ -53,7 +45,6 @@ class AllViewController: UIViewController {
     
     private func setButtonActon() {
         followingLabelAndButtonStackView.addButtonTarget(target: self, action: #selector(followingMoreButtonTapped), for: .touchUpInside)
-                allDoomzLabelAndButtonStackView.addButtonTarget(target: self, action: #selector(allDoomzMoreButtonTapped), for: .touchUpInside)
                 chattingRoomLabelAndButtonStackView.addButtonTarget(target: self, action: #selector(chattingRoomMoreButtonTapped), for: .touchUpInside)
                 messageLabelAndButtonStackView.addButtonTarget(target: self, action: #selector(messageMoreButtonTapped), for: .touchUpInside)
     }
@@ -61,12 +52,6 @@ class AllViewController: UIViewController {
        @objc private func followingMoreButtonTapped() {
            if let parentVC = self.parent?.parent as? SearchChattingViewController {
                        parentVC.scrollToPage(.at(index: 1), animated: true)
-            }
-       }
-       
-       @objc private func allDoomzMoreButtonTapped() {
-           if let parentVC = self.parent?.parent as? SearchChattingViewController {
-                       parentVC.scrollToPage(.at(index: 2), animated: true)
             }
        }
        
@@ -86,9 +71,6 @@ class AllViewController: UIViewController {
     private func setCollectionView() {
         followingCollectionView.delegate = self
         followingCollectionView.dataSource = self
-        
-        allDoomzCollectionView.delegate = self
-        allDoomzCollectionView.dataSource = self
     }
     
     private func setTableView() {
@@ -99,11 +81,10 @@ class AllViewController: UIViewController {
     private func setApi() {
         followingApiNetwork(url: Url.following(page: followingPage, size: nil))
         chatListApiNetwork(url: Url.chattingRoom(page: chattingRoomPage, size: nil))
-        allDoomzApiNetwork(url: Url.allDoomz(page: allDoomzPage, size: nil))
     }
     
     private func addComponents() {
-        [followingLabelAndButtonStackView, allDoomzLabelAndButtonStackView, chattingRoomLabelAndButtonStackView, messageLabelAndButtonStackView, followingCollectionView, allDoomzCollectionView, chattingRoomTableView].forEach {
+        [followingLabelAndButtonStackView, chattingRoomLabelAndButtonStackView, messageLabelAndButtonStackView, followingCollectionView, chattingRoomTableView].forEach {
             view.addSubview($0)
         }
     }
@@ -121,20 +102,8 @@ class AllViewController: UIViewController {
             $0.height.equalTo(70)
         }
         
-        allDoomzLabelAndButtonStackView.snp.makeConstraints {
-            $0.top.equalTo(followingCollectionView.snp.bottom).inset(-32)
-            $0.leading.trailing.equalToSuperview().inset(25)
-            $0.height.equalTo(32)
-        }
-        
-        allDoomzCollectionView.snp.makeConstraints{
-            $0.top.equalTo(allDoomzLabelAndButtonStackView.snp.bottom).inset(-12)
-            $0.leading.trailing.equalToSuperview().inset(25)
-            $0.height.equalTo(70)
-        }
-        
         chattingRoomLabelAndButtonStackView.snp.makeConstraints {
-            $0.top.equalTo(allDoomzCollectionView.snp.bottom).inset(-32)
+            $0.top.equalTo(followingCollectionView.snp.bottom).inset(-32)
             $0.leading.trailing.equalToSuperview().inset(25)
             $0.height.equalTo(32)
         }
@@ -180,21 +149,6 @@ class AllViewController: UIViewController {
         }
     }
     
-    private func allDoomzApiNetwork(url: String) {
-        Network.getMethod(url: url) { (result: Result<AllDoomzResponse, Error>) in
-            switch result {
-            case .success(let response):
-                self.allDoomzData += response.data.memberProfiles
-                //self.isAllDoomzLast = response.data.isLast
-                DispatchQueue.main.async {
-                    self.allDoomzCollectionView.reloadData()
-                }
-            case .failure(let error):
-                print("Error: \(error)")
-            }
-        }
-    }
-    
     private func chattingRoomloadNextPage() {
         guard !isChattingLast else { return }
         chattingRoomPage += 1
@@ -214,8 +168,6 @@ extension AllViewController: UICollectionViewDelegate, UICollectionViewDataSourc
         switch collectionView {
         case followingCollectionView:
             return followingData.count
-        case allDoomzCollectionView:
-            return allDoomzData.count
         default:
             return 0
         }
@@ -229,9 +181,6 @@ extension AllViewController: UICollectionViewDelegate, UICollectionViewDataSourc
         switch collectionView {
         case followingCollectionView:
             let profile = followingData[indexPath.row]
-            cell.configure(text: profile.nickname, profileUrl: profile.profileUrl)
-        case allDoomzCollectionView:
-            let profile = allDoomzData[indexPath.row]
             cell.configure(text: profile.nickname, profileUrl: profile.profileUrl)
         default:
             break
@@ -285,17 +234,6 @@ extension AllViewController: UIScrollViewDelegate {
                 }
             }
         } else if scrollView == followingCollectionView {
-            let horizontalOffset = scrollView.contentOffset.x
-            let contentWidth = scrollView.contentSize.width
-            let width = scrollView.frame.size.width
-            
-            if horizontalOffset > contentWidth - width {
-                if !isLoading {
-                    isLoading = true
-                    followingLoadNextPage()
-                }
-            }
-        } else if scrollView == allDoomzCollectionView {
             let horizontalOffset = scrollView.contentOffset.x
             let contentWidth = scrollView.contentSize.width
             let width = scrollView.frame.size.width

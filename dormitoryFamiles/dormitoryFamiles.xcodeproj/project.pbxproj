@@ -43,7 +43,6 @@
 		DB3F05392C43002E0091349F /* LabelAndPrimaryMidButtonStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3F05382C43002E0091349F /* LabelAndPrimaryMidButtonStackView.swift */; };
 		DB3F053B2C4307790091349F /* UserProfileNicknameCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3F053A2C4307790091349F /* UserProfileNicknameCollectionViewController.swift */; };
 		DB3F053E2C44BED90091349F /* FollowingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3F053D2C44BED90091349F /* FollowingViewController.swift */; };
-		DB3F05402C44BEF10091349F /* AllDoomzViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3F053F2C44BEF10091349F /* AllDoomzViewController.swift */; };
 		DB3F05422C44BF0D0091349F /* ChattingRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3F05412C44BF0D0091349F /* ChattingRoomViewController.swift */; };
 		DB3F05442C44BF1E0091349F /* MessagegViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3F05432C44BF1E0091349F /* MessagegViewController.swift */; };
 		DB3F05462C44D84B0091349F /* SearchTextFieldChattingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3F05452C44D84B0091349F /* SearchTextFieldChattingViewController.swift */; };
@@ -157,7 +156,6 @@
 		DB3F05382C43002E0091349F /* LabelAndPrimaryMidButtonStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelAndPrimaryMidButtonStackView.swift; sourceTree = "<group>"; };
 		DB3F053A2C4307790091349F /* UserProfileNicknameCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileNicknameCollectionViewController.swift; sourceTree = "<group>"; };
 		DB3F053D2C44BED90091349F /* FollowingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowingViewController.swift; sourceTree = "<group>"; };
-		DB3F053F2C44BEF10091349F /* AllDoomzViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllDoomzViewController.swift; sourceTree = "<group>"; };
 		DB3F05412C44BF0D0091349F /* ChattingRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingRoomViewController.swift; sourceTree = "<group>"; };
 		DB3F05432C44BF1E0091349F /* MessagegViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagegViewController.swift; sourceTree = "<group>"; };
 		DB3F05452C44D84B0091349F /* SearchTextFieldChattingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTextFieldChattingViewController.swift; sourceTree = "<group>"; };
@@ -414,7 +412,6 @@
 			children = (
 				DB3F05342C42BB6B0091349F /* AllViewController.swift */,
 				DB3F053D2C44BED90091349F /* FollowingViewController.swift */,
-				DB3F053F2C44BEF10091349F /* AllDoomzViewController.swift */,
 				DB3F05412C44BF0D0091349F /* ChattingRoomViewController.swift */,
 				DB3F05432C44BF1E0091349F /* MessagegViewController.swift */,
 				DB3F05452C44D84B0091349F /* SearchTextFieldChattingViewController.swift */,
@@ -645,7 +642,6 @@
 				11036F232C3C0E690042B9EF /* EatingFoodViewController.swift in Sources */,
 				DB1971D52BAB088C00C09648 /* AddPhotoImageView.swift in Sources */,
 				DB7EF2792B5EA4B00062FAB5 /* AlrmElementView.swift in Sources */,
-				DB3F05402C44BEF10091349F /* AllDoomzViewController.swift in Sources */,
 				1131E8A22BF6220B00D40120 /* UIScreen+.swift in Sources */,
 				11AC97FD2BFF27AE0008C910 /* UIImage+.swift in Sources */,
 				DB3F05332C42AD440091349F /* SearchChattingViewController.swift in Sources */,

@@ -17,13 +17,11 @@ class SearchChattingViewController: TabmanViewController {
         
         let followingVC = FollowingViewController()
         
-        let allDoomzVC = AllDoomzViewController()
-        
         let chattingRoomVC = ChattingRoomViewController()
         
         let messageVC = MessagegViewController()
         
-        return [allVC, followingVC, allDoomzVC, chattingRoomVC, messageVC]
+        return [allVC, followingVC, chattingRoomVC, messageVC]
     }
     
     private let tabmanView: UIView = {
@@ -108,7 +106,7 @@ class SearchChattingViewController: TabmanViewController {
         bar.indicator.weight = .light
         bar.indicator.tintColor = .primary
         bar.layout.alignment = .centerDistributed
-        bar.layout.contentMode = .intrinsic
+        bar.layout.contentMode = .fit
         
         bar.layout.interButtonSpacing = 24 // 버튼 사이 간격
         bar.layout.transitionStyle = .progressive// Customize
@@ -160,10 +158,8 @@ extension SearchChattingViewController: PageboyViewControllerDataSource, TMBarDa
         case 1:
             return TMBarItem(title: "팔로잉")
         case 2:
-            return TMBarItem(title: "전체 둠즈")
-        case 3:
             return TMBarItem(title: "채팅방")
-        case 4:
+        case 3:
             return TMBarItem(title: "메세지")
         default:
             let title = "Page \(index)"
