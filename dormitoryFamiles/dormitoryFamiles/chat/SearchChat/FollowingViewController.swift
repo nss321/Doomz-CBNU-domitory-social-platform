@@ -8,7 +8,7 @@
 import UIKit
 
 class FollowingViewController: UIViewController {
-    
+    var keyword: String?
     private var followingData: [MemberProfile] = []
     private var followingPage = 0
     private var isFollowingLast = false
@@ -28,7 +28,7 @@ class FollowingViewController: UIViewController {
         setCollectionView()
         addComponents()
         setConstraints()
-        followingApiNetwork(url: Url.following(page: followingPage, size: nil))
+        followingApiNetwork(url: Url.following(page: followingPage, size: nil, keyword: keyword))
     }
     
     private func setCollectionView() {
@@ -76,7 +76,7 @@ class FollowingViewController: UIViewController {
     private func followingLoadNextPage() {
         guard !isFollowingLast else { return }
         followingPage += 1
-        followingApiNetwork(url: Url.following(page: followingPage, size: 1))
+        followingApiNetwork(url: Url.following(page: followingPage, size: 1, keyword: keyword))
     }
     
 }
