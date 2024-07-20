@@ -36,6 +36,7 @@ class ChattingRoomViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         chattingRoomData = []
+        chattingRoomPage = 0
         chatListApiNetwork(url: Url.chattingRoom(page: chattingRoomPage, size: nil, keyword: SearchChattingViewController.keyword))
     }
     

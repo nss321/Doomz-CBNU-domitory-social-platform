@@ -32,6 +32,7 @@ class FollowingViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         followingData = []
+        followingPage = 0
         followingApiNetwork(url: Url.following(page: followingPage, size: nil, keyword: SearchChattingViewController.keyword))
     }
     

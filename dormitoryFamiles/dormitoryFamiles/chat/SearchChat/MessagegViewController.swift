@@ -16,6 +16,7 @@ class MessagegViewController: UIViewController {
     var sorted = "latest" {
         didSet {
             messageData = []
+            messagePage = 0
         }
     }
     let dropDown = DropDown()
@@ -46,7 +47,8 @@ class MessagegViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         messageData = []
-        chatListApiNetwork(url: Url.message(page: messagePage, size: 1, keyword: SearchChattingViewController.keyword, sorted: sorted))
+        messagePage = 0
+        chatListApiNetwork(url: Url.message(page: messagePage, size: nil, keyword: SearchChattingViewController.keyword, sorted: sorted))
     }
     
     private func setSortedButton() {
@@ -104,7 +106,7 @@ class MessagegViewController: UIViewController {
     private func messageLoadNextPage() {
         guard !isMessageLast else { return }
         messagePage += 1
-        chatListApiNetwork(url: Url.chattingRoom(page: messagePage, size: 1, keyword: SearchChattingViewController.keyword))
+        chatListApiNetwork(url: Url.message(page: messagePage, size: nil, keyword: SearchChattingViewController.keyword, sorted: sorted))
     }
     
     private func setDropDown() {
