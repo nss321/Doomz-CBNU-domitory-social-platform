@@ -37,6 +37,7 @@
 		DB20E38E2B53D75F000D12A7 /* Stroyboard+.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB20E38D2B53D75F000D12A7 /* Stroyboard+.swift */; };
 		DB20F2942B95CBE00052CF5C /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB20F2932B95CBE00052CF5C /* SearchViewController.swift */; };
 		DB29DE242C4C0E4100365684 /* ChattingDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB29DE232C4C0E4100365684 /* ChattingDetailViewController.swift */; };
+		DB29DE272C4C146800365684 /* ChattingNavigationProfileStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB29DE262C4C146800365684 /* ChattingNavigationProfileStackView.swift */; };
 		DB2B7BC92B456F4700C1847D /* TagScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2B7BC82B456F4700C1847D /* TagScrollView.swift */; };
 		DB2B7BCB2B45727B00C1847D /* TagButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2B7BCA2B45727B00C1847D /* TagButton.swift */; };
 		DB3F05332C42AD440091349F /* SearchChattingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3F05322C42AD440091349F /* SearchChattingViewController.swift */; };
@@ -151,6 +152,7 @@
 		DB20E38D2B53D75F000D12A7 /* Stroyboard+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Stroyboard+.swift"; sourceTree = "<group>"; };
 		DB20F2932B95CBE00052CF5C /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		DB29DE232C4C0E4100365684 /* ChattingDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingDetailViewController.swift; sourceTree = "<group>"; };
+		DB29DE262C4C146800365684 /* ChattingNavigationProfileStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingNavigationProfileStackView.swift; sourceTree = "<group>"; };
 		DB2B7BC82B456F4700C1847D /* TagScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagScrollView.swift; sourceTree = "<group>"; };
 		DB2B7BCA2B45727B00C1847D /* TagButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagButton.swift; sourceTree = "<group>"; };
 		DB3F05322C42AD440091349F /* SearchChattingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchChattingViewController.swift; sourceTree = "<group>"; };
@@ -317,9 +319,18 @@
 		DB29DE222C4C0E2B00365684 /* ChattingRoom */ = {
 			isa = PBXGroup;
 			children = (
+				DB29DE252C4C144500365684 /* View */,
 				DB29DE232C4C0E4100365684 /* ChattingDetailViewController.swift */,
 			);
 			path = ChattingRoom;
+			sourceTree = "<group>";
+		};
+		DB29DE252C4C144500365684 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DB29DE262C4C146800365684 /* ChattingNavigationProfileStackView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		DB32D75B2BA342EC00DE387A /* Extension */ = {
@@ -662,6 +673,7 @@
 				1148B3F62C3EAD4B0056671B /* PriorityCell.swift in Sources */,
 				DB7BE9E72BA47A5E00BC25E3 /* ReplyCollectionViewCell.swift in Sources */,
 				11036F272C3C19A00042B9EF /* StudyStyleViewController.swift in Sources */,
+				DB29DE272C4C146800365684 /* ChattingNavigationProfileStackView.swift in Sources */,
 				DB29DE242C4C0E4100365684 /* ChattingDetailViewController.swift in Sources */,
 				DB61AA342B4C1EA70040418B /* RegisterPostViewController.swift in Sources */,
 				DB20E38E2B53D75F000D12A7 /* Stroyboard+.swift in Sources */,
