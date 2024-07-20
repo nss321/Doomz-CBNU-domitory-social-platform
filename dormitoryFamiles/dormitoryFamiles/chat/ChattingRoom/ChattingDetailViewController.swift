@@ -8,13 +8,18 @@
 import UIKit
 
 class ChattingDetailViewController: UIViewController, ConfigUI {
-
     
-
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        setNavigationBar()
         addComponents()
         setConstraints()
+    }
+    
+    private func setNavigationBar() {
+        
     }
     
     func addComponents() {
