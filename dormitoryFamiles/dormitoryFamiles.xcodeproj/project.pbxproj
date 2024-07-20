@@ -38,6 +38,8 @@
 		DB20F2942B95CBE00052CF5C /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB20F2932B95CBE00052CF5C /* SearchViewController.swift */; };
 		DB29DE242C4C0E4100365684 /* ChattingDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB29DE232C4C0E4100365684 /* ChattingDetailViewController.swift */; };
 		DB29DE272C4C146800365684 /* ChattingNavigationProfileStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB29DE262C4C146800365684 /* ChattingNavigationProfileStackView.swift */; };
+		DB29DE292C4C292200365684 /* MyChattingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB29DE282C4C292200365684 /* MyChattingTableViewCell.swift */; };
+		DB29DE2B2C4C293500365684 /* YourChattingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB29DE2A2C4C293500365684 /* YourChattingTableViewCell.swift */; };
 		DB2B7BC92B456F4700C1847D /* TagScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2B7BC82B456F4700C1847D /* TagScrollView.swift */; };
 		DB2B7BCB2B45727B00C1847D /* TagButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2B7BCA2B45727B00C1847D /* TagButton.swift */; };
 		DB3F05332C42AD440091349F /* SearchChattingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3F05322C42AD440091349F /* SearchChattingViewController.swift */; };
@@ -153,6 +155,8 @@
 		DB20F2932B95CBE00052CF5C /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		DB29DE232C4C0E4100365684 /* ChattingDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingDetailViewController.swift; sourceTree = "<group>"; };
 		DB29DE262C4C146800365684 /* ChattingNavigationProfileStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingNavigationProfileStackView.swift; sourceTree = "<group>"; };
+		DB29DE282C4C292200365684 /* MyChattingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyChattingTableViewCell.swift; sourceTree = "<group>"; };
+		DB29DE2A2C4C293500365684 /* YourChattingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourChattingTableViewCell.swift; sourceTree = "<group>"; };
 		DB2B7BC82B456F4700C1847D /* TagScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagScrollView.swift; sourceTree = "<group>"; };
 		DB2B7BCA2B45727B00C1847D /* TagButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagButton.swift; sourceTree = "<group>"; };
 		DB3F05322C42AD440091349F /* SearchChattingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchChattingViewController.swift; sourceTree = "<group>"; };
@@ -329,6 +333,8 @@
 			isa = PBXGroup;
 			children = (
 				DB29DE262C4C146800365684 /* ChattingNavigationProfileStackView.swift */,
+				DB29DE282C4C292200365684 /* MyChattingTableViewCell.swift */,
+				DB29DE2A2C4C293500365684 /* YourChattingTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -676,6 +682,7 @@
 				DB29DE272C4C146800365684 /* ChattingNavigationProfileStackView.swift in Sources */,
 				DB29DE242C4C0E4100365684 /* ChattingDetailViewController.swift in Sources */,
 				DB61AA342B4C1EA70040418B /* RegisterPostViewController.swift in Sources */,
+				DB29DE292C4C292200365684 /* MyChattingTableViewCell.swift in Sources */,
 				DB20E38E2B53D75F000D12A7 /* Stroyboard+.swift in Sources */,
 				DB3F05482C453A0B0091349F /* UIColor+.swift in Sources */,
 				11036F292C3D57840042B9EF /* MiscViewController.swift in Sources */,
@@ -693,6 +700,7 @@
 				DB3F05442C44BF1E0091349F /* MessagegViewController.swift in Sources */,
 				DB74D0C62B73EEBF00A90D68 /* Codable.swift in Sources */,
 				119F6D552C4012F300297E3F /* UserDefaults+.swift in Sources */,
+				DB29DE2B2C4C293500365684 /* YourChattingTableViewCell.swift in Sources */,
 				11036F212C3C05D60042B9EF /* HomeCycleViewController.swift in Sources */,
 				DBC54C432B568B350071164C /* UIFontExtension.swift in Sources */,
 				118EAA852C07E56400436A6F /* ConstitutionViewController.swift in Sources */,

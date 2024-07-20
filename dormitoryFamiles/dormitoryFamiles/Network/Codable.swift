@@ -207,3 +207,24 @@ struct Message: Codable {
     let sentTime: String
     let memberProfileUrl: String?
 }
+
+struct ApiResponse: Codable {
+    let code: Int
+    let data: ChatData
+}
+
+struct ChatData: Codable {
+    let nowPageNumber: Int
+    let isLast: Bool
+    let roomUUID: String
+    let chatHistory: [ChatMessage]
+}
+
+struct ChatMessage: Codable {
+    let memberId: Int
+    let isSender: Bool
+    let memberNickname: String
+    let memberProfileUrl: String
+    let chatMessage: String
+    let sentTime: String
+}
