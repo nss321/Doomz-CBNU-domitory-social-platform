@@ -21,10 +21,24 @@ class ChattingDetailViewController: UIViewController, ConfigUI {
     private var profileStackView: ChattingNavigationProfileStackView!
     var profileImageUrl: String?
     var nickname: String?
+    private let textField: UITextField = {
+        let textField = UITextField()
+        textField.placeholder = "메세지 보내기"
+        textField.font = .body2
+        return textField
+    }()
+    
+    private let containerView: RoundLabel = {
+        let containerView = RoundLabel()
+        containerView.backgroundColor = .gray0
+        containerView.isUserInteractionEnabled = true
+        return containerView
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .white
+        self.tabBarController?.tabBar.isHidden = true
         setNavigationBar()
         setupTableView()
         chattingHistoryApiNetwork(url: Url.chattingHistory(page: page, size: nil, roomId: roomId))
@@ -34,6 +48,7 @@ class ChattingDetailViewController: UIViewController, ConfigUI {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        textField.becomeFirstResponder()
         messages = []
         page = 0
     }
@@ -59,11 +74,27 @@ class ChattingDetailViewController: UIViewController, ConfigUI {
     
     func addComponents() {
         view.addSubview(tableView)
+        view.addSubview(textField)
+        view.addSubview(containerView)
+        containerView.addSubview(textField)
     }
     
     func setConstraints() {
+        
+        textField.snp.makeConstraints {
+            $0.top.bottom.equalToSuperview().inset(8)
+            $0.leading.trailing.equalToSuperview().inset(16)
+        }
+        
+        containerView.snp.makeConstraints {
+            $0.bottom.equalTo(view.safeAreaLayoutGuide)
+            $0.height.equalTo(52)
+            $0.left.trailing.equalToSuperview().inset(20)
+        }
+        
         tableView.snp.makeConstraints {
-            $0.top.bottom.equalTo(view.safeAreaLayoutGuide)
+            $0.top.equalTo(view.safeAreaLayoutGuide)
+            $0.bottom.equalTo(textField.snp.top)
             $0.left.trailing.equalToSuperview().inset(20)
         }
     }
