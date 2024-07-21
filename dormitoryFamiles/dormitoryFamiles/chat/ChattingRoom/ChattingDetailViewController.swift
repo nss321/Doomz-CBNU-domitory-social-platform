@@ -1,10 +1,3 @@
-//
-//  ChattingDetailViewController.swift
-//  dormitoryFamiles
-//
-//  Created by leehwajin on 2024/07/21.
-//
-
 import UIKit
 import SnapKit
 import Kingfisher
@@ -41,13 +34,13 @@ class ChattingDetailViewController: UIViewController, ConfigUI {
         self.tabBarController?.tabBar.isHidden = true
         setNavigationBar()
         setupTableView()
-        chattingHistoryApiNetwork(url: Url.chattingHistory(page: page, size: nil, roomId: roomId))
+        chattingHistoryApiNetwork(url: Url.chattingHistory(page: page, size: 2, roomId: roomId))
         addComponents()
         setConstraints()
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
+        super.viewWillAppear(animated)
         textField.becomeFirstResponder()
         messages = []
         page = 0
@@ -70,11 +63,8 @@ class ChattingDetailViewController: UIViewController, ConfigUI {
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: moreImage, style: .plain, target: self, action: #selector(moreButtonTapped))
     }
     
-    
-    
     func addComponents() {
         view.addSubview(tableView)
-        view.addSubview(textField)
         view.addSubview(containerView)
         containerView.addSubview(textField)
     }
@@ -94,7 +84,7 @@ class ChattingDetailViewController: UIViewController, ConfigUI {
         
         tableView.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide)
-            $0.bottom.equalTo(textField.snp.top)
+            $0.bottom.equalTo(containerView.snp.top)
             $0.left.trailing.equalToSuperview().inset(20)
         }
     }
@@ -119,7 +109,8 @@ class ChattingDetailViewController: UIViewController, ConfigUI {
         Network.getMethod(url: url) { (result: Result<ApiResponse, Error>) in
             switch result {
             case .success(let response):
-                self.messages += response.data.chatHistory
+                
+                self.messages.insert(contentsOf: response.data.chatHistory, at: 0)
                 self.isLast = response.data.isLast
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
@@ -132,14 +123,13 @@ class ChattingDetailViewController: UIViewController, ConfigUI {
         }
     }
     
-    private func chattingRoomloadNextPage() {
+    @objc private func loadMoreData() {
         guard !isLast else { return }
+        isLoading = true
         page += 1
-        chattingHistoryApiNetwork(url: Url.chattingHistory(page: page, size: nil, roomId: roomId))
+        chattingHistoryApiNetwork(url: Url.chattingHistory(page: page, size: 2, roomId: roomId))
     }
 }
-
-
 
 extension ChattingDetailViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -165,24 +155,18 @@ extension ChattingDetailViewController: UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        //셀의 높이 자동 조정
         return UITableView.automaticDimension
     }
 }
 
-
 extension ChattingDetailViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let offsetY = scrollView.contentOffset.y
-        let contentHeight = scrollView.contentSize.height
-        let height = scrollView.frame.size.height
         
         if scrollView == tableView {
-            if offsetY > contentHeight - height {
-                if !isLoading {
-                    isLoading = true
-                    chattingRoomloadNextPage()
-                }
+            if offsetY < -1 && !isLoading {
+                isLoading = true
+                loadMoreData()
             }
         }
     }
