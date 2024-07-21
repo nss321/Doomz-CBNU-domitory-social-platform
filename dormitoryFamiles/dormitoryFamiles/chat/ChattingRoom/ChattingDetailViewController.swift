@@ -12,8 +12,11 @@ import Kingfisher
 class ChattingDetailViewController: UIViewController, ConfigUI {
     
     let tableView = UITableView()
-    
+    var roomId = 0
     var messages: [ChatMessage] = []
+    var isLoading = false
+    var page = 0
+    var isLast = false
     
     private var profileStackView: ChattingNavigationProfileStackView!
     var profileImageUrl: String?
@@ -24,9 +27,15 @@ class ChattingDetailViewController: UIViewController, ConfigUI {
         self.view.backgroundColor = .white
         setNavigationBar()
         setupTableView()
-        fetchData()
+        chattingHistoryApiNetwork(url: Url.chattingHistory(page: page, size: nil, roomId: roomId))
         addComponents()
         setConstraints()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        messages = []
+        page = 0
     }
     
     private func createProfileStackView() -> ChattingNavigationProfileStackView {
@@ -64,6 +73,7 @@ class ChattingDetailViewController: UIViewController, ConfigUI {
     }
     
     func setupTableView() {
+        tableView.showsVerticalScrollIndicator = false
         tableView.separatorStyle = .none
         tableView.selectionFollowsFocus = false
         
@@ -73,65 +83,32 @@ class ChattingDetailViewController: UIViewController, ConfigUI {
         tableView.register(MyChattingTableViewCell.self, forCellReuseIdentifier: "MyChattingTableViewCell")
         tableView.register(YourChattingTableViewCell.self, forCellReuseIdentifier: "YourChattingTableViewCell")
     }
-    func fetchData() {
-        // API 호출을 통해 데이터를 받아온다고 가정
-        let jsonResponse = """
-            {
-                "code": 200,
-                "data": {
-                    "nowPageNumber": 0,
-                    "isLast": true,
-                    "roomUUID": "378d1500-16e2-438d-b4e4-9c795d9ad25a",
-                    "chatHistory": [
-                        {
-                            "memberId": 1,
-                            "isSender": true,
-                            "memberNickname": "닉네임11111",
-                            "memberProfileUrl": "http://t1.kakaocdn.net/account_images/default_profile.jpeg.twg.thumb.R640x640",
-                            "chatMessage": "진짜니ㅏ더기나ㅓㅏㄴd야ㅑㅑ이거왜짤리냐왜왜오애왜12345678901235647834239479안녕하세요? 왜 짤리나요:? 오악 업서엉진짜어이가없다구여여어어어어어엉높이를지정하지도않았는데 왜 10줄이 넘어가면 ...로 축약이 될까 왜일까 ㅠㅠ 니ㅏ러니다거니ㅏ거니ㅏ거ㅣㅏ더ㅣ라ㅓ키ㅏㅓ킨러키ㅏㄴ러키나얼키ㅏ너리ㅏ",
-                            "sentTime": "2024-07-09T23:07:44"
-                        },
-                        {
-                            "memberId": 3,
-                            "isSender": false,
-                            "memberNickname": "닉네임3",
-                            "memberProfileUrl": "http://t1.kakaocdt/account_images/default_profile.jpeg.twg.thumb.R640x640",
-                            "chatMessage": "마지막일까여ㅛ?????????????????????????두줄",
-                            "sentTime": "2024-07-09T23:07:43"
-                        },
-                        {
-                            "memberId": 3,
-                            "isSender": false,
-                            "memberNickname": "닉네임3",
-                            "memberProfileUrl": "http://t1.kakaocdn.net/account_images/default_profile.jpeg.twg.thumb.R640x640",
-                            "chatMessage": "제발",
-                            "sentTime": "2024-07-09T23:07:41"
-                        },
-                        {
-                            "memberId": 1,
-                            "isSender": true,
-                            "memberNickname": "닉네임11111",
-                            "memberProfileUrl": "http://t1.kakaocdn.net/account_images/default_profile.jpeg.twg.thumb.R640x640",
-                            "chatMessage": "이게",
-                            "sentTime": "2024-07-09T23:07:40"
-                        }
-                    ]
+    
+    private func chattingHistoryApiNetwork(url: String) {
+        Network.getMethod(url: url) { (result: Result<ApiResponse, Error>) in
+            switch result {
+            case .success(let response):
+                self.messages += response.data.chatHistory
+                self.isLast = response.data.isLast
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
                 }
-            }
-            """
-        
-        if let data = jsonResponse.data(using: .utf8) {
-            do {
-                let response = try JSONDecoder().decode(ApiResponse.self, from: data)
-                self.messages = response.data.chatHistory
-                self.tableView.reloadData()
-            } catch {
-                print("Error decoding JSON: \(error)")
+                self.isLoading = false
+            case .failure(let error):
+                print("Error: \(error)")
+                self.isLoading = false
             }
         }
     }
     
+    private func chattingRoomloadNextPage() {
+        guard !isLast else { return }
+        page += 1
+        chattingHistoryApiNetwork(url: Url.chattingHistory(page: page, size: nil, roomId: roomId))
+    }
 }
+
+
 
 extension ChattingDetailViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -162,3 +139,20 @@ extension ChattingDetailViewController: UITableViewDelegate, UITableViewDataSour
     }
 }
 
+
+extension ChattingDetailViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let offsetY = scrollView.contentOffset.y
+        let contentHeight = scrollView.contentSize.height
+        let height = scrollView.frame.size.height
+        
+        if scrollView == tableView {
+            if offsetY > contentHeight - height {
+                if !isLoading {
+                    isLoading = true
+                    chattingRoomloadNextPage()
+                }
+            }
+        }
+    }
+}

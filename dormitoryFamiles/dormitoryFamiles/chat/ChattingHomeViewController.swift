@@ -234,8 +234,10 @@ extension ChattingHomeViewController: UITableViewDelegate, UITableViewDataSource
         let chattingDetailViewController = ChattingDetailViewController()
         chattingDetailViewController.nickname = chattingRoom.memberNickname
         chattingDetailViewController.profileImageUrl = chattingRoom.memberProfileUrl
+        chattingDetailViewController.roomId = chattingRoom.roomId
         self.navigationController?.pushViewController(chattingDetailViewController, animated: true)
     }
+    
 }
 
 extension ChattingHomeViewController: UIScrollViewDelegate {
