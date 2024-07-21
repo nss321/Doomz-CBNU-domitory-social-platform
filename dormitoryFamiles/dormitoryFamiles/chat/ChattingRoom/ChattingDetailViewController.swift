@@ -32,7 +32,8 @@ class ChattingDetailViewController: UIViewController, ConfigUI {
     private func createProfileStackView() -> ChattingNavigationProfileStackView {
         profileStackView = ChattingNavigationProfileStackView(frame: .zero)
         if let url = profileImageUrl, let nickname = nickname {
-            loadImage(url: url)
+            let profileImageView = Network.loadImage(url: url)
+            self.profileStackView.profileImageView.image = profileImageView.image
             self.profileStackView.configure(nickname: nickname)
         }
         return profileStackView
@@ -45,12 +46,7 @@ class ChattingDetailViewController: UIViewController, ConfigUI {
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: moreImage, style: .plain, target: self, action: #selector(moreButtonTapped))
     }
     
-    private func loadImage(url: String) {
-        guard let imageUrl = URL(string: url) else {
-            return
-        }
-        self.profileStackView.profileImageView.kf.setImage(with: imageUrl)
-    }
+    
     
     func addComponents() {
         view.addSubview(tableView)
@@ -58,7 +54,8 @@ class ChattingDetailViewController: UIViewController, ConfigUI {
     
     func setConstraints() {
         tableView.snp.makeConstraints {
-            $0.edges.equalToSuperview()
+            $0.top.bottom.equalTo(view.safeAreaLayoutGuide)
+            $0.left.trailing.equalToSuperview().inset(20)
         }
     }
     
@@ -91,15 +88,15 @@ class ChattingDetailViewController: UIViewController, ConfigUI {
                             "isSender": true,
                             "memberNickname": "닉네임11111",
                             "memberProfileUrl": "http://t1.kakaocdn.net/account_images/default_profile.jpeg.twg.thumb.R640x640",
-                            "chatMessage": "진짜니ㅏ더기나ㅓ니ㅏㅓ리나어ㅣㅏㅋ너ㅣㅏㅓㄹ니카러키나얼닠아ㅓ리ㅏㄴ커리ㅏㄴ더라ㅣㅋ너기ㅏㄴ커ㅣㅏㅣㄹㄴ리ㅏ컫니ㅏ렄니ㅏ러ㅣ카너리ㅏㅋ넝리ㅏ커니다ㅓㄹ카ㅣ너리나ㅓㄹ키ㅏㄴ얼카ㅣㄴ얼ㄴ",
+                            "chatMessage": "진짜니ㅏ더기나ㅓㅏㄴd야ㅑㅑ이거왜짤리냐왜왜오애왜12345678901235647834239479안녕하세요? 왜 짤리나요:? 오악 업서엉진짜어이가없다구여여어어어어어엉높이를지정하지도않았는데 왜 10줄이 넘어가면 ...로 축약이 될까 왜일까 ㅠㅠ 니ㅏ러니다거니ㅏ거니ㅏ거ㅣㅏ더ㅣ라ㅓ키ㅏㅓ킨러키ㅏㄴ러키나얼키ㅏ너리ㅏ",
                             "sentTime": "2024-07-09T23:07:44"
                         },
                         {
                             "memberId": 3,
                             "isSender": false,
                             "memberNickname": "닉네임3",
-                            "memberProfileUrl": "http://t1.kakaocdn.net/account_images/default_profile.jpeg.twg.thumb.R640x640",
-                            "chatMessage": "마지막",
+                            "memberProfileUrl": "http://t1.kakaocdt/account_images/default_profile.jpeg.twg.thumb.R640x640",
+                            "chatMessage": "마지막일까여ㅛ?????????????????????????두줄",
                             "sentTime": "2024-07-09T23:07:43"
                         },
                         {

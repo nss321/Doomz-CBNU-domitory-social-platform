@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 struct Network {
     
     static func getMethod<T: Codable>(url: String, completion: @escaping (Result<T, Error>) -> Void) {
@@ -165,6 +166,15 @@ struct Network {
             }
         }
         task.resume()
+    }
+    
+    static func loadImage(url: String) -> UIImageView {
+        let imageView = UIImageView()
+        guard let imageUrl = URL(string: url) else {
+            return imageView
+        }
+        imageView.kf.setImage(with: imageUrl)
+        return imageView
     }
 }
 
