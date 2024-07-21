@@ -151,6 +151,7 @@ extension ChattingDetailViewController: UITableViewDelegate, UITableViewDataSour
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "YourChattingTableViewCell", for: indexPath) as! YourChattingTableViewCell
             cell.configure(with: message)
+            cell.profileImageView = profileStackView.profileImageView
             return cell
         }
     }

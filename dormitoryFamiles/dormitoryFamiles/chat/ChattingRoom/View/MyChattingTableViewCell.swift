@@ -18,6 +18,7 @@ class MyChattingTableViewCell: UITableViewCell, ConfigUI {
         label.backgroundColor = .primaryMid
         label.textColor = .white
         label.numberOfLines = 0
+        label.font = .body1
         return label
     }()
     
@@ -66,17 +67,7 @@ class MyChattingTableViewCell: UITableViewCell, ConfigUI {
     
     func configure(with message: ChatMessage) {
         messageLabel.text = message.chatMessage
-        timeLabel.text = formatTime(message.sentTime)
+        timeLabel.text = DateUtility.formatTime(message.sentTime)
     }
     
-    func formatTime(_ sentTime: String) -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
-        if let date = dateFormatter.date(from: sentTime) {
-            let formatter = DateFormatter()
-            formatter.dateFormat = "a hh:mm"
-            return formatter.string(from: date)
-        }
-        return sentTime
-    }
 }
