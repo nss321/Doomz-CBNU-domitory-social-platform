@@ -28,19 +28,19 @@ struct DateUtility {
     
     static func chattingTimeFormet(from dateString: String) -> String {
         let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
-            guard let date = dateFormatter.date(from: dateString) else {
-                return ""
-            }
-            let now = Date()
-            let calendar = Calendar.current
-            
-            if calendar.isDate(date, inSameDayAs: now) {
-                dateFormatter.dateFormat = "HH:mm"
-            } else {
-                dateFormatter.dateFormat = "yy.MM.dd"
-            }
-            return dateFormatter.string(from: date)
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+        guard let date = dateFormatter.date(from: dateString) else {
+            return ""
+        }
+        let now = Date()
+        let calendar = Calendar.current
+        
+        if calendar.isDate(date, inSameDayAs: now) {
+            dateFormatter.dateFormat = "HH:mm"
+        } else {
+            dateFormatter.dateFormat = "yy.MM.dd"
+        }
+        return dateFormatter.string(from: date)
     }
     
     static func formattedDateString(from dateString: String) -> String? {
@@ -82,7 +82,7 @@ struct DateUtility {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MM"+(seperator)+"dd"
         let today = Date()
-
+        
         // 오늘의 요일을 가져옴 (월요일이 2, 일요일이 1)
         let weekday = calendar.component(.weekday, from: today)
         
@@ -99,7 +99,7 @@ struct DateUtility {
         // 날짜를 문자열로 변환
         let mondayString = dateFormatter.string(from: monday)
         let sundayString = dateFormatter.string(from: sunday)
-
+        
         return [mondayString, sundayString]
     }
     
@@ -117,6 +117,18 @@ struct DateUtility {
             return nil
         }
     }
-
+    
+    //백앤드시간스트링 -> 오전 02:30 이런식으로 세팅
+    static func formatTime(_ sentTime: String) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+        if let date = dateFormatter.date(from: sentTime) {
+            let formatter = DateFormatter()
+            formatter.dateFormat = "a hh:mm"
+            return formatter.string(from: date)
+        }
+        return sentTime
+    }
+    
 }
 

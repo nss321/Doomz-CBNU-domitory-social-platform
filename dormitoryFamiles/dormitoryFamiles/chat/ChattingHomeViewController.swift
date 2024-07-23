@@ -227,6 +227,17 @@ extension ChattingHomeViewController: UITableViewDelegate, UITableViewDataSource
         delete.backgroundColor = .systemRed
         return UISwipeActionsConfiguration(actions: [delete])
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let chattingRoom = chattingRoomData[indexPath.row]
+        
+        let chattingDetailViewController = ChattingDetailViewController()
+        chattingDetailViewController.nickname = chattingRoom.memberNickname
+        chattingDetailViewController.profileImageUrl = chattingRoom.memberProfileUrl
+        chattingDetailViewController.roomId = chattingRoom.roomId
+        self.navigationController?.pushViewController(chattingDetailViewController, animated: true)
+    }
+    
 }
 
 extension ChattingHomeViewController: UIScrollViewDelegate {
