@@ -149,6 +149,15 @@ struct MemberProfile: Codable {
     let profileUrl: String
 }
 
+struct FollowingUserSearchResponse: Codable {
+    let code: Int
+    let data: FollowingUserSearchData
+}
+
+struct FollowingUserSearchData: Codable {
+    let memberProfiles: [MemberProfile]
+}
+
 struct ChattingRoomsResponse: Codable {
     let code: Int
     let data: ChattingRoomsData
@@ -179,3 +188,22 @@ struct AllDoomzData: Codable {
     let memberProfiles: [MemberProfile]
 }
 
+struct MessageResponse: Codable {
+    let code: Int
+    let data: MessageData
+}
+
+struct MessageData: Codable {
+    let nowPageNumber: Int
+    let isLast: Bool
+    let chatHistory: [Message]
+}
+
+struct Message: Codable {
+    let roomId: Int
+    let memberId: Int
+    let memberNickname: String
+    let chatMessage: String
+    let sentTime: String
+    let memberProfileUrl: String?
+}

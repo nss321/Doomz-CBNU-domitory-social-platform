@@ -31,7 +31,13 @@ class ChattingRoomViewController: UIViewController {
         setTableView()
         addComponents()
         setConstraints()
-        chatListApiNetwork(url: Url.chattingRoom(page: chattingRoomPage, size: nil))
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        chattingRoomData = []
+        chattingRoomPage = 0
+        chatListApiNetwork(url: Url.chattingRoom(page: chattingRoomPage, size: nil, keyword: SearchChattingViewController.keyword))
     }
     
     private func setTableView() {
@@ -79,7 +85,7 @@ class ChattingRoomViewController: UIViewController {
     private func chattingRoomloadNextPage() {
         guard !isChattingLast else { return }
         chattingRoomPage += 1
-        chatListApiNetwork(url: Url.chattingRoom(page: chattingRoomPage, size: 1))
+        chatListApiNetwork(url: Url.chattingRoom(page: chattingRoomPage, size: nil, keyword: SearchChattingViewController.keyword))
     }
 }
 

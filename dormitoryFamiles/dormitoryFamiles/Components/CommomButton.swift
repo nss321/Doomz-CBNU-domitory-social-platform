@@ -145,3 +145,35 @@ class RoundLabel: UILabel {
         self.textAlignment = .center
     }
 }
+
+class DropdownButton: UIButton {
+       init(frame: CGRect, title: String) {
+           super.init(frame: frame)
+           setupButton(title: title)
+       }
+
+       required init?(coder: NSCoder) {
+           super.init(coder: coder)
+           setupButton(title: "최신순")
+       }
+       
+       override func layoutSubviews() {
+           super.layoutSubviews()
+           self.layer.cornerRadius = min(self.bounds.height, 48) / 2
+           self.layer.masksToBounds = true
+       }
+
+       private func setupButton(title: String) {
+           self.body2 = title
+           self.setTitleColor(.black, for: .normal)
+           self.layer.borderColor = UIColor(red: 0.894, green: 0.898, blue: 0.906, alpha: 1).cgColor
+           self.layer.borderWidth = 1
+           self.setTitleColor(.gray, for: .normal)
+           self.setImage(UIImage(named: "bulletinBoardVector"), for: .normal)
+           let spacing: CGFloat = 5
+           self.titleEdgeInsets = UIEdgeInsets(top: 0, left: -spacing, bottom: 0, right: spacing)
+           self.imageEdgeInsets = UIEdgeInsets(top: 0, left: spacing, bottom: 0, right: -spacing)
+           self.contentEdgeInsets = UIEdgeInsets(top: 0, left: 12, bottom: 0, right: 12)
+           self.semanticContentAttribute = .forceRightToLeft
+       }
+}

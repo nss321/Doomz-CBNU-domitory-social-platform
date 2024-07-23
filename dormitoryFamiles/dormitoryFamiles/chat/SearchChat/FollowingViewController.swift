@@ -8,7 +8,6 @@
 import UIKit
 
 class FollowingViewController: UIViewController {
-    
     private var followingData: [MemberProfile] = []
     private var followingPage = 0
     private var isFollowingLast = false
@@ -28,7 +27,13 @@ class FollowingViewController: UIViewController {
         setCollectionView()
         addComponents()
         setConstraints()
-        followingApiNetwork(url: Url.following(page: followingPage, size: nil))
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        followingData = []
+        followingPage = 0
+        followingApiNetwork(url: Url.following(page: followingPage, size: nil, keyword: SearchChattingViewController.keyword))
     }
     
     private func setCollectionView() {
@@ -57,26 +62,43 @@ class FollowingViewController: UIViewController {
     }
     
     private func followingApiNetwork(url: String) {
-        Network.getMethod(url: url) { (result: Result<FollowingUserResponse, Error>) in
-            switch result {
-            case .success(let response):
-                self.followingData += response.data.memberProfiles
-                self.isFollowingLast = response.data.isLast
-                DispatchQueue.main.async {
-                    self.followingCollectionView.reloadData()
+        if url.contains("search") {
+            Network.getMethod(url: url) { (result: Result<FollowingUserSearchResponse, Error>) in
+                switch result {
+                case .success(let response):
+                    self.followingData += response.data.memberProfiles
+                    DispatchQueue.main.async {
+                        self.followingCollectionView.reloadData()
+                    }
+                    self.isLoading = false
+                case .failure(let error):
+                    print("Error: \(error)")
+                    self.isLoading = false
                 }
-                self.isLoading = false
-            case .failure(let error):
-                print("Error: \(error)")
-                self.isLoading = false
+            }
+        }else {
+            Network.getMethod(url: url) { (result: Result<FollowingUserResponse, Error>) in
+                switch result {
+                case .success(let response):
+                    self.followingData += response.data.memberProfiles
+                    self.isFollowingLast = response.data.isLast
+                    DispatchQueue.main.async {
+                        self.followingCollectionView.reloadData()
+                    }
+                    self.isLoading = false
+                case .failure(let error):
+                    print("Error: \(error)")
+                    self.isLoading = false
+                }
             }
         }
     }
     
+    
     private func followingLoadNextPage() {
         guard !isFollowingLast else { return }
         followingPage += 1
-        followingApiNetwork(url: Url.following(page: followingPage, size: 1))
+        followingApiNetwork(url: Url.following(page: followingPage, size: 1, keyword: SearchChattingViewController.keyword))
     }
     
 }

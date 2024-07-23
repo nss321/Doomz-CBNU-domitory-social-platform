@@ -2,6 +2,7 @@ import UIKit
 import SnapKit
 
 class ChattingHomeViewController: UIViewController {
+    var keyword: String?
     private var followingData: [MemberProfile] = []
     private var followingPage = 0
     private var isFollowingLast = false
@@ -43,7 +44,13 @@ class ChattingHomeViewController: UIViewController {
         setCollectionView()
         setTableView()
         setConstraints()
-        setApi()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        followingData = []
+        chattingRoomData = []
+        setApi(keyword: keyword)
     }
     
     @objc func followingMoreButtonTapped() {
@@ -120,9 +127,9 @@ class ChattingHomeViewController: UIViewController {
         tableView.dataSource = self
     }
     
-    private func setApi() {
-        followingApiNetwork(url: Url.following(page: followingPage, size: nil))
-        chatListApiNetwork(url: Url.chattingRoom(page: chattingRoomPage, size: nil))
+    private func setApi(keyword: String?) {
+        followingApiNetwork(url: Url.following(page: followingPage, size: nil, keyword: keyword))
+        chatListApiNetwork(url: Url.chattingRoom(page: chattingRoomPage, size: nil, keyword: keyword))
     }
     
     private func followingApiNetwork(url: String) {
@@ -163,13 +170,13 @@ class ChattingHomeViewController: UIViewController {
     private func chattingRoomloadNextPage() {
         guard !isChattingLast else { return }
         chattingRoomPage += 1
-        chatListApiNetwork(url: Url.chattingRoom(page: chattingRoomPage, size: 1))
+        chatListApiNetwork(url: Url.chattingRoom(page: chattingRoomPage, size: 1, keyword: keyword))
     }
     
     private func followingLoadNextPage() {
         guard !isFollowingLast else { return }
         followingPage += 1
-        followingApiNetwork(url: Url.following(page: followingPage, size: 1))
+        followingApiNetwork(url: Url.following(page: followingPage, size: 1, keyword: keyword))
     }
 }
 
