@@ -8,23 +8,9 @@
 import UIKit
 
 class AllDoomzViewController: UIViewController {
-    let allDoomzData = [
-        "code": 200,
-        "data": [
-            "memberProfiles": [
-                [
-                    "memberId": 2,
-                    "nickname": "닉네임2",
-                    "profileUrl": "http://t1.kakaocdn.net/account_images/default_profile.jpeg.twg.thumb.R640x640"
-                ],
-                [
-                    "memberId": 8,
-                    "nickname": "닉네임8",
-                    "profileUrl": "http://t1.kakaocdn.net/account_images/default_profile.jpeg.twg.thumb.R640x640"
-                ]
-            ]
-        ]
-    ] as [String : Any]
+    private var allDoomzData: [MemberProfile] = []
+    private var allDoomzPage = 0
+    private var isAllDoomzLast = false
     
     let allDoomzLabel: UILabel = {
         let label = UILabel()
@@ -40,6 +26,7 @@ class AllDoomzViewController: UIViewController {
         setCollectionView()
         addComponents()
         setConstraints()
+        allDoomzApiNetwork(url: Url.allDoomz(page: allDoomzPage, size: nil))
     }
     
     private func setCollectionView() {
@@ -67,12 +54,24 @@ class AllDoomzViewController: UIViewController {
         }
     }
     
+    private func allDoomzApiNetwork(url: String) {
+        Network.getMethod(url: url) { (result: Result<AllDoomzResponse, Error>) in
+            switch result {
+            case .success(let response):
+                self.allDoomzData += response.data.memberProfiles
+                //self.isAllDoomzLast = response.data.isLast
+                DispatchQueue.main.async {
+                    self.allDoomzCollectionView.reloadData()
+                }
+            case .failure(let error):
+                print("Error: \(error)")
+            }
+        }
+    }
 }
 extension AllDoomzViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        let data = allDoomzData["data"] as! [String: Any]
-        let profiles = data["memberProfiles"] as! [[String: Any]]
-        return profiles.count
+        return allDoomzData.count
     }
     
     
@@ -80,15 +79,9 @@ extension AllDoomzViewController: UICollectionViewDelegate, UICollectionViewData
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: UserProfileNicknameCollectionViewControllerCell.identifier, for: indexPath) as? UserProfileNicknameCollectionViewControllerCell else {
             fatalError()
         }
-        var profile: [String: Any] = [:]
-        let data = allDoomzData["data"] as! [String: Any]
-        let profiles = data["memberProfiles"] as! [[String: Any]]
-        profile = profiles[indexPath.row]
-        let nickname = profile["nickname"] as! String
-        let profileUrl = profile["profileUrl"] as! String
-        cell.configure(text: nickname, profileUrl: profileUrl)
         
+        let profile = allDoomzData[indexPath.row]
+        cell.configure(text: profile.nickname, profileUrl: profile.profileUrl)
         return cell
     }
 }
-    

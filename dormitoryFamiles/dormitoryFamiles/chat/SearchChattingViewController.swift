@@ -56,6 +56,19 @@ class SearchChattingViewController: TabmanViewController {
         setTabman()
         addComponents()
         setConstraints()
+        setTap()
+    }
+    
+    private func setTap() {
+        //이전 화면에서 팔로잉 전체보기를 눌러서 화면전환이 된 경우 화면 탭 변경
+        if let viewControllers = self.navigationController?.viewControllers,
+           viewControllers.count > 1,
+           let previousVC = viewControllers[viewControllers.count - 2] as? ChattingHomeViewController,
+           previousVC.didFollowingMoreButtonTapped {
+            self.scrollToPage(.at(index: 1), animated: true)
+            previousVC.didFollowingMoreButtonTapped = false
+        }
+        
     }
     
     private func setNavigationBar() {
@@ -64,7 +77,7 @@ class SearchChattingViewController: TabmanViewController {
         containerView.isUserInteractionEnabled = true
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(textFieldTapped))
         containerView.addGestureRecognizer(tapGesture)
-
+        
         navigationItem.titleView = containerView
         
         containerView.addSubview(navigationTextFieldLabel)

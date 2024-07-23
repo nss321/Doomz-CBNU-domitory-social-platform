@@ -1,80 +1,19 @@
-//
-//  chattingHomeViewController.swift
-//  dormitoryFamiles
-//
-//  Created by leehwajin on 2024/07/12.
-//
-
 import UIKit
 import SnapKit
 
 class ChattingHomeViewController: UIViewController {
-    let followingSampleData = [
-        "code": 200,
-        "data": [
-            "totalPageNumber": 1,
-            "nowPageNumber": 0,
-            "isLast": true,
-            "memberProfiles": [
-                [
-                    "memberId": 5,
-                    "nickname": "유림잉",
-                    "profileUrl": "https://dormitory-family-images-bucket.s3.ap-northeast-2.amazonaws.com/a0345319-feff-4998-b098-b2322261acba_IMG_0338.JPG"
-                ],
-                [
-                    "memberId": 3,
-                    "nickname": "해나짱",
-                    "profileUrl": "http://k.kakaocdn.net/dn/cTaX1s/btsFAgXr5mH/n2AXHaWczRKt2Fxmt8hJMk/img_640x640.jpg"
-                ]
-            ]
-        ]
-    ] as [String : Any]
+    private var followingData: [MemberProfile] = []
+    private var followingPage = 0
+    private var isFollowingLast = false
     
-    let sampleChatting = [["roomId": 8,
-                           "memberId": 8,
-                           "memberNickname": "닉네임8",
-                           "unReadCount": 1,
-                           "lastMessage": "Hello, how are you?",
-                           "lastMessageTime": "2024-05-30T13:58:10"
-                          ],
-                          [
-                            "roomId": 7,
-                            "memberId": 7,
-                            "memberNickname": "닉네임7",
-                            "memberProfileUrl": "http://t1.kakaocdn.net/account_images/default_profile.jpeg.twg.thumb.R640x640",
-                            "unReadCount": 20,
-                            "lastMessage": "Hello, how are you?",
-                            "lastMessageTime": "2024-05-30T13:57:47"
-                          ],
-                          [
-                            "roomId": 5,
-                            "memberId": 5,
-                            "memberNickname": "닉네임5",
-                            "memberProfileUrl": "http://t1.kakaocdn.net/account_images/default_profile.jpeg.twg.thumb.R640x640",
-                            "unReadCount": 0,
-                            "lastMessage": "Hello, how are you?",
-                            "lastMessageTime": "2024-05-30T13:57:10"
-                          ],
-                          [
-                            "roomId": 4,
-                            "memberId": 4,
-                            "memberNickname": "닉네임4",
-                            "memberProfileUrl": "http://t1.kakaocdn.net/account_images/default_profile.jpeg.twg.thumb.R640x640",
-                            "unReadCount": 0,
-                            "lastMessage": "Hello, how are you?",
-                            "lastMessageTime": "2024-05-30T13:56:49"
-                          ],
-                          [
-                            "roomId": 3,
-                            "memberId": 3,
-                            "memberNickname": "닉네임3",
-                            "memberProfileUrl": "http://t1.kakaocdn.net/account_images/default_profile.jpeg.twg.thumb.R640x640",
-                            "unReadCount": 0,
-                            "lastMessage": "Hello, how are you?",
-                            "lastMessageTime": "2024-05-30T13:56:25"
-                          ]]
+    private var chattingRoomData: [ChattingRoom] = []
+    private var chattingRoomPage = 0
+    private var isChattingLast = false
     
-    let followingLabelButtonStackView = LabelAndRoundButtonStackView(labelText: "팔로잉", textFont: .title2 ?? UIFont(), buttonText: "전체보기", buttonHasArrow: true)
+    private var isLoading = false
+    var didFollowingMoreButtonTapped = false
+    
+    private let followingLabelButtonStackView = LabelAndRoundButtonStackView(labelText: "팔로잉", textFont: .title2 ?? UIFont(), buttonText: "전체보기", buttonHasArrow: true)
     
     private let collectionView = UserProfileNicknameCollectionView(spacing: 12, scrollDirection: .horizontal)
     
@@ -99,10 +38,18 @@ class ChattingHomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        followingLabelButtonStackView.addButtonTarget(target: self, action: #selector(followingMoreButtonTapped), for: .touchUpInside)
         setNavigationBar()
         setCollectionView()
         setTableView()
         setConstraints()
+        setApi()
+    }
+    
+    @objc func followingMoreButtonTapped() {
+        let searchChattingViewController = SearchChattingViewController()
+        didFollowingMoreButtonTapped = true
+        self.navigationController?.pushViewController(SearchChattingViewController(), animated: true)
     }
     
     private func setNavigationBar() {
@@ -135,6 +82,7 @@ class ChattingHomeViewController: UIViewController {
             $0.leading.trailing.equalToSuperview().inset(20)
         }
         
+        view.addSubview(collectionView)
         collectionView.snp.makeConstraints {
             $0.top.equalTo(followingLabelButtonStackView.snp.bottom).inset(-12)
             $0.height.equalTo(70)
@@ -154,6 +102,7 @@ class ChattingHomeViewController: UIViewController {
             $0.leading.equalToSuperview().inset(26)
         }
         
+        view.addSubview(tableView)
         tableView.snp.makeConstraints {
             $0.top.equalTo(chattingListLabel.snp.bottom).inset(-20)
             $0.leading.trailing.equalToSuperview()
@@ -162,23 +111,71 @@ class ChattingHomeViewController: UIViewController {
     }
     
     private func setCollectionView() {
-        view.addSubview(collectionView)
         collectionView.delegate = self
         collectionView.dataSource = self
     }
     
     private func setTableView() {
-        view.addSubview(tableView)
         tableView.delegate = self
         tableView.dataSource = self
+    }
+    
+    private func setApi() {
+        followingApiNetwork(url: Url.following(page: followingPage, size: nil))
+        chatListApiNetwork(url: Url.chattingRoom(page: chattingRoomPage, size: nil))
+    }
+    
+    private func followingApiNetwork(url: String) {
+        Network.getMethod(url: url) { (result: Result<FollowingUserResponse, Error>) in
+            switch result {
+            case .success(let response):
+                self.followingData += response.data.memberProfiles
+                self.isFollowingLast = response.data.isLast
+                DispatchQueue.main.async {
+                    self.collectionView.reloadData()
+                }
+                self.isLoading = false
+            case .failure(let error):
+                print("Error: \(error)")
+                self.isLoading = false
+            }
+        }
+    }
+    
+    private func chatListApiNetwork(url: String) {
+        print(chattingRoomPage)
+        Network.getMethod(url: url) { (result: Result<ChattingRoomsResponse, Error>) in
+            switch result {
+            case .success(let response):
+                self.chattingRoomData += response.data.chatRooms
+                self.isChattingLast = response.data.isLast
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+                self.isLoading = false
+            case .failure(let error):
+                print("Error: \(error)")
+                self.isLoading = false
+            }
+        }
+    }
+    
+    private func chattingRoomloadNextPage() {
+        guard !isChattingLast else { return }
+        chattingRoomPage += 1
+        chatListApiNetwork(url: Url.chattingRoom(page: chattingRoomPage, size: 1))
+    }
+    
+    private func followingLoadNextPage() {
+        guard !isFollowingLast else { return }
+        followingPage += 1
+        followingApiNetwork(url: Url.following(page: followingPage, size: 1))
     }
 }
 
 extension ChattingHomeViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        let data = followingSampleData["data"] as! [String: Any]
-        let profiles = data["memberProfiles"] as! [[String: Any]]
-        return profiles.count
+        return followingData.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -186,17 +183,8 @@ extension ChattingHomeViewController: UICollectionViewDelegate, UICollectionView
             fatalError()
         }
         
-        var profile: [String: Any] = [:]
-        
-        
-        let data = followingSampleData["data"] as! [String: Any]
-        let profiles = data["memberProfiles"] as! [[String: Any]]
-        profile = profiles[indexPath.row]
-        
-        
-        let nickname = profile["nickname"] as! String
-        let profileUrl = profile["profileUrl"] as! String
-        cell.configure(text: nickname, profileUrl: profileUrl)
+        let profile = followingData[indexPath.row]
+        cell.configure(text: profile.nickname, profileUrl: profile.profileUrl)
         
         return cell
     }
@@ -204,19 +192,20 @@ extension ChattingHomeViewController: UICollectionViewDelegate, UICollectionView
 
 extension ChattingHomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return sampleChatting.count
+        return chattingRoomData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: ChattingHomeTableViewCell.identifier, for: indexPath) as? ChattingHomeTableViewCell else {
             return UITableViewCell()
         }
-        let chatData = sampleChatting[indexPath.row]
-        let memberNickname = chatData["memberNickname"] as? String ?? ""
-        let memberProfileUrl = chatData["memberProfileUrl"] as? String ?? ""
-        let unReadCount = chatData["unReadCount"] as? Int ?? 0
-        let lastMessage = chatData["lastMessage"] as? String ?? ""
-        let lastMessageTime = chatData["lastMessageTime"] as? String ?? ""
+        
+        let chattingRoom = chattingRoomData[indexPath.row]
+        let memberNickname = chattingRoom.memberNickname
+        let memberProfileUrl = chattingRoom.memberProfileUrl ?? ""
+        let unReadCount = chattingRoom.unReadCount
+        let lastMessage = chattingRoom.lastMessage
+        let lastMessageTime = chattingRoom.lastMessageTime
         
         cell.configure(memberNickname: memberNickname, memberProfileUrl: memberProfileUrl, unReadCount: unReadCount, lastMessage: lastMessage, lastMessageTime: lastMessageTime)
         cell.selectionStyle = .none
@@ -229,6 +218,34 @@ extension ChattingHomeViewController: UITableViewDelegate, UITableViewDataSource
             success(true)
         }
         delete.backgroundColor = .systemRed
-        return UISwipeActionsConfiguration(actions:[delete])
+        return UISwipeActionsConfiguration(actions: [delete])
+    }
+}
+
+extension ChattingHomeViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let offsetY = scrollView.contentOffset.y
+        let contentHeight = scrollView.contentSize.height
+        let height = scrollView.frame.size.height
+        
+        if scrollView == tableView {
+            if offsetY > contentHeight - height {
+                if !isLoading {
+                    isLoading = true
+                    chattingRoomloadNextPage()
+                }
+            }
+        } else if scrollView == collectionView {
+            let horizontalOffset = scrollView.contentOffset.x
+            let contentWidth = scrollView.contentSize.width
+            let width = scrollView.frame.size.width
+            
+            if horizontalOffset > contentWidth - width {
+                if !isLoading {
+                    isLoading = true
+                    followingLoadNextPage()
+                }
+            }
+        }
     }
 }
