@@ -14,6 +14,7 @@
 		11036F292C3D57840042B9EF /* MiscViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11036F282C3D57840042B9EF /* MiscViewController.swift */; };
 		11036F2D2C3D5CE40042B9EF /* CompleteMyCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11036F2C2C3D5CE40042B9EF /* CompleteMyCondition.swift */; };
 		11036F2F2C3D70870042B9EF /* ChoosePriorityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11036F2E2C3D70870042B9EF /* ChoosePriorityViewController.swift */; };
+		11227B1D2C51291D002A6A8A /* Url.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11227B1C2C51291D002A6A8A /* Url.swift */; };
 		1126FE1C2BCEA662004C6C81 /* LifeStyleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1126FE1B2BCEA662004C6C81 /* LifeStyleViewController.swift */; };
 		1131E8A22BF6220B00D40120 /* UIScreen+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1131E8A12BF6220B00D40120 /* UIScreen+.swift */; };
 		1148B3F62C3EAD4B0056671B /* PriorityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1148B3F52C3EAD4B0056671B /* PriorityCell.swift */; };
@@ -87,7 +88,6 @@
 		DBD0C57E2C41263700F6B456 /* ChattingHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD0C57D2C41263700F6B456 /* ChattingHomeViewController.swift */; };
 		DBD0C5802C41E52C00F6B456 /* UserProfileNicknameCollectionViewControllerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD0C57F2C41E52C00F6B456 /* UserProfileNicknameCollectionViewControllerCell.swift */; };
 		DBD0C5822C41F46100F6B456 /* ChattingHomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD0C5812C41F46100F6B456 /* ChattingHomeTableViewCell.swift */; };
-		DBD1E00A2C3D49C900FDD5FE /* Url.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD1E0092C3D49C900FDD5FE /* Url.swift */; };
 		DBD1E00C2C3D49E900FDD5FE /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD1E00B2C3D49E900FDD5FE /* Token.swift */; };
 		DBD1E7FC2B84A9D500FD71C6 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD1E7FB2B84A9D500FD71C6 /* Network.swift */; };
 		DBDF96EF2B84BFB2000E74AE /* ProfileFinishedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDF96EE2B84BFB2000E74AE /* ProfileFinishedViewController.swift */; };
@@ -123,6 +123,7 @@
 		11036F282C3D57840042B9EF /* MiscViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiscViewController.swift; sourceTree = "<group>"; };
 		11036F2C2C3D5CE40042B9EF /* CompleteMyCondition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteMyCondition.swift; sourceTree = "<group>"; };
 		11036F2E2C3D70870042B9EF /* ChoosePriorityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoosePriorityViewController.swift; sourceTree = "<group>"; };
+		11227B1C2C51291D002A6A8A /* Url.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Url.swift; sourceTree = "<group>"; };
 		1126FE1B2BCEA662004C6C81 /* LifeStyleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifeStyleViewController.swift; sourceTree = "<group>"; };
 		1131E8A12BF6220B00D40120 /* UIScreen+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScreen+.swift"; sourceTree = "<group>"; };
 		1148B3F52C3EAD4B0056671B /* PriorityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriorityCell.swift; sourceTree = "<group>"; };
@@ -198,7 +199,6 @@
 		DBD0C57D2C41263700F6B456 /* ChattingHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingHomeViewController.swift; sourceTree = "<group>"; };
 		DBD0C57F2C41E52C00F6B456 /* UserProfileNicknameCollectionViewControllerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileNicknameCollectionViewControllerCell.swift; sourceTree = "<group>"; };
 		DBD0C5812C41F46100F6B456 /* ChattingHomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingHomeTableViewCell.swift; sourceTree = "<group>"; };
-		DBD1E0092C3D49C900FDD5FE /* Url.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Url.swift; sourceTree = "<group>"; };
 		DBD1E00B2C3D49E900FDD5FE /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
 		DBD1E7FB2B84A9D500FD71C6 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		DBDF96EE2B84BFB2000E74AE /* ProfileFinishedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFinishedViewController.swift; sourceTree = "<group>"; };
@@ -428,7 +428,7 @@
 			children = (
 				DBD1E7FB2B84A9D500FD71C6 /* Network.swift */,
 				DB74D0C52B73EEBF00A90D68 /* Codable.swift */,
-				DBD1E0092C3D49C900FDD5FE /* Url.swift */,
+				11227B1C2C51291D002A6A8A /* Url.swift */,
 				DBD1E00B2C3D49E900FDD5FE /* Token.swift */,
 			);
 			path = Network;
@@ -681,6 +681,7 @@
 				11036F272C3C19A00042B9EF /* StudyStyleViewController.swift in Sources */,
 				DB29DE272C4C146800365684 /* ChattingNavigationProfileStackView.swift in Sources */,
 				DB29DE242C4C0E4100365684 /* ChattingDetailViewController.swift in Sources */,
+				11227B1D2C51291D002A6A8A /* Url.swift in Sources */,
 				DB61AA342B4C1EA70040418B /* RegisterPostViewController.swift in Sources */,
 				DB29DE292C4C292200365684 /* MyChattingTableViewCell.swift in Sources */,
 				DB20E38E2B53D75F000D12A7 /* Stroyboard+.swift in Sources */,
@@ -707,7 +708,6 @@
 				DB7EF27D2B5EAC790062FAB5 /* ChoiceDormitoryButton.swift in Sources */,
 				DB3F053E2C44BED90091349F /* FollowingViewController.swift in Sources */,
 				DBFF14932B7BA7EC002DA3AA /* BulletinBoardDetailViewViewController.swift in Sources */,
-				DBD1E00A2C3D49C900FDD5FE /* Url.swift in Sources */,
 				DB932AC12B6511E300B456FB /* BulluetinBoardCollectionViewCell.swift in Sources */,
 				DBF466FF2AA5F4E4009FF3EB /* MealMenuViewController.swift in Sources */,
 				DB496DEB2B70EAFB00F97324 /* TabbarViewController.swift in Sources */,
