@@ -59,7 +59,6 @@ final class BulletinBoardDetailViewViewController: UIViewController {
         super.viewDidLoad()
         let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout
         layout?.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
-        layout?.sectionHeadersPinToVisibleBounds = true
         network(url: url)
         setUI()
         setIndicator()
@@ -606,7 +605,7 @@ extension BulletinBoardDetailViewViewController: UICollectionViewDelegateFlowLay
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
             // 이 메서드는 필수적으로 헤더의 초기 크기를 반환해야 합니다.
             // 이후 preferredLayoutAttributesFitting 메서드가 호출되어 크기가 자동으로 조정됩니다.
-        return CGSize(width: collectionView.frame.width, height: 50)
+            return CGSize(width: collectionView.frame.width, height: UICollectionViewFlowLayout.automaticSize.height)
         }
     
     //셀과 셀 사이의 간격

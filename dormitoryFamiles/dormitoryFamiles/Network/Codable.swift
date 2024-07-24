@@ -45,7 +45,7 @@ struct Post: Codable {
 struct PostResponse: Decodable {
     let code: Int
     let data: ResponseData
-
+    
     struct ResponseData: Decodable {
         let articleId: Int
     }
@@ -129,4 +129,102 @@ struct SuccessCode: Codable {
 
 struct LikeStatus: Codable {
     let status: Int
+}
+
+struct FollowingUserResponse: Codable {
+    let code: Int
+    let data: FollowingUserData
+}
+
+struct FollowingUserData: Codable {
+    let totalPageNumber: Int
+    let nowPageNumber: Int
+    let isLast: Bool
+    let memberProfiles: [MemberProfile]
+}
+
+struct MemberProfile: Codable {
+    let memberId: Int
+    let nickname: String
+    let profileUrl: String
+}
+
+struct FollowingUserSearchResponse: Codable {
+    let code: Int
+    let data: FollowingUserSearchData
+}
+
+struct FollowingUserSearchData: Codable {
+    let memberProfiles: [MemberProfile]
+}
+
+struct ChattingRoomsResponse: Codable {
+    let code: Int
+    let data: ChattingRoomsData
+}
+
+struct ChattingRoomsData: Codable {
+    let nowPageNumber: Int
+    let isLast: Bool
+    let chatRooms: [ChattingRoom]
+}
+
+struct ChattingRoom: Codable {
+    let roomId: Int
+    let memberId: Int
+    let memberNickname: String
+    let unReadCount: Int
+    let lastMessage: String
+    let lastMessageTime: String
+    let memberProfileUrl: String?
+}
+
+struct AllDoomzResponse: Codable {
+    let code: Int
+    let data: AllDoomzData
+}
+
+struct AllDoomzData: Codable {
+    let memberProfiles: [MemberProfile]
+}
+
+struct MessageResponse: Codable {
+    let code: Int
+    let data: MessageData
+}
+
+struct MessageData: Codable {
+    let nowPageNumber: Int
+    let isLast: Bool
+    let chatHistory: [Message]
+}
+
+struct Message: Codable {
+    let roomId: Int
+    let memberId: Int
+    let memberNickname: String
+    let chatMessage: String
+    let sentTime: String
+    let memberProfileUrl: String?
+}
+
+struct ApiResponse: Codable {
+    let code: Int
+    let data: ChatData
+}
+
+struct ChatData: Codable {
+    let nowPageNumber: Int
+    let isLast: Bool
+    let roomUUID: String
+    let chatHistory: [ChatMessage]
+}
+
+struct ChatMessage: Codable {
+    let memberId: Int
+    let isSender: Bool
+    let memberNickname: String
+    let memberProfileUrl: String
+    let chatMessage: String
+    let sentTime: String
 }
