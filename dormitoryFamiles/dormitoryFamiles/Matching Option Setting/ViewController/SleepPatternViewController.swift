@@ -27,7 +27,7 @@ final class SleepPatternViewController: UIViewController, ConfigUI {
     ]
     
     let sensitivity: [String] = [
-        "어두움", "밝음", "없음"
+        "어두움", "밝음"
     ]
     
     var selectedBedTime: String?
@@ -152,7 +152,7 @@ final class SleepPatternViewController: UIViewController, ConfigUI {
         setConstraints()
         setupNavigationBar("긱사생활 설정")
         nextButton.setup(model: nextButtonModel)
-        checkSelections()
+        checkSelections(selectedItems: [selectedBedTime, selectedWakeupTime, selectedHabit], nextButton: nextButton)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -236,15 +236,6 @@ final class SleepPatternViewController: UIViewController, ConfigUI {
         self.tabBarController?.tabBar.isHidden = true
         self.navigationController?.pushViewController(SmokeAndAlcoholPatternViewController(), animated: true)
     }
-    
-    func checkSelections() {
-        let allSelected = selectedBedTime != nil &&
-                          selectedWakeupTime != nil &&
-                          selectedHabit != nil
-        
-        nextButton.isEnabled(allSelected)
-        nextButton.backgroundColor = allSelected ? .primary : .gray3
-    }
 }
 
 extension SleepPatternViewController: UICollectionViewDataSource {
@@ -322,9 +313,11 @@ extension SleepPatternViewController: UICollectionViewDelegateFlowLayout {
         switch collectionView {
         case sleepingHabitsCollectionView:
             // MARK: cell 간격
-            cellSize = CGSize(width: (currentScreenWidth - 86) / 4, height: (currentScreenWidth - 86) / 4 )
+            cellSize = CGSize(width: UIScreen.circleCellRadius, height: UIScreen.circleCellRadius)
+        case sleepSensitivityCollectionView:
+            cellSize = CGSize(width: UIScreen.cellWidth2Column, height: UIScreen.cellHeight)
         default:
-            cellSize = CGSize(width: (currentScreenWidth - 58) / 3, height: 48)
+            cellSize = CGSize(width: UIScreen.cellWidth3Column, height: UIScreen.cellHeight)
         }
         return cellSize
     }
@@ -346,21 +339,6 @@ extension SleepPatternViewController: UICollectionViewDelegateFlowLayout {
         default:
             print("default")
         }
-        checkSelections()
-    }
-    
-    func handleSelection(collectionView: UICollectionView, indexPath: IndexPath, selectedValue: inout String?, items: [String]) {
-        if let currentValue = selectedValue, let selectedIndex = items.firstIndex(of: currentValue) {
-            if selectedIndex == indexPath.row {
-                selectedValue = nil
-                collectionView.deselectItem(at: indexPath, animated: false)
-            } else {
-                let previousIndexPath = IndexPath(item: selectedIndex, section: 0)
-                collectionView.deselectItem(at: previousIndexPath, animated: false)
-                selectedValue = items[indexPath.row]
-            }
-        } else {
-            selectedValue = items[indexPath.row]
-        }
+        checkSelections(selectedItems: [selectedBedTime, selectedWakeupTime, selectedHabit], nextButton: nextButton)
     }
 }
