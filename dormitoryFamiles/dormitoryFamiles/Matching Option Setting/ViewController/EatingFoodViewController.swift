@@ -13,6 +13,9 @@ final class EatingFoodViewController: UIViewController, ConfigUI {
     let midnightSnack = ["안먹어요", "가끔", "자주"]
     let eatingFoodInRoom = ["괜찮아요", "싫어요"]
     
+    var selectedMidnightSnack: String?
+    var selectedEatingFoodInRoom: String?
+    
     private let stackView: UIStackView = {
         let view = UIStackView()
         view.axis = .vertical
@@ -112,7 +115,6 @@ final class EatingFoodViewController: UIViewController, ConfigUI {
     func addComponents() {
         let midnightSnackSection = createStackViewWithLabelAndSubview(string: "야식", subview: midnightSnackCollectionView)
         let eatingFoodInRoomSection = createStackViewWithLabelAndSubview(string: "방 안에서", subview: eatingFoodInRoomCollectionView)
-
         
         view.addSubview(stackView)
         [logoStackView, eatingFoodStack].forEach{ stackView.addArrangedSubview($0) }
@@ -155,7 +157,16 @@ final class EatingFoodViewController: UIViewController, ConfigUI {
     
     @objc
     func didClickNextButton() {
-        print("nextBtn")
+        let matchingOption: [String: Any] = [
+            "selectedMidnightSnack": selectedMidnightSnack ?? "",
+            "selectedEatingFoodInRoom": selectedEatingFoodInRoom ?? ""
+        ]
+        UserDefaults.standard.setMatchingOption(matchingOption)
+        
+        // 저장된 정보 로그 출력
+        ["selectedMidnightSnack", "selectedEatingFoodInRoom"].forEach {
+            print("\($0): \(UserDefaults.standard.getMatchingOptionValue(forKey: $0) ?? "")")
+        }
         self.navigationController?.pushViewController(NoiseAndPerfumeViewController(), animated: true)
     }
 }
@@ -212,9 +223,26 @@ extension EatingFoodViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         switch collectionView {
         case midnightSnackCollectionView:
-            print("\(collectionView)의 \(indexPath.row) 선택")
+            selectedMidnightSnack = midnightSnack[indexPath.item]
+            print("Midnight Snack: \(midnightSnack[indexPath.item]) 선택")
+        case eatingFoodInRoomCollectionView:
+            selectedEatingFoodInRoom = eatingFoodInRoom[indexPath.item]
+            print("Eating Food In Room: \(eatingFoodInRoom[indexPath.item]) 선택")
         default:
-            print("\(collectionView)의 \(indexPath.row) 선택")
+            print("default")
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        switch collectionView {
+        case midnightSnackCollectionView:
+            selectedMidnightSnack = nil
+            print("Midnight Snack: \(midnightSnack[indexPath.item]) 선택 해제")
+        case eatingFoodInRoomCollectionView:
+            selectedEatingFoodInRoom = nil
+            print("Eating Food In Room: \(eatingFoodInRoom[indexPath.item]) 선택 해제")
+        default:
+            print("default")
         }
     }
 }

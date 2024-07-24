@@ -9,11 +9,13 @@ import UIKit
 import SnapKit
 
 final class ConstitutionViewController: UIViewController, ConfigUI {
-  
     
     let hot = ["적게 탐", "조금 탐", "많이 탐"]
     let cold = ["적게 탐", "조금 탐", "많이 탐"]
-
+    
+    var selectedHot: String?
+    var selectedCold: String?
+    
     private let stackView: UIStackView = {
         let view = UIStackView()
         view.axis = .vertical
@@ -156,7 +158,16 @@ final class ConstitutionViewController: UIViewController, ConfigUI {
     
     @objc
     func didClickNextButton() {
-        print("nextBtn")
+        let matchingOption: [String: Any] = [
+            "selectedHot": selectedHot ?? "",
+            "selectedCold": selectedCold ?? ""
+        ]
+        UserDefaults.standard.setMatchingOption(matchingOption)
+        
+        // 저장된 정보 로그 출력
+        ["selectedHot", "selectedCold"].forEach {
+            print("\($0): \(UserDefaults.standard.getMatchingOptionValue(forKey: $0) ?? "")")
+        }
         self.navigationController?.pushViewController(MBTIViewController(), animated: true)
     }
     
@@ -203,19 +214,33 @@ extension ConstitutionViewController: UICollectionViewDelegateFlowLayout {
         let numberOfinter:Int = hot.count - 1
         let interSpacing:Int = 8
         let cellSize = CGSize(width: (UIScreen.screenWidthLayoutGuide - numberOfinter * interSpacing) / 3, height: 48)
-
+        
         return cellSize
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         switch collectionView {
         case hotCollectionView:
-            print("\(collectionView)의 \(indexPath.row) 선택")
+            selectedHot = hot[indexPath.item]
+            print("Hot: \(hot[indexPath.item]) 선택")
         case coldCollectionView:
-            print("\(collectionView)의 \(indexPath.row) 선택")
+            selectedCold = cold[indexPath.item]
+            print("Cold: \(cold[indexPath.item]) 선택")
         default:
-            print("\(indexPath.row) 선택")
+            print("default")
         }
-        
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        switch collectionView {
+        case hotCollectionView:
+            selectedHot = nil
+            print("Hot: \(hot[indexPath.item]) 선택 해제")
+        case coldCollectionView:
+            selectedCold = nil
+            print("Cold: \(cold[indexPath.item]) 선택 해제")
+        default:
+            print("default")
+        }
     }
 }

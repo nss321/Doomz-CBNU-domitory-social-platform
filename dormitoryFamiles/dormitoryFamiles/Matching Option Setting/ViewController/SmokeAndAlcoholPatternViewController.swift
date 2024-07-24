@@ -14,8 +14,8 @@ final class SmokeAndAlcoholPatternViewController: UIViewController, ConfigUI {
     let alcohol = ["없음", "가끔", "종종", "자주"]
     let currentScreenWidth: CGFloat = UIScreen.main.bounds.width
     
-    var selectedSmoke: [String] = []
-    var selectedAlcohol: [String] = []
+    var selectedSmoke: String?
+    var selectedAlcohol: String?
     var drinkHabitText: String?
     
     private let stackView: UIStackView = {
@@ -81,7 +81,6 @@ final class SmokeAndAlcoholPatternViewController: UIViewController, ConfigUI {
         view.backgroundColor = .clear
         view.dataSource = self
         view.delegate = self
-        view.allowsMultipleSelection = true
         return view
     }()
     
@@ -91,7 +90,6 @@ final class SmokeAndAlcoholPatternViewController: UIViewController, ConfigUI {
         view.backgroundColor = .clear
         view.dataSource = self
         view.delegate = self
-        view.allowsMultipleSelection = true
         return view
     }()
     
@@ -136,8 +134,6 @@ final class SmokeAndAlcoholPatternViewController: UIViewController, ConfigUI {
         setConstraints()
         nextButton.setup(model: nextButtonModel)
         drinkHabitTextField.delegate = self
-        
-        
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
@@ -199,16 +195,17 @@ final class SmokeAndAlcoholPatternViewController: UIViewController, ConfigUI {
     @objc
     func didClickNextButton() {
         let matchingOption: [String: Any] = [
-            "selectedSmoke": selectedSmoke,
-            "selectedAlcohol": selectedAlcohol,
+            "selectedSmoke": selectedSmoke ?? "",
+            "selectedAlcohol": selectedAlcohol ?? "",
             "drinkHabitText": drinkHabitTextField.text ?? ""
         ]
         UserDefaults.standard.setMatchingOption(matchingOption)
         
         // 저장된 정보 로그 출력
-        if let savedOptions = UserDefaults.standard.getMatchingOption() {
-            print("Saved Matching Options: \(savedOptions)")
+        ["selectedSmoke", "selectedAlcohol", "drinkHabitText"].forEach {
+            print("\($0): \(UserDefaults.standard.getMatchingOptionValue(forKey: $0) ?? "")")
         }
+        
         
         self.navigationController?.pushViewController(LifeStyleViewController(), animated: true)
     }
@@ -282,30 +279,26 @@ extension SmokeAndAlcoholPatternViewController: UICollectionViewDelegateFlowLayo
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         switch collectionView {
         case smokeCollectionView:
-            selectedSmoke.append(smoke[indexPath.row])
-            print("\(collectionView)의 \(indexPath.row) 선택")
+            selectedSmoke = smoke[indexPath.item]
+            print("Smoke: \(smoke[indexPath.item]) 선택")
         case alcoholCollectionView:
-            selectedAlcohol.append(alcohol[indexPath.row])
-            print("\(collectionView)의 \(indexPath.row) 선택")
+            selectedAlcohol = alcohol[indexPath.item]
+            print("Alcohol: \(alcohol[indexPath.item]) 선택")
         default:
-            print("\(indexPath.row) 선택")
+            print("default")
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         switch collectionView {
         case smokeCollectionView:
-            if let index = selectedSmoke.firstIndex(of: smoke[indexPath.row]) {
-                selectedSmoke.remove(at: index)
-            }
-            print("\(collectionView)의 \(indexPath.row) 선택 해제")
+            selectedSmoke = nil
+            print("Smoke: \(smoke[indexPath.item]) 선택 해제")
         case alcoholCollectionView:
-            if let index = selectedAlcohol.firstIndex(of: alcohol[indexPath.row]) {
-                selectedAlcohol.remove(at: index)
-            }
-            print("\(collectionView)의 \(indexPath.row) 선택 해제")
+            selectedAlcohol = nil
+            print("Alcohol: \(alcohol[indexPath.item]) 선택 해제")
         default:
-            print("\(indexPath.row) 선택 해제")
+            print("default")
         }
     }
 }

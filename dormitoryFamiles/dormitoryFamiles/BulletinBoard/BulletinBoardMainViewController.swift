@@ -50,7 +50,7 @@ final class BulletinBoardMainViewController: TabmanViewController, DormitoryButt
     override func viewDidLoad() {
         super.viewDidLoad()
         setUI()
-        setTapman()
+        setTabman()
         setTintAdjustmentModeForButtons(in: self.view)
         setObserver()
         setDropDown()
@@ -160,7 +160,7 @@ final class BulletinBoardMainViewController: TabmanViewController, DormitoryButt
     
     
     
-    private func setTapman() {
+    private func setTabman() {
         self.dataSource = self
         // 바 세팅
         let bar = TMBar.ButtonBar()
@@ -180,10 +180,7 @@ final class BulletinBoardMainViewController: TabmanViewController, DormitoryButt
         
         bar.layout.interButtonSpacing = 24 // 버튼 사이 간격
         bar.layout.transitionStyle = .progressive// Customize
-        
-        let item = TMBarItem(title: "dddddddd")
-        item.title = "Item 1"
-        item.badgeValue = "New"
+
         addBar(bar, dataSource: dataSource as! TMBarDataSource, at: .custom(view: tabmanView, layout: nil))
     }
     
