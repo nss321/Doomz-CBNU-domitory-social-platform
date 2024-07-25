@@ -59,6 +59,10 @@ final class CommonButton: UIView {
     @objc private func touchUpInside() {
         self.model?.didTouchUpInside?()
     }
+    
+    public func isEnabled(_ enabled: Bool) {
+        self.button.isEnabled = enabled
+    }
 }
 
 final class CommonbuttonModel: NSObject {
@@ -113,6 +117,7 @@ final class PrimaryMidRoundButton: TagButton {
         self.titleLabel?.font = UIFont.button
     }
 }
+
 class RoundLabel: UILabel {
     
     private var topInset: CGFloat = 4
