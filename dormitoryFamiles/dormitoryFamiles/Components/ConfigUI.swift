@@ -73,5 +73,15 @@ extension UIViewController {
         nextButton.isEnabled(allSelected)
         nextButton.backgroundColor = allSelected ? .primary : .gray3
     }
+    
+    func checkSelctions(selectedOptions: [String?], nextButton: CommonButton) {
+        if selectedOptions.count == 4 {
+            nextButton.isEnabled(true)
+            nextButton.backgroundColor = .primary
+        } else {
+            nextButton.isEnabled(false)
+            nextButton.backgroundColor = .gray3
+        }
+    }
 }
 

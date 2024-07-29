@@ -15,6 +15,9 @@ final class ChoosePriorityViewController: UIViewController, ConfigUI {
         "야식", "휴대폰소리", "향수", "벌레"
     ]
     
+    var checkOptCount: Int = 0
+    var selectedPriorities: [String] = []
+    
     private let titleLabel: UILabel = {
         let label = UILabel()
         let string = "높은 우선순위대로 선택해주세요!"
@@ -68,6 +71,7 @@ final class ChoosePriorityViewController: UIViewController, ConfigUI {
         addComponents()
         setConstraints()
         nextButton.setup(model: nextButtonModel)
+        checkSelctions(selectedOptions: selectedPriorities, nextButton: nextButton)
     }
     
     func addComponents() {
@@ -130,13 +134,18 @@ extension ChoosePriorityViewController: UICollectionViewDelegateFlowLayout, UICo
         return CGSize(width: (UIScreen.screenWidthLayoutGuide - 16) / 2, height: 52)
     }
     
+    // MARK: 4개 선택시 버튼 활성화하는 로직 수정해야함.
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("\(collectionView):  \(indexPath.row) 선택")
+        let selectedPriority = priorities[indexPath.row]
         
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        print("deselect")
+        if let index = selectedPriorities.firstIndex(of: selectedPriority) {
+            selectedPriorities.remove(at: index)
+        } else {
+            selectedPriorities.append(selectedPriority)
+        }
+        print("\(collectionView):  \(indexPath.row) 선택")
+        print("\(selectedPriorities) 선택 갯수: \(selectedPriority.count)")
+        checkSelctions(selectedOptions: selectedPriorities, nextButton: nextButton)
     }
     
 }
