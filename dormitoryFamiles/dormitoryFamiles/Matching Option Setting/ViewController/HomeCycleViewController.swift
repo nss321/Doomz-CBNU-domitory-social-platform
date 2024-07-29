@@ -101,6 +101,7 @@ final class HomeCycleViewController: UIViewController, ConfigUI {
         addComponents()
         setConstraints()
         nextButton.setup(model: nextButtonModel)
+        checkSelections(selectedItems: [selectedCycle], nextButton: nextButton)
     }
     
     func addComponents() {
@@ -175,18 +176,14 @@ extension HomeCycleViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let cellSize: CGSize
         
-        cellSize = CGSize(width: (UIScreen.currentScreenWidth - 86) / 4, height: (UIScreen.currentScreenWidth - 86) / 4 )
+        cellSize = CGSize(width: UIScreen.circleCellRadius, height: UIScreen.circleCellRadius )
     
         return cellSize
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        selectedCycle = cycle[indexPath.item]
+        handleSelection(collectionView: collectionView, indexPath: indexPath, selectedValue: &selectedCycle, items: cycle)
         print("Cycle: \(cycle[indexPath.item]) 선택")
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        selectedCycle = nil
-        print("Cycle: \(cycle[indexPath.item]) 선택 해제")
+        checkSelections(selectedItems: [selectedCycle], nextButton: nextButton)
     }
 }
