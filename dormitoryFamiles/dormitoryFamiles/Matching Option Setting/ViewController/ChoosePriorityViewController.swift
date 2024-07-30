@@ -71,7 +71,7 @@ final class ChoosePriorityViewController: UIViewController, ConfigUI {
         addComponents()
         setConstraints()
         nextButton.setup(model: nextButtonModel)
-        checkSelctions(selectedOptions: selectedPriorities, nextButton: nextButton)
+        checkSelections(selectedOptions: selectedPriorities, nextButton: nextButton)
     }
     
     func addComponents() {
@@ -120,6 +120,9 @@ extension ChoosePriorityViewController: UICollectionViewDataSource {
         return priorities.count
     }
     
+}
+
+extension ChoosePriorityViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 16
     }
@@ -127,25 +130,31 @@ extension ChoosePriorityViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 16
     }
-}
-
-extension ChoosePriorityViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDelegate {
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: (UIScreen.screenWidthLayoutGuide - 16) / 2, height: 52)
     }
     
-    // MARK: 4개 선택시 버튼 활성화하는 로직 수정해야함.
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let selectedPriority = priorities[indexPath.row]
+        
+        if !selectedPriorities.contains(selectedPriority) {
+            selectedPriorities.append(selectedPriority)
+            print("선택")
+            checkSelections(selectedOptions: selectedPriorities, nextButton: nextButton)
+            print("\(selectedPriorities) 선택 갯수: \(selectedPriorities.count)")
+        }
+        print("\(collectionView):  \(indexPath.row) 선택")
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         let selectedPriority = priorities[indexPath.row]
         
         if let index = selectedPriorities.firstIndex(of: selectedPriority) {
             selectedPriorities.remove(at: index)
-        } else {
-            selectedPriorities.append(selectedPriority)
+            checkSelections(selectedOptions: selectedPriorities, nextButton: nextButton)
         }
-        print("\(collectionView):  \(indexPath.row) 선택")
-        print("\(selectedPriorities) 선택 갯수: \(selectedPriority.count)")
-        checkSelctions(selectedOptions: selectedPriorities, nextButton: nextButton)
+        print("선택해제!")
     }
     
 }
