@@ -42,7 +42,6 @@ extension UIViewController {
         
         self.navigationController?.navigationBar.tintColor = UIColor.gray5
         self.navigationItem.titleView = label
-//        self.navigationItem.leftBarButtonItem = self.leftBarButtonItem
     }
     
     /// Label과 StackView를 하나의 Container로 묶어서 return
@@ -67,6 +66,12 @@ extension UIViewController {
         stackView.addArrangedSubview(subview)
         
         return stackView
+    }
+    
+    func checkSelections(selectedItems: [String?], nextButton: CommonButton) {
+        let allSelected = selectedItems.allSatisfy { $0 != nil }
+        nextButton.isEnabled(allSelected)
+        nextButton.backgroundColor = allSelected ? .primary : .gray3
     }
 }
 
