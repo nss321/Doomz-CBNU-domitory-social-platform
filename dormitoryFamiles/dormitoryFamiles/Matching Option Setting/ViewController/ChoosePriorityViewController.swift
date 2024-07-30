@@ -40,7 +40,7 @@ final class ChoosePriorityViewController: UIViewController, ConfigUI {
     
     private let contentLabel: UILabel = {
         let label = UILabel()
-        label.text = "룸메 매칭에 도움이 됩니다.( 최소 4개까지 선택 가능 )"
+        label.text = "룸메 매칭에 도움이 됩니다."
         label.font = FontManager.body2()
         label.textAlignment = .center
         label.textColor = .gray4
