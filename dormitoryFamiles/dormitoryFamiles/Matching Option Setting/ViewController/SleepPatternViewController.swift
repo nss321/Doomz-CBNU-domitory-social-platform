@@ -171,6 +171,7 @@ final class SleepPatternViewController: UIViewController, ConfigUI {
         [logoStackView, sleepPatternStackView].forEach{ stackView.addArrangedSubview($0) }
         [currentStep, progressBar, sleepPatternLogo, contentLabel].forEach { logoStackView.addArrangedSubview($0) }
         [bedTimeSection, wakeupTimeSection, habitsSection, sensitivitySection, /*alarmSection,*/ nextButton].forEach { sleepPatternStackView.addArrangedSubview($0) }
+        
     }
     
     func setConstraints() {
