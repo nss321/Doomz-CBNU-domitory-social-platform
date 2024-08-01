@@ -52,6 +52,8 @@ class ChattingHomeViewController: UIViewController {
         super.viewWillAppear(true)
         followingData = []
         chattingRoomData = []
+        followingPage = 0
+        chattingRoomPage = 0
         isInitialLoad = true
         setApi(keyword: keyword)
     }
