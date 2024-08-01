@@ -45,8 +45,6 @@ class ChattingDetailViewController: UIViewController, ConfigUI, StompClientLibDe
         chattingHistoryApiNetwork(url: Url.chattingHistory(page: page, size: nil, roomId: roomId))
         addComponents()
         setConstraints()
-        //        let dto = StompSendDTO(roomUUID: roomUUID, senderId: 3, message: "솜솜하이")
-        //        sendMessage(dto: dto)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -169,7 +167,7 @@ class ChattingDetailViewController: UIViewController, ConfigUI, StompClientLibDe
     func stompClientDidConnect(client: StompClientLib!) {
         print("Socket is connected")
         soketClient.subscribe(destination: roomUUID)
-        
+        sendMessage(message: "\(Date.now)")
     }
     
     func serverDidSendReceipt(client: StompClientLib!, withReceiptId receiptId: String) {
