@@ -15,10 +15,8 @@ class ChattingDetailViewController: UIViewController, ConfigUI, StompClientLibDe
     var isLoading = false
     var page = 0
     var isLast = false
-    
-    let url = URL(string: "ws://43.202.254.127:8080/stomp")
+    let url = URL(string: Url.webSocket())
     public var soketClient = StompClientLib()
-    
     private var profileStackView: ChattingNavigationProfileStackView!
     var profileImageUrl: String?
     var nickname: String?
@@ -34,6 +32,15 @@ class ChattingDetailViewController: UIViewController, ConfigUI, StompClientLibDe
         containerView.backgroundColor = .gray0
         containerView.isUserInteractionEnabled = true
         return containerView
+    }()
+    
+    private let sendButton: TagButton = {
+        let button = TagButton()
+        button.setTitle("전송", for: .normal)
+        button.titleLabel?.font = .button
+        button.setTitleColor(.white, for: .normal)
+        button.backgroundColor = .primary
+        return button
     }()
     
     override func viewDidLoad() {
@@ -82,15 +89,11 @@ class ChattingDetailViewController: UIViewController, ConfigUI, StompClientLibDe
         view.addSubview(tableView)
         view.addSubview(containerView)
         containerView.addSubview(textField)
+        containerView.addSubview(sendButton)
     }
     
     func setConstraints() {
         let tabBarHeight = tabBarController?.tabBar.frame.size.height ?? 49
-        
-        textField.snp.makeConstraints {
-            $0.top.bottom.equalToSuperview().inset(8)
-            $0.leading.trailing.equalToSuperview().inset(16)
-        }
         
         containerView.snp.makeConstraints {
             $0.bottom.equalToSuperview().inset(tabBarHeight)
@@ -102,6 +105,18 @@ class ChattingDetailViewController: UIViewController, ConfigUI, StompClientLibDe
             $0.top.equalTo(view.safeAreaLayoutGuide)
             $0.bottom.equalTo(containerView.snp.top)
             $0.left.trailing.equalToSuperview().inset(20)
+        }
+                
+        sendButton.snp.makeConstraints {
+            $0.trailing.equalToSuperview().inset(16)
+            $0.width.equalTo(56)
+            $0.top.bottom.equalToSuperview().inset(8)
+        }
+        
+        textField.snp.makeConstraints {
+            $0.top.bottom.equalToSuperview().inset(8)
+            $0.leading.equalToSuperview().inset(16)
+            $0.trailing.equalTo(sendButton.snp.leading).inset(-16)
         }
     }
     
@@ -149,8 +164,8 @@ class ChattingDetailViewController: UIViewController, ConfigUI, StompClientLibDe
     }
     
     func registerSocket() {
-        guard let url = URL(string: "ws://43.202.254.127:8080/stomp") else { return }
-        var request = URLRequest(url: url)
+        guard let url = URL(string: Url.webSocket()) else { return }
+        let request = URLRequest(url: url)
         let token = Token.shared.number
         
         soketClient.openSocketWithURLRequest(request: request as NSURLRequest, delegate: self, connectionHeaders: ["AccessToken":"Bearer \(token)"])
