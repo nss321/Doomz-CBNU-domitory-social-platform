@@ -11,7 +11,7 @@ import Kingfisher
 
 class YourChattingTableViewCell: UITableViewCell, ConfigUI {
     
-    let cirleView = UIImageView(image: UIImage(named: "chattingDetailCircleGray"))
+    let circleView = UIImageView(image: UIImage(named: "chattingDetailCircleGray"))
     
     var profileImageView: UIImageView = {
         let imageView = UIImageView()
@@ -28,8 +28,7 @@ class YourChattingTableViewCell: UITableViewCell, ConfigUI {
     
     let nicknameLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 14)
-        label.textColor = .gray
+        label.font = UIFont.button
         return label
     }()
     
@@ -52,37 +51,11 @@ class YourChattingTableViewCell: UITableViewCell, ConfigUI {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         addComponents()
-        setupViews()
+        setConstraints()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    func setupViews() {
-        profileImageView.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(10)
-            make.leading.equalToSuperview().offset(15)
-            make.width.height.equalTo(40)
-        }
-        
-        nicknameLabel.snp.makeConstraints { make in
-            make.top.equalTo(profileImageView)
-            make.leading.equalTo(profileImageView.snp.trailing).offset(10)
-            make.trailing.lessThanOrEqualToSuperview().offset(-15)
-        }
-        
-        messageLabel.snp.makeConstraints { make in
-            make.top.equalTo(nicknameLabel.snp.bottom).offset(5)
-            make.leading.equalTo(profileImageView.snp.trailing).offset(10)
-            make.trailing.lessThanOrEqualToSuperview().offset(-50)
-            make.bottom.equalTo(timeLabel.snp.top).offset(-5)
-        }
-        
-        timeLabel.snp.makeConstraints { make in
-            make.leading.equalTo(messageLabel)
-            make.bottom.equalToSuperview().offset(-10)
-        }
     }
     
     func addComponents() {
@@ -90,26 +63,37 @@ class YourChattingTableViewCell: UITableViewCell, ConfigUI {
         contentView.addSubview(nicknameLabel)
         contentView.addSubview(messageLabel)
         contentView.addSubview(timeLabel)
-        contentView.addSubview(cirleView)
+        contentView.addSubview(circleView)
     }
     
     func setConstraints() {
-        cirleView.snp.makeConstraints {
-            $0.top.equalToSuperview()
-            $0.leading.equalToSuperview()
-            $0.height.width.equalTo(7.8)
+        profileImageView.snp.makeConstraints {
+            $0.top.equalToSuperview().offset(10)
+            $0.leading.equalToSuperview().offset(15)
+            $0.width.height.equalTo(40)
+        }
+        
+        nicknameLabel.snp.makeConstraints {
+            $0.top.equalTo(profileImageView)
+            $0.leading.equalTo(profileImageView.snp.trailing).offset(10)
+            $0.trailing.lessThanOrEqualToSuperview().offset(-15)
+        }
+        
+        circleView.snp.makeConstraints {
+            $0.bottom.equalTo(profileImageView.snp.bottom).inset(3.5)
+            $0.leading.equalTo(nicknameLabel.snp.leading)
         }
         
         messageLabel.snp.makeConstraints {
-            $0.top.equalTo(cirleView)
-            $0.leading.greaterThanOrEqualToSuperview().offset(60)
-            $0.trailing.equalTo(cirleView.snp.leading)
-            $0.bottom.equalToSuperview()
+            $0.top.equalTo(circleView.snp.top)
+            $0.leading.equalTo(circleView.snp.trailing)
+            $0.trailing.lessThanOrEqualToSuperview().offset(-50)
+            $0.bottom.equalToSuperview().inset(10)
         }
         
         timeLabel.snp.makeConstraints {
-            $0.trailing.lessThanOrEqualTo(messageLabel.snp.leading).inset(-8)
-            $0.bottom.equalToSuperview()
+            $0.leading.equalTo(messageLabel.snp.trailing).offset(8)
+            $0.bottom.equalTo(messageLabel.snp.bottom)
         }
     }
     

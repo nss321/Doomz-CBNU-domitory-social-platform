@@ -47,7 +47,7 @@ class MyChattingTableViewCell: UITableViewCell, ConfigUI {
     
     func setConstraints() {
         cirleView.snp.makeConstraints {
-            $0.top.equalToSuperview()
+            $0.top.equalToSuperview().inset(10)
             $0.trailing.equalToSuperview()
             $0.height.width.equalTo(7.8)
         }
@@ -56,7 +56,7 @@ class MyChattingTableViewCell: UITableViewCell, ConfigUI {
             $0.top.equalTo(cirleView)
             $0.leading.greaterThanOrEqualToSuperview().offset(60)
             $0.trailing.equalTo(cirleView.snp.leading)
-            $0.bottom.equalToSuperview().inset(20)
+            $0.bottom.equalToSuperview().inset(10)
         }
         
         timeLabel.snp.makeConstraints {
