@@ -42,7 +42,7 @@ class ChattingDetailViewController: UIViewController, ConfigUI, StompClientLibDe
         setNavigationBar()
         setupTableView()
         registerSocket()
-        chattingHistoryApiNetwork(url: Url.chattingHistory(page: page, size: 3, roomId: roomId))
+        chattingHistoryApiNetwork(url: Url.chattingHistory(page: page, size: nil, roomId: roomId))
         addComponents()
         setConstraints()
     }
@@ -143,7 +143,7 @@ class ChattingDetailViewController: UIViewController, ConfigUI, StompClientLibDe
         guard !isLast else { return }
         isLoading = true
         page += 1
-        chattingHistoryApiNetwork(url: Url.chattingHistory(page: page, size: 4, roomId: roomId))
+        chattingHistoryApiNetwork(url: Url.chattingHistory(page: page, size: nil, roomId: roomId))
     }
     
     func registerSocket() {
