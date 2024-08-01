@@ -42,7 +42,7 @@ class ChattingDetailViewController: UIViewController, ConfigUI, StompClientLibDe
         setNavigationBar()
         setupTableView()
         registerSocket()
-        chattingHistoryApiNetwork(url: Url.chattingHistory(page: page, size: nil, roomId: roomId))
+        chattingHistoryApiNetwork(url: Url.chattingHistory(page: page, size: 3, roomId: roomId))
         addComponents()
         setConstraints()
     }
@@ -53,7 +53,7 @@ class ChattingDetailViewController: UIViewController, ConfigUI, StompClientLibDe
         textField.becomeFirstResponder()
         messages = []
         page = 0
-
+        scrollToBottom()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -143,7 +143,7 @@ class ChattingDetailViewController: UIViewController, ConfigUI, StompClientLibDe
         guard !isLast else { return }
         isLoading = true
         page += 1
-        chattingHistoryApiNetwork(url: Url.chattingHistory(page: page, size: nil, roomId: roomId))
+        chattingHistoryApiNetwork(url: Url.chattingHistory(page: page, size: 4, roomId: roomId))
     }
     
     func registerSocket() {
@@ -214,6 +214,17 @@ class ChattingDetailViewController: UIViewController, ConfigUI, StompClientLibDe
             print("WebSocket is not connected")
         }
     }
+    
+    private func scrollToBottom() {
+        DispatchQueue.main.async {
+            let lastRow = self.messages.count - 1
+            if lastRow >= 0 {
+                let indexPath = IndexPath(row: lastRow, section: 0)
+                self.tableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
+            }
+        }
+    }
+
 }
 
 extension ChattingDetailViewController: UITableViewDelegate, UITableViewDataSource {
