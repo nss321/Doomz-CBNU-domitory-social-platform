@@ -111,6 +111,7 @@ final class ConstitutionViewController: UIViewController, ConfigUI {
         addComponents()
         setConstraints()
         nextButton.setup(model: nextButtonModel)
+        checkSelections(selectedItems: [selectedHot, selectedCold], nextButton: nextButton)
     }
     
     func addComponents() {
@@ -211,36 +212,21 @@ extension ConstitutionViewController: UICollectionViewDataSource {
 
 extension ConstitutionViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let numberOfinter:Int = hot.count - 1
-        let interSpacing:Int = 8
-        let cellSize = CGSize(width: (UIScreen.screenWidthLayoutGuide - numberOfinter * interSpacing) / 3, height: 48)
-        
+        let cellSize = CGSize(width: UIScreen.cellWidth3Column, height: UIScreen.cellHeight)
         return cellSize
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         switch collectionView {
         case hotCollectionView:
-            selectedHot = hot[indexPath.item]
+            handleSelection(collectionView: collectionView, indexPath: indexPath, selectedValue: &selectedHot, items: hot)
             print("Hot: \(hot[indexPath.item]) 선택")
         case coldCollectionView:
-            selectedCold = cold[indexPath.item]
+            handleSelection(collectionView: collectionView, indexPath: indexPath, selectedValue: &selectedCold, items: cold)
             print("Cold: \(cold[indexPath.item]) 선택")
         default:
             print("default")
         }
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        switch collectionView {
-        case hotCollectionView:
-            selectedHot = nil
-            print("Hot: \(hot[indexPath.item]) 선택 해제")
-        case coldCollectionView:
-            selectedCold = nil
-            print("Cold: \(cold[indexPath.item]) 선택 해제")
-        default:
-            print("default")
-        }
+        checkSelections(selectedItems: [selectedHot, selectedCold], nextButton: nextButton)
     }
 }
