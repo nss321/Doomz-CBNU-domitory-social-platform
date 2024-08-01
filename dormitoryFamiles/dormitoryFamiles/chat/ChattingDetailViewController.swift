@@ -85,13 +85,15 @@ class ChattingDetailViewController: UIViewController, ConfigUI, StompClientLibDe
     }
     
     func setConstraints() {
+        let tabBarHeight = tabBarController?.tabBar.frame.size.height ?? 49
+        
         textField.snp.makeConstraints {
             $0.top.bottom.equalToSuperview().inset(8)
             $0.leading.trailing.equalToSuperview().inset(16)
         }
         
         containerView.snp.makeConstraints {
-            $0.bottom.equalTo(view.safeAreaLayoutGuide)
+            $0.bottom.equalToSuperview().inset(tabBarHeight)
             $0.height.equalTo(52)
             $0.left.trailing.equalToSuperview().inset(20)
         }
