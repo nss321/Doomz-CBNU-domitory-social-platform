@@ -65,7 +65,6 @@ class YourChattingTableViewCell: UITableViewCell, ConfigUI {
             make.leading.equalToSuperview().offset(15)
             make.width.height.equalTo(40)
         }
-        dump(profileImageView)
         
         nicknameLabel.snp.makeConstraints { make in
             make.top.equalTo(profileImageView)

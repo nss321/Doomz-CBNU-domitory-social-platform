@@ -56,12 +56,12 @@ class MyChattingTableViewCell: UITableViewCell, ConfigUI {
             $0.top.equalTo(cirleView)
             $0.leading.greaterThanOrEqualToSuperview().offset(60)
             $0.trailing.equalTo(cirleView.snp.leading)
-            $0.bottom.equalToSuperview()
+            $0.bottom.equalToSuperview().inset(20)
         }
         
         timeLabel.snp.makeConstraints {
             $0.trailing.lessThanOrEqualTo(messageLabel.snp.leading).inset(-8)
-            $0.bottom.equalToSuperview()
+            $0.bottom.equalToSuperview().inset(20)
         }
     }
     
