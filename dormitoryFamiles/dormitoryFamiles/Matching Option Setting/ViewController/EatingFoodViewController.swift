@@ -110,6 +110,7 @@ final class EatingFoodViewController: UIViewController, ConfigUI {
         addComponents()
         setConstraints()
         nextButton.setup(model: nextButtonModel)
+        checkSelections(selectedItems: [selectedMidnightSnack], nextButton: nextButton)
     }
     
     func addComponents() {
@@ -213,9 +214,9 @@ extension EatingFoodViewController: UICollectionViewDelegateFlowLayout {
         
         switch collectionView {
         case midnightSnackCollectionView:
-            cellSize = CGSize(width: (UIScreen.currentScreenWidth - 56) / 3, height: 48)
+            cellSize = CGSize(width: UIScreen.cellWidth3Column, height: UIScreen.cellHeight)
         default:
-            cellSize = CGSize(width: (UIScreen.currentScreenWidth - 48) / 2, height: 48)
+            cellSize = CGSize(width: UIScreen.cellWidth2Column, height: UIScreen.cellHeight)
         }
         return cellSize
     }
@@ -231,19 +232,7 @@ extension EatingFoodViewController: UICollectionViewDelegateFlowLayout {
         default:
             print("default")
         }
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        switch collectionView {
-        case midnightSnackCollectionView:
-            selectedMidnightSnack = nil
-            print("Midnight Snack: \(midnightSnack[indexPath.item]) 선택 해제")
-        case eatingFoodInRoomCollectionView:
-            selectedEatingFoodInRoom = nil
-            print("Eating Food In Room: \(eatingFoodInRoom[indexPath.item]) 선택 해제")
-        default:
-            print("default")
-        }
+        checkSelections(selectedItems: [selectedMidnightSnack], nextButton: nextButton)
     }
 }
 

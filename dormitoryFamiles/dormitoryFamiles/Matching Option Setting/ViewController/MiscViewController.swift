@@ -111,6 +111,7 @@ final class MiscViewController: UIViewController, ConfigUI {
         addComponents()
         setConstraints()
         nextButton.setup(model: nextButtonModel)
+        checkSelections(selectedItems: [selectedBugs], nextButton: nextButton)
     }
     
     func addComponents() {
@@ -211,9 +212,7 @@ extension MiscViewController: UICollectionViewDataSource {
 
 extension MiscViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let numberOfinter:Int = workout.count - 1
-        let interSpacing:Int = 8
-        let cellSize = CGSize(width: (UIScreen.screenWidthLayoutGuide - numberOfinter * interSpacing) / 3, height: 48)
+        let cellSize = CGSize(width: UIScreen.cellWidth3Column, height: UIScreen.cellHeight)
 
         return cellSize
     }
@@ -221,26 +220,14 @@ extension MiscViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         switch collectionView {
         case workoutCollectionView:
-            selectedWorkout = workout[indexPath.item]
+            handleSelection(collectionView: collectionView, indexPath: indexPath, selectedValue: &selectedWorkout, items: workout)
             print("Workout: \(workout[indexPath.item]) 선택")
         case bugsCollectionView:
-            selectedBugs = bugs[indexPath.item]
+            handleSelection(collectionView: collectionView, indexPath: indexPath, selectedValue: &selectedBugs, items: bugs)
             print("Bugs: \(bugs[indexPath.item]) 선택")
         default:
             print("default")
         }
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        switch collectionView {
-        case workoutCollectionView:
-            selectedWorkout = nil
-            print("Workout: \(workout[indexPath.item]) 선택 해제")
-        case bugsCollectionView:
-            selectedBugs = nil
-            print("Bugs: \(bugs[indexPath.item]) 선택 해제")
-        default:
-            print("default")
-        }
+        checkSelections(selectedItems: [selectedBugs], nextButton: nextButton)
     }
 }

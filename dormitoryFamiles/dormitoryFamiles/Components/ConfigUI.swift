@@ -5,8 +5,8 @@
 //  Created by BAE on 3/17/24.
 //
 
-import Foundation
 import UIKit
+import SnapKit
 
 protocol ConfigUI {
     /// 네비게이션 바 설정
@@ -42,7 +42,6 @@ extension UIViewController {
         
         self.navigationController?.navigationBar.tintColor = UIColor.gray5
         self.navigationItem.titleView = label
-//        self.navigationItem.leftBarButtonItem = self.leftBarButtonItem
     }
     
     /// Label과 StackView를 하나의 Container로 묶어서 return
@@ -63,10 +62,46 @@ extension UIViewController {
         label.textColor = .gray5
         label.addCharacterSpacing()
         
-        stackView.addArrangedSubview(label)
+        let asterisk = UILabel()
+        asterisk.text = "*"
+        asterisk.font = FontManager.button()
+        asterisk.textColor = .primary
+        asterisk.addCharacterSpacing()
+        
+        let labelContainer = UIView()
+        labelContainer.backgroundColor = .clear
+        labelContainer.addSubview(label)
+        labelContainer.addSubview(asterisk)
+        
+        stackView.addArrangedSubview(labelContainer)
         stackView.addArrangedSubview(subview)
         
+        label.snp.makeConstraints {
+            $0.left.top.bottom.equalToSuperview()
+        }
+        
+        asterisk.snp.makeConstraints {
+            $0.left.equalTo(label.snp.right).offset(4)
+            $0.top.equalToSuperview()
+        }
+        
         return stackView
+    }
+    
+    func checkSelections(selectedItems: [String?], nextButton: CommonButton) {
+        let allSelected = selectedItems.allSatisfy { $0 != nil }
+        nextButton.isEnabled(allSelected)
+        nextButton.backgroundColor = allSelected ? .primary : .gray3
+    }
+    
+    func checkSelections(selectedOptions: [String?], nextButton: CommonButton) {
+        if selectedOptions.count == 4 {
+            nextButton.isEnabled(true)
+            nextButton.backgroundColor = .primary
+        } else {
+            nextButton.isEnabled(false)
+            nextButton.backgroundColor = .gray3
+        }
     }
 }
 

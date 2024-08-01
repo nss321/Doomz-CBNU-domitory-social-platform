@@ -134,7 +134,7 @@ final class SmokeAndAlcoholPatternViewController: UIViewController, ConfigUI {
         setConstraints()
         nextButton.setup(model: nextButtonModel)
         drinkHabitTextField.delegate = self
-        
+        checkSelections(selectedItems: [selectedSmoke, selectedAlcohol], nextButton: nextButton)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
         
@@ -269,9 +269,9 @@ extension SmokeAndAlcoholPatternViewController: UICollectionViewDelegateFlowLayo
         switch collectionView {
         case alcoholCollectionView:
             // MARK: cell 간격
-            cellSize = CGSize(width: (currentScreenWidth - 86) / 4, height: (currentScreenWidth - 86) / 4 )
+            cellSize = CGSize(width: UIScreen.circleCellRadius, height: UIScreen.circleCellRadius )
         default:
-            cellSize = CGSize(width: (currentScreenWidth - 48) / 2, height: 48)
+            cellSize = CGSize(width: UIScreen.cellWidth2Column, height: UIScreen.cellHeight)
         }
         return cellSize
     }
@@ -279,27 +279,15 @@ extension SmokeAndAlcoholPatternViewController: UICollectionViewDelegateFlowLayo
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         switch collectionView {
         case smokeCollectionView:
-            selectedSmoke = smoke[indexPath.item]
+            handleSelection(collectionView: collectionView, indexPath: indexPath, selectedValue: &selectedSmoke, items: smoke)
             print("Smoke: \(smoke[indexPath.item]) 선택")
         case alcoholCollectionView:
-            selectedAlcohol = alcohol[indexPath.item]
+            handleSelection(collectionView: collectionView, indexPath: indexPath, selectedValue: &selectedAlcohol, items: alcohol)
             print("Alcohol: \(alcohol[indexPath.item]) 선택")
         default:
             print("default")
         }
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        switch collectionView {
-        case smokeCollectionView:
-            selectedSmoke = nil
-            print("Smoke: \(smoke[indexPath.item]) 선택 해제")
-        case alcoholCollectionView:
-            selectedAlcohol = nil
-            print("Alcohol: \(alcohol[indexPath.item]) 선택 해제")
-        default:
-            print("default")
-        }
+        checkSelections(selectedItems: [selectedSmoke, selectedAlcohol], nextButton: nextButton)
     }
 }
 

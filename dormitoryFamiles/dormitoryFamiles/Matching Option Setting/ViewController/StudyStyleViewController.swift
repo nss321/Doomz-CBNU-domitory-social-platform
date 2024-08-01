@@ -110,6 +110,7 @@ final class StudyStyleViewController: UIViewController, ConfigUI {
         addComponents()
         setConstraints()
         nextButton.setup(model: nextButtonModel)
+        checkSelections(selectedItems: [selectedExam], nextButton: nextButton)
     }
     
     func addComponents() {
@@ -214,9 +215,9 @@ extension StudyStyleViewController: UICollectionViewDelegateFlowLayout {
         
         switch collectionView {
         case studyPlaceCollectionView:
-            cellSize = CGSize(width: (UIScreen.currentScreenWidth - 56) / 3, height: 48)
+            cellSize = CGSize(width: UIScreen.cellWidth3Column, height: UIScreen.cellHeight)
         default:
-            cellSize = CGSize(width: (UIScreen.currentScreenWidth - 48) / 2, height: 48)
+            cellSize = CGSize(width: UIScreen.cellWidth2Column, height: UIScreen.cellHeight)
         }
         return cellSize
     }
@@ -224,27 +225,15 @@ extension StudyStyleViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         switch collectionView {
         case studyPlaceCollectionView:
-            selectedStudyPlace = studyPlace[indexPath.item]
+            handleSelection(collectionView: collectionView, indexPath: indexPath, selectedValue: &selectedStudyPlace, items: studyPlace)
             print("Study Place: \(studyPlace[indexPath.item]) 선택")
         case examCollectionView:
-            selectedExam = exam[indexPath.item]
+            handleSelection(collectionView: collectionView, indexPath: indexPath, selectedValue: &selectedExam, items: exam)
             print("Exam: \(exam[indexPath.item]) 선택")
         default:
             print("default")
         }
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        switch collectionView {
-        case studyPlaceCollectionView:
-            selectedStudyPlace = nil
-            print("Study Place: \(studyPlace[indexPath.item]) 선택 해제")
-        case examCollectionView:
-            selectedExam = nil
-            print("Exam: \(exam[indexPath.item]) 선택 해제")
-        default:
-            print("default")
-        }
+        checkSelections(selectedItems: [selectedExam], nextButton: nextButton)
     }
 }
 

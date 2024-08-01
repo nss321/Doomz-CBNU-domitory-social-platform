@@ -27,7 +27,7 @@ final class SleepPatternViewController: UIViewController, ConfigUI {
     ]
     
     let sensitivity: [String] = [
-        "어두움", "밝음", "없음"
+        "어두움", "밝음"
     ]
     
     var selectedBedTime: String?
@@ -39,7 +39,7 @@ final class SleepPatternViewController: UIViewController, ConfigUI {
     
     private let scrollView: UIScrollView = {
         let view = UIScrollView()
-        view.backgroundColor = .gray2
+        view.backgroundColor = .clear
         view.bounces = false
         return view
     }()
@@ -152,6 +152,7 @@ final class SleepPatternViewController: UIViewController, ConfigUI {
         setConstraints()
         setupNavigationBar("긱사생활 설정")
         nextButton.setup(model: nextButtonModel)
+        checkSelections(selectedItems: [selectedBedTime, selectedWakeupTime, selectedHabit], nextButton: nextButton)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -170,6 +171,7 @@ final class SleepPatternViewController: UIViewController, ConfigUI {
         [logoStackView, sleepPatternStackView].forEach{ stackView.addArrangedSubview($0) }
         [currentStep, progressBar, sleepPatternLogo, contentLabel].forEach { logoStackView.addArrangedSubview($0) }
         [bedTimeSection, wakeupTimeSection, habitsSection, sensitivitySection, /*alarmSection,*/ nextButton].forEach { sleepPatternStackView.addArrangedSubview($0) }
+        
     }
     
     func setConstraints() {
@@ -312,9 +314,11 @@ extension SleepPatternViewController: UICollectionViewDelegateFlowLayout {
         switch collectionView {
         case sleepingHabitsCollectionView:
             // MARK: cell 간격
-            cellSize = CGSize(width: (currentScreenWidth - 86) / 4, height: (currentScreenWidth - 86) / 4 )
+            cellSize = CGSize(width: UIScreen.circleCellRadius, height: UIScreen.circleCellRadius)
+        case sleepSensitivityCollectionView:
+            cellSize = CGSize(width: UIScreen.cellWidth2Column, height: UIScreen.cellHeight)
         default:
-            cellSize = CGSize(width: (currentScreenWidth - 58) / 3, height: 48)
+            cellSize = CGSize(width: UIScreen.cellWidth3Column, height: UIScreen.cellHeight)
         }
         return cellSize
     }
@@ -322,38 +326,20 @@ extension SleepPatternViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         switch collectionView {
         case bedTiemCollectionView:
-            selectedBedTime = goToSleepTimes[indexPath.item]
-            print("Bed Time: \(goToSleepTimes[indexPath.item]) 선택")
+            handleSelection(collectionView: collectionView, indexPath: indexPath, selectedValue: &selectedBedTime, items: goToSleepTimes)
+            print("Bed Time: \(selectedBedTime ?? "선택 해제") 선택")
         case wakeupTimeCollcetionView:
-            selectedWakeupTime = wakeupTimes[indexPath.item]
-            print("Wakeup Time: \(wakeupTimes[indexPath.item]) 선택")
+            handleSelection(collectionView: collectionView, indexPath: indexPath, selectedValue: &selectedWakeupTime, items: wakeupTimes)
+            print("Wakeup Time: \(selectedWakeupTime ?? "선택 해제") 선택")
         case sleepingHabitsCollectionView:
-            selectedHabit = habits[indexPath.item]
-            print("Habit: \(habits[indexPath.item]) 선택")
+            handleSelection(collectionView: collectionView, indexPath: indexPath, selectedValue: &selectedHabit, items: habits)
+            print("Habit: \(selectedHabit ?? "선택 해제") 선택")
         case sleepSensitivityCollectionView:
-            selectedSensitivity = sensitivity[indexPath.item]
-            print("Sensitivity: \(sensitivity[indexPath.item]) 선택")
+            handleSelection(collectionView: collectionView, indexPath: indexPath, selectedValue: &selectedSensitivity, items: sensitivity)
+            print("Sensitivity: \(selectedSensitivity ?? "선택 해제") 선택")
         default:
             print("default")
         }
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        switch collectionView {
-        case bedTiemCollectionView:
-            selectedBedTime = nil
-            print("Bed Time: \(goToSleepTimes[indexPath.item]) 선택 해제")
-        case wakeupTimeCollcetionView:
-            selectedWakeupTime = nil
-            print("Wakeup Time: \(wakeupTimes[indexPath.item]) 선택 해제")
-        case sleepingHabitsCollectionView:
-            selectedHabit = nil
-            print("Habit: \(habits[indexPath.item]) 선택 해제")
-        case sleepSensitivityCollectionView:
-            selectedSensitivity = nil
-            print("Sensitivity: \(sensitivity[indexPath.item]) 선택 해제")
-        default:
-            print("default")
-        }
+        checkSelections(selectedItems: [selectedBedTime, selectedWakeupTime, selectedHabit], nextButton: nextButton)
     }
 }

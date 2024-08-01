@@ -130,6 +130,7 @@ final class LifeStyleViewController: UIViewController, ConfigUI {
         addComponents()
         setConstraints()
         nextButton.setup(model: nextButtonModel)
+        checkSelections(selectedItems: [selectedShower, selectedCleanHabit], nextButton: nextButton)
     }
     
     func addComponents() {
@@ -249,11 +250,11 @@ extension LifeStyleViewController: UICollectionViewDelegateFlowLayout {
         
         switch collectionView {
         case showerTimeCollectionView:
-            cellSize = CGSize(width: (currentScreenWidth - 48) / 2, height: 48)
+            cellSize = CGSize(width: UIScreen.cellWidth2Column, height: UIScreen.cellHeight)
         case cleanHabitCollectionView:
-            cellSize = CGSize(width: (currentScreenWidth - 56) / 3, height: 48)
+            cellSize = CGSize(width: UIScreen.cellWidth3Column, height: UIScreen.cellHeight)
         default:
-            cellSize = CGSize(width: (currentScreenWidth - 48) / 3, height: 48)
+            cellSize = CGSize(width: UIScreen.cellWidth3Column, height: UIScreen.cellHeight)
         }
         return cellSize
     }
@@ -261,27 +262,15 @@ extension LifeStyleViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         switch collectionView {
         case showerTimeCollectionView:
-            selectedShower = shower[indexPath.item]
+            handleSelection(collectionView: collectionView, indexPath: indexPath, selectedValue: &selectedShower, items: shower)
             print("Shower: \(shower[indexPath.item]) 선택")
         case cleanHabitCollectionView:
-            selectedCleanHabit = cleanHabit[indexPath.item]
+            handleSelection(collectionView: collectionView, indexPath: indexPath, selectedValue: &selectedCleanHabit, items: cleanHabit)
             print("Clean Habit: \(cleanHabit[indexPath.item]) 선택")
         default:
             print("default")
         }
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        switch collectionView {
-        case showerTimeCollectionView:
-            selectedShower = nil
-            print("Shower: \(shower[indexPath.item]) 선택 해제")
-        case cleanHabitCollectionView:
-            selectedCleanHabit = nil
-            print("Clean Habit: \(cleanHabit[indexPath.item]) 선택 해제")
-        default:
-            print("default")
-        }
+        checkSelections(selectedItems: [selectedShower, selectedCleanHabit], nextButton: nextButton)
     }
 }
 
