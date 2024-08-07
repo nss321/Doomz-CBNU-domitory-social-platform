@@ -19,6 +19,7 @@ class ChattingDetailViewController: UIViewController, ConfigUI {
     var profileStackView: ChattingNavigationProfileStackView!
     var profileImageUrl: String?
     var nickname: String?
+    private var tapGesture: UITapGestureRecognizer?
     private let textField: UITextField = {
         let textField = UITextField()
         textField.placeholder = "메세지 보내기"
@@ -46,6 +47,7 @@ class ChattingDetailViewController: UIViewController, ConfigUI {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .white
+        setTextField()
         setNavigationBar()
         setupTableView()
         initializeChatting()
@@ -61,6 +63,12 @@ class ChattingDetailViewController: UIViewController, ConfigUI {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         self.tabBarController?.tabBar.isHidden = false
+    }
+    
+    private func setTextField() {
+        self.textField.delegate = self
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     private func createProfileStackView() -> ChattingNavigationProfileStackView {
@@ -259,6 +267,42 @@ extension ChattingDetailViewController: UIScrollViewDelegate {
         let offsetY = scrollView.contentOffset.y
         if scrollView == tableView && offsetY < -50 && !isLoading {
             loadMoreData()
+        }
+    }
+}
+
+extension ChattingDetailViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    @objc private func dismissKeyboard() {
+        view.endEditing(true)
+    }
+    
+    @objc private func keyboardWillShow(_ notification: Notification) {
+        if tapGesture == nil {
+            tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+            view.addGestureRecognizer(tapGesture!)
+        }
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            let keyboardHeight = keyboardSize.height
+            UIView.animate(withDuration: 0.3) {
+                //TODO: 여기서 임의 하드코딩 80은 아이폰15기준 키보드 높이와 안맞아서 임의로 맞춘다고 설정해놨음. 더 좋은 방법을 찾아봐야함
+                self.view.transform = CGAffineTransform(translationX: 0, y: -keyboardHeight+80)
+            }
+            scrollToBottom()
+        }
+    }
+    
+    @objc private func keyboardWillHide(_ notification: Notification) {
+        if let tap = tapGesture {
+            view.removeGestureRecognizer(tap)
+            tapGesture = nil
+        }
+        UIView.animate(withDuration: 0.3) {
+            self.view.transform = .identity
         }
     }
 }
