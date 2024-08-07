@@ -64,6 +64,10 @@ class ChattingDetailViewController: UIViewController, ConfigUI {
         super.viewDidDisappear(true)
         exitChattingRoomApiNetwork(url: Url.exitChattingRoom(roomId: roomId))
         self.tabBarController?.tabBar.isHidden = false
+        //채팅 내역이 없는 채팅방이라면 delete처리
+        if messages.isEmpty {
+            noChattingExitChattingRoomApiNetwork(url: Url.noMessageExitChattingRoom(roomId: roomId))
+        }
     }
     
     
@@ -236,6 +240,17 @@ class ChattingDetailViewController: UIViewController, ConfigUI {
     
     private func exitChattingRoomApiNetwork(url: String) {
         Network.patchMethod(url: url) { (result: Result<ExitRoomResponse, Error>) in
+            switch result {
+            case .success(let response):
+                print("Success with code: \(response.code)")
+            case .failure(let error):
+                print("Failed with error: \(error.localizedDescription)")
+            }
+        }
+    }
+    
+    private func noChattingExitChattingRoomApiNetwork(url: String) {
+        Network.deleteMethod(url: url) { (result: Result<ExitRoomResponse, Error>) in
             switch result {
             case .success(let response):
                 print("Success with code: \(response.code)")
