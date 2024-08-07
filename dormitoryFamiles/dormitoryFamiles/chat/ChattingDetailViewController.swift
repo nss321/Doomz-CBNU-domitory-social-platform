@@ -1,23 +1,22 @@
+// ChattingDetailViewController.swift
 import UIKit
 import SnapKit
 import Kingfisher
 import StompClientLib
 
-class ChattingDetailViewController: UIViewController, ConfigUI, StompClientLibDelegate {
+class ChattingDetailViewController: UIViewController, ConfigUI {
     let tableView = UITableView()
     var roomId = 0
     var roomUUID = "" {
         didSet {
-            soketClient.subscribe(destination: roomUUID)
+            WebSocketManager.shared.subscribe(to: roomUUID)
         }
     }
     var messages: [ChatMessage] = []
     var isLoading = false
     var page = 0
     var isLast = false
-    let url = URL(string: Url.webSocket())
-    public var soketClient = StompClientLib()
-    private var profileStackView: ChattingNavigationProfileStackView!
+    var profileStackView: ChattingNavigationProfileStackView!
     var profileImageUrl: String?
     var nickname: String?
     private let textField: UITextField = {
@@ -49,7 +48,6 @@ class ChattingDetailViewController: UIViewController, ConfigUI, StompClientLibDe
         self.view.backgroundColor = .white
         setNavigationBar()
         setupTableView()
-        registerSocket()
         initializeChatting()
         addComponents()
         setConstraints()
@@ -178,56 +176,13 @@ class ChattingDetailViewController: UIViewController, ConfigUI, StompClientLibDe
         chattingHistoryApiNetwork(url: Url.chattingHistory(page: page, size: nil, roomId: roomId), appendToTop: true)
     }
     
-    func registerSocket() {
-        guard let url = URL(string: Url.webSocket()) else { return }
-        let request = URLRequest(url: url)
-        let token = Token.shared.number
-        
-        soketClient.openSocketWithURLRequest(request: request as NSURLRequest, delegate: self, connectionHeaders: ["AccessToken":"Bearer \(token)"])
-    }
-    
-    func stompClient(client: StompClientLib, didReceiveMessageWithJSONBody jsonBody: AnyObject?, akaStringBody stringBody: String?, withHeader header: [String : String]?, withDestination destination: String) {
-        print("메세지 받음")
-    }
-    
-    func stompClientDidDisconnect(client: StompClientLib!) {
-        print("Socket is Disconnected")
-    }
-    
-    func stompClientDidConnect(client: StompClientLib!) {
-        print("Socket is connected")
-        soketClient.subscribe(destination: roomUUID)
-    }
-    
-    func serverDidSendReceipt(client: StompClientLib!, withReceiptId receiptId: String) {
-        print("Receipt: \(receiptId)")
-    }
-    
-    func serverDidSendError(client: StompClientLib!, withErrorMessage description: String, detailedErrorMessage message: String?) {
-        print("Error Send: \(description)")
-        dump(description)
-        if let message = message {
-            print("Error Description: \(message)")
-            dump(message)
-        }
-        reconnectSocket()
-    }
-    
-    func reconnectSocket() {
-        // Implement reconnect logic if needed
-    }
-    
-    func serverDidSendPing() {
-        print("Server ping")
-    }
-    
     func sendMessage(message: String) {
         let connectMessage = [
             "roomUUID": roomUUID,
             "senderId": 3,
             "message": "\(message)"
         ] as [String : Any]
-        soketClient.sendJSONForDict(dict: connectMessage as NSDictionary, toDestination: "/pub/message")
+        WebSocketManager.shared.socketClient.sendJSONForDict(dict: connectMessage as NSDictionary, toDestination: "/pub/message")
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
@@ -242,10 +197,10 @@ class ChattingDetailViewController: UIViewController, ConfigUI, StompClientLibDe
     
     func sendWebSocket(dto: StompSendDTO) {
         let sendToDestination = "/pub/message"
-        if soketClient.isConnected() {
+        if WebSocketManager.shared.socketClient.isConnected() {
             do {
                 let dict = try dto.toDictionary()
-                soketClient.sendJSONForDict(dict: dict as NSDictionary, toDestination: sendToDestination)
+                WebSocketManager.shared.socketClient.sendJSONForDict(dict: dict as NSDictionary, toDestination: sendToDestination)
             } catch {
                 print("Failed to convert StompSendDTO to Dictionary: \(error)")
             }
