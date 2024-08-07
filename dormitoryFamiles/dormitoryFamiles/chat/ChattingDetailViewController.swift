@@ -99,10 +99,8 @@ class ChattingDetailViewController: UIViewController, ConfigUI {
     }
     
     func setConstraints() {
-        let tabBarHeight = tabBarController?.tabBar.frame.size.height ?? 49
-        
         containerView.snp.makeConstraints {
-            $0.bottom.equalToSuperview().inset(tabBarHeight+8)
+            $0.bottom.equalTo(view.safeAreaLayoutGuide).inset(8)
             $0.height.equalTo(52)
             $0.left.trailing.equalToSuperview().inset(20)
         }
@@ -303,20 +301,26 @@ extension ChattingDetailViewController: UITextFieldDelegate {
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
             let keyboardHeight = keyboardSize.height
             UIView.animate(withDuration: 0.3) {
-                //TODO: 여기서 임의 하드코딩 80은 아이폰15기준 키보드 높이와 안맞아서 임의로 맞춘다고 설정해놨음. 더 좋은 방법을 찾아봐야함
-                self.view.transform = CGAffineTransform(translationX: 0, y: -keyboardHeight+80)
+                self.containerView.snp.updateConstraints { make in
+                    //TODO: 하드코딩 -30고치기
+                    make.bottom.equalTo(self.view.safeAreaLayoutGuide).inset(keyboardHeight-30)
+                }
+                self.view.layoutIfNeeded()
             }
             scrollToBottom()
         }
     }
-    
+
     @objc private func keyboardWillHide(_ notification: Notification) {
         if let tap = tapGesture {
             view.removeGestureRecognizer(tap)
             tapGesture = nil
         }
         UIView.animate(withDuration: 0.3) {
-            self.view.transform = .identity
+            self.containerView.snp.updateConstraints { make in
+                make.bottom.equalTo(self.view.safeAreaLayoutGuide).inset(8)
+            }
+            self.view.layoutIfNeeded()
         }
     }
 }
