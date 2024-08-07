@@ -18,6 +18,8 @@ class ChattingHomeViewController: UIViewController {
     
     private let collectionView = UserProfileNicknameCollectionView(spacing: 12, scrollDirection: .horizontal)
     
+    private var isInitialLoad = true
+    
     private let tableView: UITableView = {
         let tableView = UITableView()
         tableView.register(ChattingHomeTableViewCell.self, forCellReuseIdentifier: ChattingHomeTableViewCell.identifier)
@@ -50,6 +52,9 @@ class ChattingHomeViewController: UIViewController {
         super.viewWillAppear(true)
         followingData = []
         chattingRoomData = []
+        followingPage = 0
+        chattingRoomPage = 0
+        isInitialLoad = true
         setApi(keyword: keyword)
     }
     
@@ -140,6 +145,7 @@ class ChattingHomeViewController: UIViewController {
                 self.isFollowingLast = response.data.isLast
                 DispatchQueue.main.async {
                     self.collectionView.reloadData()
+                    self.isInitialLoad = false
                 }
                 self.isLoading = false
             case .failure(let error):
@@ -160,6 +166,7 @@ class ChattingHomeViewController: UIViewController {
                     self.tableView.reloadData()
                 }
                 self.isLoading = false
+                self.chattingRoomPage += 1
             case .failure(let error):
                 print("Error: \(error)")
                 self.isLoading = false
@@ -169,14 +176,14 @@ class ChattingHomeViewController: UIViewController {
     
     private func chattingRoomloadNextPage() {
         guard !isChattingLast else { return }
+        chatListApiNetwork(url: Url.chattingRoom(page: chattingRoomPage, size: nil, keyword: keyword))
         chattingRoomPage += 1
-        chatListApiNetwork(url: Url.chattingRoom(page: chattingRoomPage, size: 1, keyword: keyword))
     }
     
     private func followingLoadNextPage() {
         guard !isFollowingLast else { return }
+        followingApiNetwork(url: Url.following(page: followingPage, size: nil, keyword: keyword))
         followingPage += 1
-        followingApiNetwork(url: Url.following(page: followingPage, size: 1, keyword: keyword))
     }
 }
 
@@ -242,28 +249,30 @@ extension ChattingHomeViewController: UITableViewDelegate, UITableViewDataSource
 
 extension ChattingHomeViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let offsetY = scrollView.contentOffset.y
-        let contentHeight = scrollView.contentSize.height
-        let height = scrollView.frame.size.height
-        
-        if scrollView == tableView {
-            if offsetY > contentHeight - height {
-                if !isLoading {
-                    isLoading = true
-                    chattingRoomloadNextPage()
-                }
-            }
-        } else if scrollView == collectionView {
-            let horizontalOffset = scrollView.contentOffset.x
-            let contentWidth = scrollView.contentSize.width
-            let width = scrollView.frame.size.width
-            
-            if horizontalOffset > contentWidth - width {
-                if !isLoading {
-                    isLoading = true
-                    followingLoadNextPage()
-                }
-            }
-        }
-    }
+           let offsetY = scrollView.contentOffset.y
+           let contentHeight = scrollView.contentSize.height
+           let height = scrollView.frame.size.height
+           
+           if scrollView == tableView {
+               if !isInitialLoad {
+                   if offsetY > contentHeight - height {
+                       if !isLoading {
+                           isLoading = true
+                           chattingRoomloadNextPage()
+                       }
+                   }
+               }
+           } else if scrollView == collectionView {
+               let horizontalOffset = scrollView.contentOffset.x
+               let contentWidth = scrollView.contentSize.width
+               let width = scrollView.frame.size.width
+               
+               if horizontalOffset > contentWidth - width {
+                   if !isLoading {
+                       isLoading = true
+                       followingLoadNextPage()
+                   }
+               }
+           }
+       }
 }
