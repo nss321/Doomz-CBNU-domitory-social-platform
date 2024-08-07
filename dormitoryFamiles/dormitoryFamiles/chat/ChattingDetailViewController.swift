@@ -40,6 +40,7 @@ class ChattingDetailViewController: UIViewController, ConfigUI, StompClientLibDe
         button.titleLabel?.font = .button
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = .primary
+        button.addTarget(self, action: #selector(sendButtonTapped), for: .touchUpInside)
         return button
     }()
     
@@ -49,22 +50,18 @@ class ChattingDetailViewController: UIViewController, ConfigUI, StompClientLibDe
         setNavigationBar()
         setupTableView()
         registerSocket()
-        chattingHistoryApiNetwork(url: Url.chattingHistory(page: page, size: nil, roomId: roomId))
+        initializeChatting()
         addComponents()
         setConstraints()
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
+        super.viewWillAppear(animated)
         self.tabBarController?.tabBar.isHidden = true
-        textField.becomeFirstResponder()
-        messages = []
-        page = 0
-        scrollToBottom()
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(true)
+        super.viewDidAppear(animated)
         self.tabBarController?.tabBar.isHidden = false
     }
     
@@ -106,7 +103,7 @@ class ChattingDetailViewController: UIViewController, ConfigUI, StompClientLibDe
             $0.bottom.equalTo(containerView.snp.top)
             $0.left.trailing.equalToSuperview().inset(20)
         }
-                
+        
         sendButton.snp.makeConstraints {
             $0.trailing.equalToSuperview().inset(16)
             $0.width.equalTo(56)
@@ -136,16 +133,27 @@ class ChattingDetailViewController: UIViewController, ConfigUI, StompClientLibDe
         tableView.register(YourChattingTableViewCell.self, forCellReuseIdentifier: "YourChattingTableViewCell")
     }
     
-    private func chattingHistoryApiNetwork(url: String) {
+    private func chattingHistoryApiNetwork(url: String, appendToTop: Bool = false) {
         Network.getMethod(url: url) { [self] (result: Result<ApiResponse, Error>) in
             switch result {
             case .success(let response):
-                self.messages.insert(contentsOf: response.data.chatHistory, at: 0)
+                let newMessages = response.data.chatHistory
                 self.isLast = response.data.isLast
                 if roomUUID.isEmpty {
                     self.roomUUID = response.data.roomUUID
-                    DispatchQueue.main.async {
-                        self.tableView.reloadData()
+                }
+                DispatchQueue.main.async { [self] in
+                    let previousContentHeight = tableView.contentSize.height
+                    if appendToTop {
+                        self.messages.insert(contentsOf: newMessages, at: 0)
+                        tableView.reloadData()
+                        tableView.layoutIfNeeded()
+                        let newContentHeight = tableView.contentSize.height
+                        tableView.setContentOffset(CGPoint(x: 0, y: newContentHeight - previousContentHeight), animated: false)
+                    } else {
+                        self.messages.append(contentsOf: newMessages)
+                        tableView.reloadData()
+                        scrollToBottom()
                     }
                 }
                 self.isLoading = false
@@ -156,11 +164,18 @@ class ChattingDetailViewController: UIViewController, ConfigUI, StompClientLibDe
         }
     }
     
+    private func initializeChatting() {
+        messages = []
+        page = 0
+        isLast = false
+        chattingHistoryApiNetwork(url: Url.chattingHistory(page: page, size: nil, roomId: roomId))
+    }
+    
     @objc private func loadMoreData() {
-        guard !isLast else { return }
+        guard !isLast && !isLoading else { return }
         isLoading = true
         page += 1
-        chattingHistoryApiNetwork(url: Url.chattingHistory(page: page, size: nil, roomId: roomId))
+        chattingHistoryApiNetwork(url: Url.chattingHistory(page: page, size: nil, roomId: roomId), appendToTop: true)
     }
     
     func registerSocket() {
@@ -175,16 +190,13 @@ class ChattingDetailViewController: UIViewController, ConfigUI, StompClientLibDe
         print("메세지 받음")
     }
     
-    
     func stompClientDidDisconnect(client: StompClientLib!) {
         print("Socket is Disconnected")
     }
     
-    
     func stompClientDidConnect(client: StompClientLib!) {
         print("Socket is connected")
         soketClient.subscribe(destination: roomUUID)
-        sendMessage(message: "\(Date.now)")
     }
     
     func serverDidSendReceipt(client: StompClientLib!, withReceiptId receiptId: String) {
@@ -216,6 +228,16 @@ class ChattingDetailViewController: UIViewController, ConfigUI, StompClientLibDe
             "message": "\(message)"
         ] as [String : Any]
         soketClient.sendJSONForDict(dict: connectMessage as NSDictionary, toDestination: "/pub/message")
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+        let currentDateString = dateFormatter.string(from: Date())
+        
+        let formattedTime = DateUtility.formatTime(currentDateString)
+        let newMessage = ChatMessage(memberId: 3, isSender: true, memberNickname: nickname ?? "", memberProfileUrl: profileImageUrl ?? "", chatMessage: message, sentTime: formattedTime)
+        messages.append(newMessage)
+        tableView.reloadData()
+        scrollToBottom()
     }
     
     func sendWebSocket(dto: StompSendDTO) {
@@ -235,13 +257,18 @@ class ChattingDetailViewController: UIViewController, ConfigUI, StompClientLibDe
     private func scrollToBottom() {
         DispatchQueue.main.async {
             let lastRow = self.messages.count - 1
-            if lastRow >= 0 {
+            if lastRow >= 0 && lastRow < self.tableView.numberOfRows(inSection: 0) {
                 let indexPath = IndexPath(row: lastRow, section: 0)
                 self.tableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
             }
         }
     }
-
+    
+    @objc private func sendButtonTapped() {
+        guard let messageText = textField.text, !messageText.isEmpty else { return }
+        sendMessage(message: messageText)
+        textField.text = ""
+    }
 }
 
 extension ChattingDetailViewController: UITableViewDelegate, UITableViewDataSource {
@@ -275,8 +302,7 @@ extension ChattingDetailViewController: UITableViewDelegate, UITableViewDataSour
 extension ChattingDetailViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let offsetY = scrollView.contentOffset.y
-        if scrollView == tableView && offsetY < -1 && !isLoading {
-            isLoading = true
+        if scrollView == tableView && offsetY < -50 && !isLoading {
             loadMoreData()
         }
     }
