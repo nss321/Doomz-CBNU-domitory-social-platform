@@ -99,7 +99,7 @@ class ChattingDetailViewController: UIViewController, ConfigUI {
         let tabBarHeight = tabBarController?.tabBar.frame.size.height ?? 49
         
         containerView.snp.makeConstraints {
-            $0.bottom.equalToSuperview().inset(tabBarHeight)
+            $0.bottom.equalToSuperview().inset(tabBarHeight+8)
             $0.height.equalTo(52)
             $0.left.trailing.equalToSuperview().inset(20)
         }

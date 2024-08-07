@@ -176,6 +176,20 @@ class ChattingHomeViewController: UIViewController {
         }
     }
     
+    private func exitChattingRoomApiNetwork(url: String) {
+        Network.deleteMethod(url: url) { (result: Result<ExitRoomResponse, Error>) in
+            switch result {
+            case .success(let response):
+                print("Success with code: \(response.code)")
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            case .failure(let error):
+                print("Failed with error: \(error.localizedDescription)")
+            }
+        }
+    }
+    
     private func chattingRoomloadNextPage() {
         guard !isChattingLast else { return }
         chatListApiNetwork(url: Url.chattingRoom(page: chattingRoomPage, size: nil, keyword: keyword))
@@ -229,11 +243,14 @@ extension ChattingHomeViewController: UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let delete = UIContextualAction(style: .normal, title: "나가기") { (UIContextualAction, UIView, success: @escaping (Bool) -> Void) in
-            print("나가기\(indexPath)")
+        let delete = UIContextualAction(style: .normal, title: "나가기") { [self] (UIContextualAction, UIView, success: @escaping (Bool) -> Void) in
+            
+            let chattingRoomId = chattingRoomData[indexPath.row].roomId
+            exitChattingRoomApiNetwork(url: Url.exitChattingRoom(roomId: chattingRoomId))
             success(true)
         }
-        delete.backgroundColor = .systemRed
+        
+        delete.backgroundColor = .primary
         return UISwipeActionsConfiguration(actions: [delete])
     }
     

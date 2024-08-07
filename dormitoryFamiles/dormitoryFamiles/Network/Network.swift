@@ -168,6 +168,47 @@ struct Network {
         task.resume()
     }
     
+    static func patchMethod<T: Codable>(url: String, completion: @escaping (Result<T, Error>) -> Void) {
+            guard let url = URL(string: url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "") else {
+                completion(.failure(NSError(domain: "InvalidURL", code: 400, userInfo: nil)))
+                return
+            }
+            var request = URLRequest(url: url)
+            request.httpMethod = "PATCH"
+            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            let token = Token.shared.number
+            request.addValue("Bearer \(token)", forHTTPHeaderField: "Accesstoken")
+            
+            let task = URLSession.shared.dataTask(with: request) { data, response, error in
+                if let error = error {
+                    completion(.failure(error))
+                    return
+                }
+                
+                guard let httpResponse = response as? HTTPURLResponse else {
+                    completion(.failure(NSError(domain: "Invalid response", code: 0, userInfo: ["description": "No HTTP response"])))
+                    return
+                }
+                
+                if (200...299).contains(httpResponse.statusCode) {
+                    guard let data = data else {
+                        completion(.failure(NSError(domain: "No data", code: 0, userInfo: ["description": "No data received from server"])))
+                        return
+                    }
+                    do {
+                        let decodedData = try JSONDecoder().decode(T.self, from: data)
+                        completion(.success(decodedData))
+                    } catch {
+                        completion(.failure(error))
+                    }
+                } else {
+                    completion(.failure(NSError(domain: "Invalid response", code: httpResponse.statusCode, userInfo: ["description": "HTTP Status Code: \(httpResponse.statusCode)"])))
+                }
+            }
+            task.resume()
+        }
+    
+    
     static func loadImage(url: String) -> UIImageView {
         let imageView = UIImageView()
         guard let imageUrl = URL(string: url) else {

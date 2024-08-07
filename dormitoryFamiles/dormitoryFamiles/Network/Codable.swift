@@ -234,3 +234,11 @@ struct StompSendDTO: Codable {
     let senderId: Int
     let message: String
 }
+
+struct ExitRoomRequest: Codable {
+    let roomId: String
+}
+
+struct ExitRoomResponse: Codable {
+    let code: Int
+}
