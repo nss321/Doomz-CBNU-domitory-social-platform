@@ -29,6 +29,7 @@ class ChattingHomeViewController: UIViewController {
     private let baseLine: UIView = {
         let view = UIView()
         view.backgroundColor = .gray2
+        view.alpha = 0.3
         return view
     }()
     
@@ -46,6 +47,7 @@ class ChattingHomeViewController: UIViewController {
         setCollectionView()
         setTableView()
         setConstraints()
+        tableView.separatorStyle = .none
     }
     
     override func viewWillAppear(_ animated: Bool) {
