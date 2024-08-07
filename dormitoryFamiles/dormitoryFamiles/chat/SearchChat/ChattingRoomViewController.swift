@@ -8,60 +8,10 @@
 import UIKit
 
 class ChattingRoomViewController: UIViewController {
-    
-    let chattingRoomData = [
-        "code": 200,
-        "data": [
-            "nowPageNumber": 0,
-            "isLast": true,
-            "chatRooms": [
-                [
-                    "roomId": 8,
-                    "memberId": 8,
-                    "memberNickname": "닉네임8",
-                    "unReadCount": 0,
-                    "lastMessage": "Hello, how are you?",
-                    "lastMessageTime": "2024-05-30T13:58:10"
-                ],
-                [
-                    "roomId": 7,
-                    "memberId": 7,
-                    "memberNickname": "닉네임7",
-                    "memberProfileUrl": "http://t1.kakaocdn.net/account_images/default_profile.jpeg.twg.thumb.R640x640",
-                    "unReadCount": 0,
-                    "lastMessage": "Hello, how are you?",
-                    "lastMessageTime": "2024-05-30T13:57:47"
-                ],
-                [
-                    "roomId": 5,
-                    "memberId": 5,
-                    "memberNickname": "닉네임5",
-                    "memberProfileUrl": "http://t1.kakaocdn.net/account_images/default_profile.jpeg.twg.thumb.R640x640",
-                    "unReadCount": 0,
-                    "lastMessage": "Hello, how are you?",
-                    "lastMessageTime": "2024-05-30T13:57:10"
-                ],
-                [
-                    "roomId": 4,
-                    "memberId": 4,
-                    "memberNickname": "닉네임4",
-                    "memberProfileUrl": "http://t1.kakaocdn.net/account_images/default_profile.jpeg.twg.thumb.R640x640",
-                    "unReadCount": 0,
-                    "lastMessage": "Hello, how are you?",
-                    "lastMessageTime": "2024-05-30T13:56:49"
-                ],
-                [
-                    "roomId": 3,
-                    "memberId": 3,
-                    "memberNickname": "닉네임3",
-                    "memberProfileUrl": "http://t1.kakaocdn.net/account_images/default_profile.jpeg.twg.thumb.R640x640",
-                    "unReadCount": 0,
-                    "lastMessage": "Hello, how are you?",
-                    "lastMessageTime": "2024-05-30T13:56:25"
-                ]
-            ]
-        ]
-    ] as [String : Any]
+    private var chattingRoomData: [ChattingRoom] = []
+    private var chattingRoomPage = 0
+    private var isChattingLast = false
+    private var isLoading = false
     
     let chattingRoomLabel: UILabel = {
         let label = UILabel()
@@ -70,7 +20,7 @@ class ChattingRoomViewController: UIViewController {
         return label
     }()
     
-    let chattingRoomTabelView: UITableView = {
+    let chattingRoomTableView: UITableView = {
         let tableView = UITableView()
         tableView.register(ChattingHomeTableViewCell.self, forCellReuseIdentifier: ChattingHomeTableViewCell.identifier)
         return tableView
@@ -83,13 +33,20 @@ class ChattingRoomViewController: UIViewController {
         setConstraints()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        chattingRoomData = []
+        chattingRoomPage = 0
+        chatListApiNetwork(url: Url.chattingRoom(page: chattingRoomPage, size: nil, keyword: SearchChattingViewController.keyword))
+    }
+    
     private func setTableView() {
-        chattingRoomTabelView.delegate = self
-        chattingRoomTabelView.dataSource = self
+        chattingRoomTableView.delegate = self
+        chattingRoomTableView.dataSource = self
     }
     
     private func addComponents() {
-        [chattingRoomLabel, chattingRoomTabelView].forEach {
+        [chattingRoomLabel, chattingRoomTableView].forEach {
             view.addSubview($0)
         }
     }
@@ -101,38 +58,55 @@ class ChattingRoomViewController: UIViewController {
             $0.height.equalTo(32)
         }
         
-        chattingRoomTabelView.snp.makeConstraints{
+        chattingRoomTableView.snp.makeConstraints{
             $0.top.equalTo(chattingRoomLabel.snp.bottom).inset(-12)
             $0.leading.trailing.equalToSuperview()
             $0.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(-20)
         }
     }
+    
+    private func chatListApiNetwork(url: String) {
+        Network.getMethod(url: url) { (result: Result<ChattingRoomsResponse, Error>) in
+            switch result {
+            case .success(let response):
+                self.chattingRoomData += response.data.chatRooms
+                self.isChattingLast = response.data.isLast
+                DispatchQueue.main.async {
+                    self.chattingRoomTableView.reloadData()
+                }
+                self.isLoading = false
+            case .failure(let error):
+                print("Error: \(error)")
+                self.isLoading = false
+            }
+        }
+    }
+    
+    private func chattingRoomloadNextPage() {
+        guard !isChattingLast else { return }
+        chattingRoomPage += 1
+        chatListApiNetwork(url: Url.chattingRoom(page: chattingRoomPage, size: nil, keyword: SearchChattingViewController.keyword))
+    }
 }
 
 extension ChattingRoomViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let data = chattingRoomData["data"] as! [String: Any]
-        let chatRoom = data["chatRooms"] as! [[String: Any]]
-        return chatRoom.count
-        
+        return chattingRoomData.count
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: ChattingHomeTableViewCell.identifier, for: indexPath) as? ChattingHomeTableViewCell else {
             return UITableViewCell()
         }
         
-        if let data = chattingRoomData["data"] as? [String: Any],
-           let chatRooms = data["chatRooms"] as? [[String: Any]] {
-            let chatData = chatRooms[indexPath.row]
-            let memberNickname = chatData["memberNickname"] as? String ?? ""
-            let memberProfileUrl = chatData["memberProfileUrl"] as? String ?? ""
-            let unReadCount = chatData["unReadCount"] as? Int ?? 0
-            let lastMessage = chatData["lastMessage"] as? String ?? ""
-            let lastMessageTime = chatData["lastMessageTime"] as? String ?? ""
-            
-            cell.configure(memberNickname: memberNickname, memberProfileUrl: memberProfileUrl, unReadCount: unReadCount, lastMessage: lastMessage, lastMessageTime: lastMessageTime)
-        }
+        let chattingRoom = chattingRoomData[indexPath.row]
+        let memberNickname = chattingRoom.memberNickname
+        let memberProfileUrl = chattingRoom.memberProfileUrl ?? ""
+        let unReadCount = chattingRoom.unReadCount
+        let lastMessage = chattingRoom.lastMessage
+        let lastMessageTime = chattingRoom.lastMessageTime
+        
+        cell.configure(memberNickname: memberNickname, memberProfileUrl: memberProfileUrl, unReadCount: unReadCount, lastMessage: lastMessage, lastMessageTime: lastMessageTime)
         cell.selectionStyle = .none
         return cell
     }
@@ -144,6 +118,23 @@ extension ChattingRoomViewController: UITableViewDataSource, UITableViewDelegate
         }
         delete.backgroundColor = .systemRed
         return UISwipeActionsConfiguration(actions:[delete])
+    }
+}
+
+extension ChattingRoomViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let offsetY = scrollView.contentOffset.y
+        let contentHeight = scrollView.contentSize.height
+        let height = scrollView.frame.size.height
+        
+        if scrollView == chattingRoomTableView {
+            if offsetY > contentHeight - height {
+                if !isLoading {
+                    isLoading = true
+                    chattingRoomloadNextPage()
+                }
+            }
+        }
     }
 }
 

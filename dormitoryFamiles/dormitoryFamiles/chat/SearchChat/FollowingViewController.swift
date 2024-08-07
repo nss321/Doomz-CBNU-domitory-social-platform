@@ -8,27 +8,10 @@
 import UIKit
 
 class FollowingViewController: UIViewController {
-    
-    let followingSampleData = [
-        "code": 200,
-        "data": [
-            "totalPageNumber": 1,
-            "nowPageNumber": 0,
-            "isLast": true,
-            "memberProfiles": [
-                [
-                    "memberId": 5,
-                    "nickname": "유림잉",
-                    "profileUrl": "https://dormitory-family-images-bucket.s3.ap-northeast-2.amazonaws.com/a0345319-feff-4998-b098-b2322261acba_IMG_0338.JPG"
-                ],
-                [
-                    "memberId": 3,
-                    "nickname": "해나짱",
-                    "profileUrl": "http://k.kakaocdn.net/dn/cTaX1s/btsFAgXr5mH/n2AXHaWczRKt2Fxmt8hJMk/img_640x640.jpg"
-                ]
-            ]
-        ]
-    ] as [String : Any]
+    private var followingData: [MemberProfile] = []
+    private var followingPage = 0
+    private var isFollowingLast = false
+    private var isLoading = false
     
     let followingLabel: UILabel = {
         let label = UILabel()
@@ -44,6 +27,13 @@ class FollowingViewController: UIViewController {
         setCollectionView()
         addComponents()
         setConstraints()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        followingData = []
+        followingPage = 0
+        followingApiNetwork(url: Url.following(page: followingPage, size: nil, keyword: SearchChattingViewController.keyword))
     }
     
     private func setCollectionView() {
@@ -71,12 +61,50 @@ class FollowingViewController: UIViewController {
         }
     }
     
+    private func followingApiNetwork(url: String) {
+        if url.contains("search") {
+            Network.getMethod(url: url) { (result: Result<FollowingUserSearchResponse, Error>) in
+                switch result {
+                case .success(let response):
+                    self.followingData += response.data.memberProfiles
+                    DispatchQueue.main.async {
+                        self.followingCollectionView.reloadData()
+                    }
+                    self.isLoading = false
+                case .failure(let error):
+                    print("Error: \(error)")
+                    self.isLoading = false
+                }
+            }
+        }else {
+            Network.getMethod(url: url) { (result: Result<FollowingUserResponse, Error>) in
+                switch result {
+                case .success(let response):
+                    self.followingData += response.data.memberProfiles
+                    self.isFollowingLast = response.data.isLast
+                    DispatchQueue.main.async {
+                        self.followingCollectionView.reloadData()
+                    }
+                    self.isLoading = false
+                case .failure(let error):
+                    print("Error: \(error)")
+                    self.isLoading = false
+                }
+            }
+        }
+    }
+    
+    
+    private func followingLoadNextPage() {
+        guard !isFollowingLast else { return }
+        followingPage += 1
+        followingApiNetwork(url: Url.following(page: followingPage, size: 1, keyword: SearchChattingViewController.keyword))
+    }
+    
 }
 extension FollowingViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        let data = followingSampleData["data"] as! [String: Any]
-        let profiles = data["memberProfiles"] as! [[String: Any]]
-        return profiles.count
+        return followingData.count
     }
     
     
@@ -84,15 +112,28 @@ extension FollowingViewController: UICollectionViewDelegate, UICollectionViewDat
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: UserProfileNicknameCollectionViewControllerCell.identifier, for: indexPath) as? UserProfileNicknameCollectionViewControllerCell else {
             fatalError()
         }
-        var profile: [String: Any] = [:]
-        let data = followingSampleData["data"] as! [String: Any]
-        let profiles = data["memberProfiles"] as! [[String: Any]]
-        profile = profiles[indexPath.row]
-        let nickname = profile["nickname"] as! String
-        let profileUrl = profile["profileUrl"] as! String
-        cell.configure(text: nickname, profileUrl: profileUrl)
+    
+        let profile = followingData[indexPath.row]
+        cell.configure(text: profile.nickname, profileUrl: profile.profileUrl)
         
         return cell
     }
 }
     
+extension FollowingViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let offsetY = scrollView.contentOffset.y
+        let contentHeight = scrollView.contentSize.height
+        let height = scrollView.frame.size.height
+        
+        if scrollView == followingCollectionView {
+            if offsetY > contentHeight - height {
+                if !isLoading {
+                    isLoading = true
+                    followingLoadNextPage()
+                }
+            }
+        }
+    }
+}
+

@@ -14,6 +14,8 @@
 		11036F292C3D57840042B9EF /* MiscViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11036F282C3D57840042B9EF /* MiscViewController.swift */; };
 		11036F2D2C3D5CE40042B9EF /* CompleteMyCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11036F2C2C3D5CE40042B9EF /* CompleteMyCondition.swift */; };
 		11036F2F2C3D70870042B9EF /* ChoosePriorityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11036F2E2C3D70870042B9EF /* ChoosePriorityViewController.swift */; };
+		11227B1D2C51291D002A6A8A /* Url.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11227B1C2C51291D002A6A8A /* Url.swift */; };
+		11227B1F2C513C96002A6A8A /* UICollectionView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11227B1E2C513C74002A6A8A /* UICollectionView+.swift */; };
 		1126FE1C2BCEA662004C6C81 /* LifeStyleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1126FE1B2BCEA662004C6C81 /* LifeStyleViewController.swift */; };
 		1131E8A22BF6220B00D40120 /* UIScreen+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1131E8A12BF6220B00D40120 /* UIScreen+.swift */; };
 		1148B3F62C3EAD4B0056671B /* PriorityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1148B3F52C3EAD4B0056671B /* PriorityCell.swift */; };
@@ -34,24 +36,27 @@
 		DB1E0E8B2B629865000A4AA5 /* ChoiceDormitoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1E0E8A2B629865000A4AA5 /* ChoiceDormitoryViewController.swift */; };
 		DB1E0E8D2B62A995000A4AA5 /* SelectedDormitory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1E0E8C2B62A995000A4AA5 /* SelectedDormitory.swift */; };
 		DB20E38C2B53C2BD000D12A7 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB20E38B2B53C2BD000D12A7 /* HomeViewController.swift */; };
-		DB20E38E2B53D75F000D12A7 /* extensionStroyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB20E38D2B53D75F000D12A7 /* extensionStroyboard.swift */; };
+		DB20E38E2B53D75F000D12A7 /* Stroyboard+.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB20E38D2B53D75F000D12A7 /* Stroyboard+.swift */; };
 		DB20F2942B95CBE00052CF5C /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB20F2932B95CBE00052CF5C /* SearchViewController.swift */; };
+		DB29DE242C4C0E4100365684 /* ChattingDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB29DE232C4C0E4100365684 /* ChattingDetailViewController.swift */; };
+		DB29DE272C4C146800365684 /* ChattingNavigationProfileStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB29DE262C4C146800365684 /* ChattingNavigationProfileStackView.swift */; };
+		DB29DE292C4C292200365684 /* MyChattingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB29DE282C4C292200365684 /* MyChattingTableViewCell.swift */; };
+		DB29DE2B2C4C293500365684 /* YourChattingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB29DE2A2C4C293500365684 /* YourChattingTableViewCell.swift */; };
 		DB2B7BC92B456F4700C1847D /* TagScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2B7BC82B456F4700C1847D /* TagScrollView.swift */; };
 		DB2B7BCB2B45727B00C1847D /* TagButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2B7BCA2B45727B00C1847D /* TagButton.swift */; };
-		DB2B7BCF2B457F7200C1847D /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2B7BCE2B457F7200C1847D /* UIButtonExtension.swift */; };
 		DB3F05332C42AD440091349F /* SearchChattingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3F05322C42AD440091349F /* SearchChattingViewController.swift */; };
 		DB3F05352C42BB6B0091349F /* AllViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3F05342C42BB6B0091349F /* AllViewController.swift */; };
 		DB3F05392C43002E0091349F /* LabelAndPrimaryMidButtonStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3F05382C43002E0091349F /* LabelAndPrimaryMidButtonStackView.swift */; };
 		DB3F053B2C4307790091349F /* UserProfileNicknameCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3F053A2C4307790091349F /* UserProfileNicknameCollectionViewController.swift */; };
 		DB3F053E2C44BED90091349F /* FollowingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3F053D2C44BED90091349F /* FollowingViewController.swift */; };
-		DB3F05402C44BEF10091349F /* AllDoomzViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3F053F2C44BEF10091349F /* AllDoomzViewController.swift */; };
 		DB3F05422C44BF0D0091349F /* ChattingRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3F05412C44BF0D0091349F /* ChattingRoomViewController.swift */; };
 		DB3F05442C44BF1E0091349F /* MessagegViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3F05432C44BF1E0091349F /* MessagegViewController.swift */; };
 		DB3F05462C44D84B0091349F /* SearchTextFieldChattingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3F05452C44D84B0091349F /* SearchTextFieldChattingViewController.swift */; };
+		DB3F05482C453A0B0091349F /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3F05472C453A0B0091349F /* UIColor+.swift */; };
+		DB3F054A2C453A7F0091349F /* UIButton+.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3F05492C453A7F0091349F /* UIButton+.swift */; };
 		DB3F18092B6162AB002F1738 /* ProfileSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3F18082B6162AB002F1738 /* ProfileSettingViewController.swift */; };
 		DB41008C2B6A665D005C4DD8 /* BrownVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB41008B2B6A665D005C4DD8 /* BrownVC.swift */; };
 		DB496DEB2B70EAFB00F97324 /* TabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB496DEA2B70EAFB00F97324 /* TabbarViewController.swift */; };
-		DB5ACD602AA70D190054CA15 /* ExtenstionColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5ACD5F2AA70D190054CA15 /* ExtenstionColor.swift */; };
 		DB61AA342B4C1EA70040418B /* RegisterPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB61AA332B4C1EA70040418B /* RegisterPostViewController.swift */; };
 		DB6491362C22F7FD00E0AE25 /* MealOfWeekViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6491352C22F7FD00E0AE25 /* MealOfWeekViewController.swift */; };
 		DB74D0C62B73EEBF00A90D68 /* Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB74D0C52B73EEBF00A90D68 /* Codable.swift */; };
@@ -60,12 +65,12 @@
 		DB7EF2772B5E9CB20062FAB5 /* ServicePermissonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7EF2762B5E9CB20062FAB5 /* ServicePermissonViewController.swift */; };
 		DB7EF2792B5EA4B00062FAB5 /* AlrmElementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7EF2782B5EA4B00062FAB5 /* AlrmElementView.swift */; };
 		DB7EF27D2B5EAC790062FAB5 /* ChoiceDormitoryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7EF27C2B5EAC790062FAB5 /* ChoiceDormitoryButton.swift */; };
-		DB81D0002B56E723005EF497 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB81CFFF2B56E723005EF497 /* UIColorExtension.swift */; };
 		DB8DDFD72BECB0B600B3A676 /* DateFomat.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8DDFD62BECB0B600B3A676 /* DateFomat.swift */; };
 		DB8DDFD92BECC5AC00B3A676 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8DDFD82BECC5AC00B3A676 /* Category.swift */; };
 		DB932AC12B6511E300B456FB /* BulluetinBoardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB932ABF2B6511E300B456FB /* BulluetinBoardCollectionViewCell.swift */; };
 		DB932AC22B6511E300B456FB /* BulluetinBoardCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB932AC02B6511E300B456FB /* BulluetinBoardCollectionViewCell.xib */; };
 		DB94B2AF2C23B3D80077A7BE /* NickNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB94B2AE2C23B3D80077A7BE /* NickNameViewController.swift */; };
+		DB9D47B52C50B85D0031C8EF /* Encodable+.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9D47B42C50B85D0031C8EF /* Encodable+.swift */; };
 		DBB345F22B42BFD100E70380 /* BulletinBoardMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB345F12B42BFD100E70380 /* BulletinBoardMainViewController.swift */; };
 		DBC001D82BBAEDBB00228CD9 /* AddImageBaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC001D72BBAEDBB00228CD9 /* AddImageBaseView.swift */; };
 		DBC1CFF62BC2AE25005C93C0 /* ConfigUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11707A312BA617EE0027802D /* ConfigUI.swift */; };
@@ -85,7 +90,6 @@
 		DBD0C57E2C41263700F6B456 /* ChattingHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD0C57D2C41263700F6B456 /* ChattingHomeViewController.swift */; };
 		DBD0C5802C41E52C00F6B456 /* UserProfileNicknameCollectionViewControllerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD0C57F2C41E52C00F6B456 /* UserProfileNicknameCollectionViewControllerCell.swift */; };
 		DBD0C5822C41F46100F6B456 /* ChattingHomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD0C5812C41F46100F6B456 /* ChattingHomeTableViewCell.swift */; };
-		DBD1E00A2C3D49C900FDD5FE /* Url.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD1E0092C3D49C900FDD5FE /* Url.swift */; };
 		DBD1E00C2C3D49E900FDD5FE /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD1E00B2C3D49E900FDD5FE /* Token.swift */; };
 		DBD1E7FC2B84A9D500FD71C6 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD1E7FB2B84A9D500FD71C6 /* Network.swift */; };
 		DBDF96EF2B84BFB2000E74AE /* ProfileFinishedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDF96EE2B84BFB2000E74AE /* ProfileFinishedViewController.swift */; };
@@ -121,6 +125,8 @@
 		11036F282C3D57840042B9EF /* MiscViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiscViewController.swift; sourceTree = "<group>"; };
 		11036F2C2C3D5CE40042B9EF /* CompleteMyCondition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteMyCondition.swift; sourceTree = "<group>"; };
 		11036F2E2C3D70870042B9EF /* ChoosePriorityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoosePriorityViewController.swift; sourceTree = "<group>"; };
+		11227B1C2C51291D002A6A8A /* Url.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Url.swift; sourceTree = "<group>"; };
+		11227B1E2C513C74002A6A8A /* UICollectionView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+.swift"; sourceTree = "<group>"; };
 		1126FE1B2BCEA662004C6C81 /* LifeStyleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifeStyleViewController.swift; sourceTree = "<group>"; };
 		1131E8A12BF6220B00D40120 /* UIScreen+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScreen+.swift"; sourceTree = "<group>"; };
 		1148B3F52C3EAD4B0056671B /* PriorityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriorityCell.swift; sourceTree = "<group>"; };
@@ -149,24 +155,27 @@
 		DB1E0E8A2B629865000A4AA5 /* ChoiceDormitoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceDormitoryViewController.swift; sourceTree = "<group>"; };
 		DB1E0E8C2B62A995000A4AA5 /* SelectedDormitory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedDormitory.swift; sourceTree = "<group>"; };
 		DB20E38B2B53C2BD000D12A7 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		DB20E38D2B53D75F000D12A7 /* extensionStroyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensionStroyboard.swift; sourceTree = "<group>"; };
+		DB20E38D2B53D75F000D12A7 /* Stroyboard+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Stroyboard+.swift"; sourceTree = "<group>"; };
 		DB20F2932B95CBE00052CF5C /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		DB29DE232C4C0E4100365684 /* ChattingDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingDetailViewController.swift; sourceTree = "<group>"; };
+		DB29DE262C4C146800365684 /* ChattingNavigationProfileStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingNavigationProfileStackView.swift; sourceTree = "<group>"; };
+		DB29DE282C4C292200365684 /* MyChattingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyChattingTableViewCell.swift; sourceTree = "<group>"; };
+		DB29DE2A2C4C293500365684 /* YourChattingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourChattingTableViewCell.swift; sourceTree = "<group>"; };
 		DB2B7BC82B456F4700C1847D /* TagScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagScrollView.swift; sourceTree = "<group>"; };
 		DB2B7BCA2B45727B00C1847D /* TagButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagButton.swift; sourceTree = "<group>"; };
-		DB2B7BCE2B457F7200C1847D /* UIButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
 		DB3F05322C42AD440091349F /* SearchChattingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchChattingViewController.swift; sourceTree = "<group>"; };
 		DB3F05342C42BB6B0091349F /* AllViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllViewController.swift; sourceTree = "<group>"; };
 		DB3F05382C43002E0091349F /* LabelAndPrimaryMidButtonStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelAndPrimaryMidButtonStackView.swift; sourceTree = "<group>"; };
 		DB3F053A2C4307790091349F /* UserProfileNicknameCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileNicknameCollectionViewController.swift; sourceTree = "<group>"; };
 		DB3F053D2C44BED90091349F /* FollowingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowingViewController.swift; sourceTree = "<group>"; };
-		DB3F053F2C44BEF10091349F /* AllDoomzViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllDoomzViewController.swift; sourceTree = "<group>"; };
 		DB3F05412C44BF0D0091349F /* ChattingRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingRoomViewController.swift; sourceTree = "<group>"; };
 		DB3F05432C44BF1E0091349F /* MessagegViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagegViewController.swift; sourceTree = "<group>"; };
 		DB3F05452C44D84B0091349F /* SearchTextFieldChattingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTextFieldChattingViewController.swift; sourceTree = "<group>"; };
+		DB3F05472C453A0B0091349F /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
+		DB3F05492C453A7F0091349F /* UIButton+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+.swift"; sourceTree = "<group>"; };
 		DB3F18082B6162AB002F1738 /* ProfileSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingViewController.swift; sourceTree = "<group>"; };
 		DB41008B2B6A665D005C4DD8 /* BrownVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrownVC.swift; sourceTree = "<group>"; };
 		DB496DEA2B70EAFB00F97324 /* TabbarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarViewController.swift; sourceTree = "<group>"; };
-		DB5ACD5F2AA70D190054CA15 /* ExtenstionColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtenstionColor.swift; sourceTree = "<group>"; };
 		DB61AA332B4C1EA70040418B /* RegisterPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPostViewController.swift; sourceTree = "<group>"; };
 		DB6491352C22F7FD00E0AE25 /* MealOfWeekViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealOfWeekViewController.swift; sourceTree = "<group>"; };
 		DB74D0C52B73EEBF00A90D68 /* Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Codable.swift; sourceTree = "<group>"; };
@@ -175,12 +184,12 @@
 		DB7EF2762B5E9CB20062FAB5 /* ServicePermissonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicePermissonViewController.swift; sourceTree = "<group>"; };
 		DB7EF2782B5EA4B00062FAB5 /* AlrmElementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlrmElementView.swift; sourceTree = "<group>"; };
 		DB7EF27C2B5EAC790062FAB5 /* ChoiceDormitoryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceDormitoryButton.swift; sourceTree = "<group>"; };
-		DB81CFFF2B56E723005EF497 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		DB8DDFD62BECB0B600B3A676 /* DateFomat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFomat.swift; sourceTree = "<group>"; };
 		DB8DDFD82BECC5AC00B3A676 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		DB932ABF2B6511E300B456FB /* BulluetinBoardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulluetinBoardCollectionViewCell.swift; sourceTree = "<group>"; };
 		DB932AC02B6511E300B456FB /* BulluetinBoardCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BulluetinBoardCollectionViewCell.xib; sourceTree = "<group>"; };
 		DB94B2AE2C23B3D80077A7BE /* NickNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NickNameViewController.swift; sourceTree = "<group>"; };
+		DB9D47B42C50B85D0031C8EF /* Encodable+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable+.swift"; sourceTree = "<group>"; };
 		DBB345F12B42BFD100E70380 /* BulletinBoardMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulletinBoardMainViewController.swift; sourceTree = "<group>"; };
 		DBC001D72BBAEDBB00228CD9 /* AddImageBaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddImageBaseView.swift; sourceTree = "<group>"; };
 		DBC54C422B568B350071164C /* UIFontExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFontExtension.swift; sourceTree = "<group>"; };
@@ -194,7 +203,6 @@
 		DBD0C57D2C41263700F6B456 /* ChattingHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingHomeViewController.swift; sourceTree = "<group>"; };
 		DBD0C57F2C41E52C00F6B456 /* UserProfileNicknameCollectionViewControllerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileNicknameCollectionViewControllerCell.swift; sourceTree = "<group>"; };
 		DBD0C5812C41F46100F6B456 /* ChattingHomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingHomeTableViewCell.swift; sourceTree = "<group>"; };
-		DBD1E0092C3D49C900FDD5FE /* Url.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Url.swift; sourceTree = "<group>"; };
 		DBD1E00B2C3D49E900FDD5FE /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
 		DBD1E7FB2B84A9D500FD71C6 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		DBDF96EE2B84BFB2000E74AE /* ProfileFinishedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFinishedViewController.swift; sourceTree = "<group>"; };
@@ -316,18 +324,37 @@
 			path = DormitoryButton;
 			sourceTree = "<group>";
 		};
+		DB29DE222C4C0E2B00365684 /* ChattingRoom */ = {
+			isa = PBXGroup;
+			children = (
+				DB29DE252C4C144500365684 /* View */,
+			);
+			path = ChattingRoom;
+			sourceTree = "<group>";
+		};
+		DB29DE252C4C144500365684 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DB29DE262C4C146800365684 /* ChattingNavigationProfileStackView.swift */,
+				DB29DE282C4C292200365684 /* MyChattingTableViewCell.swift */,
+				DB29DE2A2C4C293500365684 /* YourChattingTableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		DB32D75B2BA342EC00DE387A /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				DB20E38D2B53D75F000D12A7 /* extensionStroyboard.swift */,
-				DB5ACD5F2AA70D190054CA15 /* ExtenstionColor.swift */,
-				DB2B7BCE2B457F7200C1847D /* UIButtonExtension.swift */,
-				DB81CFFF2B56E723005EF497 /* UIColorExtension.swift */,
+				11227B1E2C513C74002A6A8A /* UICollectionView+.swift */,
+				DB20E38D2B53D75F000D12A7 /* Stroyboard+.swift */,
+				DB3F05492C453A7F0091349F /* UIButton+.swift */,
+				DB3F05472C453A0B0091349F /* UIColor+.swift */,
 				DB2B7BCA2B45727B00C1847D /* TagButton.swift */,
 				11707A2D2BA4D3AC0027802D /* UILabel+.swift */,
 				1131E8A12BF6220B00D40120 /* UIScreen+.swift */,
 				11AC97FC2BFF27AE0008C910 /* UIImage+.swift */,
 				119F6D542C4012F300297E3F /* UserDefaults+.swift */,
+				DB9D47B42C50B85D0031C8EF /* Encodable+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -406,7 +433,7 @@
 			children = (
 				DBD1E7FB2B84A9D500FD71C6 /* Network.swift */,
 				DB74D0C52B73EEBF00A90D68 /* Codable.swift */,
-				DBD1E0092C3D49C900FDD5FE /* Url.swift */,
+				11227B1C2C51291D002A6A8A /* Url.swift */,
 				DBD1E00B2C3D49E900FDD5FE /* Token.swift */,
 			);
 			path = Network;
@@ -417,7 +444,6 @@
 			children = (
 				DB3F05342C42BB6B0091349F /* AllViewController.swift */,
 				DB3F053D2C44BED90091349F /* FollowingViewController.swift */,
-				DB3F053F2C44BEF10091349F /* AllDoomzViewController.swift */,
 				DB3F05412C44BF0D0091349F /* ChattingRoomViewController.swift */,
 				DB3F05432C44BF1E0091349F /* MessagegViewController.swift */,
 				DB3F05452C44D84B0091349F /* SearchTextFieldChattingViewController.swift */,
@@ -451,11 +477,13 @@
 		DBD0C57C2C41260B00F6B456 /* chat */ = {
 			isa = PBXGroup;
 			children = (
+				DB29DE222C4C0E2B00365684 /* ChattingRoom */,
 				DB3F053C2C44BE9F0091349F /* SearchChat */,
 				DBD0C57D2C41263700F6B456 /* ChattingHomeViewController.swift */,
 				DBD0C57F2C41E52C00F6B456 /* UserProfileNicknameCollectionViewControllerCell.swift */,
 				DBD0C5812C41F46100F6B456 /* ChattingHomeTableViewCell.swift */,
 				DB3F05322C42AD440091349F /* SearchChattingViewController.swift */,
+				DB29DE232C4C0E4100365684 /* ChattingDetailViewController.swift */,
 			);
 			path = chat;
 			sourceTree = "<group>";
@@ -647,10 +675,7 @@
 				DBCE10E12B595506008C3367 /* LoginViewController.swift in Sources */,
 				11036F232C3C0E690042B9EF /* EatingFoodViewController.swift in Sources */,
 				DB1971D52BAB088C00C09648 /* AddPhotoImageView.swift in Sources */,
-				DB81D0002B56E723005EF497 /* UIColorExtension.swift in Sources */,
-				DB5ACD602AA70D190054CA15 /* ExtenstionColor.swift in Sources */,
 				DB7EF2792B5EA4B00062FAB5 /* AlrmElementView.swift in Sources */,
-				DB3F05402C44BEF10091349F /* AllDoomzViewController.swift in Sources */,
 				1131E8A22BF6220B00D40120 /* UIScreen+.swift in Sources */,
 				11AC97FD2BFF27AE0008C910 /* UIImage+.swift in Sources */,
 				DB3F05332C42AD440091349F /* SearchChattingViewController.swift in Sources */,
@@ -660,10 +685,16 @@
 				1148B3F62C3EAD4B0056671B /* PriorityCell.swift in Sources */,
 				DB7BE9E72BA47A5E00BC25E3 /* ReplyCollectionViewCell.swift in Sources */,
 				11036F272C3C19A00042B9EF /* StudyStyleViewController.swift in Sources */,
+				DB29DE272C4C146800365684 /* ChattingNavigationProfileStackView.swift in Sources */,
+				DB29DE242C4C0E4100365684 /* ChattingDetailViewController.swift in Sources */,
+				11227B1D2C51291D002A6A8A /* Url.swift in Sources */,
 				DB61AA342B4C1EA70040418B /* RegisterPostViewController.swift in Sources */,
-				DB20E38E2B53D75F000D12A7 /* extensionStroyboard.swift in Sources */,
+				DB29DE292C4C292200365684 /* MyChattingTableViewCell.swift in Sources */,
+				DB20E38E2B53D75F000D12A7 /* Stroyboard+.swift in Sources */,
+				DB3F05482C453A0B0091349F /* UIColor+.swift in Sources */,
 				11036F292C3D57840042B9EF /* MiscViewController.swift in Sources */,
 				DBD0C5802C41E52C00F6B456 /* UserProfileNicknameCollectionViewControllerCell.swift in Sources */,
+				DB3F054A2C453A7F0091349F /* UIButton+.swift in Sources */,
 				117250E92BB5927E0083F181 /* SmokeAndAlcoholPatternViewController.swift in Sources */,
 				DB6491362C22F7FD00E0AE25 /* MealOfWeekViewController.swift in Sources */,
 				DB94B2AF2C23B3D80077A7BE /* NickNameViewController.swift in Sources */,
@@ -676,13 +707,15 @@
 				DB3F05442C44BF1E0091349F /* MessagegViewController.swift in Sources */,
 				DB74D0C62B73EEBF00A90D68 /* Codable.swift in Sources */,
 				119F6D552C4012F300297E3F /* UserDefaults+.swift in Sources */,
+				DB29DE2B2C4C293500365684 /* YourChattingTableViewCell.swift in Sources */,
 				11036F212C3C05D60042B9EF /* HomeCycleViewController.swift in Sources */,
+				DB9D47B52C50B85D0031C8EF /* Encodable+.swift in Sources */,
+				11227B1F2C513C96002A6A8A /* UICollectionView+.swift in Sources */,
 				DBC54C432B568B350071164C /* UIFontExtension.swift in Sources */,
 				118EAA852C07E56400436A6F /* ConstitutionViewController.swift in Sources */,
 				DB7EF27D2B5EAC790062FAB5 /* ChoiceDormitoryButton.swift in Sources */,
 				DB3F053E2C44BED90091349F /* FollowingViewController.swift in Sources */,
 				DBFF14932B7BA7EC002DA3AA /* BulletinBoardDetailViewViewController.swift in Sources */,
-				DBD1E00A2C3D49C900FDD5FE /* Url.swift in Sources */,
 				DB932AC12B6511E300B456FB /* BulluetinBoardCollectionViewCell.swift in Sources */,
 				DBF466FF2AA5F4E4009FF3EB /* MealMenuViewController.swift in Sources */,
 				DB496DEB2B70EAFB00F97324 /* TabbarViewController.swift in Sources */,
@@ -699,7 +732,6 @@
 				DBDF96EF2B84BFB2000E74AE /* ProfileFinishedViewController.swift in Sources */,
 				11707A2C2BA4CA780027802D /* FontManager.swift in Sources */,
 				11036F252C3C16B00042B9EF /* NoiseAndPerfumeViewController.swift in Sources */,
-				DB2B7BCF2B457F7200C1847D /* UIButtonExtension.swift in Sources */,
 				DB02B5292B98C92200C45F56 /* ReplyHeaderCollectionReusableView.swift in Sources */,
 				DBF466FD2AA5F4E4009FF3EB /* SceneDelegate.swift in Sources */,
 				DBB345F22B42BFD100E70380 /* BulletinBoardMainViewController.swift in Sources */,

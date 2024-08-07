@@ -39,13 +39,7 @@ class ChattingHomeTableViewCell: UITableViewCell {
         return stackView
     }()
     
-    let profileImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.snp.makeConstraints { make in
-            make.height.width.equalTo(48)
-        }
-        return imageView
-    }()
+    let profileImageView: UIImageView = UIImageView()
     
     let nicknameLabel: UILabel = {
         let label = UILabel()
@@ -90,7 +84,7 @@ class ChattingHomeTableViewCell: UITableViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        profileImageView.layer.cornerRadius = profileImageView.frame.size.width / 2
+        profileImageView.layer.cornerRadius = 24
         profileImageView.clipsToBounds = true
         
         guard let intUnReadCount = Int(unReadCountLabel.text ?? "") else {return}
@@ -101,7 +95,7 @@ class ChattingHomeTableViewCell: UITableViewCell {
     }
     
     private func addComponents() {
-        [allStackView, timeUnreadStackView, nicknameMessageStackView, imageNicknameMessageStackView].forEach {
+        [allStackView, timeUnreadStackView, nicknameMessageStackView, profileImageView].forEach {
             addSubview($0)
         }
         
@@ -109,23 +103,26 @@ class ChattingHomeTableViewCell: UITableViewCell {
             nicknameMessageStackView.addArrangedSubview($0)
         }
         
-        [profileImageView, nicknameMessageStackView].forEach {
-            imageNicknameMessageStackView.addArrangedSubview($0)
-        }
-        
         [timeLabel, unReadCountLabel].forEach {
             timeUnreadStackView.addArrangedSubview($0)
         }
         
-        [imageNicknameMessageStackView, timeUnreadStackView].forEach {
+        [nicknameMessageStackView, timeUnreadStackView].forEach {
             allStackView.addArrangedSubview($0)
         }
     }
     
     private func setConstraints() {
+        profileImageView.snp.makeConstraints {
+            $0.top.bottom.equalToSuperview().inset(12).priority(.high)
+            $0.leading.equalToSuperview().inset(25)
+            $0.height.width.equalTo(48).priority(.required)
+        }
+        
         allStackView.snp.makeConstraints {
             $0.top.bottom.equalToSuperview().inset(12)
-            $0.leading.trailing.equalToSuperview().inset(22)
+            $0.leading.equalTo(profileImageView.snp.trailing).inset(-12)
+            $0.trailing.equalToSuperview().inset(25)
         }
     }
     
@@ -146,4 +143,15 @@ class ChattingHomeTableViewCell: UITableViewCell {
             profileImageView.image = UIImage(named: "bulletinBoardProfile")
         }
     }
+    
+    func highlightKeyword(keyword: String) {
+        guard let messageText = messageLabel.text else { return }
+        let attributedString = NSMutableAttributedString(string: messageText)
+        let range = (messageText as NSString).range(of: keyword)
+        //키워드가 존재하지 않으면 종료
+        guard range.length > 0 else { return }
+        attributedString.addAttribute(.foregroundColor, value: UIColor.primary, range: range)
+        messageLabel.attributedText = attributedString
+    }
+
 }

@@ -10,20 +10,18 @@ import Tabman
 import Pageboy
 import SnapKit
 
-class SearchChattingViewController: TabmanViewController {
-    
+class SearchChattingViewController: TabmanViewController, SearchChattingTextFieldDelegate {
+    static var keyword: String?
     private var viewControllers: [UIViewController] {
         let allVC = AllViewController()
         
         let followingVC = FollowingViewController()
         
-        let allDoomzVC = AllDoomzViewController()
-        
         let chattingRoomVC = ChattingRoomViewController()
         
         let messageVC = MessagegViewController()
         
-        return [allVC, followingVC, allDoomzVC, chattingRoomVC, messageVC]
+        return [allVC, followingVC, chattingRoomVC, messageVC]
     }
     
     private let tabmanView: UIView = {
@@ -56,6 +54,28 @@ class SearchChattingViewController: TabmanViewController {
         setTabman()
         addComponents()
         setConstraints()
+        setTap()
+    }
+    
+    deinit {
+        Self.keyword = nil
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        if SearchChattingViewController.keyword != nil {self.navigationTextFieldLabel.text = SearchChattingViewController.keyword}
+    }
+    
+    private func setTap() {
+        //이전 화면에서 팔로잉 전체보기를 눌러서 화면전환이 된 경우 화면 탭 변경
+        if let viewControllers = self.navigationController?.viewControllers,
+           viewControllers.count > 1,
+           let previousVC = viewControllers[viewControllers.count - 2] as? ChattingHomeViewController,
+           previousVC.didFollowingMoreButtonTapped {
+            self.scrollToPage(.at(index: 1), animated: true)
+            previousVC.didFollowingMoreButtonTapped = false
+        }
+        
     }
     
     private func setNavigationBar() {
@@ -64,7 +84,7 @@ class SearchChattingViewController: TabmanViewController {
         containerView.isUserInteractionEnabled = true
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(textFieldTapped))
         containerView.addGestureRecognizer(tapGesture)
-
+        
         navigationItem.titleView = containerView
         
         containerView.addSubview(navigationTextFieldLabel)
@@ -95,7 +115,7 @@ class SearchChattingViewController: TabmanViewController {
         bar.indicator.weight = .light
         bar.indicator.tintColor = .primary
         bar.layout.alignment = .centerDistributed
-        bar.layout.contentMode = .intrinsic
+        bar.layout.contentMode = .fit
         
         bar.layout.interButtonSpacing = 24 // 버튼 사이 간격
         bar.layout.transitionStyle = .progressive// Customize
@@ -123,8 +143,16 @@ class SearchChattingViewController: TabmanViewController {
     }
     
     @objc func textFieldTapped() {
-        self.navigationController?.pushViewController(SearchTextFieldChattingViewController(), animated: true)
+        let searchVC = SearchTextFieldChattingViewController()
+            searchVC.textFieldDelegate = self // 이 부분을 추가해야 합니다
+            self.navigationController?.pushViewController(searchVC, animated: true)
     }
+    
+    func returnButtonTapped(keyword: String) {
+        SearchChattingViewController.keyword = keyword
+        self.navigationTextFieldLabel.text = keyword
+    }
+    
 }
 
 extension SearchChattingViewController: PageboyViewControllerDataSource, TMBarDataSource {
@@ -147,10 +175,8 @@ extension SearchChattingViewController: PageboyViewControllerDataSource, TMBarDa
         case 1:
             return TMBarItem(title: "팔로잉")
         case 2:
-            return TMBarItem(title: "전체 둠즈")
-        case 3:
             return TMBarItem(title: "채팅방")
-        case 4:
+        case 3:
             return TMBarItem(title: "메세지")
         default:
             let title = "Page \(index)"

@@ -111,6 +111,7 @@ final class NoiseAndPerfumeViewController: UIViewController, ConfigUI {
         addComponents()
         setConstraints()
         nextButton.setup(model: nextButtonModel)
+        checkSelections(selectedItems: [selectedNoise, selectedPerfume], nextButton: nextButton)
     }
     
     func addComponents() {
@@ -203,9 +204,7 @@ extension NoiseAndPerfumeViewController: UICollectionViewDataSource {
 
 extension NoiseAndPerfumeViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let numberOfinter:Int = noise.count - 1
-        let interSpacing:Int = 8
-        let cellSize = CGSize(width: (UIScreen.screenWidthLayoutGuide - numberOfinter * interSpacing) / 3, height: 48)
+        let cellSize = CGSize(width: UIScreen.cellWidth3Column, height: UIScreen.cellHeight)
 
         return cellSize
     }
@@ -213,26 +212,15 @@ extension NoiseAndPerfumeViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         switch collectionView {
         case noiseCollectionView:
-            selectedNoise = noise[indexPath.item]
+            handleSelection(collectionView: collectionView, indexPath: indexPath, selectedValue: &selectedNoise, items: noise)
             print("Noise: \(noise[indexPath.item]) 선택")
         case perfumeCollectionView:
-            selectedPerfume = perfume[indexPath.item]
+            handleSelection(collectionView: collectionView, indexPath: indexPath, selectedValue: &selectedPerfume, items: perfume)
             print("Perfume: \(perfume[indexPath.item]) 선택")
         default:
             print("default")
         }
+        checkSelections(selectedItems: [selectedNoise, selectedPerfume], nextButton: nextButton)
     }
     
-    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        switch collectionView {
-        case noiseCollectionView:
-            selectedNoise = nil
-            print("Noise: \(noise[indexPath.item]) 선택 해제")
-        case perfumeCollectionView:
-            selectedPerfume = nil
-            print("Perfume: \(perfume[indexPath.item]) 선택 해제")
-        default:
-            print("default")
-        }
-    }
 }

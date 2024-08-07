@@ -8,114 +8,35 @@
 import UIKit
 
 class AllViewController: UIViewController {
+    private var followingData: [MemberProfile] = []
+    private var followingPage = 0
+    private var isFollowingLast = false
     
-    let followingSampleData = [
-        "code": 200,
-        "data": [
-            "totalPageNumber": 1,
-            "nowPageNumber": 0,
-            "isLast": true,
-            "memberProfiles": [
-                [
-                    "memberId": 5,
-                    "nickname": "유림잉",
-                    "profileUrl": "https://dormitory-family-images-bucket.s3.ap-northeast-2.amazonaws.com/a0345319-feff-4998-b098-b2322261acba_IMG_0338.JPG"
-                ],
-                [
-                    "memberId": 3,
-                    "nickname": "해나짱",
-                    "profileUrl": "http://k.kakaocdn.net/dn/cTaX1s/btsFAgXr5mH/n2AXHaWczRKt2Fxmt8hJMk/img_640x640.jpg"
-                ]
-            ]
-        ]
-    ] as [String : Any]
+    private var chattingRoomData: [ChattingRoom] = []
+    private var chattingRoomPage = 0
+    private var isChattingLast = false
     
-    let allDoomzData = [
-        "code": 200,
-        "data": [
-            "memberProfiles": [
-                [
-                    "memberId": 2,
-                    "nickname": "닉네임2",
-                    "profileUrl": "http://t1.kakaocdn.net/account_images/default_profile.jpeg.twg.thumb.R640x640"
-                ],
-                [
-                    "memberId": 8,
-                    "nickname": "닉네임8",
-                    "profileUrl": "http://t1.kakaocdn.net/account_images/default_profile.jpeg.twg.thumb.R640x640"
-                ]
-            ]
-        ]
-    ] as [String : Any]
+    private var messageData: [Message] = []
+    private var messagePage = 0
+    private var isMessageLast = false
     
-    //데이터 두개만 받아오기
-    let chattingRoomData = [
-        "code": 200,
-        "data": [
-            "nowPageNumber": 0,
-            "isLast": true,
-            "chatRooms": [
-                [
-                    "roomId": 8,
-                    "memberId": 8,
-                    "memberNickname": "닉네임8",
-                    "unReadCount": 0,
-                    "lastMessage": "Hello, how are you?",
-                    "lastMessageTime": "2024-07-15T13:58:10"
-                ],
-                [
-                    "roomId": 7,
-                    "memberId": 7,
-                    "memberNickname": "닉네임7",
-                    "memberProfileUrl": "http://t1.kakaocdn.net/account_images/default_profile.jpeg.twg.thumb.R640x640",
-                    "unReadCount": 0,
-                    "lastMessage": "Hello, how are you?",
-                    "lastMessageTime": "2024-05-30T13:57:47"
-                ],
-                [
-                    "roomId": 5,
-                    "memberId": 5,
-                    "memberNickname": "닉네임5",
-                    "memberProfileUrl": "http://t1.kakaocdn.net/account_images/default_profile.jpeg.twg.thumb.R640x640",
-                    "unReadCount": 0,
-                    "lastMessage": "Hello, how are you?",
-                    "lastMessageTime": "2024-05-30T13:57:10"
-                ],
-                [
-                    "roomId": 4,
-                    "memberId": 4,
-                    "memberNickname": "닉네임4",
-                    "memberProfileUrl": "http://t1.kakaocdn.net/account_images/default_profile.jpeg.twg.thumb.R640x640",
-                    "unReadCount": 0,
-                    "lastMessage": "Hello, how are you?",
-                    "lastMessageTime": "2024-05-30T13:56:49"
-                ],
-                [
-                    "roomId": 3,
-                    "memberId": 3,
-                    "memberNickname": "닉네임3",
-                    "memberProfileUrl": "http://t1.kakaocdn.net/account_images/default_profile.jpeg.twg.thumb.R640x640",
-                    "unReadCount": 0,
-                    "lastMessage": "Hello, how are you?",
-                    "lastMessageTime": "2024-05-30T13:56:25"
-                ]
-            ]
-        ]
-    ] as [String : Any]
+    private var isLoading = false
     
-    let followingLabelAndButtonStackView = LabelAndRoundButtonStackView(labelText: "팔로잉", textFont: .title2 ?? UIFont(), buttonText: "더보기", buttonHasArrow: true)
+    private let followingLabelAndButtonStackView = LabelAndRoundButtonStackView(labelText: "팔로잉", textFont: .title2 ?? UIFont(), buttonText: "더보기", buttonHasArrow: true)
     
-    let allDoomzLabelAndButtonStackView = LabelAndRoundButtonStackView(labelText: "전체둠즈", textFont: .title2 ?? UIFont(), buttonText: "더보기", buttonHasArrow: true)
+    private let chattingRoomLabelAndButtonStackView = LabelAndRoundButtonStackView(labelText: "채팅방", textFont: .title2 ?? UIFont(), buttonText: "더보기", buttonHasArrow: true)
     
-    let chattingRoomLabelAndButtonStackView = LabelAndRoundButtonStackView(labelText: "채팅방", textFont: .title2 ?? UIFont(), buttonText: "더보기", buttonHasArrow: true)
+    private let messageLabelAndButtonStackView = LabelAndRoundButtonStackView(labelText: "메세지", textFont: .title2 ?? UIFont(), buttonText: "더보기", buttonHasArrow: true)
     
-    let messageLabelAndButtonStackView = LabelAndRoundButtonStackView(labelText: "메세지", textFont: .title2 ?? UIFont(), buttonText: "더보기", buttonHasArrow: true)
+    private let followingCollectionView = UserProfileNicknameCollectionView(spacing: 20, scrollDirection: .horizontal)
     
-    let followingCollectionView = UserProfileNicknameCollectionView(spacing: 20, scrollDirection: .horizontal)
+    private let chattingRoomTableView: UITableView = {
+        let tableView = UITableView()
+        tableView.register(ChattingHomeTableViewCell.self, forCellReuseIdentifier: ChattingHomeTableViewCell.identifier)
+        return tableView
+    }()
     
-    let allDoomzCollectionView = UserProfileNicknameCollectionView(spacing: 20, scrollDirection: .horizontal)
-    
-    let chattingRoomTabelView: UITableView = {
+    private let messageTableView: UITableView = {
         let tableView = UITableView()
         tableView.register(ChattingHomeTableViewCell.self, forCellReuseIdentifier: ChattingHomeTableViewCell.identifier)
         return tableView
@@ -123,27 +44,68 @@ class AllViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setButtonActon()
         setCollectionView()
         setTableView()
         addComponents()
         setConstraints()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        followingData = []
+        chattingRoomData = []
+        messageData = []
+        setApi(keyword: SearchChattingViewController.keyword)
+    }
+    
+    private func setButtonActon() {
+        followingLabelAndButtonStackView.addButtonTarget(target: self, action: #selector(followingMoreButtonTapped), for: .touchUpInside)
+                chattingRoomLabelAndButtonStackView.addButtonTarget(target: self, action: #selector(chattingRoomMoreButtonTapped), for: .touchUpInside)
+                messageLabelAndButtonStackView.addButtonTarget(target: self, action: #selector(messageMoreButtonTapped), for: .touchUpInside)
+    }
+    
+       @objc private func followingMoreButtonTapped() {
+           if let parentVC = self.parent?.parent as? SearchChattingViewController {
+                       parentVC.scrollToPage(.at(index: 1), animated: true)
+            }
+       }
+       
+       @objc private func chattingRoomMoreButtonTapped() {
+           if let parentVC = self.parent?.parent as? SearchChattingViewController {
+                       parentVC.scrollToPage(.at(index: 2), animated: true)
+            }
+       }
+       
+       @objc private func messageMoreButtonTapped() {
+           if let parentVC = self.parent?.parent as? SearchChattingViewController {
+                       parentVC.scrollToPage(.at(index: 3), animated: true)
+            }
+       }
+       
+    
     private func setCollectionView() {
         followingCollectionView.delegate = self
         followingCollectionView.dataSource = self
-        
-        allDoomzCollectionView.delegate = self
-        allDoomzCollectionView.dataSource = self
     }
     
     private func setTableView() {
-        chattingRoomTabelView.delegate = self
-        chattingRoomTabelView.dataSource = self
+        chattingRoomTableView.delegate = self
+        chattingRoomTableView.dataSource = self
+        chattingRoomTableView.isScrollEnabled = false
+        messageTableView.delegate = self
+        messageTableView.dataSource = self
+        messageTableView.isScrollEnabled = false
+    }
+    
+    private func setApi(keyword: String?) {
+        followingApiNetwork(url: Url.following(page: followingPage, size: 5, keyword: keyword))
+        chatListApiNetwork(url: Url.chattingRoom(page: chattingRoomPage, size: 2, keyword: keyword))
+        messageListApiNetwork(url: Url.message(page: messagePage, size: nil, keyword: keyword, sorted: "latest"))
     }
     
     private func addComponents() {
-        [followingLabelAndButtonStackView, allDoomzLabelAndButtonStackView, chattingRoomLabelAndButtonStackView, messageLabelAndButtonStackView, followingCollectionView, allDoomzCollectionView, chattingRoomTabelView].forEach {
+        [followingLabelAndButtonStackView, chattingRoomLabelAndButtonStackView, messageLabelAndButtonStackView, followingCollectionView, chattingRoomTableView, messageTableView].forEach {
             view.addSubview($0)
         }
     }
@@ -161,43 +123,117 @@ class AllViewController: UIViewController {
             $0.height.equalTo(70)
         }
         
-        allDoomzLabelAndButtonStackView.snp.makeConstraints {
+        chattingRoomLabelAndButtonStackView.snp.makeConstraints {
             $0.top.equalTo(followingCollectionView.snp.bottom).inset(-32)
             $0.leading.trailing.equalToSuperview().inset(25)
             $0.height.equalTo(32)
         }
         
-        allDoomzCollectionView.snp.makeConstraints{
-            $0.top.equalTo(allDoomzLabelAndButtonStackView.snp.bottom).inset(-12)
-            $0.leading.trailing.equalToSuperview().inset(25)
-            $0.height.equalTo(70)
-        }
-        
-        chattingRoomLabelAndButtonStackView.snp.makeConstraints {
-            $0.top.equalTo(allDoomzCollectionView.snp.bottom).inset(-32)
-            $0.leading.trailing.equalToSuperview().inset(25)
-            $0.height.equalTo(32)
-        }
-        
-        chattingRoomTabelView.snp.makeConstraints {
+        chattingRoomTableView.snp.makeConstraints {
             $0.top.equalTo(chattingRoomLabelAndButtonStackView.snp.bottom).inset(-12)
             $0.leading.trailing.equalToSuperview()
             $0.height.equalTo(146)
         }
+        
+        messageLabelAndButtonStackView.snp.makeConstraints {
+            $0.top.equalTo(chattingRoomTableView.snp.bottom).inset(-32)
+            $0.leading.trailing.equalToSuperview().inset(25)
+            $0.height.equalTo(32)
+        }
+        
+        messageTableView.snp.makeConstraints {
+            $0.top.equalTo(messageLabelAndButtonStackView.snp.bottom).inset(-12)
+            $0.leading.trailing.equalToSuperview()
+            $0.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
+        }
     }
+    
+    private func followingApiNetwork(url: String) {
+        if url.contains("search") {
+            Network.getMethod(url: url) { (result: Result<FollowingUserSearchResponse, Error>) in
+                switch result {
+                case .success(let response):
+                    self.followingData += response.data.memberProfiles
+                    DispatchQueue.main.async {
+                        self.followingCollectionView.reloadData()
+                    }
+                    self.isLoading = false
+                case .failure(let error):
+                    print("Error: \(error)")
+                    self.isLoading = false
+                }
+            }
+        }else {
+            Network.getMethod(url: url) { (result: Result<FollowingUserResponse, Error>) in
+                switch result {
+                case .success(let response):
+                    self.followingData += response.data.memberProfiles
+                    self.isFollowingLast = response.data.isLast
+                    DispatchQueue.main.async {
+                        self.followingCollectionView.reloadData()
+                    }
+                    self.isLoading = false
+                case .failure(let error):
+                    print("Error: \(error)")
+                    self.isLoading = false
+                }
+            }
+        }
+    }
+    
+    private func chatListApiNetwork(url: String) {
+        Network.getMethod(url: url) { (result: Result<ChattingRoomsResponse, Error>) in
+            switch result {
+            case .success(let response):
+                self.chattingRoomData += response.data.chatRooms
+                self.isChattingLast = response.data.isLast
+                DispatchQueue.main.async {
+                    self.chattingRoomTableView.reloadData()
+                }
+                self.isLoading = false
+            case .failure(let error):
+                print("Error: \(error)")
+                self.isLoading = false
+            }
+        }
+    }
+    
+    private func messageListApiNetwork(url: String) {
+        Network.getMethod(url: url) { (result: Result<MessageResponse, Error>) in
+            switch result {
+            case .success(let response):
+                self.messageData += response.data.chatHistory
+                self.isMessageLast = response.data.isLast
+                DispatchQueue.main.async {
+                    self.messageTableView.reloadData()
+                }
+                self.isLoading = false
+            case .failure(let error):
+                print("Error: \(error)")
+                self.isLoading = false
+            }
+        }
+    }
+    
+    private func chattingRoomloadNextPage() {
+        guard !isChattingLast else { return }
+        chattingRoomPage += 1
+        chatListApiNetwork(url: Url.chattingRoom(page: chattingRoomPage, size: 1, keyword: SearchChattingViewController.keyword))
+    }
+    
+    private func followingLoadNextPage() {
+        guard !isFollowingLast else { return }
+        followingPage += 1
+        followingApiNetwork(url: Url.following(page: followingPage, size: 1, keyword: SearchChattingViewController.keyword))
+    }
+    
 }
 
 extension AllViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch collectionView {
         case followingCollectionView:
-            let data = followingSampleData["data"] as! [String: Any]
-            let profiles = data["memberProfiles"] as! [[String: Any]]
-            return profiles.count
-        case allDoomzCollectionView:
-            let data = allDoomzData["data"] as! [String: Any]
-            let profiles = data["memberProfiles"] as! [[String: Any]]
-            return profiles.count
+            return followingData.count
         default:
             return 0
         }
@@ -207,26 +243,15 @@ extension AllViewController: UICollectionViewDelegate, UICollectionViewDataSourc
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: UserProfileNicknameCollectionViewControllerCell.identifier, for: indexPath) as? UserProfileNicknameCollectionViewControllerCell else {
             fatalError()
         }
-        
-        var profile: [String: Any] = [:]
-        
+       
         switch collectionView {
         case followingCollectionView:
-            let data = followingSampleData["data"] as! [String: Any]
-            let profiles = data["memberProfiles"] as! [[String: Any]]
-            profile = profiles[indexPath.row]
-        case allDoomzCollectionView:
-            let data = allDoomzData["data"] as! [String: Any]
-            let profiles = data["memberProfiles"] as! [[String: Any]]
-            profile = profiles[indexPath.row]
+            let profile = followingData[indexPath.row]
+            cell.configure(text: profile.nickname, profileUrl: profile.profileUrl)
         default:
             break
         }
-        
-        let nickname = profile["nickname"] as! String
-        let profileUrl = profile["profileUrl"] as! String
-        cell.configure(text: nickname, profileUrl: profileUrl)
-        
+       
         return cell
     }
 }
@@ -234,10 +259,10 @@ extension AllViewController: UICollectionViewDelegate, UICollectionViewDataSourc
 extension AllViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch tableView {
-        case chattingRoomTabelView:
-            let data = chattingRoomData["data"] as! [String: Any]
-            let chatRoom = data["chatRooms"] as! [[String: Any]]
-            return chatRoom.count
+        case chattingRoomTableView:
+            return chattingRoomData.count
+        case messageTableView:
+            return messageData.count
         default:
             return 0
         }
@@ -249,16 +274,27 @@ extension AllViewController: UITableViewDataSource, UITableViewDelegate {
             return UITableViewCell()
         }
         
-        if let data = chattingRoomData["data"] as? [String: Any],
-           let chatRooms = data["chatRooms"] as? [[String: Any]] {
-            let chatData = chatRooms[indexPath.row]
-            let memberNickname = chatData["memberNickname"] as? String ?? ""
-            let memberProfileUrl = chatData["memberProfileUrl"] as? String ?? ""
-            let unReadCount = chatData["unReadCount"] as? Int ?? 0
-            let lastMessage = chatData["lastMessage"] as? String ?? ""
-            let lastMessageTime = chatData["lastMessageTime"] as? String ?? ""
-            
+        switch tableView {
+        case chattingRoomTableView:
+            let chattingRoom = chattingRoomData[indexPath.row]
+            let memberNickname = chattingRoom.memberNickname
+            let memberProfileUrl = chattingRoom.memberProfileUrl ?? ""
+            let unReadCount = chattingRoom.unReadCount
+            let lastMessage = chattingRoom.lastMessage
+            let lastMessageTime = chattingRoom.lastMessageTime
             cell.configure(memberNickname: memberNickname, memberProfileUrl: memberProfileUrl, unReadCount: unReadCount, lastMessage: lastMessage, lastMessageTime: lastMessageTime)
+            
+        case messageTableView:
+            let message = messageData[indexPath.row]
+            let memberNickname = message.memberNickname
+            let memberProfileUrl = message.memberProfileUrl ?? ""
+            let unReadCount = 0
+            let lastMessage = message.chatMessage
+            let lastMessageTime = message.sentTime
+            cell.configure(memberNickname: memberNickname, memberProfileUrl: memberProfileUrl, unReadCount: unReadCount, lastMessage: lastMessage, lastMessageTime: lastMessageTime)
+            cell.highlightKeyword(keyword: SearchChattingViewController.keyword ?? "")
+        default:
+            break
         }
         cell.selectionStyle = .none
         return cell

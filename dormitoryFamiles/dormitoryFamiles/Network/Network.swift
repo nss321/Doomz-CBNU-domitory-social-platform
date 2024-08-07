@@ -6,36 +6,55 @@
 //
 
 import Foundation
+import UIKit
 struct Network {
     
     static func getMethod<T: Codable>(url: String, completion: @escaping (Result<T, Error>) -> Void) {
-        guard let url = URL(string: url) else {
-            completion(.failure(NSError(domain: "InvalidURL", code: 400, userInfo: nil)))
-            return
+        func createURL(from url: String) -> URL? {
+            return URL(string: url)
         }
-        
-        var request = URLRequest(url: url)
-        request.httpMethod = "GET"
-        
-        // "Accesstoken" 헤더에 "Bearer" 스키마를 사용해 토큰 추가
-        let token = Token.shared.number
-        request.addValue("Bearer \(token)", forHTTPHeaderField: "Accesstoken")
-        
-        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
-            guard let data = data, error == nil else {
-                completion(.failure(error ?? NSError(domain: "NetworkError", code: 500, userInfo: nil)))
+        //안될경우 한글이 들어가있는 url임으로addingPercentEncoding붙여서 다시 시도
+        guard let url = createURL(from: url) else {
+            guard let encodedUrlString = url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
+                  let encodedURL = createURL(from: encodedUrlString) else {
+                completion(.failure(NSError(domain: "InvalidURL", code: 400, userInfo: nil)))
                 return
             }
             
-            let decoder = JSONDecoder()
+            fetchData(from: encodedURL, completion: completion)
+            return
+        }
+        fetchData(from: url, completion: completion)
+    }
+    
+    private static func fetchData<T: Codable>(from url: URL, completion: @escaping (Result<T, Error>) -> Void) {
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        let token = Token.shared.number
+        request.addValue("Bearer \(token)", forHTTPHeaderField: "Accesstoken")
+        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
+           
+            guard let httpResponse = response as? HTTPURLResponse, (200...299).contains(httpResponse.statusCode) else {
+                completion(.failure(NSError(domain: "InvalidResponse", code: 500, userInfo: nil)))
+                return
+            }
+            
+            guard let data = data else {
+                completion(.failure(NSError(domain: "NoData", code: 500, userInfo: nil)))
+                return
+            }
+           
             do {
-                let response = try decoder.decode(T.self, from: data)
-                completion(.success(response))
+                let decodedObject = try JSONDecoder().decode(T.self, from: data)
+                completion(.success(decodedObject))
             } catch {
                 completion(.failure(error))
             }
         }
-        
         task.resume()
     }
     
@@ -147,6 +166,15 @@ struct Network {
             }
         }
         task.resume()
+    }
+    
+    static func loadImage(url: String) -> UIImageView {
+        let imageView = UIImageView()
+        guard let imageUrl = URL(string: url) else {
+            return imageView
+        }
+        imageView.kf.setImage(with: imageUrl)
+        return imageView
     }
 }
 
