@@ -48,16 +48,37 @@ class ChattingHomeViewController: UIViewController {
         setTableView()
         setConstraints()
         tableView.separatorStyle = .none
+        NotificationCenter.default.addObserver(self, selector: #selector(handleNewChatMessage(_:)), name: .newChatMessage, object: nil)
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
+        super.viewWillAppear(animated)
+        tabBarController?.tabBar.isHidden = false
         followingData = []
         chattingRoomData = []
         followingPage = 0
         chattingRoomPage = 0
         isInitialLoad = true
         setApi(keyword: keyword)
+    }
+
+    @objc func handleNewChatMessage(_ notification: Notification) {
+        guard let userInfo = notification.userInfo,
+              let messageData = userInfo["messageData"] as? Data,
+              let newMessage = try? JSONDecoder().decode(ChatMessage.self, from: messageData) else {
+            return
+        }
+        
+        // 노티피케이션으로 새로운 채팅이 왔다면, 해당하는 멤버를 찾아서 데이터 세팅 후 리로드
+        if let index = self.chattingRoomData.firstIndex(where: { $0.memberId == newMessage.memberId }) {
+            self.chattingRoomData[index].lastMessage = newMessage.chatMessage
+            self.chattingRoomData[index].unReadCount += 1
+            self.chattingRoomData[index].lastMessageTime = newMessage.sentTime
+            
+            DispatchQueue.main.async {
+                self.tableView.reloadRows(at: [IndexPath(row: index, section: 0)], with: .none)
+            }
+        }
     }
     
     @objc func followingMoreButtonTapped() {
@@ -294,4 +315,4 @@ extension ChattingHomeViewController: UIScrollViewDelegate {
                }
            }
        }
-}
+   }

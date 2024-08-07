@@ -9,7 +9,6 @@ import Foundation
 import StompClientLib
 
 class WebSocketManager: StompClientLibDelegate {
-    
     static let shared = WebSocketManager()
     
     var socketClient: StompClientLib = StompClientLib()
@@ -37,7 +36,6 @@ class WebSocketManager: StompClientLibDelegate {
     
     func stompClientDidConnect(client: StompClientLib!) {
         print("Socket is connected")
-        // 구독 설정
         if let roomUUID = roomUUID {
             socketClient.subscribe(destination: roomUUID)
         }
@@ -49,6 +47,10 @@ class WebSocketManager: StompClientLibDelegate {
 
     func stompClient(client: StompClientLib, didReceiveMessageWithJSONBody jsonBody: AnyObject?, akaStringBody stringBody: String?, withHeader header: [String: String]?, withDestination destination: String) {
         print("Message received: \(String(describing: stringBody))")
+        
+        if let messageData = stringBody?.data(using: .utf8) {
+            NotificationCenter.default.post(name: .newChatMessage, object: nil, userInfo: ["messageData": messageData])
+        }
     }
 
     func serverDidSendReceipt(client: StompClientLib!, withReceiptId receiptId: String) {
@@ -65,4 +67,8 @@ class WebSocketManager: StompClientLibDelegate {
     func serverDidSendPing() {
         print("Server ping")
     }
+}
+
+extension Notification.Name {
+    static let newChatMessage = Notification.Name("newChatMessage")
 }

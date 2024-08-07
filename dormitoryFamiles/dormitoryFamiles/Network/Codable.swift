@@ -173,9 +173,9 @@ struct ChattingRoom: Codable {
     let roomId: Int
     let memberId: Int
     let memberNickname: String
-    let unReadCount: Int
-    let lastMessage: String
-    let lastMessageTime: String
+    var unReadCount: Int
+    var lastMessage: String
+    var lastMessageTime: String
     let memberProfileUrl: String?
 }
 
