@@ -51,6 +51,10 @@ class ChattingHomeViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(handleNewChatMessage(_:)), name: .newChatMessage, object: nil)
         createChattingRoom(memberId: 2)
     }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: .newChatMessage, object: nil)
+    }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -65,16 +69,14 @@ class ChattingHomeViewController: UIViewController {
 
     @objc func handleNewChatMessage(_ notification: Notification) {
         guard let userInfo = notification.userInfo,
-              let messageData = userInfo["messageData"] as? Data,
-              let newMessage = try? JSONDecoder().decode(ChatMessage.self, from: messageData) else {
+              let message = notification.object as? ChatMessage else {
             return
         }
         
-        // 노티피케이션으로 새로운 채팅이 왔다면, 해당하는 멤버를 찾아서 데이터 세팅 후 리로드
-        if let index = self.chattingRoomData.firstIndex(where: { $0.memberId == newMessage.memberId }) {
-            self.chattingRoomData[index].lastMessage = newMessage.chatMessage
+        if let index = self.chattingRoomData.firstIndex(where: { $0.memberId == message.memberId }) {
+            self.chattingRoomData[index].lastMessage = message.chatMessage
             self.chattingRoomData[index].unReadCount += 1
-            self.chattingRoomData[index].lastMessageTime = newMessage.sentTime
+            self.chattingRoomData[index].lastMessageTime = message.sentTime
             
             DispatchQueue.main.async {
                 self.tableView.reloadRows(at: [IndexPath(row: index, section: 0)], with: .none)
@@ -233,19 +235,19 @@ class ChattingHomeViewController: UIViewController {
                     self.tableView.reloadData()
                 }
             case .failure(let error):
-                       if let nsError = error as NSError?,
-                          let statusCode = nsError.userInfo["statusCode"] as? Int {
-                           switch statusCode {
-                           case 404:
-                               print("Error 404: \(nsError.localizedDescription)")
-                           case 409:
-                               print("Error 409: \(nsError.localizedDescription)")
-                               self.reCreateChattingRoom(memberId: memberId)
-                           default:
-                               print("Error \(statusCode): \(nsError.localizedDescription)")
-                           }
-                       }
-                   }
+                if let nsError = error as NSError?,
+                   let statusCode = nsError.userInfo["statusCode"] as? Int {
+                    switch statusCode {
+                    case 404:
+                        print("Error 404: \(nsError.localizedDescription)")
+                    case 409:
+                        print("Error 409: \(nsError.localizedDescription)")
+                        self.reCreateChattingRoom(memberId: memberId)
+                    default:
+                        print("Error \(statusCode): \(nsError.localizedDescription)")
+                    }
+                }
+            }
         }
     }
     
@@ -327,7 +329,6 @@ extension ChattingHomeViewController: UITableViewDelegate, UITableViewDataSource
         chattingDetailViewController.roomId = chattingRoom.roomId
         self.navigationController?.pushViewController(chattingDetailViewController, animated: true)
     }
-    
 }
 
 extension ChattingHomeViewController: UIScrollViewDelegate {
