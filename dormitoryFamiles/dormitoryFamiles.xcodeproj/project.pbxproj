@@ -329,6 +329,7 @@
 		DB29DE222C4C0E2B00365684 /* ChattingRoom */ = {
 			isa = PBXGroup;
 			children = (
+				DB29DE232C4C0E4100365684 /* ChattingDetailViewController.swift */,
 				DB29DE252C4C144500365684 /* View */,
 			);
 			path = ChattingRoom;
@@ -494,7 +495,6 @@
 				DBD0C57F2C41E52C00F6B456 /* UserProfileNicknameCollectionViewControllerCell.swift */,
 				DBD0C5812C41F46100F6B456 /* ChattingHomeTableViewCell.swift */,
 				DB3F05322C42AD440091349F /* SearchChattingViewController.swift */,
-				DB29DE232C4C0E4100365684 /* ChattingDetailViewController.swift */,
 			);
 			path = chat;
 			sourceTree = "<group>";

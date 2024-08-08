@@ -128,9 +128,44 @@ class ChattingDetailViewController: UIViewController, ConfigUI {
         }
     }
     
-    @objc func moreButtonTapped() {
-        print("moreButtonTapped")
+    private func exitChattingRoomApiNetwork(url: String) {
+        Network.deleteMethod(url: url) { (result: Result<ExitRoomResponse, Error>) in
+            switch result {
+            case .success(let response):
+                print("Success with code: \(response.code)")
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            case .failure(let error):
+                print("Failed with error: \(error.localizedDescription)")
+            }
+        }
     }
+    
+    @objc func moreButtonTapped() {
+        let sheet = UIAlertController(title: nil, message: "채팅방 설정", preferredStyle: .actionSheet)
+               
+               let leaveAction = UIAlertAction(title: "나가기", style: .destructive) { _ in
+                   
+                   let alert = UIAlertController(title: "채팅방을 나가시겠어요?", message: "대화 내용이 모두 삭제됩니다.", preferredStyle: .alert)
+                   
+                   let cancel = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+                   alert.addAction(cancel)
+                   
+                   let leave = UIAlertAction(title: "나가기", style: .destructive) { _ in
+                       self.exitChattingRoomApiNetwork(url: Url.exitChattingRoom(roomId: self.roomId))
+                       self.navigationController?.popViewController(animated: true)
+                   }
+                   alert.addAction(leave)
+                   self.present(alert, animated: true, completion: nil)
+               }
+               sheet.addAction(leaveAction)
+               
+               let cancel = UIAlertAction(title: "닫기", style: .cancel, handler: nil)
+               sheet.addAction(cancel)
+               
+               present(sheet, animated: true, completion: nil)
+           }
     
     func setupTableView() {
         tableView.showsVerticalScrollIndicator = false
@@ -238,7 +273,7 @@ class ChattingDetailViewController: UIViewController, ConfigUI {
         textField.text = ""
     }
     
-    private func exitChattingRoomApiNetwork(url: String) {
+    private func backViewChattingRoomApiNetwork(url: String) {
         Network.patchMethod(url: url) { (result: Result<ExitRoomResponse, Error>) in
             switch result {
             case .success(let response):
@@ -325,7 +360,7 @@ extension ChattingDetailViewController: UITextFieldDelegate {
             scrollToBottom()
         }
     }
-
+    
     @objc private func keyboardWillHide(_ notification: Notification) {
         if let tap = tapGesture {
             view.removeGestureRecognizer(tap)
