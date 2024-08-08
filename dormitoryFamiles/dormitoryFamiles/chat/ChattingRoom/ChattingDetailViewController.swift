@@ -53,6 +53,7 @@ class ChattingDetailViewController: UIViewController, ConfigUI {
         initializeChatting()
         addComponents()
         setConstraints()
+        setNotification()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -61,16 +62,23 @@ class ChattingDetailViewController: UIViewController, ConfigUI {
     }
     
     override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(true)
+        super.viewDidDisappear(animated)
         exitChattingRoomApiNetwork(url: Url.exitChattingRoom(roomId: roomId))
         self.tabBarController?.tabBar.isHidden = false
         //채팅 내역이 없는 채팅방이라면 delete처리
         if messages.isEmpty {
             noChattingExitChattingRoomApiNetwork(url: Url.noMessageExitChattingRoom(roomId: roomId))
         }
+        removeNotification()
     }
     
+    private func setNotification() {
+        NotificationCenter.default.addObserver(self, selector: #selector(handleNewMessage(_:)), name: .newChatMessage, object: nil)
+    }
     
+    private func removeNotification() {
+        NotificationCenter.default.removeObserver(self, name: .newChatMessage, object: nil)
+    }
     
     private func setTextField() {
         self.textField.delegate = self
@@ -147,27 +155,27 @@ class ChattingDetailViewController: UIViewController, ConfigUI {
     @objc func moreButtonTapped() {
         let sheet = UIAlertController(title: nil, message: "채팅방 설정", preferredStyle: .actionSheet)
                
-               let leaveAction = UIAlertAction(title: "나가기", style: .destructive) { _ in
+        let leaveAction = UIAlertAction(title: "나가기", style: .destructive) { _ in
                    
-                   let alert = UIAlertController(title: "채팅방을 나가시겠어요?", message: "대화 내용이 모두 삭제됩니다.", preferredStyle: .alert)
+            let alert = UIAlertController(title: "채팅방을 나가시겠어요?", message: "대화 내용이 모두 삭제됩니다.", preferredStyle: .alert)
                    
-                   let cancel = UIAlertAction(title: "취소", style: .cancel, handler: nil)
-                   alert.addAction(cancel)
+            let cancel = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+            alert.addAction(cancel)
                    
-                   let leave = UIAlertAction(title: "나가기", style: .destructive) { _ in
-                       self.exitChattingRoomApiNetwork(url: Url.exitChattingRoom(roomId: self.roomId))
-                       self.navigationController?.popViewController(animated: true)
-                   }
-                   alert.addAction(leave)
-                   self.present(alert, animated: true, completion: nil)
-               }
-               sheet.addAction(leaveAction)
+            let leave = UIAlertAction(title: "나가기", style: .destructive) { _ in
+                self.exitChattingRoomApiNetwork(url: Url.exitChattingRoom(roomId: self.roomId))
+                self.navigationController?.popViewController(animated: true)
+            }
+            alert.addAction(leave)
+            self.present(alert, animated: true, completion: nil)
+        }
+        sheet.addAction(leaveAction)
                
-               let cancel = UIAlertAction(title: "닫기", style: .cancel, handler: nil)
-               sheet.addAction(cancel)
+        let cancel = UIAlertAction(title: "닫기", style: .cancel, handler: nil)
+        sheet.addAction(cancel)
                
-               present(sheet, animated: true, completion: nil)
-           }
+        present(sheet, animated: true, completion: nil)
+    }
     
     func setupTableView() {
         tableView.showsVerticalScrollIndicator = false
@@ -200,7 +208,7 @@ class ChattingDetailViewController: UIViewController, ConfigUI {
                         tableView.setContentOffset(CGPoint(x: 0, y: newContentHeight - previousContentHeight), animated: false)
                     } else {
                         self.messages.append(contentsOf: newMessages)
-                        tableView.reloadData()
+                        reloadTableView()
                         scrollToBottom()
                     }
                 }
@@ -241,7 +249,7 @@ class ChattingDetailViewController: UIViewController, ConfigUI {
         let formattedTime = DateUtility.formatTime(currentDateString)
         let newMessage = ChatMessage(memberId: 3, isSender: true, memberNickname: nickname ?? "", memberProfileUrl: profileImageUrl ?? "", chatMessage: message, sentTime: formattedTime)
         messages.append(newMessage)
-        tableView.reloadData()
+        reloadTableView()
         scrollToBottom()
     }
     
@@ -294,6 +302,18 @@ class ChattingDetailViewController: UIViewController, ConfigUI {
             case .failure(let error):
                 print("Failed with error: \(error.localizedDescription)")
             }
+        }
+    }
+    
+    @objc private func handleNewMessage(_ notification: Notification) {
+        guard let message = notification.object as? ChatMessage else { return }
+        messages.append(message)
+        reloadTableView()
+    }
+    
+    private func reloadTableView() {
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
         }
     }
 }
@@ -354,7 +374,6 @@ extension ChattingDetailViewController: UITextFieldDelegate {
             let keyboardHeight = keyboardSize.height
             UIView.animate(withDuration: 0.3) {
                 self.containerView.snp.updateConstraints { make in
-                    //TODO: 하드코딩 -30고치기
                     make.bottom.equalTo(self.view.safeAreaLayoutGuide).inset(keyboardHeight-30)
                 }
                 self.view.layoutIfNeeded()

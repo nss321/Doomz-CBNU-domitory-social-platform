@@ -48,9 +48,10 @@ class WebSocketManager: StompClientLibDelegate {
     func stompClient(client: StompClientLib, didReceiveMessageWithJSONBody jsonBody: AnyObject?, akaStringBody stringBody: String?, withHeader header: [String: String]?, withDestination destination: String) {
         print("Message received: \(String(describing: stringBody))")
         
-        if let messageData = stringBody?.data(using: .utf8) {
-            NotificationCenter.default.post(name: .newChatMessage, object: nil, userInfo: ["messageData": messageData])
-        }
+        if let messageData = stringBody?.data(using: .utf8),
+                  let message = try? JSONDecoder().decode(ChatMessage.self, from: messageData) {
+                   NotificationCenter.default.post(name: .newChatMessage, object: message)
+               }
     }
 
     func serverDidSendReceipt(client: StompClientLib!, withReceiptId receiptId: String) {
