@@ -242,3 +242,13 @@ struct ExitRoomRequest: Codable {
 struct ExitRoomResponse: Codable {
     let code: Int
 }
+
+struct CreateRoom: Codable {
+    let chatRoomId: Int
+    let roomUUID: String
+}
+
+struct ErrorResponse: Codable {
+    let code: Int
+    let errorMessage: String
+}

@@ -49,6 +49,7 @@ class ChattingHomeViewController: UIViewController {
         setConstraints()
         tableView.separatorStyle = .none
         NotificationCenter.default.addObserver(self, selector: #selector(handleNewChatMessage(_:)), name: .newChatMessage, object: nil)
+        createChattingRoom(memberId: 2)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -222,6 +223,45 @@ class ChattingHomeViewController: UIViewController {
         followingApiNetwork(url: Url.following(page: followingPage, size: nil, keyword: keyword))
         followingPage += 1
     }
+    
+    private func createChattingRoom(memberId: Int) {
+        Network.postMethod(url: Url.createChattingRoom(memberId: memberId)) { (result: Result<CreateRoom, Error>) in
+            switch result {
+            case .success(let response):
+                print("Success with code: \(response.chatRoomId)")
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            case .failure(let error):
+                       if let nsError = error as NSError?,
+                          let statusCode = nsError.userInfo["statusCode"] as? Int {
+                           switch statusCode {
+                           case 404:
+                               print("Error 404: \(nsError.localizedDescription)")
+                           case 409:
+                               print("Error 409: \(nsError.localizedDescription)")
+                               self.reCreateChattingRoom(memberId: memberId)
+                           default:
+                               print("Error \(statusCode): \(nsError.localizedDescription)")
+                           }
+                       }
+                   }
+        }
+    }
+    
+    private func reCreateChattingRoom(memberId: Int) {
+        Network.patchMethod(url: Url.createChattingRoom(memberId: memberId)) { (result: Result<CreateRoom, Error>) in
+            switch result {
+            case .success(let response):
+                print("재압장: \(response.chatRoomId)")
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            case .failure(let error):
+                print("Failed with error: \(error.localizedDescription)")
+            }
+        }
+    }
 }
 
 extension ChattingHomeViewController: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -268,6 +308,9 @@ extension ChattingHomeViewController: UITableViewDelegate, UITableViewDataSource
             
             let chattingRoomId = chattingRoomData[indexPath.row].roomId
             exitChattingRoomApiNetwork(url: Url.exitChattingRoom(roomId: chattingRoomId))
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
             success(true)
         }
         

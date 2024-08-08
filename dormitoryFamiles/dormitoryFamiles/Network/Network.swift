@@ -161,12 +161,46 @@ struct Network {
             
             if (200...299).contains(httpResponse.statusCode) {
                 print("postMethod 200번대 성공")
+                if let data = data {
+                    do {
+                        let decodedData = try JSONDecoder().decode(T.self, from: data)
+                        completion(.success(decodedData))
+                    } catch {
+                        completion(.failure(error))
+                    }
+                } else {
+                    completion(.failure(NSError(domain: "Invalid data", code: 0, userInfo: ["description": "No data received."])))
+                }
             } else {
                 print("postMethod 200번대아님 실패")
+                if let data = data {
+                    do {
+                        let errorResponse = try JSONDecoder().decode(ErrorResponse.self, from: data)
+                        let statusError = NSError(domain: "HTTP Error", code: errorResponse.code, userInfo: [
+                            "description": errorResponse.errorMessage,
+                            "statusCode": errorResponse.code
+                        ])
+                        completion(.failure(statusError))
+                    } catch {
+                        let statusError = NSError(domain: "HTTP Error", code: httpResponse.statusCode, userInfo: [
+                            "description": "Failed to parse error message.",
+                            "statusCode": httpResponse.statusCode
+                        ])
+                        completion(.failure(statusError))
+                    }
+                } else {
+                    let statusError = NSError(domain: "HTTP Error", code: httpResponse.statusCode, userInfo: [
+                        "description": "No data received.",
+                        "statusCode": httpResponse.statusCode
+                    ])
+                    completion(.failure(statusError))
+                }
             }
         }
         task.resume()
     }
+
+
     
     static func patchMethod<T: Codable>(url: String, completion: @escaping (Result<T, Error>) -> Void) {
             guard let url = URL(string: url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "") else {
