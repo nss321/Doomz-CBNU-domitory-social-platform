@@ -139,7 +139,7 @@ class ChattingDetailViewController: UIViewController, ConfigUI {
     }
     
     private func exitChattingRoomApiNetwork(url: String) {
-        Network.deleteMethod(url: url) { (result: Result<ExitRoomResponse, Error>) in
+        Network.patchMethod(url: url) { (result: Result<ExitRoomResponse, Error>) in
             switch result {
             case .success(let response):
                 print("Success with code: \(response.code)")
