@@ -264,6 +264,15 @@ class ChattingHomeViewController: UIViewController {
             }
         }
     }
+    
+    private func setProfileView(profileView: ProfileView) {
+        view.addSubview(profileView)
+        profileView.snp.makeConstraints {
+            $0.bottom.leading.trailing.equalTo(view.safeAreaLayoutGuide)
+            $0.height.equalTo(284)
+           
+        }
+    }
 }
 
 extension ChattingHomeViewController: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -280,6 +289,15 @@ extension ChattingHomeViewController: UICollectionViewDelegate, UICollectionView
         cell.configure(text: profile.nickname, profileUrl: profile.profileUrl)
         
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let profileView = ProfileView()
+        
+        profileView.setNickname(nickName: followingData[indexPath.row].nickname)
+        
+        setProfileView(profileView: profileView)
+        
     }
 }
 

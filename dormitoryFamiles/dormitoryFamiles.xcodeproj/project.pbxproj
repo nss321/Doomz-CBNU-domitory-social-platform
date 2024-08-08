@@ -93,6 +93,7 @@
 		DBD0C5822C41F46100F6B456 /* ChattingHomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD0C5812C41F46100F6B456 /* ChattingHomeTableViewCell.swift */; };
 		DBD1E00C2C3D49E900FDD5FE /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD1E00B2C3D49E900FDD5FE /* Token.swift */; };
 		DBD1E7FC2B84A9D500FD71C6 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD1E7FB2B84A9D500FD71C6 /* Network.swift */; };
+		DBD7A8752C64816700CDA629 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD7A8742C64816700CDA629 /* ProfileView.swift */; };
 		DBDF96EF2B84BFB2000E74AE /* ProfileFinishedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDF96EE2B84BFB2000E74AE /* ProfileFinishedViewController.swift */; };
 		DBE682B62BA592CC00DAA4CD /* PhotoScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE682B52BA592CC00DAA4CD /* PhotoScrollView.swift */; };
 		DBF466FB2AA5F4E4009FF3EB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF466FA2AA5F4E4009FF3EB /* AppDelegate.swift */; };
@@ -207,6 +208,7 @@
 		DBD0C5812C41F46100F6B456 /* ChattingHomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingHomeTableViewCell.swift; sourceTree = "<group>"; };
 		DBD1E00B2C3D49E900FDD5FE /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
 		DBD1E7FB2B84A9D500FD71C6 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		DBD7A8742C64816700CDA629 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		DBDF96EE2B84BFB2000E74AE /* ProfileFinishedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFinishedViewController.swift; sourceTree = "<group>"; };
 		DBE682B52BA592CC00DAA4CD /* PhotoScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoScrollView.swift; sourceTree = "<group>"; };
 		DBF466F72AA5F4E4009FF3EB /* dormitoryFamiles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dormitoryFamiles.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -295,6 +297,7 @@
 				11AC97FA2BFF27940008C910 /* CustomSlider.swift */,
 				DB3F05382C43002E0091349F /* LabelAndPrimaryMidButtonStackView.swift */,
 				DB3F053A2C4307790091349F /* UserProfileNicknameCollectionViewController.swift */,
+				DBD7A8742C64816700CDA629 /* ProfileView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -694,6 +697,7 @@
 				DBD0C57E2C41263700F6B456 /* ChattingHomeViewController.swift in Sources */,
 				DB8DDFD72BECB0B600B3A676 /* DateFomat.swift in Sources */,
 				1148B3F62C3EAD4B0056671B /* PriorityCell.swift in Sources */,
+				DBD7A8752C64816700CDA629 /* ProfileView.swift in Sources */,
 				DB7BE9E72BA47A5E00BC25E3 /* ReplyCollectionViewCell.swift in Sources */,
 				11036F272C3C19A00042B9EF /* StudyStyleViewController.swift in Sources */,
 				DB29DE272C4C146800365684 /* ChattingNavigationProfileStackView.swift in Sources */,
