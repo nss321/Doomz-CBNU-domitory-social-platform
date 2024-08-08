@@ -265,12 +265,35 @@ class ChattingHomeViewController: UIViewController {
         }
     }
     
+    private func getMemberProfile(url: String) {
+        Network.getMethod(url: url) { (result: Result<ProfileResponse, Error>) in
+            switch result {
+            case .success(let response):
+                let data = response.data
+                let imageUrlString = data.profileUrl
+                if let imageUrl = URL(string: imageUrlString) {
+                    DispatchQueue.main.async {
+                        let profileView = ProfileView()
+                        profileView.setData(
+                            nickName: data.nickname,
+                            profileImageUrl: imageUrl,
+                            dormitory: data.dormitoryType,
+                            isFollowing: data.isFollowing
+                        )
+                        self.setProfileView(profileView: profileView)
+                    }
+                }
+            case .failure(let error):
+                print("Failed to fetch profile: \(error)")
+            }
+        }
+    }
+
     private func setProfileView(profileView: ProfileView) {
         view.addSubview(profileView)
         profileView.snp.makeConstraints {
             $0.bottom.leading.trailing.equalTo(view.safeAreaLayoutGuide)
             $0.height.equalTo(284)
-           
         }
     }
 }
@@ -292,12 +315,10 @@ extension ChattingHomeViewController: UICollectionViewDelegate, UICollectionView
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let profileView = ProfileView()
         
-        profileView.setNickname(nickName: followingData[indexPath.row].nickname)
-        
-        setProfileView(profileView: profileView)
-        
+        let memberId = followingData[indexPath.row].memberId
+        getMemberProfile(url: Url.userProfile(memberId: memberId))
+    
     }
 }
 

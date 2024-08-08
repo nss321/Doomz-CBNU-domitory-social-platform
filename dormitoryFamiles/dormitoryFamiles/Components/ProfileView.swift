@@ -7,9 +7,10 @@
 
 import UIKit
 import SnapKit
+import Kingfisher
 
 class ProfileView: UIView, ConfigUI {
-    private let profileImageView: UIImageView = {
+    private var profileImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.layer.cornerRadius = 40
         imageView.clipsToBounds = true
@@ -33,7 +34,6 @@ class ProfileView: UIView, ConfigUI {
     
     private let followButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("팔로우", for: .normal)
         button.backgroundColor = .gray1
         button.setTitleColor(.gray5, for: .normal)
         button.layer.cornerRadius = 20
@@ -66,8 +66,8 @@ class ProfileView: UIView, ConfigUI {
     private func setView() {
         self.layer.cornerRadius = 32
         self.clipsToBounds = true
-        self.borderWidth = 1
-        self.borderColor = .gray2?.withAlphaComponent(0.3)
+        self.layer.borderWidth = 1
+        self.layer.borderColor = UIColor.gray2?.withAlphaComponent(0.3).cgColor
     }
     
     func addComponents() {
@@ -111,7 +111,18 @@ class ProfileView: UIView, ConfigUI {
         }
     }
     
-    func setNickname(nickName: String) {
+    func setData(nickName: String, profileImageUrl: URL, dormitory: String, isFollowing: Bool) {
         self.nicknameLabel.text = nickName
+        self.dormitoryLabel.text = dormitory
+        self.profileImageView.kf.setImage(with: profileImageUrl)
+        if isFollowing {
+            followButton.setTitle("팔로우중", for: .normal)
+            followButton.backgroundColor = .gray1
+            followButton.setTitleColor(.gray5, for: .normal)
+        }else {
+            followButton.setTitle("팔로우하기", for: .normal)
+            followButton.backgroundColor = .primaryMid
+            followButton.setTitleColor(.white, for: .normal)
+        }
     }
 }

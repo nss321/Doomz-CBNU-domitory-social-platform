@@ -252,3 +252,17 @@ struct ErrorResponse: Codable {
     let code: Int
     let errorMessage: String
 }
+
+struct ProfileResponse: Codable {
+    let code: Int
+    let data: MemberProfileData
+}
+
+struct MemberProfileData: Codable {
+    let memberId: Int
+    let nickname: String
+    let profileUrl: String
+    let dormitoryType: String
+    let isFollowing: Bool
+}
+
