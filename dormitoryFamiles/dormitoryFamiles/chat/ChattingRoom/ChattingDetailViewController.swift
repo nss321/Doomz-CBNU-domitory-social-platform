@@ -80,6 +80,7 @@ class ChattingDetailViewController: UIViewController, ConfigUI {
     
     private func createProfileStackView() -> ChattingNavigationProfileStackView {
         profileStackView = ChattingNavigationProfileStackView(frame: .zero)
+        profileStackView.profileImageView.removeFromSuperview()
         if let url = profileImageUrl, let nickname = nickname {
             let profileImageView = Network.loadImage(url: url)
             self.profileStackView.profileImageView.image = profileImageView.image
@@ -91,6 +92,7 @@ class ChattingDetailViewController: UIViewController, ConfigUI {
     private func setNavigationBar() {
         let profileStackView = createProfileStackView()
         self.navigationItem.titleView = profileStackView
+    
         let moreImage = UIImage(named: "chattingDetailMore")?.withRenderingMode(.alwaysOriginal)
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: moreImage, style: .plain, target: self, action: #selector(moreButtonTapped))
     }
