@@ -8,7 +8,14 @@ import UIKit
 import SnapKit
 import Kingfisher
 
+protocol ProfileViewDelegate: AnyObject {
+    func chattingButtonTapped()
+    func followingButtonTapped()
+}
+
 class ProfileView: UIView, ConfigUI {
+    weak var delegate: ProfileViewDelegate?
+    
     private var profileImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.layer.cornerRadius = 40
@@ -36,6 +43,7 @@ class ProfileView: UIView, ConfigUI {
         button.backgroundColor = .gray1
         button.setTitleColor(.gray5, for: .normal)
         button.layer.cornerRadius = 20
+        button.addTarget(ProfileView.self, action: #selector(followingButtonTapped), for: .touchUpInside)
         return button
     }()
     
@@ -45,6 +53,7 @@ class ProfileView: UIView, ConfigUI {
         button.backgroundColor = .primary
         button.layer.cornerRadius = 20
         button.setTitleColor(.white, for: .normal)
+        button.addTarget(ProfileView.self, action: #selector(chattingButtonTapped), for: .touchUpInside)
         return button
     }()
     
@@ -124,4 +133,12 @@ class ProfileView: UIView, ConfigUI {
             followButton.setTitleColor(.white, for: .normal)
         }
     }
+    
+    @objc private func chattingButtonTapped() {
+            delegate?.chattingButtonTapped()
+        }
+    
+    @objc private func followingButtonTapped() {
+            delegate?.followingButtonTapped()
+        }
 }

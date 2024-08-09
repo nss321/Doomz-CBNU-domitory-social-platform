@@ -51,7 +51,6 @@ class ChattingHomeViewController: UIViewController {
         setConstraints()
         tableView.separatorStyle = .none
         NotificationCenter.default.addObserver(self, selector: #selector(handleNewChatMessage(_:)), name: .newChatMessage, object: nil)
-        createChattingRoom(memberId: 2)
         setupTapGestureRecognizer()
     }
 
