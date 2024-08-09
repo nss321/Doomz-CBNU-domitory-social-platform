@@ -299,9 +299,11 @@ class ChattingHomeViewController: UIViewController {
         self.profileView = profileView
         view.addSubview(profileView)
         profileView.snp.makeConstraints {
-            $0.bottom.leading.trailing.equalTo(view.safeAreaLayoutGuide)
+            $0.leading.trailing.equalTo(view.safeAreaLayoutGuide)
+            $0.bottom.equalToSuperview()
             $0.height.equalTo(284)
         }
+        self.tabBarController?.tabBar.isHidden = true
     }
 
     private func setupTapGestureRecognizer() {
@@ -318,6 +320,7 @@ class ChattingHomeViewController: UIViewController {
             if !profileView.frame.contains(touchPoint) {
                 profileView.removeFromSuperview()
                 self.profileView = nil
+                self.tabBarController?.tabBar.isHidden = false
             }
         }
     }

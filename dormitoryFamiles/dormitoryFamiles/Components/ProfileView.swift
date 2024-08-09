@@ -97,7 +97,7 @@ class ProfileView: UIView, ConfigUI {
         followButton.snp.makeConstraints {
             $0.top.equalTo(dormitoryLabel.snp.bottom).offset(32)
             $0.leading.equalToSuperview().offset(28)
-            $0.height.equalTo(44)
+            $0.height.equalTo(48)
             $0.trailing.equalTo(chattingButton.snp.leading).offset(-16)
             $0.width.equalTo(chattingButton)
         }
@@ -105,7 +105,7 @@ class ProfileView: UIView, ConfigUI {
         chattingButton.snp.makeConstraints {
             $0.top.equalTo(dormitoryLabel.snp.bottom).offset(32)
             $0.trailing.equalToSuperview().offset(-28)
-            $0.height.equalTo(44)
+            $0.height.equalTo(48)
             $0.width.equalTo(followButton)
         }
     }
@@ -115,7 +115,7 @@ class ProfileView: UIView, ConfigUI {
         self.dormitoryLabel.text = dormitory
         self.profileImageView.kf.setImage(with: profileImageUrl)
         if isFollowing {
-            followButton.setTitle("팔로우중", for: .normal)
+            followButton.setTitle("팔로우", for: .normal)
             followButton.backgroundColor = .gray1
             followButton.setTitleColor(.gray5, for: .normal)
         }else {
