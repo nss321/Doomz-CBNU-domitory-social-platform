@@ -73,8 +73,7 @@ class ChattingHomeViewController: UIViewController {
     }
     
     @objc func handleNewChatMessage(_ notification: Notification) {
-        guard let userInfo = notification.userInfo,
-              let message = notification.object as? ChatMessage else {
+        guard let message = notification.object as? ChatMessage else {
             return
         }
         

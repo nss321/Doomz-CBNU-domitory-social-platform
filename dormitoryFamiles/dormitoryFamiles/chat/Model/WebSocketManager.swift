@@ -10,35 +10,41 @@ import StompClientLib
 
 class WebSocketManager: StompClientLibDelegate {
     static let shared = WebSocketManager()
-    
-    var socketClient: StompClientLib = StompClientLib()
-    var roomUUID: String?
 
+    var socketClient: StompClientLib = StompClientLib()
+    var roomIDs: [String] = []
     private init() {}
-    
+
     func connectWebSocket() {
-        guard let url = URL(string: Url.webSocket()) else { return }
+        guard let url = URL(string: Url.webSocket()) else {
+            print("Invalid URL")
+            return
+        }
         let request = URLRequest(url: url)
         let token = Token.shared.number
+        print("Connecting to WebSocket with URL: \(url)")
         socketClient.openSocketWithURLRequest(request: request as NSURLRequest, delegate: self, connectionHeaders: ["AccessToken": "Bearer \(token)"])
     }
-    
+
     func disconnectWebSocket() {
+        print("Disconnecting WebSocket")
         socketClient.disconnect()
     }
-    
-    func subscribe(to roomUUID: String) {
-        self.roomUUID = roomUUID
+
+    func subscribe(to roomID: String) {
         if socketClient.isConnected() {
-            socketClient.subscribe(destination: roomUUID)
+            print("Subscribing to \(roomID)")
+            socketClient.subscribe(destination: roomID)
+        } else {
+            print("WebSocket not connected, adding \(roomID) to pending subscriptions")
+            roomIDs.append(roomID)
         }
     }
-    
+
     func stompClientDidConnect(client: StompClientLib!) {
         print("Socket is connected")
-        if let roomUUID = roomUUID {
-            socketClient.subscribe(destination: roomUUID)
-        }
+        //소켓 연결되면 들어가있는 채팅방 모두 구독
+        chatListApiNetwork(url: Url.chattingRoom(page: 0, size: 999, keyword: nil))
     }
 
     func stompClientDidDisconnect(client: StompClientLib!) {
@@ -46,12 +52,14 @@ class WebSocketManager: StompClientLibDelegate {
     }
 
     func stompClient(client: StompClientLib, didReceiveMessageWithJSONBody jsonBody: AnyObject?, akaStringBody stringBody: String?, withHeader header: [String: String]?, withDestination destination: String) {
-        print("Message received: \(String(describing: stringBody))")
-        
+        print("Message received from \(destination): \(String(describing: stringBody))")
+
         if let messageData = stringBody?.data(using: .utf8),
-                  let message = try? JSONDecoder().decode(ChatMessage.self, from: messageData) {
-                   NotificationCenter.default.post(name: .newChatMessage, object: message)
-               }
+            let message = try? JSONDecoder().decode(ChatMessage.self, from: messageData) {
+            NotificationCenter.default.post(name: .newChatMessage, object: message)
+        } else {
+            print("Failed to decode message")
+        }
     }
 
     func serverDidSendReceipt(client: StompClientLib!, withReceiptId receiptId: String) {
@@ -68,7 +76,21 @@ class WebSocketManager: StompClientLibDelegate {
     func serverDidSendPing() {
         print("Server ping")
     }
+    
+    private func chatListApiNetwork(url: String) {
+        Network.getMethod(url: url) { (result: Result<ChattingRoomsResponse, Error>) in
+            switch result {
+            case .success(let response):
+                for room in response.data.chatRooms {
+                    WebSocketManager.shared.subscribe(to: String(room.roomId))
+                }
+            case .failure(let error):
+                print("Error: \(error)")
+            }
+        }
+    }
 }
+
 
 extension Notification.Name {
     static let newChatMessage = Notification.Name("newChatMessage")

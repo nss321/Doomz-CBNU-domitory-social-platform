@@ -11,13 +11,13 @@ import StompClientLib
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    
     var window: UIWindow?
-
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // 런치스크린
         // sleep(1)
-
+        
         // 네비게이션바 세팅
         let backImage = UIImage(named: "navigationBack")
         UINavigationBar.appearance().backIndicatorImage = backImage
@@ -26,17 +26,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UIBarButtonItem.appearance().setBackButtonTitlePositionAdjustment(UIOffset(horizontal: -1000, vertical: 0), for: UIBarMetrics.default)
         return true
     }
-
+    
     func applicationDidBecomeActive(_ application: UIApplication) {
         // 앱이 활성화될 때 웹소켓 연결
         WebSocketManager.shared.connectWebSocket()
     }
-
+    
     func applicationDidEnterBackground(_ application: UIApplication) {
         // 앱이 백그라운드로 전환될 때 웹소켓 닫기
         WebSocketManager.shared.disconnectWebSocket()
     }
-
+    
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
         return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
     }
