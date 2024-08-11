@@ -139,7 +139,7 @@ class ChattingDetailViewController: UIViewController, ConfigUI {
     }
     
     private func exitChattingRoomApiNetwork(url: String) {
-        Network.deleteMethod(url: url) { (result: Result<ExitRoomResponse, Error>) in
+        Network.deleteMethod(url: url) { (result: Result<CodeResponse, Error>) in
             switch result {
             case .success(let response):
                 print("Success with code: \(response.code)")
@@ -150,7 +150,7 @@ class ChattingDetailViewController: UIViewController, ConfigUI {
     }
     
     private func goBackChattingRoomApiNetwork(url: String) {
-        Network.patchMethod(url: url) { (result: Result<ExitRoomResponse, Error>) in
+        Network.patchMethod(url: url) { (result: Result<CodeResponse, Error>) in
             switch result {
             case .success(let response):
                 print("Success with code: \(response.code)")
@@ -295,7 +295,7 @@ class ChattingDetailViewController: UIViewController, ConfigUI {
     }
     
     private func backViewChattingRoomApiNetwork(url: String) {
-        Network.patchMethod(url: url) { (result: Result<ExitRoomResponse, Error>) in
+        Network.patchMethod(url: url) { (result: Result<CodeResponse, Error>) in
             switch result {
             case .success(let response):
                 print("Success with code: \(response.code)")

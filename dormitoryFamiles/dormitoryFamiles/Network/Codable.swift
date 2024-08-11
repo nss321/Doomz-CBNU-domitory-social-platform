@@ -239,14 +239,10 @@ struct ExitRoomRequest: Codable {
     let roomId: String
 }
 
-struct ExitRoomResponse: Codable {
+struct CodeResponse: Codable {
     let code: Int
 }
 
-struct CreateRoom: Codable {
-    let chatRoomId: Int
-    let roomUUID: String
-}
 
 struct ErrorResponse: Codable {
     let code: Int
@@ -266,3 +262,12 @@ struct MemberProfileData: Codable {
     let isFollowing: Bool
 }
 
+struct CreateRoomResponse: Codable {
+    let code: Int
+    let data: RoomData
+}
+
+struct RoomData: Codable {
+    let chatRoomId: Int
+    let roomUUID: String
+}
