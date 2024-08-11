@@ -135,7 +135,10 @@ class ChattingHomeTableViewCell: UITableViewCell {
         self.unReadCountLabel.text = String(unReadCount)
         self.messageLabel.text = lastMessage
         self.timeLabel.text = DateUtility.chattingTimeFormet(from: lastMessageTime)
-        
+        if unReadCount != 0 {
+            unReadCountLabel.backgroundColor = .primary
+            unReadCountLabel.text = String(unReadCount)
+        }
         if memberProfileUrl != "" {
             loadImage(url: memberProfileUrl ?? "")
         } else {
