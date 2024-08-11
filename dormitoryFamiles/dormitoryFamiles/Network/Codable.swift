@@ -271,3 +271,12 @@ struct RoomData: Codable {
     let chatRoomId: Int
     let roomUUID: String
 }
+
+struct MyIdResponse: Codable {
+    let code: Int
+    let data: MyIdDataClass
+}
+
+struct MyIdDataClass: Codable {
+    let memberId: Int
+}

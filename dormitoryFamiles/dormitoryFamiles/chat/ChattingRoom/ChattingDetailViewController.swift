@@ -19,6 +19,7 @@ class ChattingDetailViewController: UIViewController, ConfigUI {
     var profileStackView: ChattingNavigationProfileStackView!
     var profileImageUrl: String?
     var nickname: String?
+    var myID: Int?
     private var tapGesture: UITapGestureRecognizer?
     private let textField: UITextField = {
         let textField = UITextField()
@@ -54,6 +55,7 @@ class ChattingDetailViewController: UIViewController, ConfigUI {
         addComponents()
         setConstraints()
         setNotification()
+        getMyId()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -231,6 +233,18 @@ class ChattingDetailViewController: UIViewController, ConfigUI {
         }
     }
     
+    private func getMyId() {
+        Network.getMethod(url: Url.myId()) { [self] (result: Result<MyIdResponse, Error>) in
+            switch result {
+            case .success(let response):
+                self.myID = response.data.memberId
+            case .failure(let error):
+                print("Error: \(error)")
+                self.isLoading = false
+            }
+        }
+    }
+    
     private func initializeChatting() {
         messages = []
         page = 0
@@ -248,7 +262,7 @@ class ChattingDetailViewController: UIViewController, ConfigUI {
     func sendMessage(message: String) {
         let connectMessage = [
             "roomUUID": roomUUID,
-            "senderId": 3,
+            "senderId": myID,
             "message": "\(message)"
         ] as [String : Any]
         WebSocketManager.shared.socketClient.sendJSONForDict(dict: connectMessage as NSDictionary, toDestination: "/pub/message")
