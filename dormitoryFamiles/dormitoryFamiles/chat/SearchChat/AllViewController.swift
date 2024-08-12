@@ -58,7 +58,7 @@ class AllViewController: UIViewController {
     private func loadInitialData() {
         setApi(keyword: SearchChattingViewController.keyword)
     }
-
+    
     private func setButtonActon() {
         followingLabelAndButtonStackView.addButtonTarget(target: self, action: #selector(followingMoreButtonTapped), for: .touchUpInside)
         chattingRoomLabelAndButtonStackView.addButtonTarget(target: self, action: #selector(chattingRoomMoreButtonTapped), for: .touchUpInside)
@@ -281,7 +281,19 @@ class AllViewController: UIViewController {
         chattingRoomPage += 1
         chatListApiNetwork(url: Url.chattingRoom(page: chattingRoomPage, size: nil, keyword: SearchChattingViewController.keyword))
     }
+    
+    private func deleteFollowing(url: String) {
+        Network.deleteMethod(url: url) { (result: Result<CodeResponse, Error>) in
+            switch result {
+            case .success(let response):
+                print("Success with code: \(response.code)")
+            case .failure(let error):
+                print("Failed with error: \(error.localizedDescription)")
+            }
+        }
+    }
 }
+
 extension AllViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return followingData.count
@@ -365,6 +377,24 @@ extension AllViewController: ProfileViewDelegate {
     }
     
     func followingButtonTapped(memberId: Int) {
-        print("\(memberId) 팔로잉 눌림")
+        let alert = UIAlertController(title: "팔로잉을 삭제하시겠어요?", message: "팔로잉 목록에서 삭제됩니다.", preferredStyle: .alert)
+        
+        let cancel = UIAlertAction(title: "유지하기", style: .cancel, handler: nil)
+        alert.addAction(cancel)
+        
+        let leave = UIAlertAction(title: "삭제하기", style: .destructive) { _ in
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                self.deleteFollowing(url: Url.deleteFollowing(memberId: memberId))
+                self.followingData = []
+                self.chattingRoomData = []
+                self.followingPage = 0
+                self.chattingRoomPage = 0
+                self.removeProfileView()
+                self.setApi(keyword: SearchChattingViewController.keyword)
+            }
+        }
+        alert.addAction(leave)
+        self.present(alert, animated: true, completion: nil)
     }
+    
 }

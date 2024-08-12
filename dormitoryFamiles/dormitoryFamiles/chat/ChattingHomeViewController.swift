@@ -347,6 +347,17 @@ class ChattingHomeViewController: UIViewController {
         self.userProfileUrl = ""
         self.tabBarController?.tabBar.isHidden = false
     }
+    
+    private func deleteFollowing(url: String) {
+        Network.deleteMethod(url: url) { (result: Result<CodeResponse, Error>) in
+            switch result {
+            case .success(let response):
+                print("Success with code: \(response.code)")
+            case .failure(let error):
+                print("Failed with error: \(error.localizedDescription)")
+            }
+        }
+    }
 }
 
 extension ChattingHomeViewController: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -482,7 +493,24 @@ extension ChattingHomeViewController: ProfileViewDelegate {
     }
     
     func followingButtonTapped(memberId: Int) {
-        print("\(memberId)팔로잉눌림")
+        let alert = UIAlertController(title: "팔로잉을 삭제하시겠어요?", message: "팔로잉 목록에서 삭제됩니다.", preferredStyle: .alert)
+        
+        let cancel = UIAlertAction(title: "유지하기", style: .cancel, handler: nil)
+        alert.addAction(cancel)
+        
+        let leave = UIAlertAction(title: "삭제하기", style: .destructive) { _ in
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                self.deleteFollowing(url: Url.deleteFollowing(memberId: memberId))
+                self.followingData = []
+                self.chattingRoomData = []
+                self.followingPage = 0
+                self.chattingRoomPage = 0
+                self.removeProfileView()
+                self.setApi(keyword: SearchChattingViewController.keyword)
+            }
+        }
+        alert.addAction(leave)
+        self.present(alert, animated: true, completion: nil)
     }
     
     
