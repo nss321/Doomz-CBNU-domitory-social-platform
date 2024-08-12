@@ -49,14 +49,11 @@ class FollowingViewController: UIViewController {
         followingData = []
         followingPage = 0
         isFollowingLast = false
-        chattingRoomData = []
-        chattingRoomPage = 0
-        isChattingLast = false
     }
     
     private func loadInitialData() {
         followingApiNetwork(url: Url.following(page: followingPage, size: nil, keyword: SearchChattingViewController.keyword))
-        chatListApiNetwork(url: Url.chattingRoom(page: chattingRoomPage, size: nil, keyword: SearchChattingViewController.keyword))
+        chatListApiNetwork(url: Url.chattingRoom(page: 0, size: 999, keyword: SearchChattingViewController.keyword))
     }
     
     private func setCollectionView() {
@@ -85,11 +82,11 @@ class FollowingViewController: UIViewController {
     }
     
     private func followingApiNetwork(url: String) {
-        Network.getMethod(url: url) { (result: Result<FollowingUserResponse, Error>) in
+        
+        Network.getMethod(url: url) { (result: Result<FollowingUserSearchResponse, Error>) in
             switch result {
             case .success(let response):
                 self.followingData += response.data.memberProfiles
-                self.isFollowingLast = response.data.isLast
                 DispatchQueue.main.async {
                     self.followingCollectionView.reloadData()
                 }
