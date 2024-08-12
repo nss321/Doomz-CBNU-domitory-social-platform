@@ -149,6 +149,7 @@ class ChattingHomeTableViewCell: UITableViewCell {
     func highlightKeyword(keyword: String) {
         guard let messageText = messageLabel.text else { return }
         let attributedString = NSMutableAttributedString(string: messageText)
+        attributedString.addAttribute(.foregroundColor, value: UIColor.black, range: NSRange(location: 0, length: attributedString.length))
         let range = (messageText as NSString).range(of: keyword)
         guard range.length > 0 else { return }
         attributedString.addAttribute(.foregroundColor, value: UIColor.primary as Any, range: range)
