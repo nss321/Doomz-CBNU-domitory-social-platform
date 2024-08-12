@@ -64,12 +64,19 @@ class ChattingHomeViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tabBarController?.tabBar.isHidden = false
-        followingData = []
-        chattingRoomData = []
-        followingPage = 0
-        chattingRoomPage = 0
-        isInitialLoad = true
-        setApi(keyword: keyword)
+        // 잠시 지연하여 네트워크 연결 후 UI그리도록(동시성문제로 데이터 받아오는데 버그 해결을 위함)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            self.reloadDataAndUI()
+        }
+    }
+    
+    private func reloadDataAndUI() {
+        self.followingData = []
+        self.chattingRoomData = []
+        self.followingPage = 0
+        self.chattingRoomPage = 0
+        self.isInitialLoad = true
+        self.setApi(keyword: self.keyword)
     }
     
     @objc func handleNewChatMessage(_ notification: Notification) {
@@ -209,9 +216,6 @@ class ChattingHomeViewController: UIViewController {
             switch result {
             case .success(let response):
                 print("Success with code: \(response.code)")
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
-                }
             case .failure(let error):
                 print("Failed with error: \(error.localizedDescription)")
             }
@@ -395,17 +399,26 @@ extension ChattingHomeViewController: UITableViewDelegate, UITableViewDataSource
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let delete = UIContextualAction(style: .normal, title: "나가기") { [self] (UIContextualAction, UIView, success: @escaping (Bool) -> Void) in
-            
-            let chattingRoomId = chattingRoomData[indexPath.row].roomId
-            exitChattingRoomApiNetwork(url: Url.exitChattingRoom(roomId: chattingRoomId))
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
+                
+                let alert = UIAlertController(title: "채팅방을 나가시겠어요?", message: "대화 내용이 모두 삭제됩니다.", preferredStyle: .alert)
+                       
+                let cancel = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+                alert.addAction(cancel)
+                       
+                let leave = UIAlertAction(title: "나가기", style: .destructive) { _ in
+                    self.exitChattingRoomApiNetwork(url: Url.exitChattingRoom(roomId: self.chattingRoomData[indexPath.row].roomId))
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                        self.reloadDataAndUI()
+                    }
+                }
+                alert.addAction(leave)
+                self.present(alert, animated: true, completion: nil)
+                
+                success(true)
             }
-            success(true)
-        }
-        
-        delete.backgroundColor = .primary
-        return UISwipeActionsConfiguration(actions: [delete])
+            
+            delete.backgroundColor = .primary
+            return UISwipeActionsConfiguration(actions: [delete])
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
