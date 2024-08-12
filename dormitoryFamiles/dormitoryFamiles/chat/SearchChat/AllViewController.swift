@@ -2,17 +2,14 @@ import UIKit
 import SnapKit
 
 class AllViewController: UIViewController {
-    var keyword: String?
     private var followingData: [MemberProfile] = []
     private var followingPage = 0
     private var isFollowingLast = false
+    private var isLoading = false
     
     private var chattingRoomData: [ChattingRoom] = []
     private var chattingRoomPage = 0
     private var isChattingLast = false
-    
-    private var isLoading = false
-    var didFollowingMoreButtonTapped = false
     
     private var userNickname = ""
     private var userProfileUrl = ""
@@ -45,13 +42,23 @@ class AllViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        followingData = []
-        chattingRoomData = []
-        chattingRoomPage = 0
-        isChattingLast = false
-        setApi(keyword: keyword)
+        resetData()
+        loadInitialData()
     }
     
+    private func resetData() {
+        followingData = []
+        chattingRoomData = []
+        followingPage = 0
+        chattingRoomPage = 0
+        isFollowingLast = false
+        isChattingLast = false
+    }
+    
+    private func loadInitialData() {
+        setApi(keyword: SearchChattingViewController.keyword)
+    }
+
     private func setButtonActon() {
         followingLabelAndButtonStackView.addButtonTarget(target: self, action: #selector(followingMoreButtonTapped), for: .touchUpInside)
         chattingRoomLabelAndButtonStackView.addButtonTarget(target: self, action: #selector(chattingRoomMoreButtonTapped), for: .touchUpInside)
@@ -86,24 +93,39 @@ class AllViewController: UIViewController {
     }
     
     private func setApi(keyword: String?) {
-        // API 호출하여 데이터 로딩
         followingApiNetwork(url: Url.following(page: followingPage, size: nil, keyword: keyword))
         chatListApiNetwork(url: Url.chattingRoom(page: chattingRoomPage, size: nil, keyword: keyword))
     }
     
     private func followingApiNetwork(url: String) {
-        Network.getMethod(url: url) { (result: Result<FollowingUserResponse, Error>) in
-            switch result {
-            case .success(let response):
-                self.followingData += response.data.memberProfiles
-                self.isFollowingLast = response.data.isLast
-                DispatchQueue.main.async {
-                    self.followingCollectionView.reloadData()
+        if url.contains("search") {
+            Network.getMethod(url: url) { (result: Result<FollowingUserSearchResponse, Error>) in
+                switch result {
+                case .success(let response):
+                    self.followingData += response.data.memberProfiles
+                    DispatchQueue.main.async {
+                        self.followingCollectionView.reloadData()
+                    }
+                    self.isLoading = false
+                case .failure(let error):
+                    print("Error: \(error)")
+                    self.isLoading = false
                 }
-                self.isLoading = false
-            case .failure(let error):
-                print("Error: \(error)")
-                self.isLoading = false
+            }
+        } else {
+            Network.getMethod(url: url) { (result: Result<FollowingUserResponse, Error>) in
+                switch result {
+                case .success(let response):
+                    self.followingData += response.data.memberProfiles
+                    self.isFollowingLast = response.data.isLast
+                    DispatchQueue.main.async {
+                        self.followingCollectionView.reloadData()
+                    }
+                    self.isLoading = false
+                case .failure(let error):
+                    print("Error: \(error)")
+                    self.isLoading = false
+                }
             }
         }
     }
@@ -247,8 +269,19 @@ class AllViewController: UIViewController {
             $0.height.equalTo(146)
         }
     }
+    
+    private func followingLoadNextPage() {
+        guard !isFollowingLast else { return }
+        followingPage += 1
+        followingApiNetwork(url: Url.following(page: followingPage, size: nil, keyword: SearchChattingViewController.keyword))
+    }
+    
+    private func chattingRoomLoadNextPage() {
+        guard !isChattingLast else { return }
+        chattingRoomPage += 1
+        chatListApiNetwork(url: Url.chattingRoom(page: chattingRoomPage, size: nil, keyword: SearchChattingViewController.keyword))
+    }
 }
-
 extension AllViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return followingData.count
