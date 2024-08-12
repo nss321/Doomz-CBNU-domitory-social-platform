@@ -280,3 +280,12 @@ struct MyIdResponse: Codable {
 struct MyIdDataClass: Codable {
     let memberId: Int
 }
+
+struct TotalUnReadResponse: Codable {
+    let code: Int
+    let data: TotalUnReadDataClass
+}
+
+struct TotalUnReadDataClass: Codable {
+    let totalCount: Int
+}
