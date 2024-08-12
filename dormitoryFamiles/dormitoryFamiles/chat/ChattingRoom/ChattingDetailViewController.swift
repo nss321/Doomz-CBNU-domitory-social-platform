@@ -20,6 +20,7 @@ class ChattingDetailViewController: UIViewController, ConfigUI {
     var profileImageUrl: String?
     var nickname: String?
     var myID: Int?
+    var hasUnRead = true
     private var tapGesture: UITapGestureRecognizer?
     private let textField: UITextField = {
         let textField = UITextField()
@@ -56,6 +57,7 @@ class ChattingDetailViewController: UIViewController, ConfigUI {
         setConstraints()
         setNotification()
         getMyId()
+        setScroll()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -329,6 +331,12 @@ class ChattingDetailViewController: UIViewController, ConfigUI {
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
+    }
+    
+    private func setScroll() {
+        if hasUnRead == false {
+               scrollToBottom()
+           }
     }
 }
 

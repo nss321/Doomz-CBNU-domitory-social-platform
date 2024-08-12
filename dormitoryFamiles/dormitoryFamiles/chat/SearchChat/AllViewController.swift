@@ -335,6 +335,11 @@ extension AllViewController: UITableViewDelegate, UITableViewDataSource {
         chattingDetailViewController.nickname = chattingRoom.memberNickname
         chattingDetailViewController.profileImageUrl = chattingRoom.memberProfileUrl
         chattingDetailViewController.roomId = chattingRoom.roomId
+        if chattingRoom.unReadCount == 0 {
+            chattingDetailViewController.hasUnRead = false
+        }else {
+            chattingDetailViewController.hasUnRead = true
+        }
         removeProfileView()
         self.navigationController?.pushViewController(chattingDetailViewController, animated: true)
     }
@@ -347,6 +352,11 @@ extension AllViewController: ProfileViewDelegate {
             chattingDetailViewController.nickname = chattingRoom.memberNickname
             chattingDetailViewController.profileImageUrl = chattingRoom.memberProfileUrl
             chattingDetailViewController.roomId = chattingRoom.roomId
+            if chattingRoom.unReadCount == 0 {
+                chattingDetailViewController.hasUnRead = false
+            }else {
+                chattingDetailViewController.hasUnRead = true
+            }
             removeProfileView()
             self.navigationController?.pushViewController(chattingDetailViewController, animated: true)
         } else {
