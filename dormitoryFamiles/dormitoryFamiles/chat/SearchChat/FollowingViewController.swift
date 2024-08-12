@@ -82,7 +82,6 @@ class FollowingViewController: UIViewController {
     }
     
     private func followingApiNetwork(url: String) {
-        
         Network.getMethod(url: url) { (result: Result<FollowingUserSearchResponse, Error>) in
             switch result {
             case .success(let response):
