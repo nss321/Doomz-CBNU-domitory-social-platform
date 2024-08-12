@@ -240,10 +240,7 @@ class ChattingHomeViewController: UIViewController {
                     chattingDetailViewController.roomId = response.data.chatRoomId
                     chattingDetailViewController.nickname = self.userNickname
                     chattingDetailViewController.profileImageUrl = self.userProfileUrl
-                    self.profileView?.removeFromSuperview()
-                    self.profileView = nil
-                    self.userNickname = ""
-                    self.userProfileUrl = ""
+                    self.removeProfileView()
                     self.navigationController?.pushViewController(chattingDetailViewController, animated: true)
                 }
             case .failure(let error):
@@ -274,10 +271,7 @@ class ChattingHomeViewController: UIViewController {
                     chattingDetailViewController.roomId = response.data.chatRoomId
                     chattingDetailViewController.nickname = self.userNickname
                     chattingDetailViewController.profileImageUrl = self.userProfileUrl
-                    self.profileView?.removeFromSuperview()
-                    self.profileView = nil
-                    self.userNickname = ""
-                    self.userProfileUrl = ""
+                    self.removeProfileView()
                     self.navigationController?.pushViewController(chattingDetailViewController, animated: true)
                 }
             case .failure(let error):
@@ -337,13 +331,17 @@ class ChattingHomeViewController: UIViewController {
         if let profileView = profileView {
             let touchPoint = sender.location(in: view)
             if !profileView.frame.contains(touchPoint) {
-                profileView.removeFromSuperview()
-                self.profileView = nil
-                self.userNickname = ""
-                self.userProfileUrl = ""
-                self.tabBarController?.tabBar.isHidden = false
+                removeProfileView()
             }
         }
+    }
+    
+    private func removeProfileView() {
+        profileView?.removeFromSuperview()
+        self.profileView = nil
+        self.userNickname = ""
+        self.userProfileUrl = ""
+        self.tabBarController?.tabBar.isHidden = false
     }
 }
 
@@ -417,6 +415,7 @@ extension ChattingHomeViewController: UITableViewDelegate, UITableViewDataSource
         chattingDetailViewController.nickname = chattingRoom.memberNickname
         chattingDetailViewController.profileImageUrl = chattingRoom.memberProfileUrl
         chattingDetailViewController.roomId = chattingRoom.roomId
+        removeProfileView()
         self.navigationController?.pushViewController(chattingDetailViewController, animated: true)
     }
 }
@@ -460,6 +459,7 @@ extension ChattingHomeViewController: ProfileViewDelegate {
             chattingDetailViewController.nickname = chattingRoom.memberNickname
             chattingDetailViewController.profileImageUrl = chattingRoom.memberProfileUrl
             chattingDetailViewController.roomId = chattingRoom.roomId
+            removeProfileView()
             self.navigationController?.pushViewController(chattingDetailViewController, animated: true)
         } else {
             // 채팅방이 없는 경우
