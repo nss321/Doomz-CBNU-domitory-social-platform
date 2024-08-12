@@ -79,6 +79,7 @@ class ProfileView: UIView, ConfigUI {
         self.clipsToBounds = true
         self.layer.borderWidth = 1
         self.layer.borderColor = UIColor.gray2?.withAlphaComponent(0.3).cgColor
+        self.backgroundColor = .white
     }
     
     func addComponents() {
