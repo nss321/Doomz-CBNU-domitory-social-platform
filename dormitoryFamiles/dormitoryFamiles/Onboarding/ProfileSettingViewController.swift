@@ -59,7 +59,7 @@ final class ProfileSettingViewController: UIViewController {
         [universityLabel, departmentLabel, identifierNumberLabel, dormitoryLabel].forEach{$0.asColor(targetString: ["*"], color: .primary!)}
         setDropDown()
         nextButton.isEnabled = false
-        
+        dormitoryButton.setTitle("진리관", for: .normal)
     }
     
     private func setTextfield() {
@@ -123,7 +123,7 @@ final class ProfileSettingViewController: UIViewController {
                 }
             }
         case dormitoryButton:
-            dropDown.dataSource = ["본관", "양성재","양진재", "양현재"]
+            dropDown.dataSource = ["진리관","정의관","개척관","계영원","지선관","명덕관","신민관","인의관","예지관","등용관"]
         default:
             dropDown.dataSource = []
         }
