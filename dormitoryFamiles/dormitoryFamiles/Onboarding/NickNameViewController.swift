@@ -15,7 +15,7 @@ final class NickNameViewController: UIViewController {
     @IBOutlet weak var checkButton: UIButton!
     @IBOutlet weak var nextButton: RoundButton!
     @IBOutlet weak var availableLabel: UILabel!
-    private let textFieldMaxLength = 12
+    private let textFieldMaxLength = 10
     
     override func viewDidLoad() {
         super.viewDidLoad()

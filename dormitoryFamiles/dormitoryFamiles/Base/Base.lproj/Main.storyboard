@@ -597,7 +597,7 @@
                                 <color key="textColor" name="gray3"/>
                                 <nil key="highlightedColor"/>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="body2" value="0/20"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="body2" value="0/10"/>
                                 </userDefinedRuntimeAttributes>
                             </label>
                         </subviews>
