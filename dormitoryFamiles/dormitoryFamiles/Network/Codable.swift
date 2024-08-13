@@ -228,3 +228,9 @@ struct ChatMessage: Codable {
     let chatMessage: String
     let sentTime: String
 }
+
+struct StompSendDTO: Codable {
+    let roomUUID: String
+    let senderId: Int
+    let message: String
+}

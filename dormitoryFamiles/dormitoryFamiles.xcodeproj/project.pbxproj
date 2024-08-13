@@ -70,6 +70,7 @@
 		DB932AC12B6511E300B456FB /* BulluetinBoardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB932ABF2B6511E300B456FB /* BulluetinBoardCollectionViewCell.swift */; };
 		DB932AC22B6511E300B456FB /* BulluetinBoardCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB932AC02B6511E300B456FB /* BulluetinBoardCollectionViewCell.xib */; };
 		DB94B2AF2C23B3D80077A7BE /* NickNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB94B2AE2C23B3D80077A7BE /* NickNameViewController.swift */; };
+		DB9D47B52C50B85D0031C8EF /* Encodable+.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9D47B42C50B85D0031C8EF /* Encodable+.swift */; };
 		DBB345F22B42BFD100E70380 /* BulletinBoardMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB345F12B42BFD100E70380 /* BulletinBoardMainViewController.swift */; };
 		DBC001D82BBAEDBB00228CD9 /* AddImageBaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC001D72BBAEDBB00228CD9 /* AddImageBaseView.swift */; };
 		DBC1CFF62BC2AE25005C93C0 /* ConfigUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11707A312BA617EE0027802D /* ConfigUI.swift */; };
@@ -188,6 +189,7 @@
 		DB932ABF2B6511E300B456FB /* BulluetinBoardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulluetinBoardCollectionViewCell.swift; sourceTree = "<group>"; };
 		DB932AC02B6511E300B456FB /* BulluetinBoardCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BulluetinBoardCollectionViewCell.xib; sourceTree = "<group>"; };
 		DB94B2AE2C23B3D80077A7BE /* NickNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NickNameViewController.swift; sourceTree = "<group>"; };
+		DB9D47B42C50B85D0031C8EF /* Encodable+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable+.swift"; sourceTree = "<group>"; };
 		DBB345F12B42BFD100E70380 /* BulletinBoardMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulletinBoardMainViewController.swift; sourceTree = "<group>"; };
 		DBC001D72BBAEDBB00228CD9 /* AddImageBaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddImageBaseView.swift; sourceTree = "<group>"; };
 		DBC54C422B568B350071164C /* UIFontExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFontExtension.swift; sourceTree = "<group>"; };
@@ -326,7 +328,6 @@
 			isa = PBXGroup;
 			children = (
 				DB29DE252C4C144500365684 /* View */,
-				DB29DE232C4C0E4100365684 /* ChattingDetailViewController.swift */,
 			);
 			path = ChattingRoom;
 			sourceTree = "<group>";
@@ -353,6 +354,7 @@
 				1131E8A12BF6220B00D40120 /* UIScreen+.swift */,
 				11AC97FC2BFF27AE0008C910 /* UIImage+.swift */,
 				119F6D542C4012F300297E3F /* UserDefaults+.swift */,
+				DB9D47B42C50B85D0031C8EF /* Encodable+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -481,6 +483,7 @@
 				DBD0C57F2C41E52C00F6B456 /* UserProfileNicknameCollectionViewControllerCell.swift */,
 				DBD0C5812C41F46100F6B456 /* ChattingHomeTableViewCell.swift */,
 				DB3F05322C42AD440091349F /* SearchChattingViewController.swift */,
+				DB29DE232C4C0E4100365684 /* ChattingDetailViewController.swift */,
 			);
 			path = chat;
 			sourceTree = "<group>";
@@ -706,6 +709,7 @@
 				119F6D552C4012F300297E3F /* UserDefaults+.swift in Sources */,
 				DB29DE2B2C4C293500365684 /* YourChattingTableViewCell.swift in Sources */,
 				11036F212C3C05D60042B9EF /* HomeCycleViewController.swift in Sources */,
+				DB9D47B52C50B85D0031C8EF /* Encodable+.swift in Sources */,
 				11227B1F2C513C96002A6A8A /* UICollectionView+.swift in Sources */,
 				DBC54C432B568B350071164C /* UIFontExtension.swift in Sources */,
 				118EAA852C07E56400436A6F /* ConstitutionViewController.swift in Sources */,
