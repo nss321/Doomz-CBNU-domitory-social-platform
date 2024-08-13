@@ -2990,7 +2990,7 @@
         <!--프로필 설정-->
         <scene sceneID="WZA-HU-tHC">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="0ct-et-Bep" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="0ct-et-Bep" customClass="StudentCertificationViewController" customModule="dormitoryFamiles" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aii-zH-Gk6">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -3114,6 +3114,8 @@
                                                     <userDefinedRuntimeAttribute type="string" keyPath="title5" value="학생증 촬영하기"/>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
+                                                    <action selector="cameraButtonTapped:" destination="t1A-Hm-tba" eventType="touchUpInside" id="bBj-ZS-R3c"/>
+                                                    <action selector="cameraButtonTapped:" destination="0ct-et-Bep" eventType="touchUpInside" id="k0B-kh-qH9"/>
                                                     <action selector="kakaoLoginbuttonTapped:" destination="2Vj-5o-nfA" eventType="touchUpInside" id="RcB-lm-QqE"/>
                                                     <segue destination="9iI-gU-4R6" kind="show" id="pCl-ga-l2e"/>
                                                 </connections>
@@ -3166,6 +3168,7 @@
                     <navigationItem key="navigationItem" title="프로필 설정" style="editor" id="cFJ-gE-yWL"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4bS-xh-idL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="t1A-Hm-tba" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-1219.0839694656488" y="-594.36619718309862"/>
         </scene>
