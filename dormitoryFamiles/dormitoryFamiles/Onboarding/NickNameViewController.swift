@@ -20,14 +20,17 @@ final class NickNameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         changeUnauthenticatedState()
-        textField.delegate = self
-        
-        textField.font = UIFont.subTitle1
+        setTextField()
         checkButton.addTarget(self, action: #selector(checkButtonTapped(_:)), for: .touchUpInside)
     }
     
     private func setTextField() {
-        countTextFieldTextLabel.text = String(textField.text!.count) + "/12"
+        textField.delegate = self
+        textField.font = UIFont.subTitle1
+        self.textField.clipsToBounds = true
+        self.textField.layer.cornerRadius = 12
+        self.textField.layer.borderWidth = 1
+        self.textField.layer.borderColor = UIColor(red: 0.894, green: 0.898, blue: 0.906, alpha: 1).cgColor
     }
     
     private func changeFinishButtonBackgroundColor() {
@@ -58,10 +61,10 @@ final class NickNameViewController: UIViewController {
                 if isAvailable {
                     self.changeAuthenticatedState()
                     self.availableLabel.text = "사용 가능한 닉네임이예요."
+                    self.textField.layer.borderColor = UIColor(red: 0.894, green: 0.898, blue: 0.906, alpha: 1).cgColor
                 } else {
                     self.availableLabel.isHidden = false
                     self.availableLabel.text = "사용 불가능한 닉네임이에요. 다시 입력해주세요."
-                    self.textField.layer.borderWidth = 1
                     self.textField.layer.borderColor = UIColor(red: 255/255, green: 126/255, blue: 141/255, alpha: 1).cgColor
                 }
             }
