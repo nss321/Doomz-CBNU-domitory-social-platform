@@ -42,24 +42,42 @@ final class NickNameViewController: UIViewController {
     
     @IBAction func checkButtonTapped(_ sender: UIButton) {
         if sender.backgroundColor == .gray3 {
-            //중복확인이 활성화 되지 않았다면 아무런 반응이 없도록
-        }else {
-            //중복확인이 활성화 되었을때
-            if availableNickname(nickName: textField.text ?? "") {
-                changeAuthenticatedState()
-            }else {
-                availableLabel.isHidden = false
-                availableLabel.text = "사용 불가능한 닉네임이에요. 다시 입력해주세요."
-                textField.layer.borderWidth = 1
-                textField.layer.borderColor = .init(red: 255, green: 126, blue: 141, alpha: 1)
+            // 중복확인이 활성화 되지 않았다면 아무런 반응이 없도록
+        } else {
+            // 중복확인이 활성화 되었을 때
+            guard let nickname = textField.text, !nickname.isEmpty else { return }
+            checkNicknameAvailability(nickname: nickname)
+        }
+    }
+    
+    private func checkNicknameAvailability(nickname: String) {
+        nicknameApi(url: Url.getNickname(nickname: nickname), nickname: nickname) { [weak self] isAvailable in
+            guard let self = self else { return }
+            
+            DispatchQueue.main.async {
+                if isAvailable {
+                    self.changeAuthenticatedState()
+                    self.availableLabel.text = "사용 가능한 닉네임이예요."
+                } else {
+                    self.availableLabel.isHidden = false
+                    self.availableLabel.text = "사용 불가능한 닉네임이에요. 다시 입력해주세요."
+                    self.textField.layer.borderWidth = 1
+                    self.textField.layer.borderColor = UIColor(red: 255/255, green: 126/255, blue: 141/255, alpha: 1).cgColor
+                }
             }
         }
     }
     
-    private func availableNickname(nickName: String) -> Bool {
-        //TODO: 백앤드api기다리는중
-        return true
-        
+    private func nicknameApi(url: String, nickname: String, completion: @escaping (Bool) -> Void) {
+        Network.getMethod(url: url) { (result: Result<NicknameResponse, Error>) in
+            switch result {
+            case .success(let response):
+                completion(!response.data.isDuplicated)
+            case .failure(let error):
+                print("Error: \(error)")
+                completion(false)
+            }
+        }
     }
     
     private func changeUnauthenticatedState() {
