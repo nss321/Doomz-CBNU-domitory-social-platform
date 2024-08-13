@@ -15,6 +15,9 @@ final class ChoosePriorityViewController: UIViewController, ConfigUI {
         "야식", "휴대폰소리", "향수", "벌레"
     ]
     
+    var checkOptCount: Int = 0
+    var selectedPriorities: [String] = []
+    
     private let titleLabel: UILabel = {
         let label = UILabel()
         let string = "높은 우선순위대로 선택해주세요!"
@@ -37,7 +40,7 @@ final class ChoosePriorityViewController: UIViewController, ConfigUI {
     
     private let contentLabel: UILabel = {
         let label = UILabel()
-        label.text = "룸메 매칭에 도움이 됩니다.( 최소 4개까지 선택 가능 )"
+        label.text = "룸메 매칭에 도움이 됩니다."
         label.font = FontManager.body2()
         label.textAlignment = .center
         label.textColor = .gray4
@@ -68,6 +71,7 @@ final class ChoosePriorityViewController: UIViewController, ConfigUI {
         addComponents()
         setConstraints()
         nextButton.setup(model: nextButtonModel)
+        checkSelections(selectedOptions: selectedPriorities, nextButton: nextButton)
     }
     
     func addComponents() {
@@ -116,6 +120,9 @@ extension ChoosePriorityViewController: UICollectionViewDataSource {
         return priorities.count
     }
     
+}
+
+extension ChoosePriorityViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 16
     }
@@ -123,20 +130,31 @@ extension ChoosePriorityViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 16
     }
-}
-
-extension ChoosePriorityViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDelegate {
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: (UIScreen.screenWidthLayoutGuide - 16) / 2, height: 52)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("\(collectionView):  \(indexPath.row) 선택")
+        let selectedPriority = priorities[indexPath.row]
         
+        if !selectedPriorities.contains(selectedPriority) {
+            selectedPriorities.append(selectedPriority)
+            print("선택")
+            checkSelections(selectedOptions: selectedPriorities, nextButton: nextButton)
+            print("\(selectedPriorities) 선택 갯수: \(selectedPriorities.count)")
+        }
+        print("\(collectionView):  \(indexPath.row) 선택")
     }
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        print("deselect")
+        let selectedPriority = priorities[indexPath.row]
+        
+        if let index = selectedPriorities.firstIndex(of: selectedPriority) {
+            selectedPriorities.remove(at: index)
+            checkSelections(selectedOptions: selectedPriorities, nextButton: nextButton)
+        }
+        print("선택해제!")
     }
     
 }
