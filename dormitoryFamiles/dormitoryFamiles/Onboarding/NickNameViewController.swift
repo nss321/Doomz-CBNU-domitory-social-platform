@@ -22,6 +22,8 @@ final class NickNameViewController: UIViewController {
         changeUnauthenticatedState()
         setTextField()
         checkButton.addTarget(self, action: #selector(checkButtonTapped(_:)), for: .touchUpInside)
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        view.addGestureRecognizer(tapGesture)
     }
     
     private func setTextField() {
@@ -42,6 +44,9 @@ final class NickNameViewController: UIViewController {
         
     }
     
+    @objc private func dismissKeyboard() {
+          view.endEditing(true)
+      }
     
     @IBAction func checkButtonTapped(_ sender: UIButton) {
         if sender.backgroundColor == .gray3 {
@@ -121,5 +126,10 @@ extension NickNameViewController: UITextFieldDelegate {
             checkButton.backgroundColor = .gray3
         }
     }
+    
+       func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+           textField.resignFirstResponder()
+           return true
+       }
     
 }

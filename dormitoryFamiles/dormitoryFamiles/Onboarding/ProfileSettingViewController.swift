@@ -60,12 +60,18 @@ final class ProfileSettingViewController: UIViewController {
         setDropDown()
         nextButton.isEnabled = false
         dormitoryButton.setTitle("진리관", for: .normal)
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        view.addGestureRecognizer(tapGesture)
     }
     
     private func setTextfield() {
         studentNumberTextField.delegate = self
         studentNumberTextField.keyboardType = .numberPad
     }
+    
+    @objc private func dismissKeyboard() {
+          view.endEditing(true)
+      }
     
     private func  departmentTextDidChange(newText: String?) {
         if (newText != "학과선택") && (studentNumberTextField.text != "") {
@@ -175,5 +181,10 @@ extension ProfileSettingViewController: UITextFieldDelegate {
             textField.text = fixedText
         }
         enableNextButton()
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }
