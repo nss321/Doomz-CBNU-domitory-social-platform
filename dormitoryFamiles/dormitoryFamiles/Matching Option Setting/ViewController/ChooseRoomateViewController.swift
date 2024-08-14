@@ -92,6 +92,26 @@ final class ChooseRoomateViewController: UIViewController, ConfigUI {
         "시험":"selectedExam"
     ]
     
+    lazy var korToOptions = [
+        "취침 시간": goToSleepTimes,
+        "기상 시간": wakeupTimes,
+        "잠버릇": habits,
+        "잠귀": sensitivity,
+        "흡연 여부": smoke,
+        "음주 빈도": alcohol,
+        "청소": cleanHabit,
+        "더위": hot,
+        "추위": cold,
+        "향수": perfume,
+        "시험": exam
+    ] as [String : Any]
+    
+    var firstPreference: String?
+    var secondPreference: String?
+    var thirdPreference: String?
+    var fourthPreference: String?
+    var selectedItems = [Bool](repeating: false, count: 11)
+    
     private let nextButton = CommonButton()
     
     private lazy var nextButtonModel = CommonbuttonModel(title: "다음", titleColor: .white ,backgroundColor: .gray3!, height: 52) {
@@ -106,7 +126,9 @@ final class ChooseRoomateViewController: UIViewController, ConfigUI {
         nextButton.setup(model: nextButtonModel)
 //        checkSelections(selectedOptions: selectedPriorities, nextButton: nextButton)
         print(selectedPriorities!)
+        updateNextButtonState()
         makeSections()
+        
     }
     
     func addComponents() {
@@ -145,9 +167,22 @@ final class ChooseRoomateViewController: UIViewController, ConfigUI {
     }
     
     @objc func didClickNextButton() {
+        let preference: [String: Any] = [
+            "firstPreference": firstPreference ?? "",
+            "secondPreference": secondPreference ?? "",
+            "thirdPreference": thirdPreference ?? "",
+            "fourthPreference": fourthPreference ?? ""
+        ]
+        
+        // 유효한 타입만 포함되도록 딕셔너리 값을 확인
+        UserDefaults.standard.setMatchingOption(preference)
+        
+        ["firstPreference","secondPreference","thirdPreference","fourthPreference"].forEach {
+            print("preference: \(UserDefaults.standard.getMatchingOptionValue(forKey: $0) ?? "N/A")")
+        }
+        
         print("rmx")
     }
-    
 //    func test() {
 //        if let list = selectedPriorities {
 //            for item in list {
@@ -280,11 +315,71 @@ extension ChooseRoomateViewController: UICollectionViewDataSource, UICollectionV
             examCell.configure(with: exam[indexPath.item])
             cell = examCell
         default:
-            cell = UICollectionViewCell() // 기본 빈 셀 반환
+            cell = UICollectionViewCell()
         }
         
         return cell
     }
     
+}
+
+extension ChooseRoomateViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if collectionView.tag < selectedItems.count {
+            selectedItems[collectionView.tag] = true
+        }
+        updateNextButtonState()
+        
+        switch collectionView {
+        case sectionStack.arrangedSubviews[0].subviews[1]:
+            if let label = sectionStack.arrangedSubviews[0].subviews[0] as? UILabel {
+                let key = label.text ?? ""
+                if let options = korToOptions[key] as? [String] {
+                    firstPreference = options[indexPath.row]
+                }
+            }
+        case sectionStack.arrangedSubviews[1].subviews[1]:
+            if let label = sectionStack.arrangedSubviews[1].subviews[0] as? UILabel {
+                let key = label.text ?? ""
+                if let options = korToOptions[key] as? [String] {
+                    secondPreference = options[indexPath.row]
+                }
+            }
+        case sectionStack.arrangedSubviews[2].subviews[1]:
+            if let label = sectionStack.arrangedSubviews[2].subviews[0] as? UILabel {
+                let key = label.text ?? ""
+                if let options = korToOptions[key] as? [String] {
+                    thirdPreference = options[indexPath.row]
+                }
+            }
+        case sectionStack.arrangedSubviews[3].subviews[1]:
+            if let label = sectionStack.arrangedSubviews[3].subviews[0] as? UILabel {
+                let key = label.text ?? ""
+                if let options = korToOptions[key] as? [String] {
+                    fourthPreference = options[indexPath.row]
+                }
+            }
+        default:
+            print("디폴트")
+            print(sectionStack.arrangedSubviews[0].subviews)
+            print(collectionView)
+        }
+        
+        // 흡연여부 추위 더위 시험
+//        guard let order = selectedItems else { fatalError() }
+        
+        
+        
+    }
     
+    func updateNextButtonState() {
+        var count = 0
+        for selected in selectedItems {
+            if selected {
+                count += 1
+            }
+        }
+        nextButton.isEnabled(count == 4 ? true : false)
+        nextButton.backgroundColor = count == 4 ? .primary : .gray3
+    }
 }
