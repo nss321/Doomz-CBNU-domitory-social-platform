@@ -135,6 +135,14 @@ extension ChoosePriorityViewController: UICollectionViewDelegateFlowLayout, UICo
         return CGSize(width: (UIScreen.screenWidthLayoutGuide - 16) / 2, height: 52)
     }
     
+    func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
+        if selectedPriorities.count >= 4 && !collectionView.cellForItem(at: indexPath)!.isSelected {
+            print("최대 4개의 옵션만 선택 가능")
+            return false
+        }
+        return true
+    }
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let selectedPriority = priorities[indexPath.row]
         
