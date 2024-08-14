@@ -181,7 +181,7 @@ final class ChooseRoomateViewController: UIViewController, ConfigUI {
             print("preference: \(UserDefaults.standard.getMatchingOptionValue(forKey: $0) ?? "N/A")")
         }
         
-        print("rmx")
+        self.navigationController?.pushViewController(CompleteMatchingOptionViewController(), animated: true)
     }
 //    func test() {
 //        if let list = selectedPriorities {
