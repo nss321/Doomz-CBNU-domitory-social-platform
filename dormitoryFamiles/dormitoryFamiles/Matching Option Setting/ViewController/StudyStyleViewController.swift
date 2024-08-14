@@ -114,14 +114,14 @@ final class StudyStyleViewController: UIViewController, ConfigUI {
     }
     
     func addComponents() {
-        let midnightSnackSection = createStackViewWithLabelAndSubview(string: "야식", subview: studyPlaceCollectionView)
-        let eatingFoodInRoomSection = createStackViewWithLabelAndSubview(string: "방 안에서", subview: examCollectionView)
+        let studyPlaceSection = createStackViewWithLabelAndSubview(string: "공부장소", subview: studyPlaceCollectionView)
+        let examSection = createStackViewWithLabelAndSubview(string: "시험", subview: examCollectionView, isRequired: true)
 
         
         view.addSubview(stackView)
         [logoStackView, studyStyleStack].forEach{ stackView.addArrangedSubview($0) }
         [currentStep, progressBar, studyStyleLogo, contentLabel].forEach{ logoStackView.addArrangedSubview($0) }
-        [midnightSnackSection, eatingFoodInRoomSection, spacerView, nextButton].forEach{ studyStyleStack.addArrangedSubview($0) }
+        [studyPlaceSection, examSection, spacerView, nextButton].forEach{ studyStyleStack.addArrangedSubview($0) }
     }
     
     func setConstraints() {

@@ -141,8 +141,8 @@ final class SmokeAndAlcoholPatternViewController: UIViewController, ConfigUI {
     }
     
     func addComponents() {
-        let smokeSection = createStackViewWithLabelAndSubview(string: "흡연여부", subview: smokeCollectionView)
-        let alcoholSection = createStackViewWithLabelAndSubview(string: "음주빈도", subview: alcoholCollectionView)
+        let smokeSection = createStackViewWithLabelAndSubview(string: "흡연여부", subview: smokeCollectionView, isRequired: true)
+        let alcoholSection = createStackViewWithLabelAndSubview(string: "음주빈도", subview: alcoholCollectionView, isRequired: true)
         let alcoholHabitSection = createStackViewWithLabelAndSubview(string: "주사", subview: drinkHabitTextField)
         
         view.addSubview(stackView)

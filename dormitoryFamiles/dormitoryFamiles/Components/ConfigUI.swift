@@ -61,6 +61,31 @@ extension UIViewController {
         label.font = FontManager.subtitle1()
         label.textColor = .gray5
         label.addCharacterSpacing()
+          
+        stackView.addArrangedSubview(label)
+        stackView.addArrangedSubview(subview)
+        
+        return stackView
+    }
+    
+    /// Label과 StackView를 하나의 Container로 묶어서 return, 필수 항목 표시 추가
+    /// - Parameters:
+    ///   - string: String
+    ///   - subview: UIView
+    ///   - isRequired: Bool
+    /// - Returns: UIstackView
+    func createStackViewWithLabelAndSubview(string: String, subview: UIView, isRequired: Bool) -> UIStackView {
+        let stackView = UIStackView()
+        stackView.axis = .vertical
+        stackView.spacing = 8
+        stackView.distribution = .fillProportionally
+        stackView.alignment = .leading
+        
+        let label = UILabel()
+        label.text = string
+        label.font = FontManager.subtitle1()
+        label.textColor = .gray5
+        label.addCharacterSpacing()
         
         let asterisk = UILabel()
         asterisk.text = "*"
@@ -71,7 +96,14 @@ extension UIViewController {
         let labelContainer = UIView()
         labelContainer.backgroundColor = .clear
         labelContainer.addSubview(label)
-        labelContainer.addSubview(asterisk)
+        
+        if isRequired {
+            labelContainer.addSubview(asterisk)
+            asterisk.snp.makeConstraints {
+                $0.left.equalTo(label.snp.right).offset(4)
+                $0.top.equalToSuperview()
+            }
+        }
         
         stackView.addArrangedSubview(labelContainer)
         stackView.addArrangedSubview(subview)
@@ -80,10 +112,7 @@ extension UIViewController {
             $0.left.top.bottom.equalToSuperview()
         }
         
-        asterisk.snp.makeConstraints {
-            $0.left.equalTo(label.snp.right).offset(4)
-            $0.top.equalToSuperview()
-        }
+        
         
         return stackView
     }

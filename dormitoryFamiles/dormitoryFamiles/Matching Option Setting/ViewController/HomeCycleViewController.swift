@@ -105,7 +105,7 @@ final class HomeCycleViewController: UIViewController, ConfigUI {
     }
     
     func addComponents() {
-        let cycleSection = createStackViewWithLabelAndSubview(string: "본가가는 빈도", subview: cycleCollectionView)
+        let cycleSection = createStackViewWithLabelAndSubview(string: "본가가는 빈도", subview: cycleCollectionView, isRequired: true)
         
         view.addSubview(stackView)
         [logoStackView, cycleStack].forEach{ stackView.addArrangedSubview($0) }
