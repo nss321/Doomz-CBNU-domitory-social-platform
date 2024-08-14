@@ -139,8 +139,15 @@ extension ChoosePriorityViewController: UICollectionViewDelegateFlowLayout, UICo
         let selectedPriority = priorities[indexPath.row]
         
         if !selectedPriorities.contains(selectedPriority) {
+            checkOptCount += 1
             selectedPriorities.append(selectedPriority)
-            print("선택")
+            
+            if let cell = collectionView.cellForItem(at: indexPath) as? PriorityCell {
+                cell.updateIndex(with: String(checkOptCount))
+                cell.updateCellState(isSelected: true)
+            }
+            
+            print("선택, 인덱스: \(checkOptCount)")
             checkSelections(selectedOptions: selectedPriorities, nextButton: nextButton)
             print("\(selectedPriorities) 선택 갯수: \(selectedPriorities.count)")
         }
@@ -152,6 +159,14 @@ extension ChoosePriorityViewController: UICollectionViewDelegateFlowLayout, UICo
         
         if let index = selectedPriorities.firstIndex(of: selectedPriority) {
             selectedPriorities.remove(at: index)
+            
+            for (newIndex, priority) in selectedPriorities.enumerated() {
+                if let idx = priorities.firstIndex(of: priority),
+                   let cell = collectionView.cellForItem(at: IndexPath(row: idx, section: 0)) as? PriorityCell {
+                    cell.updateIndex(with: String(newIndex+1))
+                }
+            }
+            checkOptCount = selectedPriorities.count
             checkSelections(selectedOptions: selectedPriorities, nextButton: nextButton)
         }
         print("선택해제!")
