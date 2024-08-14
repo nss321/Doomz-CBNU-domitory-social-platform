@@ -171,7 +171,7 @@ final class MBTIViewController: UIViewController, ConfigUI {
     
     func createCollectionView(tag:Int, data: [String]) -> UICollectionView {
         let interSpacing = 16
-        let diameter = (UIScreen.screenWidthLayoutGuide - interSpacing*3) / 4
+        let diameter = (UIScreen.screenWidthLayoutGuide - Int(interSpacing)*3) / 4
         let layout = UICollectionViewFlowLayout()
         layout.minimumLineSpacing = CGFloat(interSpacing)
         layout.itemSize = CGSize(width: diameter, height: diameter) // 원형 뷰의 크기

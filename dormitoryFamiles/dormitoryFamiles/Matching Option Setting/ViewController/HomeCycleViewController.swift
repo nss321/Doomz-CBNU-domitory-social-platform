@@ -176,7 +176,7 @@ extension HomeCycleViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let cellSize: CGSize
         
-        cellSize = CGSize(width: UIScreen.circleCellRadius, height: UIScreen.circleCellRadius )
+        cellSize = CGSize(width: UIScreen.circleCellDiameter, height: UIScreen.circleCellDiameter )
     
         return cellSize
     }

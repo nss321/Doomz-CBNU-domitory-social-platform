@@ -11,8 +11,7 @@ import SnapKit
 final class ChoosePriorityViewController: UIViewController, ConfigUI {
     
     let priorities = [
-        "취침 시간", "기상 시간", "잠버릇", "흡연 여부", "음주 빈도", "샤워 시간대", "청소 빈도", "더위", "추위", "본가가는 빈도",
-        "야식", "휴대폰소리", "향수", "벌레"
+        "취침 시간", "기상 시간", "잠버릇", "잠귀", "흡연 여부", "음주 빈도", "청소", "더위", "추위", "향수", "시험"
     ]
     
     var checkOptCount: Int = 0
@@ -66,6 +65,7 @@ final class ChoosePriorityViewController: UIViewController, ConfigUI {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tabBarController?.tabBar.isHidden = true
         view.backgroundColor = .background
         setupNavigationBar("룸메 우선순위설정")
         addComponents()
@@ -103,8 +103,12 @@ final class ChoosePriorityViewController: UIViewController, ConfigUI {
     
     @objc
     func didClickNextButton() {
-        print("next")
-//        self.navigationController?.pushViewController(MiscViewController(), animated: true)
+        let selectedMyPriorities: [String:Any] = [
+            "selectedPriorities": selectedPriorities
+        ]
+        UserDefaults.standard.setMatchingOption(selectedMyPriorities)
+        print("Selected Priorities: \(UserDefaults.standard.getMatchingOptionValue(forKey: "selectedPriorities") ?? "")")
+        self.navigationController?.pushViewController(ChooseRoomateViewController(), animated: true)
     }
     
 }

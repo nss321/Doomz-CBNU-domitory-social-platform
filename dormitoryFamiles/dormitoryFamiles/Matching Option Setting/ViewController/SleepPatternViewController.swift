@@ -314,7 +314,7 @@ extension SleepPatternViewController: UICollectionViewDelegateFlowLayout {
         switch collectionView {
         case sleepingHabitsCollectionView:
             // MARK: cell 간격
-            cellSize = CGSize(width: UIScreen.circleCellRadius, height: UIScreen.circleCellRadius)
+            cellSize = CGSize(width: UIScreen.circleCellDiameter, height: UIScreen.circleCellDiameter)
         case sleepSensitivityCollectionView:
             cellSize = CGSize(width: UIScreen.cellWidth2Column, height: UIScreen.cellHeight)
         default:
