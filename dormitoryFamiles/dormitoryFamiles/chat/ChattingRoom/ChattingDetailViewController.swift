@@ -53,6 +53,7 @@ class ChattingDetailViewController: UIViewController, ConfigUI {
         initializeChatting()
         addComponents()
         setConstraints()
+        setNotification()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -60,9 +61,23 @@ class ChattingDetailViewController: UIViewController, ConfigUI {
         self.tabBarController?.tabBar.isHidden = true
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        goBackChattingRoomApiNetwork(url: Url.exitChattingRoom(roomId: roomId))
         self.tabBarController?.tabBar.isHidden = false
+        //채팅 내역이 없는 채팅방이라면 delete처리
+        if messages.isEmpty {
+            exitChattingRoomApiNetwork(url: Url.noMessageExitChattingRoom(roomId: roomId))
+        }
+        removeNotification()
+    }
+    
+    private func setNotification() {
+        NotificationCenter.default.addObserver(self, selector: #selector(handleNewMessage(_:)), name: .newChatMessage, object: nil)
+    }
+    
+    private func removeNotification() {
+        NotificationCenter.default.removeObserver(self, name: .newChatMessage, object: nil)
     }
     
     private func setTextField() {
@@ -73,6 +88,7 @@ class ChattingDetailViewController: UIViewController, ConfigUI {
     
     private func createProfileStackView() -> ChattingNavigationProfileStackView {
         profileStackView = ChattingNavigationProfileStackView(frame: .zero)
+        profileStackView.profileImageView.removeFromSuperview()
         if let url = profileImageUrl, let nickname = nickname {
             let profileImageView = Network.loadImage(url: url)
             self.profileStackView.profileImageView.image = profileImageView.image
@@ -84,6 +100,7 @@ class ChattingDetailViewController: UIViewController, ConfigUI {
     private func setNavigationBar() {
         let profileStackView = createProfileStackView()
         self.navigationItem.titleView = profileStackView
+    
         let moreImage = UIImage(named: "chattingDetailMore")?.withRenderingMode(.alwaysOriginal)
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: moreImage, style: .plain, target: self, action: #selector(moreButtonTapped))
     }
@@ -96,10 +113,8 @@ class ChattingDetailViewController: UIViewController, ConfigUI {
     }
     
     func setConstraints() {
-        let tabBarHeight = tabBarController?.tabBar.frame.size.height ?? 49
-        
         containerView.snp.makeConstraints {
-            $0.bottom.equalToSuperview().inset(tabBarHeight+8)
+            $0.bottom.equalTo(view.safeAreaLayoutGuide).inset(8)
             $0.height.equalTo(52)
             $0.left.trailing.equalToSuperview().inset(20)
         }
@@ -123,8 +138,54 @@ class ChattingDetailViewController: UIViewController, ConfigUI {
         }
     }
     
+    private func exitChattingRoomApiNetwork(url: String) {
+        Network.deleteMethod(url: url) { (result: Result<ExitRoomResponse, Error>) in
+            switch result {
+            case .success(let response):
+                print("Success with code: \(response.code)")
+            case .failure(let error):
+                print("Failed with error: \(error.localizedDescription)")
+            }
+        }
+    }
+    
+    private func goBackChattingRoomApiNetwork(url: String) {
+        Network.patchMethod(url: url) { (result: Result<ExitRoomResponse, Error>) in
+            switch result {
+            case .success(let response):
+                print("Success with code: \(response.code)")
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            case .failure(let error):
+                print("Failed with error: \(error.localizedDescription)")
+            }
+        }
+    }
+    
     @objc func moreButtonTapped() {
-        print("moreButtonTapped")
+        let sheet = UIAlertController(title: nil, message: "채팅방 설정", preferredStyle: .actionSheet)
+               
+        let leaveAction = UIAlertAction(title: "나가기", style: .destructive) { _ in
+                   
+            let alert = UIAlertController(title: "채팅방을 나가시겠어요?", message: "대화 내용이 모두 삭제됩니다.", preferredStyle: .alert)
+                   
+            let cancel = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+            alert.addAction(cancel)
+                   
+            let leave = UIAlertAction(title: "나가기", style: .destructive) { _ in
+                self.exitChattingRoomApiNetwork(url: Url.exitChattingRoom(roomId: self.roomId))
+                self.navigationController?.popViewController(animated: true)
+            }
+            alert.addAction(leave)
+            self.present(alert, animated: true, completion: nil)
+        }
+        sheet.addAction(leaveAction)
+               
+        let cancel = UIAlertAction(title: "닫기", style: .cancel, handler: nil)
+        sheet.addAction(cancel)
+               
+        present(sheet, animated: true, completion: nil)
     }
     
     func setupTableView() {
@@ -158,7 +219,7 @@ class ChattingDetailViewController: UIViewController, ConfigUI {
                         tableView.setContentOffset(CGPoint(x: 0, y: newContentHeight - previousContentHeight), animated: false)
                     } else {
                         self.messages.append(contentsOf: newMessages)
-                        tableView.reloadData()
+                        reloadTableView()
                         scrollToBottom()
                     }
                 }
@@ -199,7 +260,7 @@ class ChattingDetailViewController: UIViewController, ConfigUI {
         let formattedTime = DateUtility.formatTime(currentDateString)
         let newMessage = ChatMessage(memberId: 3, isSender: true, memberNickname: nickname ?? "", memberProfileUrl: profileImageUrl ?? "", chatMessage: message, sentTime: formattedTime)
         messages.append(newMessage)
-        tableView.reloadData()
+        reloadTableView()
         scrollToBottom()
     }
     
@@ -231,6 +292,29 @@ class ChattingDetailViewController: UIViewController, ConfigUI {
         guard let messageText = textField.text, !messageText.isEmpty else { return }
         sendMessage(message: messageText)
         textField.text = ""
+    }
+    
+    private func backViewChattingRoomApiNetwork(url: String) {
+        Network.patchMethod(url: url) { (result: Result<ExitRoomResponse, Error>) in
+            switch result {
+            case .success(let response):
+                print("Success with code: \(response.code)")
+            case .failure(let error):
+                print("Failed with error: \(error.localizedDescription)")
+            }
+        }
+    }
+    
+    @objc private func handleNewMessage(_ notification: Notification) {
+        guard let message = notification.object as? ChatMessage else { return }
+        messages.append(message)
+        reloadTableView()
+    }
+    
+    private func reloadTableView() {
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
     }
 }
 
@@ -289,8 +373,10 @@ extension ChattingDetailViewController: UITextFieldDelegate {
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
             let keyboardHeight = keyboardSize.height
             UIView.animate(withDuration: 0.3) {
-                //TODO: 여기서 임의 하드코딩 80은 아이폰15기준 키보드 높이와 안맞아서 임의로 맞춘다고 설정해놨음. 더 좋은 방법을 찾아봐야함
-                self.view.transform = CGAffineTransform(translationX: 0, y: -keyboardHeight+80)
+                self.containerView.snp.updateConstraints { make in
+                    make.bottom.equalTo(self.view.safeAreaLayoutGuide).inset(keyboardHeight-30)
+                }
+                self.view.layoutIfNeeded()
             }
             scrollToBottom()
         }
@@ -302,7 +388,10 @@ extension ChattingDetailViewController: UITextFieldDelegate {
             tapGesture = nil
         }
         UIView.animate(withDuration: 0.3) {
-            self.view.transform = .identity
+            self.containerView.snp.updateConstraints { make in
+                make.bottom.equalTo(self.view.safeAreaLayoutGuide).inset(8)
+            }
+            self.view.layoutIfNeeded()
         }
     }
 }
