@@ -13,12 +13,15 @@ class ChattingDetailViewController: UIViewController, ConfigUI {
         }
     }
     var messages: [ChatMessage] = []
+    var displayMessages: [Any] = [] // 메세지+날짜 담는 배열
     var isLoading = false
     var page = 0
     var isLast = false
     var profileStackView: ChattingNavigationProfileStackView!
     var profileImageUrl: String?
     var nickname: String?
+    var myID: Int?
+    var hasUnRead = true
     private var tapGesture: UITapGestureRecognizer?
     private let textField: UITextField = {
         let textField = UITextField()
@@ -54,6 +57,8 @@ class ChattingDetailViewController: UIViewController, ConfigUI {
         addComponents()
         setConstraints()
         setNotification()
+        getMyId()
+        setScroll()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -65,7 +70,6 @@ class ChattingDetailViewController: UIViewController, ConfigUI {
         super.viewDidDisappear(animated)
         goBackChattingRoomApiNetwork(url: Url.exitChattingRoom(roomId: roomId))
         self.tabBarController?.tabBar.isHidden = false
-        //채팅 내역이 없는 채팅방이라면 delete처리
         if messages.isEmpty {
             exitChattingRoomApiNetwork(url: Url.noMessageExitChattingRoom(roomId: roomId))
         }
@@ -139,7 +143,7 @@ class ChattingDetailViewController: UIViewController, ConfigUI {
     }
     
     private func exitChattingRoomApiNetwork(url: String) {
-        Network.deleteMethod(url: url) { (result: Result<ExitRoomResponse, Error>) in
+        Network.deleteMethod(url: url) { (result: Result<CodeResponse, Error>) in
             switch result {
             case .success(let response):
                 print("Success with code: \(response.code)")
@@ -150,7 +154,7 @@ class ChattingDetailViewController: UIViewController, ConfigUI {
     }
     
     private func goBackChattingRoomApiNetwork(url: String) {
-        Network.patchMethod(url: url) { (result: Result<ExitRoomResponse, Error>) in
+        Network.patchMethod(url: url) { (result: Result<CodeResponse, Error>) in
             switch result {
             case .success(let response):
                 print("Success with code: \(response.code)")
@@ -198,6 +202,7 @@ class ChattingDetailViewController: UIViewController, ConfigUI {
         
         tableView.register(MyChattingTableViewCell.self, forCellReuseIdentifier: "MyChattingTableViewCell")
         tableView.register(YourChattingTableViewCell.self, forCellReuseIdentifier: "YourChattingTableViewCell")
+        tableView.register(ChattingDateTableViewCell.self, forCellReuseIdentifier: "ChattingDateTableViewCell")
     }
     
     private func chattingHistoryApiNetwork(url: String, appendToTop: Bool = false) {
@@ -219,11 +224,24 @@ class ChattingDetailViewController: UIViewController, ConfigUI {
                         tableView.setContentOffset(CGPoint(x: 0, y: newContentHeight - previousContentHeight), animated: false)
                     } else {
                         self.messages.append(contentsOf: newMessages)
+                        self.updateDisplayMessages()
                         reloadTableView()
                         scrollToBottom()
                     }
                 }
                 self.isLoading = false
+            case .failure(let error):
+                print("Error: \(error)")
+                self.isLoading = false
+            }
+        }
+    }
+    
+    private func getMyId() {
+        Network.getMethod(url: Url.myId()) { [self] (result: Result<MyIdResponse, Error>) in
+            switch result {
+            case .success(let response):
+                self.myID = response.data.memberId
             case .failure(let error):
                 print("Error: \(error)")
                 self.isLoading = false
@@ -248,7 +266,7 @@ class ChattingDetailViewController: UIViewController, ConfigUI {
     func sendMessage(message: String) {
         let connectMessage = [
             "roomUUID": roomUUID,
-            "senderId": 3,
+            "senderId": myID,
             "message": "\(message)"
         ] as [String : Any]
         WebSocketManager.shared.socketClient.sendJSONForDict(dict: connectMessage as NSDictionary, toDestination: "/pub/message")
@@ -260,6 +278,7 @@ class ChattingDetailViewController: UIViewController, ConfigUI {
         let formattedTime = DateUtility.formatTime(currentDateString)
         let newMessage = ChatMessage(memberId: 3, isSender: true, memberNickname: nickname ?? "", memberProfileUrl: profileImageUrl ?? "", chatMessage: message, sentTime: formattedTime)
         messages.append(newMessage)
+        self.updateDisplayMessages()
         reloadTableView()
         scrollToBottom()
     }
@@ -278,9 +297,33 @@ class ChattingDetailViewController: UIViewController, ConfigUI {
         }
     }
     
+    private func updateDisplayMessages() {
+        displayMessages = []
+        
+        for (index, message) in messages.enumerated() {
+            if index > 0 {
+                let previousMessage = messages[index - 1]
+                
+                if let previousDate = previousMessage.sentTime.toDate(),
+                   let currentDate = message.sentTime.toDate(),
+                   !Calendar.current.isDate(previousDate, inSameDayAs: currentDate) {
+                    // 날짜가 다를때 구분선
+                    displayMessages.append(currentDate)
+                }
+            } else {
+                // 첫 메세지 위에 구분선
+                if let currentDate = message.sentTime.toDate() {
+                    displayMessages.append(currentDate)
+                }
+            }
+            // 메세지
+            displayMessages.append(message)
+        }
+    }
+    
     private func scrollToBottom() {
         DispatchQueue.main.async {
-            let lastRow = self.messages.count - 1
+            let lastRow = self.displayMessages.count - 1
             if lastRow >= 0 && lastRow < self.tableView.numberOfRows(inSection: 0) {
                 let indexPath = IndexPath(row: lastRow, section: 0)
                 self.tableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
@@ -295,7 +338,7 @@ class ChattingDetailViewController: UIViewController, ConfigUI {
     }
     
     private func backViewChattingRoomApiNetwork(url: String) {
-        Network.patchMethod(url: url) { (result: Result<ExitRoomResponse, Error>) in
+        Network.patchMethod(url: url) { (result: Result<CodeResponse, Error>) in
             switch result {
             case .success(let response):
                 print("Success with code: \(response.code)")
@@ -308,6 +351,7 @@ class ChattingDetailViewController: UIViewController, ConfigUI {
     @objc private func handleNewMessage(_ notification: Notification) {
         guard let message = notification.object as? ChatMessage else { return }
         messages.append(message)
+        self.updateDisplayMessages() // 날짜 셀 포함 배열 업데이트
         reloadTableView()
     }
     
@@ -315,6 +359,12 @@ class ChattingDetailViewController: UIViewController, ConfigUI {
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
+    }
+    
+    private func setScroll() {
+        if hasUnRead == false {
+               scrollToBottom()
+           }
     }
 }
 
@@ -324,21 +374,31 @@ extension ChattingDetailViewController: UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return messages.count
+        return displayMessages.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let message = messages[indexPath.row]
-        if message.isSender {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "MyChattingTableViewCell", for: indexPath) as! MyChattingTableViewCell
-            cell.configure(with: message)
-            return cell
-        } else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "YourChattingTableViewCell", for: indexPath) as! YourChattingTableViewCell
-            cell.configure(with: message)
-            cell.profileImageView = profileStackView.profileImageView
-            return cell
+        let item = displayMessages[indexPath.row]
+        
+        if let date = item as? Date {
+            // 날짜 셀
+            let dateCell = tableView.dequeueReusableCell(withIdentifier: "ChattingDateTableViewCell", for: indexPath) as! ChattingDateTableViewCell
+            dateCell.configure(with: date)
+            return dateCell
+        } else if let message = item as? ChatMessage {
+            // 메시지 셀
+            if message.isSender {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "MyChattingTableViewCell", for: indexPath) as! MyChattingTableViewCell
+                cell.configure(with: message)
+                return cell
+            } else {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "YourChattingTableViewCell", for: indexPath) as! YourChattingTableViewCell
+                cell.configure(with: message)
+                cell.profileImageView = profileStackView.profileImageView
+                return cell
+            }
         }
+        return UITableViewCell()
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -393,5 +453,15 @@ extension ChattingDetailViewController: UITextFieldDelegate {
             }
             self.view.layoutIfNeeded()
         }
+    }
+}
+
+extension String {
+    func toDate() -> Date? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+        dateFormatter.locale = Locale(identifier: "ko_KR")
+        dateFormatter.timeZone = TimeZone(identifier: "Asia/Seoul")
+        return dateFormatter.date(from: self)
     }
 }

@@ -8,7 +8,17 @@ import UIKit
 import SnapKit
 import Kingfisher
 
+protocol ProfileViewDelegate: AnyObject {
+    func chattingButtonTapped(memberId: Int)
+    func followingButtonTapped(memberId: Int)
+}
+
 class ProfileView: UIView, ConfigUI {
+    weak var delegate: ProfileViewDelegate?
+    
+    //mvc모델의 ProfileView는 view에서 memberId는 데이터쪽이지만, 데이터를 변경하지 않는 이상 필요한 데이터는 저장해도 된다고 판단하였습니다.
+    private var memberId: Int?
+    
     private var profileImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.layer.cornerRadius = 40
@@ -36,6 +46,7 @@ class ProfileView: UIView, ConfigUI {
         button.backgroundColor = .gray1
         button.setTitleColor(.gray5, for: .normal)
         button.layer.cornerRadius = 20
+        button.addTarget(self, action: #selector(followingButtonTapped), for: .touchUpInside)
         return button
     }()
     
@@ -45,6 +56,7 @@ class ProfileView: UIView, ConfigUI {
         button.backgroundColor = .primary
         button.layer.cornerRadius = 20
         button.setTitleColor(.white, for: .normal)
+        button.addTarget(self, action: #selector(chattingButtonTapped), for: .touchUpInside)
         return button
     }()
     
@@ -67,6 +79,7 @@ class ProfileView: UIView, ConfigUI {
         self.clipsToBounds = true
         self.layer.borderWidth = 1
         self.layer.borderColor = UIColor.gray2?.withAlphaComponent(0.3).cgColor
+        self.backgroundColor = .white
     }
     
     func addComponents() {
@@ -110,18 +123,31 @@ class ProfileView: UIView, ConfigUI {
         }
     }
     
-    func setData(nickName: String, profileImageUrl: URL, dormitory: String, isFollowing: Bool) {
-        self.nicknameLabel.text = nickName
-        self.dormitoryLabel.text = dormitory
-        self.profileImageView.kf.setImage(with: profileImageUrl)
-        if isFollowing {
-            followButton.setTitle("팔로우", for: .normal)
-            followButton.backgroundColor = .gray1
-            followButton.setTitleColor(.gray5, for: .normal)
-        }else {
-            followButton.setTitle("팔로우하기", for: .normal)
-            followButton.backgroundColor = .primaryMid
-            followButton.setTitleColor(.white, for: .normal)
+    func setData(memberId: Int, nickName: String, profileImageUrl: URL, dormitory: String, isFollowing: Bool) {
+           self.memberId = memberId // 멤버 ID 저장
+           self.nicknameLabel.text = nickName
+           self.dormitoryLabel.text = dormitory
+           self.profileImageView.kf.setImage(with: profileImageUrl)
+           if isFollowing {
+               followButton.setTitle("팔로우", for: .normal)
+               followButton.backgroundColor = .gray1
+               followButton.setTitleColor(.gray5, for: .normal)
+           } else {
+               followButton.setTitle("팔로우하기", for: .normal)
+               followButton.backgroundColor = .primaryMid
+               followButton.setTitleColor(.white, for: .normal)
+           }
+       }
+       
+       @objc private func chattingButtonTapped() {
+           if let memberId = memberId {
+               delegate?.chattingButtonTapped(memberId: memberId) // 멤버 ID 전달
+           }
+       }
+    
+    @objc private func followingButtonTapped() {
+        if let memberId = memberId {
+            delegate?.followingButtonTapped(memberId: memberId) // 멤버 ID 전달
         }
     }
 }

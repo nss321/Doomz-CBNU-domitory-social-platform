@@ -82,7 +82,7 @@ class ChattingRoomViewController: UIViewController {
         }
     }
     
-    private func chattingRoomloadNextPage() {
+    private func chattingRoomLoadNextPage() {
         guard !isChattingLast else { return }
         chattingRoomPage += 1
         chatListApiNetwork(url: Url.chattingRoom(page: chattingRoomPage, size: nil, keyword: SearchChattingViewController.keyword))
@@ -111,13 +111,20 @@ extension ChattingRoomViewController: UITableViewDataSource, UITableViewDelegate
         return cell
     }
     
-    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let delete = UIContextualAction(style: .normal, title: "나가기") { (UIContextualAction, UIView, success: @escaping (Bool) -> Void) in
-            print("나가기\(indexPath)")
-            success(true)
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let chattingRoom = chattingRoomData[indexPath.row]
+        
+        let chattingDetailViewController = ChattingDetailViewController()
+        chattingDetailViewController.nickname = chattingRoom.memberNickname
+        chattingDetailViewController.profileImageUrl = chattingRoom.memberProfileUrl
+        chattingDetailViewController.roomId = chattingRoom.roomId
+        if chattingRoom.unReadCount == 0 {
+            chattingDetailViewController.hasUnRead = false
+        }else {
+            chattingDetailViewController.hasUnRead = true
         }
-        delete.backgroundColor = .systemRed
-        return UISwipeActionsConfiguration(actions:[delete])
+
+        self.navigationController?.pushViewController(chattingDetailViewController, animated: true)
     }
 }
 
@@ -131,10 +138,9 @@ extension ChattingRoomViewController: UIScrollViewDelegate {
             if offsetY > contentHeight - height {
                 if !isLoading {
                     isLoading = true
-                    chattingRoomloadNextPage()
+                    chattingRoomLoadNextPage()
                 }
             }
         }
     }
 }
-

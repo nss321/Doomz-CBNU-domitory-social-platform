@@ -135,7 +135,10 @@ class ChattingHomeTableViewCell: UITableViewCell {
         self.unReadCountLabel.text = String(unReadCount)
         self.messageLabel.text = lastMessage
         self.timeLabel.text = DateUtility.chattingTimeFormet(from: lastMessageTime)
-        
+        if unReadCount != 0 {
+            unReadCountLabel.backgroundColor = .primary
+            unReadCountLabel.text = String(unReadCount)
+        }
         if memberProfileUrl != "" {
             loadImage(url: memberProfileUrl ?? "")
         } else {
@@ -146,6 +149,7 @@ class ChattingHomeTableViewCell: UITableViewCell {
     func highlightKeyword(keyword: String) {
         guard let messageText = messageLabel.text else { return }
         let attributedString = NSMutableAttributedString(string: messageText)
+        attributedString.addAttribute(.foregroundColor, value: UIColor.black, range: NSRange(location: 0, length: attributedString.length))
         let range = (messageText as NSString).range(of: keyword)
         guard range.length > 0 else { return }
         attributedString.addAttribute(.foregroundColor, value: UIColor.primary as Any, range: range)
