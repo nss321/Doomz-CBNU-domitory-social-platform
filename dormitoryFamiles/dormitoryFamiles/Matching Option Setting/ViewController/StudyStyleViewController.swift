@@ -156,7 +156,6 @@ final class StudyStyleViewController: UIViewController, ConfigUI {
         view.addSubview(dim)
         view.addSubview(helpPopUp)
         helpPopUp.setCancelButtonTarget(self, action: #selector(didClickCancelButton))
-        
     }
     
     func setConstraints() {
