@@ -1679,7 +1679,7 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="subTitle1" value="글쓰기"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="m4G-hc-GIZ" kind="show" id="Fbj-02-CBz"/>
+                                    <segue destination="m4G-hc-GIZ" kind="show" id="sqK-vV-RSE"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -2493,19 +2493,19 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="5A3-Fj-D1b">
-                                                <rect key="frame" x="20" y="601.33333333333337" width="113" height="18"/>
+                                                <rect key="frame" x="20" y="601.33333333333337" width="115" height="18"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="au5-rF-LBa">
-                                                        <rect key="frame" x="0.0" y="2" width="31" height="14"/>
+                                                        <rect key="frame" x="0.0" y="2.0000000000000009" width="31.666666666666668" height="14.333333333333336"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="관심" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Ig-aG-dRj">
-                                                                <rect key="frame" x="0.0" y="0.0" width="21" height="14"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="21" height="14.333333333333334"/>
                                                                 <fontDescription key="fontDescription" name="PretendardVariable-Regular" family="Pretendard Variable" pointSize="12"/>
                                                                 <color key="textColor" name="gray5"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SIs-2n-Fiq">
-                                                                <rect key="frame" x="24" y="0.0" width="7" height="14"/>
+                                                                <rect key="frame" x="24" y="0.0" width="7.6666666666666679" height="14.333333333333334"/>
                                                                 <fontDescription key="fontDescription" name="PretendardVariable-Regular" family="Pretendard Variable" pointSize="12"/>
                                                                 <color key="textColor" name="gray5"/>
                                                                 <nil key="highlightedColor"/>
@@ -2513,23 +2513,23 @@
                                                         </subviews>
                                                     </stackView>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bulletinBoardEllipse" translatesAutoresizingMaskIntoConstraints="NO" id="2G0-IY-FDC">
-                                                        <rect key="frame" x="35" y="8" width="2" height="2"/>
+                                                        <rect key="frame" x="35.666666666666664" y="8" width="2" height="2"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="2" id="HOU-fq-16F"/>
                                                             <constraint firstAttribute="width" constant="2" id="VKT-5h-xJk"/>
                                                         </constraints>
                                                     </imageView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="vAd-r5-EHL">
-                                                        <rect key="frame" x="41" y="2" width="31" height="14"/>
+                                                        <rect key="frame" x="41.666666666666664" y="2.0000000000000009" width="31.666666666666664" height="14.333333333333336"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="댓글" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5vN-iV-K42">
-                                                                <rect key="frame" x="0.0" y="0.0" width="21" height="14"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="21" height="14.333333333333334"/>
                                                                 <fontDescription key="fontDescription" name="PretendardVariable-Regular" family="Pretendard Variable" pointSize="12"/>
                                                                 <color key="textColor" name="gray5"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2cL-XS-mzW">
-                                                                <rect key="frame" x="24" y="0.0" width="7" height="14"/>
+                                                                <rect key="frame" x="24.000000000000007" y="0.0" width="7.6666666666666679" height="14.333333333333334"/>
                                                                 <fontDescription key="fontDescription" name="PretendardVariable-Regular" family="Pretendard Variable" pointSize="12"/>
                                                                 <color key="textColor" name="gray5"/>
                                                                 <nil key="highlightedColor"/>
@@ -2537,23 +2537,23 @@
                                                         </subviews>
                                                     </stackView>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bulletinBoardEllipse" translatesAutoresizingMaskIntoConstraints="NO" id="zvb-qY-Ddr">
-                                                        <rect key="frame" x="76" y="8" width="2" height="2"/>
+                                                        <rect key="frame" x="77.333333333333329" y="8" width="2" height="2"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="2" id="eu9-lj-c6b"/>
                                                             <constraint firstAttribute="width" constant="2" id="rD6-d7-O4U"/>
                                                         </constraints>
                                                     </imageView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="gyR-xW-uR9">
-                                                        <rect key="frame" x="82" y="2" width="31" height="14"/>
+                                                        <rect key="frame" x="83.333333333333329" y="2.0000000000000009" width="31.666666666666671" height="14.333333333333336"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="채팅" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DQk-pd-Tcg">
-                                                                <rect key="frame" x="0.0" y="0.0" width="21" height="14"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="21" height="14.333333333333334"/>
                                                                 <fontDescription key="fontDescription" name="PretendardVariable-Regular" family="Pretendard Variable" pointSize="12"/>
                                                                 <color key="textColor" name="gray5"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LCv-X6-Hw0">
-                                                                <rect key="frame" x="24" y="0.0" width="7" height="14"/>
+                                                                <rect key="frame" x="24" y="0.0" width="7.6666666666666679" height="14.333333333333334"/>
                                                                 <fontDescription key="fontDescription" name="PretendardVariable-Regular" family="Pretendard Variable" pointSize="12"/>
                                                                 <color key="textColor" name="gray5"/>
                                                                 <nil key="highlightedColor"/>

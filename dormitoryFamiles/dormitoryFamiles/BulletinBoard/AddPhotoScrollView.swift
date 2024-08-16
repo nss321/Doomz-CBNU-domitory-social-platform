@@ -1,54 +1,11 @@
 //
-//  PhotoScrollView.swift
+//  AddPhotoScrollView.swift
 //  dormitoryFamiles
 //
-//  Created by leehwajin on 2024/03/16.
+//  Created by leehwajin on 8/11/24.
 //
 
 import UIKit
-
-
-class PhotoScrollView: UIScrollView {
-    var addPhotoStackView = UIStackView()
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        layout()
-        
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-
-    private func layout() {
-        addPhotoStackView.translatesAutoresizingMaskIntoConstraints = false
-        addSubview(addPhotoStackView)
-        NSLayoutConstraint.activate([
-            addPhotoStackView.topAnchor.constraint(equalTo: self.topAnchor),
-            addPhotoStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            addPhotoStackView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            addPhotoStackView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
-        ])
-        
-        //스크롤바 가리기
-        self.showsHorizontalScrollIndicator = false
-        addPhotoStackView.spacing = 12
-    }
-    
-    func addImage(image: UIImage) {
-        let newImageView = AddPhotoImageView(image: image)
-        addPhotoStackView.addArrangedSubview(newImageView)
-        
-        NSLayoutConstraint.activate([
-            newImageView.heightAnchor.constraint(equalToConstant: 100),
-            newImageView.widthAnchor.constraint(equalToConstant: 100)
-        ])
-        
-    }
-    
-
-}
 
 class AddPhotoScrollView: UIScrollView {
     let addPhotoStackView = UIStackView()

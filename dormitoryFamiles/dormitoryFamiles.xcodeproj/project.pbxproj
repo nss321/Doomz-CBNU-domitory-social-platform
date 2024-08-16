@@ -44,6 +44,7 @@
 		DB29DE2B2C4C293500365684 /* YourChattingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB29DE2A2C4C293500365684 /* YourChattingTableViewCell.swift */; };
 		DB2B7BC92B456F4700C1847D /* TagScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2B7BC82B456F4700C1847D /* TagScrollView.swift */; };
 		DB2B7BCB2B45727B00C1847D /* TagButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2B7BCA2B45727B00C1847D /* TagButton.swift */; };
+		DB31AA242C634EF8001BAE51 /* WebSocketManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB31AA232C634EF8001BAE51 /* WebSocketManager.swift */; };
 		DB3F05332C42AD440091349F /* SearchChattingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3F05322C42AD440091349F /* SearchChattingViewController.swift */; };
 		DB3F05352C42BB6B0091349F /* AllViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3F05342C42BB6B0091349F /* AllViewController.swift */; };
 		DB3F05392C43002E0091349F /* LabelAndPrimaryMidButtonStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3F05382C43002E0091349F /* LabelAndPrimaryMidButtonStackView.swift */; };
@@ -58,6 +59,7 @@
 		DB41008C2B6A665D005C4DD8 /* BrownVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB41008B2B6A665D005C4DD8 /* BrownVC.swift */; };
 		DB496DEB2B70EAFB00F97324 /* TabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB496DEA2B70EAFB00F97324 /* TabbarViewController.swift */; };
 		DB61AA342B4C1EA70040418B /* RegisterPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB61AA332B4C1EA70040418B /* RegisterPostViewController.swift */; };
+		DB62ACD12C6A421B0026D766 /* ChattingDateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB62ACD02C6A421B0026D766 /* ChattingDateTableViewCell.swift */; };
 		DB6491362C22F7FD00E0AE25 /* MealOfWeekViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6491352C22F7FD00E0AE25 /* MealOfWeekViewController.swift */; };
 		DB74D0C62B73EEBF00A90D68 /* Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB74D0C52B73EEBF00A90D68 /* Codable.swift */; };
 		DB7BE9E72BA47A5E00BC25E3 /* ReplyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7BE9E52BA47A5E00BC25E3 /* ReplyCollectionViewCell.swift */; };
@@ -92,6 +94,7 @@
 		DBD0C5822C41F46100F6B456 /* ChattingHomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD0C5812C41F46100F6B456 /* ChattingHomeTableViewCell.swift */; };
 		DBD1E00C2C3D49E900FDD5FE /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD1E00B2C3D49E900FDD5FE /* Token.swift */; };
 		DBD1E7FC2B84A9D500FD71C6 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD1E7FB2B84A9D500FD71C6 /* Network.swift */; };
+		DBD7A8752C64816700CDA629 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD7A8742C64816700CDA629 /* ProfileView.swift */; };
 		DBDF96EF2B84BFB2000E74AE /* ProfileFinishedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDF96EE2B84BFB2000E74AE /* ProfileFinishedViewController.swift */; };
 		DBE682B62BA592CC00DAA4CD /* PhotoScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE682B52BA592CC00DAA4CD /* PhotoScrollView.swift */; };
 		DBF466FB2AA5F4E4009FF3EB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF466FA2AA5F4E4009FF3EB /* AppDelegate.swift */; };
@@ -163,6 +166,7 @@
 		DB29DE2A2C4C293500365684 /* YourChattingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourChattingTableViewCell.swift; sourceTree = "<group>"; };
 		DB2B7BC82B456F4700C1847D /* TagScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagScrollView.swift; sourceTree = "<group>"; };
 		DB2B7BCA2B45727B00C1847D /* TagButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagButton.swift; sourceTree = "<group>"; };
+		DB31AA232C634EF8001BAE51 /* WebSocketManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketManager.swift; sourceTree = "<group>"; };
 		DB3F05322C42AD440091349F /* SearchChattingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchChattingViewController.swift; sourceTree = "<group>"; };
 		DB3F05342C42BB6B0091349F /* AllViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllViewController.swift; sourceTree = "<group>"; };
 		DB3F05382C43002E0091349F /* LabelAndPrimaryMidButtonStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelAndPrimaryMidButtonStackView.swift; sourceTree = "<group>"; };
@@ -177,6 +181,7 @@
 		DB41008B2B6A665D005C4DD8 /* BrownVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrownVC.swift; sourceTree = "<group>"; };
 		DB496DEA2B70EAFB00F97324 /* TabbarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarViewController.swift; sourceTree = "<group>"; };
 		DB61AA332B4C1EA70040418B /* RegisterPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPostViewController.swift; sourceTree = "<group>"; };
+		DB62ACD02C6A421B0026D766 /* ChattingDateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingDateTableViewCell.swift; sourceTree = "<group>"; };
 		DB6491352C22F7FD00E0AE25 /* MealOfWeekViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealOfWeekViewController.swift; sourceTree = "<group>"; };
 		DB74D0C52B73EEBF00A90D68 /* Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Codable.swift; sourceTree = "<group>"; };
 		DB7BE9E52BA47A5E00BC25E3 /* ReplyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ReplyCollectionViewCell.swift; path = ../../ReplyCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -205,6 +210,7 @@
 		DBD0C5812C41F46100F6B456 /* ChattingHomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingHomeTableViewCell.swift; sourceTree = "<group>"; };
 		DBD1E00B2C3D49E900FDD5FE /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
 		DBD1E7FB2B84A9D500FD71C6 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		DBD7A8742C64816700CDA629 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		DBDF96EE2B84BFB2000E74AE /* ProfileFinishedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFinishedViewController.swift; sourceTree = "<group>"; };
 		DBE682B52BA592CC00DAA4CD /* PhotoScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoScrollView.swift; sourceTree = "<group>"; };
 		DBF466F72AA5F4E4009FF3EB /* dormitoryFamiles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dormitoryFamiles.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -293,6 +299,7 @@
 				11AC97FA2BFF27940008C910 /* CustomSlider.swift */,
 				DB3F05382C43002E0091349F /* LabelAndPrimaryMidButtonStackView.swift */,
 				DB3F053A2C4307790091349F /* UserProfileNicknameCollectionViewController.swift */,
+				DBD7A8742C64816700CDA629 /* ProfileView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -327,6 +334,7 @@
 		DB29DE222C4C0E2B00365684 /* ChattingRoom */ = {
 			isa = PBXGroup;
 			children = (
+				DB29DE232C4C0E4100365684 /* ChattingDetailViewController.swift */,
 				DB29DE252C4C144500365684 /* View */,
 			);
 			path = ChattingRoom;
@@ -338,8 +346,17 @@
 				DB29DE262C4C146800365684 /* ChattingNavigationProfileStackView.swift */,
 				DB29DE282C4C292200365684 /* MyChattingTableViewCell.swift */,
 				DB29DE2A2C4C293500365684 /* YourChattingTableViewCell.swift */,
+				DB62ACD02C6A421B0026D766 /* ChattingDateTableViewCell.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		DB31AA222C634EDD001BAE51 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DB31AA232C634EF8001BAE51 /* WebSocketManager.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		DB32D75B2BA342EC00DE387A /* Extension */ = {
@@ -477,13 +494,13 @@
 		DBD0C57C2C41260B00F6B456 /* chat */ = {
 			isa = PBXGroup;
 			children = (
+				DB31AA222C634EDD001BAE51 /* Model */,
 				DB29DE222C4C0E2B00365684 /* ChattingRoom */,
 				DB3F053C2C44BE9F0091349F /* SearchChat */,
 				DBD0C57D2C41263700F6B456 /* ChattingHomeViewController.swift */,
 				DBD0C57F2C41E52C00F6B456 /* UserProfileNicknameCollectionViewControllerCell.swift */,
 				DBD0C5812C41F46100F6B456 /* ChattingHomeTableViewCell.swift */,
 				DB3F05322C42AD440091349F /* SearchChattingViewController.swift */,
-				DB29DE232C4C0E4100365684 /* ChattingDetailViewController.swift */,
 			);
 			path = chat;
 			sourceTree = "<group>";
@@ -682,7 +699,9 @@
 				117250E72BB31AF60083F181 /* CommomButton.swift in Sources */,
 				DBD0C57E2C41263700F6B456 /* ChattingHomeViewController.swift in Sources */,
 				DB8DDFD72BECB0B600B3A676 /* DateFomat.swift in Sources */,
+				DB62ACD12C6A421B0026D766 /* ChattingDateTableViewCell.swift in Sources */,
 				1148B3F62C3EAD4B0056671B /* PriorityCell.swift in Sources */,
+				DBD7A8752C64816700CDA629 /* ProfileView.swift in Sources */,
 				DB7BE9E72BA47A5E00BC25E3 /* ReplyCollectionViewCell.swift in Sources */,
 				11036F272C3C19A00042B9EF /* StudyStyleViewController.swift in Sources */,
 				DB29DE272C4C146800365684 /* ChattingNavigationProfileStackView.swift in Sources */,
@@ -708,6 +727,7 @@
 				DB74D0C62B73EEBF00A90D68 /* Codable.swift in Sources */,
 				119F6D552C4012F300297E3F /* UserDefaults+.swift in Sources */,
 				DB29DE2B2C4C293500365684 /* YourChattingTableViewCell.swift in Sources */,
+				DB31AA242C634EF8001BAE51 /* WebSocketManager.swift in Sources */,
 				11036F212C3C05D60042B9EF /* HomeCycleViewController.swift in Sources */,
 				DB9D47B52C50B85D0031C8EF /* Encodable+.swift in Sources */,
 				11227B1F2C513C96002A6A8A /* UICollectionView+.swift in Sources */,
@@ -887,7 +907,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = W43DLLFB4Q;
+				DEVELOPMENT_TEAM = 7B9KLZFFL8;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = dormitoryFamiles/App/info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -917,7 +937,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = W43DLLFB4Q;
+				DEVELOPMENT_TEAM = 7B9KLZFFL8;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = dormitoryFamiles/App/info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

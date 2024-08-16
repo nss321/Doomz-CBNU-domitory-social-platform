@@ -173,9 +173,9 @@ struct ChattingRoom: Codable {
     let roomId: Int
     let memberId: Int
     let memberNickname: String
-    let unReadCount: Int
-    let lastMessage: String
-    let lastMessageTime: String
+    var unReadCount: Int
+    var lastMessage: String
+    var lastMessageTime: String
     let memberProfileUrl: String?
 }
 
@@ -233,4 +233,59 @@ struct StompSendDTO: Codable {
     let roomUUID: String
     let senderId: Int
     let message: String
+}
+
+struct ExitRoomRequest: Codable {
+    let roomId: String
+}
+
+struct CodeResponse: Codable {
+    let code: Int
+}
+
+
+struct ErrorResponse: Codable {
+    let code: Int
+    let errorMessage: String
+}
+
+struct ProfileResponse: Codable {
+    let code: Int
+    let data: MemberProfileData
+}
+
+struct MemberProfileData: Codable {
+    let memberId: Int
+    let nickname: String
+    let profileUrl: String
+    let dormitoryType: String
+    let isFollowing: Bool
+}
+
+struct CreateRoomResponse: Codable {
+    let code: Int
+    let data: RoomData
+}
+
+struct RoomData: Codable {
+    let chatRoomId: Int
+    let roomUUID: String
+}
+
+struct MyIdResponse: Codable {
+    let code: Int
+    let data: MyIdDataClass
+}
+
+struct MyIdDataClass: Codable {
+    let memberId: Int
+}
+
+struct TotalUnReadResponse: Codable {
+    let code: Int
+    let data: TotalUnReadDataClass
+}
+
+struct TotalUnReadDataClass: Codable {
+    let totalCount: Int
 }
