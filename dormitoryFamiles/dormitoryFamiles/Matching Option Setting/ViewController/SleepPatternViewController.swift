@@ -157,6 +157,11 @@ final class SleepPatternViewController: UIViewController, ConfigUI {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.tabBarController?.tabBar.isHidden = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
         self.tabBarController?.tabBar.isHidden = false
     }
     
@@ -234,7 +239,6 @@ final class SleepPatternViewController: UIViewController, ConfigUI {
             print("\($0): \(UserDefaults.standard.getMatchingOptionValue(forKey: $0) ?? "")")
         }
     
-        self.tabBarController?.tabBar.isHidden = true
         self.navigationController?.pushViewController(SmokeAndAlcoholPatternViewController(), animated: true)
     }
 }
