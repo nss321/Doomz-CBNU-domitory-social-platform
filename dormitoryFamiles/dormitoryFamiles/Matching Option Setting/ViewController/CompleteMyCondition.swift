@@ -49,7 +49,7 @@ final class CompleteMyCondition: UIViewController, ConfigUI {
     
     private let nextButton = CommonButton()
     
-    private lazy var nextButtonModel = CommonbuttonModel(title: "룸메 정보 설정", titleColor: .white ,backgroundColor: .primary!, height: 52) {
+    private lazy var nextButtonModel = CommonbuttonModel(title: "선호 룸메 우선순위 설정", titleColor: .white ,backgroundColor: .primary!, height: 52) {
         self.didClickNextButton()
     }
     

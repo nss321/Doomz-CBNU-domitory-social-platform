@@ -101,11 +101,10 @@ final class HomeCycleViewController: UIViewController, ConfigUI {
         addComponents()
         setConstraints()
         nextButton.setup(model: nextButtonModel)
-        checkSelections(selectedItems: [selectedCycle], nextButton: nextButton)
     }
     
     func addComponents() {
-        let cycleSection = createStackViewWithLabelAndSubview(string: "본가가는 빈도", subview: cycleCollectionView, isRequired: true)
+        let cycleSection = createStackViewWithLabelAndSubview(string: "본가가는 빈도", subview: cycleCollectionView)
         
         view.addSubview(stackView)
         [logoStackView, cycleStack].forEach{ stackView.addArrangedSubview($0) }
@@ -184,6 +183,5 @@ extension HomeCycleViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         handleSelection(collectionView: collectionView, indexPath: indexPath, selectedValue: &selectedCycle, items: cycle)
         print("Cycle: \(cycle[indexPath.item]) 선택")
-        checkSelections(selectedItems: [selectedCycle], nextButton: nextButton)
     }
 }

@@ -39,6 +39,11 @@ final class MatchingMainViewController: UIViewController, ConfigUI {
         setConstraints()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tabBarController?.tabBar.isHidden = false
+    }
+    
     func addComponents() {
         recommendedMatesButton.addTarget(self, action: #selector(button1), for: .touchUpInside)
         requestListButton.addTarget(self, action: #selector(button2), for: .touchUpInside)
@@ -74,6 +79,7 @@ final class MatchingMainViewController: UIViewController, ConfigUI {
     
     @objc func button1() {
         print("1탭")
+        self.tabBarController?.tabBar.isHidden = true
         self.navigationController?.pushViewController(SleepPatternViewController(), animated: true)
     }
     @objc func button2() {
