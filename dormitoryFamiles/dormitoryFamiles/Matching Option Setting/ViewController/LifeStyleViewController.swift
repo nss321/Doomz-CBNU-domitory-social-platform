@@ -135,8 +135,8 @@ final class LifeStyleViewController: UIViewController, ConfigUI {
     
     func addComponents() {
         let sliderSection = createStackViewWithLabelAndSubview(string: "샤워시간", subview: showerTimeSlider)
-        let showerSection = createStackViewWithLabelAndSubview(string: "샤워시간대", subview: showerTimeCollectionView)
-        let cleanSection = createStackViewWithLabelAndSubview(string: "청소", subview: cleanHabitCollectionView)
+        let showerSection = createStackViewWithLabelAndSubview(string: "샤워시간대", subview: showerTimeCollectionView, isRequired: true)
+        let cleanSection = createStackViewWithLabelAndSubview(string: "청소", subview: cleanHabitCollectionView, isRequired: true)
         
         view.addSubview(stackView)
         [logoStackView, lifeStyleStack].forEach{ stackView.addArrangedSubview($0) }

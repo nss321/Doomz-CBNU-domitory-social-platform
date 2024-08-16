@@ -61,6 +61,31 @@ extension UIViewController {
         label.font = FontManager.subtitle1()
         label.textColor = .gray5
         label.addCharacterSpacing()
+          
+        stackView.addArrangedSubview(label)
+        stackView.addArrangedSubview(subview)
+        
+        return stackView
+    }
+    
+    /// Label과 StackView를 하나의 Container로 묶어서 return, 필수 항목 표시 추가
+    /// - Parameters:
+    ///   - string: String
+    ///   - subview: UIView
+    ///   - isRequired: Bool
+    /// - Returns: UIstackView
+    func createStackViewWithLabelAndSubview(string: String, subview: UIView, isRequired: Bool) -> UIStackView {
+        let stackView = UIStackView()
+        stackView.axis = .vertical
+        stackView.spacing = 8
+        stackView.distribution = .fillProportionally
+        stackView.alignment = .leading
+        
+        let label = UILabel()
+        label.text = string
+        label.font = FontManager.subtitle1()
+        label.textColor = .gray5
+        label.addCharacterSpacing()
         
         let asterisk = UILabel()
         asterisk.text = "*"
@@ -71,7 +96,14 @@ extension UIViewController {
         let labelContainer = UIView()
         labelContainer.backgroundColor = .clear
         labelContainer.addSubview(label)
-        labelContainer.addSubview(asterisk)
+        
+        if isRequired {
+            labelContainer.addSubview(asterisk)
+            asterisk.snp.makeConstraints {
+                $0.left.equalTo(label.snp.right).offset(4)
+                $0.top.equalToSuperview()
+            }
+        }
         
         stackView.addArrangedSubview(labelContainer)
         stackView.addArrangedSubview(subview)
@@ -80,10 +112,7 @@ extension UIViewController {
             $0.left.top.bottom.equalToSuperview()
         }
         
-        asterisk.snp.makeConstraints {
-            $0.left.equalTo(label.snp.right).offset(4)
-            $0.top.equalToSuperview()
-        }
+        
         
         return stackView
     }
@@ -102,6 +131,78 @@ extension UIViewController {
             nextButton.isEnabled(false)
             nextButton.backgroundColor = .gray3
         }
+    }
+    
+    enum PriorityCellType {
+        case rect(type: IsSleepTime)
+        case circle
+        
+        enum IsSleepTime {
+            case right
+            case not
+        }
+    }
+    
+    func makeSelectedSection(header: String, content: [String], tag: Int, cellType: PriorityCellType, numberOfColumns: Int, delegate: UICollectionViewDelegate, dataSource: UICollectionViewDataSource) -> UIStackView {
+        
+        var stackView = UIStackView()
+        
+        switch cellType {
+        case .rect(let type):
+            let layout = UICollectionViewFlowLayout()
+            let interSpacing = 8
+            let width = (UIScreen.screenWidthLayoutGuide - interSpacing * (numberOfColumns-1)) / numberOfColumns - 1
+            print("\(UIScreen.screenWidthLayoutGuide) \(interSpacing) \(numberOfColumns)\n\(UIScreen.screenWidthLayoutGuide-interSpacing*(numberOfColumns-1)) \(CGFloat(width))")
+            print(UIScreen.cellWidth2Column)
+            let height = UIScreen.cellHeight
+            layout.minimumLineSpacing = CGFloat(interSpacing)
+            layout.itemSize = CGSize(width: width, height: height)
+            let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+            
+            collectionView.tag = tag
+            collectionView.backgroundColor = .clear
+            collectionView.delegate = delegate
+            collectionView.dataSource = dataSource
+            collectionView.register(SleepPatternCollectionViewCell.self, forCellWithReuseIdentifier: SleepPatternCollectionViewCell.identifier)
+            
+            switch type {
+            case .right:
+                collectionView.snp.makeConstraints {
+                    $0.width.equalTo(UIScreen.screenWidthLayoutGuide)
+                    $0.height.equalTo(height*3+interSpacing*2)
+                }
+                stackView = createStackViewWithLabelAndSubview(string: header, subview: collectionView)
+            case .not:
+                collectionView.snp.makeConstraints {
+                    $0.width.equalTo(UIScreen.screenWidthLayoutGuide)
+                    $0.height.equalTo(height)
+                }
+                stackView = createStackViewWithLabelAndSubview(string: header, subview: collectionView)
+            }
+            
+        case .circle:
+            let layout = UICollectionViewFlowLayout()
+            let interSpacing = 16
+            let diameter = UIScreen.circleCellDiameter
+            layout.minimumLineSpacing = CGFloat(interSpacing)
+            layout.itemSize = CGSize(width: diameter, height: diameter)
+            let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+            
+            collectionView.tag = tag
+            collectionView.backgroundColor = .clear
+            collectionView.delegate = delegate
+            collectionView.dataSource = dataSource
+            collectionView.register(SleepPatternCircleCollectionViewCell.self, forCellWithReuseIdentifier: SleepPatternCircleCollectionViewCell.identifier)
+            
+            collectionView.snp.makeConstraints {
+                $0.width.equalTo(UIScreen.screenWidthLayoutGuide)
+                $0.height.equalTo(diameter)
+            }
+            stackView = createStackViewWithLabelAndSubview(string: header, subview: collectionView)
+            
+        }
+        
+        return stackView
     }
 }
 

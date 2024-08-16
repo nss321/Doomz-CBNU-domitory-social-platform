@@ -105,7 +105,7 @@ final class HomeCycleViewController: UIViewController, ConfigUI {
     }
     
     func addComponents() {
-        let cycleSection = createStackViewWithLabelAndSubview(string: "본가가는 빈도", subview: cycleCollectionView)
+        let cycleSection = createStackViewWithLabelAndSubview(string: "본가가는 빈도", subview: cycleCollectionView, isRequired: true)
         
         view.addSubview(stackView)
         [logoStackView, cycleStack].forEach{ stackView.addArrangedSubview($0) }
@@ -176,7 +176,7 @@ extension HomeCycleViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let cellSize: CGSize
         
-        cellSize = CGSize(width: UIScreen.circleCellRadius, height: UIScreen.circleCellRadius )
+        cellSize = CGSize(width: UIScreen.circleCellDiameter, height: UIScreen.circleCellDiameter )
     
         return cellSize
     }

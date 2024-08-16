@@ -111,12 +111,12 @@ final class NoiseAndPerfumeViewController: UIViewController, ConfigUI {
         addComponents()
         setConstraints()
         nextButton.setup(model: nextButtonModel)
-        checkSelections(selectedItems: [selectedNoise, selectedPerfume], nextButton: nextButton)
+        checkSelections(selectedItems: [selectedPerfume], nextButton: nextButton)
     }
     
     func addComponents() {
         let noiseSection = createStackViewWithLabelAndSubview(string: "휴대폰 소리", subview: noiseCollectionView)
-        let perfumeSection = createStackViewWithLabelAndSubview(string: "향수", subview: perfumeCollectionView)
+        let perfumeSection = createStackViewWithLabelAndSubview(string: "향수", subview: perfumeCollectionView, isRequired: true)
         
         view.addSubview(stackView)
         [logoStackView, noiseAndPerfumeStack].forEach{ stackView.addArrangedSubview($0) }
@@ -220,7 +220,7 @@ extension NoiseAndPerfumeViewController: UICollectionViewDelegateFlowLayout {
         default:
             print("default")
         }
-        checkSelections(selectedItems: [selectedNoise, selectedPerfume], nextButton: nextButton)
+        checkSelections(selectedItems: [selectedPerfume], nextButton: nextButton)
     }
     
 }

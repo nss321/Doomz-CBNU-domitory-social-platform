@@ -161,9 +161,9 @@ final class SleepPatternViewController: UIViewController, ConfigUI {
     }
     
     func addComponents() {
-        let bedTimeSection =  createStackViewWithLabelAndSubview(string: "취침시간", subview: bedTiemCollectionView)
-        let wakeupTimeSection =  createStackViewWithLabelAndSubview(string: "기상시간", subview: wakeupTimeCollcetionView)
-        let habitsSection = createStackViewWithLabelAndSubview(string: "잠버릇", subview: sleepingHabitsCollectionView)
+        let bedTimeSection =  createStackViewWithLabelAndSubview(string: "취침시간", subview: bedTiemCollectionView, isRequired: true)
+        let wakeupTimeSection =  createStackViewWithLabelAndSubview(string: "기상시간", subview: wakeupTimeCollcetionView, isRequired: true)
+        let habitsSection = createStackViewWithLabelAndSubview(string: "잠버릇", subview: sleepingHabitsCollectionView, isRequired: true)
         let sensitivitySection = createStackViewWithLabelAndSubview(string: "잠귀", subview: sleepSensitivityCollectionView)
         
         view.addSubview(scrollView)
@@ -314,7 +314,7 @@ extension SleepPatternViewController: UICollectionViewDelegateFlowLayout {
         switch collectionView {
         case sleepingHabitsCollectionView:
             // MARK: cell 간격
-            cellSize = CGSize(width: UIScreen.circleCellRadius, height: UIScreen.circleCellRadius)
+            cellSize = CGSize(width: UIScreen.circleCellDiameter, height: UIScreen.circleCellDiameter)
         case sleepSensitivityCollectionView:
             cellSize = CGSize(width: UIScreen.cellWidth2Column, height: UIScreen.cellHeight)
         default:
