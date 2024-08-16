@@ -161,12 +161,89 @@ struct Network {
             
             if (200...299).contains(httpResponse.statusCode) {
                 print("postMethod 200번대 성공")
+                if let data = data {
+                       do {
+                           let decodedData = try JSONDecoder().decode(T.self, from: data)
+                           print("디코딩 성공: \(decodedData)") // 디코딩 성공 여부 확인
+                           completion(.success(decodedData))
+                       } catch {
+                           print("디코딩 실패: \(error.localizedDescription)") // 디코딩 오류 확인
+                           completion(.failure(error))
+                       }
+                   } else {
+                       completion(.failure(NSError(domain: "Invalid data", code: 0, userInfo: ["description": "No data received."])))
+                   }
             } else {
                 print("postMethod 200번대아님 실패")
+                if let data = data {
+                    do {
+                        let errorResponse = try JSONDecoder().decode(ErrorResponse.self, from: data)
+                        let statusError = NSError(domain: "HTTP Error", code: errorResponse.code, userInfo: [
+                            "description": errorResponse.errorMessage,
+                            "statusCode": errorResponse.code
+                        ])
+                        completion(.failure(statusError))
+                    } catch {
+                        let statusError = NSError(domain: "HTTP Error", code: httpResponse.statusCode, userInfo: [
+                            "description": "Failed to parse error message.",
+                            "statusCode": httpResponse.statusCode
+                        ])
+                        completion(.failure(statusError))
+                    }
+                } else {
+                    let statusError = NSError(domain: "HTTP Error", code: httpResponse.statusCode, userInfo: [
+                        "description": "No data received.",
+                        "statusCode": httpResponse.statusCode
+                    ])
+                    completion(.failure(statusError))
+                }
             }
         }
         task.resume()
     }
+
+
+    
+    static func patchMethod<T: Codable>(url: String, completion: @escaping (Result<T, Error>) -> Void) {
+            guard let url = URL(string: url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "") else {
+                completion(.failure(NSError(domain: "InvalidURL", code: 400, userInfo: nil)))
+                return
+            }
+            var request = URLRequest(url: url)
+            request.httpMethod = "PATCH"
+            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            let token = Token.shared.number
+            request.addValue("Bearer \(token)", forHTTPHeaderField: "Accesstoken")
+            
+            let task = URLSession.shared.dataTask(with: request) { data, response, error in
+                if let error = error {
+                    completion(.failure(error))
+                    return
+                }
+                
+                guard let httpResponse = response as? HTTPURLResponse else {
+                    completion(.failure(NSError(domain: "Invalid response", code: 0, userInfo: ["description": "No HTTP response"])))
+                    return
+                }
+                
+                if (200...299).contains(httpResponse.statusCode) {
+                    guard let data = data else {
+                        completion(.failure(NSError(domain: "No data", code: 0, userInfo: ["description": "No data received from server"])))
+                        return
+                    }
+                    do {
+                        let decodedData = try JSONDecoder().decode(T.self, from: data)
+                        completion(.success(decodedData))
+                    } catch {
+                        completion(.failure(error))
+                    }
+                } else {
+                    completion(.failure(NSError(domain: "Invalid response", code: httpResponse.statusCode, userInfo: ["description": "HTTP Status Code: \(httpResponse.statusCode)"])))
+                }
+            }
+            task.resume()
+        }
+    
     
     static func loadImage(url: String) -> UIImageView {
         let imageView = UIImageView()

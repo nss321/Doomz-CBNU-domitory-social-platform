@@ -121,21 +121,15 @@ class MessagegViewController: UIViewController {
     }
     
     @objc func sortedButtonTapped() {
-            dropDown.dataSource = ["최신순", "오래된순"]
+        dropDown.dataSource = ["최신순", "오래된순"]
 
-        //공통으로 dropdown을 보여주기 위한 코드
         dropDown.anchorView = sortedButton
-        dropDown.bottomOffset = CGPoint(x: 0, y:((dropDown.anchorView?.plainView.bounds.height)!+5))
+        dropDown.bottomOffset = CGPoint(x: 0, y:((dropDown.anchorView?.plainView.bounds.height)! + 5))
         dropDown.show()
         dropDown.selectionAction = { [weak self] (index: Int, item: String) in
             guard let self = self else { return }
-            //item 선택시 -> 1. 버튼의 title변경, 2. 해당 url세팅
             self.sortedButton.body2 = item
-            if item == "최신순" {
-                self.sorted = "latest"
-            }else {
-                self.sorted = "oldest"
-            }
+            self.sorted = (item == "최신순") ? "latest" : "oldest"
             self.chatListApiNetwork(url: Url.message(page: self.messagePage, size: nil, keyword: SearchChattingViewController.keyword, sorted: self.sorted))
         }
     }
@@ -164,13 +158,22 @@ extension MessagegViewController: UITableViewDataSource, UITableViewDelegate {
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let message = messageData[indexPath.row]
+        let chattingDetailViewController = ChattingDetailViewController()
+        chattingDetailViewController.roomId = message.roomId
+        chattingDetailViewController.nickname = message.memberNickname
+        chattingDetailViewController.profileImageUrl = message.memberProfileUrl
+        self.navigationController?.pushViewController(chattingDetailViewController, animated: true)
+    }
+    
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let delete = UIContextualAction(style: .normal, title: "나가기") { (UIContextualAction, UIView, success: @escaping (Bool) -> Void) in
-            print("나가기\(indexPath)")
+            print("나가기 \(indexPath)")
             success(true)
         }
         delete.backgroundColor = .systemRed
-        return UISwipeActionsConfiguration(actions:[delete])
+        return UISwipeActionsConfiguration(actions: [delete])
     }
 }
 

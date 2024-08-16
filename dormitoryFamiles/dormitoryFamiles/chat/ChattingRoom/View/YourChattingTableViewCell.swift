@@ -69,7 +69,7 @@ class YourChattingTableViewCell: UITableViewCell, ConfigUI {
     func setConstraints() {
         profileImageView.snp.makeConstraints {
             $0.top.equalToSuperview().offset(10)
-            $0.leading.equalToSuperview().offset(15)
+            $0.leading.equalToSuperview()
             $0.width.height.equalTo(40)
         }
         
