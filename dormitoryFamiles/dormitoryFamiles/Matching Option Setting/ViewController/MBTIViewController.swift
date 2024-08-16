@@ -248,8 +248,6 @@ extension MBTIViewController: UICollectionViewDataSource, UICollectionViewDelega
         }
         
         checkSelectOneOrAll()
-        print("\(checkSelection)")
-        
     }
     
     func checkSelectOneOrAll() {
