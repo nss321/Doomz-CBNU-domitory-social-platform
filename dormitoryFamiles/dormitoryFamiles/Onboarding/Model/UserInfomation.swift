@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct UserInformation{
+final class UserInformation{
     static let shared = UserInformation()
     private init() {}
     
@@ -18,18 +18,18 @@ struct UserInformation{
     private var studentNumber = 0
     private var dormitoryType = ""
     
-    mutating func setNickname(text: String) {
+    func setNickname(text: String) {
         self.nickname = text
     }
     
-    mutating func setProfile(collegeType: String, departmentType: String, studentNumber: Int, dormitoryType: String) {
+    func setProfile(collegeType: String, departmentType: String, studentNumber: Int, dormitoryType: String) {
         self.collegeType = collegeType
         self.departmentType = departmentType
         self.studentNumber = studentNumber
         self.dormitoryType = dormitoryType
     }
     
-    mutating func setStudentCardImageUrl(url: String) {
+    func setStudentCardImageUrl(url: String) {
         self.studentCardImageUrl = url
     }
 }

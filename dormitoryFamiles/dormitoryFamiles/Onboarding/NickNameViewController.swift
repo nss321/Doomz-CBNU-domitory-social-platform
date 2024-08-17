@@ -67,6 +67,7 @@ final class NickNameViewController: UIViewController {
                     self.changeAuthenticatedState()
                     self.availableLabel.text = "사용 가능한 닉네임이예요."
                     self.textField.layer.borderColor = UIColor(red: 0.894, green: 0.898, blue: 0.906, alpha: 1).cgColor
+                    UserInformation.shared.setNickname(text: nickname)
                 } else {
                     self.availableLabel.isHidden = false
                     self.availableLabel.text = "사용 불가능한 닉네임이에요. 다시 입력해주세요."

@@ -36,7 +36,6 @@ class StudentCertificationViewController: UIViewController {
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
             present(imagePicker, animated: true, completion: nil)
         } else {
-            // 카메라가 사용 불가능한 경우 알림 표시 또는 다른 대체 기능 제공
             print("카메라를 사용할 수 없습니다.")
         }
     }

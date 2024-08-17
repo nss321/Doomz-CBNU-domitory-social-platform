@@ -164,6 +164,7 @@ final class ProfileSettingViewController: UIViewController {
         if (departmentSelectionButton.currentTitle != "학과선택") && (studentNumberTextField.text != "") {
             nextButton.isEnabled = true
             nextButton.backgroundColor = .primary
+            UserInformation.shared.setProfile(collegeType: collegeOfCollegesButton.currentTitle ?? "", departmentType: departmentSelectionButton.currentTitle ?? "", studentNumber: Int(studentNumberTextField.text ?? "") ?? 0, dormitoryType: dormitoryButton.currentTitle ?? "")
         }else {
             nextButton.isEnabled = false
             nextButton.backgroundColor = .gray3
