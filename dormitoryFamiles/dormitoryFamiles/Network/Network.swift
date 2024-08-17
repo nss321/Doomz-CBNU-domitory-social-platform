@@ -137,17 +137,25 @@ struct Network {
         task.resume()
     }
     
-    static func postMethod<T: Codable>(url: String, completion: @escaping (Result<T, Error>) -> Void) {
+    static func createRequest(url: String, method: String = "POST", token: String, contentType: String? = nil, body: Data? = nil) -> URLRequest? {
         guard let url = URL(string: url) else {
-            completion(.failure(NSError(domain: "Invalid URL", code: 0, userInfo: ["description": "URL is not valid."])))
-            return
+            return nil
         }
         
         var request = URLRequest(url: url)
-        request.httpMethod = "POST"
-        let token = Token.shared.number
+        request.httpMethod = method
         request.addValue("Bearer \(token)", forHTTPHeaderField: "Accesstoken")
         
+        if let contentType = contentType {
+            request.addValue(contentType, forHTTPHeaderField: "Content-Type")
+        }
+        
+        request.httpBody = body
+        
+        return request
+    }
+
+    static func executeRequest<T: Codable>(request: URLRequest, completion: @escaping (Result<T, Error>) -> Void) {
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
             if let error = error {
                 completion(.failure(error))
@@ -160,21 +168,17 @@ struct Network {
             }
             
             if (200...299).contains(httpResponse.statusCode) {
-                print("postMethod 200번대 성공")
                 if let data = data {
-                       do {
-                           let decodedData = try JSONDecoder().decode(T.self, from: data)
-                           print("디코딩 성공: \(decodedData)") // 디코딩 성공 여부 확인
-                           completion(.success(decodedData))
-                       } catch {
-                           print("디코딩 실패: \(error.localizedDescription)") // 디코딩 오류 확인
-                           completion(.failure(error))
-                       }
-                   } else {
-                       completion(.failure(NSError(domain: "Invalid data", code: 0, userInfo: ["description": "No data received."])))
-                   }
+                    do {
+                        let decodedData = try JSONDecoder().decode(T.self, from: data)
+                        completion(.success(decodedData))
+                    } catch {
+                        completion(.failure(error))
+                    }
+                } else {
+                    completion(.failure(NSError(domain: "Invalid data", code: 0, userInfo: ["description": "No data received."])))
+                }
             } else {
-                print("postMethod 200번대아님 실패")
                 if let data = data {
                     do {
                         let errorResponse = try JSONDecoder().decode(ErrorResponse.self, from: data)
@@ -202,7 +206,38 @@ struct Network {
         task.resume()
     }
 
+    static func postMethod<T: Codable>(url: String, completion: @escaping (Result<T, Error>) -> Void) {
+        let token = Token.shared.number
+        guard let request = createRequest(url: url, token: token) else {
+            completion(.failure(NSError(domain: "Invalid URL", code: 0, userInfo: ["description": "URL is not valid."])))
+            return
+        }
+        
+        executeRequest(request: request, completion: completion)
+    }
 
+    static func multipartFilePostMethod<T: Codable>(url: String, image: UIImage, completion: @escaping (Result<T, Error>) -> Void) {
+        let token = Token.shared.number
+        let boundary = UUID().uuidString
+        var data = Data()
+        
+        if let imageData = image.jpegData(compressionQuality: 0.3) {
+            data.append("--\(boundary)\r\n".data(using: .utf8)!)
+            data.append("Content-Disposition: form-data; name=\"file\"; filename=\"image.jpg\"\r\n".data(using: .utf8)!)
+            data.append("Content-Type: image/jpeg\r\n\r\n".data(using: .utf8)!)
+            data.append(imageData)
+            data.append("\r\n".data(using: .utf8)!)
+        }
+        
+        data.append("--\(boundary)--\r\n".data(using: .utf8)!)
+        
+        guard let request = createRequest(url: url, token: token, contentType: "multipart/form-data; boundary=\(boundary)", body: data) else {
+            completion(.failure(NSError(domain: "Invalid URL", code: 0, userInfo: ["description": "URL is not valid."])))
+            return
+        }
+        
+        executeRequest(request: request, completion: completion)
+    }
     
     static func patchMethod<T: Codable>(url: String, completion: @escaping (Result<T, Error>) -> Void) {
             guard let url = URL(string: url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "") else {

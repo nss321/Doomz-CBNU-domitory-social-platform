@@ -10,23 +10,62 @@ import UIKit
 class StudentCertificationViewController: UIViewController {
     
     let imagePicker = UIImagePickerController()
+    var imageUrl: String?
+    var activityIndicator: UIActivityIndicatorView! {
+        let indicator = UIActivityIndicatorView(style: .large)
+        indicator.center = view.center
+        indicator.hidesWhenStopped = true
+        view.addSubview(indicator)
+        return indicator
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         imagePicker.delegate = self
-        imagePicker.sourceType = .camera
-        imagePicker.allowsEditing = false
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            imagePicker.sourceType = .camera
+            imagePicker.cameraCaptureMode = .photo
+            imagePicker.allowsEditing = false
+        } else {
+            print("카메라를 사용할 수 없습니다.")
+        }
     }
     
     @IBAction func cameraButtonTapped(_ sender: UIButton) {
-        present(imagePicker, animated: true, completion: nil)
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            present(imagePicker, animated: true, completion: nil)
+        } else {
+            // 카메라가 사용 불가능한 경우 알림 표시 또는 다른 대체 기능 제공
+            print("카메라를 사용할 수 없습니다.")
+        }
     }
     
     private func uploadImage(_ image: UIImage) {
-      
-        //이미지 로드가 끝나면 화면 전환
-        self.navigationController?.pushViewController(ProfileFinishedViewController(), animated: true)
+        DispatchQueue.main.async {
+            self.activityIndicator.startAnimating()
+        }
+        
+        // multipartFilePostMethod 호출
+        Network.multipartFilePostMethod(url: Url.postImage(), image: image) { (result: Result<ImageResponse, Error>) in
+            DispatchQueue.main.async {
+                // 인디케이터 돌아가도록
+                self.activityIndicator.stopAnimating()
+            }
+            
+            switch result {
+            case .success(let response):
+                self.imageUrl = response.data.imageUrl
+                DispatchQueue.main.async {
+                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                    if let profileFinishedVC = storyboard.instantiateViewController(withIdentifier: "ProfileFinishedViewController") as? ProfileFinishedViewController {
+                        self.navigationController?.pushViewController(profileFinishedVC, animated: true)
+                    }
+                }
+            case .failure(let error):
+                print("Failed to upload image: \(error.localizedDescription)")
+            }
+        }
     }
 }
 
@@ -46,3 +85,4 @@ extension StudentCertificationViewController: UIImagePickerControllerDelegate {
 extension StudentCertificationViewController: UINavigationControllerDelegate {
     
 }
+

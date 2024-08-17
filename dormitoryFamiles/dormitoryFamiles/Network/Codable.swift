@@ -299,3 +299,11 @@ struct NicknameData: Codable {
     let isDuplicated: Bool
 }
 
+struct ImageResponse: Codable {
+    let code: Int
+    let data: ImageData
+}
+
+struct ImageData: Codable {
+    let imageUrl: String
+}
