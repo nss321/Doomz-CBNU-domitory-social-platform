@@ -67,6 +67,8 @@ final class ProfileSettingViewController: UIViewController {
     private func setTextfield() {
         studentNumberTextField.delegate = self
         studentNumberTextField.keyboardType = .numberPad
+        studentNumberTextField.autocorrectionType = .no
+        studentNumberTextField.spellCheckingType = .no
     }
     
     @objc private func dismissKeyboard() {
