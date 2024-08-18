@@ -141,8 +141,8 @@ final class SmokeAndAlcoholPatternViewController: UIViewController, ConfigUI {
     }
     
     func addComponents() {
-        let smokeSection = createStackViewWithLabelAndSubview(string: "흡연여부", subview: smokeCollectionView)
-        let alcoholSection = createStackViewWithLabelAndSubview(string: "음주빈도", subview: alcoholCollectionView)
+        let smokeSection = createStackViewWithLabelAndSubview(string: "흡연여부", subview: smokeCollectionView, isRequired: true)
+        let alcoholSection = createStackViewWithLabelAndSubview(string: "음주빈도", subview: alcoholCollectionView, isRequired: true)
         let alcoholHabitSection = createStackViewWithLabelAndSubview(string: "주사", subview: drinkHabitTextField)
         
         view.addSubview(stackView)
@@ -269,7 +269,7 @@ extension SmokeAndAlcoholPatternViewController: UICollectionViewDelegateFlowLayo
         switch collectionView {
         case alcoholCollectionView:
             // MARK: cell 간격
-            cellSize = CGSize(width: UIScreen.circleCellRadius, height: UIScreen.circleCellRadius )
+            cellSize = CGSize(width: UIScreen.circleCellDiameter, height: UIScreen.circleCellDiameter )
         default:
             cellSize = CGSize(width: UIScreen.cellWidth2Column, height: UIScreen.cellHeight)
         }

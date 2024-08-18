@@ -50,102 +50,51 @@ class PhotoScrollView: UIScrollView {
 
 }
 
-final class AddPhotoScrollView: PhotoScrollView {
+class AddPhotoScrollView: UIScrollView {
+    let addPhotoStackView = UIStackView()
     let addPhotoButton = UIButton()
-    let addPhotoButtonView = UIView()
-    private let cameraView = UIImageView()
     let countPictureLabel = UILabel()
-    private let buttonComponentStackView = UIStackView()
-    
+    let maximumPhotoNumber = 5
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setUI()
+        setupScrollView()
     }
     
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: coder)
+        setupScrollView()
     }
     
-    private func setUI() {
-        setCameraView()
-        setCountPictureLabel()
-        setButtonComponentStackView()
-        setAddPhotoButton()
-        setLayout()
-    }
-    
-    private func setCameraView() {
-        cameraView.image = UIImage(named: "registerCamera")
-        cameraView.tintColor = .black
-        cameraView.isUserInteractionEnabled = true
-        
-        cameraView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            cameraView.heightAnchor.constraint(equalToConstant: 24),
-            cameraView.widthAnchor.constraint(equalToConstant: 28)
-        ])
-    }
-    
-    private func setCountPictureLabel() {
-        countPictureLabel.text = "\(self.addPhotoStackView.arrangedSubviews.count)/5"
-        countPictureLabel.font = .pretendardVariable
-        countPictureLabel.textColor = .gray4
-        countPictureLabel.textAlignment = .center
-        countPictureLabel.isUserInteractionEnabled = true
-    }
-    
-    private func setButtonComponentStackView() {
-        buttonComponentStackView.addArrangedSubview(cameraView)
-        buttonComponentStackView.addArrangedSubview(countPictureLabel)
-        buttonComponentStackView.axis = .vertical
-        addPhotoStackView.spacing = 2
+    private func setupScrollView() {
         addPhotoStackView.axis = .horizontal
-    }
-    
-    private func setAddPhotoButton() {
-        addPhotoButton.backgroundColor = .gray0
-        addPhotoButton.cornerRadius = 8
-        addPhotoButton.clipsToBounds = false
+        addPhotoStackView.spacing = 8
+        addPhotoStackView.translatesAutoresizingMaskIntoConstraints = false
         
-        addPhotoButtonView.translatesAutoresizingMaskIntoConstraints = false
-        buttonComponentStackView.translatesAutoresizingMaskIntoConstraints = false
-        addPhotoButton.translatesAutoresizingMaskIntoConstraints = false
-
-        addPhotoButton.isUserInteractionEnabled = true
-        addPhotoButtonView.addSubview(addPhotoButton)
-        addPhotoButton.addSubview(buttonComponentStackView)
-        addPhotoStackView.addArrangedSubview(addPhotoButtonView)
-
+        addSubview(addPhotoStackView)
+        
+        addPhotoStackView.addArrangedSubview(addPhotoButton)
+        addPhotoStackView.addArrangedSubview(countPictureLabel)
+        
+        addPhotoButton.setImage(UIImage(systemName: "camera"), for: .normal)
+        countPictureLabel.text = "0/\(maximumPhotoNumber)"
+        
         NSLayoutConstraint.activate([
-            buttonComponentStackView.centerXAnchor.constraint(equalTo: addPhotoButton.centerXAnchor),
-            buttonComponentStackView.centerYAnchor.constraint(equalTo: addPhotoButton.centerYAnchor),
-            addPhotoButton.bottomAnchor.constraint(equalTo: addPhotoButtonView.bottomAnchor),
-            addPhotoButton.widthAnchor.constraint(equalToConstant: 80),
-            addPhotoButton.heightAnchor.constraint(equalToConstant: 80),
-            addPhotoButtonView.widthAnchor.constraint(equalToConstant: 92),
-            addPhotoButtonView.heightAnchor.constraint(equalToConstant: 90)
-        ])
-
-    }
-    
-    private func setLayout() {
-        NSLayoutConstraint.activate([
-            addPhotoStackView.heightAnchor.constraint(equalTo: self.heightAnchor),
-            addPhotoStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            addPhotoStackView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            addPhotoStackView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            addPhotoStackView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            addPhotoStackView.topAnchor.constraint(equalTo: topAnchor),
+            addPhotoStackView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            addPhotoButton.widthAnchor.constraint(equalToConstant: 88),
+            addPhotoButton.heightAnchor.constraint(equalToConstant: 88)
         ])
     }
-
     
-    override func addImage(image: UIImage) {
-        let customImageViewContainer = AddImageBaseView(image: image)
-            addPhotoStackView.addArrangedSubview(customImageViewContainer)
-            
-            NSLayoutConstraint.activate([
-                customImageViewContainer.heightAnchor.constraint(equalToConstant: 90),
-                customImageViewContainer.widthAnchor.constraint(equalToConstant: 90)
-            ])
-    
+    func addImage(image: UIImage) {
+        let imageView = UIImageView(image: image)
+        imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
+        imageView.widthAnchor.constraint(equalToConstant: 88).isActive = true
+        imageView.heightAnchor.constraint(equalToConstant: 88).isActive = true
+        
+        addPhotoStackView.insertArrangedSubview(imageView, at: addPhotoStackView.arrangedSubviews.count - 1)
     }
 }
-

@@ -11,8 +11,7 @@ import SnapKit
 final class ChoosePriorityViewController: UIViewController, ConfigUI {
     
     let priorities = [
-        "취침 시간", "기상 시간", "잠버릇", "흡연 여부", "음주 빈도", "샤워 시간대", "청소 빈도", "더위", "추위", "본가가는 빈도",
-        "야식", "휴대폰소리", "향수", "벌레"
+        "취침 시간", "기상 시간", "잠버릇", "잠귀", "흡연 여부", "음주 빈도", "청소", "더위", "추위", "향수", "시험"
     ]
     
     var checkOptCount: Int = 0
@@ -66,6 +65,7 @@ final class ChoosePriorityViewController: UIViewController, ConfigUI {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tabBarController?.tabBar.isHidden = true
         view.backgroundColor = .background
         setupNavigationBar("룸메 우선순위설정")
         addComponents()
@@ -103,8 +103,12 @@ final class ChoosePriorityViewController: UIViewController, ConfigUI {
     
     @objc
     func didClickNextButton() {
-        print("next")
-//        self.navigationController?.pushViewController(MiscViewController(), animated: true)
+        let selectedMyPriorities: [String:Any] = [
+            "selectedPriorities": selectedPriorities
+        ]
+        UserDefaults.standard.setMatchingOption(selectedMyPriorities)
+        print("Selected Priorities: \(UserDefaults.standard.getMatchingOptionValue(forKey: "selectedPriorities") ?? "")")
+        self.navigationController?.pushViewController(ChooseRoomateViewController(), animated: true)
     }
     
 }
@@ -135,12 +139,27 @@ extension ChoosePriorityViewController: UICollectionViewDelegateFlowLayout, UICo
         return CGSize(width: (UIScreen.screenWidthLayoutGuide - 16) / 2, height: 52)
     }
     
+    func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
+        if selectedPriorities.count >= 4 && !collectionView.cellForItem(at: indexPath)!.isSelected {
+            print("최대 4개의 옵션만 선택 가능")
+            return false
+        }
+        return true
+    }
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let selectedPriority = priorities[indexPath.row]
         
         if !selectedPriorities.contains(selectedPriority) {
+            checkOptCount += 1
             selectedPriorities.append(selectedPriority)
-            print("선택")
+            
+            if let cell = collectionView.cellForItem(at: indexPath) as? PriorityCell {
+                cell.updateIndex(with: String(checkOptCount))
+                cell.updateCellState(isSelected: true)
+            }
+            
+            print("선택, 인덱스: \(checkOptCount)")
             checkSelections(selectedOptions: selectedPriorities, nextButton: nextButton)
             print("\(selectedPriorities) 선택 갯수: \(selectedPriorities.count)")
         }
@@ -152,6 +171,14 @@ extension ChoosePriorityViewController: UICollectionViewDelegateFlowLayout, UICo
         
         if let index = selectedPriorities.firstIndex(of: selectedPriority) {
             selectedPriorities.remove(at: index)
+            
+            for (newIndex, priority) in selectedPriorities.enumerated() {
+                if let idx = priorities.firstIndex(of: priority),
+                   let cell = collectionView.cellForItem(at: IndexPath(row: idx, section: 0)) as? PriorityCell {
+                    cell.updateIndex(with: String(newIndex+1))
+                }
+            }
+            checkOptCount = selectedPriorities.count
             checkSelections(selectedOptions: selectedPriorities, nextButton: nextButton)
         }
         print("선택해제!")

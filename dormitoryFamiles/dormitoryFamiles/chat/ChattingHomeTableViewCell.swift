@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SnapKit
 import Kingfisher
 
 class ChattingHomeTableViewCell: UITableViewCell {
@@ -14,6 +15,8 @@ class ChattingHomeTableViewCell: UITableViewCell {
     let allStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .horizontal
+        stackView.alignment = .center
+        stackView.spacing = 12
         return stackView
     }()
     
@@ -95,21 +98,17 @@ class ChattingHomeTableViewCell: UITableViewCell {
     }
     
     private func addComponents() {
-        [allStackView, timeUnreadStackView, nicknameMessageStackView, profileImageView].forEach {
-            addSubview($0)
-        }
+        contentView.addSubview(profileImageView)
+        contentView.addSubview(allStackView)
         
-        [nicknameLabel, messageLabel].forEach {
-            nicknameMessageStackView.addArrangedSubview($0)
-        }
+        nicknameMessageStackView.addArrangedSubview(nicknameLabel)
+        nicknameMessageStackView.addArrangedSubview(messageLabel)
         
-        [timeLabel, unReadCountLabel].forEach {
-            timeUnreadStackView.addArrangedSubview($0)
-        }
+        timeUnreadStackView.addArrangedSubview(timeLabel)
+        timeUnreadStackView.addArrangedSubview(unReadCountLabel)
         
-        [nicknameMessageStackView, timeUnreadStackView].forEach {
-            allStackView.addArrangedSubview($0)
-        }
+        allStackView.addArrangedSubview(nicknameMessageStackView)
+        allStackView.addArrangedSubview(timeUnreadStackView)
     }
     
     private func setConstraints() {
@@ -121,7 +120,7 @@ class ChattingHomeTableViewCell: UITableViewCell {
         
         allStackView.snp.makeConstraints {
             $0.top.bottom.equalToSuperview().inset(12)
-            $0.leading.equalTo(profileImageView.snp.trailing).inset(-12)
+            $0.leading.equalTo(profileImageView.snp.trailing).offset(12)
             $0.trailing.equalToSuperview().inset(25)
         }
     }
@@ -136,10 +135,13 @@ class ChattingHomeTableViewCell: UITableViewCell {
         self.unReadCountLabel.text = String(unReadCount)
         self.messageLabel.text = lastMessage
         self.timeLabel.text = DateUtility.chattingTimeFormet(from: lastMessageTime)
-        
+        if unReadCount != 0 {
+            unReadCountLabel.backgroundColor = .primary
+            unReadCountLabel.text = String(unReadCount)
+        }
         if memberProfileUrl != "" {
             loadImage(url: memberProfileUrl ?? "")
-        }else {
+        } else {
             profileImageView.image = UIImage(named: "bulletinBoardProfile")
         }
     }
@@ -147,11 +149,10 @@ class ChattingHomeTableViewCell: UITableViewCell {
     func highlightKeyword(keyword: String) {
         guard let messageText = messageLabel.text else { return }
         let attributedString = NSMutableAttributedString(string: messageText)
+        attributedString.addAttribute(.foregroundColor, value: UIColor.black, range: NSRange(location: 0, length: attributedString.length))
         let range = (messageText as NSString).range(of: keyword)
-        //키워드가 존재하지 않으면 종료
         guard range.length > 0 else { return }
-        attributedString.addAttribute(.foregroundColor, value: UIColor.primary, range: range)
+        attributedString.addAttribute(.foregroundColor, value: UIColor.primary as Any, range: range)
         messageLabel.attributedText = attributedString
     }
-
 }

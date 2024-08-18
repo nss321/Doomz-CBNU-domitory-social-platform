@@ -62,6 +62,13 @@ final class RegisterPostViewController: UIViewController, CancelButtonTappedDele
         setPHPPicker()
     }
     
+    override func viewDidLayoutSubviews() {
+           super.viewDidLayoutSubviews()
+           textView.isScrollEnabled = false
+           textView.sizeToFit()
+           textView.isScrollEnabled = true
+       }
+    
     private func setNavigationBar() {
         self.navigationController?.setNavigationBarHidden(false, animated: true)
     }
@@ -69,7 +76,6 @@ final class RegisterPostViewController: UIViewController, CancelButtonTappedDele
     private func setDelegate() {
         textField.delegate = self
         textView.delegate = self
-        self.navigationController?.navigationBar.delegate = self
     }
     
     private func setUI() {
@@ -77,7 +83,8 @@ final class RegisterPostViewController: UIViewController, CancelButtonTappedDele
         countTextViewTextLabel.textAlignment = .right
         countTextViewTextLabel.numberOfLines = 0 // 라인 수 제한을 해제
         countTextViewTextLabel.sizeToFit()
-        
+        self.navigationController?.isNavigationBarHidden = false
+        setupNavigationBar("긱사생활")
         
         //textViewPlaceHolder느낌
         textView.delegate = self
@@ -234,14 +241,12 @@ final class RegisterPostViewController: UIViewController, CancelButtonTappedDele
     }
     
     private func layoutPhotoScrollView() {
-        //        photoScrollView.translatesAutoresizingMaskIntoConstraints = false
-        //        self.view.addSubview(photoScrollView)
-        //        NSLayoutConstraint.activate([
-        //            photoScrollView.topAnchor.constraint(equalTo: self.descriptionStack.bottomAnchor, constant: 18),
-        //            photoScrollView.leadingAnchor.constraint(equalTo: self.descriptionStack.leadingAnchor),
-        //            photoScrollView.trailingAnchor.constraint(equalTo: self.descriptionStack.trailingAnchor),
-        //            photoScrollView.heightAnchor.constraint(equalToConstant: 88)
-        //        ])
+        self.view.addSubview(photoScrollView)
+        photoScrollView.snp.makeConstraints {
+            $0.top.equalTo(descriptionStack.snp.bottom).offset(28)
+            $0.leading.trailing.equalTo(textView)
+            $0.height.equalTo(80)
+        }
     }
     
     func cancelButtonTapped() {
@@ -447,8 +452,6 @@ extension RegisterPostViewController: PHPickerViewControllerDelegate  {
                 itemProvider.loadObject(ofClass: UIImage.self) { (image, error) in
                     if let image = image as? UIImage {
                         DispatchQueue.main.async { [self] in
-                            //여기서 스크롤뷰에 이미지뷰가 하나씩 생기고 append를 시켜주며 진행
-                            //TODO: 특정한 사진이 안올라가는 버그 고치기
                             photoScrollView.addImage(image: image)
                             self.photoScrollView.countPictureLabel.text = "\(photoScrollView.addPhotoStackView.arrangedSubviews.count-1)/\(maximumPhotoNumber)"
                         }
@@ -501,3 +504,4 @@ extension String {
         return consonantScalarRange ~= scalar
     }
 }
+
