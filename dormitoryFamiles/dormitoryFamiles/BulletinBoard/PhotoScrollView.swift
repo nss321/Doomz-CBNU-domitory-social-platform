@@ -56,6 +56,7 @@ class AddPhotoScrollView: UIScrollView {
     let addPhotoButton = UIButton()
     let countPictureLabel = UILabel()
     let maximumPhotoNumber = 5
+    let baseButtonView = UIView()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -71,10 +72,14 @@ class AddPhotoScrollView: UIScrollView {
         addPhotoStackView.axis = .horizontal
         addPhotoStackView.spacing = 8
         addPhotoStackView.translatesAutoresizingMaskIntoConstraints = false
+        baseButtonView.translatesAutoresizingMaskIntoConstraints = false
+        addPhotoButton.translatesAutoresizingMaskIntoConstraints = false
         
         addSubview(addPhotoStackView)
+        addSubview(baseButtonView)
+        addSubview(addPhotoButton)
         
-        addPhotoStackView.addArrangedSubview(addPhotoButton)
+        addPhotoStackView.addArrangedSubview(baseButtonView)
         addPhotoStackView.addArrangedSubview(countPictureLabel)
         
         addPhotoButton.layer.cornerRadius = 8
@@ -102,6 +107,9 @@ class AddPhotoScrollView: UIScrollView {
             addPhotoStackView.trailingAnchor.constraint(equalTo: trailingAnchor),
             addPhotoStackView.topAnchor.constraint(equalTo: topAnchor),
             addPhotoStackView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            baseButtonView.widthAnchor.constraint(equalToConstant: 80),
+            baseButtonView.heightAnchor.constraint(equalToConstant: 90),
+            baseButtonView.bottomAnchor.constraint(equalTo: bottomAnchor),
             addPhotoButton.widthAnchor.constraint(equalToConstant: 80),
             addPhotoButton.heightAnchor.constraint(equalToConstant: 80),
             addPhotoButton.bottomAnchor.constraint(equalTo: bottomAnchor)
