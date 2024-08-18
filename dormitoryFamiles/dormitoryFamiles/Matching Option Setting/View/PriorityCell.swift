@@ -48,11 +48,7 @@ class PriorityCell: UICollectionViewCell {
     
     override var isSelected: Bool {
         didSet {
-            container.backgroundColor = isSelected ? .primaryLight : .background
-            container.layer.borderColor = isSelected ? UIColor.primaryMid?.cgColor : UIColor.gray1?.cgColor
-            circle.backgroundColor = isSelected ? .primaryMid : .gray1
-            labelInCircle.textColor = isSelected ? .background : .gray1
-            label.textColor = isSelected ? .black : .gray5
+            updateCellState(isSelected: isSelected)
         }
     }
     
@@ -97,6 +93,20 @@ class PriorityCell: UICollectionViewCell {
         circle.backgroundColor = .primaryMid
         labelInCircle.textColor = .background
         label.textColor = .black
+    }
+    
+    func updateIndex(with text: String) {
+        labelInCircle.text = text
+        print("labelInCircle : \(text)")
+    }
+    
+    func updateCellState(isSelected: Bool) {
+        container.backgroundColor = isSelected ? .primaryLight : .background
+        container.layer.borderColor = isSelected ? UIColor.primaryMid?.cgColor : UIColor.gray1?.cgColor
+        circle.backgroundColor = isSelected ? .primaryMid : .gray1
+        labelInCircle.textColor = isSelected ? .background : .gray1
+        label.textColor = isSelected ? .black : .gray5
+        
     }
 }
 

@@ -97,6 +97,30 @@ final class StudyStyleViewController: UIViewController, ConfigUI {
         return view
     }()
     
+    private let helpLabel: UILabel = {
+        let label = UILabel()
+        label.backgroundColor = .background
+        label.textColor = .gray3
+        label.font = UIFont.systemFont(ofSize: 10)
+        label.text = "?"
+        label.textAlignment = .center
+        label.cornerRadius = 6
+        label.layer.borderColor = UIColor.gray3?.cgColor
+        label.layer.borderWidth = 1
+        label.addCharacterSpacing(kernalValue: 1.5)
+        label.isUserInteractionEnabled = true
+        return label
+    }()
+    
+    private let helpPopUp = HelpPopUpView()
+    
+    private let dim: UIView = {
+        let view = UIView()
+        view.backgroundColor = .black
+        view.alpha = 0.5
+        return view
+    }()
+    
     private let nextButton = CommonButton()
     
     private lazy var nextButtonModel = CommonbuttonModel(title: "다음", titleColor: .white ,backgroundColor: .gray3!, height: 52) {
@@ -111,17 +135,27 @@ final class StudyStyleViewController: UIViewController, ConfigUI {
         setConstraints()
         nextButton.setup(model: nextButtonModel)
         checkSelections(selectedItems: [selectedExam], nextButton: nextButton)
+        dim.isHidden = true
+        helpPopUp.isHidden = true
     }
     
     func addComponents() {
-        let midnightSnackSection = createStackViewWithLabelAndSubview(string: "야식", subview: studyPlaceCollectionView)
-        let eatingFoodInRoomSection = createStackViewWithLabelAndSubview(string: "방 안에서", subview: examCollectionView)
+        let studyPlaceSection = createStackViewWithLabelAndSubview(string: "공부장소", subview: studyPlaceCollectionView)
+        let examSection = createStackViewWithLabelAndSubview(string: "시험", subview: examCollectionView, isRequired: true)
 
         
         view.addSubview(stackView)
         [logoStackView, studyStyleStack].forEach{ stackView.addArrangedSubview($0) }
         [currentStep, progressBar, studyStyleLogo, contentLabel].forEach{ logoStackView.addArrangedSubview($0) }
-        [midnightSnackSection, eatingFoodInRoomSection, spacerView, nextButton].forEach{ studyStyleStack.addArrangedSubview($0) }
+        [studyPlaceSection, examSection, spacerView, nextButton].forEach{ studyStyleStack.addArrangedSubview($0) }
+        
+        view.addSubview(helpLabel)
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(showHelpPopUp))
+        helpLabel.addGestureRecognizer(tapGesture)
+        
+        view.addSubview(dim)
+        view.addSubview(helpPopUp)
+        helpPopUp.setCancelButtonTarget(self, action: #selector(didClickCancelButton))
     }
     
     func setConstraints() {
@@ -155,6 +189,23 @@ final class StudyStyleViewController: UIViewController, ConfigUI {
             $0.height.equalTo(Double(UIScreen.currentScreenHeight)*0.148)
         }
         
+        helpLabel.snp.makeConstraints {
+            $0.bottom.equalTo(examCollectionView.snp.top).inset(-12)
+            $0.left.equalTo(examCollectionView.snp.left).inset(43)
+            $0.width.equalTo(12)
+            $0.height.equalTo(12)
+        }
+        
+        helpPopUp.snp.makeConstraints {
+            $0.centerX.equalToSuperview()
+            $0.centerY.equalToSuperview()
+            $0.width.equalToSuperview().inset(20)
+            $0.height.equalTo(114)
+        }
+        
+        dim.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
     }
     
     @objc
@@ -170,6 +221,29 @@ final class StudyStyleViewController: UIViewController, ConfigUI {
             print("\($0): \(UserDefaults.standard.getMatchingOptionValue(forKey: $0) ?? "")")
         }
         self.navigationController?.pushViewController(MiscViewController(), animated: true)
+    }
+    
+    @objc func showHelpPopUp() {
+        dim.isHidden = false
+        helpPopUp.isHidden = false
+        
+        // 팝업 및 dim의 투명도를 점점 높여가며 표시
+        dim.alpha = 0
+        helpPopUp.alpha = 0
+        UIView.animate(withDuration: 0.3) {
+            self.dim.alpha = 0.5
+            self.helpPopUp.alpha = 1
+        }
+    }
+    
+    @objc func didClickCancelButton() {
+        UIView.animate(withDuration: 0.3, animations: {
+            self.dim.alpha = 0
+            self.helpPopUp.alpha = 0
+        }) { _ in
+            self.dim.isHidden = true
+            self.helpPopUp.isHidden = true
+        }
     }
 }
 
@@ -238,4 +312,87 @@ extension StudyStyleViewController: UICollectionViewDelegateFlowLayout {
 }
 
 
+final class HelpPopUpView: UIView {
+    
+    init() {
+        super.init(frame: .zero)
+        setupView()
+        setConstraints()
+        
+    }
 
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    private func setupView() {
+        self.backgroundColor = .gray0
+        self.layer.cornerRadius = 12
+
+        [questionmark, titleLabel, contentLabel, cancelButton].forEach {
+            addSubview($0)
+        }
+    }
+
+    private let questionmark: UIImageView = {
+        let symbol = UIImageView(image: UIImage(systemName: "questionmark.circle"))
+        symbol.contentMode = .scaleAspectFit
+        symbol.tintColor = .primaryMid
+        symbol.borderColor = .primaryMid
+        return symbol
+    }()
+    
+    private let titleLabel: UILabel = {
+        
+        let label = UILabel()
+        label.font = FontManager.subtitle1()
+        label.textColor = .primaryMid
+        label.text = " 시험"
+        label.addCharacterSpacing()
+        return label
+    }()
+
+    private let contentLabel: UILabel = {
+        let label = UILabel()
+        label.font = FontManager.body2()
+        label.textColor = .gray5
+        label.lineBreakMode = .byCharWrapping
+        label.text = "학교 시험 이외에도 따로 준비하고 있는 시험이나 공부가 있을 경우에 해당해요"
+        label.numberOfLines = 0
+        label.addCharacterSpacing(kernalValue: -0.5)
+        return label
+    }()
+
+    private lazy var cancelButton: UIButton = {
+        let button = UIButton()
+        button.setImage(UIImage(named: "cancelButton"), for: .normal)
+        return button
+    }()
+
+    private func setConstraints() {
+        questionmark.snp.makeConstraints {
+            $0.width.height.equalTo(16)
+            $0.centerY.equalTo(titleLabel.snp.centerY).offset(1)
+            $0.left.equalToSuperview().inset(20)
+        }
+        
+        titleLabel.snp.makeConstraints {
+            $0.top.equalToSuperview().inset(18)
+            $0.left.equalTo(questionmark.snp.right)
+        }
+
+        contentLabel.snp.makeConstraints {
+            $0.top.equalTo(titleLabel.snp.bottom).offset(16)
+            $0.left.right.equalToSuperview().inset(20)
+        }
+
+        cancelButton.snp.makeConstraints {
+            $0.centerY.equalTo(titleLabel.snp.centerY)
+            $0.right.equalToSuperview().inset(20)
+        }
+    }
+
+    func setCancelButtonTarget(_ target: Any?, action: Selector) {
+        cancelButton.addTarget(target, action: action, for: .touchUpInside)
+    }
+}

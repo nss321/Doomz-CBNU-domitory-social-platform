@@ -115,8 +115,8 @@ final class ConstitutionViewController: UIViewController, ConfigUI {
     }
     
     func addComponents() {
-        let hotSection = createStackViewWithLabelAndSubview(string: "더위", subview: hotCollectionView)
-        let coldSection = createStackViewWithLabelAndSubview(string: "추위", subview: coldCollectionView)
+        let hotSection = createStackViewWithLabelAndSubview(string: "더위", subview: hotCollectionView, isRequired: true)
+        let coldSection = createStackViewWithLabelAndSubview(string: "추위", subview: coldCollectionView, isRequired: true)
         
         view.addSubview(stackView)
         [logoStackView, constitutionStack].forEach{ stackView.addArrangedSubview($0) }

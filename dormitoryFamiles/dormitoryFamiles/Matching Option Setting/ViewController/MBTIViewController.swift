@@ -171,7 +171,7 @@ final class MBTIViewController: UIViewController, ConfigUI {
     
     func createCollectionView(tag:Int, data: [String]) -> UICollectionView {
         let interSpacing = 16
-        let diameter = (UIScreen.screenWidthLayoutGuide - interSpacing*3) / 4
+        let diameter = (UIScreen.screenWidthLayoutGuide - Int(interSpacing)*3) / 4
         let layout = UICollectionViewFlowLayout()
         layout.minimumLineSpacing = CGFloat(interSpacing)
         layout.itemSize = CGSize(width: diameter, height: diameter) // 원형 뷰의 크기
@@ -190,7 +190,7 @@ final class MBTIViewController: UIViewController, ConfigUI {
 }
 
 // UICollectionViewDataSource, UICollectionViewDelegate 구현
-extension MBTIViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+extension MBTIViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
@@ -232,46 +232,31 @@ extension MBTIViewController: UICollectionViewDataSource, UICollectionViewDelega
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         switch collectionView.tag {
         case 0:
-            selectedEnergyOrientation = energyOrientation[indexPath.item]
+            handleSelection(collectionView: collectionView, indexPath: indexPath, selectedValue: &selectedEnergyOrientation, items: energyOrientation)
             print("\(energyOrientation[indexPath.item]) 선택")
         case 1:
-            selectedInformationProcessing = informationProcessing[indexPath.item]
+            handleSelection(collectionView: collectionView, indexPath: indexPath, selectedValue: &selectedInformationProcessing , items: informationProcessing)
             print("\(informationProcessing[indexPath.item]) 선택")
         case 2:
-            selectedDecisionMaking = decisionMaking[indexPath.item]
+            handleSelection(collectionView: collectionView, indexPath: indexPath, selectedValue: &selectedDecisionMaking , items: decisionMaking)
             print("\(decisionMaking[indexPath.item]) 선택")
         case 3:
-            selectedLifestyleApproach = lifestyleApproach[indexPath.item]
+            handleSelection(collectionView: collectionView, indexPath: indexPath, selectedValue: &selectedLifestyleApproach , items: lifestyleApproach)
             print("\(lifestyleApproach[indexPath.item]) 선택")
         default:
             print("default")
         }
+        
+        checkSelectOneOrAll()
     }
     
-    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        switch collectionView.tag {
-        case 0:
-            if selectedEnergyOrientation == energyOrientation[indexPath.item] {
-                selectedEnergyOrientation = nil
-            }
-            print("\(energyOrientation[indexPath.item]) 선택 해제")
-        case 1:
-            if selectedInformationProcessing == informationProcessing[indexPath.item] {
-                selectedInformationProcessing = nil
-            }
-            print("\(informationProcessing[indexPath.item]) 선택 해제")
-        case 2:
-            if selectedDecisionMaking == decisionMaking[indexPath.item] {
-                selectedDecisionMaking = nil
-            }
-            print("\(decisionMaking[indexPath.item]) 선택 해제")
-        case 3:
-            if selectedLifestyleApproach == lifestyleApproach[indexPath.item] {
-                selectedLifestyleApproach = nil
-            }
-            print("\(lifestyleApproach[indexPath.item]) 선택 해제")
-        default:
-            print("default")
+    func checkSelectOneOrAll() {
+        let selections = [selectedEnergyOrientation, selectedInformationProcessing, selectedDecisionMaking, selectedLifestyleApproach]
+        
+        if selections.allSatisfy({ $0 == nil }) {
+            nextButton.isEnabled(true)
+        } else {
+            checkSelections(selectedItems: selections, nextButton: nextButton)
         }
     }
 }
