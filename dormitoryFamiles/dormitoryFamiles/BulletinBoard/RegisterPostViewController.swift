@@ -244,7 +244,7 @@ final class RegisterPostViewController: UIViewController, CancelButtonTappedDele
     
     func cancelButtonTapped() {
         //TODO: post시 url관리 해야하는곳
-        
+        self.photoScrollView.addPhotoButton.setTitle("\(photoScrollView.addPhotoStackView.arrangedSubviews.count-3)/\(maximumPhotoNumber)", for: .normal) //-3 이유는 삭제되기 전(stackView에서 이미직가 사라지기 전에 호출이 되기 때문에 -1을 더한 -3을 빼줌
     }
     
 }
@@ -443,7 +443,7 @@ extension RegisterPostViewController: PHPickerViewControllerDelegate  {
         //TODO: 버튼배경(?)을눌렀으시만(카메라뷰나 카운팅레이블을누르면 터치가안먹음) 반응이 되는데, 힛테스트 통해서 전체를 눌러도 가능하도록 수정조치 취해야함
         var configuration = PHPickerConfiguration()
         configuration.filter = .images
-        configuration.selectionLimit = maximumPhotoNumber-photoScrollView.addPhotoStackView.arrangedSubviews.count+2 
+        configuration.selectionLimit = maximumPhotoNumber-photoScrollView.addPhotoStackView.arrangedSubviews.count+2
         
         
         if photoArray.count == maximumPhotoNumber {
