@@ -44,8 +44,8 @@ final class RegisterPostViewController: UIViewController, CancelButtonTappedDele
     private let photoScrollView = AddPhotoScrollView()
     private var photoArray = [PHPickerResult]()
     private let maximumPhotoNumber = 5
-    private var imageURL = [String]()
-    private var imageNameIndex = -1
+    private var imageUrl = [String]()
+    private var uploadImages: [Data] = []
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -60,6 +60,23 @@ final class RegisterPostViewController: UIViewController, CancelButtonTappedDele
         setDelegate()
         [dormitoryLabel, bulletinBoardLabel, countTextFieldTextLabel, titleLabel, descriptionLabel].forEach{$0.asColor(targetString: ["*"], color: .primary!)}
         setPHPPicker()
+    }
+    
+    private func uploadSelectedImages() {
+        for imageData in uploadImages {
+               if let image = UIImage(data: imageData) {
+                   Network.multipartFilePostMethod(url: Url.postImage(), image: image) { (result: Result<ImageResponse, Error>) in
+                       switch result {
+                       case .success(let response):
+                           self.imageUrl.append(response.data.imageUrl)
+                       case .failure(let error):
+                           print("Upload Error: \(error.localizedDescription)")
+                       }
+                   }
+               } else {
+                   print("Error: 데이터를 이미지로 변경 불가")
+               }
+           }
     }
     
     private func setNavigationBar() {
@@ -101,10 +118,6 @@ final class RegisterPostViewController: UIViewController, CancelButtonTappedDele
         
     }
     
-    private func setTextField() {
-        countTextFieldTextLabel.text = String(textField.text!.count) + "/20"
-    }
-    
     @IBAction func dropDownButtonTapped(_ sender: UIButton) {
         switch sender {
         case dormitoryButton:
@@ -136,99 +149,69 @@ final class RegisterPostViewController: UIViewController, CancelButtonTappedDele
     }
     
     @IBAction func finishButtonTapped(_ sender: UIButton) {
-        // 이미지 없다고 가정함 일단은.
-        // TODO: 이미지와 태그는 UI 세팅 후에 다시 처리해야 함
-        let post = Post(dormitoryType: dormitoryButton.title(for: .normal) ?? "",
-                        boardType: categoryButton.title(for: .normal) ?? "",
-                        title: textField.text ?? "",
-                        content: textView.text ?? "",
-                        tags: "#태그는 추후 구현!",
-                        imagesUrls: [])
-        
-        let encoder = JSONEncoder()
-        
-//        let imagesData = convertImageToData()
-//        let group = DispatchGroup()
-//
-//        for imageData in imagesData {
-//            group.enter()
-//            //멀티파트파일로 전환
-//            let body = makeBody(imageData: imageData)
-//            sendRequest(body: body) { url in
-//                if let url = url {
-//                    self.imageURL.append(url)
-//                }
-//                group.leave()
-//            }
-//        }
-//
-        if let jsonData = try? encoder.encode(post) {
-            let url = URL(string: Url.articles)!
-            var request = URLRequest(url: url)
-            request.httpMethod = "POST"
-//            request.setValue("multipart/form-data; boundary=\(generateBoundaryString())", forHTTPHeaderField: "Content-Type")
-            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-            let token = Token.shared.number
-            request.addValue("Bearer \(token)", forHTTPHeaderField: "Accesstoken")
-            request.httpBody = jsonData
-            
-            let task = URLSession.shared.dataTask(with: request) { data, response, error in
-                if let error = error {
-                    print("Error: \(error)")
-                } else if let data = data {
-                    print("Response: \(String(describing: response))")
-                    let decoder = JSONDecoder()
-                    if let response = try? decoder.decode(PostResponse.self, from: data) {
-                        print("Article ID: \(response.data.articleId)")
-                    }
-                }
-            }
-            
-            task.resume()
-        } else {
-            print("글쓰기 실패")
-        }
+          let post = Post(dormitoryType: dormitoryButton.title(for: .normal) ?? "",
+                          boardType: categoryButton.title(for: .normal) ?? "",
+                          title: textField.text ?? "",
+                          content: textView.text ?? "",
+                          tags: "#태그는 추후 구현!",
+                          imagesUrls: [])
+          
+          //이제 이미지 업로드 시작
+          uploadImagesAndCreatePost(post: post)
     }
     
-    func sendRequest(body: Data, completion: @escaping (String?) -> Void) {
-        let url = URL(string: Url.imageToUrl)
-        var request = URLRequest(url: url!)
-        request.httpMethod = "POST"
-        request.httpBody = body
+    private func uploadImagesAndCreatePost(post: Post) {
+        let dispatchGroup = DispatchGroup()
+        var uploadedImageUrls: [String] = []
         
-        URLSession.shared.dataTask(with: request) { data, response, error in
-            let alert = UIAlertController(title: "오류가 발생하였습니다.", message: "다시 시도해주세요.", preferredStyle: .alert)
-            let confirm = UIAlertAction(title: "확인", style: .default)
-            alert.addAction(confirm)
+        //dispatchGroup을 쓰는 이윤는, 이미지가 모두 url로 변경이 되고 난 뒤 다음 작업을 진행해야하기 때문에 (아니면 이미지 유실이 생겨버림)
+        for imageData in uploadImages {
+            dispatchGroup.enter()
             
-            if let error = error {
-                DispatchQueue.main.async {
-                    self.present(alert, animated: true, completion: nil)
-                }
-                print("Error: \(error)")
-                completion(nil)
-                return
-            }
-            
-            if let httpResponse = response as? HTTPURLResponse {
-                if (200..<300).contains(httpResponse.statusCode) {
-                    
-                    if let data = data, let responseString = String(data: data, encoding: .utf8) {
-                        print("Response: \(responseString)")
+            //멀티파트파일인 이미지 데이터 > url로 변경하는 api
+            if let image = UIImage(data: imageData) {
+                Network.multipartFilePostMethod(url: Url.postImage(), image: image) { (result: Result<ImageResponse, Error>) in
+                    switch result {
+                    case .success(let response):
+                        uploadedImageUrls.append(response.data.imageUrl)
+                    case .failure(let error):
+                        print("이미지데이터 -> url변경 실패: \(error.localizedDescription)")
                     }
-                    do {
-                        let responseData = try JSONDecoder().decode(ResponseImageUrl.self, from: data ?? Data())
-                        let imageUrl = responseData.data.imageUrl
-                        completion(imageUrl)
-                    } catch {
-                        print("Error decoding JSON: \(error)")
-                        completion(nil)
-                    }
-                    
-                } else {
+                    dispatchGroup.leave()
                 }
             }
-        }.resume()
+        }
+        
+        //게시물 성공 알림을 추가하기 위해 메인큐 사용
+        dispatchGroup.notify(queue: .main) {
+            var updatedPost = post
+            //셋팅했던 포스트 포맷에 추가되었던 url을 imageUrls로 초기화
+            updatedPost.imagesUrls = uploadedImageUrls
+            
+            do {
+                let jsonData = try JSONEncoder().encode(updatedPost)
+                guard let request = Network.createRequest(
+                    url: Url.articles,
+                    token: Token.shared.number,
+                    contentType: "application/json",
+                    body: jsonData
+                ) else {
+                    print("리퀘스트 생성 오류")
+                    return
+                }
+                
+                Network.executeRequest(request: request) { (result: Result<PostResponse, Error>) in
+                    switch result {
+                    case .success(let response):
+                        print("게시글 업로드 성공. 게시물Id: \(response.data.articleId)")
+                    case .failure(let error):
+                        print("게시글 업로드 실패: \(error.localizedDescription)")
+                    }
+                }
+            } catch {
+                print("인코딩 에러: \(error.localizedDescription)")
+            }
+        }
     }
     
     private func layoutPhotoScrollView() {
@@ -294,37 +277,17 @@ extension RegisterPostViewController: UITextFieldDelegate {
         changeFinishButtonBackgroundColor()
     }
     
-    private func convertImageToData() -> [Data]{
-        let group = DispatchGroup()
-        var imagesData: [Data] = []
-        
-        for result in photoArray {
-            group.enter()
-            getImageData(from: result) { imageData in
-                if let imageData = imageData {
-                    imagesData.append(imageData)
-                }
-                group.leave()
-            }
-        }
-        group.wait()
-        return imagesData
-    }
-    
     func getImageData(from result: PHPickerResult, completion: @escaping (Data?) -> Void) {
         let itemProvider = result.itemProvider
         
         if itemProvider.canLoadObject(ofClass: UIImage.self) {
             itemProvider.loadObject(ofClass: UIImage.self) { image, error in
-                if let error = error {
-                    print("Error loading image: \(error.localizedDescription)")
-                    completion(nil)
-                    return
-                }
-                
-                if let image = image as? UIImage, let data = image.jpegData(compressionQuality: 0.8) {
-                    // 이미지 데이터 반환
-                    completion(data)
+                if let image = image as? UIImage {
+                    if let imageData = image.jpegData(compressionQuality: 0.1) {
+                        completion(imageData)
+                    } else {
+                        completion(nil)
+                    }
                 } else {
                     completion(nil)
                 }
@@ -421,10 +384,12 @@ extension RegisterPostViewController: PHPickerViewControllerDelegate  {
                 itemProvider.loadObject(ofClass: UIImage.self) { (image, error) in
                     if let image = image as? UIImage {
                         DispatchQueue.main.async { [self] in
-                            //여기서 스크롤뷰에 이미지뷰가 하나씩 생기고 append를 시켜주며 진행
-                            //TODO: 특정한 사진이 안올라가는 버그 고치기
                             photoScrollView.addImage(image: image)
                             self.photoScrollView.addPhotoButton.setTitle("\(photoScrollView.addPhotoStackView.arrangedSubviews.count-2)/\(maximumPhotoNumber)", for: .normal)
+                            
+                            if let imageData = image.jpegData(compressionQuality: 0.1) {
+                                uploadImages.append(imageData)
+                            }
                         }
                     }
                 }

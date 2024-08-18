@@ -69,6 +69,7 @@ class AddPhotoScrollView: UIScrollView {
     }
     
     private func setupScrollView() {
+        self.showsHorizontalScrollIndicator = false
         addPhotoStackView.axis = .horizontal
         addPhotoStackView.spacing = 8
         addPhotoStackView.translatesAutoresizingMaskIntoConstraints = false
