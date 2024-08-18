@@ -45,7 +45,7 @@ final class RegisterPostViewController: UIViewController, CancelButtonTappedDele
     private var photoArray = [PHPickerResult]()
     private let maximumPhotoNumber = 5
     private var imageUrl = [String]()
-    private var uploadImages: [Data] = []
+    private var uploadImages: [(id: Int, data: Data)] = []
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -63,20 +63,20 @@ final class RegisterPostViewController: UIViewController, CancelButtonTappedDele
     }
     
     private func uploadSelectedImages() {
-        for imageData in uploadImages {
-               if let image = UIImage(data: imageData) {
-                   Network.multipartFilePostMethod(url: Url.postImage(), image: image) { (result: Result<ImageResponse, Error>) in
-                       switch result {
-                       case .success(let response):
-                           self.imageUrl.append(response.data.imageUrl)
-                       case .failure(let error):
-                           print("Upload Error: \(error.localizedDescription)")
-                       }
-                   }
-               } else {
-                   print("Error: 데이터를 이미지로 변경 불가")
-               }
-           }
+        for image in uploadImages {
+            if let image = UIImage(data: image.data) {  // uploadImages 배열에서 data를 추출
+                Network.multipartFilePostMethod(url: Url.postImage(), image: image) { (result: Result<ImageResponse, Error>) in
+                    switch result {
+                    case .success(let response):
+                        self.imageUrl.append(response.data.imageUrl)
+                    case .failure(let error):
+                        print("Upload Error: \(error.localizedDescription)")
+                    }
+                }
+            } else {
+                print("Error: 데이터를 이미지로 변경 불가")
+            }
+        }
     }
     
     private func setNavigationBar() {
@@ -149,15 +149,15 @@ final class RegisterPostViewController: UIViewController, CancelButtonTappedDele
     }
     
     @IBAction func finishButtonTapped(_ sender: UIButton) {
-          let post = Post(dormitoryType: dormitoryButton.title(for: .normal) ?? "",
-                          boardType: categoryButton.title(for: .normal) ?? "",
-                          title: textField.text ?? "",
-                          content: textView.text ?? "",
-                          tags: "#태그는 추후 구현!",
-                          imagesUrls: [])
-          
-          //이제 이미지 업로드 시작
-          uploadImagesAndCreatePost(post: post)
+        let post = Post(dormitoryType: dormitoryButton.title(for: .normal) ?? "",
+                        boardType: categoryButton.title(for: .normal) ?? "",
+                        title: textField.text ?? "",
+                        content: textView.text ?? "",
+                        tags: "#태그는 추후 구현!",
+                        imagesUrls: [])
+        
+        //이제 이미지 업로드 시작
+        uploadImagesAndCreatePost(post: post)
     }
     
     private func uploadImagesAndCreatePost(post: Post) {
@@ -169,7 +169,7 @@ final class RegisterPostViewController: UIViewController, CancelButtonTappedDele
             dispatchGroup.enter()
             
             //멀티파트파일인 이미지 데이터 > url로 변경하는 api
-            if let image = UIImage(data: imageData) {
+            if let image = UIImage(data: imageData.data) {
                 Network.multipartFilePostMethod(url: Url.postImage(), image: image) { (result: Result<ImageResponse, Error>) in
                     switch result {
                     case .success(let response):
@@ -215,23 +215,37 @@ final class RegisterPostViewController: UIViewController, CancelButtonTappedDele
     }
     
     private func layoutPhotoScrollView() {
-                photoScrollView.translatesAutoresizingMaskIntoConstraints = false
-                self.view.addSubview(photoScrollView)
-                NSLayoutConstraint.activate([
-                    photoScrollView.topAnchor.constraint(equalTo: self.descriptionStack.bottomAnchor, constant: 18),
-                    photoScrollView.leadingAnchor.constraint(equalTo: self.descriptionStack.leadingAnchor),
-                    photoScrollView.trailingAnchor.constraint(equalTo: self.descriptionStack.trailingAnchor),
-                    photoScrollView.heightAnchor.constraint(equalToConstant: 90)
-                ])
+        photoScrollView.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview(photoScrollView)
+        NSLayoutConstraint.activate([
+            photoScrollView.topAnchor.constraint(equalTo: self.descriptionStack.bottomAnchor, constant: 18),
+            photoScrollView.leadingAnchor.constraint(equalTo: self.descriptionStack.leadingAnchor),
+            photoScrollView.trailingAnchor.constraint(equalTo: self.descriptionStack.trailingAnchor),
+            photoScrollView.heightAnchor.constraint(equalToConstant: 90)
+        ])
     }
     
-    func cancelButtonTapped() {
-        //TODO: post시 url관리 해야하는곳
-        self.photoScrollView.addPhotoButton.setTitle("\(photoScrollView.addPhotoStackView.arrangedSubviews.count-3)/\(maximumPhotoNumber)", for: .normal) //-3 이유는 삭제되기 전(stackView에서 이미직가 사라지기 전에 호출이 되기 때문에 -1을 더한 -3을 빼줌
+    func cancelButtonTapped(id: Int) {
+        if let index = uploadImages.firstIndex(where: { $0.id == id }) {
+            uploadImages.remove(at: index)
+            // Update UI by removing the corresponding view
+            if let viewToRemove = photoScrollView.addPhotoStackView.arrangedSubviews.first(where: { ($0 as? AddImageBaseView)?.id == id }) {
+                photoScrollView.addPhotoStackView.removeArrangedSubview(viewToRemove)
+                viewToRemove.removeFromSuperview()
+            }
+        } else {
+            print("Error: No image found with id \(id).")
+        }
+        updatePhotoButtonTitle()
     }
+    
+    private func updatePhotoButtonTitle() {
+           let currentCount = photoScrollView.addPhotoStackView.arrangedSubviews.count - 2
+           photoScrollView.addPhotoButton.setTitle("\(currentCount)/\(maximumPhotoNumber)", for: .normal)
+       }
     
 }
-    
+
 
 
 extension RegisterPostViewController: UITextFieldDelegate {
@@ -377,24 +391,26 @@ extension RegisterPostViewController: PHPickerViewControllerDelegate  {
         dismiss(animated: true, completion: nil)
         
         for result in results {
-            let itemProvider = result.itemProvider
-            if let typeIdentifier = itemProvider.registeredTypeIdentifiers.first,
-               let utType = UTType(typeIdentifier),
-               utType.conforms(to: .image) {
-                itemProvider.loadObject(ofClass: UIImage.self) { (image, error) in
-                    if let image = image as? UIImage {
-                        DispatchQueue.main.async { [self] in
-                            photoScrollView.addImage(image: image)
-                            self.photoScrollView.addPhotoButton.setTitle("\(photoScrollView.addPhotoStackView.arrangedSubviews.count-2)/\(maximumPhotoNumber)", for: .normal)
-                            
-                            if let imageData = image.jpegData(compressionQuality: 0.1) {
-                                uploadImages.append(imageData)
+                    let itemProvider = result.itemProvider
+                    if let typeIdentifier = itemProvider.registeredTypeIdentifiers.first,
+                       let utType = UTType(typeIdentifier),
+                       utType.conforms(to: .image) {
+                        itemProvider.loadObject(ofClass: UIImage.self) { (image, error) in
+                            if let image = image as? UIImage {
+                                DispatchQueue.main.async { [self] in
+                                    // 새로운 id를 생성하고 이미지 추가
+                                    let newId = (uploadImages.last?.id ?? 0) + 1
+                                    uploadImages.append((id: newId, data: image.jpegData(compressionQuality: 0.1)!))
+                                    
+                                    // photoScrollView에 이미지 추가
+                                    photoScrollView.addImage(image: image, id: newId)
+                                    updatePhotoButtonTitle()
+                                }
                             }
                         }
                     }
                 }
-            }
-        }
+        
         photoArray.append(contentsOf: results)
         print(photoArray.count)
     }
@@ -411,7 +427,7 @@ extension RegisterPostViewController: PHPickerViewControllerDelegate  {
         configuration.selectionLimit = maximumPhotoNumber-photoScrollView.addPhotoStackView.arrangedSubviews.count+2
         
         
-        if photoArray.count == maximumPhotoNumber {
+        if uploadImages.count == maximumPhotoNumber {
             print("더이상 사진을 추가할 수 없습니다.")
         }else{
             let picker = PHPickerViewController(configuration: configuration)

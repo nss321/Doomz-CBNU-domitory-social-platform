@@ -117,8 +117,8 @@ class AddPhotoScrollView: UIScrollView {
         ])
     }
     
-    func addImage(image: UIImage) {
-        let baseView = AddImageBaseView(image: image)
+    func addImage(image: UIImage, id: Int) {
+        let baseView = AddImageBaseView(image: image, id: id)
         
         baseView.translatesAutoresizingMaskIntoConstraints = false
         baseView.heightAnchor.constraint(equalToConstant: 90).isActive = true
