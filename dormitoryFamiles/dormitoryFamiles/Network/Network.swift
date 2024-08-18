@@ -99,7 +99,7 @@ struct Network {
         task.resume()
     }
     
-    static func putMethod<T: Codable>(url: String,  completion: @escaping (Result<T, Error>) -> Void) {
+    static func putMethod<T: Codable>(url: String, body: Data?, completion: @escaping (Result<T, Error>) -> Void) {
         guard let url = URL(string: url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "") else {
             print("Invalid URL: \(url)")
             return
@@ -108,6 +108,10 @@ struct Network {
         request.httpMethod = "PUT"
         let token = Token.shared.number
         request.addValue("Bearer \(token)", forHTTPHeaderField: "Accesstoken")
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        request.httpBody = body
+        
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
             if let error = error {
                 completion(.failure(error))
@@ -221,7 +225,7 @@ struct Network {
         let boundary = UUID().uuidString
         var data = Data()
         
-        if let imageData = image.jpegData(compressionQuality: 0.3) {
+        if let imageData = image.jpegData(compressionQuality: 0.1) {
             data.append("--\(boundary)\r\n".data(using: .utf8)!)
             data.append("Content-Disposition: form-data; name=\"file\"; filename=\"image.jpg\"\r\n".data(using: .utf8)!)
             data.append("Content-Type: image/jpeg\r\n\r\n".data(using: .utf8)!)

@@ -55,6 +55,7 @@ class StudentCertificationViewController: UIViewController {
             switch result {
             case .success(let response):
                 self.imageUrl = response.data.imageUrl
+                UserInformation.shared.setStudentCardImageUrl(url: self.imageUrl ?? "")
                 DispatchQueue.main.async {
                     let storyboard = UIStoryboard(name: "Main", bundle: nil)
                     if let profileFinishedVC = storyboard.instantiateViewController(withIdentifier: "ProfileFinishedViewController") as? ProfileFinishedViewController {

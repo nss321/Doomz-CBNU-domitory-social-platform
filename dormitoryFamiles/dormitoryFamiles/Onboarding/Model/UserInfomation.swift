@@ -32,4 +32,28 @@ final class UserInformation{
     func setStudentCardImageUrl(url: String) {
         self.studentCardImageUrl = url
     }
+    
+    func getNickname() -> String {
+        return self.nickname
+    }
+    
+    func getStudentCardImageUrl() -> String {
+        return self.studentCardImageUrl
+    }
+    
+    func getCollegeType() -> String {
+        return self.collegeType
+    }
+    
+    func getDepartmentType() -> String {
+        return self.departmentType
+    }
+    
+    func getStudentNumber() -> Int {
+        return self.studentNumber
+    }
+    
+    func getDormitoryType() -> String {
+        return self.dormitoryType
+    }
 }

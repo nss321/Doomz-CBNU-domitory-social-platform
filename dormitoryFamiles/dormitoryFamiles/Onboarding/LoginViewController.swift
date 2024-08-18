@@ -77,7 +77,7 @@ final  class LoginViewController: UIViewController, WKNavigationDelegate {
                         }
                     }
                 }
-            }else if url.absoluteString == "http://43.202.254.127:8080/" {
+            }else if url.absoluteString == "http://localhost:3000/onboarding" {
                 print("Redirected URL: \(url)")
                 
                 // 리디렉션된 URL을 감지하여 웹뷰를 닫고 앱으로 돌아오기
