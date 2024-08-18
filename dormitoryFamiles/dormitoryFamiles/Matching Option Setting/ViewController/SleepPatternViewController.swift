@@ -152,20 +152,19 @@ final class SleepPatternViewController: UIViewController, ConfigUI {
         setConstraints()
         setupNavigationBar("긱사생활 설정")
         nextButton.setup(model: nextButtonModel)
-        checkSelections(selectedItems: [selectedBedTime, selectedWakeupTime, selectedHabit], nextButton: nextButton)
+        checkSelections(selectedItems: [selectedBedTime, selectedWakeupTime, selectedHabit, selectedSensitivity], nextButton: nextButton)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.tabBarController?.tabBar.isHidden = false
     }
     
     func addComponents() {
         let bedTimeSection =  createStackViewWithLabelAndSubview(string: "취침시간", subview: bedTiemCollectionView, isRequired: true)
         let wakeupTimeSection =  createStackViewWithLabelAndSubview(string: "기상시간", subview: wakeupTimeCollcetionView, isRequired: true)
         let habitsSection = createStackViewWithLabelAndSubview(string: "잠버릇", subview: sleepingHabitsCollectionView, isRequired: true)
-        let sensitivitySection = createStackViewWithLabelAndSubview(string: "잠귀", subview: sleepSensitivityCollectionView)
-        
+        let sensitivitySection = createStackViewWithLabelAndSubview(string: "잠귀", subview: sleepSensitivityCollectionView, isRequired: true)
+      
         view.addSubview(scrollView)
         scrollView.addSubview(stackView)
         [logoStackView, sleepPatternStackView].forEach{ stackView.addArrangedSubview($0) }
@@ -234,7 +233,6 @@ final class SleepPatternViewController: UIViewController, ConfigUI {
             print("\($0): \(UserDefaults.standard.getMatchingOptionValue(forKey: $0) ?? "")")
         }
     
-        self.tabBarController?.tabBar.isHidden = true
         self.navigationController?.pushViewController(SmokeAndAlcoholPatternViewController(), animated: true)
     }
 }
@@ -340,6 +338,6 @@ extension SleepPatternViewController: UICollectionViewDelegateFlowLayout {
         default:
             print("default")
         }
-        checkSelections(selectedItems: [selectedBedTime, selectedWakeupTime, selectedHabit], nextButton: nextButton)
+        checkSelections(selectedItems: [selectedBedTime, selectedWakeupTime, selectedHabit, selectedSensitivity], nextButton: nextButton)
     }
 }

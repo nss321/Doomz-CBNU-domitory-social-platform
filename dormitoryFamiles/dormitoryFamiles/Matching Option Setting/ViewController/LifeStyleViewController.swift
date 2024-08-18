@@ -130,12 +130,12 @@ final class LifeStyleViewController: UIViewController, ConfigUI {
         addComponents()
         setConstraints()
         nextButton.setup(model: nextButtonModel)
-        checkSelections(selectedItems: [selectedShower, selectedCleanHabit], nextButton: nextButton)
+        checkSelections(selectedItems: [selectedCleanHabit], nextButton: nextButton)
     }
     
     func addComponents() {
         let sliderSection = createStackViewWithLabelAndSubview(string: "샤워시간", subview: showerTimeSlider)
-        let showerSection = createStackViewWithLabelAndSubview(string: "샤워시간대", subview: showerTimeCollectionView, isRequired: true)
+        let showerSection = createStackViewWithLabelAndSubview(string: "샤워시간대", subview: showerTimeCollectionView)
         let cleanSection = createStackViewWithLabelAndSubview(string: "청소", subview: cleanHabitCollectionView, isRequired: true)
         
         view.addSubview(stackView)
@@ -270,7 +270,7 @@ extension LifeStyleViewController: UICollectionViewDelegateFlowLayout {
         default:
             print("default")
         }
-        checkSelections(selectedItems: [selectedShower, selectedCleanHabit], nextButton: nextButton)
+        checkSelections(selectedItems: [selectedCleanHabit], nextButton: nextButton)
     }
 }
 

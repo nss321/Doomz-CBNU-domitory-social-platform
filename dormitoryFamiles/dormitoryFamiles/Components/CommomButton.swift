@@ -62,6 +62,7 @@ final class CommonButton: UIView {
     
     public func isEnabled(_ enabled: Bool) {
         self.button.isEnabled = enabled
+        self.button.backgroundColor = enabled ? .primary : .gray3
     }
 }
 
