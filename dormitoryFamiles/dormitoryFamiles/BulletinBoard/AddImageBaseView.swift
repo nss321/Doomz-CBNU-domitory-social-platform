@@ -33,8 +33,7 @@ final class AddImageBaseView: UIView {
     }
     
     private func setupUI() {
-        
-        cancelButton.setImage(UIImage(named: "cancelButton"), for: .normal)
+        cancelButton.setImage(UIImage(named: "cancel"), for: .normal)
         cancelButton.addTarget(self, action: #selector(cancelButtonTapped), for: .touchUpInside)
         cancelButton.isUserInteractionEnabled = true
         
@@ -51,23 +50,23 @@ final class AddImageBaseView: UIView {
             imageView.leadingAnchor.constraint(equalTo: leadingAnchor),
             imageView.heightAnchor.constraint(equalToConstant: 80),
             imageView.widthAnchor.constraint(equalToConstant: 80),
-            // cancelButton constraints
-            cancelButton.topAnchor.constraint(equalTo: self.topAnchor),
-            cancelButton.trailingAnchor.constraint(equalTo: trailingAnchor),
+            
+            cancelButton.topAnchor.constraint(equalTo: imageView.topAnchor, constant: -10),
+            cancelButton.trailingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: 10),
             cancelButton.heightAnchor.constraint(equalToConstant: 20),
             cancelButton.widthAnchor.constraint(equalToConstant: 20)
         ])
     }
     
     @objc private func cancelButtonTapped() {
-           if let stackView = superview as? UIStackView {
-               if let indexToRemove = stackView.arrangedSubviews.firstIndex(of: self) {
-                   Self.index = indexToRemove
-                   Self.cancelButtonTappedDelegate?.cancelButtonTapped()
-                   stackView.removeArrangedSubview(self)
-                   removeFromSuperview()
-                   stackView.layoutIfNeeded()
-               }
-           }
+        if let stackView = superview as? UIStackView {
+            if let indexToRemove = stackView.arrangedSubviews.firstIndex(of: self) {
+                Self.index = indexToRemove
+                Self.cancelButtonTappedDelegate?.cancelButtonTapped()
+                stackView.removeArrangedSubview(self)
+                removeFromSuperview()
+                stackView.layoutIfNeeded()
+            }
+        }
     }
 }

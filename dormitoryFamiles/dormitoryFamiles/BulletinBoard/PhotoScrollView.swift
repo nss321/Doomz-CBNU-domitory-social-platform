@@ -56,6 +56,7 @@ class AddPhotoScrollView: UIScrollView {
     let addPhotoButton = UIButton()
     let countPictureLabel = UILabel()
     let maximumPhotoNumber = 5
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupScrollView()
@@ -102,17 +103,18 @@ class AddPhotoScrollView: UIScrollView {
             addPhotoStackView.topAnchor.constraint(equalTo: topAnchor),
             addPhotoStackView.bottomAnchor.constraint(equalTo: bottomAnchor),
             addPhotoButton.widthAnchor.constraint(equalToConstant: 80),
-            addPhotoButton.heightAnchor.constraint(equalToConstant: 80)
+            addPhotoButton.heightAnchor.constraint(equalToConstant: 80),
+            addPhotoButton.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
     }
     
     func addImage(image: UIImage) {
-        let imageView = UIImageView(image: image)
-        imageView.contentMode = .scaleAspectFill
-        imageView.clipsToBounds = true
-        imageView.widthAnchor.constraint(equalToConstant: 88).isActive = true
-        imageView.heightAnchor.constraint(equalToConstant: 88).isActive = true
+        let baseView = AddImageBaseView(image: image)
         
-        addPhotoStackView.insertArrangedSubview(imageView, at: addPhotoStackView.arrangedSubviews.count - 1)
+        baseView.translatesAutoresizingMaskIntoConstraints = false
+        baseView.heightAnchor.constraint(equalToConstant: 90).isActive = true
+        baseView.widthAnchor.constraint(equalToConstant: 90).isActive = true
+        
+        addPhotoStackView.addArrangedSubview(baseView)
     }
 }
