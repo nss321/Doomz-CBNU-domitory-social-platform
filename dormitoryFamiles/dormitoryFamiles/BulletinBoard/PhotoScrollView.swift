@@ -7,7 +7,7 @@
 
 import UIKit
 
-
+//게시판 디테일(get 포토)
 class PhotoScrollView: UIScrollView {
     var addPhotoStackView = UIStackView()
     override init(frame: CGRect) {
@@ -20,7 +20,7 @@ class PhotoScrollView: UIScrollView {
         fatalError("init(coder:) has not been implemented")
     }
     
-
+    
     private func layout() {
         addPhotoStackView.translatesAutoresizingMaskIntoConstraints = false
         addSubview(addPhotoStackView)
@@ -47,9 +47,10 @@ class PhotoScrollView: UIScrollView {
         
     }
     
-
+    
 }
 
+//게시판 사진등록(post 포토)
 class AddPhotoScrollView: UIScrollView {
     let addPhotoStackView = UIStackView()
     let addPhotoButton = UIButton()
@@ -75,16 +76,33 @@ class AddPhotoScrollView: UIScrollView {
         addPhotoStackView.addArrangedSubview(addPhotoButton)
         addPhotoStackView.addArrangedSubview(countPictureLabel)
         
-        addPhotoButton.setImage(UIImage(systemName: "camera"), for: .normal)
-        countPictureLabel.text = "0/\(maximumPhotoNumber)"
+        addPhotoButton.layer.cornerRadius = 8
+        addPhotoButton.clipsToBounds = true
+        addPhotoButton.backgroundColor = .gray0
+        addPhotoButton.tintColor = .gray4
+        addPhotoButton.titleLabel?.font = FontManager.subtitle1()
+        
+        if #available(iOS 15.0, *) {
+            var config = UIButton.Configuration.plain()
+            config.image = UIImage(named: "registerCamera")
+            config.title = "0/\(maximumPhotoNumber)"
+            config.imagePlacement = .top
+            config.imagePadding = 0
+            addPhotoButton.configuration = config
+        } else {
+            addPhotoButton.setImage(UIImage(named: "registerCamera"), for: .normal)
+            addPhotoButton.setTitle("0/\(maximumPhotoNumber)", for: .normal)
+            addPhotoButton.setTitleColor(.black, for: .normal)
+            addPhotoButton.alignTextBelow(spacing: 0)
+        }
         
         NSLayoutConstraint.activate([
             addPhotoStackView.leadingAnchor.constraint(equalTo: leadingAnchor),
             addPhotoStackView.trailingAnchor.constraint(equalTo: trailingAnchor),
             addPhotoStackView.topAnchor.constraint(equalTo: topAnchor),
             addPhotoStackView.bottomAnchor.constraint(equalTo: bottomAnchor),
-            addPhotoButton.widthAnchor.constraint(equalToConstant: 88),
-            addPhotoButton.heightAnchor.constraint(equalToConstant: 88)
+            addPhotoButton.widthAnchor.constraint(equalToConstant: 80),
+            addPhotoButton.heightAnchor.constraint(equalToConstant: 80)
         ])
     }
     
