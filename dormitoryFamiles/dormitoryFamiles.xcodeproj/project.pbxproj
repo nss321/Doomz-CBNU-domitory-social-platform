@@ -35,6 +35,7 @@
 		DB02B5292B98C92200C45F56 /* ReplyHeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB02B5272B98C92200C45F56 /* ReplyHeaderCollectionReusableView.swift */; };
 		DB02B52A2B98C92200C45F56 /* ReplyHeaderCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB02B5282B98C92200C45F56 /* ReplyHeaderCollectionReusableView.xib */; };
 		DB1971D52BAB088C00C09648 /* AddPhotoImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1971D42BAB088C00C09648 /* AddPhotoImageView.swift */; };
+		DB1BB0882C7101B700216BFC /* UserInfomation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1BB0872C7101B700216BFC /* UserInfomation.swift */; };
 		DB1E0E892B629804000A4AA5 /* DormitoryButtonHandlingProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1E0E882B629804000A4AA5 /* DormitoryButtonHandlingProtocol.swift */; };
 		DB1E0E8B2B629865000A4AA5 /* ChoiceDormitoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1E0E8A2B629865000A4AA5 /* ChoiceDormitoryViewController.swift */; };
 		DB1E0E8D2B62A995000A4AA5 /* SelectedDormitory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1E0E8C2B62A995000A4AA5 /* SelectedDormitory.swift */; };
@@ -72,6 +73,7 @@
 		DB7EF27D2B5EAC790062FAB5 /* ChoiceDormitoryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7EF27C2B5EAC790062FAB5 /* ChoiceDormitoryButton.swift */; };
 		DB8DDFD72BECB0B600B3A676 /* DateFomat.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8DDFD62BECB0B600B3A676 /* DateFomat.swift */; };
 		DB8DDFD92BECC5AC00B3A676 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8DDFD82BECC5AC00B3A676 /* Category.swift */; };
+		DB91FF572C6B27AA00401DCD /* StudentCertificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB91FF562C6B27AA00401DCD /* StudentCertificationViewController.swift */; };
 		DB932AC12B6511E300B456FB /* BulluetinBoardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB932ABF2B6511E300B456FB /* BulluetinBoardCollectionViewCell.swift */; };
 		DB932AC22B6511E300B456FB /* BulluetinBoardCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB932AC02B6511E300B456FB /* BulluetinBoardCollectionViewCell.xib */; };
 		DB94B2AF2C23B3D80077A7BE /* NickNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB94B2AE2C23B3D80077A7BE /* NickNameViewController.swift */; };
@@ -160,6 +162,7 @@
 		DB02B5272B98C92200C45F56 /* ReplyHeaderCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReplyHeaderCollectionReusableView.swift; sourceTree = "<group>"; };
 		DB02B5282B98C92200C45F56 /* ReplyHeaderCollectionReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReplyHeaderCollectionReusableView.xib; sourceTree = "<group>"; };
 		DB1971D42BAB088C00C09648 /* AddPhotoImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhotoImageView.swift; sourceTree = "<group>"; };
+		DB1BB0872C7101B700216BFC /* UserInfomation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfomation.swift; sourceTree = "<group>"; };
 		DB1E0E882B629804000A4AA5 /* DormitoryButtonHandlingProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DormitoryButtonHandlingProtocol.swift; sourceTree = "<group>"; };
 		DB1E0E8A2B629865000A4AA5 /* ChoiceDormitoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceDormitoryViewController.swift; sourceTree = "<group>"; };
 		DB1E0E8C2B62A995000A4AA5 /* SelectedDormitory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedDormitory.swift; sourceTree = "<group>"; };
@@ -197,6 +200,7 @@
 		DB7EF27C2B5EAC790062FAB5 /* ChoiceDormitoryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceDormitoryButton.swift; sourceTree = "<group>"; };
 		DB8DDFD62BECB0B600B3A676 /* DateFomat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFomat.swift; sourceTree = "<group>"; };
 		DB8DDFD82BECC5AC00B3A676 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		DB91FF562C6B27AA00401DCD /* StudentCertificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentCertificationViewController.swift; sourceTree = "<group>"; };
 		DB932ABF2B6511E300B456FB /* BulluetinBoardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulluetinBoardCollectionViewCell.swift; sourceTree = "<group>"; };
 		DB932AC02B6511E300B456FB /* BulluetinBoardCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BulluetinBoardCollectionViewCell.xib; sourceTree = "<group>"; };
 		DB94B2AE2C23B3D80077A7BE /* NickNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NickNameViewController.swift; sourceTree = "<group>"; };
@@ -330,6 +334,14 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		DB1BB0862C7101A100216BFC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DB1BB0872C7101B700216BFC /* UserInfomation.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		DB1E0E872B6297D0000A4AA5 /* DormitoryButton */ = {
 			isa = PBXGroup;
 			children = (
@@ -444,12 +456,14 @@
 		DB32D7602BA3445D00DE387A /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
+				DB1BB0862C7101A100216BFC /* Model */,
 				DBDF96EE2B84BFB2000E74AE /* ProfileFinishedViewController.swift */,
 				DB7EF2762B5E9CB20062FAB5 /* ServicePermissonViewController.swift */,
 				DBCE10E02B595506008C3367 /* LoginViewController.swift */,
 				DB7EF2782B5EA4B00062FAB5 /* AlrmElementView.swift */,
 				DB3F18082B6162AB002F1738 /* ProfileSettingViewController.swift */,
 				DB94B2AE2C23B3D80077A7BE /* NickNameViewController.swift */,
+				DB91FF562C6B27AA00401DCD /* StudentCertificationViewController.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -700,6 +714,7 @@
 				DB3F05392C43002E0091349F /* LabelAndPrimaryMidButtonStackView.swift in Sources */,
 				DBE682B62BA592CC00DAA4CD /* PhotoScrollView.swift in Sources */,
 				DBCE10E12B595506008C3367 /* LoginViewController.swift in Sources */,
+				DB91FF572C6B27AA00401DCD /* StudentCertificationViewController.swift in Sources */,
 				11036F232C3C0E690042B9EF /* EatingFoodViewController.swift in Sources */,
 				DB1971D52BAB088C00C09648 /* AddPhotoImageView.swift in Sources */,
 				DB7EF2792B5EA4B00062FAB5 /* AlrmElementView.swift in Sources */,
@@ -767,6 +782,7 @@
 				DB02B5292B98C92200C45F56 /* ReplyHeaderCollectionReusableView.swift in Sources */,
 				DBF466FD2AA5F4E4009FF3EB /* SceneDelegate.swift in Sources */,
 				DBB345F22B42BFD100E70380 /* BulletinBoardMainViewController.swift in Sources */,
+				DB1BB0882C7101B700216BFC /* UserInfomation.swift in Sources */,
 				DBC001D82BBAEDBB00228CD9 /* AddImageBaseView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -373,7 +373,7 @@ final class BulletinBoardDetailViewViewController: UIViewController {
             finishAlert.addAction(UIAlertAction(title: "완료하기", style: .default, handler: { [self] _ in
                 let finishUrl = Url.changeStatus(id: id, status: statusQuery)
                 
-                Network.putMethod(url: finishUrl) { (result: Result<SuccessCode, Error>) in
+                Network.putMethod(url: finishUrl, body: nil) { (result: Result<SuccessCode, Error>) in
                     switch result {
                     case .success(let successCode):
                         print("PUT 성공: \(successCode)")

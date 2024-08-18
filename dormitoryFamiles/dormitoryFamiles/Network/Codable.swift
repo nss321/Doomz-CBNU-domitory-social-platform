@@ -289,3 +289,21 @@ struct TotalUnReadResponse: Codable {
 struct TotalUnReadDataClass: Codable {
     let totalCount: Int
 }
+
+struct NicknameResponse: Codable {
+    let code: Int
+    let data: NicknameData
+}
+
+struct NicknameData: Codable {
+    let isDuplicated: Bool
+}
+
+struct ImageResponse: Codable {
+    let code: Int
+    let data: ImageData
+}
+
+struct ImageData: Codable {
+    let imageUrl: String
+}
