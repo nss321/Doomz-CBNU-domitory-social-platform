@@ -207,7 +207,15 @@ final class RegisterPostViewController: UIViewController, CancelButtonTappedDele
                 Network.executeRequest(request: request) { (result: Result<PostResponse, Error>) in
                     switch result {
                     case .success(let response):
-                        print("게시글 업로드 성공. 게시물Id: \(response.data.articleId)")
+                            print("게시글 업로드 성공. 게시물Id: \(response.data.articleId)")
+                        DispatchQueue.main.async {
+                            let alertController = UIAlertController(title: "게시글 업로드 완료", message: "게시글 등록이 완료되었습니다.", preferredStyle: .alert)
+                            let okAction = UIAlertAction(title: "확인", style: .default) { _ in
+                                self.navigationController?.popViewController(animated: true)
+                            }
+                            alertController.addAction(okAction)
+                            self.present(alertController, animated: true, completion: nil)
+                        }
                     case .failure(let error):
                         print("게시글 업로드 실패: \(error.localizedDescription)")
                     }
