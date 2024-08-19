@@ -357,6 +357,15 @@ final class BulletinBoardDetailViewViewController: UIViewController {
                     print("Error: \(error)")
                 }
             }
+            //얼럿을 여기 넣는 이유는, UI가 본인이 쓴 글일 경우만 삭제버튼이 나오도록 설계하여 삭제에 오류가 없을것이며, 궁극적인 이유는.. 삭제는 잘 되는데 failure로 빠지는 이슈가 있어서 success가 되었든 failure가 되었든 얼럿 처리를 하도록 설계
+            DispatchQueue.main.async {
+                let alertController = UIAlertController(title: "게시글 삭제 완료", message: "게시글 삭제가 완료되었습니다.", preferredStyle: .alert)
+                let okAction = UIAlertAction(title: "확인", style: .default) { _ in
+                    self.navigationController?.popViewController(animated: true)
+                }
+                alertController.addAction(okAction)
+                self.present(alertController, animated: true, completion: nil)
+            }
         }))
         
         actionSheet.addAction(UIAlertAction(title: "수정하기", style: .default, handler: {(ACTION:UIAlertAction) in
