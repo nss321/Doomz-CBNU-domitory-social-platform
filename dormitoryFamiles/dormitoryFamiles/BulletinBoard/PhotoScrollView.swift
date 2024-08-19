@@ -55,7 +55,7 @@ class AddPhotoScrollView: UIScrollView {
     let addPhotoStackView = UIStackView()
     let addPhotoButton = UIButton()
     let countPictureLabel = UILabel()
-    let maximumPhotoNumber = 5
+    let maximumPhotoNumber = 3
     let baseButtonView = UIView()
     
     override init(frame: CGRect) {

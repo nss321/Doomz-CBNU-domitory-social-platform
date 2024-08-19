@@ -43,7 +43,7 @@ final class RegisterPostViewController: UIViewController, CancelButtonTappedDele
     private let textViewMaxLength = 300
     private let photoScrollView = AddPhotoScrollView()
     private var photoArray = [PHPickerResult]()
-    private let maximumPhotoNumber = 5
+    private let maximumPhotoNumber = 3
     private var imageUrl = [String]()
     private var uploadImages: [(id: Int, data: Data)] = []
     
