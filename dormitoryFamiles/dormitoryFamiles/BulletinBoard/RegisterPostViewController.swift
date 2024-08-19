@@ -162,10 +162,11 @@ final class RegisterPostViewController: UIViewController, CancelButtonTappedDele
     
     private func uploadImagesAndCreatePost(post: Post) {
         let dispatchGroup = DispatchGroup()
-        var uploadedImageUrls: [String] = []
+        //여기 index추가한 이유는 이미지의 순서를 변동시키지 않기 위해서(이 인덱스를 기준으로 append할 예정)
+        var uploadedImageUrls: [(index: Int, url: String)] = []
         
         //dispatchGroup을 쓰는 이윤는, 이미지가 모두 url로 변경이 되고 난 뒤 다음 작업을 진행해야하기 때문에 (아니면 이미지 유실이 생겨버림)
-        for imageData in uploadImages {
+        for (index, imageData) in uploadImages.enumerated() {
             dispatchGroup.enter()
             
             //멀티파트파일인 이미지 데이터 > url로 변경하는 api
@@ -173,7 +174,7 @@ final class RegisterPostViewController: UIViewController, CancelButtonTappedDele
                 Network.multipartFilePostMethod(url: Url.postImage(), image: image) { (result: Result<ImageResponse, Error>) in
                     switch result {
                     case .success(let response):
-                        uploadedImageUrls.append(response.data.imageUrl)
+                        uploadedImageUrls.append((index: index, url: response.data.imageUrl))
                     case .failure(let error):
                         print("이미지데이터 -> url변경 실패: \(error.localizedDescription)")
                     }
@@ -186,7 +187,10 @@ final class RegisterPostViewController: UIViewController, CancelButtonTappedDele
         dispatchGroup.notify(queue: .main) {
             var updatedPost = post
             //셋팅했던 포스트 포맷에 추가되었던 url을 imageUrls로 초기화
+            //아까 인덱스의 순서에 맞게 append처리.
             updatedPost.imagesUrls = uploadedImageUrls
+                        .sorted(by: { $0.index < $1.index })
+                        .map { $0.url }
             
             do {
                 let jsonData = try JSONEncoder().encode(updatedPost)
