@@ -110,6 +110,7 @@ final class EatingFoodViewController: UIViewController, ConfigUI {
         addComponents()
         setConstraints()
         nextButton.setup(model: nextButtonModel)
+        checkSelections(selectedItems: [selectedMidnightSnack, selectedEatingFoodInRoom], nextButton: nextButton)
     }
     
     func addComponents() {
@@ -223,14 +224,15 @@ extension EatingFoodViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         switch collectionView {
         case midnightSnackCollectionView:
-            selectedMidnightSnack = midnightSnack[indexPath.item]
+            handleSelection(collectionView: collectionView, indexPath: indexPath, selectedValue: &selectedMidnightSnack, items: midnightSnack)
             print("Midnight Snack: \(midnightSnack[indexPath.item]) 선택")
         case eatingFoodInRoomCollectionView:
-            selectedEatingFoodInRoom = eatingFoodInRoom[indexPath.item]
+            handleSelection(collectionView: collectionView, indexPath: indexPath, selectedValue: &selectedEatingFoodInRoom, items: eatingFoodInRoom)
             print("Eating Food In Room: \(eatingFoodInRoom[indexPath.item]) 선택")
         default:
             print("default")
         }
+        checkSelections(selectedItems: [selectedMidnightSnack, selectedEatingFoodInRoom], nextButton: nextButton)
     }
 }
 
