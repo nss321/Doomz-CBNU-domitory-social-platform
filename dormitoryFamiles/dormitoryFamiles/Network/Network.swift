@@ -159,7 +159,7 @@ struct Network {
         return request
     }
 
-    static func executeRequest<T: Codable>(request: URLRequest, completion: @escaping (Result<T, Error>) -> Void) {
+    static func executeRequest<T: Decodable>(request: URLRequest, completion: @escaping (Result<T, Error>) -> Void) {
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
             if let error = error {
                 completion(.failure(error))

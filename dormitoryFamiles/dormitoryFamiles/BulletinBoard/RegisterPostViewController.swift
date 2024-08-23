@@ -43,9 +43,9 @@ final class RegisterPostViewController: UIViewController, CancelButtonTappedDele
     private let textViewMaxLength = 300
     private let photoScrollView = AddPhotoScrollView()
     private var photoArray = [PHPickerResult]()
-    private let maximumPhotoNumber = 5
-    private var imageURL = [String]()
-    private var imageNameIndex = -1
+    private let maximumPhotoNumber = 3
+    private var imageUrl = [String]()
+    private var uploadImages: [(id: Int, data: Data)] = []
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -62,12 +62,22 @@ final class RegisterPostViewController: UIViewController, CancelButtonTappedDele
         setPHPPicker()
     }
     
-    override func viewDidLayoutSubviews() {
-           super.viewDidLayoutSubviews()
-           textView.isScrollEnabled = false
-           textView.sizeToFit()
-           textView.isScrollEnabled = true
-       }
+    private func uploadSelectedImages() {
+        for image in uploadImages {
+            if let image = UIImage(data: image.data) {  // uploadImages 배열에서 data를 추출
+                Network.multipartFilePostMethod(url: Url.postImage(), image: image) { (result: Result<ImageResponse, Error>) in
+                    switch result {
+                    case .success(let response):
+                        self.imageUrl.append(response.data.imageUrl)
+                    case .failure(let error):
+                        print("Upload Error: \(error.localizedDescription)")
+                    }
+                }
+            } else {
+                print("Error: 데이터를 이미지로 변경 불가")
+            }
+        }
+    }
     
     private func setNavigationBar() {
         self.navigationController?.setNavigationBarHidden(false, animated: true)
@@ -83,8 +93,6 @@ final class RegisterPostViewController: UIViewController, CancelButtonTappedDele
         countTextViewTextLabel.textAlignment = .right
         countTextViewTextLabel.numberOfLines = 0 // 라인 수 제한을 해제
         countTextViewTextLabel.sizeToFit()
-        self.navigationController?.isNavigationBarHidden = false
-        setupNavigationBar("긱사생활")
         
         //textViewPlaceHolder느낌
         textView.delegate = self
@@ -108,10 +116,6 @@ final class RegisterPostViewController: UIViewController, CancelButtonTappedDele
             [dormitoryButton, categoryButton].forEach{$0?.borderColor = .gray1}
         }
         
-    }
-    
-    private func setTextField() {
-        countTextFieldTextLabel.text = String(textField.text!.count) + "/20"
     }
     
     @IBAction func dropDownButtonTapped(_ sender: UIButton) {
@@ -145,8 +149,6 @@ final class RegisterPostViewController: UIViewController, CancelButtonTappedDele
     }
     
     @IBAction func finishButtonTapped(_ sender: UIButton) {
-        // 이미지 없다고 가정함 일단은.
-        // TODO: 이미지와 태그는 UI 세팅 후에 다시 처리해야 함
         let post = Post(dormitoryType: dormitoryButton.title(for: .normal) ?? "",
                         boardType: categoryButton.title(for: .normal) ?? "",
                         title: textField.text ?? "",
@@ -154,132 +156,108 @@ final class RegisterPostViewController: UIViewController, CancelButtonTappedDele
                         tags: "#태그는 추후 구현!",
                         imagesUrls: [])
         
-        let encoder = JSONEncoder()
-        
-//        let imagesData = convertImageToData()
-//        let group = DispatchGroup()
-//
-//        for imageData in imagesData {
-//            group.enter()
-//            //멀티파트파일로 전환
-//            let body = makeBody(imageData: imageData)
-//            sendRequest(body: body) { url in
-//                if let url = url {
-//                    self.imageURL.append(url)
-//                }
-//                group.leave()
-//            }
-//        }
-//
-        if let jsonData = try? encoder.encode(post) {
-            let url = URL(string: Url.articles)!
-            var request = URLRequest(url: url)
-            request.httpMethod = "POST"
-//            request.setValue("multipart/form-data; boundary=\(generateBoundaryString())", forHTTPHeaderField: "Content-Type")
-            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-            let token = Token.shared.number
-            request.addValue("Bearer \(token)", forHTTPHeaderField: "Accesstoken")
-            request.httpBody = jsonData
-            
-            let task = URLSession.shared.dataTask(with: request) { data, response, error in
-                if let error = error {
-                    print("Error: \(error)")
-                } else if let data = data {
-                    print("Response: \(String(describing: response))")
-                    let decoder = JSONDecoder()
-                    if let response = try? decoder.decode(PostResponse.self, from: data) {
-                        print("Article ID: \(response.data.articleId)")
-                    }
-                }
-            }
-            
-            task.resume()
-        } else {
-            print("글쓰기 실패")
-        }
+        //이제 이미지 업로드 시작
+        uploadImagesAndCreatePost(post: post)
     }
     
-    func sendRequest(body: Data, completion: @escaping (String?) -> Void) {
-        let url = URL(string: Url.imageToUrl)
-        var request = URLRequest(url: url!)
-        request.httpMethod = "POST"
-        request.httpBody = body
+    private func uploadImagesAndCreatePost(post: Post) {
+        let dispatchGroup = DispatchGroup()
+        //여기 index추가한 이유는 이미지의 순서를 변동시키지 않기 위해서(이 인덱스를 기준으로 append할 예정)
+        var uploadedImageUrls: [(index: Int, url: String)] = []
         
-        URLSession.shared.dataTask(with: request) { data, response, error in
-            let alert = UIAlertController(title: "오류가 발생하였습니다.", message: "다시 시도해주세요.", preferredStyle: .alert)
-            let confirm = UIAlertAction(title: "확인", style: .default)
-            alert.addAction(confirm)
+        //dispatchGroup을 쓰는 이윤는, 이미지가 모두 url로 변경이 되고 난 뒤 다음 작업을 진행해야하기 때문에 (아니면 이미지 유실이 생겨버림)
+        for (index, imageData) in uploadImages.enumerated() {
+            dispatchGroup.enter()
             
-            if let error = error {
-                DispatchQueue.main.async {
-                    self.present(alert, animated: true, completion: nil)
-                }
-                print("Error: \(error)")
-                completion(nil)
-                return
-            }
-            
-            if let httpResponse = response as? HTTPURLResponse {
-                if (200..<300).contains(httpResponse.statusCode) {
-                    
-                    if let data = data, let responseString = String(data: data, encoding: .utf8) {
-                        print("Response: \(responseString)")
+            //멀티파트파일인 이미지 데이터 > url로 변경하는 api
+            if let image = UIImage(data: imageData.data) {
+                Network.multipartFilePostMethod(url: Url.postImage(), image: image) { (result: Result<ImageResponse, Error>) in
+                    switch result {
+                    case .success(let response):
+                        uploadedImageUrls.append((index: index, url: response.data.imageUrl))
+                    case .failure(let error):
+                        print("이미지데이터 -> url변경 실패: \(error.localizedDescription)")
                     }
-                    do {
-                        let responseData = try JSONDecoder().decode(ResponseImageUrl.self, from: data ?? Data())
-                        let imageUrl = responseData.data.imageUrl
-                        completion(imageUrl)
-                    } catch {
-                        print("Error decoding JSON: \(error)")
-                        completion(nil)
-                    }
-                    
-                } else {
+                    dispatchGroup.leave()
                 }
             }
-        }.resume()
+        }
+        
+        //게시물 성공 알림을 추가하기 위해 메인큐 사용
+        dispatchGroup.notify(queue: .main) {
+            var updatedPost = post
+            //셋팅했던 포스트 포맷에 추가되었던 url을 imageUrls로 초기화
+            //아까 인덱스의 순서에 맞게 append처리.
+            updatedPost.imagesUrls = uploadedImageUrls
+                        .sorted(by: { $0.index < $1.index })
+                        .map { $0.url }
+            
+            do {
+                let jsonData = try JSONEncoder().encode(updatedPost)
+                guard let request = Network.createRequest(
+                    url: Url.articles,
+                    token: Token.shared.number,
+                    contentType: "application/json",
+                    body: jsonData
+                ) else {
+                    print("리퀘스트 생성 오류")
+                    return
+                }
+                
+                Network.executeRequest(request: request) { (result: Result<PostResponse, Error>) in
+                    switch result {
+                    case .success(let response):
+                            print("게시글 업로드 성공. 게시물Id: \(response.data.articleId)")
+                        DispatchQueue.main.async {
+                            let alertController = UIAlertController(title: "게시글 업로드 완료", message: "게시글 등록이 완료되었습니다.", preferredStyle: .alert)
+                            let okAction = UIAlertAction(title: "확인", style: .default) { _ in
+                                self.navigationController?.popViewController(animated: true)
+                            }
+                            alertController.addAction(okAction)
+                            self.present(alertController, animated: true, completion: nil)
+                        }
+                    case .failure(let error):
+                        print("게시글 업로드 실패: \(error.localizedDescription)")
+                    }
+                }
+            } catch {
+                print("인코딩 에러: \(error.localizedDescription)")
+            }
+        }
     }
     
     private func layoutPhotoScrollView() {
+        photoScrollView.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(photoScrollView)
-        photoScrollView.snp.makeConstraints {
-            $0.top.equalTo(descriptionStack.snp.bottom).offset(28)
-            $0.leading.trailing.equalTo(textView)
-            $0.height.equalTo(80)
+        NSLayoutConstraint.activate([
+            photoScrollView.topAnchor.constraint(equalTo: self.descriptionStack.bottomAnchor, constant: 18),
+            photoScrollView.leadingAnchor.constraint(equalTo: self.descriptionStack.leadingAnchor),
+            photoScrollView.trailingAnchor.constraint(equalTo: self.descriptionStack.trailingAnchor),
+            photoScrollView.heightAnchor.constraint(equalToConstant: 90)
+        ])
+    }
+    
+    func cancelButtonTapped(id: Int) {
+        if let index = uploadImages.firstIndex(where: { $0.id == id }) {
+            uploadImages.remove(at: index)
+            // Update UI by removing the corresponding view
+            if let viewToRemove = photoScrollView.addPhotoStackView.arrangedSubviews.first(where: { ($0 as? AddImageBaseView)?.id == id }) {
+                photoScrollView.addPhotoStackView.removeArrangedSubview(viewToRemove)
+                viewToRemove.removeFromSuperview()
+            }
+        } else {
+            print("Error: No image found with id \(id).")
         }
+        updatePhotoButtonTitle()
     }
     
-    func cancelButtonTapped() {
-        //TODO: post시 url관리 해야하는곳
-        
-    }
+    private func updatePhotoButtonTitle() {
+           let currentCount = photoScrollView.addPhotoStackView.arrangedSubviews.count - 2
+           photoScrollView.addPhotoButton.setTitle("\(currentCount)/\(maximumPhotoNumber)", for: .normal)
+       }
     
-    private func makeBody(imageData: Data) -> Data? {
-        //        let boundary = generateBoundaryString()
-        //        var body = Data()
-        //        let imgDataKey = "itemImages"
-        //        let boundaryPrefix = "--\(boundary)\r\n"
-        //        let boundarySuffix = "--\(boundary)--\r\n"
-        //
-        //        let imageName = "image\(imageNameIndex)"
-        //        imageNameIndex -= 1
-        //        body.append(Data(boundaryPrefix.utf8))
-        //        body.append(Data("Content-Disposition: form-data; name=\"\(imgDataKey)\"; filename=\"\(imageName).jpeg\"\r\n".utf8))
-        //        body.append(Data("Content-Type: image/jpeg\r\n\r\n".utf8))
-        //        body.append(imageData)
-        //        body.append(Data("\r\n".utf8))
-        //        body.append(Data(boundarySuffix.utf8))
-        //        return body
-        //    }
-        return nil
-    }
-        
-    
-    //    private func generateBoundaryString() -> String {
-    //        return "Boundary-\(UUID().uuidString)"
-    //    }
 }
-    
+
 
 
 extension RegisterPostViewController: UITextFieldDelegate {
@@ -325,37 +303,17 @@ extension RegisterPostViewController: UITextFieldDelegate {
         changeFinishButtonBackgroundColor()
     }
     
-    private func convertImageToData() -> [Data]{
-        let group = DispatchGroup()
-        var imagesData: [Data] = []
-        
-        for result in photoArray {
-            group.enter()
-            getImageData(from: result) { imageData in
-                if let imageData = imageData {
-                    imagesData.append(imageData)
-                }
-                group.leave()
-            }
-        }
-        group.wait()
-        return imagesData
-    }
-    
     func getImageData(from result: PHPickerResult, completion: @escaping (Data?) -> Void) {
         let itemProvider = result.itemProvider
         
         if itemProvider.canLoadObject(ofClass: UIImage.self) {
             itemProvider.loadObject(ofClass: UIImage.self) { image, error in
-                if let error = error {
-                    print("Error loading image: \(error.localizedDescription)")
-                    completion(nil)
-                    return
-                }
-                
-                if let image = image as? UIImage, let data = image.jpegData(compressionQuality: 0.8) {
-                    // 이미지 데이터 반환
-                    completion(data)
+                if let image = image as? UIImage {
+                    if let imageData = image.jpegData(compressionQuality: 0.1) {
+                        completion(imageData)
+                    } else {
+                        completion(nil)
+                    }
                 } else {
                     completion(nil)
                 }
@@ -445,20 +403,26 @@ extension RegisterPostViewController: PHPickerViewControllerDelegate  {
         dismiss(animated: true, completion: nil)
         
         for result in results {
-            let itemProvider = result.itemProvider
-            if let typeIdentifier = itemProvider.registeredTypeIdentifiers.first,
-               let utType = UTType(typeIdentifier),
-               utType.conforms(to: .image) {
-                itemProvider.loadObject(ofClass: UIImage.self) { (image, error) in
-                    if let image = image as? UIImage {
-                        DispatchQueue.main.async { [self] in
-                            photoScrollView.addImage(image: image)
-                            self.photoScrollView.countPictureLabel.text = "\(photoScrollView.addPhotoStackView.arrangedSubviews.count-1)/\(maximumPhotoNumber)"
+                    let itemProvider = result.itemProvider
+                    if let typeIdentifier = itemProvider.registeredTypeIdentifiers.first,
+                       let utType = UTType(typeIdentifier),
+                       utType.conforms(to: .image) {
+                        itemProvider.loadObject(ofClass: UIImage.self) { (image, error) in
+                            if let image = image as? UIImage {
+                                DispatchQueue.main.async { [self] in
+                                    // 새로운 id를 생성하고 이미지 추가
+                                    let newId = (uploadImages.last?.id ?? 0) + 1
+                                    uploadImages.append((id: newId, data: image.jpegData(compressionQuality: 0.1)!))
+                                    
+                                    // photoScrollView에 이미지 추가
+                                    photoScrollView.addImage(image: image, id: newId)
+                                    updatePhotoButtonTitle()
+                                }
+                            }
                         }
                     }
                 }
-            }
-        }
+        
         photoArray.append(contentsOf: results)
         print(photoArray.count)
     }
@@ -472,10 +436,10 @@ extension RegisterPostViewController: PHPickerViewControllerDelegate  {
         //TODO: 버튼배경(?)을눌렀으시만(카메라뷰나 카운팅레이블을누르면 터치가안먹음) 반응이 되는데, 힛테스트 통해서 전체를 눌러도 가능하도록 수정조치 취해야함
         var configuration = PHPickerConfiguration()
         configuration.filter = .images
-        configuration.selectionLimit = maximumPhotoNumber-photoScrollView.addPhotoStackView.arrangedSubviews.count
+        configuration.selectionLimit = maximumPhotoNumber-photoScrollView.addPhotoStackView.arrangedSubviews.count+2
         
         
-        if photoArray.count == maximumPhotoNumber {
+        if uploadImages.count == maximumPhotoNumber {
             print("더이상 사진을 추가할 수 없습니다.")
         }else{
             let picker = PHPickerViewController(configuration: configuration)
@@ -504,4 +468,3 @@ extension String {
         return consonantScalarRange ~= scalar
     }
 }
-
