@@ -616,7 +616,7 @@ extension BulletinBoardDetailViewViewController: UICollectionViewDelegate, UICol
 extension BulletinBoardDetailViewViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return CGSize(width: collectionView.frame.width, height: UICollectionViewFlowLayout.automaticSize.height)
+        return CGSize(width: collectionView.bounds.width, height: 150)
     }
     
     //셀과 셀 사이의 간격
