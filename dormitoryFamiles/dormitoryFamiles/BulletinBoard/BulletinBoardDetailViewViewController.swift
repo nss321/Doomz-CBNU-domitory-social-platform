@@ -36,7 +36,6 @@ final class BulletinBoardDetailViewViewController: UIViewController {
     
     @IBOutlet weak var likeCountLabel: UILabel!
     
-    @IBOutlet weak var tagCollectionView: UICollectionView!
     @IBOutlet weak var replyCountLabel: UILabel!
     @IBOutlet weak var chatCountLabel: UILabel!
     private var scrollPhotoView = PhotoScrollView()
@@ -267,16 +266,12 @@ final class BulletinBoardDetailViewViewController: UIViewController {
     
     private func setDelegate() {
         commentTextView?.delegate = self
-        tagCollectionView.delegate = self
-        //TODO: 태그 구현시 dataSource 주석 해제 후 header부분 재 시도 해봐야 함. -1
-        //tagCollectionView.dataSource = self
         collectionView.delegate = self
         collectionView.dataSource = self
         
         
         collectionView.register(UINib(nibName: "ReplyCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "rereplyCell")
         collectionView.register(UINib(nibName: "ReplyHeaderCollectionReusableView", bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "replyCell")
-        tagCollectionView.register(TagCollectionViewCell.self, forCellWithReuseIdentifier: "tagCell")
     }
     
     private func setCollectionViewAutoSizing() {
@@ -323,11 +318,6 @@ final class BulletinBoardDetailViewViewController: UIViewController {
             self.scrollPhotoView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             self.scrollPhotoView.heightAnchor.constraint(equalToConstant: 100)
         ]
-        
-        if !hasImage {
-            let tagCollectionViewConstraint = tagCollectionView.topAnchor.constraint(equalTo: self.contentLabel.bottomAnchor, constant: 16)
-            constraints.append(tagCollectionViewConstraint)
-        }
         
         NSLayoutConstraint.activate(constraints)
     }
