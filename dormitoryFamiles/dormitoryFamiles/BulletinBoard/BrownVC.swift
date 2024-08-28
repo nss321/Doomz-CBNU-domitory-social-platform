@@ -152,7 +152,7 @@ extension BrownVC: UICollectionViewDelegate, UICollectionViewDataSource, UIColle
         let articleElement = articles[indexPath.row]
         
         let id = articleElement.articleId
-        let url = "http://43.202.254.127:8080/api/articles/\(id)"
+        let url = Url.searchBulletinBoard(id: id)
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         if let articleDetailViewController = storyboard.instantiateViewController(withIdentifier: "detail") as? BulletinBoardDetailViewViewController {
             articleDetailViewController.setUrl(url: url)

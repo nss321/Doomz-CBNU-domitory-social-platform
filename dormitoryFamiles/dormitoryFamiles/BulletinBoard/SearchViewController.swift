@@ -97,8 +97,20 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
         cell.content.text = article.content
         cell.categoryTag.body2 = article.boardType
         cell.statusTag.body2 = article.status
-        if article.isWished {
-        //TODO: 0311 예림씨 답장 오면 색이 있는 하트로 이미지 교체하기
+        cell.profileUrl = article.profileUrl
+        cell.thumbnailUrl = article.thumbnailUrl
+        
+        let dateString = article.createdAt
+        if let formattedString = DateUtility.formattedDateString(from: dateString) {
+            cell.createdDateLabel.body2 = formattedString
+        } else {
+            cell.createdDateLabel.body2 = article.createdAt
+        }
+        
+        if article.status == "모집완료" {
+            cell.changeFinish()
+        }else {
+            cell.changeIng()
         }
         return cell
     }
@@ -108,12 +120,13 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
         
         let id = articleElement.articleId
         
-        let url = "http://43.202.254.127:8080/api/articles/\(id)"
+        let url = Url.searchBulletinBoard(id: id)
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            if let articleDetailViewController = storyboard.instantiateViewController(withIdentifier: "detail") as? BulletinBoardDetailViewViewController {
-                articleDetailViewController.setUrl(url: url)
-                self.navigationController?.pushViewController(articleDetailViewController, animated: true)
-            }
+        if let articleDetailViewController = storyboard.instantiateViewController(withIdentifier: "detail") as? BulletinBoardDetailViewViewController {
+            articleDetailViewController.setUrl(url: url)
+            articleDetailViewController.id = id
+            self.navigationController?.pushViewController(articleDetailViewController, animated: true)
+        }
     }
     
     
