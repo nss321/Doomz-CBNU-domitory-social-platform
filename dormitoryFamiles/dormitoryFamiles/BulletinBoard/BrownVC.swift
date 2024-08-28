@@ -30,6 +30,10 @@ final class BrownVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        updateCollectionView()
+    }
+
+    func updateCollectionView() {
         pageNum = 0
         articles.removeAll()
         network(url: Url.base + path) { [weak self] in
@@ -38,7 +42,7 @@ final class BrownVC: UIViewController {
             }
         }
     }
-
+    
     
     private func setDelegate() {
         self.collectionView.delegate = self
@@ -68,8 +72,8 @@ final class BrownVC: UIViewController {
 
     
     @objc private func changeDormiotry() {
-        network(url: Url.base + path)
-        self.collectionView.reloadData()
+        path = Url.pathAllPostUrl(page: 0)
+        updateCollectionView()
     }
     
     
