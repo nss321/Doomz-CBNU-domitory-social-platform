@@ -31,8 +31,6 @@ final class BulletinBoardDetailViewViewController: UIViewController {
     @IBOutlet weak var likeAndChatStackView: UIStackView!
     @IBOutlet weak var likeButton: RoundButton!
     
-    
-    
     private var scrollPhotoView = PhotoScrollView()
     private var hasImage = true
     private var selectedRereplyButton: UIButton?
@@ -61,9 +59,6 @@ final class BulletinBoardDetailViewViewController: UIViewController {
         setTextView()
         collectionView.isScrollEnabled = false
         replyNetwork(id: id)
-        if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
-            layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
-        }
     }
     
     private func setIndicator() {
@@ -462,7 +457,7 @@ final class BulletinBoardDetailViewViewController: UIViewController {
                     }
                 })
             }
-        }else { //본인이 쓴 글이면 다른 로직
+        }else { //TODO: 본인이 쓴 글이면 다른 로직
             
         }
     }
@@ -535,10 +530,7 @@ extension BulletinBoardDetailViewViewController: UICollectionViewDelegate, UICol
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "tagCell", for: indexPath) as! TagCollectionViewCell
             
-            // 태그 배열에서 해당 인덱스의 태그를 가져옵니다.
             let tag = tagArray[indexPath.item]
-            
-            // 버튼에 태그를 설정합니다.
             cell.tagButton.setTitle(tag, for: .normal)
             
             return cell
@@ -546,7 +538,6 @@ extension BulletinBoardDetailViewViewController: UICollectionViewDelegate, UICol
     }
     
     //헤더뷰관련
-    //TODO: 태그 구현시 dataSource 주석 해제 후 header부분 재 시도 해봐야 함. -2
     //collectionView(댓글컬렉션뷰)는 헤더가 있지만,
     //tagCollectionView는 헤더가 없음 -> 해당 컬렉션뷰가 오면 UICollectionReusableView()를 반환 시 에러 발생하는것 잡아야함
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
@@ -655,7 +646,7 @@ extension BulletinBoardDetailViewViewController: UICollectionViewDelegate, UICol
 extension BulletinBoardDetailViewViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return CGSize(width: collectionView.bounds.width, height: 150)
+        return CGSize(width: collectionView.bounds.width, height: 140)
     }
     
     //셀과 셀 사이의 간격
