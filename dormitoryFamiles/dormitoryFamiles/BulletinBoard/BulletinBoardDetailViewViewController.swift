@@ -161,6 +161,12 @@ final class BulletinBoardDetailViewViewController: UIViewController {
                     self.setNavigationItem()
                     self.status = data.status
                     
+                    if status == Status.finish.rawValue {
+                        statusTag.backgroundColor = .gray0
+                        statusTag.setTitleColor(.gray5, for: .normal)
+                        statusTag.subTitle2 = "모집완료"
+                    }
+                    
                     
                     if isWriter {
                         self.likeButton.setTitle("관심목록 \(likeCountLabel.text ?? "")", for: .normal)
@@ -383,10 +389,24 @@ final class BulletinBoardDetailViewViewController: UIViewController {
             finishAlert.addAction(UIAlertAction(title: "완료하기", style: .default, handler: { [self] _ in
                 let finishUrl = Url.changeStatus(id: id, status: statusQuery)
                 
-                Network.putMethod(url: finishUrl, body: nil) { (result: Result<SuccessCode, Error>) in
+                Network.putMethod(url: finishUrl, body: nil) { [self] (result: Result<SuccessCode, Error>) in
                     switch result {
                     case .success(let successCode):
                         print("PUT 성공: \(successCode)")
+                        DispatchQueue.main.async { [self] in
+                            if status == Status.ing.rawValue {
+                                statusTag.backgroundColor = .gray0
+                                statusTag.setTitleColor(.gray5, for: .normal)
+                                statusTag.subTitle2 = "모집완료"
+                                status = Status.finish.rawValue
+                            } else {
+                                statusTag.backgroundColor = UIColor(red: 216/255, green: 234/255, blue: 255/255, alpha: 1)
+                                statusTag.setTitleColor(.doomzBlack, for: .normal)
+                                statusTag.subTitle2 = "모집중"
+                                status = Status.ing.rawValue
+                            }
+                            statusTag.layoutIfNeeded()
+                        }
                     case .failure(let error):
                         print("Error: \(error)")
                     }
