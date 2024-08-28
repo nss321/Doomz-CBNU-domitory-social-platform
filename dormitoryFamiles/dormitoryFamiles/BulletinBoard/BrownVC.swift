@@ -72,6 +72,9 @@ final class BrownVC: UIViewController {
 
     
     @objc private func changeDormiotry() {
+        if let parentVC = self.parent?.parent as? BulletinBoardMainViewController {
+            parentVC.scrollToPage(.at(index: 0), animated: true)
+        }
         path = Url.pathAllPostUrl(page: 0)
         updateCollectionView()
     }
