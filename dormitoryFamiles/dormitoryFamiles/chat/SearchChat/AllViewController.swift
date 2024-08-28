@@ -149,7 +149,7 @@ class AllViewController: UIViewController {
     }
     
     private func createChattingRoom(memberId: Int) {
-        Network.postMethod(url: Url.createChattingRoom(memberId: memberId)) { (result: Result<CreateRoomResponse, Error>) in
+        Network.postMethod(url: Url.createChattingRoom(memberId: memberId), body: nil) { (result: Result<CreateRoomResponse, Error>) in
             switch result {
             case .success(let response):
                 DispatchQueue.main.async {

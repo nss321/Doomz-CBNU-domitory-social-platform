@@ -440,7 +440,7 @@ final class BulletinBoardDetailViewViewController: UIViewController {
                     }
                 })
             }else {
-                Network.postMethod(url: likeUrl, completion: { (result: Result<LikeStatus, Error>) in
+                Network.postMethod(url: likeUrl, body: nil, completion: { (result: Result<LikeStatus, Error>) in
                     switch result {
                     case .success(let response):
                         print(response)

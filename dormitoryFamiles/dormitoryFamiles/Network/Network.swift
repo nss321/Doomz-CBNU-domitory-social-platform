@@ -159,6 +159,7 @@ struct Network {
         return request
     }
 
+    
     static func executeRequest<T: Decodable>(request: URLRequest, completion: @escaping (Result<T, Error>) -> Void) {
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
             if let error = error {
@@ -210,13 +211,14 @@ struct Network {
         task.resume()
     }
 
-    static func postMethod<T: Codable>(url: String, completion: @escaping (Result<T, Error>) -> Void) {
+    static func postMethod<T: Codable>(url: String, body: Data?, completion: @escaping (Result<T, Error>) -> Void) {
         let token = Token.shared.number
-        guard let request = createRequest(url: url, token: token) else {
+        guard var request = createRequest(url: url, token: token) else {
             completion(.failure(NSError(domain: "Invalid URL", code: 0, userInfo: ["description": "URL is not valid."])))
             return
         }
-        
+        request.httpMethod = "POST"
+        request.httpBody = body
         executeRequest(request: request, completion: completion)
     }
 
