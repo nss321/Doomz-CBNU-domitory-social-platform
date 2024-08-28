@@ -121,7 +121,7 @@ final class RegisterPostViewController: UIViewController, CancelButtonTappedDele
     @IBAction func dropDownButtonTapped(_ sender: UIButton) {
         switch sender {
         case dormitoryButton:
-            dropDown.dataSource = ["본관", "양성재","양진재", "양현재"]
+            dropDown.dataSource = ["본관", "양성재","양진재"]
         case categoryButton:
             dropDown.dataSource = ["도와주세요", "함께해요", "나눔해요", "궁금해요"]
         default:

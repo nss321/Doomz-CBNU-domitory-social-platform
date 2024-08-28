@@ -184,10 +184,6 @@ final class HomeViewController: UIViewController, DormitoryButtonHandling {
     }
     
     private func fetchWebsite(time: MealTime) {
-        guard dormitoryButton.currentTitle! != "양현재" else {
-            return
-        }
-        
         if !isWeekend {
             //평일
             if time == .morning {
