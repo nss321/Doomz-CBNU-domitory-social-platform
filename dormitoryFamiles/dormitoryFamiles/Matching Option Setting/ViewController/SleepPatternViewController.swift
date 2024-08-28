@@ -139,6 +139,56 @@ final class SleepPatternViewController: UIViewController, ConfigUI {
         return view
     }()
     
+    private let notificationLabel: UIView = {
+        let view = UIView()
+        view.backgroundColor = .primaryLight
+        
+        let image = UIImageView(image: UIImage(named: "notiIcon"))
+        
+        let label = UILabel()
+        let string = "* 표시는 필수 선택사항입니다."
+        let attributedString = NSMutableAttributedString(string: string)
+        
+        attributedString.addAttributes([
+            .font: FontManager.button(),
+            .foregroundColor: UIColor.primary!
+        ], range: NSRange(location: 0, length: 2))
+        
+        attributedString.addAttributes([
+            .font: FontManager.button(),
+            .foregroundColor: UIColor.gray5!
+        ], range: NSRange(location: 2, length: 4))
+        
+        attributedString.addAttributes([
+            .font: FontManager.button(),
+            .foregroundColor: UIColor.primary!
+        ], range: NSRange(location: 6, length: 7))
+        
+        attributedString.addAttributes([
+            .font: FontManager.button(),
+            .foregroundColor: UIColor.gray5!
+        ], range: NSRange(location: 13, length: 4))
+        
+        label.attributedText = attributedString
+        label.textAlignment = .center
+        
+        
+        view.addSubview(image)
+        view.addSubview(label)
+        
+        image.snp.makeConstraints {
+            $0.left.equalToSuperview().inset(20)
+            $0.centerY.equalToSuperview()
+        }
+        
+        label.snp.makeConstraints {
+            $0.left.equalTo(image.snp.right).offset(16)
+            $0.centerY.equalToSuperview()
+        }
+        
+        return view
+    }()
+    
     private let nextButton = CommonButton()
     
     private lazy var nextButtonModel = CommonbuttonModel(title: "다음", titleColor: .white ,backgroundColor: .gray3!, height: 52) {
@@ -166,17 +216,18 @@ final class SleepPatternViewController: UIViewController, ConfigUI {
         let sensitivitySection = createStackViewWithLabelAndSubview(string: "잠귀", subview: sleepSensitivityCollectionView, isRequired: true)
       
         view.addSubview(scrollView)
+        scrollView.addSubview(notificationLabel)
         scrollView.addSubview(stackView)
         [logoStackView, sleepPatternStackView].forEach{ stackView.addArrangedSubview($0) }
         [currentStep, progressBar, sleepPatternLogo, contentLabel].forEach { logoStackView.addArrangedSubview($0) }
-        [bedTimeSection, wakeupTimeSection, habitsSection, sensitivitySection, /*alarmSection,*/ nextButton].forEach { sleepPatternStackView.addArrangedSubview($0) }
+        [bedTimeSection, wakeupTimeSection, habitsSection, sensitivitySection, nextButton].forEach { sleepPatternStackView.addArrangedSubview($0) }
         
     }
     
     func setConstraints() {
         scrollView.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(50)
-            $0.left.right.equalToSuperview().inset(20)
+            $0.top.equalToSuperview()
+            $0.left.right.equalToSuperview()
             $0.bottom.equalToSuperview()
         }
         
@@ -205,7 +256,7 @@ final class SleepPatternViewController: UIViewController, ConfigUI {
         }
         
         stackView.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(30)
+            $0.top.equalToSuperview().offset(Double(UIScreen.currentScreenHeight)*0.08+24)
             $0.left.bottom.right.equalToSuperview()
             $0.width.equalToSuperview()
         }
@@ -217,6 +268,12 @@ final class SleepPatternViewController: UIViewController, ConfigUI {
         sleepPatternLogo.snp.makeConstraints{
             $0.height.equalTo(Double(UIScreen.currentScreenHeight)*0.148)
         }
+        
+        notificationLabel.snp.makeConstraints {
+            $0.width.equalToSuperview()
+            $0.height.equalTo(Double(UIScreen.currentScreenHeight)*0.08)
+        }
+        
     }
     
     @objc
