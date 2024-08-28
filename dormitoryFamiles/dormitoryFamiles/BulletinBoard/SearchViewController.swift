@@ -13,10 +13,12 @@ final class SearchViewController: UIViewController {
     @IBOutlet weak var searchWordLabel: UILabel!
     @IBOutlet weak var noPostImageSettingView: UIView!
     @IBOutlet weak var collectionView: UICollectionView!
-    
+    var searchBar = UISearchBar()
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
         //검색 화면에 들어올때 검색 결과가 없다는 창은 아예 안보여야함.
         noPostImageSettingView.isHidden = true
+        updateCollectionView()
     }
     
     override func viewDidLoad() {
@@ -30,10 +32,20 @@ final class SearchViewController: UIViewController {
         
     }
     
+    func updateCollectionView() {
+        let keword = searchBar.text ?? ""
+        articles.removeAll()
+        network(url: Url.base+Url.searchUrl(searchText: keword), searchText: keword) { [weak self] in
+            DispatchQueue.main.async {
+                self?.collectionView.reloadData()
+            }
+        }
+    }
+    
     private func setSearchBar() {
         let bounds = UIScreen.main.bounds
         let width = bounds.size.width
-        let searchBar = UISearchBar(frame: CGRect(x: 0, y: 0, width: width - 28, height: 40))
+        searchBar = UISearchBar(frame: CGRect(x: 0, y: 0, width: width - 28, height: 40))
         searchBar.placeholder = "검색어를 입력해 주세요."
         if let textFieldInsideSearchBar = searchBar.value(forKey: "searchField") as? UITextField {
             textFieldInsideSearchBar.leftView = nil
@@ -53,7 +65,7 @@ final class SearchViewController: UIViewController {
         self.collectionView.dataSource = self
     }
     
-    private func network(url: String, searchText: String) {
+    private func network(url: String, searchText: String, completion: (() -> Void)? = nil) {
         Network.getMethod(url: url) { (result: Result<ArticleResponse, Error>) in
             switch result {
             case .success(let response):
@@ -64,10 +76,12 @@ final class SearchViewController: UIViewController {
                         print("검색 결과 없음")
                         self.searchWordLabel.title3 = "'\(searchText)'"
                         self.noPostImageSettingView.isHidden = false
+                        completion?()
                     }
                 }
             case .failure(let error):
                 print("Error: \(error)")
+                completion?()
             }
         }
     }

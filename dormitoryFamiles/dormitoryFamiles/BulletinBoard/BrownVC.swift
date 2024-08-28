@@ -29,7 +29,7 @@ final class BrownVC: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+        super.viewWillAppear(true)
         updateCollectionView()
     }
 
