@@ -145,6 +145,7 @@ extension BrownVC: UICollectionViewDelegate, UICollectionViewDataSource, UIColle
         }else {
             cell.changeIng()
         }
+        
         return cell
     }
     

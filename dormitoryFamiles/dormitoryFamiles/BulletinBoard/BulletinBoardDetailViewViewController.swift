@@ -17,29 +17,22 @@ final class BulletinBoardDetailViewViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var textViewSuperView: TagButton!
     @IBOutlet weak var commentTextView: UITextView!
-    
     @IBOutlet weak var statusTag: RoundButton!
     @IBOutlet weak var categoryTag: RoundButton!
-    
     @IBOutlet weak var profileImage: UIImageView!
-    
     @IBOutlet weak var nickname: UILabel!
-    
     @IBOutlet weak var dormitory: UILabel!
-    
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
-    
     @IBOutlet weak var titleLabel: UILabel!
-    
     @IBOutlet weak var contentLabel: UILabel!
-    
     @IBOutlet weak var likeCountLabel: UILabel!
-    
     @IBOutlet weak var replyCountLabel: UILabel!
-    @IBOutlet weak var chatCountLabel: UILabel!
-
     @IBOutlet weak var likeAndChatStackView: UIStackView!
+    @IBOutlet weak var likeButton: RoundButton!
+    
+    
+    
     private var scrollPhotoView = PhotoScrollView()
     private var hasImage = true
     private var selectedRereplyButton: UIButton?
@@ -154,7 +147,6 @@ final class BulletinBoardDetailViewViewController: UIViewController {
                     let tagArr = data.tags.split(separator: "#")
                     let trimmedString = String(data.tags.dropFirst())
                     self.tagArray = trimmedString.components(separatedBy: "#").map { "#\($0)" }
-                    print("ddddddddddddddddd",self.tagArray,"Ddddddddddddddfsfsdfsdfsdfs")
                     self.contentLabel.body1 = data.content
                     self.likeCountLabel.text = String(data.wishCount)
                     self.isWished = data.isWished
@@ -170,8 +162,11 @@ final class BulletinBoardDetailViewViewController: UIViewController {
                     self.isWriter = data.isWriter
                     self.setNavigationItem()
                     self.status = data.status
-                    //TODO: 백앤드 채팅 count 추가되면 업데이트 시키기
-                    
+                    self.likeButton.setTitle(likeCountLabel.text, for: .normal)
+                    if isWished {
+                        likeButton.setImage(UIImage(named: "like"), for: .normal)
+                    }
+                    likeButton.setTitleColor(.gray5, for: .normal)
                     //게시물 이미지 불러오기
                     if data.imagesUrls.isEmpty {
                         self.hasImage = false
@@ -404,25 +399,47 @@ final class BulletinBoardDetailViewViewController: UIViewController {
     
     
     @IBAction func likeButtonTapped(_ sender: UIButton) {
-        let likeUrl = Url.like(id: id)
-        if isWished {
-            Network.deleteMethod(url: likeUrl, completion: { (result: Result<SuccessCode, Error>) in
-                switch result {
-                case .success(let response):
-                    print(response)
-                case .failure(_):
-                    print("error")
-                }
-            })
-        }else {
-            Network.postMethod(url: likeUrl, completion: { (result: Result<LikeStatus, Error>) in
-                switch result {
-                case .success(let response):
-                    print(response)
-                case .failure(_):
-                    print("error")
-                }
-            })
+        //본인이 쓴 글이 아닐땐 좋아요/좋아요 취소 기능
+        if !isWriter {
+            let likeUrl = Url.like(id: id)
+            if isWished {
+                Network.deleteMethod(url: likeUrl, completion: { [self] (result: Result<SuccessCode, Error>) in
+                    switch result {
+                    case .success(let response):
+                        print(response)
+                        DispatchQueue.main.async { [self] in
+                            self.likeButton.setImage(UIImage(named: "bulletinBaordDetailLike"), for: .normal)
+                            if let currentLikeCount = Int(self.likeButton.currentTitle ?? "0") {
+                                self.likeButton.setTitle(String(currentLikeCount - 1), for: .normal)
+                                likeCountLabel.text = String(currentLikeCount - 1)
+                            }
+                        }
+                        isWished = false
+                        
+                    case .failure(_):
+                        print("error")
+                    }
+                })
+            }else {
+                Network.postMethod(url: likeUrl, completion: { (result: Result<LikeStatus, Error>) in
+                    switch result {
+                    case .success(let response):
+                        print(response)
+                    case .failure(_):
+                        print("error")
+                        DispatchQueue.main.async { [self] in
+                            self.likeButton.setImage(UIImage(named: "like"), for: .normal)
+                            if let currentLikeCount = Int(self.likeButton.currentTitle ?? "0") {
+                                self.likeButton.setTitle(String(currentLikeCount + 1), for: .normal)
+                                likeCountLabel.text = String(currentLikeCount + 1)
+                            }
+                        }
+                        self.isWished = true
+                    }
+                })
+            }
+        }else { //본인이 쓴 글이면 다른 로직
+            
         }
     }
 }

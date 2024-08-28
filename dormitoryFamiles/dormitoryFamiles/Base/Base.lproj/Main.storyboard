@@ -2590,7 +2590,7 @@
                                 <rect key="frame" x="0.0" y="700" width="393" height="118"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hQh-uO-d5P" customClass="RoundButton" customModule="dormitoryFamiles" customModuleProvider="target">
-                                        <rect key="frame" x="20.000000000000004" y="0.0" width="51.333333333333343" height="30"/>
+                                        <rect key="frame" x="20.000000000000004" y="0.0" width="53.333333333333343" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="1X9-OA-YY9"/>
                                         </constraints>
@@ -2599,7 +2599,6 @@
                                             <color key="baseForegroundColor" name="gray5"/>
                                         </buttonConfiguration>
                                         <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="body2" value="0"/>
                                             <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
                                                 <color key="value" name="gray1"/>
                                             </userDefinedRuntimeAttribute>
@@ -2716,6 +2715,7 @@
                         <outlet property="dateLabel" destination="LFM-0h-h1Z" id="9RI-ee-qy8"/>
                         <outlet property="dormitory" destination="ihM-NF-joD" id="dr9-iW-s38"/>
                         <outlet property="likeAndChatStackView" destination="5A3-Fj-D1b" id="TEr-gl-EpZ"/>
+                        <outlet property="likeButton" destination="hQh-uO-d5P" id="nyK-rC-yaT"/>
                         <outlet property="likeCountLabel" destination="SIs-2n-Fiq" id="KEp-yy-voj"/>
                         <outlet property="nickname" destination="T8N-SY-msx" id="Oke-qc-XfI"/>
                         <outlet property="profileImage" destination="LzO-7n-Hi4" id="PH2-52-fM6"/>
@@ -3626,7 +3626,7 @@
             <size key="intrinsicContentSize" width="71.333333333333329" height="31"/>
         </designable>
         <designable name="hQh-uO-d5P">
-            <size key="intrinsicContentSize" width="51.333333333333336" height="31"/>
+            <size key="intrinsicContentSize" width="53.333333333333336" height="34.333333333333336"/>
         </designable>
         <designable name="i0r-bW-D14">
             <size key="intrinsicContentSize" width="135.66666666666666" height="33.333333333333336"/>
