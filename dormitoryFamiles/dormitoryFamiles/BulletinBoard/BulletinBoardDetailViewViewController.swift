@@ -313,7 +313,7 @@ final class BulletinBoardDetailViewViewController: UIViewController {
         self.view.addSubview(scrollPhotoView)
         scrollPhotoView.translatesAutoresizingMaskIntoConstraints = false
         
-        var heightPhoto: CGFloat = hasImage ? 100 : 0
+        let heightPhoto: CGFloat = hasImage ? 100 : 0
         
         var constraints = [
             scrollPhotoView.topAnchor.constraint(equalTo: contentLabel.bottomAnchor, constant: 16),
