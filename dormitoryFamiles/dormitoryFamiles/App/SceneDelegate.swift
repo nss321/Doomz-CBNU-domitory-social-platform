@@ -7,6 +7,8 @@
 
 import UIKit
 import StompClientLib
+import KakaoSDKCommon
+import KakaoSDKAuth
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -21,4 +23,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // 앱이 백그라운드로 전환될 때 웹소켓 닫기
         WebSocketManager.shared.disconnectWebSocket()
     }
+    
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        KakaoSDK.initSDK(appKey: Token.shared.appKey)
+        return false
+    }
+    
+    func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+            if let url = URLContexts.first?.url {
+                if (AuthApi.isKakaoTalkLoginUrl(url)) {
+                    _ = AuthController.handleOpenUrl(url: url)
+                }
+            }
+        }
 }
