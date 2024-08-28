@@ -73,6 +73,7 @@ final class BulletinBoardDetailViewViewController: UIViewController {
     }
     
     private func setUI() {
+        likeButton.setTitleColor(.gray5, for: .normal)
         self.profileImage.layer.cornerRadius = profileImage.frame.height/2
         self.profileImage.clipsToBounds = true
         self.navigationController?.setNavigationBarHidden(false, animated: true)
@@ -144,9 +145,6 @@ final class BulletinBoardDetailViewViewController: UIViewController {
                     self.dormitory.title5 = data.memberDormitory
                     self.categoryTag.subTitle2 = data.boardType
                     
-                    let tagArr = data.tags.split(separator: "#")
-                    let trimmedString = String(data.tags.dropFirst())
-                    self.tagArray = trimmedString.components(separatedBy: "#").map { "#\($0)" }
                     self.contentLabel.body1 = data.content
                     self.likeCountLabel.text = String(data.wishCount)
                     self.isWished = data.isWished
@@ -162,11 +160,17 @@ final class BulletinBoardDetailViewViewController: UIViewController {
                     self.isWriter = data.isWriter
                     self.setNavigationItem()
                     self.status = data.status
-                    self.likeButton.setTitle(likeCountLabel.text, for: .normal)
-                    if isWished {
-                        likeButton.setImage(UIImage(named: "like"), for: .normal)
+                    
+                    
+                    if isWriter {
+                        self.likeButton.setTitle("관심목록 \(likeCountLabel.text ?? "")", for: .normal)
+                    }else {
+                        if isWished {
+                            likeButton.setImage(UIImage(named: "like"), for: .normal)
+                        }
+                        self.likeButton.setTitle(likeCountLabel.text, for: .normal)
                     }
-                    likeButton.setTitleColor(.gray5, for: .normal)
+                    
                     //게시물 이미지 불러오기
                     if data.imagesUrls.isEmpty {
                         self.hasImage = false
