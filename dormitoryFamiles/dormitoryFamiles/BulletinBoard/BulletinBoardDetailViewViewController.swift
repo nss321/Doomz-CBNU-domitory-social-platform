@@ -313,23 +313,19 @@ final class BulletinBoardDetailViewViewController: UIViewController {
     private func layout() {
         self.view.addSubview(scrollPhotoView)
         scrollPhotoView.translatesAutoresizingMaskIntoConstraints = false
-        self.view.addSubview(likeAndChatStackView)
-        likeAndChatStackView.translatesAutoresizingMaskIntoConstraints = false
         
-        var heightPhoto = 0
-        if hasImage {
-            heightPhoto = 100
-        }
-        
+        var heightPhoto: CGFloat = hasImage ? 100 : 0
         
         var constraints = [
-            self.scrollPhotoView.topAnchor.constraint(equalTo: contentLabel.bottomAnchor, constant: 16),
-            self.scrollPhotoView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            self.scrollPhotoView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            self.scrollPhotoView.heightAnchor.constraint(equalToConstant: CGFloat(heightPhoto)),
-            self.likeAndChatStackView.topAnchor.constraint(equalTo: scrollPhotoView.bottomAnchor, constant: 20),
-            self.likeAndChatStackView.leadingAnchor.constraint(equalTo: contentLabel.leadingAnchor)
+            scrollPhotoView.topAnchor.constraint(equalTo: contentLabel.bottomAnchor, constant: 16),
+            scrollPhotoView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            scrollPhotoView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            scrollPhotoView.heightAnchor.constraint(equalToConstant: heightPhoto)
         ]
+        
+        if hasImage {
+            constraints.append(likeAndChatStackView.topAnchor.constraint(equalTo: scrollPhotoView.bottomAnchor, constant: 20))
+        }
         
         NSLayoutConstraint.activate(constraints)
     }
