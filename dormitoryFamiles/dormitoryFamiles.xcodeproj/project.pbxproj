@@ -21,6 +21,8 @@
 		11321B9E2C6D305000BCD029 /* ChooseRoomateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11321B9D2C6D305000BCD029 /* ChooseRoomateViewController.swift */; };
 		11321BA02C6D69BD00BCD029 /* CompleteMatchingOptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11321B9F2C6D69BD00BCD029 /* CompleteMatchingOptionViewController.swift */; };
 		11321BA32C6D731300BCD029 /* MatchingMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11321BA22C6D731300BCD029 /* MatchingMainViewController.swift */; };
+		11321BA82C7759AB00BCD029 /* RecommendedMatesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11321BA72C7759AB00BCD029 /* RecommendedMatesViewController.swift */; };
+		11321BAB2C7F937C00BCD029 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11321BAA2C7F937C00BCD029 /* NetworkService.swift */; };
 		1148B3F62C3EAD4B0056671B /* PriorityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1148B3F52C3EAD4B0056671B /* PriorityCell.swift */; };
 		11707A232BA4C8CC0027802D /* SleepPatternViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11707A222BA4C8CC0027802D /* SleepPatternViewController.swift */; };
 		11707A2C2BA4CA780027802D /* FontManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11707A2B2BA4CA780027802D /* FontManager.swift */; };
@@ -138,6 +140,8 @@
 		11321B9D2C6D305000BCD029 /* ChooseRoomateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseRoomateViewController.swift; sourceTree = "<group>"; };
 		11321B9F2C6D69BD00BCD029 /* CompleteMatchingOptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteMatchingOptionViewController.swift; sourceTree = "<group>"; };
 		11321BA22C6D731300BCD029 /* MatchingMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchingMainViewController.swift; sourceTree = "<group>"; };
+		11321BA72C7759AB00BCD029 /* RecommendedMatesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendedMatesViewController.swift; sourceTree = "<group>"; };
+		11321BAA2C7F937C00BCD029 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		1148B3F52C3EAD4B0056671B /* PriorityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriorityCell.swift; sourceTree = "<group>"; };
 		1148B3F72C3EB9810056671B /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Main.strings; sourceTree = "<group>"; };
 		1148B3F82C3EB9810056671B /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
@@ -280,6 +284,7 @@
 				11321B9D2C6D305000BCD029 /* ChooseRoomateViewController.swift */,
 				11321B9F2C6D69BD00BCD029 /* CompleteMatchingOptionViewController.swift */,
 				11321BA22C6D731300BCD029 /* MatchingMainViewController.swift */,
+				11321BA72C7759AB00BCD029 /* RecommendedMatesViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -461,6 +466,7 @@
 				DB74D0C52B73EEBF00A90D68 /* Codable.swift */,
 				11227B1C2C51291D002A6A8A /* Url.swift */,
 				DBD1E00B2C3D49E900FDD5FE /* Token.swift */,
+				11321BAA2C7F937C00BCD029 /* NetworkService.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -738,12 +744,14 @@
 				119F6D552C4012F300297E3F /* UserDefaults+.swift in Sources */,
 				DB29DE2B2C4C293500365684 /* YourChattingTableViewCell.swift in Sources */,
 				DB31AA242C634EF8001BAE51 /* WebSocketManager.swift in Sources */,
+				11321BAB2C7F937C00BCD029 /* NetworkService.swift in Sources */,
 				11036F212C3C05D60042B9EF /* HomeCycleViewController.swift in Sources */,
 				DB9D47B52C50B85D0031C8EF /* Encodable+.swift in Sources */,
 				11227B1F2C513C96002A6A8A /* UICollectionView+.swift in Sources */,
 				DBC54C432B568B350071164C /* UIFontExtension.swift in Sources */,
 				118EAA852C07E56400436A6F /* ConstitutionViewController.swift in Sources */,
 				DB7EF27D2B5EAC790062FAB5 /* ChoiceDormitoryButton.swift in Sources */,
+				11321BA82C7759AB00BCD029 /* RecommendedMatesViewController.swift in Sources */,
 				11321B9E2C6D305000BCD029 /* ChooseRoomateViewController.swift in Sources */,
 				DB3F053E2C44BED90091349F /* FollowingViewController.swift in Sources */,
 				DBFF14932B7BA7EC002DA3AA /* BulletinBoardDetailViewViewController.swift in Sources */,
@@ -919,7 +927,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 7B9KLZFFL8;
+				DEVELOPMENT_TEAM = W43DLLFB4Q;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = dormitoryFamiles/App/info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -949,7 +957,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 7B9KLZFFL8;
+				DEVELOPMENT_TEAM = W43DLLFB4Q;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = dormitoryFamiles/App/info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
