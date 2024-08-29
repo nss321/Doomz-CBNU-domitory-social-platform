@@ -39,7 +39,7 @@ struct Post: Codable {
     let title: String
     let content: String
     let tags: String
-    let imagesUrls: [String]
+    var imagesUrls: [String]
 }
 
 struct PostResponse: Decodable {

@@ -67,6 +67,7 @@ class StudentCertificationViewController: UIViewController {
             }
         }
     }
+    
 }
 
 extension StudentCertificationViewController: UIImagePickerControllerDelegate {
