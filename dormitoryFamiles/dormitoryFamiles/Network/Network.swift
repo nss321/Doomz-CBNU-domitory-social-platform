@@ -30,7 +30,7 @@ struct Network {
     private static func fetchData<T: Codable>(from url: URL, completion: @escaping (Result<T, Error>) -> Void) {
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
-        let token = Token.shared.number
+        let token = Token.shared.access
         request.addValue("Bearer \(token)", forHTTPHeaderField: "Accesstoken")
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
             if let error = error {
@@ -66,7 +66,7 @@ struct Network {
         }
         var request = URLRequest(url: url)
         request.httpMethod = "DELETE"
-        let token = Token.shared.number
+        let token = Token.shared.access
         request.addValue("Bearer \(token)", forHTTPHeaderField: "Accesstoken")
         
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
@@ -106,7 +106,7 @@ struct Network {
         }
         var request = URLRequest(url: url)
         request.httpMethod = "PUT"
-        let token = Token.shared.number
+        let token = Token.shared.access
         request.addValue("Bearer \(token)", forHTTPHeaderField: "Accesstoken")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         
@@ -142,7 +142,7 @@ struct Network {
     }
     
     static func postMethodBody<T: Codable>(url: String, body: Data?, completion: @escaping (Result<(T, [AnyHashable: Any]), Error>) -> Void) {
-        let token = Token.shared.number
+        let token = Token.shared.access
         guard var request = createRequest(url: url, token: token, contentType: "application/json") else {
             completion(.failure(NSError(domain: "Invalid URL", code: 0, userInfo: ["description": "URL is not valid."])))
             return
@@ -273,7 +273,7 @@ struct Network {
     }
 
     static func postMethod<T: Codable>(url: String, body: Data?, completion: @escaping (Result<T, Error>) -> Void) {
-        let token = Token.shared.number
+        let token = Token.shared.access
         guard var request = createRequest(url: url, token: token, contentType: "application/json") else {
             completion(.failure(NSError(domain: "Invalid URL", code: 0, userInfo: ["description": "URL is not valid."])))
             return
@@ -284,7 +284,7 @@ struct Network {
     }
 
     static func multipartFilePostMethod<T: Codable>(url: String, image: UIImage, completion: @escaping (Result<T, Error>) -> Void) {
-        let token = Token.shared.number
+        let token = Token.shared.access
         let boundary = UUID().uuidString
         var data = Data()
         
@@ -314,7 +314,7 @@ struct Network {
             var request = URLRequest(url: url)
             request.httpMethod = "PATCH"
             request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-            let token = Token.shared.number
+            let token = Token.shared.access
             request.addValue("Bearer \(token)", forHTTPHeaderField: "Accesstoken")
             
             let task = URLSession.shared.dataTask(with: request) { data, response, error in

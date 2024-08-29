@@ -72,9 +72,9 @@ final  class LoginViewController: UIViewController {
                 switch result {
                 case .success(let (successCode, headers)):
                     print("post 성공: \(successCode)")
-                    if let realAccessToken = headers["accessToken"] as? String {
-                        Token.shared.number = realAccessToken
-                        
+                    if let realAccessToken = headers["accessToken"] as? String, let realRefreshToken = headers["refreshToken"] as? String {
+                        Token.shared.access = realAccessToken
+                        Token.shared.refresh = realRefreshToken
                         //정상적으로 토큰까지 저장되었다면 화면전환
                         //navigationPush를 하지않은이유: 뒤로가기 기능을 없애기 제거하기 위해
                         DispatchQueue.main.async {

@@ -196,7 +196,7 @@ final class RegisterPostViewController: UIViewController, CancelButtonTappedDele
                 let jsonData = try JSONEncoder().encode(updatedPost)
                 guard let request = Network.createRequest(
                     url: Url.articles,
-                    token: Token.shared.number,
+                    token: Token.shared.access,
                     contentType: "application/json",
                     body: jsonData
                 ) else {
