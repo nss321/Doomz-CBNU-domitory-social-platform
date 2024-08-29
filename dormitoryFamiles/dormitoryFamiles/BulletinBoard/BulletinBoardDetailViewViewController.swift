@@ -31,6 +31,7 @@ final class BulletinBoardDetailViewViewController: UIViewController {
     @IBOutlet weak var likeAndChatStackView: UIStackView!
     @IBOutlet weak var likeButton: RoundButton!
     
+    private var tapGesture: UITapGestureRecognizer?
     private var scrollPhotoView = PhotoScrollView()
     private var hasImage = true
     private var selectedRereplyButton: UIButton?
@@ -294,6 +295,8 @@ final class BulletinBoardDetailViewViewController: UIViewController {
     
     
     private func setTextView() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
         if commentTextView.text == "" {
             commentTextView.textColor = .gray4
             commentTextView.text = "댓글을 남겨주세요."
@@ -477,6 +480,34 @@ extension BulletinBoardDetailViewViewController: UITextViewDelegate {
             textView.textColor = .gray4
             textView.text = "내용을 입력해 주세요."
         }
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    @objc private func dismissKeyboard() {
+        view.endEditing(true)
+    }
+    
+    @objc private func keyboardWillShow(_ notification: Notification) {
+        if tapGesture == nil {
+            tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+            view.addGestureRecognizer(tapGesture!)
+        }
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            let contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardSize.height, right: 0)
+            view.frame.origin.y = -(keyboardSize.height)
+        }
+    }
+    
+    @objc private func keyboardWillHide(_ notification: Notification) {
+        if let tap = tapGesture {
+            view.removeGestureRecognizer(tap)
+            tapGesture = nil
+        }
+        view.frame.origin.y = 0
     }
 }
 
