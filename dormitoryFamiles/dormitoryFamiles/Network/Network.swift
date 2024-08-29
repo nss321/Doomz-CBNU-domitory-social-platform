@@ -360,28 +360,31 @@ struct Network {
     //어세스 토큰이 만료될때 해당 메서드 사용시 리프레시토큰을 가지고 백앤드에전달하면
     //백앤드에서 다시 어세스토큰과 리프레시토큰을 발급해주는 로직
     private func updateAccessToekn() {
-        let requestBody: [String: Any] = [
-            "refreshToken": Token.shared.refresh
-        ]
-        
-        do {
-            let jsonData = try JSONSerialization.data(withJSONObject: requestBody, options: [])
-            Self.postMethodBody(url: Url.updateAccessToken(), body: jsonData) { (result: Result<(CodeResponse, [AnyHashable: Any]), Error>) in
-                switch result {
-                case .success(let (successCode, headers)):
-                    print("post 성공: \(successCode)")
-                    if let realAccessToken = headers["accessToken"] as? String, let realRefreshToken = headers["refreshToken"] as? String {
-                        Token.shared.access = realAccessToken
-                        Token.shared.refresh = realRefreshToken
-                    }
-                    
-                case .failure(let error):
-                    print("Error: \(error)")
-                }
+        guard var request = Network.createRequest(url: Url.updateAccessToken(), token: Token.shared.access, contentType: "application/json") else {
+                print("URL 확인 요망")
+                return
             }
-        } catch {
-            print("JSON 변환 에러: \(error)")
-        }
+            
+            // 리프레시 토큰을 헤더에 추가
+            request.addValue(Token.shared.refresh, forHTTPHeaderField: "refreshToken")
+
+        Network.executeRequestBody(request: request) { (result: Result<(CodeResponse, [AnyHashable: Any]), Error>) in
+               switch result {
+               case .success(let (successCode, headers)):
+                   print("post 성공: \(successCode)")
+                   
+                   if let newAccessToken = headers["accessToken"] as? String,
+                      let newRefreshToken = headers["refreshToken"] as? String {
+                       Token.shared.access = newAccessToken
+                       Token.shared.refresh = newRefreshToken
+                   } else {
+                       print("헤더에 토큰을 찾을 수 없음")
+                   }
+                   
+               case .failure(let error):
+                   print("토큰 갱신 실패: \(error.localizedDescription)")
+               }
+           }
     }
 }
 
