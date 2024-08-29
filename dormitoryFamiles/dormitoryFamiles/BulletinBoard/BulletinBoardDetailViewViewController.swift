@@ -98,7 +98,7 @@ final class BulletinBoardDetailViewViewController: UIViewController {
             }
             var request = URLRequest(url: url!)
             request.httpMethod = "POST"
-            let token = Token.shared.number
+            let token = Token.shared.access
             request.addValue("Bearer \(token)", forHTTPHeaderField: "Accesstoken")
             request.addValue("application/json", forHTTPHeaderField: "Content-Type")
             request.httpBody = jsonData
@@ -440,7 +440,7 @@ final class BulletinBoardDetailViewViewController: UIViewController {
                     }
                 })
             }else {
-                Network.postMethod(url: likeUrl, completion: { (result: Result<LikeStatus, Error>) in
+                Network.postMethod(url: likeUrl, body: nil, completion: { (result: Result<LikeStatus, Error>) in
                     switch result {
                     case .success(let response):
                         print(response)

@@ -235,7 +235,7 @@ class ChattingHomeViewController: UIViewController {
     }
     
     private func createChattingRoom(memberId: Int) {
-        Network.postMethod(url: Url.createChattingRoom(memberId: memberId)) { (result: Result<CreateRoomResponse, Error>) in
+        Network.postMethod(url: Url.createChattingRoom(memberId: memberId), body: nil) { (result: Result<CreateRoomResponse, Error>) in
             switch result {
             case .success(let response):
                 // 성공적으로 채팅방이 생성되면, 해당 채팅방으로 이동
