@@ -141,7 +141,18 @@ struct Network {
         task.resume()
     }
     
-    static func createRequest(url: String, method: String = "POST", token: String, contentType: String? = nil, body: Data? = nil) -> URLRequest? {
+    static func postMethodBody<T: Codable>(url: String, body: Data?, completion: @escaping (Result<(T, [AnyHashable: Any]), Error>) -> Void) {
+        let token = Token.shared.number
+        guard var request = createRequest(url: url, token: token, contentType: "application/json") else {
+            completion(.failure(NSError(domain: "Invalid URL", code: 0, userInfo: ["description": "URL is not valid."])))
+            return
+        }
+        request.httpMethod = "POST"
+        request.httpBody = body
+        executeRequestBody(request: request, completion: completion)
+    }
+    
+    static func createRequest(url: String, method: String = "POST", token: String, contentType: String?, body: Data? = nil) -> URLRequest? {
         guard let url = URL(string: url) else {
             return nil
         }
@@ -159,6 +170,56 @@ struct Network {
         return request
     }
 
+    static func executeRequestBody<T: Decodable>(request: URLRequest, completion: @escaping (Result<(T, [AnyHashable: Any]), Error>) -> Void) {
+        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
+            
+            guard let httpResponse = response as? HTTPURLResponse else {
+                completion(.failure(NSError(domain: "Invalid response", code: 0, userInfo: ["description": "No HTTP response"])))
+                return
+            }
+            
+            if (200...299).contains(httpResponse.statusCode) {
+                        if let data = data {
+                            do {
+                                let decodedData = try JSONDecoder().decode(T.self, from: data)
+                                completion(.success((decodedData, httpResponse.allHeaderFields)))
+                            } catch {
+                                completion(.failure(error))
+                            }
+                        } else {
+                            completion(.failure(NSError(domain: "Invalid data", code: 0, userInfo: ["description": "No data received."])))
+                        }
+            } else {
+                if let data = data {
+                    do {
+                        let errorResponse = try JSONDecoder().decode(ErrorResponse.self, from: data)
+                        let statusError = NSError(domain: "HTTP Error", code: errorResponse.code, userInfo: [
+                            "description": errorResponse.errorMessage,
+                            "statusCode": errorResponse.code
+                        ])
+                        completion(.failure(statusError))
+                    } catch {
+                        let statusError = NSError(domain: "HTTP Error", code: httpResponse.statusCode, userInfo: [
+                            "description": "Failed to parse error message.",
+                            "statusCode": httpResponse.statusCode
+                        ])
+                        completion(.failure(statusError))
+                    }
+                } else {
+                    let statusError = NSError(domain: "HTTP Error", code: httpResponse.statusCode, userInfo: [
+                        "description": "No data received.",
+                        "statusCode": httpResponse.statusCode
+                    ])
+                    completion(.failure(statusError))
+                }
+            }
+        }
+        task.resume()
+    }
     
     static func executeRequest<T: Decodable>(request: URLRequest, completion: @escaping (Result<T, Error>) -> Void) {
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
@@ -213,7 +274,7 @@ struct Network {
 
     static func postMethod<T: Codable>(url: String, body: Data?, completion: @escaping (Result<T, Error>) -> Void) {
         let token = Token.shared.number
-        guard var request = createRequest(url: url, token: token) else {
+        guard var request = createRequest(url: url, token: token, contentType: "application/json") else {
             completion(.failure(NSError(domain: "Invalid URL", code: 0, userInfo: ["description": "URL is not valid."])))
             return
         }
