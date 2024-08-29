@@ -298,5 +298,4 @@ enum Dormitory: String {
     case 본관 = "본관"
     case 양성재 = "양성재"
     case 양진재 = "양진재"
-    case 양현재 = "양현재"
 }

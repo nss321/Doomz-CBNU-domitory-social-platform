@@ -8,8 +8,8 @@
 import Foundation
 enum Category: String {
     case all = "all"
-    case help = "help"
-    case together = "together"
-    case share = "share"
-    case lost = "lost"
+    case help = "도와주세요"
+    case together = "함께해요"
+    case share = "나눔해요"
+    case lost = "분실신고"
 }

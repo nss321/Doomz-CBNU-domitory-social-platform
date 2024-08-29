@@ -13,10 +13,12 @@ final class SearchViewController: UIViewController {
     @IBOutlet weak var searchWordLabel: UILabel!
     @IBOutlet weak var noPostImageSettingView: UIView!
     @IBOutlet weak var collectionView: UICollectionView!
-    
+    var searchBar = UISearchBar()
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
         //검색 화면에 들어올때 검색 결과가 없다는 창은 아예 안보여야함.
         noPostImageSettingView.isHidden = true
+        updateCollectionView()
     }
     
     override func viewDidLoad() {
@@ -30,10 +32,20 @@ final class SearchViewController: UIViewController {
         
     }
     
+    func updateCollectionView() {
+        let keword = searchBar.text ?? ""
+        articles.removeAll()
+        network(url: Url.base+Url.searchUrl(searchText: keword), searchText: keword) { [weak self] in
+            DispatchQueue.main.async {
+                self?.collectionView.reloadData()
+            }
+        }
+    }
+    
     private func setSearchBar() {
         let bounds = UIScreen.main.bounds
         let width = bounds.size.width
-        let searchBar = UISearchBar(frame: CGRect(x: 0, y: 0, width: width - 28, height: 40))
+        searchBar = UISearchBar(frame: CGRect(x: 0, y: 0, width: width - 28, height: 40))
         searchBar.placeholder = "검색어를 입력해 주세요."
         if let textFieldInsideSearchBar = searchBar.value(forKey: "searchField") as? UITextField {
             textFieldInsideSearchBar.leftView = nil
@@ -53,7 +65,7 @@ final class SearchViewController: UIViewController {
         self.collectionView.dataSource = self
     }
     
-    private func network(url: String, searchText: String) {
+    private func network(url: String, searchText: String, completion: (() -> Void)? = nil) {
         Network.getMethod(url: url) { (result: Result<ArticleResponse, Error>) in
             switch result {
             case .success(let response):
@@ -64,10 +76,12 @@ final class SearchViewController: UIViewController {
                         print("검색 결과 없음")
                         self.searchWordLabel.title3 = "'\(searchText)'"
                         self.noPostImageSettingView.isHidden = false
+                        completion?()
                     }
                 }
             case .failure(let error):
                 print("Error: \(error)")
+                completion?()
             }
         }
     }
@@ -97,8 +111,20 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
         cell.content.text = article.content
         cell.categoryTag.body2 = article.boardType
         cell.statusTag.body2 = article.status
-        if article.isWished {
-        //TODO: 0311 예림씨 답장 오면 색이 있는 하트로 이미지 교체하기
+        cell.profileUrl = article.profileUrl
+        cell.thumbnailUrl = article.thumbnailUrl
+        
+        let dateString = article.createdAt
+        if let formattedString = DateUtility.formattedDateString(from: dateString) {
+            cell.createdDateLabel.body2 = formattedString
+        } else {
+            cell.createdDateLabel.body2 = article.createdAt
+        }
+        
+        if article.status == "모집완료" {
+            cell.changeFinish()
+        }else {
+            cell.changeIng()
         }
         return cell
     }
@@ -108,12 +134,13 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
         
         let id = articleElement.articleId
         
-        let url = "http://43.202.254.127:8080/api/articles/\(id)"
+        let url = Url.searchBulletinBoard(id: id)
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            if let articleDetailViewController = storyboard.instantiateViewController(withIdentifier: "detail") as? BulletinBoardDetailViewViewController {
-                articleDetailViewController.setUrl(url: url)
-                self.navigationController?.pushViewController(articleDetailViewController, animated: true)
-            }
+        if let articleDetailViewController = storyboard.instantiateViewController(withIdentifier: "detail") as? BulletinBoardDetailViewViewController {
+            articleDetailViewController.setUrl(url: url)
+            articleDetailViewController.id = id
+            self.navigationController?.pushViewController(articleDetailViewController, animated: true)
+        }
     }
     
     
