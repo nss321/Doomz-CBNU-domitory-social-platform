@@ -178,6 +178,10 @@ final class HomeViewController: UIViewController, DormitoryButtonHandling {
     }
     
     
+    @IBAction func alarmButtonTapped(_ sender: UIButton) {
+        navigationController?.pushViewController(AlarmViewController(), animated: true)
+    }
+    
     
     @IBAction func dormitoryButtonTapped(_ sender: DormitoryButton) {
         presentSheet()

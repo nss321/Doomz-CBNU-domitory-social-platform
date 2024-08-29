@@ -850,7 +850,7 @@
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                         <state key="normal" title="Button" image="homeImageAlarm"/>
                                                         <connections>
-                                                            <segue destination="Yhr-Mm-t9M" kind="show" id="fXI-Cm-U6u"/>
+                                                            <action selector="alarmButtonTapped:" destination="pDX-kV-96B" eventType="touchUpInside" id="fYe-rq-HJ5"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -1523,22 +1523,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eAO-v6-dmc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2791.6030534351144" y="-2320.4225352112676"/>
-        </scene>
-        <!--알림-->
-        <scene sceneID="P01-2V-MbX">
-            <objects>
-                <viewController modalPresentationStyle="fullScreen" id="Yhr-Mm-t9M" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="p9t-2u-D7K">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="ito-m7-Is1"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="알림" id="Jsn-fL-PWf"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="saL-ef-jpE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4486" y="-2320"/>
         </scene>
         <!--게시판-->
         <scene sceneID="T4u-Z0-FUX">

@@ -79,6 +79,7 @@
 		DB94B2AF2C23B3D80077A7BE /* NickNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB94B2AE2C23B3D80077A7BE /* NickNameViewController.swift */; };
 		DB9D47B52C50B85D0031C8EF /* Encodable+.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9D47B42C50B85D0031C8EF /* Encodable+.swift */; };
 		DBB345F22B42BFD100E70380 /* BulletinBoardMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB345F12B42BFD100E70380 /* BulletinBoardMainViewController.swift */; };
+		DBB610B52C80E07A0070E2BA /* AlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB610B42C80E07A0070E2BA /* AlarmViewController.swift */; };
 		DBC001D82BBAEDBB00228CD9 /* AddImageBaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC001D72BBAEDBB00228CD9 /* AddImageBaseView.swift */; };
 		DBC1CFF62BC2AE25005C93C0 /* ConfigUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11707A312BA617EE0027802D /* ConfigUI.swift */; };
 		DBC1CFF72BC2AE2D005C93C0 /* UILabel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11707A2D2BA4D3AC0027802D /* UILabel+.swift */; };
@@ -206,6 +207,7 @@
 		DB94B2AE2C23B3D80077A7BE /* NickNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NickNameViewController.swift; sourceTree = "<group>"; };
 		DB9D47B42C50B85D0031C8EF /* Encodable+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable+.swift"; sourceTree = "<group>"; };
 		DBB345F12B42BFD100E70380 /* BulletinBoardMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulletinBoardMainViewController.swift; sourceTree = "<group>"; };
+		DBB610B42C80E07A0070E2BA /* AlarmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmViewController.swift; sourceTree = "<group>"; };
 		DBC001D72BBAEDBB00228CD9 /* AddImageBaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddImageBaseView.swift; sourceTree = "<group>"; };
 		DBC54C422B568B350071164C /* UIFontExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFontExtension.swift; sourceTree = "<group>"; };
 		DBC54C542B56A46B0071164C /* PretendardVariable.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = PretendardVariable.ttf; sourceTree = "<group>"; };
@@ -400,6 +402,7 @@
 		DB32D75C2BA3434200DE387A /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				DBB610B32C80E0330070E2BA /* Alarm */,
 				DBF466FE2AA5F4E4009FF3EB /* MealMenuViewController.swift */,
 				DB20E38B2B53C2BD000D12A7 /* HomeViewController.swift */,
 				DB7EF27C2B5EAC790062FAB5 /* ChoiceDormitoryButton.swift */,
@@ -498,6 +501,14 @@
 				DB8DDFD82BECC5AC00B3A676 /* Category.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		DBB610B32C80E0330070E2BA /* Alarm */ = {
+			isa = PBXGroup;
+			children = (
+				DBB610B42C80E07A0070E2BA /* AlarmViewController.swift */,
+			);
+			path = Alarm;
 			sourceTree = "<group>";
 		};
 		DBC54C3F2B568A6A0071164C /* Font */ = {
@@ -697,6 +708,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DBB610B52C80E07A0070E2BA /* AlarmViewController.swift in Sources */,
 				DBC1CFFE2BC2AFDE005C93C0 /* SleepPatternCircleCollectionViewCell.swift in Sources */,
 				1126FE1C2BCEA662004C6C81 /* LifeStyleViewController.swift in Sources */,
 				DBC1CFF72BC2AE2D005C93C0 /* UILabel+.swift in Sources */,
