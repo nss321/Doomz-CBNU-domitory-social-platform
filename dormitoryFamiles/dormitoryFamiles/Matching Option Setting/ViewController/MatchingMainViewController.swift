@@ -80,7 +80,7 @@ final class MatchingMainViewController: UIViewController, ConfigUI {
     @objc func button1() {
         print("1탭")
         self.tabBarController?.tabBar.isHidden = true
-        self.navigationController?.pushViewController(SleepPatternViewController(), animated: true)
+        self.navigationController?.pushViewController(RecommendedMatesViewController(), animated: true)
     }
     @objc func button2() {
         print("2탭")
