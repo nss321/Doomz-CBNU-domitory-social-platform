@@ -118,7 +118,6 @@ final class BulletinBoardDetailViewViewController: UIViewController {
                             self.scrollToTop()
                             guard let replyCount = self.replyCountLabel.text as? Int else { return }
                             self.replyCountLabel.text = String(replyCount + 1)
-                            
                         }
                     }
                 }
@@ -241,6 +240,7 @@ final class BulletinBoardDetailViewViewController: UIViewController {
     private func showCompletionAlert(status: String) {
         let alertController = UIAlertController(title: "\(status) 완료", message: "\(status) 완료되었습니다.", preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
+        self.dismissKeyboard()
         present(alertController, animated: true, completion: nil)
     }
     
