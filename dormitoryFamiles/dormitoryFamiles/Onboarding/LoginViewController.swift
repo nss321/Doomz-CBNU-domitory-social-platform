@@ -64,8 +64,6 @@ final  class LoginViewController: UIViewController {
          "accessToken": accessToken
         ]
         
-        print(requestBody)
-        
         do {
             let jsonData = try JSONSerialization.data(withJSONObject: requestBody, options: [])
             Network.postMethodBody(url: Url.kakaoLogin(), body: jsonData) { (result: Result<(CodeResponse, [AnyHashable: Any]), Error>) in

@@ -355,6 +355,34 @@ struct Network {
         imageView.kf.setImage(with: imageUrl)
         return imageView
     }
+    
+    //이 메서드는 어세스 토큰이 만료된 시점에 사용해야함
+    //어세스 토큰이 만료될때 해당 메서드 사용시 리프레시토큰을 가지고 백앤드에전달하면
+    //백앤드에서 다시 어세스토큰과 리프레시토큰을 발급해주는 로직
+    private func updateAccessToekn() {
+        let requestBody: [String: Any] = [
+            "refreshToken": Token.shared.refresh
+        ]
+        
+        do {
+            let jsonData = try JSONSerialization.data(withJSONObject: requestBody, options: [])
+            Self.postMethodBody(url: Url.updateAccessToken(), body: jsonData) { (result: Result<(CodeResponse, [AnyHashable: Any]), Error>) in
+                switch result {
+                case .success(let (successCode, headers)):
+                    print("post 성공: \(successCode)")
+                    if let realAccessToken = headers["accessToken"] as? String, let realRefreshToken = headers["refreshToken"] as? String {
+                        Token.shared.access = realAccessToken
+                        Token.shared.refresh = realRefreshToken
+                    }
+                    
+                case .failure(let error):
+                    print("Error: \(error)")
+                }
+            }
+        } catch {
+            print("JSON 변환 에러: \(error)")
+        }
+    }
 }
 
 enum Dormitory: String {
