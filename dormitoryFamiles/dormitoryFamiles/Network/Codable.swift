@@ -289,3 +289,41 @@ struct TotalUnReadResponse: Codable {
 struct TotalUnReadDataClass: Codable {
     let totalCount: Int
 }
+
+struct UserProfileData: Codable {
+    let memberId: Int
+    let name: String
+    let genderType: String
+    let nickname: String
+    let birthDate: String
+    let memberDormitoryType: String
+    let collegeType: String
+    let departmentType: String
+    let studentNumber: String
+    let profileUrl: String
+}
+
+struct LifeStyleData: Codable {
+    let drunkHabit: String
+    let sleepTime: String
+    let wakeUpTime: String
+    let sleepingHabit: String
+    let sleepingSensitivity: String
+    let smoking: String
+    let drinkingFrequency: String
+    let cleaningFrequency: String
+    let heatTolerance: String
+    let coldTolerance: String
+    let perfumeUsage: String
+    let examPreparation: String
+    let showerTime: String
+    let showerDuration: String
+    let MBTI: String
+    let visitHomeFrequency: String
+    let lateNightSnack: String
+    let snackInRoom: String
+    let phoneSound: String
+    let studyLocation: String
+    let exercise: String
+    let insectTolerance: String
+}
