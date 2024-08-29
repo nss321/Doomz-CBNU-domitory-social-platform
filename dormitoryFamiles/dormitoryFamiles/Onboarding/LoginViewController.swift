@@ -60,7 +60,39 @@ final  class LoginViewController: UIViewController {
     }
     
     private func tokenToBackend(accessToken: String) {
+        let requestBody: [String: Any] = [
+         "accessToken": accessToken
+        ]
         
+        print(requestBody)
+        
+        do {
+            let jsonData = try JSONSerialization.data(withJSONObject: requestBody, options: [])
+            Network.postMethodBody(url: Url.kakaoLogin(), body: jsonData) { (result: Result<(CodeResponse, [AnyHashable: Any]), Error>) in
+                switch result {
+                case .success(let (successCode, headers)):
+                    print("post 성공: \(successCode)")
+                    if let realAccessToken = headers["accessToken"] as? String {
+                        Token.shared.number = realAccessToken
+                        
+                        //정상적으로 토큰까지 저장되었다면 화면전환
+                        //navigationPush를 하지않은이유: 뒤로가기 기능을 없애기 제거하기 위해
+                        DispatchQueue.main.async {
+                            if let tabBarController = self.storyboard?.instantiateViewController(withIdentifier: "MainTabBarController") as? UITabBarController {
+                                tabBarController.modalPresentationStyle = .fullScreen
+                                self.present(tabBarController, animated: true, completion: nil)
+                            }
+                        }
+                        
+                    }
+                    
+                case .failure(let error):
+                    print("Error: \(error)")
+                }
+            }
+        } catch {
+            print("JSON 변환 에러: \(error)")
+        }
     }
 }
 
