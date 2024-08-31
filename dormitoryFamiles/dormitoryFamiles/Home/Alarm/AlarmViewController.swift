@@ -119,14 +119,24 @@ class AlarmViewController: UIViewController, ConfigUI {
 
 extension AlarmViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return alarmData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: AlarmTableViewCell.identifier, for: indexPath) as? AlarmTableViewCell else {
             return UITableViewCell()
         }
+        let alarmData = alarmData[indexPath.row]
+        let articleTitle = alarmData.articleTitle
+        let createdAt = alarmData.createdAt
+        let isRead = alarmData.isRead
+        let notificationId = alarmData.notificationId
+        let sender = alarmData.sender
+        let targetId = alarmData.targetId
+        let type = alarmData.type
         
+        cell.configure(articleTitle: articleTitle, createdAt: createdAt, isRead: isRead, notificationId: notificationId, sender: sender, targetId: targetId, type: type)
+        cell.selectionStyle = .none
         return cell
     }
     

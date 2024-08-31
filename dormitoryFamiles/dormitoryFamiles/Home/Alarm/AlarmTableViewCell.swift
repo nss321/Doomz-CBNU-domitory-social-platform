@@ -12,14 +12,17 @@ import Kingfisher
 class AlarmTableViewCell: UITableViewCell, ConfigUI {
     
     static let identifier = "alarmCell"
-    var userId = ""
+    var sender = ""
+    var articleTitle = ""
+    var isRead = false
+    var notificationId = 0
+    var targetId = 0
     var tabImageView = UIImageView()
-    var tabUrl: String? {
+    var typeUrl: String? {
         didSet {
             updateProfileImage()
         }
     }
-    
     private let roundBaseView: UIView = {
         let view = UIView()
         view.layer.cornerRadius = 16
@@ -27,12 +30,12 @@ class AlarmTableViewCell: UITableViewCell, ConfigUI {
         view.layer.borderColor = UIColor.gray1?.cgColor
         return view
     }()
-    var tabTextLabel: UILabel = {
+    var typeLabel: UILabel = {
         let label = UILabel()
         label.textColor = UIColor(red: 0.62, green: 0.624, blue: 0.631, alpha: 1)
         return label
     }()
-    var timeLabel: UILabel = {
+    var createdAtLabel: UILabel = {
         let label = UILabel()
         label.textColor = UIColor(red: 0.62, green: 0.624, blue: 0.631, alpha: 1)
         return label
@@ -63,7 +66,7 @@ class AlarmTableViewCell: UITableViewCell, ConfigUI {
     }
     
     func addComponents() {
-        [roundBaseView, tabImageView, tabTextLabel, timeLabel, descriptionLabel].forEach{ contentView.addSubview($0) }
+        [roundBaseView, tabImageView, typeLabel, createdAtLabel, descriptionLabel].forEach{ contentView.addSubview($0) }
     }
     
     func setConstraints() {
@@ -78,10 +81,20 @@ class AlarmTableViewCell: UITableViewCell, ConfigUI {
     }
     
     private func updateProfileImage() {
-        guard let tabUrl = tabUrl, let url = URL(string: tabUrl) else {
+        guard let typeUrl = typeUrl, let url = URL(string: typeUrl) else {
             return
         }
         tabImageView.kf.setImage(with: url)
         tabImageView.contentMode = .scaleAspectFill
+    }
+    
+    func configure(articleTitle: String?, createdAt: String, isRead: Bool, notificationId: Int, sender: String, targetId: Int, type: String) {
+        self.articleTitle = articleTitle ?? ""
+        self.createdAtLabel.body2 = createdAt
+        self.isRead = isRead
+        self.notificationId = notificationId
+        self.sender = sender
+        self.targetId = targetId
+        self.typeLabel.button = type
     }
 }
