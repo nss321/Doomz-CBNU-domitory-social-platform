@@ -39,9 +39,15 @@ class SSEManager: NSObject, URLSessionDataDelegate {
     
     func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?) {
         if let error = error {
-            print("SSE 연결 종료: \(error.localizedDescription)")
-        } else {
-            print("SSE 연결 정상 종료")
-        }
+                print("SSE 연결 종료: \(error.localizedDescription)")
+              
+                let nsError = error as NSError
+                if nsError.domain == NSURLErrorDomain && nsError.code == NSURLErrorTimedOut {
+                    //서버 타임아웃이 났다면
+                    connectSse(url: Url.subscribeSse())
+                }
+            } else {
+                print("SSE 연결 정상 종료")
+            }
     }
 }
