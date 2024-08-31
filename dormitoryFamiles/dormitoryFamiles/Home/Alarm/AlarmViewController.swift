@@ -9,8 +9,11 @@ import UIKit
 
 class AlarmViewController: UIViewController, ConfigUI {
     
-    //TODO: get으로 안읽었던 알람 불러오면 unreadId에 아이디 저장하기
     private var unreadId = [Int]()
+    private var alarmData = [NotificationData]()
+    private var page = 0
+    private var isLoading = false
+    private var isLast = false
     
     private let tableView: UITableView = {
         let tableView = UITableView()
@@ -26,11 +29,29 @@ class AlarmViewController: UIViewController, ConfigUI {
         setConstraints()
         self.navigationController?.isNavigationBarHidden = false
         setupNavigationBar("알림")
+        getAlarmList(url: Url.alarmList(page: 0, size: nil))
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(true)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        resetData()
+        loadInitialData()
+    }
+    
+    deinit {
+        //알람 뷰컨트롤러에서 다른 화면으로 전환시 안읽은 알람들이 읽음으로 바뀌는것보단
+        //알람 뷰컨트롤러를 deinit하는 시점에 read처리가 더 올바르다고 판단 후 changeReadAlarm 시점 변경
         changeReadAlarm()
+    }
+    
+    private func resetData() {
+        alarmData = []
+        page = 0
+        isLast = false
+    }
+    
+    private func loadInitialData() {
+        getAlarmList(url: Url.alarmList(page: page, size: nil))
     }
     
     private func setTableView() {
@@ -66,6 +87,34 @@ class AlarmViewController: UIViewController, ConfigUI {
                print("JSON 변환 에러: \(error)")
            }
     }
+    
+    private func getAlarmList(url: String) {
+        Network.getMethod(url: url) { (result: Result<NotificationsResponse, Error>) in
+            switch result {
+            case .success(let response):
+                self.alarmData += response.data.notifications
+                self.isLast = response.data.isLast
+                self.alarmData.filter{$0.isRead == false}.forEach{
+                    self.unreadId.append($0.notificationId)
+                }
+                DispatchQueue.main.sync {
+                    self.tableView.reloadData()
+                }
+                self.isLoading = false
+                self.page += 1
+                print(response)
+            case .failure(let error):
+                print("Error: \(error)")
+                self.isLoading = false
+            }
+        }
+    }
+    
+    private func alarmLoadNextPage() {
+        guard !isLast else { return }
+        page += 1
+        getAlarmList(url: Url.alarmList(page: page, size: nil))
+    }
 }
 
 extension AlarmViewController: UITableViewDataSource {
@@ -80,6 +129,12 @@ extension AlarmViewController: UITableViewDataSource {
         
         return cell
     }
+    
+    private func loadNextPage() {
+        guard !isLast else { return }
+        page += 1
+        getAlarmList(url: Url.alarmList(page: page, size: nil))
+    }
 }
 
 extension AlarmViewController: UITableViewDelegate {
@@ -88,3 +143,19 @@ extension AlarmViewController: UITableViewDelegate {
     }
 }
 
+extension AlarmViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let offsetY = scrollView.contentOffset.y
+        let contentHeight = scrollView.contentSize.height
+        let height = scrollView.frame.size.height
+        
+        if scrollView == tableView {
+            if offsetY > contentHeight - height {
+                if !isLoading {
+                    isLoading = true
+                    loadNextPage()
+                }
+            }
+        }
+    }
+}

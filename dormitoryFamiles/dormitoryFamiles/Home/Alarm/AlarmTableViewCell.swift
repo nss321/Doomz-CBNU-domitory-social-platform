@@ -7,13 +7,36 @@
 
 import UIKit
 import SnapKit
+import Kingfisher
 
 class AlarmTableViewCell: UITableViewCell, ConfigUI {
+    
     static let identifier = "alarmCell"
-    var roundBaseView = UIView()
-    var tabImage = UIImageView()
-    var tabTextLabel = UILabel()
-    var timeLabel = UILabel()
+    var userId = ""
+    var tabImageView = UIImageView()
+    var tabUrl: String? {
+        didSet {
+            updateProfileImage()
+        }
+    }
+    
+    private let roundBaseView: UIView = {
+        let view = UIView()
+        view.layer.cornerRadius = 16
+        view.layer.borderWidth = 1
+        view.layer.borderColor = UIColor.gray1?.cgColor
+        return view
+    }()
+    var tabTextLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = UIColor(red: 0.62, green: 0.624, blue: 0.631, alpha: 1)
+        return label
+    }()
+    var timeLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = UIColor(red: 0.62, green: 0.624, blue: 0.631, alpha: 1)
+        return label
+    }()
     var descriptionLabel = UILabel()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -36,13 +59,11 @@ class AlarmTableViewCell: UITableViewCell, ConfigUI {
     }
     
     private func setUI() {
-        roundBaseView.layer.cornerRadius = 16
-        roundBaseView.layer.borderWidth = 1
-        roundBaseView.layer.borderColor = UIColor.gray1?.cgColor
+        
     }
     
     func addComponents() {
-        [roundBaseView, tabImage, tabTextLabel, timeLabel, descriptionLabel].forEach{ contentView.addSubview($0) }
+        [roundBaseView, tabImageView, tabTextLabel, timeLabel, descriptionLabel].forEach{ contentView.addSubview($0) }
     }
     
     func setConstraints() {
@@ -54,5 +75,13 @@ class AlarmTableViewCell: UITableViewCell, ConfigUI {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         
+    }
+    
+    private func updateProfileImage() {
+        guard let tabUrl = tabUrl, let url = URL(string: tabUrl) else {
+            return
+        }
+        tabImageView.kf.setImage(with: url)
+        tabImageView.contentMode = .scaleAspectFill
     }
 }
