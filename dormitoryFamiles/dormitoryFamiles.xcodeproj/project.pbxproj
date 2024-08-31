@@ -61,6 +61,7 @@
 		DB3F054A2C453A7F0091349F /* UIButton+.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3F05492C453A7F0091349F /* UIButton+.swift */; };
 		DB3F18092B6162AB002F1738 /* ProfileSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3F18082B6162AB002F1738 /* ProfileSettingViewController.swift */; };
 		DB41008C2B6A665D005C4DD8 /* BrownVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB41008B2B6A665D005C4DD8 /* BrownVC.swift */; };
+		DB46D7C82C834E2400AAE7B4 /* SSEManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB46D7C72C834E2400AAE7B4 /* SSEManager.swift */; };
 		DB496DEB2B70EAFB00F97324 /* TabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB496DEA2B70EAFB00F97324 /* TabbarViewController.swift */; };
 		DB61AA342B4C1EA70040418B /* RegisterPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB61AA332B4C1EA70040418B /* RegisterPostViewController.swift */; };
 		DB62ACD12C6A421B0026D766 /* ChattingDateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB62ACD02C6A421B0026D766 /* ChattingDateTableViewCell.swift */; };
@@ -190,6 +191,7 @@
 		DB3F05492C453A7F0091349F /* UIButton+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+.swift"; sourceTree = "<group>"; };
 		DB3F18082B6162AB002F1738 /* ProfileSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingViewController.swift; sourceTree = "<group>"; };
 		DB41008B2B6A665D005C4DD8 /* BrownVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrownVC.swift; sourceTree = "<group>"; };
+		DB46D7C72C834E2400AAE7B4 /* SSEManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSEManager.swift; sourceTree = "<group>"; };
 		DB496DEA2B70EAFB00F97324 /* TabbarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarViewController.swift; sourceTree = "<group>"; };
 		DB61AA332B4C1EA70040418B /* RegisterPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPostViewController.swift; sourceTree = "<group>"; };
 		DB62ACD02C6A421B0026D766 /* ChattingDateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingDateTableViewCell.swift; sourceTree = "<group>"; };
@@ -480,6 +482,7 @@
 				DB74D0C52B73EEBF00A90D68 /* Codable.swift */,
 				11227B1C2C51291D002A6A8A /* Url.swift */,
 				DBD1E00B2C3D49E900FDD5FE /* Token.swift */,
+				DB46D7C72C834E2400AAE7B4 /* SSEManager.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -718,6 +721,7 @@
 				DBC1CFF62BC2AE25005C93C0 /* ConfigUI.swift in Sources */,
 				11036F2F2C3D70870042B9EF /* ChoosePriorityViewController.swift in Sources */,
 				DB2B7BC92B456F4700C1847D /* TagScrollView.swift in Sources */,
+				DB46D7C82C834E2400AAE7B4 /* SSEManager.swift in Sources */,
 				DB7EF2772B5E9CB20062FAB5 /* ServicePermissonViewController.swift in Sources */,
 				1197F25B2C081E7D006F75D2 /* MBTIViewController.swift in Sources */,
 				11707A232BA4C8CC0027802D /* SleepPatternViewController.swift in Sources */,

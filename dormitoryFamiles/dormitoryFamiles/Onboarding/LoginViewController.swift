@@ -71,6 +71,7 @@ final  class LoginViewController: UIViewController {
                 case .success(let (successCode, headers)):
                     print("post 성공: \(successCode)")
                     if let realAccessToken = headers["accessToken"] as? String, let realRefreshToken = headers["refreshToken"] as? String {
+                        print(realAccessToken)
                         Token.shared.access = realAccessToken
                         Token.shared.refresh = realRefreshToken
                         //정상적으로 토큰까지 저장되었다면 화면전환
