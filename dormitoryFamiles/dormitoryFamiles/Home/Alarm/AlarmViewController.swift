@@ -9,6 +9,9 @@ import UIKit
 
 class AlarmViewController: UIViewController, ConfigUI {
     
+    //TODO: get으로 안읽었던 알람 불러오면 unreadId에 아이디 저장하기
+    private var unreadId = [Int]()
+    
     private let tableView: UITableView = {
         let tableView = UITableView()
         tableView.separatorStyle = .none
@@ -23,6 +26,11 @@ class AlarmViewController: UIViewController, ConfigUI {
         setConstraints()
         self.navigationController?.isNavigationBarHidden = false
         setupNavigationBar("알림")
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        changeReadAlarm()
     }
     
     private func setTableView() {
@@ -40,6 +48,23 @@ class AlarmViewController: UIViewController, ConfigUI {
             $0.top.bottom.equalTo(view.safeAreaLayoutGuide).inset(24)
             $0.leading.trailing.equalTo(view.safeAreaLayoutGuide).inset(20)
         }
+    }
+    
+    private func changeReadAlarm() {
+           let requestBody: [String: Any] = ["notificationIds": unreadId]
+           do {
+               let jsonData = try JSONSerialization.data(withJSONObject: requestBody, options: [])
+               Network.putMethod(url: Url.changeReadAlarm(), body: jsonData) { (result: Result<CodeResponse, Error>) in
+                   switch result {
+                   case .success(let successCode):
+                       print("PUT 성공: \(successCode)")
+                   case .failure(let error):
+                       print("Error: \(error)")
+                   }
+               }
+           } catch {
+               print("JSON 변환 에러: \(error)")
+           }
     }
 }
 
