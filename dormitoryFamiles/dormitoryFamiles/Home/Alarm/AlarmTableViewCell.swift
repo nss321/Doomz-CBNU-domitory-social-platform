@@ -40,7 +40,7 @@ class AlarmTableViewCell: UITableViewCell, ConfigUI {
         let label = UILabel()
         label.textAlignment = .center
         label.numberOfLines = 0
-        label.font = .title4
+        label.font = .body1
         label.lineBreakMode = .byWordWrapping
         label.numberOfLines = 0
         label.adjustsFontSizeToFitWidth = false
@@ -131,13 +131,32 @@ class AlarmTableViewCell: UITableViewCell, ConfigUI {
         self.sender = sender
         self.targetId = targetId
         self.typeLabel.button = type
+        
+        let descriptionText: String
+        
         if let alarmType = AlarmType(rawValue: type) {
-            self.descriptionLabel.text = alarmType.rawValue
+            descriptionText = alarmType.rawValue
         } else if let alarmType = AlarmType(rawValue: AlarmType.matchingDescription(type)?.rawValue ?? "") {
-            self.descriptionLabel.text = sender+alarmType.rawValue
+            descriptionText = sender + alarmType.rawValue.replacingOccurrences(of: "-", with: "'\(articleTitle ?? " ")'")
         } else {
-            self.descriptionLabel.text = ""
+            descriptionText = ""
         }
+        
+        let attributedString = NSMutableAttributedString(string: descriptionText, attributes: [.font: UIFont.body1 ?? UIFont()])
+        
+        // sender 폰트 title4 변경
+        if let senderRange = descriptionText.range(of: sender) {
+            let range = NSRange(senderRange, in: descriptionText)
+            attributedString.addAttribute(.font, value: UIFont.title4 ?? UIFont(), range: range)
+        }
+        
+        // articleTitle 폰트 title4 변경
+        if let articleTitle = articleTitle, let titleRange = descriptionText.range(of: "'\(articleTitle)'") {
+            let range = NSRange(titleRange, in: descriptionText)
+            attributedString.addAttribute(.font, value: UIFont.title4 ?? UIFont(), range: range)
+        }
+        
+        self.descriptionLabel.attributedText = attributedString
         
         //타입을 보고 이미지뷰 세팅(현재는 테스트 임시세팅)
         typeImageView.image = UIImage(named: "chattingColor")
