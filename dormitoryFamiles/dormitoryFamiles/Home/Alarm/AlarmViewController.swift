@@ -43,7 +43,7 @@ class AlarmViewController: UIViewController, ConfigUI {
     deinit {
         //알람 뷰컨트롤러에서 다른 화면으로 전환시 안읽은 알람들이 읽음으로 바뀌는것보단
         //알람 뷰컨트롤러를 deinit하는 시점에 read처리가 더 올바르다고 판단 후 changeReadAlarm 시점 변경
-        changeReadAlarm()
+        allChangeReadAlarm()
     }
     
     private func resetData() {
@@ -73,8 +73,25 @@ class AlarmViewController: UIViewController, ConfigUI {
         }
     }
     
-    private func changeReadAlarm() {
+    private func allChangeReadAlarm() {
         let requestBody: [String: Any] = ["notificationIds": unreadId]
+        do {
+            let jsonData = try JSONSerialization.data(withJSONObject: requestBody, options: [])
+            Network.putMethod(url: Url.changeReadAlarm(), body: jsonData) { (result: Result<CodeResponse, Error>) in
+                switch result {
+                case .success(let successCode):
+                    print("PUT 성공: \(successCode)")
+                case .failure(let error):
+                    print("Error: \(error)")
+                }
+            }
+        } catch {
+            print("JSON 변환 에러: \(error)")
+        }
+    }
+    
+    private func changeReadAlarm(id: Int) {
+        let requestBody: [String: Any] = ["notificationIds": id]
         do {
             let jsonData = try JSONSerialization.data(withJSONObject: requestBody, options: [])
             Network.putMethod(url: Url.changeReadAlarm(), body: jsonData) { (result: Result<CodeResponse, Error>) in
@@ -149,7 +166,25 @@ extension AlarmViewController: UITableViewDataSource {
 
 extension AlarmViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("\(indexPath.row)번째 셀이 눌렸다")
+        let alarm = alarmData[indexPath.row]
+
+        if alarm.type.contains("ARTICLE") {
+            let id = alarm.targetId
+            let url = Url.searchBulletinBoard(id: id)
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            if let articleDetailViewController = storyboard.instantiateViewController(withIdentifier: "detail") as? BulletinBoardDetailViewViewController {
+                articleDetailViewController.setUrl(url: url)
+                articleDetailViewController.id = id
+                self.navigationController?.pushViewController(articleDetailViewController, animated: true)
+            }
+            changeReadAlarm(id: id)
+        } else if alarm.type.contains("MEMBER") {
+            //TODO: 션이 하셔야 할 로직(마이페이지 팔로워 목록 화면 전환)
+        } else if alarm.type.contains("CHAT") {
+            
+        } else if alarm.type.contains("MATCHING") {
+            //TODO: 션이 하셔야 할 로직(룸메매칭 해당 화면 전환)
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
