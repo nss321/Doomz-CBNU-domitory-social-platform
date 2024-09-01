@@ -124,8 +124,6 @@ class AlarmTableViewCell: UITableViewCell, ConfigUI {
     
     func configure(articleTitle: String?, createdAt: String, isRead: Bool, notificationId: Int, sender: String, targetId: Int, type: String) {
         self.articleTitle = articleTitle ?? ""
-        self.createdAtLabel.body2 = createdAt
-        //시간을 보고 몇분전 세팅
         self.isRead = isRead
         self.notificationId = notificationId
         self.sender = sender
@@ -172,5 +170,14 @@ class AlarmTableViewCell: UITableViewCell, ConfigUI {
         }else {
             descriptionLabel.textColor = .black
         }
+        
+        //시간을 보고 몇분전 세팅
+        if let formattedString = DateUtility.formattedDateString(from: createdAt) {
+            createdAtLabel.body2 = formattedString
+        } else {
+            createdAtLabel.body2 = createdAt
+        }
+        
+        
     }
 }
