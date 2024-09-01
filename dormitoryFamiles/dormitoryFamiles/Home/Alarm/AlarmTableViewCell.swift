@@ -158,7 +158,19 @@ class AlarmTableViewCell: UITableViewCell, ConfigUI {
         
         self.descriptionLabel.attributedText = attributedString
         
-        //타입을 보고 이미지뷰 세팅(현재는 테스트 임시세팅)
-        typeImageView.image = UIImage(named: "chattingColor")
+        //이미지뷰 세팅
+        if let alarmType = AlarmType.matchingDescription(type) {
+            let imageName = alarmType.matchingTypeImageName(isRead: isRead)
+            typeImageView.image = UIImage(named: imageName)
+        } else {
+            typeImageView.image = nil
+        }
+        
+        //읽음 유무에 따른 설명라벨 색상 변경
+        if isRead {
+            descriptionLabel.textColor = .gray3
+        }else {
+            descriptionLabel.textColor = .black
+        }
     }
 }
