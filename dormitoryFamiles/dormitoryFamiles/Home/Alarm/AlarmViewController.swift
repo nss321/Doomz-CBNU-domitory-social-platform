@@ -14,6 +14,7 @@ class AlarmViewController: UIViewController, ConfigUI {
     private var page = 0
     private var isLoading = false
     private var isLast = false
+    private var chattingRoomData: [ChattingRoom] = []
     
     private let tableView: UITableView = {
         let tableView = UITableView()
@@ -32,6 +33,7 @@ class AlarmViewController: UIViewController, ConfigUI {
         self.navigationController?.isNavigationBarHidden = false
         setupNavigationBar("알림")
         getAlarmList(url: Url.alarmList(page: 0, size: nil))
+        chatListApiNetwork(url: Url.chattingRoom(page: 0, size: 999, keyword: ""))
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -50,6 +52,7 @@ class AlarmViewController: UIViewController, ConfigUI {
         alarmData = []
         page = 0
         isLast = false
+        chattingRoomData = []
     }
     
     private func loadInitialData() {
@@ -70,6 +73,17 @@ class AlarmViewController: UIViewController, ConfigUI {
         tableView.snp.makeConstraints {
             $0.top.bottom.equalTo(view.safeAreaLayoutGuide).inset(24)
             $0.leading.trailing.equalTo(view.safeAreaLayoutGuide).inset(20)
+        }
+    }
+    
+    private func chatListApiNetwork(url: String) {
+        Network.getMethod(url: url) { (result: Result<ChattingRoomsResponse, Error>) in
+            switch result {
+            case .success(let response):
+                self.chattingRoomData += response.data.chatRooms
+            case .failure(let error):
+                print("채팅룸 데이터 받아오기 실패: \(error)")
+            }
         }
     }
     
@@ -133,6 +147,34 @@ class AlarmViewController: UIViewController, ConfigUI {
         }
     }
     
+    private func createChattingRoom(memberId: Int) {
+        Network.postMethod(url: Url.createChattingRoom(memberId: memberId), body: nil) { (result: Result<CreateRoomResponse, Error>) in
+            switch result {
+            case .success(let response):
+                // 성공적으로 채팅방이 생성되면, 해당 채팅방으로 이동
+                DispatchQueue.main.async {
+                    let chattingDetailViewController = ChattingDetailViewController()
+                    chattingDetailViewController.roomId = response.data.chatRoomId
+                    chattingDetailViewController.nickname = ""
+                    chattingDetailViewController.profileImageUrl = ""
+                    self.navigationController?.pushViewController(chattingDetailViewController, animated: true)
+                }
+            case .failure(let error):
+                if let nsError = error as NSError?,
+                   let statusCode = nsError.userInfo["statusCode"] as? Int {
+                    switch statusCode {
+                    case 404:
+                        print("Error 404: \(nsError.localizedDescription)")
+                    case 409:
+                        print("Error 409: \(nsError.localizedDescription)")
+                    default:
+                        print("Error \(statusCode): \(nsError.localizedDescription)")
+                    }
+                }
+            }
+        }
+    }
+    
     private func loadNextPage() {
         guard !isLast else { return }
         page += 1
@@ -181,7 +223,17 @@ extension AlarmViewController: UITableViewDelegate {
         } else if alarm.type.contains("MEMBER") {
             //TODO: 션이 하셔야 할 로직(마이페이지 팔로워 목록 화면 전환)
         } else if alarm.type.contains("CHAT") {
-            
+            if let chattingRoom = chattingRoomData.first(where: { $0.memberId == alarm.targetId }) {
+                // 채팅방이 있는 경우
+                let chattingDetailViewController = ChattingDetailViewController()
+                chattingDetailViewController.nickname = chattingRoom.memberNickname
+                chattingDetailViewController.profileImageUrl = chattingRoom.memberProfileUrl
+                chattingDetailViewController.roomId = chattingRoom.roomId
+                self.navigationController?.pushViewController(chattingDetailViewController, animated: true)
+            } else {
+                // 채팅방이 없는 경우
+                createChattingRoom(memberId: alarm.targetId)
+            }
         } else if alarm.type.contains("MATCHING") {
             //TODO: 션이 하셔야 할 로직(룸메매칭 해당 화면 전환)
         }
