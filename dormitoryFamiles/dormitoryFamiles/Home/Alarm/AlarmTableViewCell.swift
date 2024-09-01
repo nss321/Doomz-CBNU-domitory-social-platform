@@ -18,7 +18,7 @@ class AlarmTableViewCell: UITableViewCell, ConfigUI {
     var notificationId = 0
     var targetId = 0
     var typeImageView = UIImageView()
-
+    
     private let roundBaseView: UIView = {
         let view = UIView()
         view.layer.cornerRadius = 16
@@ -95,21 +95,21 @@ class AlarmTableViewCell: UITableViewCell, ConfigUI {
             $0.top.leading.trailing.equalToSuperview()
             $0.bottom.equalToSuperview()
         }
-
+        
         typeImageView.snp.makeConstraints {
             $0.top.leading.equalToSuperview().inset(16)
             $0.height.width.equalTo(20)
         }
-
+        
         typeLabel.snp.makeConstraints {
             $0.top.equalTo(typeImageView)
             $0.leading.equalTo(typeImageView.snp.trailing).offset(4)
         }
-
+        
         createdAtLabel.snp.makeConstraints {
             $0.top.trailing.equalToSuperview().inset(16)
         }
-
+        
         descriptionLabel.snp.makeConstraints {
             $0.top.equalTo(typeImageView.snp.bottom).offset(8).priority(.high)
             $0.leading.trailing.equalToSuperview().inset(16)
@@ -117,8 +117,6 @@ class AlarmTableViewCell: UITableViewCell, ConfigUI {
             $0.height.greaterThanOrEqualTo(25).priority(.required)
         }
     }
-
-
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
@@ -133,8 +131,14 @@ class AlarmTableViewCell: UITableViewCell, ConfigUI {
         self.sender = sender
         self.targetId = targetId
         self.typeLabel.button = type
-        //타입을 보고 description 분기처리
-        self.descriptionLabel.text = "암파인 괜차나 괜차나 딩딩디링딩\(type)"
+        if let alarmType = AlarmType(rawValue: type) {
+            self.descriptionLabel.text = alarmType.rawValue
+        } else if let alarmType = AlarmType(rawValue: AlarmType.matchingDescription(type)?.rawValue ?? "") {
+            self.descriptionLabel.text = sender+alarmType.rawValue
+        } else {
+            self.descriptionLabel.text = ""
+        }
+        
         //타입을 보고 이미지뷰 세팅(현재는 테스트 임시세팅)
         typeImageView.image = UIImage(named: "chattingColor")
     }
