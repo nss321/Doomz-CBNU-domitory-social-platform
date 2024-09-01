@@ -307,3 +307,23 @@ struct ImageResponse: Codable {
 struct ImageData: Codable {
     let imageUrl: String
 }
+
+struct NotificationsResponse: Codable {
+    let code: Int
+    let data: NotificationsDataClass
+}
+
+struct NotificationsDataClass: Codable {
+    let isLast: Bool
+    let notifications: [NotificationData]
+}
+
+struct NotificationData: Codable {
+    let notificationId: Int
+    let type: String
+    let sender: String
+    let articleTitle: String?
+    let isRead: Bool
+    let targetId: Int
+    let createdAt: String
+}

@@ -61,6 +61,7 @@
 		DB3F054A2C453A7F0091349F /* UIButton+.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3F05492C453A7F0091349F /* UIButton+.swift */; };
 		DB3F18092B6162AB002F1738 /* ProfileSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3F18082B6162AB002F1738 /* ProfileSettingViewController.swift */; };
 		DB41008C2B6A665D005C4DD8 /* BrownVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB41008B2B6A665D005C4DD8 /* BrownVC.swift */; };
+		DB46D7C82C834E2400AAE7B4 /* SSEManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB46D7C72C834E2400AAE7B4 /* SSEManager.swift */; };
 		DB496DEB2B70EAFB00F97324 /* TabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB496DEA2B70EAFB00F97324 /* TabbarViewController.swift */; };
 		DB61AA342B4C1EA70040418B /* RegisterPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB61AA332B4C1EA70040418B /* RegisterPostViewController.swift */; };
 		DB62ACD12C6A421B0026D766 /* ChattingDateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB62ACD02C6A421B0026D766 /* ChattingDateTableViewCell.swift */; };
@@ -79,6 +80,8 @@
 		DB94B2AF2C23B3D80077A7BE /* NickNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB94B2AE2C23B3D80077A7BE /* NickNameViewController.swift */; };
 		DB9D47B52C50B85D0031C8EF /* Encodable+.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9D47B42C50B85D0031C8EF /* Encodable+.swift */; };
 		DBB345F22B42BFD100E70380 /* BulletinBoardMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB345F12B42BFD100E70380 /* BulletinBoardMainViewController.swift */; };
+		DBB610B52C80E07A0070E2BA /* AlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB610B42C80E07A0070E2BA /* AlarmViewController.swift */; };
+		DBB610B72C80E4220070E2BA /* AlarmTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB610B62C80E4220070E2BA /* AlarmTableViewCell.swift */; };
 		DBC001D82BBAEDBB00228CD9 /* AddImageBaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC001D72BBAEDBB00228CD9 /* AddImageBaseView.swift */; };
 		DBC1CFF62BC2AE25005C93C0 /* ConfigUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11707A312BA617EE0027802D /* ConfigUI.swift */; };
 		DBC1CFF72BC2AE2D005C93C0 /* UILabel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11707A2D2BA4D3AC0027802D /* UILabel+.swift */; };
@@ -188,6 +191,7 @@
 		DB3F05492C453A7F0091349F /* UIButton+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+.swift"; sourceTree = "<group>"; };
 		DB3F18082B6162AB002F1738 /* ProfileSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingViewController.swift; sourceTree = "<group>"; };
 		DB41008B2B6A665D005C4DD8 /* BrownVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrownVC.swift; sourceTree = "<group>"; };
+		DB46D7C72C834E2400AAE7B4 /* SSEManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSEManager.swift; sourceTree = "<group>"; };
 		DB496DEA2B70EAFB00F97324 /* TabbarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarViewController.swift; sourceTree = "<group>"; };
 		DB61AA332B4C1EA70040418B /* RegisterPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPostViewController.swift; sourceTree = "<group>"; };
 		DB62ACD02C6A421B0026D766 /* ChattingDateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingDateTableViewCell.swift; sourceTree = "<group>"; };
@@ -206,6 +210,8 @@
 		DB94B2AE2C23B3D80077A7BE /* NickNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NickNameViewController.swift; sourceTree = "<group>"; };
 		DB9D47B42C50B85D0031C8EF /* Encodable+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable+.swift"; sourceTree = "<group>"; };
 		DBB345F12B42BFD100E70380 /* BulletinBoardMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulletinBoardMainViewController.swift; sourceTree = "<group>"; };
+		DBB610B42C80E07A0070E2BA /* AlarmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmViewController.swift; sourceTree = "<group>"; };
+		DBB610B62C80E4220070E2BA /* AlarmTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmTableViewCell.swift; sourceTree = "<group>"; };
 		DBC001D72BBAEDBB00228CD9 /* AddImageBaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddImageBaseView.swift; sourceTree = "<group>"; };
 		DBC54C422B568B350071164C /* UIFontExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFontExtension.swift; sourceTree = "<group>"; };
 		DBC54C542B56A46B0071164C /* PretendardVariable.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = PretendardVariable.ttf; sourceTree = "<group>"; };
@@ -400,6 +406,7 @@
 		DB32D75C2BA3434200DE387A /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				DBB610B32C80E0330070E2BA /* Alarm */,
 				DBF466FE2AA5F4E4009FF3EB /* MealMenuViewController.swift */,
 				DB20E38B2B53C2BD000D12A7 /* HomeViewController.swift */,
 				DB7EF27C2B5EAC790062FAB5 /* ChoiceDormitoryButton.swift */,
@@ -475,6 +482,7 @@
 				DB74D0C52B73EEBF00A90D68 /* Codable.swift */,
 				11227B1C2C51291D002A6A8A /* Url.swift */,
 				DBD1E00B2C3D49E900FDD5FE /* Token.swift */,
+				DB46D7C72C834E2400AAE7B4 /* SSEManager.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -498,6 +506,15 @@
 				DB8DDFD82BECC5AC00B3A676 /* Category.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		DBB610B32C80E0330070E2BA /* Alarm */ = {
+			isa = PBXGroup;
+			children = (
+				DBB610B42C80E07A0070E2BA /* AlarmViewController.swift */,
+				DBB610B62C80E4220070E2BA /* AlarmTableViewCell.swift */,
+			);
+			path = Alarm;
 			sourceTree = "<group>";
 		};
 		DBC54C3F2B568A6A0071164C /* Font */ = {
@@ -697,12 +714,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DBB610B52C80E07A0070E2BA /* AlarmViewController.swift in Sources */,
 				DBC1CFFE2BC2AFDE005C93C0 /* SleepPatternCircleCollectionViewCell.swift in Sources */,
 				1126FE1C2BCEA662004C6C81 /* LifeStyleViewController.swift in Sources */,
 				DBC1CFF72BC2AE2D005C93C0 /* UILabel+.swift in Sources */,
 				DBC1CFF62BC2AE25005C93C0 /* ConfigUI.swift in Sources */,
 				11036F2F2C3D70870042B9EF /* ChoosePriorityViewController.swift in Sources */,
 				DB2B7BC92B456F4700C1847D /* TagScrollView.swift in Sources */,
+				DB46D7C82C834E2400AAE7B4 /* SSEManager.swift in Sources */,
 				DB7EF2772B5E9CB20062FAB5 /* ServicePermissonViewController.swift in Sources */,
 				1197F25B2C081E7D006F75D2 /* MBTIViewController.swift in Sources */,
 				11707A232BA4C8CC0027802D /* SleepPatternViewController.swift in Sources */,
@@ -747,6 +766,7 @@
 				DB3F053B2C4307790091349F /* UserProfileNicknameCollectionViewController.swift in Sources */,
 				DB2B7BCB2B45727B00C1847D /* TagButton.swift in Sources */,
 				DB1E0E8B2B629865000A4AA5 /* ChoiceDormitoryViewController.swift in Sources */,
+				DBB610B72C80E4220070E2BA /* AlarmTableViewCell.swift in Sources */,
 				DBD0C5822C41F46100F6B456 /* ChattingHomeTableViewCell.swift in Sources */,
 				DB3F05442C44BF1E0091349F /* MessagegViewController.swift in Sources */,
 				DB74D0C62B73EEBF00A90D68 /* Codable.swift in Sources */,
