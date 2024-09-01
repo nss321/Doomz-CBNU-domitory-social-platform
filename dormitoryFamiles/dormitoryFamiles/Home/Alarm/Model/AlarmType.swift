@@ -35,25 +35,25 @@ extension AlarmType {
         }
     }
     
-    func matchingTypeImageName(isRead: Bool) -> String {
-            var imageName: String
+    func matchingTypeImageNameAndType(isRead: Bool) -> [String] {
+            var imageAndType: [String]
             
             switch self {
             case .ARTICLE_COMMENT, .ARTICLE_WISH, .ARTICLE_REPLY_COMMENT:
-                imageName = "board"
+                imageAndType = ["board", "게시판"]
             case .MEMBER_FOLLOW:
-                imageName = "mypage"
+                imageAndType = ["mypage", "마이페이지"]
             case .CHAT:
-                imageName = "chatting"
+                imageAndType = ["chatting", "채팅"]
             case .MATCHING_WISH, .MATCHING_REQUEST, .MATCHING_REJECT, .MATCHING_ACCEPT:
-                imageName = "matching"
+                imageAndType = ["matching", "룸메 매칭"]
             }
 
             // 읽음 여부에 따라 색상 적용
             if !isRead {
-                imageName += "Color"
+                imageAndType[0] += "Color"
             }
             
-            return imageName
+            return imageAndType
         }
 }

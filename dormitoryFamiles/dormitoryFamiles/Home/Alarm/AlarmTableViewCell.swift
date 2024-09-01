@@ -158,8 +158,9 @@ class AlarmTableViewCell: UITableViewCell, ConfigUI {
         
         //이미지뷰 세팅
         if let alarmType = AlarmType.matchingDescription(type) {
-            let imageName = alarmType.matchingTypeImageName(isRead: isRead)
-            typeImageView.image = UIImage(named: imageName)
+            let typeData = alarmType.matchingTypeImageNameAndType(isRead: isRead)
+            typeImageView.image = UIImage(named: typeData[0])
+            typeLabel.text = typeData[1]
         } else {
             typeImageView.image = nil
         }
@@ -177,7 +178,5 @@ class AlarmTableViewCell: UITableViewCell, ConfigUI {
         } else {
             createdAtLabel.body2 = createdAt
         }
-        
-        
     }
 }
