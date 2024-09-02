@@ -57,9 +57,9 @@ class StudentCertificationViewController: UIViewController {
                 self.imageUrl = response.data.imageUrl
                 UserInformation.shared.setStudentCardImageUrl(url: self.imageUrl ?? "")
                 DispatchQueue.main.async {
-                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                    if let profileFinishedVC = storyboard.instantiateViewController(withIdentifier: "ProfileFinishedViewController") as? ProfileFinishedViewController {
-                        self.navigationController?.pushViewController(profileFinishedVC, animated: true)
+                    if let viewController = self.storyboard?.instantiateViewController(withIdentifier: "ProfileFinishedViewController") as? UIViewController {
+                        viewController.modalPresentationStyle = .fullScreen
+                        self.present(viewController, animated: true, completion: nil)
                     }
                 }
             case .failure(let error):
