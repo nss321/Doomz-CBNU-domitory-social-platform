@@ -22,6 +22,8 @@ class SSEManager: NSObject, URLSessionDataDelegate {
         request.addValue("Bearer \(Token.shared.access)", forHTTPHeaderField: "Accesstoken")
         
         let configuration = URLSessionConfiguration.default
+        configuration.timeoutIntervalForRequest = 3600
+        configuration.timeoutIntervalForResource = 3600
         urlSession = URLSession(configuration: configuration, delegate: self, delegateQueue: nil)
         
         let task = urlSession?.dataTask(with: request)
@@ -48,7 +50,7 @@ class SSEManager: NSObject, URLSessionDataDelegate {
             let nsError = error as NSError
             if nsError.domain == NSURLErrorDomain && nsError.code == NSURLErrorTimedOut {
                 //서버 타임아웃이 났다면
-                connectSse(url: Url.subscribeSse())
+                //connectSse(url: Url.subscribeSse())
             }
         } else {
             print("SSE 연결 정상 종료")

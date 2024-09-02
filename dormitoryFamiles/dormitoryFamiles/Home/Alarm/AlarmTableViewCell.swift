@@ -102,12 +102,13 @@ class AlarmTableViewCell: UITableViewCell, ConfigUI {
         }
         
         typeLabel.snp.makeConstraints {
-            $0.top.equalTo(typeImageView)
+            $0.centerY.equalTo(typeImageView)
             $0.leading.equalTo(typeImageView.snp.trailing).offset(4)
         }
         
         createdAtLabel.snp.makeConstraints {
-            $0.top.trailing.equalToSuperview().inset(16)
+            $0.centerY.equalTo(typeImageView)
+            $0.trailing.equalToSuperview().inset(16)
         }
         
         descriptionLabel.snp.makeConstraints {
