@@ -39,11 +39,13 @@ final class BulletinBoardMainViewController: TabmanViewController, DormitoryButt
         return [allVC, helpVC, togetherVC, shareVC, lostVC]
     }
     let dropDown = DropDown()
+    var alarmData = [NotificationData]()
+    
     @IBOutlet weak var naviCustomView: UIView!
     
     @IBOutlet weak var tabmanView: UIView!
     @IBOutlet weak var writeButton: TagButton!
-    
+    @IBOutlet weak var bellButton: UIButton!
     @IBOutlet weak var sortListButton: UIButton!
     @IBOutlet weak var filterListButton: UIButton!
     @IBOutlet weak var dormitoryButton: UIButton!
@@ -59,6 +61,7 @@ final class BulletinBoardMainViewController: TabmanViewController, DormitoryButt
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         self.navigationController?.setNavigationBarHidden(true, animated: false)
+        //getAlarmList(url: Url.alarmList())
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -191,7 +194,23 @@ final class BulletinBoardMainViewController: TabmanViewController, DormitoryButt
         addBar(bar, dataSource: dataSource as! TMBarDataSource, at: .custom(view: tabmanView, layout: nil))
     }
     
-    
+    private func getAlarmList(url: String) {
+        Network.getMethod(url: url) { (result: Result<NotificationsResponse, Error>) in
+            switch result {
+            case .success(let response):
+                self.alarmData = response.data.notifications
+                DispatchQueue.main.async {
+                    if self.alarmData.filter({ $0.isRead == false }).isEmpty {
+                        self.bellButton.setImage(UIImage(named: "bell"), for: .normal)
+                    } else {
+                        self.bellButton.setImage(UIImage(named: "eventBell"), for: .normal)
+                    }
+                }
+            case .failure(let error):
+                print("Error: \(error)")
+            }
+        }
+    }
     
     @IBAction func dormitoryButtonTapped(_ sender: UIButton) {
         presentSheet()
@@ -200,6 +219,10 @@ final class BulletinBoardMainViewController: TabmanViewController, DormitoryButt
     
     @IBAction func sortList(_ sender: UIButton) {
         showDropDown(sender)
+    }
+    
+    @IBAction func alarmButtonTapped(_ sender: UIButton) {
+        navigationController?.pushViewController(AlarmViewController(), animated: true)
     }
     
     
