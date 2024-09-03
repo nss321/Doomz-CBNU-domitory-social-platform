@@ -110,7 +110,7 @@ final class EatingFoodViewController: UIViewController, ConfigUI {
         addComponents()
         setConstraints()
         nextButton.setup(model: nextButtonModel)
-        checkSelections(selectedItems: [selectedMidnightSnack, selectedEatingFoodInRoom], nextButton: nextButton)
+//        checkSelections(selectedItems: [selectedMidnightSnack, selectedEatingFoodInRoom], nextButton: nextButton)
     }
     
     func addComponents() {
@@ -232,7 +232,7 @@ extension EatingFoodViewController: UICollectionViewDelegateFlowLayout {
         default:
             print("default")
         }
-        checkSelections(selectedItems: [selectedMidnightSnack, selectedEatingFoodInRoom], nextButton: nextButton)
+//        checkSelections(selectedItems: [selectedMidnightSnack, selectedEatingFoodInRoom], nextButton: nextButton)
     }
 }
 
