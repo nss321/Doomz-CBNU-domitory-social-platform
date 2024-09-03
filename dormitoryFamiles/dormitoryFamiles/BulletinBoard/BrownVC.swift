@@ -28,34 +28,55 @@ final class BrownVC: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(changeDormiotry), name: .changeDormiotry, object: nil)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        updateCollectionView()
+    }
+
+    func updateCollectionView() {
+        pageNum = 0
+        articles.removeAll()
+        network(url: Url.base + path) { [weak self] in
+            DispatchQueue.main.async {
+                self?.collectionView.reloadData()
+            }
+        }
+    }
+    
+    
     private func setDelegate() {
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
     }
     
-    private func network(url: String) {
+    func network(url: String, completion: (() -> Void)? = nil) {
         Network.getMethod(url: url) { (result: Result<ArticleResponse, Error>) in
-                   switch result {
-                   case .success(let response):
-                       let newArticles = response.data.articles
-                       if newArticles.isEmpty {
-                           // 더 이상 아이템이 없는 경우
-                           self.isLoadingItems = false
-                       } else {
-                           self.articles.append(contentsOf: newArticles)
-                           DispatchQueue.main.async {
-                               self.collectionView.reloadData()
-                           }
-                       }
-                   case .failure(let error):
-                       print("Error: \(error)")
-                   }
-               }
+            switch result {
+            case .success(let response):
+                let newArticles = response.data.articles
+                if newArticles.isEmpty {
+                    self.isLoadingItems = false
+                } else {
+                    self.articles = newArticles
+                }
+                DispatchQueue.main.async {
+                    self.collectionView.reloadData()
+                    completion?()
+                }
+            case .failure(let error):
+                print("Error: \(error)")
+                completion?()
+            }
+        }
     }
+
     
     @objc private func changeDormiotry() {
-        network(url: Url.base + path)
-        self.collectionView.reloadData()
+        if let parentVC = self.parent?.parent as? BulletinBoardMainViewController {
+            parentVC.scrollToPage(.at(index: 0), animated: true)
+        }
+        path = Url.pathAllPostUrl(page: 0)
+        updateCollectionView()
     }
     
     
@@ -124,6 +145,7 @@ extension BrownVC: UICollectionViewDelegate, UICollectionViewDataSource, UIColle
         }else {
             cell.changeIng()
         }
+        
         return cell
     }
     
@@ -131,7 +153,7 @@ extension BrownVC: UICollectionViewDelegate, UICollectionViewDataSource, UIColle
         let articleElement = articles[indexPath.row]
         
         let id = articleElement.articleId
-        let url = "http://43.202.254.127:8080/api/articles/\(id)"
+        let url = Url.searchBulletinBoard(id: id)
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         if let articleDetailViewController = storyboard.instantiateViewController(withIdentifier: "detail") as? BulletinBoardDetailViewViewController {
             articleDetailViewController.setUrl(url: url)

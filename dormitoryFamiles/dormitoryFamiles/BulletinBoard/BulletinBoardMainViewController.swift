@@ -39,11 +39,13 @@ final class BulletinBoardMainViewController: TabmanViewController, DormitoryButt
         return [allVC, helpVC, togetherVC, shareVC, lostVC]
     }
     let dropDown = DropDown()
+    var alarmData = [NotificationData]()
+    
     @IBOutlet weak var naviCustomView: UIView!
     
     @IBOutlet weak var tabmanView: UIView!
     @IBOutlet weak var writeButton: TagButton!
-    
+    @IBOutlet weak var bellButton: UIButton!
     @IBOutlet weak var sortListButton: UIButton!
     @IBOutlet weak var filterListButton: UIButton!
     @IBOutlet weak var dormitoryButton: UIButton!
@@ -59,6 +61,7 @@ final class BulletinBoardMainViewController: TabmanViewController, DormitoryButt
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         self.navigationController?.setNavigationBarHidden(true, animated: false)
+        //getAlarmList(url: Url.alarmList())
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -117,15 +120,15 @@ final class BulletinBoardMainViewController: TabmanViewController, DormitoryButt
             case "인기순":
                 newUrl = updateUrlForSort(vc.path, newSort: Sort.popularity.rawValue)
             case "전체":
-                newUrl = updateUrlForStatus(vc.path, newStatus: nil)
+                newUrl = updateUrlForStatus(vc.path, newStatus: nil, boardType: vc.kind?.rawValue ?? "")
             case "모집중":
-                newUrl = updateUrlForStatus(vc.path, newStatus: Status.ing.rawValue)
+                newUrl = updateUrlForStatus(vc.path, newStatus: Status.ing.rawValue, boardType: vc.kind?.rawValue ?? "")
             case "모집완료":
-                newUrl = updateUrlForStatus(vc.path, newStatus: Status.finish.rawValue)
+                newUrl = updateUrlForStatus(vc.path, newStatus: Status.finish.rawValue, boardType: vc.kind?.rawValue ?? "")
             default:
                 break
             }
-            vc.path = newUrl
+            vc.path = newUrl.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
         }
         viewControllers.forEach { print($0.path) }
     }
@@ -140,18 +143,25 @@ final class BulletinBoardMainViewController: TabmanViewController, DormitoryButt
         }
     }
     
-    private func updateUrlForStatus(_ url: String, newStatus: String?) -> String {
+    private func updateUrlForStatus(_ url: String, newStatus: String?, boardType: String) -> String {
+        var updatedUrl = url
+        if newStatus != nil {
+            updatedUrl = url.replacingOccurrences(of: "/articles", with: "/board-types/\(boardType)/articles")
+
+        }
+       
+        // 그 후, 기존의 status 처리 로직을 적용
         if let status = newStatus {
-            if url.contains("status") {
-                return url.replacingOccurrences(of: "\(Status.ing.rawValue)", with: status)
+            if updatedUrl.contains("status") {
+                return updatedUrl.replacingOccurrences(of: "\(Status.ing.rawValue)", with: status)
                     .replacingOccurrences(of: "\(Status.finish.rawValue)", with: status)
-            } else if url.contains("?") {
-                return "\(url)&status=\(status)"
+            } else if updatedUrl.contains("?") {
+                return "\(updatedUrl)&status=\(status)"
             } else {
-                return "\(url)?status=\(status)"
+                return "\(updatedUrl)?status=\(status)"
             }
         } else {
-            return url.replacingOccurrences(of: "&status=\(Status.ing.rawValue)", with: "")
+            return updatedUrl.replacingOccurrences(of: "&status=\(Status.ing.rawValue)", with: "")
                 .replacingOccurrences(of: "&status=\(Status.finish.rawValue)", with: "")
                 .replacingOccurrences(of: "?status=\(Status.ing.rawValue)", with: "")
                 .replacingOccurrences(of: "?status=\(Status.finish.rawValue)", with: "")
@@ -184,7 +194,23 @@ final class BulletinBoardMainViewController: TabmanViewController, DormitoryButt
         addBar(bar, dataSource: dataSource as! TMBarDataSource, at: .custom(view: tabmanView, layout: nil))
     }
     
-    
+    private func getAlarmList(url: String) {
+        Network.getMethod(url: url) { (result: Result<NotificationsResponse, Error>) in
+            switch result {
+            case .success(let response):
+                self.alarmData = response.data.notifications
+                DispatchQueue.main.async {
+                    if self.alarmData.filter({ $0.isRead == false }).isEmpty {
+                        self.bellButton.setImage(UIImage(named: "bell"), for: .normal)
+                    } else {
+                        self.bellButton.setImage(UIImage(named: "eventBell"), for: .normal)
+                    }
+                }
+            case .failure(let error):
+                print("Error: \(error)")
+            }
+        }
+    }
     
     @IBAction func dormitoryButtonTapped(_ sender: UIButton) {
         presentSheet()
@@ -193,6 +219,10 @@ final class BulletinBoardMainViewController: TabmanViewController, DormitoryButt
     
     @IBAction func sortList(_ sender: UIButton) {
         showDropDown(sender)
+    }
+    
+    @IBAction func alarmButtonTapped(_ sender: UIButton) {
+        navigationController?.pushViewController(AlarmViewController(), animated: true)
     }
     
     

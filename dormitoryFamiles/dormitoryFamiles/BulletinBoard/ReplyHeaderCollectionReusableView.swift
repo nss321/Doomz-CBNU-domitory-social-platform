@@ -61,6 +61,9 @@ final class ReplyHeaderCollectionReusableView: UICollectionReusableView {
         super.awakeFromNib()
         rereplyButton.contentHorizontalAlignment = .leading
         rereplyButton.contentVerticalAlignment = .top
+        
+        content.numberOfLines = 0
+        content.lineBreakMode = .byWordWrapping
     }
     
     @IBAction func moreButtonTapped(_ sender: UIButton) {
@@ -92,9 +95,9 @@ final class ReplyHeaderCollectionReusableView: UICollectionReusableView {
         
         // contentView에 대해 layoutAttributes.size를 사용하여 fittingSize 계산
         let fittingSize = UIView.layoutFittingCompressedSize
-        let size = contentView.systemLayoutSizeFitting(fittingSize,
-                                                       withHorizontalFittingPriority: .required,
-                                                       verticalFittingPriority: .fittingSizeLevel)
+        let size = systemLayoutSizeFitting(fittingSize,
+                                           withHorizontalFittingPriority: .required,
+                                           verticalFittingPriority: .fittingSizeLevel)
         
         var frame = layoutAttributes.frame
         frame.size.height = size.height

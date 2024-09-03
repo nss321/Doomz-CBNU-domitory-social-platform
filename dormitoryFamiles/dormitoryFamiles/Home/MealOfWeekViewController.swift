@@ -108,10 +108,6 @@ final class MealOfWeekViewController: UIViewController {
     }
     
     private func fetchWebsite(time: MealTime) {
-        guard SelectedDormitory.shared.domitory != "양현재" else {
-            return
-        }
-        
         if !isWeekend {
             //평일
             if time == .morning {

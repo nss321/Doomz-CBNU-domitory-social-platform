@@ -59,13 +59,21 @@ final class ProfileSettingViewController: UIViewController {
         [universityLabel, departmentLabel, identifierNumberLabel, dormitoryLabel].forEach{$0.asColor(targetString: ["*"], color: .primary!)}
         setDropDown()
         nextButton.isEnabled = false
-        
+        dormitoryButton.setTitle("진리관", for: .normal)
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        view.addGestureRecognizer(tapGesture)
     }
     
     private func setTextfield() {
         studentNumberTextField.delegate = self
         studentNumberTextField.keyboardType = .numberPad
+        studentNumberTextField.autocorrectionType = .no
+        studentNumberTextField.spellCheckingType = .no
     }
+    
+    @objc private func dismissKeyboard() {
+          view.endEditing(true)
+      }
     
     private func  departmentTextDidChange(newText: String?) {
         if (newText != "학과선택") && (studentNumberTextField.text != "") {
@@ -123,7 +131,7 @@ final class ProfileSettingViewController: UIViewController {
                 }
             }
         case dormitoryButton:
-            dropDown.dataSource = ["본관", "양성재","양진재", "양현재"]
+            dropDown.dataSource = ["진리관","정의관","개척관","계영원","지선관","명덕관","신민관","인의관","예지관","등용관"]
         default:
             dropDown.dataSource = []
         }
@@ -156,6 +164,7 @@ final class ProfileSettingViewController: UIViewController {
         if (departmentSelectionButton.currentTitle != "학과선택") && (studentNumberTextField.text != "") {
             nextButton.isEnabled = true
             nextButton.backgroundColor = .primary
+            UserInformation.shared.setProfile(collegeType: collegeOfCollegesButton.currentTitle ?? "", departmentType: departmentSelectionButton.currentTitle ?? "", studentNumber: Int(studentNumberTextField.text ?? "") ?? 0, dormitoryType: dormitoryButton.currentTitle ?? "")
         }else {
             nextButton.isEnabled = false
             nextButton.backgroundColor = .gray3
@@ -175,5 +184,10 @@ extension ProfileSettingViewController: UITextFieldDelegate {
             textField.text = fixedText
         }
         enableNextButton()
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }
