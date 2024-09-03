@@ -41,7 +41,7 @@ final class NetworkService {
         var request = URLRequest(url: url)
         request.httpMethod = method
         
-        let token = Token.shared.number
+        let token = Token.shared.access
         request.addValue("Bearer \(token)", forHTTPHeaderField: "Accesstoken")
         
         headers?.forEach { request.addValue($0.value, forHTTPHeaderField: $0.key) }
