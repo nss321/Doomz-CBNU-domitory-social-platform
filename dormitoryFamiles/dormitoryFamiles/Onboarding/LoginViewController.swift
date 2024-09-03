@@ -33,7 +33,7 @@ final  class LoginViewController: UIViewController {
         if (UserApi.isKakaoTalkLoginAvailable()) {
             UserApi.shared.loginWithKakaoTalk { (oauthToken, error) in
                 if let error = error {
-                    print("카카오톡 로그인 에러")
+                    print("카카오톡 로그인 에러: \(error.localizedDescription)")
                 } else {
                     if let token = oauthToken {
                         print("카카오톡 로그인 성공.")
@@ -77,9 +77,9 @@ final  class LoginViewController: UIViewController {
                         //정상적으로 토큰까지 저장되었다면 화면전환
                         //navigationPush를 하지않은이유: 뒤로가기 기능을 없애기 제거하기 위해
                         DispatchQueue.main.async {
-                            if let tabBarController = self.storyboard?.instantiateViewController(withIdentifier: "MainTabBarController") as? UITabBarController {
-                                tabBarController.modalPresentationStyle = .fullScreen
-                                self.present(tabBarController, animated: true, completion: nil)
+                            if let viewController = self.storyboard?.instantiateViewController(withIdentifier: "ServicePermissonViewController") as? UIViewController {
+                                viewController.modalPresentationStyle = .fullScreen
+                                self.present(viewController, animated: true, completion: nil)
                             }
                         }
                         

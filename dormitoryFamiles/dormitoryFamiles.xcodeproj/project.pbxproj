@@ -67,6 +67,7 @@
 		DB62ACD12C6A421B0026D766 /* ChattingDateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB62ACD02C6A421B0026D766 /* ChattingDateTableViewCell.swift */; };
 		DB6491362C22F7FD00E0AE25 /* MealOfWeekViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6491352C22F7FD00E0AE25 /* MealOfWeekViewController.swift */; };
 		DB74D0C62B73EEBF00A90D68 /* Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB74D0C52B73EEBF00A90D68 /* Codable.swift */; };
+		DB7A174B2C841BE000776647 /* AlarmType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7A174A2C841BE000776647 /* AlarmType.swift */; };
 		DB7BE9E72BA47A5E00BC25E3 /* ReplyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7BE9E52BA47A5E00BC25E3 /* ReplyCollectionViewCell.swift */; };
 		DB7BE9EC2BA47AF800BC25E3 /* ReplyCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB7BE9EA2BA47AF700BC25E3 /* ReplyCollectionViewCell.xib */; };
 		DB7EF2772B5E9CB20062FAB5 /* ServicePermissonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7EF2762B5E9CB20062FAB5 /* ServicePermissonViewController.swift */; };
@@ -197,6 +198,7 @@
 		DB62ACD02C6A421B0026D766 /* ChattingDateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingDateTableViewCell.swift; sourceTree = "<group>"; };
 		DB6491352C22F7FD00E0AE25 /* MealOfWeekViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealOfWeekViewController.swift; sourceTree = "<group>"; };
 		DB74D0C52B73EEBF00A90D68 /* Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Codable.swift; sourceTree = "<group>"; };
+		DB7A174A2C841BE000776647 /* AlarmType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmType.swift; sourceTree = "<group>"; };
 		DB7BE9E52BA47A5E00BC25E3 /* ReplyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ReplyCollectionViewCell.swift; path = ../../ReplyCollectionViewCell.swift; sourceTree = "<group>"; };
 		DB7BE9EA2BA47AF700BC25E3 /* ReplyCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ReplyCollectionViewCell.xib; path = ../ReplyCollectionViewCell.xib; sourceTree = "<group>"; };
 		DB7EF2762B5E9CB20062FAB5 /* ServicePermissonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicePermissonViewController.swift; sourceTree = "<group>"; };
@@ -499,6 +501,14 @@
 			path = SearchChat;
 			sourceTree = "<group>";
 		};
+		DB7A174C2C841C0100776647 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DB7A174A2C841BE000776647 /* AlarmType.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		DB8DDFD52BECB08600B3A676 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -511,6 +521,7 @@
 		DBB610B32C80E0330070E2BA /* Alarm */ = {
 			isa = PBXGroup;
 			children = (
+				DB7A174C2C841C0100776647 /* Model */,
 				DBB610B42C80E07A0070E2BA /* AlarmViewController.swift */,
 				DBB610B62C80E4220070E2BA /* AlarmTableViewCell.swift */,
 			);
@@ -739,6 +750,7 @@
 				DB7EF2792B5EA4B00062FAB5 /* AlrmElementView.swift in Sources */,
 				1131E8A22BF6220B00D40120 /* UIScreen+.swift in Sources */,
 				11AC97FD2BFF27AE0008C910 /* UIImage+.swift in Sources */,
+				DB7A174B2C841BE000776647 /* AlarmType.swift in Sources */,
 				DB3F05332C42AD440091349F /* SearchChattingViewController.swift in Sources */,
 				117250E72BB31AF60083F181 /* CommomButton.swift in Sources */,
 				DBD0C57E2C41263700F6B456 /* ChattingHomeViewController.swift in Sources */,

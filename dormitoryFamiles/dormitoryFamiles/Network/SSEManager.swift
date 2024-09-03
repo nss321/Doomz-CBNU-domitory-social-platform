@@ -22,6 +22,8 @@ class SSEManager: NSObject, URLSessionDataDelegate {
         request.addValue("Bearer \(Token.shared.access)", forHTTPHeaderField: "Accesstoken")
         
         let configuration = URLSessionConfiguration.default
+        configuration.timeoutIntervalForRequest = 3600
+        configuration.timeoutIntervalForResource = 3600
         urlSession = URLSession(configuration: configuration, delegate: self, delegateQueue: nil)
         
         let task = urlSession?.dataTask(with: request)
@@ -34,20 +36,24 @@ class SSEManager: NSObject, URLSessionDataDelegate {
     func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive data: Data) {
         if let message = String(data: data, encoding: .utf8) {
             print("SSE 메시지 수신: \(message)")
+            
+            if message == "new notification created" {
+                NotificationCenter.default.post(name: NSNotification.Name("NewNotificationCreated"), object: nil)
+            }
         }
     }
     
     func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?) {
         if let error = error {
-                print("SSE 연결 종료: \(error.localizedDescription)")
-              
-                let nsError = error as NSError
-                if nsError.domain == NSURLErrorDomain && nsError.code == NSURLErrorTimedOut {
-                    //서버 타임아웃이 났다면
-                    connectSse(url: Url.subscribeSse())
-                }
-            } else {
-                print("SSE 연결 정상 종료")
+            print("SSE 연결 종료: \(error.localizedDescription)")
+            
+            let nsError = error as NSError
+            if nsError.domain == NSURLErrorDomain && nsError.code == NSURLErrorTimedOut {
+                //서버 타임아웃이 났다면
+                //connectSse(url: Url.subscribeSse())
             }
+        } else {
+            print("SSE 연결 정상 종료")
+        }
     }
 }

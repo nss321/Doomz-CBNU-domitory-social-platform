@@ -18,7 +18,7 @@ class AlarmTableViewCell: UITableViewCell, ConfigUI {
     var notificationId = 0
     var targetId = 0
     var typeImageView = UIImageView()
-
+    
     private let roundBaseView: UIView = {
         let view = UIView()
         view.layer.cornerRadius = 16
@@ -40,7 +40,7 @@ class AlarmTableViewCell: UITableViewCell, ConfigUI {
         let label = UILabel()
         label.textAlignment = .center
         label.numberOfLines = 0
-        label.font = .title4
+        label.font = .body1
         label.lineBreakMode = .byWordWrapping
         label.numberOfLines = 0
         label.adjustsFontSizeToFitWidth = false
@@ -95,21 +95,22 @@ class AlarmTableViewCell: UITableViewCell, ConfigUI {
             $0.top.leading.trailing.equalToSuperview()
             $0.bottom.equalToSuperview()
         }
-
+        
         typeImageView.snp.makeConstraints {
             $0.top.leading.equalToSuperview().inset(16)
             $0.height.width.equalTo(20)
         }
-
+        
         typeLabel.snp.makeConstraints {
-            $0.top.equalTo(typeImageView)
+            $0.centerY.equalTo(typeImageView)
             $0.leading.equalTo(typeImageView.snp.trailing).offset(4)
         }
-
+        
         createdAtLabel.snp.makeConstraints {
-            $0.top.trailing.equalToSuperview().inset(16)
+            $0.centerY.equalTo(typeImageView)
+            $0.trailing.equalToSuperview().inset(16)
         }
-
+        
         descriptionLabel.snp.makeConstraints {
             $0.top.equalTo(typeImageView.snp.bottom).offset(8).priority(.high)
             $0.leading.trailing.equalToSuperview().inset(16)
@@ -117,8 +118,6 @@ class AlarmTableViewCell: UITableViewCell, ConfigUI {
             $0.height.greaterThanOrEqualTo(25).priority(.required)
         }
     }
-
-
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
@@ -126,16 +125,59 @@ class AlarmTableViewCell: UITableViewCell, ConfigUI {
     
     func configure(articleTitle: String?, createdAt: String, isRead: Bool, notificationId: Int, sender: String, targetId: Int, type: String) {
         self.articleTitle = articleTitle ?? ""
-        self.createdAtLabel.body2 = createdAt
-        //시간을 보고 몇분전 세팅
         self.isRead = isRead
         self.notificationId = notificationId
         self.sender = sender
         self.targetId = targetId
         self.typeLabel.button = type
-        //타입을 보고 description 분기처리
-        self.descriptionLabel.text = "암파인 괜차나 괜차나 딩딩디링딩\(type)"
-        //타입을 보고 이미지뷰 세팅(현재는 테스트 임시세팅)
-        typeImageView.image = UIImage(named: "chattingColor")
+        
+        let descriptionText: String
+        
+        if let alarmType = AlarmType(rawValue: type) {
+            descriptionText = alarmType.rawValue
+        } else if let alarmType = AlarmType(rawValue: AlarmType.matchingDescription(type)?.rawValue ?? "") {
+            descriptionText = sender + alarmType.rawValue.replacingOccurrences(of: "-", with: "'\(articleTitle ?? " ")'")
+        } else {
+            descriptionText = ""
+        }
+        
+        let attributedString = NSMutableAttributedString(string: descriptionText, attributes: [.font: UIFont.body1 ?? UIFont()])
+        
+        // sender 폰트 title4 변경
+        if let senderRange = descriptionText.range(of: sender) {
+            let range = NSRange(senderRange, in: descriptionText)
+            attributedString.addAttribute(.font, value: UIFont.title4 ?? UIFont(), range: range)
+        }
+        
+        // articleTitle 폰트 title4 변경
+        if let articleTitle = articleTitle, let titleRange = descriptionText.range(of: "'\(articleTitle)'") {
+            let range = NSRange(titleRange, in: descriptionText)
+            attributedString.addAttribute(.font, value: UIFont.title4 ?? UIFont(), range: range)
+        }
+        
+        self.descriptionLabel.attributedText = attributedString
+        
+        //이미지뷰 세팅
+        if let alarmType = AlarmType.matchingDescription(type) {
+            let typeData = alarmType.matchingTypeImageNameAndType(isRead: isRead)
+            typeImageView.image = UIImage(named: typeData[0])
+            typeLabel.text = typeData[1]
+        } else {
+            typeImageView.image = nil
+        }
+        
+        //읽음 유무에 따른 설명라벨 색상 변경
+        if isRead {
+            descriptionLabel.textColor = .gray3
+        }else {
+            descriptionLabel.textColor = .black
+        }
+        
+        //시간을 보고 몇분전 세팅
+        if let formattedString = DateUtility.formattedDateString(from: createdAt) {
+            createdAtLabel.body2 = formattedString
+        } else {
+            createdAtLabel.body2 = createdAt
+        }
     }
 }
