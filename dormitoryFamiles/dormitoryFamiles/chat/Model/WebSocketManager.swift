@@ -21,7 +21,7 @@ class WebSocketManager: StompClientLibDelegate {
             return
         }
         let request = URLRequest(url: url)
-        let token = Token.shared.number
+        let token = Token.shared.access
         print("Connecting to WebSocket with URL: \(url)")
         socketClient.openSocketWithURLRequest(request: request as NSURLRequest, delegate: self, connectionHeaders: ["AccessToken": "Bearer \(token)"])
     }

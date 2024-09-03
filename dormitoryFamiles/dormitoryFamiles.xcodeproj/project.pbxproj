@@ -18,6 +18,9 @@
 		11227B1F2C513C96002A6A8A /* UICollectionView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11227B1E2C513C74002A6A8A /* UICollectionView+.swift */; };
 		1126FE1C2BCEA662004C6C81 /* LifeStyleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1126FE1B2BCEA662004C6C81 /* LifeStyleViewController.swift */; };
 		1131E8A22BF6220B00D40120 /* UIScreen+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1131E8A12BF6220B00D40120 /* UIScreen+.swift */; };
+		11321B9E2C6D305000BCD029 /* ChooseRoomateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11321B9D2C6D305000BCD029 /* ChooseRoomateViewController.swift */; };
+		11321BA02C6D69BD00BCD029 /* CompleteMatchingOptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11321B9F2C6D69BD00BCD029 /* CompleteMatchingOptionViewController.swift */; };
+		11321BA32C6D731300BCD029 /* MatchingMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11321BA22C6D731300BCD029 /* MatchingMainViewController.swift */; };
 		1148B3F62C3EAD4B0056671B /* PriorityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1148B3F52C3EAD4B0056671B /* PriorityCell.swift */; };
 		11707A232BA4C8CC0027802D /* SleepPatternViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11707A222BA4C8CC0027802D /* SleepPatternViewController.swift */; };
 		11707A2C2BA4CA780027802D /* FontManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11707A2B2BA4CA780027802D /* FontManager.swift */; };
@@ -32,6 +35,7 @@
 		DB02B5292B98C92200C45F56 /* ReplyHeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB02B5272B98C92200C45F56 /* ReplyHeaderCollectionReusableView.swift */; };
 		DB02B52A2B98C92200C45F56 /* ReplyHeaderCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB02B5282B98C92200C45F56 /* ReplyHeaderCollectionReusableView.xib */; };
 		DB1971D52BAB088C00C09648 /* AddPhotoImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1971D42BAB088C00C09648 /* AddPhotoImageView.swift */; };
+		DB1BB0882C7101B700216BFC /* UserInfomation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1BB0872C7101B700216BFC /* UserInfomation.swift */; };
 		DB1E0E892B629804000A4AA5 /* DormitoryButtonHandlingProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1E0E882B629804000A4AA5 /* DormitoryButtonHandlingProtocol.swift */; };
 		DB1E0E8B2B629865000A4AA5 /* ChoiceDormitoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1E0E8A2B629865000A4AA5 /* ChoiceDormitoryViewController.swift */; };
 		DB1E0E8D2B62A995000A4AA5 /* SelectedDormitory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1E0E8C2B62A995000A4AA5 /* SelectedDormitory.swift */; };
@@ -57,11 +61,13 @@
 		DB3F054A2C453A7F0091349F /* UIButton+.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3F05492C453A7F0091349F /* UIButton+.swift */; };
 		DB3F18092B6162AB002F1738 /* ProfileSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3F18082B6162AB002F1738 /* ProfileSettingViewController.swift */; };
 		DB41008C2B6A665D005C4DD8 /* BrownVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB41008B2B6A665D005C4DD8 /* BrownVC.swift */; };
+		DB46D7C82C834E2400AAE7B4 /* SSEManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB46D7C72C834E2400AAE7B4 /* SSEManager.swift */; };
 		DB496DEB2B70EAFB00F97324 /* TabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB496DEA2B70EAFB00F97324 /* TabbarViewController.swift */; };
 		DB61AA342B4C1EA70040418B /* RegisterPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB61AA332B4C1EA70040418B /* RegisterPostViewController.swift */; };
 		DB62ACD12C6A421B0026D766 /* ChattingDateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB62ACD02C6A421B0026D766 /* ChattingDateTableViewCell.swift */; };
 		DB6491362C22F7FD00E0AE25 /* MealOfWeekViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6491352C22F7FD00E0AE25 /* MealOfWeekViewController.swift */; };
 		DB74D0C62B73EEBF00A90D68 /* Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB74D0C52B73EEBF00A90D68 /* Codable.swift */; };
+		DB7A174B2C841BE000776647 /* AlarmType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7A174A2C841BE000776647 /* AlarmType.swift */; };
 		DB7BE9E72BA47A5E00BC25E3 /* ReplyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7BE9E52BA47A5E00BC25E3 /* ReplyCollectionViewCell.swift */; };
 		DB7BE9EC2BA47AF800BC25E3 /* ReplyCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB7BE9EA2BA47AF700BC25E3 /* ReplyCollectionViewCell.xib */; };
 		DB7EF2772B5E9CB20062FAB5 /* ServicePermissonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7EF2762B5E9CB20062FAB5 /* ServicePermissonViewController.swift */; };
@@ -69,11 +75,14 @@
 		DB7EF27D2B5EAC790062FAB5 /* ChoiceDormitoryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7EF27C2B5EAC790062FAB5 /* ChoiceDormitoryButton.swift */; };
 		DB8DDFD72BECB0B600B3A676 /* DateFomat.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8DDFD62BECB0B600B3A676 /* DateFomat.swift */; };
 		DB8DDFD92BECC5AC00B3A676 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8DDFD82BECC5AC00B3A676 /* Category.swift */; };
+		DB91FF572C6B27AA00401DCD /* StudentCertificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB91FF562C6B27AA00401DCD /* StudentCertificationViewController.swift */; };
 		DB932AC12B6511E300B456FB /* BulluetinBoardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB932ABF2B6511E300B456FB /* BulluetinBoardCollectionViewCell.swift */; };
 		DB932AC22B6511E300B456FB /* BulluetinBoardCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB932AC02B6511E300B456FB /* BulluetinBoardCollectionViewCell.xib */; };
 		DB94B2AF2C23B3D80077A7BE /* NickNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB94B2AE2C23B3D80077A7BE /* NickNameViewController.swift */; };
 		DB9D47B52C50B85D0031C8EF /* Encodable+.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9D47B42C50B85D0031C8EF /* Encodable+.swift */; };
 		DBB345F22B42BFD100E70380 /* BulletinBoardMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB345F12B42BFD100E70380 /* BulletinBoardMainViewController.swift */; };
+		DBB610B52C80E07A0070E2BA /* AlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB610B42C80E07A0070E2BA /* AlarmViewController.swift */; };
+		DBB610B72C80E4220070E2BA /* AlarmTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB610B62C80E4220070E2BA /* AlarmTableViewCell.swift */; };
 		DBC001D82BBAEDBB00228CD9 /* AddImageBaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC001D72BBAEDBB00228CD9 /* AddImageBaseView.swift */; };
 		DBC1CFF62BC2AE25005C93C0 /* ConfigUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11707A312BA617EE0027802D /* ConfigUI.swift */; };
 		DBC1CFF72BC2AE2D005C93C0 /* UILabel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11707A2D2BA4D3AC0027802D /* UILabel+.swift */; };
@@ -132,6 +141,9 @@
 		11227B1E2C513C74002A6A8A /* UICollectionView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+.swift"; sourceTree = "<group>"; };
 		1126FE1B2BCEA662004C6C81 /* LifeStyleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifeStyleViewController.swift; sourceTree = "<group>"; };
 		1131E8A12BF6220B00D40120 /* UIScreen+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScreen+.swift"; sourceTree = "<group>"; };
+		11321B9D2C6D305000BCD029 /* ChooseRoomateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseRoomateViewController.swift; sourceTree = "<group>"; };
+		11321B9F2C6D69BD00BCD029 /* CompleteMatchingOptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteMatchingOptionViewController.swift; sourceTree = "<group>"; };
+		11321BA22C6D731300BCD029 /* MatchingMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchingMainViewController.swift; sourceTree = "<group>"; };
 		1148B3F52C3EAD4B0056671B /* PriorityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriorityCell.swift; sourceTree = "<group>"; };
 		1148B3F72C3EB9810056671B /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Main.strings; sourceTree = "<group>"; };
 		1148B3F82C3EB9810056671B /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
@@ -154,6 +166,7 @@
 		DB02B5272B98C92200C45F56 /* ReplyHeaderCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReplyHeaderCollectionReusableView.swift; sourceTree = "<group>"; };
 		DB02B5282B98C92200C45F56 /* ReplyHeaderCollectionReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReplyHeaderCollectionReusableView.xib; sourceTree = "<group>"; };
 		DB1971D42BAB088C00C09648 /* AddPhotoImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhotoImageView.swift; sourceTree = "<group>"; };
+		DB1BB0872C7101B700216BFC /* UserInfomation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfomation.swift; sourceTree = "<group>"; };
 		DB1E0E882B629804000A4AA5 /* DormitoryButtonHandlingProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DormitoryButtonHandlingProtocol.swift; sourceTree = "<group>"; };
 		DB1E0E8A2B629865000A4AA5 /* ChoiceDormitoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceDormitoryViewController.swift; sourceTree = "<group>"; };
 		DB1E0E8C2B62A995000A4AA5 /* SelectedDormitory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedDormitory.swift; sourceTree = "<group>"; };
@@ -179,11 +192,13 @@
 		DB3F05492C453A7F0091349F /* UIButton+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+.swift"; sourceTree = "<group>"; };
 		DB3F18082B6162AB002F1738 /* ProfileSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingViewController.swift; sourceTree = "<group>"; };
 		DB41008B2B6A665D005C4DD8 /* BrownVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrownVC.swift; sourceTree = "<group>"; };
+		DB46D7C72C834E2400AAE7B4 /* SSEManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSEManager.swift; sourceTree = "<group>"; };
 		DB496DEA2B70EAFB00F97324 /* TabbarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarViewController.swift; sourceTree = "<group>"; };
 		DB61AA332B4C1EA70040418B /* RegisterPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPostViewController.swift; sourceTree = "<group>"; };
 		DB62ACD02C6A421B0026D766 /* ChattingDateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingDateTableViewCell.swift; sourceTree = "<group>"; };
 		DB6491352C22F7FD00E0AE25 /* MealOfWeekViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealOfWeekViewController.swift; sourceTree = "<group>"; };
 		DB74D0C52B73EEBF00A90D68 /* Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Codable.swift; sourceTree = "<group>"; };
+		DB7A174A2C841BE000776647 /* AlarmType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmType.swift; sourceTree = "<group>"; };
 		DB7BE9E52BA47A5E00BC25E3 /* ReplyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ReplyCollectionViewCell.swift; path = ../../ReplyCollectionViewCell.swift; sourceTree = "<group>"; };
 		DB7BE9EA2BA47AF700BC25E3 /* ReplyCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ReplyCollectionViewCell.xib; path = ../ReplyCollectionViewCell.xib; sourceTree = "<group>"; };
 		DB7EF2762B5E9CB20062FAB5 /* ServicePermissonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicePermissonViewController.swift; sourceTree = "<group>"; };
@@ -191,11 +206,14 @@
 		DB7EF27C2B5EAC790062FAB5 /* ChoiceDormitoryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceDormitoryButton.swift; sourceTree = "<group>"; };
 		DB8DDFD62BECB0B600B3A676 /* DateFomat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFomat.swift; sourceTree = "<group>"; };
 		DB8DDFD82BECC5AC00B3A676 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		DB91FF562C6B27AA00401DCD /* StudentCertificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentCertificationViewController.swift; sourceTree = "<group>"; };
 		DB932ABF2B6511E300B456FB /* BulluetinBoardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulluetinBoardCollectionViewCell.swift; sourceTree = "<group>"; };
 		DB932AC02B6511E300B456FB /* BulluetinBoardCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BulluetinBoardCollectionViewCell.xib; sourceTree = "<group>"; };
 		DB94B2AE2C23B3D80077A7BE /* NickNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NickNameViewController.swift; sourceTree = "<group>"; };
 		DB9D47B42C50B85D0031C8EF /* Encodable+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable+.swift"; sourceTree = "<group>"; };
 		DBB345F12B42BFD100E70380 /* BulletinBoardMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulletinBoardMainViewController.swift; sourceTree = "<group>"; };
+		DBB610B42C80E07A0070E2BA /* AlarmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmViewController.swift; sourceTree = "<group>"; };
+		DBB610B62C80E4220070E2BA /* AlarmTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmTableViewCell.swift; sourceTree = "<group>"; };
 		DBC001D72BBAEDBB00228CD9 /* AddImageBaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddImageBaseView.swift; sourceTree = "<group>"; };
 		DBC54C422B568B350071164C /* UIFontExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFontExtension.swift; sourceTree = "<group>"; };
 		DBC54C542B56A46B0071164C /* PretendardVariable.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = PretendardVariable.ttf; sourceTree = "<group>"; };
@@ -271,6 +289,9 @@
 				11036F282C3D57840042B9EF /* MiscViewController.swift */,
 				11036F2C2C3D5CE40042B9EF /* CompleteMyCondition.swift */,
 				11036F2E2C3D70870042B9EF /* ChoosePriorityViewController.swift */,
+				11321B9D2C6D305000BCD029 /* ChooseRoomateViewController.swift */,
+				11321B9F2C6D69BD00BCD029 /* CompleteMatchingOptionViewController.swift */,
+				11321BA22C6D731300BCD029 /* MatchingMainViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -319,6 +340,14 @@
 				BDEE29642D63D4042822783C /* Pods-dormitoryFamiles.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		DB1BB0862C7101A100216BFC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DB1BB0872C7101B700216BFC /* UserInfomation.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		DB1E0E872B6297D0000A4AA5 /* DormitoryButton */ = {
@@ -379,6 +408,7 @@
 		DB32D75C2BA3434200DE387A /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				DBB610B32C80E0330070E2BA /* Alarm */,
 				DBF466FE2AA5F4E4009FF3EB /* MealMenuViewController.swift */,
 				DB20E38B2B53C2BD000D12A7 /* HomeViewController.swift */,
 				DB7EF27C2B5EAC790062FAB5 /* ChoiceDormitoryButton.swift */,
@@ -435,12 +465,14 @@
 		DB32D7602BA3445D00DE387A /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
+				DB1BB0862C7101A100216BFC /* Model */,
 				DBDF96EE2B84BFB2000E74AE /* ProfileFinishedViewController.swift */,
 				DB7EF2762B5E9CB20062FAB5 /* ServicePermissonViewController.swift */,
 				DBCE10E02B595506008C3367 /* LoginViewController.swift */,
 				DB7EF2782B5EA4B00062FAB5 /* AlrmElementView.swift */,
 				DB3F18082B6162AB002F1738 /* ProfileSettingViewController.swift */,
 				DB94B2AE2C23B3D80077A7BE /* NickNameViewController.swift */,
+				DB91FF562C6B27AA00401DCD /* StudentCertificationViewController.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -452,6 +484,7 @@
 				DB74D0C52B73EEBF00A90D68 /* Codable.swift */,
 				11227B1C2C51291D002A6A8A /* Url.swift */,
 				DBD1E00B2C3D49E900FDD5FE /* Token.swift */,
+				DB46D7C72C834E2400AAE7B4 /* SSEManager.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -468,6 +501,14 @@
 			path = SearchChat;
 			sourceTree = "<group>";
 		};
+		DB7A174C2C841C0100776647 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DB7A174A2C841BE000776647 /* AlarmType.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		DB8DDFD52BECB08600B3A676 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -475,6 +516,16 @@
 				DB8DDFD82BECC5AC00B3A676 /* Category.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		DBB610B32C80E0330070E2BA /* Alarm */ = {
+			isa = PBXGroup;
+			children = (
+				DB7A174C2C841C0100776647 /* Model */,
+				DBB610B42C80E07A0070E2BA /* AlarmViewController.swift */,
+				DBB610B62C80E4220070E2BA /* AlarmTableViewCell.swift */,
+			);
+			path = Alarm;
 			sourceTree = "<group>";
 		};
 		DBC54C3F2B568A6A0071164C /* Font */ = {
@@ -674,27 +725,32 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DBB610B52C80E07A0070E2BA /* AlarmViewController.swift in Sources */,
 				DBC1CFFE2BC2AFDE005C93C0 /* SleepPatternCircleCollectionViewCell.swift in Sources */,
 				1126FE1C2BCEA662004C6C81 /* LifeStyleViewController.swift in Sources */,
 				DBC1CFF72BC2AE2D005C93C0 /* UILabel+.swift in Sources */,
 				DBC1CFF62BC2AE25005C93C0 /* ConfigUI.swift in Sources */,
 				11036F2F2C3D70870042B9EF /* ChoosePriorityViewController.swift in Sources */,
 				DB2B7BC92B456F4700C1847D /* TagScrollView.swift in Sources */,
+				DB46D7C82C834E2400AAE7B4 /* SSEManager.swift in Sources */,
 				DB7EF2772B5E9CB20062FAB5 /* ServicePermissonViewController.swift in Sources */,
 				1197F25B2C081E7D006F75D2 /* MBTIViewController.swift in Sources */,
 				11707A232BA4C8CC0027802D /* SleepPatternViewController.swift in Sources */,
 				DB1E0E892B629804000A4AA5 /* DormitoryButtonHandlingProtocol.swift in Sources */,
 				DB3F05352C42BB6B0091349F /* AllViewController.swift in Sources */,
 				11AC97FB2BFF27940008C910 /* CustomSlider.swift in Sources */,
+				11321BA02C6D69BD00BCD029 /* CompleteMatchingOptionViewController.swift in Sources */,
 				DB3F18092B6162AB002F1738 /* ProfileSettingViewController.swift in Sources */,
 				DB3F05392C43002E0091349F /* LabelAndPrimaryMidButtonStackView.swift in Sources */,
 				DBE682B62BA592CC00DAA4CD /* PhotoScrollView.swift in Sources */,
 				DBCE10E12B595506008C3367 /* LoginViewController.swift in Sources */,
+				DB91FF572C6B27AA00401DCD /* StudentCertificationViewController.swift in Sources */,
 				11036F232C3C0E690042B9EF /* EatingFoodViewController.swift in Sources */,
 				DB1971D52BAB088C00C09648 /* AddPhotoImageView.swift in Sources */,
 				DB7EF2792B5EA4B00062FAB5 /* AlrmElementView.swift in Sources */,
 				1131E8A22BF6220B00D40120 /* UIScreen+.swift in Sources */,
 				11AC97FD2BFF27AE0008C910 /* UIImage+.swift in Sources */,
+				DB7A174B2C841BE000776647 /* AlarmType.swift in Sources */,
 				DB3F05332C42AD440091349F /* SearchChattingViewController.swift in Sources */,
 				117250E72BB31AF60083F181 /* CommomButton.swift in Sources */,
 				DBD0C57E2C41263700F6B456 /* ChattingHomeViewController.swift in Sources */,
@@ -722,6 +778,7 @@
 				DB3F053B2C4307790091349F /* UserProfileNicknameCollectionViewController.swift in Sources */,
 				DB2B7BCB2B45727B00C1847D /* TagButton.swift in Sources */,
 				DB1E0E8B2B629865000A4AA5 /* ChoiceDormitoryViewController.swift in Sources */,
+				DBB610B72C80E4220070E2BA /* AlarmTableViewCell.swift in Sources */,
 				DBD0C5822C41F46100F6B456 /* ChattingHomeTableViewCell.swift in Sources */,
 				DB3F05442C44BF1E0091349F /* MessagegViewController.swift in Sources */,
 				DB74D0C62B73EEBF00A90D68 /* Codable.swift in Sources */,
@@ -734,11 +791,13 @@
 				DBC54C432B568B350071164C /* UIFontExtension.swift in Sources */,
 				118EAA852C07E56400436A6F /* ConstitutionViewController.swift in Sources */,
 				DB7EF27D2B5EAC790062FAB5 /* ChoiceDormitoryButton.swift in Sources */,
+				11321B9E2C6D305000BCD029 /* ChooseRoomateViewController.swift in Sources */,
 				DB3F053E2C44BED90091349F /* FollowingViewController.swift in Sources */,
 				DBFF14932B7BA7EC002DA3AA /* BulletinBoardDetailViewViewController.swift in Sources */,
 				DB932AC12B6511E300B456FB /* BulluetinBoardCollectionViewCell.swift in Sources */,
 				DBF466FF2AA5F4E4009FF3EB /* MealMenuViewController.swift in Sources */,
 				DB496DEB2B70EAFB00F97324 /* TabbarViewController.swift in Sources */,
+				11321BA32C6D731300BCD029 /* MatchingMainViewController.swift in Sources */,
 				DB3F05462C44D84B0091349F /* SearchTextFieldChattingViewController.swift in Sources */,
 				DB3F05422C44BF0D0091349F /* ChattingRoomViewController.swift in Sources */,
 				DB41008C2B6A665D005C4DD8 /* BrownVC.swift in Sources */,
@@ -755,6 +814,7 @@
 				DB02B5292B98C92200C45F56 /* ReplyHeaderCollectionReusableView.swift in Sources */,
 				DBF466FD2AA5F4E4009FF3EB /* SceneDelegate.swift in Sources */,
 				DBB345F22B42BFD100E70380 /* BulletinBoardMainViewController.swift in Sources */,
+				DB1BB0882C7101B700216BFC /* UserInfomation.swift in Sources */,
 				DBC001D82BBAEDBB00228CD9 /* AddImageBaseView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -910,6 +970,7 @@
 				DEVELOPMENT_TEAM = 7B9KLZFFL8;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = dormitoryFamiles/App/info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "카메라 사용을 위해 권한이 필요합니다.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -940,6 +1001,7 @@
 				DEVELOPMENT_TEAM = 7B9KLZFFL8;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = dormitoryFamiles/App/info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "카메라 사용을 위해 권한이 필요합니다.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

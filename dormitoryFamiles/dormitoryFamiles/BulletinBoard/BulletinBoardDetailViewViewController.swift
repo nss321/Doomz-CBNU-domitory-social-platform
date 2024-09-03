@@ -17,28 +17,21 @@ final class BulletinBoardDetailViewViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var textViewSuperView: TagButton!
     @IBOutlet weak var commentTextView: UITextView!
-    
     @IBOutlet weak var statusTag: RoundButton!
     @IBOutlet weak var categoryTag: RoundButton!
-    
     @IBOutlet weak var profileImage: UIImageView!
-    
     @IBOutlet weak var nickname: UILabel!
-    
     @IBOutlet weak var dormitory: UILabel!
-    
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
-    
     @IBOutlet weak var titleLabel: UILabel!
-    
     @IBOutlet weak var contentLabel: UILabel!
-    
     @IBOutlet weak var likeCountLabel: UILabel!
-    
-    @IBOutlet weak var tagCollectionView: UICollectionView!
     @IBOutlet weak var replyCountLabel: UILabel!
-    @IBOutlet weak var chatCountLabel: UILabel!
+    @IBOutlet weak var likeAndChatStackView: UIStackView!
+    @IBOutlet weak var likeButton: RoundButton!
+    
+    private var tapGesture: UITapGestureRecognizer?
     private var scrollPhotoView = PhotoScrollView()
     private var hasImage = true
     private var selectedRereplyButton: UIButton?
@@ -76,6 +69,7 @@ final class BulletinBoardDetailViewViewController: UIViewController {
     }
     
     private func setUI() {
+        likeButton.setTitleColor(.gray5, for: .normal)
         self.profileImage.layer.cornerRadius = profileImage.frame.height/2
         self.profileImage.clipsToBounds = true
         self.navigationController?.setNavigationBarHidden(false, animated: true)
@@ -105,7 +99,7 @@ final class BulletinBoardDetailViewViewController: UIViewController {
             }
             var request = URLRequest(url: url!)
             request.httpMethod = "POST"
-            let token = Token.shared.number
+            let token = Token.shared.access
             request.addValue("Bearer \(token)", forHTTPHeaderField: "Accesstoken")
             request.addValue("application/json", forHTTPHeaderField: "Content-Type")
             request.httpBody = jsonData
@@ -124,7 +118,6 @@ final class BulletinBoardDetailViewViewController: UIViewController {
                             self.scrollToTop()
                             guard let replyCount = self.replyCountLabel.text as? Int else { return }
                             self.replyCountLabel.text = String(replyCount + 1)
-                            
                         }
                     }
                 }
@@ -147,10 +140,6 @@ final class BulletinBoardDetailViewViewController: UIViewController {
                     self.dormitory.title5 = data.memberDormitory
                     self.categoryTag.subTitle2 = data.boardType
                     
-                    let tagArr = data.tags.split(separator: "#")
-                    let trimmedString = String(data.tags.dropFirst())
-                    self.tagArray = trimmedString.components(separatedBy: "#").map { "#\($0)" }
-                    print("ddddddddddddddddd",self.tagArray,"Ddddddddddddddfsfsdfsdfsdfs")
                     self.contentLabel.body1 = data.content
                     self.likeCountLabel.text = String(data.wishCount)
                     self.isWished = data.isWished
@@ -166,6 +155,22 @@ final class BulletinBoardDetailViewViewController: UIViewController {
                     self.isWriter = data.isWriter
                     self.setNavigationItem()
                     self.status = data.status
+                    
+                    if status == Status.finish.rawValue {
+                        statusTag.backgroundColor = .gray0
+                        statusTag.setTitleColor(.gray5, for: .normal)
+                        statusTag.subTitle2 = "모집완료"
+                    }
+                    
+                    
+                    if isWriter {
+                        self.likeButton.setTitle("관심목록 \(likeCountLabel.text ?? "")", for: .normal)
+                    }else {
+                        if isWished {
+                            likeButton.setImage(UIImage(named: "like"), for: .normal)
+                        }
+                        self.likeButton.setTitle(likeCountLabel.text, for: .normal)
+                    }
                     
                     //게시물 이미지 불러오기
                     if data.imagesUrls.isEmpty {
@@ -235,6 +240,7 @@ final class BulletinBoardDetailViewViewController: UIViewController {
     private func showCompletionAlert(status: String) {
         let alertController = UIAlertController(title: "\(status) 완료", message: "\(status) 완료되었습니다.", preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
+        self.dismissKeyboard()
         present(alertController, animated: true, completion: nil)
     }
     
@@ -263,16 +269,12 @@ final class BulletinBoardDetailViewViewController: UIViewController {
     
     private func setDelegate() {
         commentTextView?.delegate = self
-        tagCollectionView.delegate = self
-        //TODO: 태그 구현시 dataSource 주석 해제 후 header부분 재 시도 해봐야 함. -1
-        //tagCollectionView.dataSource = self
         collectionView.delegate = self
         collectionView.dataSource = self
         
         
         collectionView.register(UINib(nibName: "ReplyCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "rereplyCell")
         collectionView.register(UINib(nibName: "ReplyHeaderCollectionReusableView", bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "replyCell")
-        tagCollectionView.register(TagCollectionViewCell.self, forCellWithReuseIdentifier: "tagCell")
     }
     
     private func setCollectionViewAutoSizing() {
@@ -293,6 +295,8 @@ final class BulletinBoardDetailViewViewController: UIViewController {
     
     
     private func setTextView() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
         if commentTextView.text == "" {
             commentTextView.textColor = .gray4
             commentTextView.text = "댓글을 남겨주세요."
@@ -313,16 +317,17 @@ final class BulletinBoardDetailViewViewController: UIViewController {
         self.view.addSubview(scrollPhotoView)
         scrollPhotoView.translatesAutoresizingMaskIntoConstraints = false
         
+        let heightPhoto: CGFloat = hasImage ? 100 : 0
+        
         var constraints = [
-            self.scrollPhotoView.topAnchor.constraint(equalTo: contentLabel.bottomAnchor, constant: 16),
-            self.scrollPhotoView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            self.scrollPhotoView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            self.scrollPhotoView.heightAnchor.constraint(equalToConstant: 100)
+            scrollPhotoView.topAnchor.constraint(equalTo: contentLabel.bottomAnchor, constant: 16),
+            scrollPhotoView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            scrollPhotoView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            scrollPhotoView.heightAnchor.constraint(equalToConstant: heightPhoto)
         ]
         
-        if !hasImage {
-            let tagCollectionViewConstraint = tagCollectionView.topAnchor.constraint(equalTo: self.contentLabel.bottomAnchor, constant: 16)
-            constraints.append(tagCollectionViewConstraint)
+        if hasImage {
+            constraints.append(likeAndChatStackView.topAnchor.constraint(equalTo: scrollPhotoView.bottomAnchor, constant: 20))
         }
         
         NSLayoutConstraint.activate(constraints)
@@ -357,6 +362,15 @@ final class BulletinBoardDetailViewViewController: UIViewController {
                     print("Error: \(error)")
                 }
             }
+            //얼럿을 여기 넣는 이유는, UI가 본인이 쓴 글일 경우만 삭제버튼이 나오도록 설계하여 삭제에 오류가 없을것이며, 궁극적인 이유는.. 삭제는 잘 되는데 failure로 빠지는 이슈가 있어서 success가 되었든 failure가 되었든 얼럿 처리를 하도록 설계
+            DispatchQueue.main.async {
+                let alertController = UIAlertController(title: "게시글 삭제 완료", message: "게시글 삭제가 완료되었습니다.", preferredStyle: .alert)
+                let okAction = UIAlertAction(title: "확인", style: .default) { _ in
+                    self.navigationController?.popViewController(animated: true)
+                }
+                alertController.addAction(okAction)
+                self.present(alertController, animated: true, completion: nil)
+            }
         }))
         
         actionSheet.addAction(UIAlertAction(title: "수정하기", style: .default, handler: {(ACTION:UIAlertAction) in
@@ -373,10 +387,24 @@ final class BulletinBoardDetailViewViewController: UIViewController {
             finishAlert.addAction(UIAlertAction(title: "완료하기", style: .default, handler: { [self] _ in
                 let finishUrl = Url.changeStatus(id: id, status: statusQuery)
                 
-                Network.putMethod(url: finishUrl) { (result: Result<SuccessCode, Error>) in
+                Network.putMethod(url: finishUrl, body: nil) { [self] (result: Result<SuccessCode, Error>) in
                     switch result {
                     case .success(let successCode):
                         print("PUT 성공: \(successCode)")
+                        DispatchQueue.main.async { [self] in
+                            if status == Status.ing.rawValue {
+                                statusTag.backgroundColor = .gray0
+                                statusTag.setTitleColor(.gray5, for: .normal)
+                                statusTag.subTitle2 = "모집완료"
+                                status = Status.finish.rawValue
+                            } else {
+                                statusTag.backgroundColor = UIColor(red: 216/255, green: 234/255, blue: 255/255, alpha: 1)
+                                statusTag.setTitleColor(.doomzBlack, for: .normal)
+                                statusTag.subTitle2 = "모집중"
+                                status = Status.ing.rawValue
+                            }
+                            statusTag.layoutIfNeeded()
+                        }
                     case .failure(let error):
                         print("Error: \(error)")
                     }
@@ -393,25 +421,47 @@ final class BulletinBoardDetailViewViewController: UIViewController {
     
     
     @IBAction func likeButtonTapped(_ sender: UIButton) {
-        let likeUrl = Url.like(id: id)
-        if isWished {
-            Network.deleteMethod(url: likeUrl, completion: { (result: Result<SuccessCode, Error>) in
-                switch result {
-                case .success(let response):
-                    print(response)
-                case .failure(_):
-                    print("error")
-                }
-            })
-        }else {
-            Network.postMethod(url: likeUrl, completion: { (result: Result<LikeStatus, Error>) in
-                switch result {
-                case .success(let response):
-                    print(response)
-                case .failure(_):
-                    print("error")
-                }
-            })
+        //본인이 쓴 글이 아닐땐 좋아요/좋아요 취소 기능
+        if !isWriter {
+            let likeUrl = Url.like(id: id)
+            if isWished {
+                Network.deleteMethod(url: likeUrl, completion: { [self] (result: Result<SuccessCode, Error>) in
+                    switch result {
+                    case .success(let response):
+                        print(response)
+                        DispatchQueue.main.async { [self] in
+                            self.likeButton.setImage(UIImage(named: "bulletinBaordDetailLike"), for: .normal)
+                            if let currentLikeCount = Int(self.likeButton.currentTitle ?? "0") {
+                                self.likeButton.setTitle(String(currentLikeCount - 1), for: .normal)
+                                likeCountLabel.text = String(currentLikeCount - 1)
+                            }
+                        }
+                        isWished = false
+                        
+                    case .failure(_):
+                        print("error")
+                    }
+                })
+            }else {
+                Network.postMethod(url: likeUrl, body: nil, completion: { (result: Result<LikeStatus, Error>) in
+                    switch result {
+                    case .success(let response):
+                        print(response)
+                    case .failure(_):
+                        print("error")
+                        DispatchQueue.main.async { [self] in
+                            self.likeButton.setImage(UIImage(named: "like"), for: .normal)
+                            if let currentLikeCount = Int(self.likeButton.currentTitle ?? "0") {
+                                self.likeButton.setTitle(String(currentLikeCount + 1), for: .normal)
+                                likeCountLabel.text = String(currentLikeCount + 1)
+                            }
+                        }
+                        self.isWished = true
+                    }
+                })
+            }
+        }else { //TODO: 본인이 쓴 글이면 다른 로직
+            
         }
     }
 }
@@ -430,6 +480,34 @@ extension BulletinBoardDetailViewViewController: UITextViewDelegate {
             textView.textColor = .gray4
             textView.text = "내용을 입력해 주세요."
         }
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    @objc private func dismissKeyboard() {
+        view.endEditing(true)
+    }
+    
+    @objc private func keyboardWillShow(_ notification: Notification) {
+        if tapGesture == nil {
+            tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+            view.addGestureRecognizer(tapGesture!)
+        }
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            let contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardSize.height, right: 0)
+            view.frame.origin.y = -(keyboardSize.height)
+        }
+    }
+    
+    @objc private func keyboardWillHide(_ notification: Notification) {
+        if let tap = tapGesture {
+            view.removeGestureRecognizer(tap)
+            tapGesture = nil
+        }
+        view.frame.origin.y = 0
     }
 }
 
@@ -483,10 +561,7 @@ extension BulletinBoardDetailViewViewController: UICollectionViewDelegate, UICol
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "tagCell", for: indexPath) as! TagCollectionViewCell
             
-            // 태그 배열에서 해당 인덱스의 태그를 가져옵니다.
             let tag = tagArray[indexPath.item]
-            
-            // 버튼에 태그를 설정합니다.
             cell.tagButton.setTitle(tag, for: .normal)
             
             return cell
@@ -494,7 +569,6 @@ extension BulletinBoardDetailViewViewController: UICollectionViewDelegate, UICol
     }
     
     //헤더뷰관련
-    //TODO: 태그 구현시 dataSource 주석 해제 후 header부분 재 시도 해봐야 함. -2
     //collectionView(댓글컬렉션뷰)는 헤더가 있지만,
     //tagCollectionView는 헤더가 없음 -> 해당 컬렉션뷰가 오면 UICollectionReusableView()를 반환 시 에러 발생하는것 잡아야함
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
@@ -603,16 +677,14 @@ extension BulletinBoardDetailViewViewController: UICollectionViewDelegate, UICol
 extension BulletinBoardDetailViewViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-            // 이 메서드는 필수적으로 헤더의 초기 크기를 반환해야 합니다.
-            // 이후 preferredLayoutAttributesFitting 메서드가 호출되어 크기가 자동으로 조정됩니다.
-            return CGSize(width: collectionView.frame.width, height: UICollectionViewFlowLayout.automaticSize.height)
-        }
+        return CGSize(width: collectionView.bounds.width, height: 140)
+    }
     
     //셀과 셀 사이의 간격
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 0
     }
-
+    
     
 }
 

@@ -47,7 +47,11 @@ final class HomeViewController: UIViewController, DormitoryButtonHandling {
     
     @IBOutlet weak var tGoDetailButton: UIButton!
     
+    @IBOutlet weak var alarmButton: UIButton!
+    
+    
     var myTabBarController: UITabBarController?
+    var alarmData = [NotificationData]()
     
     
     private var todayString: String {
@@ -76,6 +80,7 @@ final class HomeViewController: UIViewController, DormitoryButtonHandling {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         self.navigationController?.setNavigationBarHidden(true, animated: true)
+        getAlarmList(url: Url.alarmList())
     }
     
     override func viewDidLoad() {
@@ -92,7 +97,6 @@ final class HomeViewController: UIViewController, DormitoryButtonHandling {
         dormitoryButton.head1 = SelectedDormitory.shared.domitory
         dormitoryButton.setTitle(SelectedDormitory.shared.domitory, for: .normal)
         fetchWebsite(time: .morning)
-        
         popularPost()
     }
     
@@ -133,11 +137,40 @@ final class HomeViewController: UIViewController, DormitoryButtonHandling {
         }
     }
     
+    private func getAlarmList(url: String) {
+        Network.getMethod(url: url) { (result: Result<NotificationsResponse, Error>) in
+            switch result {
+            case .success(let response):
+                self.alarmData = response.data.notifications
+                DispatchQueue.main.async {
+                    if self.alarmData.filter({ $0.isRead == false }).isEmpty {
+                        self.alarmButton.setImage(UIImage(named: "bell"), for: .normal)
+                    } else {
+                        self.alarmButton.setImage(UIImage(named: "eventBell"), for: .normal)
+                    }
+                }
+            case .failure(let error):
+                print("Error: \(error)")
+            }
+        }
+    }
+    
     
     private func setObserver() {
         NotificationCenter.default.addObserver(self, selector: #selector(dormitoryChangeNotification(_:)), name: .init("DormitoryChangeNotification"), object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(handleNewNotification), name: NSNotification.Name("NewNotificationCreated"), object: nil)
     }
     
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name("DormitoryChangeNotification"), object: nil)
+        
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name("NewNotificationCreated"), object: nil)
+    }
+    
+    @objc func handleNewNotification() {
+        alarmButton.setImage(UIImage(named: "eventBell"), for: .normal)
+    }
     
     private func setLabelAndButton() {
         self.menuLabel.sizeToFit()
@@ -178,16 +211,16 @@ final class HomeViewController: UIViewController, DormitoryButtonHandling {
     }
     
     
+    @IBAction func alarmButtonTapped(_ sender: UIButton) {
+        navigationController?.pushViewController(AlarmViewController(), animated: true)
+    }
+    
     
     @IBAction func dormitoryButtonTapped(_ sender: DormitoryButton) {
         presentSheet()
     }
     
     private func fetchWebsite(time: MealTime) {
-        guard dormitoryButton.currentTitle! != "양현재" else {
-            return
-        }
-        
         if !isWeekend {
             //평일
             if time == .morning {
@@ -312,10 +345,10 @@ final class HomeViewController: UIViewController, DormitoryButtonHandling {
         
         let url = "http://43.202.254.127:8080/api/articles/\(articleId)"
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            if let articleDetailViewController = storyboard.instantiateViewController(withIdentifier: "detail") as? BulletinBoardDetailViewViewController {
-                articleDetailViewController.setUrl(url: url)
-                self.navigationController?.pushViewController(articleDetailViewController, animated: true)
-            }
+        if let articleDetailViewController = storyboard.instantiateViewController(withIdentifier: "detail") as? BulletinBoardDetailViewViewController {
+            articleDetailViewController.setUrl(url: url)
+            self.navigationController?.pushViewController(articleDetailViewController, animated: true)
+        }
         
     }
     

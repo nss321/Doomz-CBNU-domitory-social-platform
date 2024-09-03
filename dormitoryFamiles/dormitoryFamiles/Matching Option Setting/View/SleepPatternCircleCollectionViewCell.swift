@@ -34,9 +34,9 @@ class SleepPatternCircleCollectionViewCell: UICollectionViewCell {
     override var isSelected: Bool {
         didSet {
             if isSelected {
-                sleepTimeBlock.backgroundColor = .primaryLight
+                sleepTimeBlock.backgroundColor = .secondary
                 sleepTimeBlock.layer.borderColor = UIColor.primaryMid?.cgColor
-                sleepTimeLabel.textColor = .black
+                sleepTimeLabel.textColor = .primary
             } else {
                 sleepTimeBlock.backgroundColor = .background
                 sleepTimeBlock.layer.borderColor = UIColor.gray1?.cgColor

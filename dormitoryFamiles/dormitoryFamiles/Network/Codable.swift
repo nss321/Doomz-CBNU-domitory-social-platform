@@ -39,7 +39,7 @@ struct Post: Codable {
     let title: String
     let content: String
     let tags: String
-    let imagesUrls: [String]
+    var imagesUrls: [String]
 }
 
 struct PostResponse: Decodable {
@@ -288,4 +288,42 @@ struct TotalUnReadResponse: Codable {
 
 struct TotalUnReadDataClass: Codable {
     let totalCount: Int
+}
+
+struct NicknameResponse: Codable {
+    let code: Int
+    let data: NicknameData
+}
+
+struct NicknameData: Codable {
+    let isDuplicated: Bool
+}
+
+struct ImageResponse: Codable {
+    let code: Int
+    let data: ImageData
+}
+
+struct ImageData: Codable {
+    let imageUrl: String
+}
+
+struct NotificationsResponse: Codable {
+    let code: Int
+    let data: NotificationsDataClass
+}
+
+struct NotificationsDataClass: Codable {
+    let isLast: Bool
+    let notifications: [NotificationData]
+}
+
+struct NotificationData: Codable {
+    let notificationId: Int
+    let type: String
+    let sender: String
+    let articleTitle: String?
+    let isRead: Bool
+    let targetId: Int
+    let createdAt: String
 }

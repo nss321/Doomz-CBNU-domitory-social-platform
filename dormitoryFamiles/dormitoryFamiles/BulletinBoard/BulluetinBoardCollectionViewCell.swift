@@ -35,7 +35,18 @@ final class BulluetinBoardCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var thumbnailImageView: UIImageView!
     @IBOutlet weak var createdDateLabel: UILabel!
     
+    //셀 진입시
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        thumbnailImageView.isHidden = true
+    }
     
+    //셀 재사용시
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        thumbnailImageView.isHidden = true
+        thumbnailImageView.image = nil
+    }
     
     //모집완료일경우 색상 변경
     func changeFinish() {
@@ -61,6 +72,7 @@ final class BulluetinBoardCollectionViewCell: UICollectionViewCell {
         guard let thumbnailUrl = thumbnailUrl, let url = URL(string: thumbnailUrl) else {
             return
         }
+        thumbnailImageView.isHidden = false
         thumbnailImageView.kf.setImage(with: url)
         thumbnailImageView.contentMode = .scaleAspectFill
     }

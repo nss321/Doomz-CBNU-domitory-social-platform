@@ -9,11 +9,14 @@ import UIKit
 
 final class TabbarViewController: UITabBarController {
     
+    private var urlSession: URLSession?
+    private let sseManager = SSEManager()
+        
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         changeSelectedButtonTitleColor()
         getunReadMessageCount(url: Url.totalUnRead())
+        sseManager.connectSse(url: Url.subscribeSse())
     }
     
     private func changeSelectedButtonTitleColor() {
