@@ -24,7 +24,13 @@ extension UserDefaults {
         return dictionary(forKey: Keys.matchingOption)
     }
     
-    func getMatchingOptionValue(forKey key: String) -> Any? {
-        return getMatchingOption()?[key]
+    func getMatchingOptionValue(forKey key: String) -> String? {
+        return getMatchingOption()?[key] as? String
     }
+    
+    func getPreferenceOrder(forKey key: String) -> [String]? {
+        return getMatchingOption()?[key] as? [String]
+    }
+    
+    
 }

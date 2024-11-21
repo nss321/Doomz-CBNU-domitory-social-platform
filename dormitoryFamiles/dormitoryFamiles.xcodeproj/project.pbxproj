@@ -24,16 +24,21 @@
 		11321BA82C7759AB00BCD029 /* RecommendedMatesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11321BA72C7759AB00BCD029 /* RecommendedMatesViewController.swift */; };
 		11321BAB2C7F937C00BCD029 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11321BAA2C7F937C00BCD029 /* NetworkService.swift */; };
 		1148B3F62C3EAD4B0056671B /* PriorityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1148B3F52C3EAD4B0056671B /* PriorityCell.swift */; };
+		1149053F2C8781850095D777 /* ProfileCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1149053E2C8781850095D777 /* ProfileCard.swift */; };
+		114905442C92F2CB0095D777 /* didntSetupLifeStyleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114905432C92F2CB0095D777 /* didntSetupLifeStyleView.swift */; };
+		114905472C96C5A30095D777 /* MatchedUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114905462C96C5A30095D777 /* MatchedUser.swift */; };
 		11707A232BA4C8CC0027802D /* SleepPatternViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11707A222BA4C8CC0027802D /* SleepPatternViewController.swift */; };
 		11707A2C2BA4CA780027802D /* FontManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11707A2B2BA4CA780027802D /* FontManager.swift */; };
 		11707A342BA83EED0027802D /* SleepPatternCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11707A332BA83EED0027802D /* SleepPatternCollectionViewCell.swift */; };
 		117250E72BB31AF60083F181 /* CommomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117250E62BB31AF60083F181 /* CommomButton.swift */; };
 		117250E92BB5927E0083F181 /* SmokeAndAlcoholPatternViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117250E82BB5927E0083F181 /* SmokeAndAlcoholPatternViewController.swift */; };
+		1179FAF62CD19302009766A6 /* BackToMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1179FAF52CD19302009766A6 /* BackToMain.swift */; };
 		118EAA852C07E56400436A6F /* ConstitutionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118EAA842C07E56400436A6F /* ConstitutionViewController.swift */; };
 		1197F25B2C081E7D006F75D2 /* MBTIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1197F25A2C081E7D006F75D2 /* MBTIViewController.swift */; };
 		119F6D552C4012F300297E3F /* UserDefaults+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 119F6D542C4012F300297E3F /* UserDefaults+.swift */; };
 		11AC97FB2BFF27940008C910 /* CustomSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AC97FA2BFF27940008C910 /* CustomSlider.swift */; };
 		11AC97FD2BFF27AE0008C910 /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AC97FC2BFF27AE0008C910 /* UIImage+.swift */; };
+		11F05CE82CACC57000178414 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 11F05CE72CACC57000178414 /* Then */; };
 		DB02B5292B98C92200C45F56 /* ReplyHeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB02B5272B98C92200C45F56 /* ReplyHeaderCollectionReusableView.swift */; };
 		DB02B52A2B98C92200C45F56 /* ReplyHeaderCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB02B5282B98C92200C45F56 /* ReplyHeaderCollectionReusableView.xib */; };
 		DB1971D52BAB088C00C09648 /* AddPhotoImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1971D42BAB088C00C09648 /* AddPhotoImageView.swift */; };
@@ -151,6 +156,9 @@
 		1148B3F52C3EAD4B0056671B /* PriorityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriorityCell.swift; sourceTree = "<group>"; };
 		1148B3F72C3EB9810056671B /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Main.strings; sourceTree = "<group>"; };
 		1148B3F82C3EB9810056671B /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		1149053E2C8781850095D777 /* ProfileCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCard.swift; sourceTree = "<group>"; };
+		114905432C92F2CB0095D777 /* didntSetupLifeStyleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = didntSetupLifeStyleView.swift; sourceTree = "<group>"; };
+		114905462C96C5A30095D777 /* MatchedUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchedUser.swift; sourceTree = "<group>"; };
 		11707A222BA4C8CC0027802D /* SleepPatternViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepPatternViewController.swift; sourceTree = "<group>"; };
 		11707A2B2BA4CA780027802D /* FontManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontManager.swift; sourceTree = "<group>"; };
 		11707A2D2BA4D3AC0027802D /* UILabel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+.swift"; sourceTree = "<group>"; };
@@ -159,6 +167,7 @@
 		117250E42BB19FE20083F181 /* SleepPatternCircleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepPatternCircleCollectionViewCell.swift; sourceTree = "<group>"; };
 		117250E62BB31AF60083F181 /* CommomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommomButton.swift; sourceTree = "<group>"; };
 		117250E82BB5927E0083F181 /* SmokeAndAlcoholPatternViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmokeAndAlcoholPatternViewController.swift; sourceTree = "<group>"; };
+		1179FAF52CD19302009766A6 /* BackToMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackToMain.swift; sourceTree = "<group>"; };
 		118EAA842C07E56400436A6F /* ConstitutionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstitutionViewController.swift; sourceTree = "<group>"; };
 		1197F25A2C081E7D006F75D2 /* MBTIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBTIViewController.swift; sourceTree = "<group>"; };
 		119F6D542C4012F300297E3F /* UserDefaults+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+.swift"; sourceTree = "<group>"; };
@@ -252,6 +261,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DBC1CFF82BC2AE9F005C93C0 /* Pods_dormitoryFamiles.framework in Frameworks */,
+				11F05CE82CACC57000178414 /* Then in Frameworks */,
 				DBC1D0012BC2B029005C93C0 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -259,6 +269,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		114905402C8EDED20095D777 /* Roommate Recommend */ = {
+			isa = PBXGroup;
+			children = (
+				114905452C96C5900095D777 /* Model */,
+				114905412C8EDEE80095D777 /* View */,
+				114905422C8EDEED0095D777 /* ViewController */,
+			);
+			path = "Roommate Recommend";
+			sourceTree = "<group>";
+		};
+		114905412C8EDEE80095D777 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				114905432C92F2CB0095D777 /* didntSetupLifeStyleView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		114905422C8EDEED0095D777 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				11321BA22C6D731300BCD029 /* MatchingMainViewController.swift */,
+				11321BA72C7759AB00BCD029 /* RecommendedMatesViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		114905452C96C5900095D777 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				114905462C96C5A30095D777 /* MatchedUser.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		11707A1F2BA4C7BB0027802D /* Matching Option Setting */ = {
 			isa = PBXGroup;
 			children = (
@@ -274,6 +319,7 @@
 				11707A332BA83EED0027802D /* SleepPatternCollectionViewCell.swift */,
 				117250E42BB19FE20083F181 /* SleepPatternCircleCollectionViewCell.swift */,
 				1148B3F52C3EAD4B0056671B /* PriorityCell.swift */,
+				1179FAF52CD19302009766A6 /* BackToMain.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -295,8 +341,6 @@
 				11036F2E2C3D70870042B9EF /* ChoosePriorityViewController.swift */,
 				11321B9D2C6D305000BCD029 /* ChooseRoomateViewController.swift */,
 				11321B9F2C6D69BD00BCD029 /* CompleteMatchingOptionViewController.swift */,
-				11321BA22C6D731300BCD029 /* MatchingMainViewController.swift */,
-				11321BA72C7759AB00BCD029 /* RecommendedMatesViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -326,6 +370,7 @@
 				DB3F05382C43002E0091349F /* LabelAndPrimaryMidButtonStackView.swift */,
 				DB3F053A2C4307790091349F /* UserProfileNicknameCollectionViewController.swift */,
 				DBD7A8742C64816700CDA629 /* ProfileView.swift */,
+				1149053E2C8781850095D777 /* ProfileCard.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -587,6 +632,7 @@
 				11707A292BA4CA4C0027802D /* Manager */,
 				DBD0C57C2C41260B00F6B456 /* chat */,
 				11707A1F2BA4C7BB0027802D /* Matching Option Setting */,
+				114905402C8EDED20095D777 /* Roommate Recommend */,
 				DB32D7612BA3452300DE387A /* Network */,
 				DB32D7602BA3445D00DE387A /* Onboarding */,
 				DB32D75F2BA3439400DE387A /* Base */,
@@ -620,6 +666,7 @@
 			name = dormitoryFamiles;
 			packageProductDependencies = (
 				DBC1D0002BC2B029005C93C0 /* SnapKit */,
+				11F05CE72CACC57000178414 /* Then */,
 			);
 			productName = dormitoryFamiles;
 			productReference = DBF466F72AA5F4E4009FF3EB /* dormitoryFamiles.app */;
@@ -652,6 +699,7 @@
 			mainGroup = DBF466EE2AA5F4E4009FF3EB;
 			packageReferences = (
 				DBC1CFFF2BC2B029005C93C0 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				11F05CE62CACC57000178414 /* XCRemoteSwiftPackageReference "Then" */,
 			);
 			productRefGroup = DBF466F82AA5F4E4009FF3EB /* Products */;
 			projectDirPath = "";
@@ -732,6 +780,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DBB610B52C80E07A0070E2BA /* AlarmViewController.swift in Sources */,
+				114905472C96C5A30095D777 /* MatchedUser.swift in Sources */,
 				DBC1CFFE2BC2AFDE005C93C0 /* SleepPatternCircleCollectionViewCell.swift in Sources */,
 				1126FE1C2BCEA662004C6C81 /* LifeStyleViewController.swift in Sources */,
 				DBC1CFF72BC2AE2D005C93C0 /* UILabel+.swift in Sources */,
@@ -782,6 +831,7 @@
 				11036F2D2C3D5CE40042B9EF /* CompleteMyCondition.swift in Sources */,
 				DBD1E7FC2B84A9D500FD71C6 /* Network.swift in Sources */,
 				DB3F053B2C4307790091349F /* UserProfileNicknameCollectionViewController.swift in Sources */,
+				1179FAF62CD19302009766A6 /* BackToMain.swift in Sources */,
 				DB2B7BCB2B45727B00C1847D /* TagButton.swift in Sources */,
 				DB1E0E8B2B629865000A4AA5 /* ChoiceDormitoryViewController.swift in Sources */,
 				DBB610B72C80E4220070E2BA /* AlarmTableViewCell.swift in Sources */,
@@ -790,6 +840,7 @@
 				DB74D0C62B73EEBF00A90D68 /* Codable.swift in Sources */,
 				119F6D552C4012F300297E3F /* UserDefaults+.swift in Sources */,
 				DB29DE2B2C4C293500365684 /* YourChattingTableViewCell.swift in Sources */,
+				1149053F2C8781850095D777 /* ProfileCard.swift in Sources */,
 				DB31AA242C634EF8001BAE51 /* WebSocketManager.swift in Sources */,
 				11321BAB2C7F937C00BCD029 /* NetworkService.swift in Sources */,
 				11036F212C3C05D60042B9EF /* HomeCycleViewController.swift in Sources */,
@@ -806,6 +857,7 @@
 				DBF466FF2AA5F4E4009FF3EB /* MealMenuViewController.swift in Sources */,
 				DB496DEB2B70EAFB00F97324 /* TabbarViewController.swift in Sources */,
 				11321BA32C6D731300BCD029 /* MatchingMainViewController.swift in Sources */,
+				114905442C92F2CB0095D777 /* didntSetupLifeStyleView.swift in Sources */,
 				DB3F05462C44D84B0091349F /* SearchTextFieldChattingViewController.swift in Sources */,
 				DB3F05422C44BF0D0091349F /* ChattingRoomViewController.swift in Sources */,
 				DB41008C2B6A665D005C4DD8 /* BrownVC.swift in Sources */,
@@ -1053,6 +1105,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		11F05CE62CACC57000178414 /* XCRemoteSwiftPackageReference "Then" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/devxoul/Then";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
 		DBC1CFFF2BC2B029005C93C0 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
@@ -1064,6 +1124,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		11F05CE72CACC57000178414 /* Then */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 11F05CE62CACC57000178414 /* XCRemoteSwiftPackageReference "Then" */;
+			productName = Then;
+		};
 		DBC1D0002BC2B029005C93C0 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = DBC1CFFF2BC2B029005C93C0 /* XCRemoteSwiftPackageReference "SnapKit" */;

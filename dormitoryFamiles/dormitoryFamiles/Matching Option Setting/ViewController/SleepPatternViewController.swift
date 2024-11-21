@@ -7,19 +7,20 @@
 
 import UIKit
 import SnapKit
+import Then
 
 final class SleepPatternViewController: UIViewController, ConfigUI {
     
     let goToSleepTimes: [String] = [
         "오후 9시 이전", "오후 9시", "오후 10시",
-        "오후 11시", "오후 12시", "오전 1시",
+        "오후 11시", "오전 12시", "오전 1시",
         "오전 2시", "오전 3시", "오전 3시 이후"
     ]
     
     let wakeupTimes: [String] = [
-        "오전 4시 이전", "오전 4시", "오전 5시",
-        "오전 6시", "오전 7시", "오전 8시",
-        "오전 9시", "오전 10시", "오전 10시 이후"
+        "오전 6시 이전", "오전 6시", "오전 7시",
+        "오전 8시", "오전 9시", "오전 10시",
+        "오전 11시", "오후 12시", "오후 12시 이후"
     ]
     
     let habits: [String] = [
@@ -37,107 +38,84 @@ final class SleepPatternViewController: UIViewController, ConfigUI {
     
     let currentScreenWidth = UIScreen.currentScreenWidth
     
-    private let scrollView: UIScrollView = {
-        let view = UIScrollView()
-        view.backgroundColor = .clear
-        view.bounces = false
-        return view
-    }()
-    
-    private let stackView: UIStackView = {
-        let view = UIStackView()
-        view.axis = .vertical
-        view.spacing = 38
-        view.alignment = .center
-        return view
-    }()
-    
-    private let logoStackView: UIStackView = {
-        let view = UIStackView()
-        view.axis = .vertical
-        view.spacing = 20
-        view.alignment = .center
-        return view
-    }()
-    
-    private let currentStep: UILabel = {
-        let label = UILabel()
-        label.text = "1 / 10"
-        label.font = FontManager.subtitle1()
-        label.textColor = .gray5
-        label.addCharacterSpacing()
-        return label
-    }()
-    
-    private let progressBar: UIImageView = {
-        let view = UIImageView()
-        view.image = UIImage(named: "progress1")
-        view.contentMode = .scaleAspectFit
-        return view
-    }()
-    
-    private let sleepPatternLogo: UIImageView = {
-        let view = UIImageView()
-        view.image = UIImage(named: "sleepPattern_logo")
-        view.contentMode = .scaleAspectFit
-        return view
-    }()
-    
-    private let contentLabel: UILabel = {
-        let label = UILabel()
-        label.text = "나의 수면 패턴은?"
-        label.font = FontManager.title2()
-        label.textAlignment = .center
-        label.textColor = .doomzBlack
-        label.addCharacterSpacing()
-        return label
-    }()
-    
-    private let sleepPatternStackView: UIStackView = {
-        let view = UIStackView()
-        view.axis = .vertical
-        view.alignment = .center
-        view.spacing = 28
-        view.distribution = .fillProportionally
-        return view
-    }()
-    
-    private lazy var bedTiemCollectionView: UICollectionView = {
-        let view = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
-        view.register(SleepPatternCollectionViewCell.self, forCellWithReuseIdentifier: SleepPatternCollectionViewCell.identifier)
-        view.backgroundColor = .clear
-        view.dataSource = self
-        view.delegate = self
-        return view
-    }()
-    
-    private lazy var wakeupTimeCollcetionView: UICollectionView = {
-        let view = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
-        view.register(SleepPatternCollectionViewCell.self, forCellWithReuseIdentifier: SleepPatternCollectionViewCell.identifier)
-        view.backgroundColor = .clear
-        view.dataSource = self
-        view.delegate = self
-        return view
+    private let scrollView = UIScrollView().then {
+        $0.backgroundColor = .clear
+        $0.bounces = false
+
+    }
+
+    private let stackView = UIStackView().then {
+        $0.axis = .vertical
+        $0.spacing = 38
+        $0.alignment = .center
         
-    }()
+    }
     
-    private lazy var sleepingHabitsCollectionView: UICollectionView = {
-        let view = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
-        view.register(SleepPatternCircleCollectionViewCell.self, forCellWithReuseIdentifier: SleepPatternCircleCollectionViewCell.identifier)
-        view.backgroundColor = .clear
-        view.dataSource = self
-        view.delegate = self
-        return view
-    }()
+    private let logoStackView = UIStackView().then {
+        $0.axis = .vertical
+        $0.spacing = 20
+        $0.alignment = .center
+    }
     
-    private lazy var sleepSensitivityCollectionView: UICollectionView = {
-        let view = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
-        view.register(SleepPatternCollectionViewCell.self, forCellWithReuseIdentifier: SleepPatternCollectionViewCell.identifier)
-        view.backgroundColor = .clear
-        view.dataSource = self
-        view.delegate = self
-        return view
-    }()
+    private let currentStep = UILabel().then {
+        $0.text = "1 / 10"
+        $0.font = FontManager.subtitle1()
+        $0.textColor = .gray5
+        $0.addCharacterSpacing()
+    }
+    
+    private let progressBar = UIImageView().then {
+        $0.image = UIImage(named: "progress1")
+        $0.contentMode = .scaleAspectFit
+    }
+    
+    private let sleepPatternLogo = UIImageView().then {
+        $0.image = UIImage(named: "sleepPattern_logo")
+        $0.contentMode = .scaleAspectFit
+    }
+    
+    private let contentLabel = UILabel().then {
+        $0.text = "나의 수면 패턴은?"
+        $0.font = FontManager.title2()
+        $0.textAlignment = .center
+        $0.textColor = .doomzBlack
+        $0.addCharacterSpacing()
+    }
+    
+    private let sleepPatternStackView = UIStackView().then {
+        $0.axis = .vertical
+        $0.alignment = .center
+        $0.spacing = 28
+        $0.distribution = .fillProportionally
+    }
+    
+    private lazy var bedTiemCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()).then {
+        $0.register(SleepPatternCollectionViewCell.self, forCellWithReuseIdentifier: SleepPatternCollectionViewCell.identifier)
+        $0.backgroundColor = .clear
+        $0.dataSource = self
+        $0.delegate = self
+    }
+    
+    private lazy var wakeupTimeCollcetionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()).then {
+        $0.register(SleepPatternCollectionViewCell.self, forCellWithReuseIdentifier: SleepPatternCollectionViewCell.identifier)
+        $0.backgroundColor = .clear
+        $0.dataSource = self
+        $0.delegate = self
+    }
+    
+    private lazy var sleepingHabitsCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()).then {
+        $0.register(SleepPatternCircleCollectionViewCell.self, forCellWithReuseIdentifier: SleepPatternCircleCollectionViewCell.identifier)
+        $0.backgroundColor = .clear
+        $0.dataSource = self
+        $0.delegate = self
+    }
+    
+    private lazy var sleepSensitivityCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()).then {
+        $0.register(SleepPatternCollectionViewCell.self, forCellWithReuseIdentifier: SleepPatternCollectionViewCell.identifier)
+        $0.backgroundColor = .clear
+        $0.dataSource = self
+        $0.delegate = self
+    }
     
     private let notificationLabel: UIView = {
         let view = UIView()
@@ -172,7 +150,6 @@ final class SleepPatternViewController: UIViewController, ConfigUI {
         label.attributedText = attributedString
         label.textAlignment = .center
         
-        
         view.addSubview(image)
         view.addSubview(label)
         
@@ -193,6 +170,11 @@ final class SleepPatternViewController: UIViewController, ConfigUI {
     
     private lazy var nextButtonModel = CommonbuttonModel(title: "다음", titleColor: .white ,backgroundColor: .gray3!, height: 52) {
         self.didClickNextButton()
+    }
+    
+    private let dim = UIView().then {
+        $0.backgroundColor = .black
+        $0.alpha = 0.5
     }
     
     override func viewDidLoad() {

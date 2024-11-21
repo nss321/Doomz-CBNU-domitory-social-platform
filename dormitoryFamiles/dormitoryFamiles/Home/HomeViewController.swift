@@ -341,9 +341,10 @@ final class HomeViewController: UIViewController, DormitoryButtonHandling {
     
     @IBAction func goDetailButtonTapped(_ sender: UIButton) {
         let articleId = sender.tag
+        let domain = Url.base
         print(articleId)
         
-        let url = "http://43.202.254.127:8080/api/articles/\(articleId)"
+        let url = "\(domain)/api/articles/\(articleId)"
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         if let articleDetailViewController = storyboard.instantiateViewController(withIdentifier: "detail") as? BulletinBoardDetailViewViewController {
             articleDetailViewController.setUrl(url: url)

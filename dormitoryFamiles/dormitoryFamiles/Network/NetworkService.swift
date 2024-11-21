@@ -8,13 +8,13 @@
 import Foundation
 import Combine
 
+/// Combine 사용을 위한 Network Service Class
 final class NetworkService {
     
     /// 네트워크 요청을 위한 레이어를 싱글톤 객체로 구현
     static let shared = NetworkService()
     
     private let baseURL: String
-//    private var cancellables = Set<AnyCancellable>()
     
     private init(baseURL: String = Url.base) {
         self.baseURL = baseURL
@@ -26,11 +26,13 @@ final class NetworkService {
         let errorMessage: String?
     }
     
-    /// Combine 사용을 위한 Network Publisher
-    func request<T: Codable>(
+    
+    /// 공통 네트워크 요청 메서드
+    private func makeRequest<T: Codable>(
         endpoint: String,
-        method: String = "GET",
+        method: String,
         headers: [String: String]? = nil,
+        body: Data? = nil,
         decoder: JSONDecoder = JSONDecoder()
     ) -> AnyPublisher<T, Error> {
         
@@ -41,10 +43,16 @@ final class NetworkService {
         var request = URLRequest(url: url)
         request.httpMethod = method
         
+        // 기본 헤더 추가
         let token = Token.shared.access
         request.addValue("Bearer \(token)", forHTTPHeaderField: "Accesstoken")
         
         headers?.forEach { request.addValue($0.value, forHTTPHeaderField: $0.key) }
+        
+        if let body = body {
+            request.httpBody = body
+            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        }
         
         return URLSession.shared.dataTaskPublisher(for: request)
             .tryMap { output in
@@ -85,6 +93,53 @@ final class NetworkService {
             }
             .eraseToAnyPublisher()
     }
+    
+    func getRequest<T: Codable>(
+        endpoint: String,
+        headers: [String: String]? = nil,
+        decoder: JSONDecoder = JSONDecoder()
+    ) -> AnyPublisher<T, Error> {
+        return makeRequest(endpoint: endpoint, method: "GET", headers: headers, body: nil, decoder: decoder)
+    }
+    
+    func postRequest<T: Codable, U: Codable>(
+        endpoint: String,
+        body: U,
+        headers: [String: String]? = nil,
+        encoder: JSONEncoder = JSONEncoder(),
+        decoder: JSONDecoder = JSONDecoder()
+    ) -> AnyPublisher<T, Error> {
+        do {
+            let bodyData = try encoder.encode(body)
+            return makeRequest(endpoint: endpoint, method: "POST", headers: headers, body: bodyData, decoder: decoder)
+        } catch {
+            return Fail(error: error).eraseToAnyPublisher()
+        }
+    }
+    
+    func putRequest<T: Codable, U: Codable>(
+        endpoint: String,
+        body: U,
+        headers: [String: String]? = nil,
+        encoder: JSONEncoder = JSONEncoder(),
+        decoder: JSONDecoder = JSONDecoder()
+    ) -> AnyPublisher<T, Error> {
+        do {
+            let bodyData = try encoder.encode(body)
+            return makeRequest(endpoint: endpoint, method: "PUT", headers: headers, body: bodyData, decoder: decoder)
+        } catch {
+            return Fail(error: error).eraseToAnyPublisher()
+        }
+    }
+    
+    func deleteRequest<T: Codable>(
+        endpoint: String,
+        headers: [String: String]? = nil,
+        decoder: JSONDecoder = JSONDecoder()
+    ) -> AnyPublisher<T, Error> {
+        return makeRequest(endpoint: endpoint, method: "DELETE", headers: headers, decoder: decoder)
+    }
+    
 }
 
 enum APIError: LocalizedError {

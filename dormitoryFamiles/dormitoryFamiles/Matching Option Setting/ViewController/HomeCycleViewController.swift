@@ -10,7 +10,14 @@ import SnapKit
 
 final class HomeCycleViewController: UIViewController, ConfigUI {
     
-    let cycle = ["거의안감", "2,3달에\n한번", "1달에\n한번", "주에 한번"]
+    enum cycle: String, CaseIterable {
+        case almostNot = "거의안감"
+        case twoToThreeMonth = "2,3달에\n한번"
+        case oneMonth = "1달에\n한번"
+        case everyWeek = "주에 한번"
+    }
+    
+//    let cycle = ["거의안감", "2,3달에\n한번", "1달에\n한번", "주에 한번"]
     
     var selectedCycle: String?
     
@@ -140,9 +147,27 @@ final class HomeCycleViewController: UIViewController, ConfigUI {
     
     @objc
     func didClickNextButton() {
-        let homeCycleOption: [String: Any] = [
-            "selectedCycle": selectedCycle ?? ""
-        ]
+//        let homeCycleOption: [String: Any] = [
+//            "selectedCycle": selectedCycle ?? ""
+//        ]
+        var homeCycleOption: [String: Any] = ["selectedCycle":""]
+        
+        // cell에는 \n 문자가 포함되어, API 명세를 맞추기 위해 조정하는 구문 추가
+        switch selectedCycle {
+        case cycle.almostNot.rawValue:
+            homeCycleOption["selectedCycle"] = "거의 안감"
+        case cycle.twoToThreeMonth.rawValue:
+            homeCycleOption["selectedCycle"] = "2,3달에 한 번"
+        case cycle.oneMonth.rawValue:
+            homeCycleOption["selectedCycle"] = "1달에 한 번"
+        case cycle.everyWeek.rawValue:
+            homeCycleOption["selectedCycle"] = "주에 한 번"
+        case .none:
+            break
+        case .some(_):
+            break
+        }
+        
         UserDefaults.standard.setMatchingOption(homeCycleOption)
         
         // 저장된 정보 로그 출력
@@ -157,14 +182,15 @@ extension HomeCycleViewController: UICollectionViewDataSource {
             fatalError()
         }
         
-        cell.configure(with: cycle[indexPath.row])
+        let cycle = cycle.allCases
+        cell.configure(with: cycle[indexPath.row].rawValue)
         
         return cell
     }
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return cycle.count
+        return cycle.allCases.count
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
@@ -182,8 +208,10 @@ extension HomeCycleViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        var cycle: [String] = []
+        HomeCycleViewController.cycle.allCases.forEach { cycle.append($0.rawValue) }
         handleSelection(collectionView: collectionView, indexPath: indexPath, selectedValue: &selectedCycle, items: cycle)
-        print("Cycle: \(cycle[indexPath.item]) 선택")
+        print("Cycle: \(cycle[indexPath.row]) 선택")
         checkSelections(selectedItems: [selectedCycle], nextButton: nextButton)
     }
 }

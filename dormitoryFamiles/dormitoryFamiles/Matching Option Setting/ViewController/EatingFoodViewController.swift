@@ -10,7 +10,7 @@ import SnapKit
 
 final class EatingFoodViewController: UIViewController, ConfigUI {
     
-    let midnightSnack = ["안먹어요", "가끔", "자주"]
+    let midnightSnack = ["안 먹어요", "가끔", "자주"]
     let eatingFoodInRoom = ["괜찮아요", "싫어요"]
     
     var selectedMidnightSnack: String?

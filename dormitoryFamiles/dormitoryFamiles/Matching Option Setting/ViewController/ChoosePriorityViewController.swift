@@ -107,7 +107,8 @@ final class ChoosePriorityViewController: UIViewController, ConfigUI {
             "selectedPriorities": selectedPriorities
         ]
         UserDefaults.standard.setMatchingOption(selectedMyPriorities)
-        print("Selected Priorities: \(UserDefaults.standard.getMatchingOptionValue(forKey: "selectedPriorities") ?? "")")
+        print("Selected Priorities: \(UserDefaults.standard.getPreferenceOrder(forKey: "selectedPriorities") ?? [])")
+        print("Selected Priorities values: \(selectedPriorities)")
         self.navigationController?.pushViewController(ChooseRoomateViewController(), animated: true)
     }
     

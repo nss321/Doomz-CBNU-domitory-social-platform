@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import Combine
 
 final class CompleteMyCondition: UIViewController, ConfigUI {
     
@@ -53,6 +54,8 @@ final class CompleteMyCondition: UIViewController, ConfigUI {
         self.didClickNextButton()
     }
     
+    private var cancellables = Set<AnyCancellable>()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .background
@@ -98,6 +101,85 @@ final class CompleteMyCondition: UIViewController, ConfigUI {
     @objc
     func didClickNextButton() {
         print("nextBtn")
+        self.postLifeStyleData()
         self.navigationController?.pushViewController(ChoosePriorityViewController(), animated: true)
     }
+    
+    private func getMyMatchingOptions() {
+        let lifeStyleData = LifeStyleData(
+            sleepTime: UserDefaults.standard.getMatchingOptionValue(forKey: "selectedBedTimes") ?? "",
+            wakeUpTime: UserDefaults.standard.getMatchingOptionValue(forKey: "selectedWakeupTimes") ?? "",
+            sleepingHabit: UserDefaults.standard.getMatchingOptionValue(forKey: "selectedHabits") ?? "",
+            sleepingSensitivity: UserDefaults.standard.getMatchingOptionValue(forKey: "selectedSensitivity") ?? "",
+            smoking: UserDefaults.standard.getMatchingOptionValue(forKey: "selectedSmoke") ?? "",
+            drinkingFrequency: UserDefaults.standard.getMatchingOptionValue(forKey: "selectedAlcohol") ?? "",
+            drunkHabit: UserDefaults.standard.getMatchingOptionValue(forKey: "drinkHabitText") ?? "",
+            showerTime: UserDefaults.standard.getMatchingOptionValue(forKey: "selectedShower") ?? "",
+            showerDuration: UserDefaults.standard.getMatchingOptionValue(forKey: "selectedShower") ?? "",
+            cleaningFrequency: UserDefaults.standard.getMatchingOptionValue(forKey: "selectedCleanHabit") ?? "",
+            heatTolerance: UserDefaults.standard.getMatchingOptionValue(forKey: "selectedHot") ?? "",
+            coldTolerance: UserDefaults.standard.getMatchingOptionValue(forKey: "selectedCold") ?? "",
+            MBTI: "\(UserDefaults.standard.getMatchingOptionValue(forKey: "selectedEnergyOrientation") ?? "")\(UserDefaults.standard.getMatchingOptionValue(forKey: "selectedInformationProcessing") ?? "")\(UserDefaults.standard.getMatchingOptionValue(forKey: "selectedDecisionMaking") ?? "")\(UserDefaults.standard.getMatchingOptionValue(forKey: "selectedLifestyleApproach") ?? "")",
+            visitHomeFrequency: UserDefaults.standard.getMatchingOptionValue(forKey: "selectedCycle") ?? "",
+            lateNightSnack: UserDefaults.standard.getMatchingOptionValue(forKey: "selectedMidnightSnack") ?? "",
+            snackInRoom: UserDefaults.standard.getMatchingOptionValue(forKey: "selectedEatingFoodInRoom") ?? "",
+            phoneSound: UserDefaults.standard.getMatchingOptionValue(forKey: "selectedNoise") ?? "",
+            perfumeUsage: UserDefaults.standard.getMatchingOptionValue(forKey: "selectedPerfume") ?? "",
+            studyLocation: UserDefaults.standard.getMatchingOptionValue(forKey: "selectedStudyPlace") ?? "",
+            examPreparation: UserDefaults.standard.getMatchingOptionValue(forKey: "selectedExam") ?? "",
+            exercise: UserDefaults.standard.getMatchingOptionValue(forKey: "selectedWorkout") ?? "",
+            insectTolerance: UserDefaults.standard.getMatchingOptionValue(forKey: "selectedBugs") ?? ""
+        )
+        
+        print(lifeStyleData)
+    }
+    
+    private func postLifeStyleData() {
+        let endpoint = Url.lifeStyles()
+        let lifeStyleData = createLifeStyleData()
+        
+        NetworkService.shared.postRequest(endpoint: endpoint, body: lifeStyleData)
+            .receive(on: DispatchQueue.main)
+            .sink { completion in
+                switch completion {
+                case .finished:
+                    print("Successfully submitted lifestyle data.")
+                case .failure(let error):
+                    print("Error: \(error.localizedDescription)")
+                }
+            } receiveValue: { (response: SuccessCode) in
+                print(response)
+            }
+            .store(in: &cancellables)
+        
+        
+    }
+    
+    private func createLifeStyleData() -> LifeStyleData {
+        return LifeStyleData(
+            sleepTime: UserDefaults.standard.getMatchingOptionValue(forKey: "selectedBedTimes") ?? "",
+            wakeUpTime: UserDefaults.standard.getMatchingOptionValue(forKey: "selectedWakeupTimes") ?? "",
+            sleepingHabit: UserDefaults.standard.getMatchingOptionValue(forKey: "selectedHabits") ?? "",
+            sleepingSensitivity: UserDefaults.standard.getMatchingOptionValue(forKey: "selectedSensitivity") ?? "",
+            smoking: UserDefaults.standard.getMatchingOptionValue(forKey: "selectedSmoke") ?? "",
+            drinkingFrequency: UserDefaults.standard.getMatchingOptionValue(forKey: "selectedAlcohol") ?? "",
+            drunkHabit: UserDefaults.standard.getMatchingOptionValue(forKey: "drinkHabitText") ?? "",
+            showerTime: UserDefaults.standard.getMatchingOptionValue(forKey: "selectedShower") ?? "",
+            showerDuration: UserDefaults.standard.getMatchingOptionValue(forKey: "selectedShower") ?? "",
+            cleaningFrequency: UserDefaults.standard.getMatchingOptionValue(forKey: "selectedCleanHabit") ?? "",
+            heatTolerance: UserDefaults.standard.getMatchingOptionValue(forKey: "selectedHot") ?? "",
+            coldTolerance: UserDefaults.standard.getMatchingOptionValue(forKey: "selectedCold") ?? "",
+            MBTI: "\(UserDefaults.standard.getMatchingOptionValue(forKey: "selectedEnergyOrientation") ?? "")\(UserDefaults.standard.getMatchingOptionValue(forKey: "selectedInformationProcessing") ?? "")\(UserDefaults.standard.getMatchingOptionValue(forKey: "selectedDecisionMaking") ?? "")\(UserDefaults.standard.getMatchingOptionValue(forKey: "selectedLifestyleApproach") ?? "")",
+            visitHomeFrequency: UserDefaults.standard.getMatchingOptionValue(forKey: "selectedCycle") ?? "",
+            lateNightSnack: UserDefaults.standard.getMatchingOptionValue(forKey: "selectedMidnightSnack") ?? "",
+            snackInRoom: UserDefaults.standard.getMatchingOptionValue(forKey: "selectedEatingFoodInRoom") ?? "",
+            phoneSound: UserDefaults.standard.getMatchingOptionValue(forKey: "selectedNoise") ?? "",
+            perfumeUsage: UserDefaults.standard.getMatchingOptionValue(forKey: "selectedPerfume") ?? "",
+            studyLocation: UserDefaults.standard.getMatchingOptionValue(forKey: "selectedStudyPlace") ?? "",
+            examPreparation: UserDefaults.standard.getMatchingOptionValue(forKey: "selectedExam") ?? "",
+            exercise: UserDefaults.standard.getMatchingOptionValue(forKey: "selectedWorkout") ?? "",
+            insectTolerance: UserDefaults.standard.getMatchingOptionValue(forKey: "selectedBugs") ?? ""
+        )
+    }
+
 }

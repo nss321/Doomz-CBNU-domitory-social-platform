@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import Combine
 
 final class ChooseRoomateViewController: UIViewController, ConfigUI {
     
@@ -42,7 +43,7 @@ final class ChooseRoomateViewController: UIViewController, ConfigUI {
     let workout = ["안해요", "긱사에서", "헬스장에서"]
     let bugs = ["잘잡아요", "작은것만", "못잡아요"]
     
-    let selectedPriorities = UserDefaults.standard.getMatchingOptionValue(forKey: "selectedPriorities") as? [String]
+    let selectedPriorities = UserDefaults.standard.getPreferenceOrder(forKey: "selectedPriorities")
     
     private let titleLabel: UILabel = {
         let label = UILabel()
@@ -79,17 +80,17 @@ final class ChooseRoomateViewController: UIViewController, ConfigUI {
     }()
     
     let korToEng = [
-        "취침 시간":"selectedBedTimes",
-        "기상 시간":"selectedWakeupTimes",
-        "잠버릇":"selectedHabits",
-        "잠귀":"selectedSensitivity",
-        "흡연 여부":"selectedSmoke",
-        "음주 빈도":"selectedAlcohol",
-        "청소":"selectedCleanHabit",
-        "더위":"selectedHot",
-        "추위":"selectedCold",
-        "향수":"selectedPerfume",
-        "시험":"selectedExam"
+        "취침 시간": "SLEEP_TIME",
+        "기상 시간": "WAKE_UP_TIME",
+        "잠버릇": "SLEEPING_HABIT",
+        "잠귀": "SLEEPING_SENSITIVITY",
+        "흡연 여부": "SMOKING",
+        "음주 빈도": "DRINKING_FREQUENCY",
+        "청소": "CLEANING_FREQUENCY",
+        "더위": "HEAT_TOLERANCE",
+        "추위": "COLD_TOLERANCE",
+        "향수": "PERFUME_USAGE",
+        "시험": "EXAM_PREPARATION"
     ]
     
     lazy var korToOptions = [
@@ -117,6 +118,9 @@ final class ChooseRoomateViewController: UIViewController, ConfigUI {
     private lazy var nextButtonModel = CommonbuttonModel(title: "다음", titleColor: .white ,backgroundColor: .gray3!, height: 52) {
         self.didClickNextButton()
     }
+    
+    private var cancellables = Set<AnyCancellable>()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .background
@@ -124,11 +128,8 @@ final class ChooseRoomateViewController: UIViewController, ConfigUI {
         addComponents()
         setConstraints()
         nextButton.setup(model: nextButtonModel)
-//        checkSelections(selectedOptions: selectedPriorities, nextButton: nextButton)
-        print(selectedPriorities!)
         updateNextButtonState()
         makeSections()
-        
     }
     
     func addComponents() {
@@ -136,13 +137,6 @@ final class ChooseRoomateViewController: UIViewController, ConfigUI {
         view.addSubview(sectionStack)
         view.addSubview(spacerView)
         view.addSubview(nextButton)
-        
-//        let label = UILabel()
-//        label.numberOfLines = 0
-//        if let text = UserDefaults.standard.getMatchingOptionValue(forKey: "selectedPriorities") as? [String] {
-//            label.text = text.joined(separator: "\n")
-//        }
-//        sectionStack.addArrangedSubview(label)
     }
     
     func setConstraints() {
@@ -167,29 +161,21 @@ final class ChooseRoomateViewController: UIViewController, ConfigUI {
     }
     
     @objc func didClickNextButton() {
-        let preference: [String: Any] = [
-            "firstPreference": firstPreference ?? "",
-            "secondPreference": secondPreference ?? "",
-            "thirdPreference": thirdPreference ?? "",
-            "fourthPreference": fourthPreference ?? ""
-        ]
-        
-        // 유효한 타입만 포함되도록 딕셔너리 값을 확인
-        UserDefaults.standard.setMatchingOption(preference)
-        
-        ["firstPreference","secondPreference","thirdPreference","fourthPreference"].forEach {
-            print("preference: \(UserDefaults.standard.getMatchingOptionValue(forKey: $0) ?? "N/A")")
+        guard let body = createPreferenceOrders() else {
+            print("failed to create preferenceOrders instance.")
+            return
         }
+        
+        do {
+            try print(body.toDictionary())
+        } catch {
+            print(error.localizedDescription)
+        }
+        
+        postPreferenceOrders(body)
         
         self.navigationController?.pushViewController(CompleteMatchingOptionViewController(), animated: true)
     }
-//    func test() {
-//        if let list = selectedPriorities {
-//            for item in list {
-//                print(korToEng[item])
-//            }
-//        }
-//    }
     
     func makeSections() {
         guard let headers = selectedPriorities else { fatalError() }
@@ -233,6 +219,37 @@ final class ChooseRoomateViewController: UIViewController, ConfigUI {
                 return
             }
         }
+    }
+    
+    private func postPreferenceOrders(_ body: PreferenceOrders) {
+        let endpoint = Url.preferenceOrders()
+        
+        NetworkService.shared.postRequest(endpoint: endpoint, body: body)
+            .receive(on: DispatchQueue.main)
+            .sink { completion in
+                switch completion {
+                case .finished:
+                    print("Successfully submitted preference's order data.")
+                case .failure(let error):
+                    print("Error: \(error.localizedDescription)")
+                }
+            } receiveValue: { (response: SuccessCode) in
+                print(response)
+            }
+            .store(in: &cancellables)
+    }
+    
+    private func createPreferenceOrders() -> PreferenceOrders? {
+        let keys = ["firstPreference", "secondPreference", "thirdPreference", "fourthPreference"]
+        
+        let preferences = keys.compactMap { UserDefaults.standard.getMatchingOptionValue(forKey: $0) }
+        
+        return PreferenceOrders(
+            firstPreference: preferences[0],
+            secondPreference: preferences[1],
+            thirdPreference: preferences[2],
+            fourthPreference: preferences[3]
+        )
     }
 }
 
@@ -330,46 +347,54 @@ extension ChooseRoomateViewController: UICollectionViewDelegateFlowLayout {
         }
         updateNextButtonState()
         
+        var preferenceKey: String?
+        var preferenceValue: String?
+        
         switch collectionView {
         case sectionStack.arrangedSubviews[0].subviews[1]:
             if let label = sectionStack.arrangedSubviews[0].subviews[0] as? UILabel {
                 let key = label.text ?? ""
                 if let options = korToOptions[key] as? [String] {
-                    firstPreference = options[indexPath.row]
+                    preferenceKey = "firstPreference"
+                    preferenceValue = "\(korToEng[key] ?? key):\(options[indexPath.row])"
+                    firstPreference = preferenceValue
                 }
             }
         case sectionStack.arrangedSubviews[1].subviews[1]:
             if let label = sectionStack.arrangedSubviews[1].subviews[0] as? UILabel {
                 let key = label.text ?? ""
                 if let options = korToOptions[key] as? [String] {
-                    secondPreference = options[indexPath.row]
+                    preferenceKey = "secondPreference"
+                    preferenceValue = "\(korToEng[key] ?? key):\(options[indexPath.row])"
+                    secondPreference = preferenceValue
                 }
             }
         case sectionStack.arrangedSubviews[2].subviews[1]:
             if let label = sectionStack.arrangedSubviews[2].subviews[0] as? UILabel {
                 let key = label.text ?? ""
                 if let options = korToOptions[key] as? [String] {
-                    thirdPreference = options[indexPath.row]
+                    preferenceKey = "thirdPreference"
+                    preferenceValue = "\(korToEng[key] ?? key):\(options[indexPath.row])"
+                    thirdPreference = preferenceValue
                 }
             }
         case sectionStack.arrangedSubviews[3].subviews[1]:
             if let label = sectionStack.arrangedSubviews[3].subviews[0] as? UILabel {
                 let key = label.text ?? ""
                 if let options = korToOptions[key] as? [String] {
-                    fourthPreference = options[indexPath.row]
+                    preferenceKey = "fourthPreference"
+                    preferenceValue = "\(korToEng[key] ?? key):\(options[indexPath.row])"
+                    fourthPreference = preferenceValue
                 }
             }
         default:
-            print("디폴트")
-            print(sectionStack.arrangedSubviews[0].subviews)
-            print(collectionView)
+            break
         }
         
-        // 흡연여부 추위 더위 시험
-//        guard let order = selectedItems else { fatalError() }
-        
-        
-        
+        if let key = preferenceKey, let value = preferenceValue {
+            UserDefaults.standard.setMatchingOption([key: value])
+            print("Saved \(key): \(value) to UserDefaults")
+        }
     }
     
     func updateNextButtonState() {

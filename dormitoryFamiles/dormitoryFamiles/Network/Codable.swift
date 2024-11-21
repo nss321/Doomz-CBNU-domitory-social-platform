@@ -342,26 +342,63 @@ struct UserProfileData: Codable {
 }
 
 struct LifeStyleData: Codable {
-    let drunkHabit: String
     let sleepTime: String
     let wakeUpTime: String
     let sleepingHabit: String
     let sleepingSensitivity: String
     let smoking: String
     let drinkingFrequency: String
+    let drunkHabit: String
+    let showerTime: String
+    let showerDuration: String
     let cleaningFrequency: String
     let heatTolerance: String
     let coldTolerance: String
-    let perfumeUsage: String
-    let examPreparation: String
-    let showerTime: String
-    let showerDuration: String
     let MBTI: String
     let visitHomeFrequency: String
     let lateNightSnack: String
     let snackInRoom: String
     let phoneSound: String
+    let perfumeUsage: String
     let studyLocation: String
+    let examPreparation: String
     let exercise: String
     let insectTolerance: String
 }
+
+struct MatchedUserIds: Codable {
+    let recommendationId: Int
+    let recommendedAt: String
+    let candidateIds: [Int]
+}
+
+struct MatchedUser: Codable {
+    let memberId: Int
+    let nickname: String
+    let profileUrl: String
+    let followerCount: Int
+    let followingCount: Int
+    let name: String
+    let birthDate: String
+    let studentNumber: String
+    let departmentType: String
+    
+    func calculateAge() -> Int {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        if let date = dateFormatter.date(from: self.birthDate) {
+            let currentDate = Calendar.current
+            let components = currentDate.dateComponents([.year], from: date, to: Date())
+            return components.year ?? 0
+        }
+        return 0
+    }
+}
+
+struct PreferenceOrders: Codable {
+    let firstPreference: String
+    let secondPreference: String
+    let thirdPreference: String
+    let fourthPreference: String
+}
+

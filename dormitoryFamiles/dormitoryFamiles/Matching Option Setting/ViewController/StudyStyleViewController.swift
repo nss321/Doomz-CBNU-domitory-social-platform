@@ -11,7 +11,7 @@ import SnapKit
 final class StudyStyleViewController: UIViewController, ConfigUI {
     
     let studyPlace = ["기숙사", "기숙사 외", "유동적"]
-    let exam = ["시험 준비", "해당없어요"]
+    let exam = ["시험 준비", "해당 없어요"]
     
     var selectedStudyPlace: String?
     var selectedExam: String?
